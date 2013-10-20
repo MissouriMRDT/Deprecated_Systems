@@ -2,9 +2,8 @@
 
 #include<stdio.h>
 
-main()
+int main()
 {
-    printf("Hello Mars\n");
-
-
+  printf("Hello Mars\n");
+  return 0;
 }

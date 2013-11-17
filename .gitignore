@@ -8,6 +8,7 @@
 *.s#7
 *.s#8
 *.s#9
+*.s##
 
 # Ignore Board Autosaves
 *.b#1
@@ -19,6 +20,7 @@
 *.b#7
 *.b#8
 *.b#9
+*.b##
 
 # Ignore eagle project files
 *.epf

@@ -1651,16 +1651,6 @@ It has a reduced top mask to make it harder to install upside-down.</description
 <circle x="-3.81" y="0" radius="1.02390625" width="0" layer="30"/>
 <circle x="3.81" y="0" radius="1.04726875" width="0" layer="30"/>
 </package>
-<package name="AXIAL-0.1EZ">
-<wire x1="1.27" y1="-0.762" x2="1.27" y2="0" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="0.762" width="0.2032" layer="21"/>
-<wire x1="1.524" y1="0" x2="1.27" y2="0" width="0.2032" layer="21"/>
-<wire x1="1.27" y1="0" x2="1.016" y2="0" width="0.2032" layer="21"/>
-<pad name="P$1" x="0" y="0" drill="0.9" diameter="1.8796" stop="no"/>
-<pad name="P$2" x="2.54" y="0" drill="0.9" diameter="1.8796" stop="no"/>
-<text x="0" y="1.27" size="1.016" layer="25" font="vector" ratio="15">&gt;Name</text>
-<text x="0" y="-2.159" size="1.016" layer="21" font="vector" ratio="15">&gt;Value</text>
-</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -1805,15 +1795,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </technologies>
 </device>
 <device name="EZ" package="AXIAL-0.3EZ">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-<connect gate="G$1" pin="2" pad="P$2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH-1/4W-VERT" package="AXIAL-0.1EZ">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
@@ -3852,6 +3833,9 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <part name="JP4" library="SparkFun-Connectors" deviceset="M10" device="&quot;"/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="4.7k"/>
+<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="4.7k"/>
+<part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3895,6 +3879,9 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <instance part="JP4" gate="G$1" x="-116.84" y="-149.86" rot="MR180"/>
 <instance part="+3V6" gate="G$1" x="-101.6" y="-165.1" rot="R180"/>
 <instance part="P+3" gate="1" x="-106.68" y="-165.1" rot="R180"/>
+<instance part="R2" gate="G$1" x="114.3" y="-111.76" rot="R90"/>
+<instance part="R3" gate="G$1" x="121.92" y="-111.76" rot="R90"/>
+<instance part="+3V7" gate="G$1" x="114.3" y="-101.6"/>
 </instances>
 <busses>
 </busses>
@@ -4084,6 +4071,14 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
 <pinref part="JP4" gate="G$1" pin="8"/>
 <wire x1="-106.68" y1="-147.32" x2="-106.68" y2="-149.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V7" gate="G$1" pin="+3V3"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="114.3" y1="-104.14" x2="114.3" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="121.92" y1="-106.68" x2="114.3" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="114.3" y="-106.68"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -4483,6 +4478,8 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <pinref part="U1" gate="B" pin="PTC10"/>
 <wire x1="96.52" y1="-119.38" x2="114.3" y2="-119.38" width="0.1524" layer="91"/>
 <label x="101.6" y="-119.38" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="114.3" y1="-116.84" x2="114.3" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="96.52" y1="45.72" x2="83.82" y2="45.72" width="0.1524" layer="91"/>
@@ -4493,8 +4490,10 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <net name="I2C1_SDA" class="0">
 <segment>
 <pinref part="U1" gate="B" pin="PTC11"/>
-<wire x1="96.52" y1="-121.92" x2="114.3" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-121.92" x2="121.92" y2="-121.92" width="0.1524" layer="91"/>
 <label x="101.6" y="-121.92" size="1.778" layer="95"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="-121.92" x2="121.92" y2="-116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="96.52" y1="43.18" x2="83.82" y2="43.18" width="0.1524" layer="91"/>

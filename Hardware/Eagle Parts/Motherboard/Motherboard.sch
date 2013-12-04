@@ -2043,6 +2043,23 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U$2" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
 <part name="U$3" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$4" library="harting-scsi" deviceset="TB60050685100" device=""/>
+<part name="U$5" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$6" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$7" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$8" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$9" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$10" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$11" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$12" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$13" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$14" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$15" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$16" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$17" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$18" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$19" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$20" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$21" library="MAX3077" deviceset="MAX3077" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2054,8 +2071,25 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="259.08" y="190.5" size="12.7" layer="91" align="center">ATMEGA328</text>
 <text x="360.68" y="187.96" size="5.08" layer="91">TCP/Eth</text>
 <text x="241.3" y="66.04" size="5.08" layer="91">Bluetooth</text>
-<text x="-5.08" y="45.72" size="5.08" layer="91">RS-485</text>
+<text x="-5.08" y="40.64" size="5.08" layer="91">RS-485</text>
 <text x="60.96" y="-99.06" size="5.08" layer="91">Ribbon Cable</text>
+<text x="38.1" y="40.64" size="5.08" layer="91">RS-485</text>
+<text x="78.74" y="40.64" size="5.08" layer="91">RS-485</text>
+<text x="116.84" y="40.64" size="5.08" layer="91">RS-485</text>
+<text x="160.02" y="40.64" size="5.08" layer="91">RS-485</text>
+<text x="198.12" y="40.64" size="5.08" layer="91">RS-485</text>
+<text x="-5.08" y="-12.7" size="5.08" layer="91">RS-485</text>
+<text x="38.1" y="-10.16" size="5.08" layer="91">RS-485</text>
+<text x="76.2" y="-10.16" size="5.08" layer="91">RS-485</text>
+<text x="116.84" y="-10.16" size="5.08" layer="91">RS-485</text>
+<text x="160.02" y="-7.62" size="5.08" layer="91">RS-485</text>
+<text x="200.66" y="-7.62" size="5.08" layer="91">RS-485</text>
+<text x="-2.54" y="-63.5" size="5.08" layer="91">RS-485</text>
+<text x="40.64" y="-60.96" size="5.08" layer="91">RS-485</text>
+<text x="78.74" y="-60.96" size="5.08" layer="91">RS-485</text>
+<text x="119.38" y="-60.96" size="5.08" layer="91">RS-485</text>
+<text x="162.56" y="-58.42" size="5.08" layer="91">RS-485</text>
+<text x="203.2" y="-58.42" size="5.08" layer="91">RS-485</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-81.28" y="127"/>
@@ -2069,6 +2103,33 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U$2" gate="G$1" x="256.54" y="43.18"/>
 <instance part="U$3" gate="G$1" x="7.62" y="27.94"/>
 <instance part="U$4" gate="G$1" x="40.64" y="-124.46"/>
+<instance part="U$5" gate="G$1" x="50.8" y="27.94"/>
+<instance part="U$6" gate="G$1" x="91.44" y="27.94"/>
+<instance part="U$7" gate="G$1" x="129.54" y="27.94"/>
+<instance part="U$8" gate="G$1" x="172.72" y="27.94"/>
+<instance part="U$9" gate="G$1" x="210.82" y="27.94"/>
+<instance part="U$10" gate="G$1" x="7.62" y="-25.4"/>
+<instance part="U$11" gate="G$1" x="50.8" y="-22.86"/>
+<instance part="U$12" gate="G$1" x="88.9" y="-22.86"/>
+<instance part="U$13" gate="G$1" x="129.54" y="-22.86"/>
+<instance part="U$14" gate="G$1" x="172.72" y="-20.32"/>
+<instance part="U$15" gate="G$1" x="213.36" y="-20.32"/>
+<instance part="U$16" gate="G$1" x="10.16" y="-76.2"/>
+<instance part="U$17" gate="G$1" x="53.34" y="-73.66"/>
+<instance part="U$18" gate="G$1" x="91.44" y="-73.66"/>
+<instance part="U$19" gate="G$1" x="132.08" y="-73.66"/>
+<instance part="U$20" gate="G$1" x="175.26" y="-71.12"/>
+<instance part="U$21" gate="G$1" x="215.9" y="-71.12"/>
+</instances>
+<busses>
+</busses>
+<nets>
+</nets>
+</sheet>
+<sheet>
+<plain>
+</plain>
+<instances>
 </instances>
 <busses>
 </busses>

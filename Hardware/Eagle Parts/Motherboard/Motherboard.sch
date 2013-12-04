@@ -1636,6 +1636,393 @@ We've spent an enormous amount of time creating and checking these footprints an
 </deviceset>
 </devicesets>
 </library>
+<library name="SPBT2632C2A">
+<packages>
+<package name="SPBT2632C2A">
+<wire x1="5.8" y1="6.75" x2="5.8" y2="-6.75" width="0.127" layer="21"/>
+<text x="0.4" y="-4" size="1.016" layer="21" rot="R90">SPBT263 (BT)</text>
+<smd name="GPIO7" x="-5.4" y="-4.05" dx="1.2" dy="1.5" layer="1" rot="R90"/>
+<smd name="LPO" x="-5.4" y="-2.4" dx="1.2" dy="1.5" layer="1" rot="R90"/>
+<smd name="NC5" x="-5.1" y="-0.75" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="NC4" x="-5.1" y="0.215" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="NC3" x="-5.1" y="1.18" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="NC2" x="-5.1" y="2.145" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="NC1" x="-5.1" y="3.11" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="NC" x="-5.1" y="4.075" dx="1.2" dy="0.8" layer="1" rot="R180"/>
+<smd name="CTS" x="0" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="RESET" x="1.5" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="BOOT" x="3" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="VIN" x="4.5" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="RTS" x="-1.5" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="RXD" x="-3" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="TXD" x="-4.5" y="6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO4" x="0" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO3" x="-1.5" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO2" x="-3" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO1" x="-4.5" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO5" x="1.5" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GPIO6" x="3" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<smd name="GND" x="4.5" y="-6.37" dx="1.2" dy="1.5" layer="1"/>
+<wire x1="-5.8" y1="-6.75" x2="-5.8" y2="-4.9" width="0.127" layer="21"/>
+<wire x1="-5.8" y1="-1.55" x2="-5.8" y2="6.75" width="0.127" layer="21"/>
+<circle x="-3.75" y="-4.85" radius="0.1581125" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="SPBT2632C2A">
+<wire x1="-12.7" y1="-17.78" x2="-12.7" y2="15.24" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="15.24" x2="12.7" y2="15.24" width="0.254" layer="94"/>
+<wire x1="12.7" y1="15.24" x2="12.7" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-17.78" x2="-12.7" y2="-17.78" width="0.254" layer="94"/>
+<pin name="VIN" x="-17.78" y="12.7" length="middle"/>
+<pin name="GND" x="-17.78" y="7.62" length="middle"/>
+<pin name="TXD" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="RXD" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="RTS" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="CTS" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="GPIO1" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="GPIO2" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="GPIO3" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="RESET" x="-17.78" y="2.54" length="middle"/>
+<pin name="BOOT" x="-17.78" y="-2.54" length="middle"/>
+<pin name="GPIO4" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="GPIO5" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="GPIO6" x="17.78" y="-10.16" length="middle" rot="R180"/>
+<pin name="GPIO7" x="17.78" y="-12.7" length="middle" rot="R180"/>
+<pin name="LPO" x="-17.78" y="-7.62" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SPBT2632C2A">
+<gates>
+<gate name="G$1" symbol="SPBT2632C2A" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SPBT2632C2A">
+<connects>
+<connect gate="G$1" pin="BOOT" pad="BOOT"/>
+<connect gate="G$1" pin="CTS" pad="CTS"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="GPIO1" pad="GPIO1"/>
+<connect gate="G$1" pin="GPIO2" pad="GPIO2"/>
+<connect gate="G$1" pin="GPIO3" pad="GPIO3"/>
+<connect gate="G$1" pin="GPIO4" pad="GPIO4"/>
+<connect gate="G$1" pin="GPIO5" pad="GPIO5"/>
+<connect gate="G$1" pin="GPIO6" pad="GPIO6"/>
+<connect gate="G$1" pin="GPIO7" pad="GPIO7"/>
+<connect gate="G$1" pin="LPO" pad="LPO"/>
+<connect gate="G$1" pin="RESET" pad="RESET"/>
+<connect gate="G$1" pin="RTS" pad="RTS"/>
+<connect gate="G$1" pin="RXD" pad="RXD"/>
+<connect gate="G$1" pin="TXD" pad="TXD"/>
+<connect gate="G$1" pin="VIN" pad="VIN"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="MAX3077">
+<packages>
+<package name="MAX3070E">
+<wire x1="2.5" y1="2" x2="-2.5" y2="2" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="2" x2="-2.5" y2="-2" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="-2" x2="2.5" y2="-2" width="0.127" layer="21"/>
+<wire x1="2.5" y1="-2" x2="2.5" y2="2" width="0.127" layer="21"/>
+<text x="-1.905" y="0" size="0.6096" layer="21">MAX3077</text>
+<smd name="DI" x="0.635" y="-2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="RO" x="-0.635" y="-2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="VCC" x="-1.905" y="-2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="GND" x="1.905" y="-2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="Y" x="1.905" y="2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="Z" x="0.635" y="2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="B" x="-0.635" y="2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<smd name="A" x="-1.905" y="2.8575" dx="1.3" dy="0.49" layer="1" rot="R90"/>
+<circle x="-1.905" y="-1.27" radius="0.3175" width="0.127" layer="22"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MAX3077">
+<wire x1="-10.16" y1="10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<pin name="VCC" x="-15.24" y="7.62" length="middle"/>
+<pin name="GND" x="-15.24" y="-7.62" length="middle"/>
+<pin name="R0" x="-15.24" y="2.54" length="middle"/>
+<pin name="DI" x="-15.24" y="-2.54" length="middle"/>
+<pin name="A" x="15.24" y="7.62" length="middle" rot="R180"/>
+<pin name="B" x="15.24" y="2.54" length="middle" rot="R180"/>
+<pin name="Z" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="Y" x="15.24" y="-7.62" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MAX3077">
+<gates>
+<gate name="G$1" symbol="MAX3077" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MAX3070E">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="B" pad="B"/>
+<connect gate="G$1" pin="DI" pad="DI"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="R0" pad="RO"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+<connect gate="G$1" pin="Y" pad="Y"/>
+<connect gate="G$1" pin="Z" pad="Z"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="harting-scsi">
+<packages>
+<package name="60050685100">
+<pad name="34" x="5.645" y="5.2025" drill="0.8"/>
+<pad name="32" x="8.185" y="5.2025" drill="0.8"/>
+<pad name="30" x="10.725" y="5.2025" drill="0.8"/>
+<pad name="28" x="13.265" y="5.2025" drill="0.8"/>
+<pad name="26" x="15.805" y="5.2025" drill="0.8"/>
+<pad name="24" x="18.345" y="5.2025" drill="0.8"/>
+<pad name="22" x="20.885" y="5.2025" drill="0.8"/>
+<pad name="20" x="23.425" y="5.2025" drill="0.8"/>
+<pad name="18" x="25.965" y="5.2025" drill="0.8"/>
+<pad name="16" x="28.505" y="5.2025" drill="0.8"/>
+<pad name="14" x="31.045" y="5.2025" drill="0.8"/>
+<pad name="12" x="33.585" y="5.2025" drill="0.8"/>
+<pad name="10" x="36.125" y="5.2025" drill="0.8"/>
+<pad name="8" x="38.665" y="5.2025" drill="0.8"/>
+<pad name="6" x="41.205" y="5.2025" drill="0.8"/>
+<pad name="4" x="43.745" y="5.2025" drill="0.8"/>
+<pad name="2" x="46.285" y="5.2025" drill="0.8"/>
+<pad name="33" x="6.915" y="7.1075" drill="0.8"/>
+<pad name="31" x="9.455" y="7.1075" drill="0.8"/>
+<pad name="29" x="11.995" y="7.1075" drill="0.8"/>
+<pad name="27" x="14.535" y="7.1075" drill="0.8"/>
+<pad name="25" x="17.075" y="7.1075" drill="0.8"/>
+<pad name="23" x="19.615" y="7.1075" drill="0.8"/>
+<pad name="21" x="22.155" y="7.1075" drill="0.8"/>
+<pad name="19" x="24.695" y="7.1075" drill="0.8"/>
+<pad name="17" x="27.235" y="7.1075" drill="0.8"/>
+<pad name="15" x="29.775" y="7.1075" drill="0.8"/>
+<pad name="13" x="32.315" y="7.1075" drill="0.8"/>
+<pad name="11" x="34.855" y="7.1075" drill="0.8"/>
+<pad name="9" x="37.395" y="7.1075" drill="0.8"/>
+<pad name="7" x="39.935" y="7.1075" drill="0.8"/>
+<pad name="5" x="42.475" y="7.1075" drill="0.8"/>
+<pad name="3" x="45.015" y="7.1075" drill="0.8"/>
+<pad name="1" x="47.555" y="7.1075" drill="0.8"/>
+<pad name="68" x="5.645" y="1.3925" drill="0.8"/>
+<pad name="66" x="8.185" y="1.3925" drill="0.8"/>
+<pad name="64" x="10.725" y="1.3925" drill="0.8"/>
+<pad name="62" x="13.265" y="1.3925" drill="0.8"/>
+<pad name="60" x="15.805" y="1.3925" drill="0.8"/>
+<pad name="58" x="18.345" y="1.3925" drill="0.8"/>
+<pad name="56" x="20.885" y="1.3925" drill="0.8"/>
+<pad name="54" x="23.425" y="1.3925" drill="0.8"/>
+<pad name="52" x="25.965" y="1.3925" drill="0.8"/>
+<pad name="50" x="28.505" y="1.3925" drill="0.8"/>
+<pad name="48" x="31.045" y="1.3925" drill="0.8"/>
+<pad name="46" x="33.585" y="1.3925" drill="0.8"/>
+<pad name="44" x="36.125" y="1.3925" drill="0.8"/>
+<pad name="42" x="38.665" y="1.3925" drill="0.8"/>
+<pad name="40" x="41.205" y="1.3925" drill="0.8"/>
+<pad name="38" x="43.745" y="1.3925" drill="0.8"/>
+<pad name="36" x="46.285" y="1.3925" drill="0.8"/>
+<pad name="67" x="6.915" y="3.2975" drill="0.8"/>
+<pad name="65" x="9.455" y="3.2975" drill="0.8"/>
+<pad name="63" x="11.995" y="3.2975" drill="0.8"/>
+<pad name="61" x="14.535" y="3.2975" drill="0.8"/>
+<pad name="59" x="17.075" y="3.2975" drill="0.8"/>
+<pad name="57" x="19.615" y="3.2975" drill="0.8"/>
+<pad name="55" x="22.155" y="3.2975" drill="0.8"/>
+<pad name="53" x="24.695" y="3.2975" drill="0.8"/>
+<pad name="51" x="27.235" y="3.2975" drill="0.8"/>
+<pad name="49" x="29.775" y="3.2975" drill="0.8"/>
+<pad name="47" x="32.315" y="3.2975" drill="0.8"/>
+<pad name="45" x="34.855" y="3.2975" drill="0.8"/>
+<pad name="43" x="37.395" y="3.2975" drill="0.8"/>
+<pad name="41" x="39.935" y="3.2975" drill="0.8"/>
+<pad name="39" x="42.475" y="3.2975" drill="0.8"/>
+<pad name="37" x="45.015" y="3.2975" drill="0.8"/>
+<pad name="35" x="47.555" y="3.2975" drill="0.8"/>
+<wire x1="0" y1="8.5" x2="0" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="53.2" y2="0" width="0.127" layer="21"/>
+<wire x1="53.2" y1="8.5" x2="53.2" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="8.5" x2="53.2" y2="8.5" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="HARTING-68-SCSI">
+<pin name="1" x="0" y="-5.08" length="middle" rot="R90"/>
+<pin name="2" x="2.54" y="-5.08" length="middle" rot="R90"/>
+<pin name="3" x="5.08" y="-5.08" length="middle" rot="R90"/>
+<pin name="4" x="7.62" y="-5.08" length="middle" rot="R90"/>
+<pin name="5" x="10.16" y="-5.08" length="middle" rot="R90"/>
+<pin name="6" x="12.7" y="-5.08" length="middle" rot="R90"/>
+<pin name="7" x="15.24" y="-5.08" length="middle" rot="R90"/>
+<pin name="8" x="17.78" y="-5.08" length="middle" rot="R90"/>
+<pin name="9" x="20.32" y="-5.08" length="middle" rot="R90"/>
+<pin name="10" x="22.86" y="-5.08" length="middle" rot="R90"/>
+<pin name="11" x="25.4" y="-5.08" length="middle" rot="R90"/>
+<pin name="12" x="27.94" y="-5.08" length="middle" rot="R90"/>
+<pin name="13" x="30.48" y="-5.08" length="middle" rot="R90"/>
+<pin name="14" x="33.02" y="-5.08" length="middle" rot="R90"/>
+<pin name="15" x="35.56" y="-5.08" length="middle" rot="R90"/>
+<pin name="16" x="38.1" y="-5.08" length="middle" rot="R90"/>
+<pin name="17" x="40.64" y="-5.08" length="middle" rot="R90"/>
+<pin name="18" x="43.18" y="-5.08" length="middle" rot="R90"/>
+<pin name="19" x="45.72" y="-5.08" length="middle" rot="R90"/>
+<pin name="20" x="48.26" y="-5.08" length="middle" rot="R90"/>
+<pin name="21" x="50.8" y="-5.08" length="middle" rot="R90"/>
+<pin name="22" x="53.34" y="-5.08" length="middle" rot="R90"/>
+<pin name="23" x="55.88" y="-5.08" length="middle" rot="R90"/>
+<pin name="24" x="58.42" y="-5.08" length="middle" rot="R90"/>
+<pin name="25" x="60.96" y="-5.08" length="middle" rot="R90"/>
+<pin name="26" x="63.5" y="-5.08" length="middle" rot="R90"/>
+<pin name="27" x="66.04" y="-5.08" length="middle" rot="R90"/>
+<pin name="28" x="68.58" y="-5.08" length="middle" rot="R90"/>
+<pin name="29" x="71.12" y="-5.08" length="middle" rot="R90"/>
+<pin name="30" x="73.66" y="-5.08" length="middle" rot="R90"/>
+<pin name="31" x="76.2" y="-5.08" length="middle" rot="R90"/>
+<pin name="32" x="78.74" y="-5.08" length="middle" rot="R90"/>
+<pin name="33" x="81.28" y="-5.08" length="middle" rot="R90"/>
+<pin name="34" x="83.82" y="-5.08" length="middle" rot="R90"/>
+<pin name="35" x="0" y="15.24" length="middle" rot="R270"/>
+<pin name="36" x="2.54" y="15.24" length="middle" rot="R270"/>
+<pin name="37" x="5.08" y="15.24" length="middle" rot="R270"/>
+<pin name="38" x="7.62" y="15.24" length="middle" rot="R270"/>
+<pin name="39" x="10.16" y="15.24" length="middle" rot="R270"/>
+<pin name="40" x="12.7" y="15.24" length="middle" rot="R270"/>
+<pin name="41" x="15.24" y="15.24" length="middle" rot="R270"/>
+<pin name="42" x="17.78" y="15.24" length="middle" rot="R270"/>
+<pin name="43" x="20.32" y="15.24" length="middle" rot="R270"/>
+<pin name="44" x="22.86" y="15.24" length="middle" rot="R270"/>
+<pin name="45" x="25.4" y="15.24" length="middle" rot="R270"/>
+<pin name="46" x="27.94" y="15.24" length="middle" rot="R270"/>
+<pin name="47" x="30.48" y="15.24" length="middle" rot="R270"/>
+<pin name="48" x="33.02" y="15.24" length="middle" rot="R270"/>
+<pin name="49" x="35.56" y="15.24" length="middle" rot="R270"/>
+<pin name="50" x="38.1" y="15.24" length="middle" rot="R270"/>
+<pin name="51" x="40.64" y="15.24" length="middle" rot="R270"/>
+<pin name="52" x="43.18" y="15.24" length="middle" rot="R270"/>
+<pin name="53" x="45.72" y="15.24" length="middle" rot="R270"/>
+<pin name="54" x="48.26" y="15.24" length="middle" rot="R270"/>
+<pin name="55" x="50.8" y="15.24" length="middle" rot="R270"/>
+<pin name="56" x="53.34" y="15.24" length="middle" rot="R270"/>
+<pin name="57" x="55.88" y="15.24" length="middle" rot="R270"/>
+<pin name="58" x="58.42" y="15.24" length="middle" rot="R270"/>
+<pin name="59" x="60.96" y="15.24" length="middle" rot="R270"/>
+<pin name="60" x="63.5" y="15.24" length="middle" rot="R270"/>
+<pin name="61" x="66.04" y="15.24" length="middle" rot="R270"/>
+<pin name="62" x="68.58" y="15.24" length="middle" rot="R270"/>
+<pin name="63" x="71.12" y="15.24" length="middle" rot="R270"/>
+<pin name="64" x="73.66" y="15.24" length="middle" rot="R270"/>
+<pin name="65" x="76.2" y="15.24" length="middle" rot="R270"/>
+<pin name="66" x="78.74" y="15.24" length="middle" rot="R270"/>
+<pin name="67" x="81.28" y="15.24" length="middle" rot="R270"/>
+<pin name="68" x="83.82" y="15.24" length="middle" rot="R270"/>
+<wire x1="-2.54" y1="10.16" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="86.36" y2="0" width="0.254" layer="94"/>
+<wire x1="86.36" y1="0" x2="86.36" y2="10.16" width="0.254" layer="94"/>
+<wire x1="86.36" y1="10.16" x2="-2.54" y2="10.16" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TB60050685100">
+<gates>
+<gate name="G$1" symbol="HARTING-68-SCSI" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="60050685100">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="10" pad="10"/>
+<connect gate="G$1" pin="11" pad="11"/>
+<connect gate="G$1" pin="12" pad="12"/>
+<connect gate="G$1" pin="13" pad="13"/>
+<connect gate="G$1" pin="14" pad="14"/>
+<connect gate="G$1" pin="15" pad="15"/>
+<connect gate="G$1" pin="16" pad="16"/>
+<connect gate="G$1" pin="17" pad="17"/>
+<connect gate="G$1" pin="18" pad="18"/>
+<connect gate="G$1" pin="19" pad="19"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="20" pad="20"/>
+<connect gate="G$1" pin="21" pad="21"/>
+<connect gate="G$1" pin="22" pad="22"/>
+<connect gate="G$1" pin="23" pad="23"/>
+<connect gate="G$1" pin="24" pad="24"/>
+<connect gate="G$1" pin="25" pad="25"/>
+<connect gate="G$1" pin="26" pad="26"/>
+<connect gate="G$1" pin="27" pad="27"/>
+<connect gate="G$1" pin="28" pad="28"/>
+<connect gate="G$1" pin="29" pad="29"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="30" pad="30"/>
+<connect gate="G$1" pin="31" pad="31"/>
+<connect gate="G$1" pin="32" pad="32"/>
+<connect gate="G$1" pin="33" pad="33"/>
+<connect gate="G$1" pin="34" pad="34"/>
+<connect gate="G$1" pin="35" pad="35"/>
+<connect gate="G$1" pin="36" pad="36"/>
+<connect gate="G$1" pin="37" pad="37"/>
+<connect gate="G$1" pin="38" pad="38"/>
+<connect gate="G$1" pin="39" pad="39"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="40" pad="40"/>
+<connect gate="G$1" pin="41" pad="41"/>
+<connect gate="G$1" pin="42" pad="42"/>
+<connect gate="G$1" pin="43" pad="43"/>
+<connect gate="G$1" pin="44" pad="44"/>
+<connect gate="G$1" pin="45" pad="45"/>
+<connect gate="G$1" pin="46" pad="46"/>
+<connect gate="G$1" pin="47" pad="47"/>
+<connect gate="G$1" pin="48" pad="48"/>
+<connect gate="G$1" pin="49" pad="49"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="50" pad="50"/>
+<connect gate="G$1" pin="51" pad="51"/>
+<connect gate="G$1" pin="52" pad="52"/>
+<connect gate="G$1" pin="53" pad="53"/>
+<connect gate="G$1" pin="54" pad="54"/>
+<connect gate="G$1" pin="55" pad="55"/>
+<connect gate="G$1" pin="56" pad="56"/>
+<connect gate="G$1" pin="57" pad="57"/>
+<connect gate="G$1" pin="58" pad="58"/>
+<connect gate="G$1" pin="59" pad="59"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="60" pad="60"/>
+<connect gate="G$1" pin="61" pad="61"/>
+<connect gate="G$1" pin="62" pad="62"/>
+<connect gate="G$1" pin="63" pad="63"/>
+<connect gate="G$1" pin="64" pad="64"/>
+<connect gate="G$1" pin="65" pad="65"/>
+<connect gate="G$1" pin="66" pad="66"/>
+<connect gate="G$1" pin="67" pad="67"/>
+<connect gate="G$1" pin="68" pad="68"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1653,6 +2040,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U5" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
 <part name="J1" library="SparkFun-Connectors" deviceset="U.FL" device=""/>
 <part name="U$1" library="w5500_wiznet" deviceset="W5500" device=""/>
+<part name="U$2" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
+<part name="U$3" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$4" library="harting-scsi" deviceset="TB60050685100" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1663,6 +2053,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-121.92" y="-99.06" size="5.08" layer="91" align="center">Altimeter</text>
 <text x="259.08" y="190.5" size="12.7" layer="91" align="center">ATMEGA328</text>
 <text x="360.68" y="187.96" size="5.08" layer="91">TCP/Eth</text>
+<text x="241.3" y="66.04" size="5.08" layer="91">Bluetooth</text>
+<text x="-5.08" y="45.72" size="5.08" layer="91">RS-485</text>
+<text x="60.96" y="-99.06" size="5.08" layer="91">Ribbon Cable</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-81.28" y="127"/>
@@ -1673,6 +2066,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U5" gate="G$1" x="259.08" y="144.78"/>
 <instance part="J1" gate="G$1" x="-149.86" y="-43.18"/>
 <instance part="U$1" gate="G$1" x="358.14" y="119.38"/>
+<instance part="U$2" gate="G$1" x="256.54" y="43.18"/>
+<instance part="U$3" gate="G$1" x="7.62" y="27.94"/>
+<instance part="U$4" gate="G$1" x="40.64" y="-124.46"/>
 </instances>
 <busses>
 </busses>

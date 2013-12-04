@@ -1479,6 +1479,163 @@ We've spent an enormous amount of time creating and checking these footprints an
 </deviceset>
 </devicesets>
 </library>
+<library name="w5500_wiznet">
+<packages>
+<package name="W5500">
+<description>W5500 TCP IP chip from wiznet</description>
+<wire x1="-3.5" y1="3.5" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="-3.5" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<smd name="RSVD6" x="0.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="PMODE2" x="-0.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="RSVD5" x="0.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="RSVD4" x="1.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="RSVD3" x="1.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="RSVD2" x="2.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="PMODE1" x="-0.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="RSTN" x="2.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="PMODE0" x="-1.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="NC3" x="-1.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="NC4" x="-2.25" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="AGND5" x="-2.75" y="4.375" dx="0.22" dy="1" layer="1"/>
+<smd name="XI/CLKIN" x="4.375" y="-0.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="XO" x="4.375" y="0.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="SCSN" x="4.375" y="0.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="SCLK" x="4.375" y="1.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="MISO" x="4.375" y="1.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="MOSI" x="4.375" y="2.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="INTN" x="4.375" y="2.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="GND" x="4.375" y="-0.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="VDD" x="4.375" y="-1.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="ACTLED" x="4.375" y="-1.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="DUPLED" x="4.375" y="-2.25" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="LINKLED" x="4.375" y="-2.75" dx="0.22" dy="1" layer="1" rot="R90"/>
+<smd name="VBG" x="-0.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AGND4" x="0.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="TOCAP" x="0.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AVDD5" x="1.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="1V20" x="1.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="RSVD" x="2.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="SPDLED" x="2.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AVDD4" x="-0.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AGND3" x="-1.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AVDD3" x="-1.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="AGND2" x="-2.25" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="NC2" x="-2.75" y="-4.375" dx="0.22" dy="1" layer="1" rot="R180"/>
+<smd name="RXP" x="-4.375" y="0.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="DNC" x="-4.375" y="-0.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="AVDD1" x="-4.375" y="-0.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="AGND1" x="-4.375" y="-1.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="EXRES1" x="-4.375" y="-1.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="AVDD2" x="-4.375" y="-2.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="NC" x="-4.375" y="-2.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="RXN" x="-4.375" y="0.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="AVDD" x="-4.375" y="1.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="AGND" x="-4.375" y="1.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="TXP" x="-4.375" y="2.25" dx="0.22" dy="1" layer="1" rot="R270"/>
+<smd name="TXN" x="-4.375" y="2.75" dx="0.22" dy="1" layer="1" rot="R270"/>
+<circle x="-3" y="3" radius="0.27950625" width="0.127" layer="21"/>
+<text x="-2.875" y="-0.625" size="1.27" layer="25">W5500</text>
+</package>
+</packages>
+<symbols>
+<symbol name="W5500">
+<wire x1="0" y1="-2.54" x2="0" y2="60.96" width="0.254" layer="94"/>
+<wire x1="0" y1="60.96" x2="33.02" y2="60.96" width="0.254" layer="94"/>
+<wire x1="33.02" y1="60.96" x2="33.02" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="33.02" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<pin name="AVDD" x="-5.08" y="58.42" length="middle"/>
+<pin name="AVDD1" x="-5.08" y="55.88" length="middle"/>
+<pin name="AVDD2" x="-5.08" y="53.34" length="middle"/>
+<pin name="AVDD3" x="-5.08" y="50.8" length="middle"/>
+<pin name="AVDD4" x="-5.08" y="48.26" length="middle"/>
+<pin name="AVDD5" x="-5.08" y="45.72" length="middle"/>
+<pin name="VDD" x="-5.08" y="43.18" length="middle"/>
+<pin name="GND" x="-5.08" y="2.54" length="middle"/>
+<pin name="AGND5" x="-5.08" y="5.08" length="middle"/>
+<pin name="AGND4" x="-5.08" y="7.62" length="middle"/>
+<pin name="AGND3" x="-5.08" y="10.16" length="middle"/>
+<pin name="AGND2" x="-5.08" y="12.7" length="middle"/>
+<pin name="AGND1" x="-5.08" y="15.24" length="middle"/>
+<pin name="AGND" x="-5.08" y="17.78" length="middle"/>
+<pin name="EXRES1" x="-5.08" y="38.1" length="middle"/>
+<pin name="TXN" x="38.1" y="58.42" length="middle" rot="R180"/>
+<pin name="TXP" x="38.1" y="55.88" length="middle" rot="R180"/>
+<pin name="RXN" x="38.1" y="50.8" length="middle" rot="R180"/>
+<pin name="RXP" x="38.1" y="48.26" length="middle" rot="R180"/>
+<pin name="TOCAP" x="-5.08" y="35.56" length="middle"/>
+<pin name="SPLED" x="-5.08" y="30.48" length="middle"/>
+<pin name="LINKLED" x="-5.08" y="27.94" length="middle"/>
+<pin name="DUPLED" x="-5.08" y="25.4" length="middle"/>
+<pin name="ACTLED" x="-5.08" y="22.86" length="middle"/>
+<pin name="XI/CLKIN" x="38.1" y="2.54" length="middle" rot="R180"/>
+<pin name="XO" x="38.1" y="0" length="middle" rot="R180"/>
+<pin name="SCSN" x="38.1" y="43.18" length="middle" rot="R180"/>
+<pin name="SCLK" x="38.1" y="40.64" length="middle" rot="R180"/>
+<pin name="MISO" x="38.1" y="38.1" length="middle" rot="R180"/>
+<pin name="MOSI" x="38.1" y="35.56" length="middle" rot="R180"/>
+<pin name="INTN" x="38.1" y="30.48" length="middle" rot="R180"/>
+<pin name="RSTN" x="38.1" y="25.4" length="middle" rot="R180"/>
+<pin name="RSVD" x="-5.08" y="0" length="middle"/>
+<pin name="PMODE2" x="38.1" y="20.32" length="middle" rot="R180"/>
+<pin name="PMODE1" x="38.1" y="17.78" length="middle" rot="R180"/>
+<pin name="PMODE0" x="38.1" y="15.24" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="W5500">
+<gates>
+<gate name="G$1" symbol="W5500" x="-15.24" y="-30.48"/>
+</gates>
+<devices>
+<device name="" package="W5500">
+<connects>
+<connect gate="G$1" pin="ACTLED" pad="ACTLED"/>
+<connect gate="G$1" pin="AGND" pad="AGND"/>
+<connect gate="G$1" pin="AGND1" pad="AGND1"/>
+<connect gate="G$1" pin="AGND2" pad="AGND2"/>
+<connect gate="G$1" pin="AGND3" pad="AGND3"/>
+<connect gate="G$1" pin="AGND4" pad="AGND4"/>
+<connect gate="G$1" pin="AGND5" pad="AGND5"/>
+<connect gate="G$1" pin="AVDD" pad="AVDD"/>
+<connect gate="G$1" pin="AVDD1" pad="AVDD1"/>
+<connect gate="G$1" pin="AVDD2" pad="AVDD2"/>
+<connect gate="G$1" pin="AVDD3" pad="AVDD3"/>
+<connect gate="G$1" pin="AVDD4" pad="AVDD4"/>
+<connect gate="G$1" pin="AVDD5" pad="AVDD5"/>
+<connect gate="G$1" pin="DUPLED" pad="DUPLED"/>
+<connect gate="G$1" pin="EXRES1" pad="EXRES1"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="INTN" pad="INTN"/>
+<connect gate="G$1" pin="LINKLED" pad="LINKLED"/>
+<connect gate="G$1" pin="MISO" pad="MISO"/>
+<connect gate="G$1" pin="MOSI" pad="MOSI"/>
+<connect gate="G$1" pin="PMODE0" pad="PMODE0"/>
+<connect gate="G$1" pin="PMODE1" pad="PMODE1"/>
+<connect gate="G$1" pin="PMODE2" pad="PMODE2"/>
+<connect gate="G$1" pin="RSTN" pad="RSTN"/>
+<connect gate="G$1" pin="RSVD" pad="RSVD"/>
+<connect gate="G$1" pin="RXN" pad="RXN"/>
+<connect gate="G$1" pin="RXP" pad="RXP"/>
+<connect gate="G$1" pin="SCLK" pad="SCLK"/>
+<connect gate="G$1" pin="SCSN" pad="SCSN"/>
+<connect gate="G$1" pin="SPLED" pad="SPDLED"/>
+<connect gate="G$1" pin="TOCAP" pad="TOCAP"/>
+<connect gate="G$1" pin="TXN" pad="TXN"/>
+<connect gate="G$1" pin="TXP" pad="TXP"/>
+<connect gate="G$1" pin="VDD" pad="VDD"/>
+<connect gate="G$1" pin="XI/CLKIN" pad="XI/CLKIN"/>
+<connect gate="G$1" pin="XO" pad="XO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1495,6 +1652,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U4" library="SparkFun-Sensors" deviceset="MPL3115A2" device="LGA8"/>
 <part name="U5" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
 <part name="J1" library="SparkFun-Connectors" deviceset="U.FL" device=""/>
+<part name="U$1" library="w5500_wiznet" deviceset="W5500" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1502,8 +1660,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-7.62" y="203.2" size="12.7" layer="91" rot="R180" align="center">Main Processor</text>
 <text x="-114.3" y="-22.86" size="12.7" layer="91" align="center">GPS</text>
 <text x="-63.5" y="-22.86" size="12.7" layer="91" align="center">IMU</text>
-<text x="-101.6" y="-96.52" size="12.7" layer="91" align="center">Altimeter</text>
+<text x="-121.92" y="-99.06" size="5.08" layer="91" align="center">Altimeter</text>
 <text x="259.08" y="190.5" size="12.7" layer="91" align="center">ATMEGA328</text>
+<text x="360.68" y="187.96" size="5.08" layer="91">TCP/Eth</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-81.28" y="127"/>
@@ -1513,6 +1672,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U4" gate="G$1" x="-119.38" y="-114.3"/>
 <instance part="U5" gate="G$1" x="259.08" y="144.78"/>
 <instance part="J1" gate="G$1" x="-149.86" y="-43.18"/>
+<instance part="U$1" gate="G$1" x="358.14" y="119.38"/>
 </instances>
 <busses>
 </busses>

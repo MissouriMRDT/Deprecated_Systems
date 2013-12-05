@@ -1185,6 +1185,22 @@ Used in MPL115A1 -</description>
 <pin name="INT1" x="12.7" y="-2.54" visible="pin" length="short" direction="out" rot="R180"/>
 <pin name="INT2" x="12.7" y="-5.08" visible="pin" length="short" direction="out" rot="R180"/>
 </symbol>
+<symbol name="MPL115A">
+<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-7.62" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<text x="-10.16" y="5.588" size="1.778" layer="95">&gt;Name</text>
+<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;Value</text>
+<pin name="VDD" x="-12.7" y="2.54" length="short"/>
+<pin name="CAP" x="-12.7" y="0" length="short"/>
+<pin name="GND" x="-12.7" y="-2.54" length="short"/>
+<pin name="SHDN" x="-12.7" y="-5.08" length="short"/>
+<pin name="RST/CS" x="12.7" y="-5.08" length="short" rot="R180"/>
+<pin name="NC/DOUT" x="12.7" y="-2.54" length="short" rot="R180"/>
+<pin name="SDA/DIN" x="12.7" y="0" length="short" rot="R180"/>
+<pin name="SCLK" x="12.7" y="2.54" length="short" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="MPU-9150" prefix="U" uservalue="yes">
@@ -1235,6 +1251,31 @@ Used in MPL115A1 -</description>
 <connect gate="G$1" pin="SDA" pad="7"/>
 <connect gate="G$1" pin="VDD" pad="1"/>
 <connect gate="G$1" pin="VDDIO" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MPL115A" prefix="U">
+<description>&lt;b&gt;&lt;h3&gt;MPL115A1 (SPI) and MPL115A2 (I2C) Miniature Digital Barometer&lt;/h3&gt;&lt;/b&gt;
+&lt;br&gt;
+5.0x3.0x1.2mm LGA Package</description>
+<gates>
+<gate name="G$1" symbol="MPL115A" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LGA8">
+<connects>
+<connect gate="G$1" pin="CAP" pad="2"/>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="NC/DOUT" pad="6"/>
+<connect gate="G$1" pin="RST/CS" pad="5"/>
+<connect gate="G$1" pin="SCLK" pad="8"/>
+<connect gate="G$1" pin="SDA/DIN" pad="7"/>
+<connect gate="G$1" pin="SHDN" pad="4"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2062,6 +2103,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U$21" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$22" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$23" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U6" library="SparkFun-Sensors" deviceset="MPL115A" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2071,8 +2113,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-63.5" y="-22.86" size="12.7" layer="91" align="center">IMU</text>
 <text x="-121.92" y="-99.06" size="5.08" layer="91" align="center">Altimeter</text>
 <text x="259.08" y="190.5" size="12.7" layer="91" align="center">ATMEGA328</text>
-<text x="360.68" y="187.96" size="5.08" layer="91">TCP/Eth</text>
-<text x="241.3" y="66.04" size="5.08" layer="91">Bluetooth</text>
+<text x="337.82" y="187.96" size="5.08" layer="91">TCP/Eth</text>
+<text x="340.36" y="88.9" size="5.08" layer="91">Bluetooth</text>
 <text x="-5.08" y="40.64" size="5.08" layer="91">RS-485</text>
 <text x="60.96" y="-99.06" size="5.08" layer="91">Ribbon Cable</text>
 <text x="38.1" y="40.64" size="5.08" layer="91">RS-485</text>
@@ -2094,6 +2136,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="203.2" y="-58.42" size="5.08" layer="91">RS-485</text>
 <text x="160.02" y="-101.6" size="5.08" layer="91">RS-485</text>
 <text x="200.66" y="-101.6" size="5.08" layer="91">RS-485</text>
+<text x="-93.98" y="-101.6" size="5.08" layer="91">Barometer</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-81.28" y="127"/>
@@ -2103,8 +2146,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U4" gate="G$1" x="-119.38" y="-114.3"/>
 <instance part="U5" gate="G$1" x="259.08" y="144.78"/>
 <instance part="J1" gate="G$1" x="-149.86" y="-43.18"/>
-<instance part="U$1" gate="G$1" x="358.14" y="119.38"/>
-<instance part="U$2" gate="G$1" x="256.54" y="43.18"/>
+<instance part="U$1" gate="G$1" x="335.28" y="119.38"/>
+<instance part="U$2" gate="G$1" x="358.14" y="63.5"/>
 <instance part="U$3" gate="G$1" x="7.62" y="27.94"/>
 <instance part="U$4" gate="G$1" x="40.64" y="-124.46"/>
 <instance part="U$5" gate="G$1" x="50.8" y="27.94"/>
@@ -2126,6 +2169,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U$21" gate="G$1" x="215.9" y="-71.12"/>
 <instance part="U$22" gate="G$1" x="172.72" y="-114.3"/>
 <instance part="U$23" gate="G$1" x="213.36" y="-114.3"/>
+<instance part="U6" gate="G$1" x="-78.74" y="-114.3"/>
 </instances>
 <busses>
 </busses>

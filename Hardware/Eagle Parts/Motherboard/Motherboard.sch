@@ -2113,14 +2113,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U5" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
 <part name="U$1" library="w5500_wiznet" deviceset="W5500" device=""/>
 <part name="U$2" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
-<part name="U$16" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$17" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$18" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$19" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$20" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$21" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$22" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$23" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="U$4" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$25" library="MAX3077" deviceset="MAX3077" device=""/>
@@ -2152,6 +2144,21 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U9" library="SparkFun-Sensors" deviceset="MPL3115A2" device="LGA8"/>
 <part name="J2" library="SparkFun-Connectors" deviceset="U.FL" device=""/>
 <part name="U10" library="SparkFun-Sensors" deviceset="MPL115A" device=""/>
+<part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="GND5" library="supply1" deviceset="GND" device=""/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="GND7" library="supply1" deviceset="GND" device=""/>
+<part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="U$3" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$5" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$6" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$7" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$8" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$9" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$10" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$11" library="MAX3077" deviceset="MAX3077" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2161,7 +2168,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-172.72" y="10.16" size="12.7" layer="91" align="center">ATMEGA328</text>
 <text x="-93.98" y="7.62" size="5.08" layer="91">TCP/Eth</text>
 <text x="-91.44" y="-91.44" size="5.08" layer="91">Bluetooth</text>
-<text x="-2.54" y="-63.5" size="5.08" layer="91">RS-485</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-119.38" y="127"/>
@@ -2169,14 +2175,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U5" gate="G$1" x="-172.72" y="-35.56"/>
 <instance part="U$1" gate="G$1" x="-96.52" y="-60.96"/>
 <instance part="U$2" gate="G$1" x="-73.66" y="-116.84"/>
-<instance part="U$16" gate="G$1" x="10.16" y="-76.2"/>
-<instance part="U$17" gate="G$1" x="53.34" y="-73.66"/>
-<instance part="U$18" gate="G$1" x="91.44" y="-73.66"/>
-<instance part="U$19" gate="G$1" x="132.08" y="-73.66"/>
-<instance part="U$20" gate="G$1" x="175.26" y="-71.12"/>
-<instance part="U$21" gate="G$1" x="215.9" y="-71.12"/>
-<instance part="U$22" gate="G$1" x="172.72" y="-114.3"/>
-<instance part="U$23" gate="G$1" x="213.36" y="-114.3"/>
 <instance part="GND1" gate="1" x="-27.94" y="114.3" rot="R270"/>
 </instances>
 <busses>
@@ -2200,7 +2198,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 </nets>
 </sheet>
 <sheet>
-<description>RS-485</description>
+<description>RS-485 External</description>
 <plain>
 <text x="88.9" y="104.14" size="5.08" layer="91">Ribbon Cable</text>
 <text x="-12.7" y="104.14" size="5.08" layer="91">RS-485</text>
@@ -2876,23 +2874,95 @@ We've spent an enormous amount of time creating and checking these footprints an
 </nets>
 </sheet>
 <sheet>
-<description>Sensors</description>
+<description>RS-485 Internal</description>
 <plain>
-<text x="-15.24" y="58.42" size="12.7" layer="91" align="center">GPS</text>
-<text x="35.56" y="58.42" size="12.7" layer="91" align="center">IMU</text>
-<text x="-22.86" y="-17.78" size="5.08" layer="91" align="center">Altimeter</text>
-<text x="5.08" y="-20.32" size="5.08" layer="91">Barometer</text>
+<text x="-116.84" y="30.48" size="5.08" layer="91">RS-485</text>
 </plain>
 <instances>
-<instance part="U7" gate="G$1" x="-20.32" y="20.32"/>
-<instance part="U8" gate="G$1" x="35.56" y="22.86"/>
-<instance part="U9" gate="G$1" x="-20.32" y="-33.02"/>
-<instance part="J2" gate="G$1" x="-50.8" y="38.1"/>
-<instance part="U10" gate="G$1" x="20.32" y="-33.02"/>
+<instance part="U$3" gate="G$1" x="-104.14" y="17.78"/>
+<instance part="U$5" gate="G$1" x="-60.96" y="20.32"/>
+<instance part="U$6" gate="G$1" x="-22.86" y="20.32"/>
+<instance part="U$7" gate="G$1" x="17.78" y="20.32"/>
+<instance part="U$8" gate="G$1" x="60.96" y="22.86"/>
+<instance part="U$9" gate="G$1" x="101.6" y="22.86"/>
+<instance part="U$10" gate="G$1" x="58.42" y="-20.32"/>
+<instance part="U$11" gate="G$1" x="99.06" y="-20.32"/>
 </instances>
 <busses>
 </busses>
 <nets>
+</nets>
+</sheet>
+<sheet>
+<description>Sensors</description>
+<plain>
+<text x="-15.24" y="58.42" size="12.7" layer="91" align="center">GPS</text>
+<text x="63.5" y="50.8" size="12.7" layer="91" align="center">IMU</text>
+<text x="-22.86" y="-17.78" size="5.08" layer="91" align="center">Altimeter</text>
+<text x="48.26" y="-20.32" size="5.08" layer="91">Barometer</text>
+</plain>
+<instances>
+<instance part="U7" gate="G$1" x="-20.32" y="20.32"/>
+<instance part="U8" gate="G$1" x="63.5" y="17.78"/>
+<instance part="U9" gate="G$1" x="-20.32" y="-33.02"/>
+<instance part="J2" gate="G$1" x="-58.42" y="58.42"/>
+<instance part="U10" gate="G$1" x="63.5" y="-33.02"/>
+<instance part="GND2" gate="1" x="43.18" y="-35.56" rot="R270"/>
+<instance part="GND3" gate="1" x="-40.64" y="-35.56" rot="R270"/>
+<instance part="GND4" gate="1" x="-43.18" y="12.7" rot="R270"/>
+<instance part="GND5" gate="1" x="35.56" y="7.62" rot="R270"/>
+<instance part="GND6" gate="1" x="5.08" y="27.94" rot="R90"/>
+<instance part="GND7" gate="1" x="5.08" y="10.16" rot="R90"/>
+<instance part="GND8" gate="1" x="-43.18" y="25.4" rot="R270"/>
+</instances>
+<busses>
+</busses>
+<nets>
+<net name="GND" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="GND@18"/>
+<wire x1="45.72" y1="10.16" x2="40.64" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="10.16" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="U8" gate="G$1" pin="GND@17"/>
+<wire x1="40.64" y1="7.62" x2="45.72" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="U8" gate="G$1" pin="GND@15"/>
+<wire x1="45.72" y1="5.08" x2="40.64" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="5.08" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
+<junction x="40.64" y="7.62"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="38.1" y1="7.62" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="GND@4"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="-5.08" y1="27.94" x2="2.54" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="-5.08" y1="10.16" x2="2.54" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U7" gate="G$1" pin="GND@3"/>
+</segment>
+<segment>
+<pinref part="U7" gate="G$1" pin="GND@2"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="-35.56" y1="12.7" x2="-40.64" y2="12.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U10" gate="G$1" pin="GND"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="50.8" y1="-35.56" x2="45.72" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U9" gate="G$1" pin="GND"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="-33.02" y1="-35.56" x2="-38.1" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND8" gate="1" pin="GND"/>
+<pinref part="U7" gate="G$1" pin="GND@1"/>
+<wire x1="-40.64" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

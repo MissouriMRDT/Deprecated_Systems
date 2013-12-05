@@ -3517,6 +3517,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="U2" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
 <part name="U$12" library="w5500_wiznet" deviceset="W5500" device=""/>
 <part name="U$13" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
+<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3535,6 +3536,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="+3V5" gate="G$1" x="-162.56" y="101.6"/>
 <instance part="GND10" gate="1" x="-132.08" y="60.96"/>
 <instance part="GND11" gate="1" x="-63.5" y="22.86" rot="R270"/>
+<instance part="+3V1" gate="G$1" x="-58.42" y="129.54"/>
 </instances>
 <busses>
 </busses>
@@ -3702,6 +3704,22 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="-154.94" y1="93.98" x2="-162.56" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-162.56" y1="93.98" x2="-162.56" y2="99.06" width="0.1524" layer="91"/>
 <junction x="-154.94" y="93.98"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="VDD_2"/>
+<pinref part="+3V1" gate="G$1" pin="+3V3"/>
+<wire x1="-48.26" y1="124.46" x2="-55.88" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="124.46" x2="-58.42" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="124.46" x2="-58.42" y2="127" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VDDA"/>
+<wire x1="-48.26" y1="121.92" x2="-53.34" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="121.92" x2="-55.88" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="121.92" x2="-55.88" y2="124.46" width="0.1524" layer="91"/>
+<junction x="-55.88" y="124.46"/>
+<pinref part="U1" gate="A" pin="VDD"/>
+<wire x1="-48.26" y1="119.38" x2="-53.34" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="119.38" x2="-53.34" y2="121.92" width="0.1524" layer="91"/>
+<junction x="-53.34" y="121.92"/>
 </segment>
 </net>
 <net name="JTAG_TRST_B" class="0">

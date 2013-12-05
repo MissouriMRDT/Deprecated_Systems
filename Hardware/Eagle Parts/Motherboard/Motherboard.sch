@@ -2060,6 +2060,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="U$19" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$20" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="U$21" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$22" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="U$23" library="MAX3077" deviceset="MAX3077" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2090,6 +2092,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="119.38" y="-60.96" size="5.08" layer="91">RS-485</text>
 <text x="162.56" y="-58.42" size="5.08" layer="91">RS-485</text>
 <text x="203.2" y="-58.42" size="5.08" layer="91">RS-485</text>
+<text x="160.02" y="-101.6" size="5.08" layer="91">RS-485</text>
+<text x="200.66" y="-101.6" size="5.08" layer="91">RS-485</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="-81.28" y="127"/>
@@ -2120,6 +2124,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="U$19" gate="G$1" x="132.08" y="-73.66"/>
 <instance part="U$20" gate="G$1" x="175.26" y="-71.12"/>
 <instance part="U$21" gate="G$1" x="215.9" y="-71.12"/>
+<instance part="U$22" gate="G$1" x="172.72" y="-114.3"/>
+<instance part="U$23" gate="G$1" x="213.36" y="-114.3"/>
 </instances>
 <busses>
 </busses>

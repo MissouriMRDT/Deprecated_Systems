@@ -4812,11 +4812,19 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="U$14" library="w5500_wiznet" deviceset="W5500" device=""/>
 <part name="U$15" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
 <part name="U3" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
+<part name="328_RST" library="switch-omron" deviceset="10-XX" device=""/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W"/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
+<part name="P+2" library="supply1" deviceset="+5V" device=""/>
+<part name="P+3" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
 <description>Main Processor</description>
 <plain>
+<text x="81.28" y="101.6" size="2.54" layer="91">SPI to 328</text>
+<text x="81.28" y="119.38" size="2.54" layer="91">UART_1</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="2.54" y="76.2"/>
@@ -5090,29 +5098,57 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <net name="UART1_TX" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE0"/>
-<wire x1="53.34" y1="124.46" x2="71.12" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91"/>
 <label x="55.88" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART1_RX" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE1"/>
-<wire x1="53.34" y1="121.92" x2="71.12" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="121.92" x2="76.2" y2="121.92" width="0.1524" layer="91"/>
 <label x="55.88" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART1_CTS_B" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE2"/>
-<wire x1="53.34" y1="119.38" x2="71.12" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="119.38" x2="76.2" y2="119.38" width="0.1524" layer="91"/>
 <label x="55.88" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UART1_RTS_B" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE3"/>
-<wire x1="53.34" y1="116.84" x2="71.12" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="116.84" x2="76.2" y2="116.84" width="0.1524" layer="91"/>
 <label x="55.88" y="116.84" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_SS" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE16"/>
+<wire x1="53.34" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<label x="55.88" y="106.68" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_SCK" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE17"/>
+<wire x1="53.34" y1="104.14" x2="76.2" y2="104.14" width="0.1524" layer="91"/>
+<label x="55.88" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_MISO" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE18"/>
+<wire x1="53.34" y1="101.6" x2="76.2" y2="101.6" width="0.1524" layer="91"/>
+<label x="55.88" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_MOSI" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE19"/>
+<wire x1="53.34" y1="99.06" x2="76.2" y2="99.06" width="0.1524" layer="91"/>
+<label x="55.88" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -5820,7 +5856,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="63.5" y="50.8" size="12.7" layer="91" align="center">IMU</text>
 <text x="-22.86" y="-17.78" size="5.08" layer="91" align="center">Altimeter</text>
 <text x="48.26" y="-20.32" size="5.08" layer="91">Barometer</text>
-<text x="170.18" y="71.12" size="12.7" layer="91" align="center">ATMEGA328</text>
+<text x="170.18" y="88.9" size="12.7" layer="91" align="center">ATMEGA328</text>
 <text x="-25.4" y="-63.5" size="3.81" layer="91">MuX</text>
 </plain>
 <instances>
@@ -5838,6 +5874,12 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND8" gate="1" x="-43.18" y="25.4" rot="R270"/>
 <instance part="U$1" gate="G$1" x="-20.32" y="-86.36"/>
 <instance part="U3" gate="G$1" x="167.64" y="25.4"/>
+<instance part="GND13" gate="1" x="134.62" y="-5.08" rot="R270"/>
+<instance part="328_RST" gate="1" x="137.16" y="58.42" rot="R270"/>
+<instance part="R2" gate="G$1" x="124.46" y="58.42" rot="R90"/>
+<instance part="GND26" gate="1" x="132.08" y="71.12" rot="R180"/>
+<instance part="P+2" gate="1" x="124.46" y="71.12"/>
+<instance part="P+3" gate="1" x="134.62" y="48.26"/>
 </instances>
 <busses>
 </busses>
@@ -5885,6 +5927,98 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="GND8" gate="1" pin="GND"/>
 <pinref part="U7" gate="G$1" pin="GND@1"/>
 <wire x1="-40.64" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="GND@2"/>
+<wire x1="137.16" y1="-5.08" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="GND@1"/>
+<wire x1="139.7" y1="-5.08" x2="142.24" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="-5.08" x2="144.78" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="-2.54" x2="142.24" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="-2.54" x2="142.24" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="142.24" y="-5.08"/>
+<pinref part="U3" gate="G$1" pin="AGND"/>
+<wire x1="144.78" y1="0" x2="139.7" y2="0" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="0" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="139.7" y="-5.08"/>
+</segment>
+<segment>
+<pinref part="GND26" gate="1" pin="GND"/>
+<pinref part="328_RST" gate="1" pin="P"/>
+<wire x1="132.08" y1="68.58" x2="132.08" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="328_RST" gate="1" pin="P1"/>
+<wire x1="132.08" y1="55.88" x2="132.08" y2="58.42" width="0.1524" layer="91"/>
+<junction x="132.08" y="58.42"/>
+</segment>
+</net>
+<net name="AT328_SS" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="PB2(SS/OC1B)"/>
+<wire x1="193.04" y1="0" x2="213.36" y2="0" width="0.1524" layer="91"/>
+<label x="195.58" y="0" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_MOSI" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="PB3(MOSI/OC2)"/>
+<wire x1="193.04" y1="-2.54" x2="213.36" y2="-2.54" width="0.1524" layer="91"/>
+<label x="195.58" y="-2.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_MISO" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="PB4(MISO)"/>
+<wire x1="193.04" y1="-5.08" x2="213.36" y2="-5.08" width="0.1524" layer="91"/>
+<label x="195.58" y="-5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_SCK" class="0">
+<segment>
+<pinref part="U3" gate="G$1" pin="PB5(SCK)"/>
+<wire x1="193.04" y1="-7.62" x2="213.36" y2="-7.62" width="0.1524" layer="91"/>
+<label x="195.58" y="-7.62" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GND1" class="0">
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="124.46" y1="53.34" x2="124.46" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="PC6(/RESET)"/>
+<wire x1="124.46" y1="50.8" x2="142.24" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="328_RST" gate="1" pin="S1"/>
+<wire x1="142.24" y1="50.8" x2="144.78" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="50.8" x2="142.24" y2="55.88" width="0.1524" layer="91"/>
+<junction x="142.24" y="50.8"/>
+<pinref part="328_RST" gate="1" pin="S"/>
+<wire x1="142.24" y1="55.88" x2="142.24" y2="58.42" width="0.1524" layer="91"/>
+<junction x="142.24" y="55.88"/>
+</segment>
+</net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="P+2" gate="1" pin="+5V"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="68.58" x2="124.46" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="AVCC"/>
+<wire x1="144.78" y1="45.72" x2="139.7" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="45.72" x2="139.7" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="VCC@1"/>
+<wire x1="139.7" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="43.18" x2="139.7" y2="40.64" width="0.1524" layer="91"/>
+<junction x="139.7" y="43.18"/>
+<pinref part="U3" gate="G$1" pin="VCC@2"/>
+<wire x1="139.7" y1="40.64" x2="142.24" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="40.64" x2="144.78" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="43.18" x2="134.62" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="134.62" y1="43.18" x2="134.62" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="AREF"/>
+<wire x1="144.78" y1="35.56" x2="142.24" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="35.56" x2="142.24" y2="40.64" width="0.1524" layer="91"/>
+<junction x="142.24" y="40.64"/>
 </segment>
 </net>
 </nets>

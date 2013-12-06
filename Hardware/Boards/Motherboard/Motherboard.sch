@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3250,6 +3250,12 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="+3V3" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
+<symbol name="+5V">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
@@ -3269,6 +3275,19 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="+3V3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="+5V" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="+5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -4773,8 +4792,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="U2" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
-<part name="U$12" library="w5500_wiznet" deviceset="W5500" device=""/>
-<part name="U$13" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="ARM_RST" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W"/>
@@ -4784,6 +4801,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="U$2" library="LD1117" deviceset="LD1117" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
+<part name="P+1" library="supply1" deviceset="+5V" device=""/>
+<part name="U$14" library="w5500_wiznet" deviceset="W5500" device=""/>
+<part name="U$15" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5765,8 +5785,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="-22.86" y="-17.78" size="5.08" layer="91" align="center">Altimeter</text>
 <text x="48.26" y="-20.32" size="5.08" layer="91">Barometer</text>
 <text x="170.18" y="71.12" size="12.7" layer="91" align="center">ATMEGA328</text>
-<text x="248.92" y="68.58" size="5.08" layer="91">TCP/Eth</text>
-<text x="251.46" y="-30.48" size="5.08" layer="91">Bluetooth</text>
 <text x="-25.4" y="-63.5" size="3.81" layer="91">MuX</text>
 </plain>
 <instances>
@@ -5783,8 +5801,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND7" gate="1" x="5.08" y="10.16" rot="R90"/>
 <instance part="GND8" gate="1" x="-43.18" y="25.4" rot="R270"/>
 <instance part="U2" gate="G$1" x="170.18" y="25.4"/>
-<instance part="U$12" gate="G$1" x="246.38" y="0"/>
-<instance part="U$13" gate="G$1" x="269.24" y="-55.88"/>
 <instance part="U$1" gate="G$1" x="-20.32" y="-86.36"/>
 </instances>
 <busses>
@@ -5845,6 +5861,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="U$2" gate="G$1" x="0" y="15.24"/>
 <instance part="+3V2" gate="G$1" x="20.32" y="15.24" rot="R270"/>
 <instance part="JP1" gate="G$1" x="-27.94" y="15.24"/>
+<instance part="P+1" gate="1" x="20.32" y="30.48" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5856,13 +5873,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="17.78" y1="15.24" x2="10.16" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<pinref part="U$2" gate="G$1" pin="VIN"/>
-<wire x1="-20.32" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
@@ -5872,6 +5882,33 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-15.24" y1="12.7" x2="-10.16" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="JP1" gate="G$1" pin="2"/>
+<pinref part="U$2" gate="G$1" pin="VIN"/>
+<wire x1="-20.32" y1="17.78" x2="-15.24" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="17.78" x2="-15.24" y2="30.48" width="0.1524" layer="91"/>
+<junction x="-15.24" y="17.78"/>
+<pinref part="P+1" gate="1" pin="+5V"/>
+<wire x1="-15.24" y1="30.48" x2="17.78" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+</nets>
+</sheet>
+<sheet>
+<description>I/O</description>
+<plain>
+<text x="-15.24" y="83.82" size="5.08" layer="91">TCP/Eth</text>
+<text x="-12.7" y="-15.24" size="5.08" layer="91">Bluetooth</text>
+</plain>
+<instances>
+<instance part="U$14" gate="G$1" x="-17.78" y="15.24"/>
+<instance part="U$15" gate="G$1" x="5.08" y="-40.64"/>
+</instances>
+<busses>
+</busses>
+<nets>
 </nets>
 </sheet>
 </sheets>

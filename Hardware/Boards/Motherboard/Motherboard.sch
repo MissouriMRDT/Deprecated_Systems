@@ -4058,6 +4058,53 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="LD1117">
+<packages>
+<package name="LD1117SOT-223">
+<wire x1="-3.25" y1="0" x2="-3.25" y2="0.25" width="0.127" layer="21"/>
+<wire x1="-3.25" y1="0.25" x2="-3.25" y2="1.75" width="0.127" layer="21"/>
+<wire x1="-3.25" y1="1.75" x2="3.25" y2="1.75" width="0.127" layer="21"/>
+<wire x1="3.25" y1="1.75" x2="3.25" y2="-1.75" width="0.127" layer="21"/>
+<wire x1="3.25" y1="-1.75" x2="-3.25" y2="-1.75" width="0.127" layer="21"/>
+<wire x1="-3.25" y1="-1.75" x2="-3.25" y2="0" width="0.127" layer="21"/>
+<smd name="VOUT" x="0" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
+<smd name="GND" x="-2.3" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
+<smd name="VIN" x="2.3" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
+<smd name="(VOUT)" x="0" y="3.2" dx="2" dy="3.3" layer="1" rot="R90"/>
+</package>
+</packages>
+<symbols>
+<symbol name="LD1117">
+<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<pin name="VIN" x="-10.16" y="2.54" length="middle"/>
+<pin name="GND" x="-10.16" y="-2.54" length="middle"/>
+<pin name="VOUT" x="10.16" y="0" length="middle" rot="R180"/>
+<text x="-3.048" y="5.842" size="1.27" layer="94">3.3v Reg</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LD1117">
+<gates>
+<gate name="G$1" symbol="LD1117" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LD1117SOT-223">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="VIN" pad="VIN"/>
+<connect gate="G$1" pin="VOUT" pad="VOUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4132,6 +4179,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="U$1" library="adg1407" deviceset="ADG1407" device=""/>
+<part name="U$2" library="LD1117" deviceset="LD1117" device=""/>
+<part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5190,10 +5239,19 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <plain>
 </plain>
 <instances>
+<instance part="U$2" gate="G$1" x="0" y="15.24"/>
+<instance part="+3V2" gate="G$1" x="20.32" y="15.24" rot="R270"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="+3V3" class="0">
+<segment>
+<pinref part="+3V2" gate="G$1" pin="+3V3"/>
+<pinref part="U$2" gate="G$1" pin="VOUT"/>
+<wire x1="17.78" y1="15.24" x2="10.16" y2="15.24" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

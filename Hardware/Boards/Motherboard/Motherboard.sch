@@ -4818,6 +4818,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
+<part name="Y2" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="HC49US"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
+<part name="GND27" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5880,6 +5884,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND26" gate="1" x="132.08" y="71.12" rot="R180"/>
 <instance part="P+2" gate="1" x="124.46" y="71.12"/>
 <instance part="P+3" gate="1" x="134.62" y="48.26"/>
+<instance part="Y2" gate="G$1" x="127" y="22.86" rot="R90"/>
+<instance part="C3" gate="G$1" x="119.38" y="20.32" rot="R270"/>
+<instance part="C4" gate="G$1" x="119.38" y="25.4" rot="R270"/>
+<instance part="GND27" gate="1" x="111.76" y="22.86" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5951,6 +5959,15 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="132.08" y1="55.88" x2="132.08" y2="58.42" width="0.1524" layer="91"/>
 <junction x="132.08" y="58.42"/>
 </segment>
+<segment>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="25.4" x2="114.3" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="GND27" gate="1" pin="GND"/>
+<wire x1="114.3" y1="25.4" x2="114.3" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="22.86" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="114.3" y1="20.32" x2="116.84" y2="20.32" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="AT328_SS" class="0">
 <segment>
@@ -6019,6 +6036,28 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="144.78" y1="35.56" x2="142.24" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="35.56" x2="142.24" y2="40.64" width="0.1524" layer="91"/>
 <junction x="142.24" y="40.64"/>
+</segment>
+</net>
+<net name="ATCLK2" class="0">
+<segment>
+<pinref part="Y2" gate="G$1" pin="1"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="127" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="PB7(XTAL2/TOSC2)"/>
+<wire x1="127" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
+<junction x="127" y="20.32"/>
+<label x="132.08" y="20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ATCLK1" class="0">
+<segment>
+<pinref part="Y2" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="127" y1="25.4" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="PB6(XTAL1/TOSC1)"/>
+<wire x1="127" y1="25.4" x2="144.78" y2="25.4" width="0.1524" layer="91"/>
+<junction x="127" y="25.4"/>
+<label x="132.08" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1371,91 +1371,99 @@ We've spent an enormous amount of time creating and checking these footprints an
 </package>
 </packages>
 <symbols>
-<symbol name="ATMEGA8U2">
-<wire x1="-15.24" y1="30.48" x2="-15.24" y2="-30.48" width="0.254" layer="94"/>
-<wire x1="-15.24" y1="-30.48" x2="15.24" y2="-30.48" width="0.254" layer="94"/>
-<wire x1="15.24" y1="-30.48" x2="15.24" y2="30.48" width="0.254" layer="94"/>
-<wire x1="15.24" y1="30.48" x2="-15.24" y2="30.48" width="0.254" layer="94"/>
-<text x="-15.24" y="30.48" size="1.778" layer="95">&gt;NAME</text>
-<text x="-15.24" y="-33.02" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="AVCC" x="-20.32" y="20.32" length="middle"/>
-<pin name="D+" x="-20.32" y="10.16" length="middle"/>
-<pin name="D-" x="-20.32" y="7.62" length="middle"/>
-<pin name="GND" x="-20.32" y="-27.94" length="middle"/>
-<pin name="PB0" x="20.32" y="27.94" length="middle" rot="R180"/>
-<pin name="PB1(SCK)" x="20.32" y="25.4" length="middle" rot="R180"/>
-<pin name="PB2(MOSI)" x="20.32" y="22.86" length="middle" rot="R180"/>
-<pin name="PB3(MISO)" x="20.32" y="20.32" length="middle" rot="R180"/>
-<pin name="PB4" x="20.32" y="17.78" length="middle" rot="R180"/>
-<pin name="PB5" x="20.32" y="15.24" length="middle" rot="R180"/>
-<pin name="PB6" x="20.32" y="12.7" length="middle" rot="R180"/>
-<pin name="PB7" x="20.32" y="10.16" length="middle" rot="R180"/>
-<pin name="PC2" x="20.32" y="5.08" length="middle" rot="R180"/>
-<pin name="PC4" x="20.32" y="2.54" length="middle" rot="R180"/>
-<pin name="PC5" x="20.32" y="0" length="middle" rot="R180"/>
-<pin name="PC6" x="20.32" y="-2.54" length="middle" rot="R180"/>
-<pin name="PC7" x="20.32" y="-5.08" length="middle" rot="R180"/>
-<pin name="PD0" x="20.32" y="-10.16" length="middle" rot="R180"/>
-<pin name="PD1" x="20.32" y="-12.7" length="middle" rot="R180"/>
-<pin name="PD2(RX)" x="20.32" y="-15.24" length="middle" rot="R180"/>
-<pin name="PD3(TX)" x="20.32" y="-17.78" length="middle" rot="R180"/>
-<pin name="PD4" x="20.32" y="-20.32" length="middle" rot="R180"/>
-<pin name="PD5" x="20.32" y="-22.86" length="middle" rot="R180"/>
-<pin name="PD6(RTS)" x="20.32" y="-25.4" length="middle" rot="R180"/>
-<pin name="PD7(CTS)" x="20.32" y="-27.94" length="middle" rot="R180"/>
-<pin name="RESET/PC1" x="-20.32" y="27.94" length="middle"/>
-<pin name="UCAP" x="-20.32" y="-20.32" length="middle"/>
-<pin name="UGND" x="-20.32" y="-25.4" length="middle"/>
-<pin name="UVCC" x="-20.32" y="12.7" length="middle"/>
-<pin name="VCC" x="-20.32" y="22.86" length="middle"/>
-<pin name="XTAL1" x="-20.32" y="0" length="middle"/>
-<pin name="XTAL2/PC0" x="-20.32" y="-10.16" length="middle"/>
+<symbol name="ATMEGAXX8-32PIN">
+<description>Symbol for Atmega328/168/88/48 chips, 32-pin version</description>
+<wire x1="-17.78" y1="27.94" x2="20.32" y2="27.94" width="0.254" layer="94"/>
+<wire x1="20.32" y1="27.94" x2="20.32" y2="-35.56" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-35.56" x2="-17.78" y2="-35.56" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-35.56" x2="-17.78" y2="27.94" width="0.254" layer="94"/>
+<text x="-17.78" y="-38.1" size="1.778" layer="95">&gt;NAME</text>
+<text x="-17.78" y="28.448" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="PB5(SCK)" x="25.4" y="-33.02" length="middle" rot="R180"/>
+<pin name="PB7(XTAL2/TOSC2)" x="-22.86" y="-5.08" length="middle"/>
+<pin name="PB6(XTAL1/TOSC1)" x="-22.86" y="0" length="middle"/>
+<pin name="GND@1" x="-22.86" y="-27.94" length="middle"/>
+<pin name="GND@2" x="-22.86" y="-30.48" length="middle"/>
+<pin name="VCC@1" x="-22.86" y="17.78" length="middle"/>
+<pin name="VCC@2" x="-22.86" y="15.24" length="middle"/>
+<pin name="AGND" x="-22.86" y="-25.4" length="middle"/>
+<pin name="AREF" x="-22.86" y="10.16" length="middle"/>
+<pin name="AVCC" x="-22.86" y="20.32" length="middle"/>
+<pin name="PB4(MISO)" x="25.4" y="-30.48" length="middle" rot="R180"/>
+<pin name="PB3(MOSI/OC2)" x="25.4" y="-27.94" length="middle" rot="R180"/>
+<pin name="PB2(SS/OC1B)" x="25.4" y="-25.4" length="middle" rot="R180"/>
+<pin name="PB1(OC1A)" x="25.4" y="-22.86" length="middle" rot="R180"/>
+<pin name="PB0(ICP)" x="25.4" y="-20.32" length="middle" rot="R180"/>
+<pin name="PD7(AIN1)" x="25.4" y="-15.24" length="middle" rot="R180"/>
+<pin name="PD6(AIN0)" x="25.4" y="-12.7" length="middle" rot="R180"/>
+<pin name="PD5(T1)" x="25.4" y="-10.16" length="middle" rot="R180"/>
+<pin name="PD4(XCK/T0)" x="25.4" y="-7.62" length="middle" rot="R180"/>
+<pin name="PD3(INT1)" x="25.4" y="-5.08" length="middle" rot="R180"/>
+<pin name="PD2(INT0)" x="25.4" y="-2.54" length="middle" rot="R180"/>
+<pin name="PD1(TXD)" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="PD0(RXD)" x="25.4" y="2.54" length="middle" rot="R180"/>
+<pin name="ADC7" x="25.4" y="7.62" length="middle" rot="R180"/>
+<pin name="ADC6" x="25.4" y="10.16" length="middle" rot="R180"/>
+<pin name="PC5(ADC5/SCL)" x="25.4" y="12.7" length="middle" rot="R180"/>
+<pin name="PC4(ADC4/SDA)" x="25.4" y="15.24" length="middle" rot="R180"/>
+<pin name="PC3(ADC3)" x="25.4" y="17.78" length="middle" rot="R180"/>
+<pin name="PC2(ADC2)" x="25.4" y="20.32" length="middle" rot="R180"/>
+<pin name="PC1(ADC1)" x="25.4" y="22.86" length="middle" rot="R180"/>
+<pin name="PC0(ADC0)" x="25.4" y="25.4" length="middle" rot="R180"/>
+<pin name="PC6(/RESET)" x="-22.86" y="25.4" length="middle" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="ATMEGA8U2" prefix="U">
-<description>Atmel 32-pin 8-bit Microcontroller with 8/16/32K Bystes of ISP Flash and USB Controller. ATmega8U2, ATmega16U2, and ATmega32U2</description>
+<deviceset name="ATMEGA328_SMT" prefix="U" uservalue="yes">
+<description>32-Pin Atmega328 part&lt;BR&gt;
+Commonly used on Arduino compatible boards&lt;br&gt;
+Available in QFP and QFN packages&lt;br&gt;
+TQFP is IC-09069
+QFN is non-stock</description>
 <gates>
-<gate name="G$1" symbol="ATMEGA8U2" x="0" y="0"/>
+<gate name="G$1" symbol="ATMEGAXX8-32PIN" x="0" y="0"/>
 </gates>
 <devices>
-<device name="AU" package="TQFP32-08">
+<device name="" package="TQFP32-08">
 <connects>
-<connect gate="G$1" pin="AVCC" pad="32"/>
-<connect gate="G$1" pin="D+" pad="29"/>
-<connect gate="G$1" pin="D-" pad="30"/>
-<connect gate="G$1" pin="GND" pad="3"/>
-<connect gate="G$1" pin="PB0" pad="14"/>
-<connect gate="G$1" pin="PB1(SCK)" pad="15"/>
-<connect gate="G$1" pin="PB2(MOSI)" pad="16"/>
-<connect gate="G$1" pin="PB3(MISO)" pad="17"/>
-<connect gate="G$1" pin="PB4" pad="18"/>
-<connect gate="G$1" pin="PB5" pad="19"/>
-<connect gate="G$1" pin="PB6" pad="20"/>
-<connect gate="G$1" pin="PB7" pad="21"/>
-<connect gate="G$1" pin="PC2" pad="5"/>
-<connect gate="G$1" pin="PC4" pad="26"/>
-<connect gate="G$1" pin="PC5" pad="25"/>
-<connect gate="G$1" pin="PC6" pad="23"/>
-<connect gate="G$1" pin="PC7" pad="22"/>
-<connect gate="G$1" pin="PD0" pad="6"/>
-<connect gate="G$1" pin="PD1" pad="7"/>
-<connect gate="G$1" pin="PD2(RX)" pad="8"/>
-<connect gate="G$1" pin="PD3(TX)" pad="9"/>
-<connect gate="G$1" pin="PD4" pad="10"/>
-<connect gate="G$1" pin="PD5" pad="11"/>
-<connect gate="G$1" pin="PD6(RTS)" pad="12"/>
-<connect gate="G$1" pin="PD7(CTS)" pad="13"/>
-<connect gate="G$1" pin="RESET/PC1" pad="24"/>
-<connect gate="G$1" pin="UCAP" pad="27"/>
-<connect gate="G$1" pin="UGND" pad="28"/>
-<connect gate="G$1" pin="UVCC" pad="31"/>
-<connect gate="G$1" pin="VCC" pad="4"/>
-<connect gate="G$1" pin="XTAL1" pad="1"/>
-<connect gate="G$1" pin="XTAL2/PC0" pad="2"/>
+<connect gate="G$1" pin="ADC6" pad="19"/>
+<connect gate="G$1" pin="ADC7" pad="22"/>
+<connect gate="G$1" pin="AGND" pad="21"/>
+<connect gate="G$1" pin="AREF" pad="20"/>
+<connect gate="G$1" pin="AVCC" pad="18"/>
+<connect gate="G$1" pin="GND@1" pad="3"/>
+<connect gate="G$1" pin="GND@2" pad="5"/>
+<connect gate="G$1" pin="PB0(ICP)" pad="12"/>
+<connect gate="G$1" pin="PB1(OC1A)" pad="13"/>
+<connect gate="G$1" pin="PB2(SS/OC1B)" pad="14"/>
+<connect gate="G$1" pin="PB3(MOSI/OC2)" pad="15"/>
+<connect gate="G$1" pin="PB4(MISO)" pad="16"/>
+<connect gate="G$1" pin="PB5(SCK)" pad="17"/>
+<connect gate="G$1" pin="PB6(XTAL1/TOSC1)" pad="7"/>
+<connect gate="G$1" pin="PB7(XTAL2/TOSC2)" pad="8"/>
+<connect gate="G$1" pin="PC0(ADC0)" pad="23"/>
+<connect gate="G$1" pin="PC1(ADC1)" pad="24"/>
+<connect gate="G$1" pin="PC2(ADC2)" pad="25"/>
+<connect gate="G$1" pin="PC3(ADC3)" pad="26"/>
+<connect gate="G$1" pin="PC4(ADC4/SDA)" pad="27"/>
+<connect gate="G$1" pin="PC5(ADC5/SCL)" pad="28"/>
+<connect gate="G$1" pin="PC6(/RESET)" pad="29"/>
+<connect gate="G$1" pin="PD0(RXD)" pad="30"/>
+<connect gate="G$1" pin="PD1(TXD)" pad="31"/>
+<connect gate="G$1" pin="PD2(INT0)" pad="32"/>
+<connect gate="G$1" pin="PD3(INT1)" pad="1"/>
+<connect gate="G$1" pin="PD4(XCK/T0)" pad="2"/>
+<connect gate="G$1" pin="PD5(T1)" pad="9"/>
+<connect gate="G$1" pin="PD6(AIN0)" pad="10"/>
+<connect gate="G$1" pin="PD7(AIN1)" pad="11"/>
+<connect gate="G$1" pin="VCC@1" pad="4"/>
+<connect gate="G$1" pin="VCC@2" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="PROD_ID" value="IC-09069" constant="no"/>
+<attribute name="VALUE" value="ATMEGA328P" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4791,7 +4799,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="U2" library="SparkFun-DigitalIC" deviceset="ATMEGA8U2" device="AU"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="ARM_RST" library="switch-omron" deviceset="10-XX" device=""/>
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W"/>
@@ -4804,6 +4811,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="U$14" library="w5500_wiznet" deviceset="W5500" device=""/>
 <part name="U$15" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
+<part name="U3" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
 </parts>
 <sheets>
 <sheet>
@@ -5077,6 +5085,34 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-119.38" y1="-43.18" x2="-124.46" y2="-38.1" width="0.1524" layer="91"/>
 <label x="-91.44" y="-43.18" size="1.778" layer="95"/>
 <pinref part="U1" gate="B" pin="RESET_B"/>
+</segment>
+</net>
+<net name="UART1_TX" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE0"/>
+<wire x1="53.34" y1="124.46" x2="71.12" y2="124.46" width="0.1524" layer="91"/>
+<label x="55.88" y="124.46" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="UART1_RX" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE1"/>
+<wire x1="53.34" y1="121.92" x2="71.12" y2="121.92" width="0.1524" layer="91"/>
+<label x="55.88" y="121.92" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="UART1_CTS_B" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE2"/>
+<wire x1="53.34" y1="119.38" x2="71.12" y2="119.38" width="0.1524" layer="91"/>
+<label x="55.88" y="119.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="UART1_RTS_B" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PTE3"/>
+<wire x1="53.34" y1="116.84" x2="71.12" y2="116.84" width="0.1524" layer="91"/>
+<label x="55.88" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -5800,8 +5836,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND6" gate="1" x="5.08" y="27.94" rot="R90"/>
 <instance part="GND7" gate="1" x="5.08" y="10.16" rot="R90"/>
 <instance part="GND8" gate="1" x="-43.18" y="25.4" rot="R270"/>
-<instance part="U2" gate="G$1" x="170.18" y="25.4"/>
 <instance part="U$1" gate="G$1" x="-20.32" y="-86.36"/>
+<instance part="U3" gate="G$1" x="167.64" y="25.4"/>
 </instances>
 <busses>
 </busses>
@@ -5861,7 +5897,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="U$2" gate="G$1" x="0" y="15.24"/>
 <instance part="+3V2" gate="G$1" x="20.32" y="15.24" rot="R270"/>
 <instance part="JP1" gate="G$1" x="-27.94" y="15.24"/>
-<instance part="P+1" gate="1" x="20.32" y="30.48" rot="R270"/>
+<instance part="P+1" gate="1" x="20.32" y="27.94" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5888,10 +5924,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U$2" gate="G$1" pin="VIN"/>
 <wire x1="-20.32" y1="17.78" x2="-15.24" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="-15.24" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="17.78" x2="-15.24" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="17.78" x2="-15.24" y2="27.94" width="0.1524" layer="91"/>
 <junction x="-15.24" y="17.78"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="-15.24" y1="30.48" x2="17.78" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="27.94" x2="17.78" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

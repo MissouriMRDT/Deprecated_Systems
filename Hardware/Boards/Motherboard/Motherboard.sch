@@ -1187,22 +1187,6 @@ Used in MPL115A1 -</description>
 <pin name="INT1" x="12.7" y="-2.54" visible="pin" length="short" direction="out" rot="R180"/>
 <pin name="INT2" x="12.7" y="-5.08" visible="pin" length="short" direction="out" rot="R180"/>
 </symbol>
-<symbol name="MPL115A">
-<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="5.08" width="0.254" layer="94"/>
-<wire x1="10.16" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
-<text x="-10.16" y="5.588" size="1.778" layer="95">&gt;Name</text>
-<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;Value</text>
-<pin name="VDD" x="-12.7" y="2.54" length="short"/>
-<pin name="CAP" x="-12.7" y="0" length="short"/>
-<pin name="GND" x="-12.7" y="-2.54" length="short"/>
-<pin name="SHDN" x="-12.7" y="-5.08" length="short"/>
-<pin name="RST/CS" x="12.7" y="-5.08" length="short" rot="R180"/>
-<pin name="NC/DOUT" x="12.7" y="-2.54" length="short" rot="R180"/>
-<pin name="SDA/DIN" x="12.7" y="0" length="short" rot="R180"/>
-<pin name="SCLK" x="12.7" y="2.54" length="short" rot="R180"/>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="MPU-9150" prefix="U" uservalue="yes">
@@ -1253,31 +1237,6 @@ Used in MPL115A1 -</description>
 <connect gate="G$1" pin="SDA" pad="7"/>
 <connect gate="G$1" pin="VDD" pad="1"/>
 <connect gate="G$1" pin="VDDIO" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MPL115A" prefix="U">
-<description>&lt;b&gt;&lt;h3&gt;MPL115A1 (SPI) and MPL115A2 (I2C) Miniature Digital Barometer&lt;/h3&gt;&lt;/b&gt;
-&lt;br&gt;
-5.0x3.0x1.2mm LGA Package</description>
-<gates>
-<gate name="G$1" symbol="MPL115A" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="LGA8">
-<connects>
-<connect gate="G$1" pin="CAP" pad="2"/>
-<connect gate="G$1" pin="GND" pad="3"/>
-<connect gate="G$1" pin="NC/DOUT" pad="6"/>
-<connect gate="G$1" pin="RST/CS" pad="5"/>
-<connect gate="G$1" pin="SCLK" pad="8"/>
-<connect gate="G$1" pin="SDA/DIN" pad="7"/>
-<connect gate="G$1" pin="SHDN" pad="4"/>
-<connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4775,12 +4734,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="U8" library="SparkFun-Sensors" deviceset="MPU-9150" device="QFN-24-NP"/>
 <part name="U9" library="SparkFun-Sensors" deviceset="MPL3115A2" device="LGA8"/>
 <part name="J2" library="SparkFun-Connectors" deviceset="U.FL" device=""/>
-<part name="U10" library="SparkFun-Sensors" deviceset="MPL115A" device=""/>
-<part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="U$3" library="MAX3077" deviceset="MAX3077" device=""/>
@@ -4804,7 +4760,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
-<part name="U$1" library="adg1407" deviceset="ADG1407" device=""/>
 <part name="U$2" library="LD1117" deviceset="LD1117" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
@@ -4823,6 +4778,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
+<part name="U$12" library="adg1407" deviceset="ADG1407" device=""/>
+<part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4830,6 +4789,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <plain>
 <text x="81.28" y="101.6" size="2.54" layer="91">SPI to 328</text>
 <text x="81.28" y="119.38" size="2.54" layer="91">UART_1</text>
+<text x="162.56" y="73.66" size="3.81" layer="91">MuX</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="2.54" y="76.2"/>
@@ -4848,6 +4808,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R1" gate="G$1" x="-124.46" y="-33.02" rot="R90"/>
 <instance part="GND12" gate="1" x="-116.84" y="-27.94" rot="R270"/>
 <instance part="+3V3" gate="G$1" x="-101.6" y="-15.24"/>
+<instance part="U$12" gate="G$1" x="167.64" y="50.8"/>
 </instances>
 <busses>
 </busses>
@@ -5853,24 +5814,19 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="-53.34" y="55.88" size="12.7" layer="91" align="center">GPS</text>
 <text x="25.4" y="48.26" size="12.7" layer="91" align="center">IMU</text>
 <text x="-60.96" y="-20.32" size="5.08" layer="91" align="center">Altimeter</text>
-<text x="10.16" y="-22.86" size="5.08" layer="91">Barometer</text>
 <text x="-185.42" y="58.42" size="12.7" layer="91" align="center">ATMEGA328</text>
-<text x="-63.5" y="-66.04" size="3.81" layer="91">MuX</text>
+<text x="-38.1" y="-5.08" size="1.778" layer="91">Ant.</text>
 </plain>
 <instances>
 <instance part="U7" gate="G$1" x="-58.42" y="17.78"/>
 <instance part="U8" gate="G$1" x="25.4" y="15.24"/>
 <instance part="U9" gate="G$1" x="-58.42" y="-35.56"/>
-<instance part="J2" gate="G$1" x="-96.52" y="55.88"/>
-<instance part="U10" gate="G$1" x="25.4" y="-35.56"/>
-<instance part="GND2" gate="1" x="5.08" y="-38.1" rot="R270"/>
+<instance part="J2" gate="G$1" x="-30.48" y="0" rot="MR0"/>
 <instance part="GND3" gate="1" x="-78.74" y="-38.1" rot="R270"/>
 <instance part="GND4" gate="1" x="-81.28" y="10.16" rot="R270"/>
 <instance part="GND5" gate="1" x="-2.54" y="5.08" rot="R270"/>
-<instance part="GND6" gate="1" x="-33.02" y="25.4" rot="R90"/>
-<instance part="GND7" gate="1" x="-33.02" y="7.62" rot="R90"/>
+<instance part="GND7" gate="1" x="-20.32" y="-12.7"/>
 <instance part="GND8" gate="1" x="-81.28" y="22.86" rot="R270"/>
-<instance part="U$1" gate="G$1" x="-58.42" y="-88.9"/>
 <instance part="U3" gate="G$1" x="-187.96" y="-5.08"/>
 <instance part="GND13" gate="1" x="-220.98" y="-35.56" rot="R270"/>
 <instance part="328_RST" gate="1" x="-218.44" y="27.94" rot="R270"/>
@@ -5883,6 +5839,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND28" gate="1" x="-137.16" y="-30.48" rot="R90"/>
 <instance part="+3V4" gate="G$1" x="-231.14" y="43.18"/>
 <instance part="+3V6" gate="G$1" x="-220.98" y="17.78"/>
+<instance part="+3V7" gate="G$1" x="-78.74" y="38.1"/>
+<instance part="+3V8" gate="G$1" x="-73.66" y="-25.4"/>
+<instance part="+3V9" gate="G$1" x="5.08" y="35.56"/>
 </instances>
 <busses>
 </busses>
@@ -5902,24 +5861,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="0" y1="5.08" x2="2.54" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U7" gate="G$1" pin="GND@4"/>
-<pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="-43.18" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="-43.18" y1="7.62" x2="-35.56" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="U7" gate="G$1" pin="GND@3"/>
-</segment>
-<segment>
 <pinref part="U7" gate="G$1" pin="GND@2"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="-73.66" y1="10.16" x2="-78.74" y2="10.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U10" gate="G$1" pin="GND"/>
-<pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="12.7" y1="-38.1" x2="7.62" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U9" gate="G$1" pin="GND"/>
@@ -5962,6 +5906,24 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-241.3" y1="-7.62" x2="-241.3" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="-241.3" y1="-10.16" x2="-238.76" y2="-10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="GND@0"/>
+<wire x1="-27.94" y1="-5.08" x2="-20.32" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="-20.32" y1="-5.08" x2="-20.32" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="GND@1"/>
+<wire x1="-20.32" y1="-7.62" x2="-20.32" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="-7.62" x2="-20.32" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="-20.32" y="-7.62"/>
+<wire x1="-20.32" y1="-5.08" x2="-20.32" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-20.32" y="-5.08"/>
+<pinref part="U7" gate="G$1" pin="GND@3"/>
+<wire x1="-20.32" y1="7.62" x2="-43.18" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="U7" gate="G$1" pin="GND@4"/>
+<wire x1="-43.18" y1="25.4" x2="-20.32" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="25.4" x2="-20.32" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-20.32" y="7.62"/>
 </segment>
 </net>
 <net name="AT328_MOSI" class="0">
@@ -6054,6 +6016,40 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <junction x="-213.36" y="10.16"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
 <wire x1="-220.98" y1="15.24" x2="-220.98" y2="12.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V7" gate="G$1" pin="+3V3"/>
+<wire x1="-78.74" y1="35.56" x2="-78.74" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="U7" gate="G$1" pin="VCC"/>
+<wire x1="-78.74" y1="27.94" x2="-73.66" y2="27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V8" gate="G$1" pin="+3V3"/>
+<wire x1="-73.66" y1="-27.94" x2="-73.66" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U9" gate="G$1" pin="VDD"/>
+<wire x1="-73.66" y1="-33.02" x2="-71.12" y2="-33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V9" gate="G$1" pin="+3V3"/>
+<wire x1="5.08" y1="33.02" x2="5.08" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U8" gate="G$1" pin="VDD@13"/>
+<wire x1="5.08" y1="30.48" x2="5.08" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="27.94" x2="5.08" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="25.4" x2="7.62" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U8" gate="G$1" pin="VDD@3"/>
+<wire x1="7.62" y1="27.94" x2="5.08" y2="27.94" width="0.1524" layer="91"/>
+<junction x="5.08" y="27.94"/>
+<pinref part="U8" gate="G$1" pin="VLOGIC"/>
+<wire x1="7.62" y1="30.48" x2="5.08" y2="30.48" width="0.1524" layer="91"/>
+<junction x="5.08" y="30.48"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="J2" gate="G$1" pin="SIGNAL"/>
+<pinref part="U7" gate="G$1" pin="EX_ANT"/>
+<wire x1="-35.56" y1="0" x2="-35.56" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="5.08" x2="-43.18" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

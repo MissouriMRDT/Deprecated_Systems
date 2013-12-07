@@ -4822,6 +4822,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
+<part name="GND28" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5125,13 +5126,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U1" gate="A" pin="PTE3"/>
 <wire x1="53.34" y1="116.84" x2="76.2" y2="116.84" width="0.1524" layer="91"/>
 <label x="55.88" y="116.84" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AT328_SS" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="PTE16"/>
-<wire x1="53.34" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<label x="55.88" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AT328_SCK" class="0">
@@ -5888,6 +5882,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="C3" gate="G$1" x="-236.22" y="-10.16" rot="R270"/>
 <instance part="C4" gate="G$1" x="-236.22" y="-5.08" rot="R270"/>
 <instance part="GND27" gate="1" x="-243.84" y="-7.62" rot="R270"/>
+<instance part="GND28" gate="1" x="-137.16" y="-30.48" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -5967,13 +5962,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-241.3" y1="-7.62" x2="-241.3" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="-241.3" y1="-10.16" x2="-238.76" y2="-10.16" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="AT328_SS" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="PB2(SS/OC1B)"/>
-<wire x1="-162.56" y1="-30.48" x2="-142.24" y2="-30.48" width="0.1524" layer="91"/>
-<label x="-160.02" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AT328_MOSI" class="0">
@@ -6058,6 +6046,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-228.6" y1="-5.08" x2="-210.82" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-228.6" y="-5.08"/>
 <label x="-223.52" y="-5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="AT328_SS" class="0">
+<segment>
+<pinref part="GND28" gate="1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="PB2(SS/OC1B)"/>
+<wire x1="-139.7" y1="-30.48" x2="-162.56" y2="-30.48" width="0.1524" layer="91"/>
+<label x="-160.02" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

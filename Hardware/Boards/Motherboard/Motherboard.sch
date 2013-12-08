@@ -4981,7 +4981,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
-<part name="U$12" library="adg1407" deviceset="ADG1407" device=""/>
 <part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
@@ -5045,6 +5044,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
+<part name="U$1" library="adg1407" deviceset="ADG1407" device=""/>
+<part name="U$3" library="adg1407" deviceset="ADG1407" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5052,7 +5053,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <plain>
 <text x="81.28" y="101.6" size="2.54" layer="91">SPI to 328</text>
 <text x="81.28" y="119.38" size="2.54" layer="91">UART_1</text>
-<text x="162.56" y="73.66" size="3.81" layer="91">MuX</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="2.54" y="76.2"/>
@@ -5068,7 +5068,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="ARM_RST" gate="1" x="-101.6" y="-38.1"/>
 <instance part="GND12" gate="1" x="-116.84" y="-27.94" rot="R270"/>
 <instance part="+3V3" gate="G$1" x="-101.6" y="-15.24"/>
-<instance part="U$12" gate="G$1" x="167.64" y="50.8"/>
 <instance part="C1" gate="G$1" x="-76.2" y="53.34" rot="R270"/>
 <instance part="C2" gate="G$1" x="-76.2" y="63.5" rot="R270"/>
 <instance part="R1" gate="G$1" x="-124.46" y="-33.02" rot="R90"/>
@@ -5389,6 +5388,21 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </nets>
 </sheet>
 <sheet>
+<description>I/O</description>
+<plain>
+<text x="-15.24" y="83.82" size="5.08" layer="91">TCP/Eth</text>
+<text x="-12.7" y="-15.24" size="5.08" layer="91">Bluetooth</text>
+</plain>
+<instances>
+<instance part="U$14" gate="G$1" x="-17.78" y="15.24"/>
+<instance part="U$15" gate="G$1" x="5.08" y="-40.64"/>
+</instances>
+<busses>
+</busses>
+<nets>
+</nets>
+</sheet>
+<sheet>
 <description>RS-485 External</description>
 <plain>
 <text x="88.9" y="104.14" size="5.08" layer="91">Ribbon Cable</text>
@@ -5432,6 +5446,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="+3V22" gate="G$1" x="2.54" y="-35.56" rot="R90"/>
 <instance part="+3V23" gate="G$1" x="2.54" y="-66.04" rot="R90"/>
 <instance part="+3V24" gate="G$1" x="-63.5" y="-66.04" rot="R90"/>
+<instance part="U$1" gate="G$1" x="106.68" y="-53.34"/>
 </instances>
 <busses>
 </busses>
@@ -6167,6 +6182,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="RS-485-8" gate="G$1" x="0" y="-114.3"/>
 <instance part="+3V32" gate="G$1" x="-25.4" y="-99.06"/>
 <instance part="GND34" gate="1" x="-25.4" y="-121.92" rot="R270"/>
+<instance part="U$3" gate="G$1" x="-116.84" y="-71.12"/>
 </instances>
 <busses>
 </busses>
@@ -6940,21 +6956,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="-15.24" y1="27.94" x2="17.78" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-</nets>
-</sheet>
-<sheet>
-<description>I/O</description>
-<plain>
-<text x="-15.24" y="83.82" size="5.08" layer="91">TCP/Eth</text>
-<text x="-12.7" y="-15.24" size="5.08" layer="91">Bluetooth</text>
-</plain>
-<instances>
-<instance part="U$14" gate="G$1" x="-17.78" y="15.24"/>
-<instance part="U$15" gate="G$1" x="5.08" y="-40.64"/>
-</instances>
-<busses>
-</busses>
-<nets>
 </nets>
 </sheet>
 </sheets>

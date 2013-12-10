@@ -4745,126 +4745,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="adg1407">
-<packages>
-<package name="ADG1407">
-<wire x1="4.85" y1="2.2" x2="-4.85" y2="2.2" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="2.2" x2="-4.85" y2="-2.2" width="0.127" layer="21"/>
-<wire x1="-4.85" y1="-2.2" x2="4.85" y2="-2.2" width="0.127" layer="21"/>
-<wire x1="4.85" y1="-2.2" x2="4.85" y2="2.2" width="0.127" layer="21"/>
-<text x="-3.8" y="-0.65" size="1.27" layer="21">ADG1407</text>
-<smd name="S5B" x="-0.325" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S4B" x="0.325" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S3B" x="0.975" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S2B" x="1.625" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S1B" x="2.275" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="GND" x="2.925" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="NC1" x="3.575" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="NC2" x="4.225" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S6B" x="-0.975" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S7B" x="-1.625" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S8B" x="-2.275" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="NC" x="-2.925" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="DB" x="-3.575" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="VDD" x="-4.225" y="-2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S4A" x="-0.325" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S3A" x="0.325" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S2A" x="0.975" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S1A" x="1.625" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="EN" x="2.275" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="A0" x="2.925" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="A1" x="3.575" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="A2" x="4.225" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S5A" x="-0.975" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S6A" x="-1.625" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S7A" x="-2.275" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="S8A" x="-2.925" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="VSS" x="-3.575" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<smd name="DA" x="-4.225" y="2.9" dx="0.6096" dy="0.3048" layer="1" rot="R90"/>
-<circle x="-4" y="-1.5" radius="0.5" width="0.127" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="ADG1407">
-<wire x1="-10.16" y1="20.32" x2="10.16" y2="20.32" width="0.254" layer="94"/>
-<wire x1="10.16" y1="20.32" x2="10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-17.78" x2="-10.16" y2="-17.78" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-17.78" x2="-10.16" y2="20.32" width="0.254" layer="94"/>
-<pin name="VDD" x="-15.24" y="17.78" length="middle"/>
-<pin name="S8B" x="-15.24" y="10.16" length="middle"/>
-<pin name="DB" x="-15.24" y="15.24" length="middle"/>
-<pin name="NC" x="-15.24" y="12.7" length="middle"/>
-<pin name="S7B" x="-15.24" y="7.62" length="middle"/>
-<pin name="S6B" x="-15.24" y="5.08" length="middle"/>
-<pin name="S5B" x="-15.24" y="2.54" length="middle"/>
-<pin name="S4B" x="-15.24" y="0" length="middle"/>
-<pin name="S3B" x="-15.24" y="-2.54" length="middle"/>
-<pin name="S2B" x="-15.24" y="-5.08" length="middle"/>
-<pin name="S1B" x="-15.24" y="-7.62" length="middle"/>
-<pin name="GND" x="-15.24" y="-10.16" length="middle"/>
-<pin name="NC1" x="-15.24" y="-12.7" length="middle"/>
-<pin name="NC2" x="-15.24" y="-15.24" length="middle"/>
-<pin name="A2" x="15.24" y="-15.24" length="middle" rot="R180"/>
-<pin name="EN" x="15.24" y="-7.62" length="middle" rot="R180"/>
-<pin name="A1" x="15.24" y="-12.7" length="middle" rot="R180"/>
-<pin name="A0" x="15.24" y="-10.16" length="middle" rot="R180"/>
-<pin name="S1A" x="15.24" y="-5.08" length="middle" rot="R180"/>
-<pin name="S2A" x="15.24" y="-2.54" length="middle" rot="R180"/>
-<pin name="S3A" x="15.24" y="0" length="middle" rot="R180"/>
-<pin name="S4A" x="15.24" y="2.54" length="middle" rot="R180"/>
-<pin name="S5A" x="15.24" y="5.08" length="middle" rot="R180"/>
-<pin name="S6A" x="15.24" y="7.62" length="middle" rot="R180"/>
-<pin name="S7A" x="15.24" y="10.16" length="middle" rot="R180"/>
-<pin name="S8A" x="15.24" y="12.7" length="middle" rot="R180"/>
-<pin name="VSS" x="15.24" y="15.24" length="middle" rot="R180"/>
-<pin name="DA" x="15.24" y="17.78" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ADG1407">
-<gates>
-<gate name="G$1" symbol="ADG1407" x="20.32" y="7.62"/>
-</gates>
-<devices>
-<device name="" package="ADG1407">
-<connects>
-<connect gate="G$1" pin="A0" pad="A0"/>
-<connect gate="G$1" pin="A1" pad="A1"/>
-<connect gate="G$1" pin="A2" pad="A2"/>
-<connect gate="G$1" pin="DA" pad="DA"/>
-<connect gate="G$1" pin="DB" pad="DB"/>
-<connect gate="G$1" pin="EN" pad="EN"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
-<connect gate="G$1" pin="NC1" pad="NC1"/>
-<connect gate="G$1" pin="NC2" pad="NC2"/>
-<connect gate="G$1" pin="S1A" pad="S1A"/>
-<connect gate="G$1" pin="S1B" pad="S1B"/>
-<connect gate="G$1" pin="S2A" pad="S2A"/>
-<connect gate="G$1" pin="S2B" pad="S2B"/>
-<connect gate="G$1" pin="S3A" pad="S3A"/>
-<connect gate="G$1" pin="S3B" pad="S3B"/>
-<connect gate="G$1" pin="S4A" pad="S4A"/>
-<connect gate="G$1" pin="S4B" pad="S4B"/>
-<connect gate="G$1" pin="S5A" pad="S5A"/>
-<connect gate="G$1" pin="S5B" pad="S5B"/>
-<connect gate="G$1" pin="S6A" pad="S6A"/>
-<connect gate="G$1" pin="S6B" pad="S6B"/>
-<connect gate="G$1" pin="S7A" pad="S7A"/>
-<connect gate="G$1" pin="S7B" pad="S7B"/>
-<connect gate="G$1" pin="S8A" pad="S8A"/>
-<connect gate="G$1" pin="S8B" pad="S8B"/>
-<connect gate="G$1" pin="VDD" pad="VDD"/>
-<connect gate="G$1" pin="VSS" pad="VSS"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="LD1117">
 <packages>
 <package name="LD1117SOT-223">
@@ -5044,8 +4924,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
-<part name="U$1" library="adg1407" deviceset="ADG1407" device=""/>
-<part name="U$3" library="adg1407" deviceset="ADG1407" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5446,7 +5324,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="+3V22" gate="G$1" x="2.54" y="-35.56" rot="R90"/>
 <instance part="+3V23" gate="G$1" x="2.54" y="-66.04" rot="R90"/>
 <instance part="+3V24" gate="G$1" x="-63.5" y="-66.04" rot="R90"/>
-<instance part="U$1" gate="G$1" x="106.68" y="-53.34"/>
 </instances>
 <busses>
 </busses>
@@ -6182,7 +6059,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="RS-485-8" gate="G$1" x="0" y="-114.3"/>
 <instance part="+3V32" gate="G$1" x="-25.4" y="-99.06"/>
 <instance part="GND34" gate="1" x="-25.4" y="-121.92" rot="R270"/>
-<instance part="U$3" gate="G$1" x="-116.84" y="-71.12"/>
 </instances>
 <busses>
 </busses>

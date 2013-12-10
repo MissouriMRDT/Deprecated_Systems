@@ -4852,7 +4852,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="U$14" library="w5500_wiznet" deviceset="W5500" device=""/>
-<part name="U$15" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
+<part name="BLUETOOTH" library="SPBT2632C2A" deviceset="SPBT2632C2A" device=""/>
 <part name="U3" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="328_RST" library="switch-omron" deviceset="10-XX" device=""/>
@@ -4924,13 +4924,16 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
+<part name="GND35" library="supply1" deviceset="GND" device=""/>
+<part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
+<part name="C12" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 </parts>
 <sheets>
 <sheet>
 <description>Main Processor</description>
 <plain>
 <text x="81.28" y="101.6" size="2.54" layer="91">SPI to 328</text>
-<text x="81.28" y="119.38" size="2.54" layer="91">UART_1</text>
+<text x="81.28" y="119.38" size="1.778" layer="91">Bluetooth UART</text>
 </plain>
 <instances>
 <instance part="U1" gate="A" x="2.54" y="76.2"/>
@@ -5207,28 +5210,28 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="R1" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="UART1_TX" class="0">
+<net name="BLUETH_RXD" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE0"/>
 <wire x1="53.34" y1="124.46" x2="76.2" y2="124.46" width="0.1524" layer="91"/>
 <label x="55.88" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="UART1_RX" class="0">
+<net name="BLUETH_TXD" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE1"/>
 <wire x1="53.34" y1="121.92" x2="76.2" y2="121.92" width="0.1524" layer="91"/>
 <label x="55.88" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="UART1_CTS_B" class="0">
+<net name="BLUETH_RTS" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE2"/>
 <wire x1="53.34" y1="119.38" x2="76.2" y2="119.38" width="0.1524" layer="91"/>
 <label x="55.88" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="UART1_RTS_B" class="0">
+<net name="BLUETH_CTS" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PTE3"/>
 <wire x1="53.34" y1="116.84" x2="76.2" y2="116.84" width="0.1524" layer="91"/>
@@ -5268,16 +5271,75 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <sheet>
 <description>I/O</description>
 <plain>
-<text x="-15.24" y="83.82" size="5.08" layer="91">TCP/Eth</text>
-<text x="-12.7" y="-15.24" size="5.08" layer="91">Bluetooth</text>
+<text x="-12.7" y="81.28" size="5.08" layer="91">TCP/Eth</text>
+<text x="-2.54" y="-22.86" size="1.778" layer="91">BlueTooth</text>
 </plain>
 <instances>
-<instance part="U$14" gate="G$1" x="-17.78" y="15.24"/>
-<instance part="U$15" gate="G$1" x="5.08" y="-40.64"/>
+<instance part="U$14" gate="G$1" x="-15.24" y="12.7"/>
+<instance part="BLUETOOTH" gate="G$1" x="5.08" y="-40.64"/>
+<instance part="GND35" gate="1" x="-35.56" y="-48.26" rot="R270"/>
+<instance part="+3V33" gate="G$1" x="-30.48" y="-22.86"/>
+<instance part="C12" gate="G$1" x="-25.4" y="-43.18"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="+3V3" class="0">
+<segment>
+<pinref part="+3V33" gate="G$1" pin="+3V3"/>
+<wire x1="-30.48" y1="-25.4" x2="-30.48" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="VIN"/>
+<wire x1="-30.48" y1="-27.94" x2="-12.7" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$22" class="0">
+<segment>
+<pinref part="BLUETOOTH" gate="G$1" pin="RESET"/>
+<pinref part="C12" gate="G$1" pin="1"/>
+<wire x1="-12.7" y1="-38.1" x2="-25.4" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND" class="0">
+<segment>
+<pinref part="C12" gate="G$1" pin="2"/>
+<wire x1="-25.4" y1="-45.72" x2="-25.4" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="GND35" gate="1" pin="GND"/>
+<wire x1="-25.4" y1="-48.26" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="GND"/>
+<wire x1="-30.48" y1="-48.26" x2="-33.02" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="-33.02" x2="-30.48" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-33.02" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="-30.48" y="-48.26"/>
+</segment>
+</net>
+<net name="BLUETH_TXD" class="0">
+<segment>
+<pinref part="BLUETOOTH" gate="G$1" pin="TXD"/>
+<wire x1="22.86" y1="-27.94" x2="50.8" y2="-27.94" width="0.1524" layer="91"/>
+<label x="27.94" y="-27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BLUETH_RXD" class="0">
+<segment>
+<pinref part="BLUETOOTH" gate="G$1" pin="RXD"/>
+<wire x1="22.86" y1="-30.48" x2="50.8" y2="-30.48" width="0.1524" layer="91"/>
+<label x="27.94" y="-30.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BLUETH_RTS" class="0">
+<segment>
+<pinref part="BLUETOOTH" gate="G$1" pin="RTS"/>
+<wire x1="22.86" y1="-33.02" x2="50.8" y2="-33.02" width="0.1524" layer="91"/>
+<label x="27.94" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BLUETH_CTS" class="0">
+<segment>
+<pinref part="BLUETOOTH" gate="G$1" pin="CTS"/>
+<wire x1="22.86" y1="-35.56" x2="50.8" y2="-35.56" width="0.1524" layer="91"/>
+<label x="27.94" y="-35.56" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>

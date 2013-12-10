@@ -5271,15 +5271,15 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <sheet>
 <description>I/O</description>
 <plain>
-<text x="-12.7" y="81.28" size="5.08" layer="91">TCP/Eth</text>
-<text x="-2.54" y="-22.86" size="1.778" layer="91">BlueTooth</text>
+<text x="-12.7" y="88.9" size="5.08" layer="91">TCP/Eth</text>
+<text x="-7.62" y="-17.78" size="1.778" layer="91">BlueTooth</text>
 </plain>
 <instances>
-<instance part="U$14" gate="G$1" x="-15.24" y="12.7"/>
-<instance part="BLUETOOTH" gate="G$1" x="5.08" y="-40.64"/>
-<instance part="GND35" gate="1" x="-35.56" y="-48.26" rot="R270"/>
-<instance part="+3V33" gate="G$1" x="-30.48" y="-22.86"/>
-<instance part="C12" gate="G$1" x="-25.4" y="-43.18"/>
+<instance part="U$14" gate="G$1" x="-15.24" y="20.32"/>
+<instance part="BLUETOOTH" gate="G$1" x="0" y="-35.56"/>
+<instance part="GND35" gate="1" x="-40.64" y="-43.18" rot="R270"/>
+<instance part="+3V33" gate="G$1" x="-35.56" y="-17.78"/>
+<instance part="C12" gate="G$1" x="-30.48" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -5287,57 +5287,57 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <net name="+3V3" class="0">
 <segment>
 <pinref part="+3V33" gate="G$1" pin="+3V3"/>
-<wire x1="-30.48" y1="-25.4" x2="-30.48" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-20.32" x2="-35.56" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="BLUETOOTH" gate="G$1" pin="VIN"/>
-<wire x1="-30.48" y1="-27.94" x2="-12.7" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-22.86" x2="-17.78" y2="-22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="BLUETOOTH" gate="G$1" pin="RESET"/>
 <pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="-12.7" y1="-38.1" x2="-25.4" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-33.02" x2="-30.48" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="C12" gate="G$1" pin="2"/>
-<wire x1="-25.4" y1="-45.72" x2="-25.4" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-40.64" x2="-30.48" y2="-43.18" width="0.1524" layer="91"/>
 <pinref part="GND35" gate="1" pin="GND"/>
-<wire x1="-25.4" y1="-48.26" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-43.18" x2="-35.56" y2="-43.18" width="0.1524" layer="91"/>
 <pinref part="BLUETOOTH" gate="G$1" pin="GND"/>
-<wire x1="-30.48" y1="-48.26" x2="-33.02" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="-33.02" x2="-30.48" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="-33.02" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
-<junction x="-30.48" y="-48.26"/>
+<wire x1="-35.56" y1="-43.18" x2="-38.1" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-27.94" x2="-35.56" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-27.94" x2="-35.56" y2="-43.18" width="0.1524" layer="91"/>
+<junction x="-35.56" y="-43.18"/>
 </segment>
 </net>
 <net name="BLUETH_TXD" class="0">
 <segment>
 <pinref part="BLUETOOTH" gate="G$1" pin="TXD"/>
-<wire x1="22.86" y1="-27.94" x2="50.8" y2="-27.94" width="0.1524" layer="91"/>
-<label x="27.94" y="-27.94" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-22.86" x2="45.72" y2="-22.86" width="0.1524" layer="91"/>
+<label x="22.86" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BLUETH_RXD" class="0">
 <segment>
 <pinref part="BLUETOOTH" gate="G$1" pin="RXD"/>
-<wire x1="22.86" y1="-30.48" x2="50.8" y2="-30.48" width="0.1524" layer="91"/>
-<label x="27.94" y="-30.48" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-25.4" x2="45.72" y2="-25.4" width="0.1524" layer="91"/>
+<label x="22.86" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BLUETH_RTS" class="0">
 <segment>
 <pinref part="BLUETOOTH" gate="G$1" pin="RTS"/>
-<wire x1="22.86" y1="-33.02" x2="50.8" y2="-33.02" width="0.1524" layer="91"/>
-<label x="27.94" y="-33.02" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-27.94" x2="45.72" y2="-27.94" width="0.1524" layer="91"/>
+<label x="22.86" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BLUETH_CTS" class="0">
 <segment>
 <pinref part="BLUETOOTH" gate="G$1" pin="CTS"/>
-<wire x1="22.86" y1="-35.56" x2="50.8" y2="-35.56" width="0.1524" layer="91"/>
-<label x="27.94" y="-35.56" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-30.48" x2="45.72" y2="-30.48" width="0.1524" layer="91"/>
+<label x="22.86" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

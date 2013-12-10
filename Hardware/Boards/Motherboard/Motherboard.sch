@@ -5254,6 +5254,109 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="MC74LVXT8051">
+<packages>
+<package name="SOIC16N">
+<description>&lt;b&gt;SMALL OUTLINE INTEGRATED CIRCUIT&lt;/b&gt;</description>
+<wire x1="4.94" y1="-1.9" x2="-4.94" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-4.94" y1="-1.9" x2="-4.94" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-4.94" y1="-1.4" x2="-4.94" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-4.94" y1="1.9" x2="4.94" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="4.94" y1="-1.4" x2="-4.94" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.94" y1="1.9" x2="4.94" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="4.94" y1="-1.4" x2="4.94" y2="-1.9" width="0.2032" layer="21"/>
+<smd name="X6" x="-3.175" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X0" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X4" x="-4.445" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X7" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X1" x="-1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X3" x="0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="A" x="1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="EN" x="1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="C" x="4.445" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X5" x="0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="NC" x="3.175" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="B" x="3.175" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="GND" x="4.445" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="X2" x="-3.175" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="VCC" x="-4.445" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-5.207" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="-4.445" y="-0.635" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-4.69" y1="-3.1" x2="-4.2" y2="-2" layer="51"/>
+<rectangle x1="-3.42" y1="-3.1" x2="-2.93" y2="-2" layer="51"/>
+<rectangle x1="-2.15" y1="-3.1" x2="-1.66" y2="-2" layer="51"/>
+<rectangle x1="-0.88" y1="-3.1" x2="-0.39" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="2" x2="2.15" y2="3.1" layer="51"/>
+<rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
+<rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
+<rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
+<rectangle x1="0.39" y1="-3.1" x2="0.88" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="-3.1" x2="2.15" y2="-2" layer="51"/>
+<rectangle x1="2.93" y1="-3.1" x2="3.42" y2="-2" layer="51"/>
+<rectangle x1="4.2" y1="-3.1" x2="4.69" y2="-2" layer="51"/>
+<rectangle x1="4.2" y1="2" x2="4.69" y2="3.1" layer="51"/>
+<rectangle x1="2.93" y1="2" x2="3.42" y2="3.1" layer="51"/>
+<rectangle x1="-3.42" y1="2" x2="-2.93" y2="3.1" layer="51"/>
+<rectangle x1="-4.69" y1="2" x2="-4.2" y2="3.1" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MC74LVXT8051">
+<wire x1="-7.62" y1="22.86" x2="-7.62" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-25.4" x2="7.62" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-25.4" x2="7.62" y2="22.86" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="22.86" x2="7.62" y2="22.86" width="0.254" layer="94"/>
+<pin name="VCC" x="-12.7" y="20.32" length="middle"/>
+<pin name="GND" x="-12.7" y="-22.86" length="middle"/>
+<pin name="A" x="-12.7" y="10.16" length="middle"/>
+<pin name="B" x="-12.7" y="7.62" length="middle"/>
+<pin name="C" x="-12.7" y="5.08" length="middle"/>
+<pin name="EN" x="-12.7" y="15.24" length="middle"/>
+<pin name="X" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="X0" x="-12.7" y="0" length="middle"/>
+<pin name="X1" x="-12.7" y="-2.54" length="middle"/>
+<pin name="X2" x="-12.7" y="-5.08" length="middle"/>
+<pin name="X3" x="-12.7" y="-7.62" length="middle"/>
+<pin name="X4" x="-12.7" y="-10.16" length="middle"/>
+<pin name="X5" x="-12.7" y="-12.7" length="middle"/>
+<pin name="X6" x="-12.7" y="-15.24" length="middle"/>
+<pin name="X7" x="-12.7" y="-17.78" length="middle"/>
+<text x="-7.366" y="23.622" size="1.27" layer="94">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MC74LVXT8051DG">
+<gates>
+<gate name="A" symbol="MC74LVXT8051" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC16N">
+<connects>
+<connect gate="A" pin="A" pad="A"/>
+<connect gate="A" pin="B" pad="B"/>
+<connect gate="A" pin="C" pad="C"/>
+<connect gate="A" pin="EN" pad="EN"/>
+<connect gate="A" pin="GND" pad="GND"/>
+<connect gate="A" pin="VCC" pad="VCC"/>
+<connect gate="A" pin="X" pad="X"/>
+<connect gate="A" pin="X0" pad="X0"/>
+<connect gate="A" pin="X1" pad="X1"/>
+<connect gate="A" pin="X2" pad="X2"/>
+<connect gate="A" pin="X3" pad="X3"/>
+<connect gate="A" pin="X4" pad="X4"/>
+<connect gate="A" pin="X5" pad="X5"/>
+<connect gate="A" pin="X6" pad="X6"/>
+<connect gate="A" pin="X7" pad="X7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5365,27 +5468,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V26" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V27" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V28" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V30" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND32" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-7" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="+3V33" library="supply1" deviceset="+3V3" device=""/>
 <part name="C12" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
@@ -5418,6 +5500,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10K"/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10K"/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
+<part name="U$1" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$3" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$5" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$6" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$7" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$8" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$9" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="U$10" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6394,6 +6484,25 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </nets>
 </sheet>
 <sheet>
+<description>Muxes</description>
+<plain>
+</plain>
+<instances>
+<instance part="U$1" gate="A" x="0" y="53.34"/>
+<instance part="U$3" gate="A" x="38.1" y="53.34"/>
+<instance part="U$5" gate="A" x="71.12" y="50.8"/>
+<instance part="U$6" gate="A" x="127" y="48.26"/>
+<instance part="U$7" gate="A" x="0" y="-20.32"/>
+<instance part="U$8" gate="A" x="45.72" y="-20.32"/>
+<instance part="U$9" gate="A" x="78.74" y="-25.4"/>
+<instance part="U$10" gate="A" x="137.16" y="-25.4"/>
+</instances>
+<busses>
+</busses>
+<nets>
+</nets>
+</sheet>
+<sheet>
 <description>RS-485 External</description>
 <plain>
 <text x="88.9" y="104.14" size="5.08" layer="91">Ribbon Cable</text>
@@ -7151,27 +7260,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="RS-485-1" gate="G$1" x="0" y="99.06"/>
 <instance part="+3V25" gate="G$1" x="-25.4" y="114.3"/>
 <instance part="GND5" gate="1" x="-25.4" y="91.44" rot="R270"/>
-<instance part="RS-485-2" gate="G$1" x="0" y="68.58"/>
-<instance part="+3V26" gate="G$1" x="-25.4" y="83.82"/>
-<instance part="GND28" gate="1" x="-25.4" y="60.96" rot="R270"/>
-<instance part="RS-485-3" gate="G$1" x="0" y="38.1"/>
-<instance part="+3V27" gate="G$1" x="-25.4" y="53.34"/>
-<instance part="GND29" gate="1" x="-25.4" y="30.48" rot="R270"/>
-<instance part="RS-485-4" gate="G$1" x="0" y="7.62"/>
-<instance part="+3V28" gate="G$1" x="-25.4" y="22.86"/>
-<instance part="GND30" gate="1" x="-25.4" y="0" rot="R270"/>
-<instance part="RS-485-5" gate="G$1" x="0" y="-22.86"/>
-<instance part="+3V29" gate="G$1" x="-25.4" y="-7.62"/>
-<instance part="GND31" gate="1" x="-25.4" y="-30.48" rot="R270"/>
-<instance part="RS-485-6" gate="G$1" x="0" y="-53.34"/>
-<instance part="+3V30" gate="G$1" x="-25.4" y="-38.1"/>
-<instance part="GND32" gate="1" x="-25.4" y="-60.96" rot="R270"/>
-<instance part="RS-485-7" gate="G$1" x="0" y="-83.82"/>
-<instance part="+3V31" gate="G$1" x="-25.4" y="-68.58"/>
-<instance part="GND33" gate="1" x="-25.4" y="-91.44" rot="R270"/>
-<instance part="RS-485-8" gate="G$1" x="0" y="-114.3"/>
-<instance part="+3V32" gate="G$1" x="-25.4" y="-99.06"/>
-<instance part="GND34" gate="1" x="-25.4" y="-121.92" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -7183,89 +7271,12 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="RS-485-1" gate="G$1" pin="VCC"/>
 <wire x1="-25.4" y1="106.68" x2="-15.24" y2="106.68" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="+3V26" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="81.28" x2="-25.4" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="RS-485-2" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="76.2" x2="-15.24" y2="76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V27" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="50.8" x2="-25.4" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="RS-485-3" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="45.72" x2="-15.24" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V28" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="20.32" x2="-25.4" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="RS-485-4" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="15.24" x2="-15.24" y2="15.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V29" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="-10.16" x2="-25.4" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="RS-485-5" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="-15.24" x2="-15.24" y2="-15.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V30" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="-40.64" x2="-25.4" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="RS-485-6" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="-45.72" x2="-15.24" y2="-45.72" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V31" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="-71.12" x2="-25.4" y2="-76.2" width="0.1524" layer="91"/>
-<pinref part="RS-485-7" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="-76.2" x2="-15.24" y2="-76.2" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V32" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="-101.6" x2="-25.4" y2="-106.68" width="0.1524" layer="91"/>
-<pinref part="RS-485-8" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="-106.68" x2="-15.24" y2="-106.68" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <pinref part="RS-485-1" gate="G$1" pin="GND"/>
 <wire x1="-22.86" y1="91.44" x2="-15.24" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND28" gate="1" pin="GND"/>
-<pinref part="RS-485-2" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="60.96" x2="-15.24" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND29" gate="1" pin="GND"/>
-<pinref part="RS-485-3" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="30.48" x2="-15.24" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND30" gate="1" pin="GND"/>
-<pinref part="RS-485-4" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="0" x2="-15.24" y2="0" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND31" gate="1" pin="GND"/>
-<pinref part="RS-485-5" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="-30.48" x2="-15.24" y2="-30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND32" gate="1" pin="GND"/>
-<pinref part="RS-485-6" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="-60.96" x2="-15.24" y2="-60.96" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND33" gate="1" pin="GND"/>
-<pinref part="RS-485-7" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="-91.44" x2="-15.24" y2="-91.44" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND34" gate="1" pin="GND"/>
-<pinref part="RS-485-8" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="-121.92" x2="-15.24" y2="-121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -7278,90 +7289,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="DI"/>
 <wire x1="-15.24" y1="96.52" x2="-35.56" y2="96.52" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="RS-485-2" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="71.12" x2="-35.56" y2="71.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="RS-485-2" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="66.04" x2="-35.56" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="RS-485-3" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="40.64" x2="-35.56" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="RS-485-3" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="35.56" x2="-35.56" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="RS-485-4" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="10.16" x2="-35.56" y2="10.16" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="RS-485-4" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="5.08" x2="-35.56" y2="5.08" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="RS-485-5" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="-20.32" x2="-35.56" y2="-20.32" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="RS-485-5" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="-25.4" x2="-35.56" y2="-25.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="RS-485-6" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="-50.8" x2="-35.56" y2="-50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="RS-485-6" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="-55.88" x2="-35.56" y2="-55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="RS-485-7" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="-81.28" x2="-35.56" y2="-81.28" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<pinref part="RS-485-7" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="-86.36" x2="-35.56" y2="-86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$20" class="0">
-<segment>
-<pinref part="RS-485-8" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="-111.76" x2="-35.56" y2="-111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="RS-485-8" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="-116.84" x2="-35.56" y2="-116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

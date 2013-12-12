@@ -6160,11 +6160,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="86.36" y1="-40.64" x2="109.22" y2="-40.64" width="0.1524" layer="91"/>
 <label x="91.44" y="-40.64" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="U1" gate="B" pin="PTC17"/>
-<wire x1="86.36" y1="-68.58" x2="109.22" y2="-68.58" width="0.1524" layer="91"/>
-<label x="91.44" y="-68.58" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="U0_MUX_SB" class="0">
 <segment>
@@ -6234,6 +6229,13 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U1" gate="B" pin="PTD0"/>
 <wire x1="86.36" y1="-76.2" x2="109.22" y2="-76.2" width="0.1524" layer="91"/>
 <label x="91.44" y="-76.2" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4_MUX_SA" class="0">
+<segment>
+<pinref part="U1" gate="B" pin="PTC17"/>
+<wire x1="86.36" y1="-68.58" x2="109.22" y2="-68.58" width="0.1524" layer="91"/>
+<label x="91.44" y="-68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

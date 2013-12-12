@@ -130,10 +130,10 @@
 </packages>
 <symbols>
 <symbol name="W5500">
-<wire x1="0" y1="-2.54" x2="0" y2="60.96" width="0.254" layer="94"/>
+<wire x1="0" y1="-22.86" x2="0" y2="60.96" width="0.254" layer="94"/>
 <wire x1="0" y1="60.96" x2="33.02" y2="60.96" width="0.254" layer="94"/>
-<wire x1="33.02" y1="60.96" x2="33.02" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="33.02" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="33.02" y1="60.96" x2="33.02" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="33.02" y1="-22.86" x2="0" y2="-22.86" width="0.254" layer="94"/>
 <pin name="AVDD" x="-5.08" y="58.42" length="middle"/>
 <pin name="AVDD1" x="-5.08" y="55.88" length="middle"/>
 <pin name="AVDD2" x="-5.08" y="53.34" length="middle"/>
@@ -166,10 +166,16 @@
 <pin name="MOSI" x="38.1" y="35.56" length="middle" rot="R180"/>
 <pin name="INTN" x="38.1" y="30.48" length="middle" rot="R180"/>
 <pin name="RSTN" x="38.1" y="25.4" length="middle" rot="R180"/>
-<pin name="RSVD" x="-5.08" y="0" length="middle"/>
+<pin name="RSVD1" x="-5.08" y="-7.62" length="middle"/>
 <pin name="PMODE2" x="38.1" y="20.32" length="middle" rot="R180"/>
 <pin name="PMODE1" x="38.1" y="17.78" length="middle" rot="R180"/>
 <pin name="PMODE0" x="38.1" y="15.24" length="middle" rot="R180"/>
+<pin name="RSVD2" x="-5.08" y="-10.16" length="middle"/>
+<pin name="RSVD3" x="-5.08" y="-12.7" length="middle"/>
+<pin name="RSVD4" x="-5.08" y="-15.24" length="middle"/>
+<pin name="RSVD5" x="-5.08" y="-17.78" length="middle"/>
+<pin name="RSVD6" x="-5.08" y="-20.32" length="middle"/>
+<pin name="1V20" x="-5.08" y="-2.54" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -180,6 +186,7 @@
 <devices>
 <device name="" package="W5500">
 <connects>
+<connect gate="G$1" pin="1V20" pad="1V20"/>
 <connect gate="G$1" pin="ACTLED" pad="ACTLED"/>
 <connect gate="G$1" pin="AGND" pad="AGND"/>
 <connect gate="G$1" pin="AGND1" pad="AGND1"/>
@@ -204,7 +211,12 @@
 <connect gate="G$1" pin="PMODE1" pad="PMODE1"/>
 <connect gate="G$1" pin="PMODE2" pad="PMODE2"/>
 <connect gate="G$1" pin="RSTN" pad="RSTN"/>
-<connect gate="G$1" pin="RSVD" pad="RSVD"/>
+<connect gate="G$1" pin="RSVD1" pad="RSVD"/>
+<connect gate="G$1" pin="RSVD2" pad="RSVD2"/>
+<connect gate="G$1" pin="RSVD3" pad="RSVD3"/>
+<connect gate="G$1" pin="RSVD4" pad="RSVD4"/>
+<connect gate="G$1" pin="RSVD5" pad="RSVD5"/>
+<connect gate="G$1" pin="RSVD6" pad="RSVD6"/>
 <connect gate="G$1" pin="RXN" pad="RXN"/>
 <connect gate="G$1" pin="RXP" pad="RXP"/>
 <connect gate="G$1" pin="SCLK" pad="SCLK"/>

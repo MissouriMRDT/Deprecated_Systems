@@ -5596,6 +5596,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="C21" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="U2" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
+<part name="U4" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
 </parts>
 <sheets>
 <sheet>
@@ -7429,7 +7431,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND24" gate="1" x="5.08" y="-81.28" rot="R270"/>
 <instance part="GND25" gate="1" x="-93.98" y="-81.28" rot="R270"/>
 <instance part="+3V13" gate="G$1" x="-96.52" y="93.98" rot="R90"/>
-<instance part="+3V14" gate="G$1" x="2.54" y="93.98" rot="R90"/>
+<instance part="+3V14" gate="G$1" x="7.62" y="99.06"/>
 <instance part="+3V15" gate="G$1" x="2.54" y="60.96" rot="R90"/>
 <instance part="+3V16" gate="G$1" x="-96.52" y="60.96" rot="R90"/>
 <instance part="+3V17" gate="G$1" x="-96.52" y="27.94" rot="R90"/>
@@ -8136,7 +8138,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <segment>
 <pinref part="+3V14" gate="G$1" pin="+3V3"/>
 <pinref part="U$30" gate="G$1" pin="VCC"/>
-<wire x1="5.08" y1="93.98" x2="12.7" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="96.52" x2="7.62" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="93.98" x2="12.7" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V13" gate="G$1" pin="+3V3"/>
@@ -9376,6 +9379,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <plain>
 </plain>
 <instances>
+<instance part="U2" gate="G$1" x="22.86" y="40.64"/>
 </instances>
 <busses>
 </busses>
@@ -9387,6 +9391,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <plain>
 </plain>
 <instances>
+<instance part="U4" gate="G$1" x="63.5" y="71.12"/>
 </instances>
 <busses>
 </busses>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -139,10 +139,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="160" y2="0" width="0" layer="20"/>
-<wire x1="160" y1="0" x2="160" y2="100" width="0" layer="20"/>
-<wire x1="160" y1="100" x2="0" y2="100" width="0" layer="20"/>
-<wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="0" y1="0" x2="152.4" y2="0" width="0" layer="20"/>
+<wire x1="152.4" y1="0" x2="152.4" y2="152.4" width="0" layer="20"/>
+<wire x1="152.4" y1="152.4" x2="0" y2="152.4" width="0" layer="20"/>
+<wire x1="0" y1="152.4" x2="0" y2="0" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="Main_Processor">
@@ -3227,7 +3227,7 @@ design rules under a new name.</description>
 <element name="C4" library="SparkFun-Passives" package="1206" value="22pF" x="-63.5" y="120.65"/>
 <element name="C1" library="SparkFun-Passives" package="1206" value="20pF" x="-48.26" y="120.65"/>
 <element name="C2" library="SparkFun-Passives" package="1206" value="20pF" x="-53.34" y="120.65"/>
-<element name="R1" library="SparkFun-Resistors" package="1206" value="" x="-74.93" y="144.78"/>
+<element name="R1" library="SparkFun-Resistors" package="1206" value="10k" x="-74.93" y="144.78"/>
 <element name="R2" library="SparkFun-Resistors" package="1206" value="10k" x="-60.96" y="133.35"/>
 <element name="R3" library="SparkFun-Resistors" package="1206" value="10k" x="-66.04" y="133.35"/>
 <element name="R4" library="SparkFun-Resistors" package="1206" value="10k" x="-71.12" y="133.35"/>
@@ -3885,7 +3885,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="61"/>
 <contactref element="U1" pad="48"/>
 <contactref element="U1" pad="23"/>
-<contactref element="R1" pad="2"/>
 <contactref element="C21" pad="1"/>
 <contactref element="R6" pad="1"/>
 <contactref element="JP3" pad="4"/>
@@ -4010,6 +4009,7 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="VOUT"/>
 <contactref element="C43" pad="1"/>
 <contactref element="R70" pad="1"/>
+<contactref element="R1" pad="2"/>
 <wire x1="-16.64" y1="133.35" x2="-16.64" y2="137.16" width="0" layer="19" extent="1-1"/>
 <wire x1="-16.64" y1="129.54" x2="-16.64" y2="133.35" width="0" layer="19" extent="1-1"/>
 <wire x1="-21.72" y1="133.35" x2="-16.64" y2="133.35" width="0" layer="19" extent="1-1"/>
@@ -4153,9 +4153,9 @@ design rules under a new name.</description>
 </signal>
 <signal name="RESET">
 <contactref element="ARM_RST" pad="3"/>
-<contactref element="R1" pad="1"/>
 <contactref element="ARM_RST" pad="4"/>
 <contactref element="U1" pad="52"/>
+<contactref element="R1" pad="1"/>
 <wire x1="-74.2188" y1="85.3694" x2="-76.33" y2="144.78" width="0" layer="19" extent="1-1"/>
 <wire x1="-80.7212" y1="85.3694" x2="-74.2188" y2="85.3694" width="0" layer="19" extent="1-1"/>
 <wire x1="-29.21" y1="7.1882" x2="-74.2188" y2="85.3694" width="0" layer="19" extent="1-1"/>

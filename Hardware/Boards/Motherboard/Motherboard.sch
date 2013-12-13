@@ -8954,7 +8954,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="22pF"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="20pF"/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="20pF"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206"/>
+<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
@@ -9593,9 +9593,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <junction x="-55.88" y="119.38"/>
 </segment>
 <segment>
-<wire x1="-124.46" y1="-27.94" x2="-119.38" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="+3V3" gate="G$1" pin="+3V3"/>
-<wire x1="-119.38" y1="-22.86" x2="-101.6" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-22.86" x2="-101.6" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="U1" gate="B" pin="VDD"/>
 <wire x1="-101.6" y1="-22.86" x2="-101.6" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="-101.6" y1="-12.7" x2="-101.6" y2="-7.62" width="0.1524" layer="91"/>
@@ -9619,10 +9618,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="-101.6" y1="-22.86" x2="-101.6" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="U1" gate="B" pin="VREFH"/>
 <wire x1="-101.6" y1="-30.48" x2="-81.28" y2="-30.48" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="C21" gate="G$1" pin="1"/>
 <wire x1="-104.14" y1="-12.7" x2="-101.6" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="-101.6" y="-12.7"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="-124.46" y1="-22.86" x2="-124.46" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
@@ -9658,9 +9658,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <net name="RESET" class="0">
 <segment>
 <pinref part="ARM_RST" gate="1" pin="P"/>
-<wire x1="-101.6" y1="-43.18" x2="-119.38" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="-43.18" x2="-124.46" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="-101.6" y1="-43.18" x2="-124.46" y2="-43.18" width="0.1524" layer="91"/>
 <pinref part="ARM_RST" gate="1" pin="P1"/>
 <wire x1="-81.28" y1="-43.18" x2="-99.06" y2="-43.18" width="0.1524" layer="91"/>
 <pinref part="U1" gate="B" pin="RESET_B"/>
@@ -9668,6 +9666,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="-99.06" y1="-43.18" x2="-101.6" y2="-43.18" width="0.1524" layer="91"/>
 <junction x="-99.06" y="-43.18"/>
 <junction x="-101.6" y="-43.18"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="-124.46" y1="-38.1" x2="-124.46" y2="-43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BLUETH_RXD" class="0">

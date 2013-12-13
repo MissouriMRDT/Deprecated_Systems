@@ -9297,7 +9297,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="GND104" library="supply1" deviceset="GND" device=""/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="100"/>
 <part name="+3V54" library="supply1" deviceset="+3V3" device=""/>
-<part name="U$10" library="SparkFun-Electromechanical" deviceset="POT" device="100K_3362U"/>
+<part name="U$10" library="SparkFun-Electromechanical" deviceset="POT" device="100K_3362U" value="10k"/>
 <part name="+3V55" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND105" library="supply1" deviceset="GND" device=""/>
 <part name="+3V56" library="supply1" deviceset="+3V3" device=""/>
@@ -9555,13 +9555,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="-68.58" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JTAG-TRST" class="0">
-<segment>
-<pinref part="JTAG_CON" gate="G$1" pin="3"/>
-<wire x1="-7.62" y1="175.26" x2="-30.48" y2="175.26" width="0.1524" layer="91"/>
-<label x="-30.48" y="175.26" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="JTAG_CON" gate="G$1" pin="1"/>
@@ -9650,9 +9643,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="-68.58" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JTAG_CON" gate="G$1" pin="15"/>
-<wire x1="-7.62" y1="160.02" x2="-30.48" y2="160.02" width="0.1524" layer="91"/>
-<label x="-30.48" y="160.02" size="1.778" layer="95"/>
+<pinref part="JTAG_CON" gate="G$1" pin="3"/>
+<wire x1="-7.62" y1="175.26" x2="-30.48" y2="175.26" width="0.1524" layer="91"/>
+<label x="-30.48" y="175.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -9668,6 +9661,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <junction x="-101.6" y="-43.18"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="-124.46" y1="-38.1" x2="-124.46" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JTAG_CON" gate="G$1" pin="15"/>
+<wire x1="-7.62" y1="160.02" x2="-30.48" y2="160.02" width="0.1524" layer="91"/>
+<label x="-30.48" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BLUETH_RXD" class="0">
@@ -11734,18 +11732,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <junction x="-71.12" y="73.66"/>
 <label x="-68.58" y="73.66" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="RS_TRANS_12" gate="G$1" pin="Y"/>
-<wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-132.08" x2="33.02" y2="-137.16" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-137.16" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
-<pinref part="R50" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="-137.16" x2="63.5" y2="-137.16" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="-132.08" x2="50.8" y2="-132.08" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="-132.08" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
-<junction x="50.8" y="-137.16"/>
-<label x="53.34" y="-137.16" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="1_TX-" class="0">
 <segment>
@@ -12207,6 +12193,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="121.92" y1="-20.32" x2="111.76" y2="-20.32" width="0.1524" layer="91"/>
 <label x="111.76" y="-20.32" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="RS_TRANS_9" gate="G$1" pin="B"/>
+<wire x1="-91.44" y1="-81.28" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
+<pinref part="R43" gate="G$1" pin="1"/>
+<wire x1="-73.66" y1="-76.2" x2="-71.12" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="-76.2" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
+<junction x="-71.12" y="-81.28"/>
+<wire x1="-71.12" y1="-81.28" x2="-58.42" y2="-81.28" width="0.1524" layer="91"/>
+<label x="-68.58" y="-81.28" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="8_TX+" class="0">
 <segment>
@@ -12493,6 +12489,18 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="U$36" gate="G$1" pin="45"/>
 <wire x1="142.24" y1="2.54" x2="152.4" y2="2.54" width="0.1524" layer="91"/>
 <label x="144.78" y="2.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_12" gate="G$1" pin="Y"/>
+<wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-132.08" x2="33.02" y2="-137.16" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-137.16" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
+<pinref part="R50" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="-137.16" x2="63.5" y2="-137.16" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-132.08" x2="50.8" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="-132.08" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
+<junction x="50.8" y="-137.16"/>
+<label x="53.34" y="-137.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12_TX-" class="0">
@@ -12844,18 +12852,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="RS_TRANS_4" gate="G$1" pin="DI"/>
 <wire x1="-121.92" y1="-43.18" x2="-144.78" y2="-43.18" width="0.1524" layer="91"/>
 <label x="-142.24" y="-43.18" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="5\_RX-" class="0">
-<segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="B"/>
-<wire x1="-91.44" y1="-81.28" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
-<pinref part="R43" gate="G$1" pin="1"/>
-<wire x1="-73.66" y1="-76.2" x2="-71.12" y2="-76.2" width="0.1524" layer="91"/>
-<wire x1="-71.12" y1="-76.2" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
-<junction x="-71.12" y="-81.28"/>
-<wire x1="-71.12" y1="-81.28" x2="-58.42" y2="-81.28" width="0.1524" layer="91"/>
-<label x="-68.58" y="-81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_5_RX" class="0">
@@ -14592,6 +14588,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="U2" gate="G$1" pin="PC6(/RESET)"/>
 <wire x1="-5.08" y1="66.04" x2="0" y2="66.04" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="5"/>
+<wire x1="12.7" y1="-30.48" x2="-15.24" y2="-30.48" width="0.1524" layer="91"/>
+<label x="-12.7" y="-30.48" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="STR_PWM_OC2B" class="0">
 <segment>
@@ -14672,13 +14673,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="J4" gate="G$1" pin="3"/>
 <wire x1="12.7" y1="-27.94" x2="-15.24" y2="-27.94" width="0.1524" layer="91"/>
 <label x="-12.7" y="-27.94" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="328_STR_RST" class="0">
-<segment>
-<pinref part="J4" gate="G$1" pin="5"/>
-<wire x1="12.7" y1="-30.48" x2="-15.24" y2="-30.48" width="0.1524" layer="91"/>
-<label x="-12.7" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -14887,39 +14881,53 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="U4" gate="G$1" pin="PC6(/RESET)"/>
 <wire x1="0" y1="73.66" x2="5.08" y2="73.66" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="5"/>
+<wire x1="17.78" y1="-17.78" x2="-10.16" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-7.62" y="-17.78" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="ATCLK5" class="0">
 <segment>
 <pinref part="Y5" gate="G$1" pin="1"/>
-<wire x1="0" y1="43.18" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="C24" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="40.64" x2="-5.08" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="40.64" x2="-5.08" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="43.18" x2="0" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="PB7(XTAL2/TOSC2)"/>
+<wire x1="0" y1="43.18" x2="5.08" y2="43.18" width="0.1524" layer="91"/>
 <junction x="0" y="43.18"/>
 </segment>
 </net>
 <net name="ATCLK6" class="0">
 <segment>
 <pinref part="Y5" gate="G$1" pin="2"/>
-<wire x1="0" y1="48.26" x2="5.08" y2="48.26" width="0.1524" layer="91"/>
-<junction x="0" y="48.26"/>
 <pinref part="C25" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="50.8" x2="-5.08" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="50.8" x2="-5.08" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="48.26" x2="0" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="PB6(XTAL1/TOSC1)"/>
+<wire x1="0" y1="48.26" x2="5.08" y2="48.26" width="0.1524" layer="91"/>
+<junction x="0" y="48.26"/>
 </segment>
 </net>
 <net name="FAN_PWM_OC2B" class="0">
 <segment>
 <wire x1="53.34" y1="48.26" x2="86.36" y2="48.26" width="0.1524" layer="91"/>
 <label x="55.88" y="48.26" size="1.778" layer="95"/>
+<pinref part="U4" gate="G$1" pin="PD1(TXD)"/>
+</segment>
+<segment>
+<pinref part="JP10" gate="G$1" pin="4"/>
+<wire x1="185.42" y1="50.8" x2="154.94" y2="50.8" width="0.1524" layer="91"/>
+<label x="157.48" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FAN_PWM_OC0B" class="0">
 <segment>
 <wire x1="53.34" y1="38.1" x2="86.36" y2="38.1" width="0.1524" layer="91"/>
 <label x="55.88" y="38.1" size="1.778" layer="95"/>
+<pinref part="U4" gate="G$1" pin="PD5(T1)"/>
 </segment>
 <segment>
 <pinref part="JP11" gate="G$1" pin="4"/>
@@ -14931,6 +14939,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <wire x1="53.34" y1="35.56" x2="86.36" y2="35.56" width="0.1524" layer="91"/>
 <label x="55.88" y="35.56" size="1.778" layer="95"/>
+<pinref part="U4" gate="G$1" pin="PD6(AIN0)"/>
 </segment>
 <segment>
 <pinref part="JP8" gate="G$1" pin="4"/>
@@ -14942,18 +14951,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <wire x1="53.34" y1="25.4" x2="86.36" y2="25.4" width="0.1524" layer="91"/>
 <label x="55.88" y="25.4" size="1.778" layer="95"/>
+<pinref part="U4" gate="G$1" pin="PB1(OC1A)"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="G$1" pin="4"/>
 <wire x1="132.08" y1="50.8" x2="101.6" y2="50.8" width="0.1524" layer="91"/>
 <label x="104.14" y="50.8" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="FAN_PWM_OC1B" class="0">
-<segment>
-<pinref part="JP10" gate="G$1" pin="4"/>
-<wire x1="185.42" y1="50.8" x2="154.94" y2="50.8" width="0.1524" layer="91"/>
-<label x="157.48" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -15007,13 +15010,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="U4" gate="G$1" pin="PB2(SS/OC1B)"/>
 <wire x1="53.34" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
 <label x="55.88" y="22.86" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="328_FAN_RST" class="0">
-<segment>
-<pinref part="J5" gate="G$1" pin="5"/>
-<wire x1="17.78" y1="-17.78" x2="-10.16" y2="-17.78" width="0.1524" layer="91"/>
-<label x="-7.62" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FAT328_JMP_MOSI" class="0">
@@ -15284,6 +15280,37 @@ We've spent an enormous amount of time creating and checking these footprints an
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,-48.26,124.46,U1A,VDD_2,+3V3,,,"/>
+<approved hash="104,1,-48.26,121.92,U1A,VDDA,+3V3,,,"/>
+<approved hash="104,1,-48.26,119.38,U1A,VDD,+3V3,,,"/>
+<approved hash="204,1,-48.26,114.3,U1A,VBAT,,,,"/>
+<approved hash="104,1,-81.28,-17.78,U1B,VDD_2,+3V3,,,"/>
+<approved hash="104,1,-81.28,-20.32,U1B,VDD_3,+3V3,,,"/>
+<approved hash="104,1,-81.28,-22.86,U1B,VDD_4,+3V3,,,"/>
+<approved hash="104,1,-81.28,-25.4,U1B,VDD,+3V3,,,"/>
+<approved hash="104,6,86.36,93.98,ALTIMETER,VDD,+3V3,,,"/>
+<approved hash="104,6,86.36,91.44,ALTIMETER,CAP,N$7,,,"/>
+<approved hash="104,6,86.36,86.36,ALTIMETER,VDDIO,+3V3,,,"/>
+<approved hash="111,8,5.08,66.04,+3V3,,,,,"/>
+<approved hash="111,8,5.08,63.5,+3V3,,,,,"/>
+<approved hash="111,8,5.08,68.58,+3V3,,,,,"/>
+<approved hash="115,6,-68.58,99.8432,GPS,,,,,"/>
+<approved hash="115,6,93.98,-0.148166,IMU,,,,,"/>
+<approved hash="115,1,-103.751,-38.0426,ARM_RST,,,,,"/>
+<approved hash="115,6,-116.783,42.7905,328_RST,,,,,"/>
+<approved hash="115,6,94.6573,-67.1153,JP2,,,,,"/>
+<approved hash="115,7,-6.82829,75.8105,328_STR_RST,,,,,"/>
+<approved hash="115,8,-1.74829,83.4305,328_FAN_RST,,,,,"/>
+<approved hash="115,8,135.297,48.4547,JP4,,,,,"/>
+<approved hash="115,8,135.297,71.3147,JP8,,,,,"/>
+<approved hash="115,8,188.637,48.4547,JP10,,,,,"/>
+<approved hash="115,8,188.637,71.3147,JP11,,,,,"/>
+<approved hash="115,1,193.717,109.415,JP3,,,,,"/>
+<approved hash="115,1,193.717,91.6347,JP9,,,,,"/>
+<approved hash="115,1,193.717,73.8547,JP12,,,,,"/>
+<approved hash="115,1,193.717,56.0747,JP13,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>

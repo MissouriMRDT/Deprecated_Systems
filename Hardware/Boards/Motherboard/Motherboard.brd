@@ -3453,7 +3453,7 @@ design rules under a new name.</description>
 </element>
 <element name="R5" library="SparkFun-Passives" package="1206" value="330" x="-76.2" y="133.35"/>
 <element name="R6" library="SparkFun-Passives" package="1206" value="100" x="-81.28" y="133.35"/>
-<element name="U$10" library="SparkFun-Electromechanical" package="3362U" value="" x="-58.42" y="95.25"/>
+<element name="U$10" library="SparkFun-Electromechanical" package="3362U" value="10k" x="-58.42" y="95.25"/>
 <element name="U5" library="SparkFun-Sensors" package="SOT563-2" value="TMP1021:1" x="-78.74" y="144.78"/>
 <element name="C77" library="SparkFun-Passives" package="1206" value="0.1uF" x="-55.88" y="133.35"/>
 <element name="R7" library="SparkFun-Passives" package="1206" value="1k" x="-86.36" y="133.35"/>
@@ -3870,9 +3870,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="37"/>
 <wire x1="-37.338" y1="5.08" x2="-100.33" y2="64.77" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="JTAG-TRST">
-<contactref element="JTAG_CON" pad="3"/>
-</signal>
 <signal name="+3V3">
 <contactref element="JTAG_CON" pad="1"/>
 <contactref element="JTAG_CON" pad="2"/>
@@ -4148,17 +4145,19 @@ design rules under a new name.</description>
 </signal>
 <signal name="JTAG_TRST_B">
 <contactref element="U1" pad="39"/>
-<contactref element="JTAG_CON" pad="15"/>
-<wire x1="-90.17" y1="64.77" x2="-36.322" y2="5.08" width="0" layer="19" extent="1-1"/>
+<contactref element="JTAG_CON" pad="3"/>
+<wire x1="-36.322" y1="5.08" x2="-105.41" y2="64.77" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RESET">
 <contactref element="ARM_RST" pad="3"/>
 <contactref element="ARM_RST" pad="4"/>
 <contactref element="U1" pad="52"/>
 <contactref element="R1" pad="1"/>
+<contactref element="JTAG_CON" pad="15"/>
 <wire x1="-74.2188" y1="85.3694" x2="-76.33" y2="144.78" width="0" layer="19" extent="1-1"/>
 <wire x1="-80.7212" y1="85.3694" x2="-74.2188" y2="85.3694" width="0" layer="19" extent="1-1"/>
-<wire x1="-29.21" y1="7.1882" x2="-74.2188" y2="85.3694" width="0" layer="19" extent="1-1"/>
+<wire x1="-90.17" y1="64.77" x2="-80.7212" y2="85.3694" width="0" layer="19" extent="1-1"/>
+<wire x1="-29.21" y1="7.1882" x2="-90.17" y2="64.77" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BLUETH_RXD">
 <contactref element="U1" pad="1"/>
@@ -4452,9 +4451,11 @@ design rules under a new name.</description>
 <contactref element="328_FAN_RST" pad="1"/>
 <contactref element="R69" pad="1"/>
 <contactref element="U4" pad="29"/>
+<contactref element="J5" pad="5"/>
 <wire x1="-61.5188" y1="89.8906" x2="-36.96" y2="144.78" width="0" layer="19" extent="1-1"/>
 <wire x1="-68.0212" y1="89.8906" x2="-61.5188" y2="89.8906" width="0" layer="19" extent="1-1"/>
-<wire x1="-18.18" y1="58.9026" x2="-61.5188" y2="89.8906" width="0" layer="19" extent="1-1"/>
+<wire x1="-44.45" y1="77.47" x2="-61.5188" y2="89.8906" width="0" layer="19" extent="1-1"/>
+<wire x1="-18.18" y1="58.9026" x2="-44.45" y2="77.47" width="0" layer="19" extent="1-1"/>
 <wire x1="-42.3418" y1="20.32" x2="-18.18" y2="58.9026" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="AT_STR_RST">
@@ -4463,9 +4464,11 @@ design rules under a new name.</description>
 <contactref element="328_STR_RST" pad="1"/>
 <contactref element="R68" pad="1"/>
 <contactref element="U2" pad="29"/>
+<contactref element="J4" pad="5"/>
 <wire x1="-45.0088" y1="89.8906" x2="-31.88" y2="144.78" width="0" layer="19" extent="1-1"/>
 <wire x1="-51.5112" y1="89.8906" x2="-45.0088" y2="89.8906" width="0" layer="19" extent="1-1"/>
-<wire x1="-42.8244" y1="20.32" x2="-45.0088" y2="89.8906" width="0" layer="19" extent="1-1"/>
+<wire x1="-25.4" y1="77.47" x2="-45.0088" y2="89.8906" width="0" layer="19" extent="1-1"/>
+<wire x1="-42.8244" y1="20.32" x2="-25.4" y2="77.47" width="0" layer="19" extent="1-1"/>
 <wire x1="-115.97" y1="37.3126" x2="-42.8244" y2="20.32" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FAN_AT328_SS">
@@ -4888,12 +4891,8 @@ design rules under a new name.</description>
 <contactref element="U$36" pad="1"/>
 <contactref element="RS_TRANS_1" pad="Y"/>
 <contactref element="R28" pad="1"/>
-<contactref element="RS_TRANS_12" pad="Y"/>
-<contactref element="R50" pad="1"/>
-<wire x1="-72.52" y1="137.16" x2="-62.36" y2="140.97" width="0" layer="19" extent="1-1"/>
-<wire x1="-59.055" y1="109.5375" x2="-72.52" y2="137.16" width="0" layer="19" extent="1-1"/>
-<wire x1="-57.855" y1="82.0375" x2="-59.055" y2="109.5375" width="0" layer="19" extent="1-1"/>
 <wire x1="-112.395" y1="100.6475" x2="-72.52" y2="137.16" width="0" layer="19" extent="1-1"/>
+<wire x1="-57.855" y1="82.0375" x2="-72.52" y2="137.16" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="1_TX-">
 <contactref element="U$36" pad="2"/>
@@ -5079,6 +5078,10 @@ design rules under a new name.</description>
 </signal>
 <signal name="5_RX-">
 <contactref element="U$36" pad="20"/>
+<contactref element="RS_TRANS_9" pad="B"/>
+<contactref element="R43" pad="1"/>
+<wire x1="-42.545" y1="109.5375" x2="-26.8" y2="140.97" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.985" y1="80.1325" x2="-42.545" y2="109.5375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="8_TX+">
 <contactref element="U$36" pad="29"/>
@@ -5194,6 +5197,10 @@ design rules under a new name.</description>
 </signal>
 <signal name="12_TX+">
 <contactref element="U$36" pad="45"/>
+<contactref element="RS_TRANS_12" pad="Y"/>
+<contactref element="R50" pad="1"/>
+<wire x1="-59.055" y1="109.5375" x2="-62.36" y2="140.97" width="0" layer="19" extent="1-1"/>
+<wire x1="-70.555" y1="78.2275" x2="-59.055" y2="109.5375" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12_TX-">
 <contactref element="U$36" pad="46"/>
@@ -5215,11 +5222,6 @@ design rules under a new name.</description>
 <contactref element="R49" pad="1"/>
 <wire x1="-61.595" y1="109.5375" x2="-57.28" y2="140.97" width="0" layer="19" extent="1-1"/>
 <wire x1="-74.365" y1="76.3225" x2="-61.595" y2="109.5375" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="5\_RX-">
-<contactref element="RS_TRANS_9" pad="B"/>
-<contactref element="R43" pad="1"/>
-<wire x1="-42.545" y1="109.5375" x2="-26.8" y2="140.97" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$9">
 <contactref element="RS-485-1" pad="Z"/>
@@ -5617,30 +5619,34 @@ design rules under a new name.</description>
 <contactref element="JP6" pad="2"/>
 <wire x1="-29.29" y1="97.79" x2="-115.17" y2="28.7274" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="328_STR_RST">
-<contactref element="J4" pad="5"/>
-</signal>
 <signal name="ATCLK5">
 <contactref element="Y5" pad="1"/>
 <contactref element="C24" pad="1"/>
+<contactref element="U4" pad="8"/>
 <wire x1="-34.29" y1="88.9" x2="-42.04" y2="125.73" width="0" layer="19" extent="1-1"/>
+<wire x1="-22.0726" y1="51.81" x2="-34.29" y2="88.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ATCLK6">
 <contactref element="Y5" pad="2"/>
 <contactref element="C25" pad="1"/>
+<contactref element="U4" pad="7"/>
 <wire x1="-29.21" y1="88.9" x2="-47.12" y2="125.73" width="0" layer="19" extent="1-1"/>
+<wire x1="-22.0726" y1="52.61" x2="-29.21" y2="88.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FAN_PWM_OC0B">
 <contactref element="JP11" pad="4"/>
+<contactref element="U4" pad="9"/>
+<wire x1="-99.06" y1="113.03" x2="-20.58" y2="50.3174" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FAN_PWM_OC0A">
 <contactref element="JP8" pad="4"/>
+<contactref element="U4" pad="10"/>
+<wire x1="-19.78" y1="50.3174" x2="-64.77" y2="113.03" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FAN_PWM_OC1A">
 <contactref element="JP4" pad="4"/>
-</signal>
-<signal name="FAN_PWM_OC1B">
-<contactref element="JP10" pad="4"/>
+<contactref element="U4" pad="13"/>
+<wire x1="-17.38" y1="50.3174" x2="-53.34" y2="113.03" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+12V">
 <contactref element="JP4" pad="2"/>
@@ -5654,9 +5660,6 @@ design rules under a new name.</description>
 <wire x1="-41.99" y1="97.79" x2="-58.42" y2="113.03" width="0" layer="19" extent="1-1"/>
 <wire x1="-92.71" y1="113.03" x2="-69.85" y2="113.03" width="0" layer="19" extent="1-1"/>
 <wire x1="-104.14" y1="113.03" x2="-92.71" y2="113.03" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="328_FAN_RST">
-<contactref element="J5" pad="5"/>
 </signal>
 <signal name="FAT328_JMP_MOSI">
 <contactref element="JP16" pad="2"/>
@@ -5732,6 +5735,11 @@ design rules under a new name.</description>
 <contactref element="C42" pad="1"/>
 <wire x1="-95.49" y1="85.7" x2="-123.27" y2="87.63" width="0" layer="19" extent="1-1"/>
 <wire x1="-123.32" y1="125.73" x2="-123.27" y2="87.63" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FAN_PWM_OC2B">
+<contactref element="U4" pad="31"/>
+<contactref element="JP10" pad="4"/>
+<wire x1="-87.63" y1="113.03" x2="-19.78" y2="58.9026" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

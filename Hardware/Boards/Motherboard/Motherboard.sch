@@ -7067,6 +7067,10 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <part name="GND94" library="supply1" deviceset="GND" device=""/>
 <part name="+3V53" library="supply1" deviceset="+3V3" device=""/>
 <part name="R70" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
+<part name="JP3" library="SparkFun-Connectors" deviceset="M03" device="-SCREW-5MM"/>
+<part name="JP4" library="SparkFun-Connectors" deviceset="M03" device="-SCREW-5MM"/>
+<part name="JP5" library="SparkFun-Connectors" deviceset="M03" device="-SCREW-5MM"/>
+<part name="JP6" library="SparkFun-Connectors" deviceset="M03" device="-SCREW-5MM"/>
 </parts>
 <sheets>
 <sheet>
@@ -11983,6 +11987,8 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <instance part="C73" gate="G$1" x="-27.94" y="48.26"/>
 <instance part="C74" gate="G$1" x="-38.1" y="48.26"/>
 <instance part="+3V51" gate="G$1" x="-38.1" y="63.5"/>
+<instance part="JP5" gate="G$1" x="83.82" y="30.48" rot="MR0"/>
+<instance part="JP6" gate="G$1" x="83.82" y="15.24" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -12105,6 +12111,56 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <wire x1="-5.08" y1="66.04" x2="0" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="STR_PWM_OC2B" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PD1(TXD)"/>
+<wire x1="48.26" y1="40.64" x2="73.66" y2="40.64" width="0.1524" layer="91"/>
+<label x="50.8" y="40.64" size="1.778" layer="95"/>
+<wire x1="73.66" y1="40.64" x2="73.66" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="JP5" gate="G$1" pin="3"/>
+<wire x1="73.66" y1="33.02" x2="76.2" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="STR_PWM_OC0B" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PD5(T1)"/>
+<wire x1="48.26" y1="30.48" x2="76.2" y2="30.48" width="0.1524" layer="91"/>
+<label x="50.8" y="30.48" size="1.778" layer="95"/>
+<pinref part="JP5" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="STR_PWM_OC0A" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PD6(AIN0)"/>
+<wire x1="48.26" y1="27.94" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
+<label x="50.8" y="27.94" size="1.778" layer="95"/>
+<pinref part="JP5" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="STR_PWM_OC1A" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PB1(OC1A)"/>
+<wire x1="48.26" y1="17.78" x2="76.2" y2="17.78" width="0.1524" layer="91"/>
+<label x="50.8" y="17.78" size="1.778" layer="95"/>
+<pinref part="JP6" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="STR_PWM_OC2A" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PB3(MOSI/OC2)"/>
+<wire x1="48.26" y1="12.7" x2="76.2" y2="12.7" width="0.1524" layer="91"/>
+<label x="50.8" y="12.7" size="1.778" layer="95"/>
+<pinref part="JP6" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="STR_PWM_OC1B" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PB2(SS/OC1B)"/>
+<wire x1="48.26" y1="15.24" x2="76.2" y2="15.24" width="0.1524" layer="91"/>
+<label x="50.8" y="15.24" size="1.778" layer="95"/>
+<pinref part="JP6" gate="G$1" pin="2"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -12125,6 +12181,8 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <instance part="C75" gate="G$1" x="-22.86" y="55.88"/>
 <instance part="C76" gate="G$1" x="-33.02" y="55.88"/>
 <instance part="+3V52" gate="G$1" x="-33.02" y="71.12"/>
+<instance part="JP3" gate="G$1" x="93.98" y="38.1" rot="MR0"/>
+<instance part="JP4" gate="G$1" x="93.98" y="22.86" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -12240,6 +12298,50 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <wire x1="-7.62" y1="50.8" x2="-5.08" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="50.8" x2="-5.08" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="48.26" x2="0" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC2B" class="0">
+<segment>
+<wire x1="53.34" y1="48.26" x2="78.74" y2="48.26" width="0.1524" layer="91"/>
+<label x="55.88" y="48.26" size="1.778" layer="95"/>
+<wire x1="78.74" y1="48.26" x2="78.74" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="3"/>
+<wire x1="78.74" y1="40.64" x2="86.36" y2="40.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC0B" class="0">
+<segment>
+<wire x1="53.34" y1="38.1" x2="86.36" y2="38.1" width="0.1524" layer="91"/>
+<label x="55.88" y="38.1" size="1.778" layer="95"/>
+<pinref part="JP3" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC0A" class="0">
+<segment>
+<wire x1="53.34" y1="35.56" x2="86.36" y2="35.56" width="0.1524" layer="91"/>
+<label x="55.88" y="35.56" size="1.778" layer="95"/>
+<pinref part="JP3" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC1A" class="0">
+<segment>
+<wire x1="53.34" y1="25.4" x2="86.36" y2="25.4" width="0.1524" layer="91"/>
+<label x="55.88" y="25.4" size="1.778" layer="95"/>
+<pinref part="JP4" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC1B" class="0">
+<segment>
+<wire x1="53.34" y1="22.86" x2="86.36" y2="22.86" width="0.1524" layer="91"/>
+<label x="55.88" y="22.86" size="1.778" layer="95"/>
+<pinref part="JP4" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="FAN_PWM_OC2A" class="0">
+<segment>
+<wire x1="53.34" y1="20.32" x2="86.36" y2="20.32" width="0.1524" layer="91"/>
+<label x="55.88" y="20.32" size="1.778" layer="95"/>
+<pinref part="JP4" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>

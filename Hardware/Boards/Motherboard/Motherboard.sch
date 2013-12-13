@@ -6131,34 +6131,6 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <part name="+3V38" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V39" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V40" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND43" library="supply1" deviceset="GND" device=""/>
-<part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V41" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND44" library="supply1" deviceset="GND" device=""/>
-<part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V42" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND45" library="supply1" deviceset="GND" device=""/>
-<part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V43" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND46" library="supply1" deviceset="GND" device=""/>
-<part name="U$8" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-7" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V44" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="U$9" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V45" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND48" library="supply1" deviceset="GND" device=""/>
-<part name="U$10" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="C20" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND49" library="supply1" deviceset="GND" device=""/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
@@ -6308,6 +6280,50 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <part name="C63" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
 <part name="R50" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R51" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R52" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V39" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND42" library="supply1" deviceset="GND" device=""/>
+<part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R53" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R54" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V40" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND43" library="supply1" deviceset="GND" device=""/>
+<part name="U$4" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R55" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R56" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V41" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND44" library="supply1" deviceset="GND" device=""/>
+<part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R57" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R58" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V42" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND45" library="supply1" deviceset="GND" device=""/>
+<part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R59" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R60" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V43" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND46" library="supply1" deviceset="GND" device=""/>
+<part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R61" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R62" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-7" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V44" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND47" library="supply1" deviceset="GND" device=""/>
+<part name="U$8" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R63" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R64" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS-485-8" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="+3V45" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND48" library="supply1" deviceset="GND" device=""/>
+<part name="U$9" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R65" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R66" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 </parts>
 <sheets>
 <sheet>
@@ -8407,12 +8423,12 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <sheet>
 <description>RS-485 External</description>
 <plain>
-<text x="88.9" y="76.2" size="5.08" layer="91">Ribbon Cable</text>
+<text x="111.76" y="38.1" size="5.08" layer="91">Ribbon Cable</text>
 <text x="-60.96" y="111.76" size="5.08" layer="91">RS-485</text>
 </plain>
 <instances>
 <instance part="RS_TRANS_1" gate="G$1" x="-106.68" y="86.36"/>
-<instance part="U$36" gate="G$1" x="104.14" y="66.04" rot="R270"/>
+<instance part="U$36" gate="G$1" x="127" y="27.94" rot="R270"/>
 <instance part="GND14" gate="1" x="-124.46" y="73.66"/>
 <instance part="+3V13" gate="G$1" x="-154.94" y="99.06"/>
 <instance part="R27" gate="G$1" x="-78.74" y="93.98" rot="R180"/>
@@ -8503,8 +8519,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="1_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="66.04" x2="88.9" y2="66.04" width="0.1524" layer="91"/>
-<label x="88.9" y="66.04" size="1.778" layer="95"/>
+<wire x1="121.92" y1="27.94" x2="111.76" y2="27.94" width="0.1524" layer="91"/>
+<label x="111.76" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="Y"/>
@@ -8518,12 +8534,24 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <junction x="-71.12" y="73.66"/>
 <label x="-68.58" y="73.66" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="RS_TRANS_12" gate="G$1" pin="Y"/>
+<wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-132.08" x2="33.02" y2="-137.16" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-137.16" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
+<pinref part="R50" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="-137.16" x2="63.5" y2="-137.16" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="-132.08" x2="50.8" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="-132.08" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
+<junction x="50.8" y="-137.16"/>
+<label x="53.34" y="-137.16" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="1_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="2"/>
-<wire x1="99.06" y1="63.5" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
-<label x="88.9" y="63.5" size="1.778" layer="95"/>
+<wire x1="121.92" y1="25.4" x2="111.76" y2="25.4" width="0.1524" layer="91"/>
+<label x="111.76" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="Z"/>
@@ -8539,8 +8567,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="1_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="3"/>
-<wire x1="99.06" y1="60.96" x2="88.9" y2="60.96" width="0.1524" layer="91"/>
-<label x="88.9" y="60.96" size="1.778" layer="95"/>
+<wire x1="121.92" y1="22.86" x2="111.76" y2="22.86" width="0.1524" layer="91"/>
+<label x="111.76" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R27" gate="G$1" pin="2"/>
@@ -8556,8 +8584,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="1_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="4"/>
-<wire x1="99.06" y1="58.42" x2="88.9" y2="58.42" width="0.1524" layer="91"/>
-<label x="88.9" y="58.42" size="1.778" layer="95"/>
+<wire x1="121.92" y1="20.32" x2="111.76" y2="20.32" width="0.1524" layer="91"/>
+<label x="111.76" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="B"/>
@@ -8573,8 +8601,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="2_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="7"/>
-<wire x1="99.06" y1="50.8" x2="88.9" y2="50.8" width="0.1524" layer="91"/>
-<label x="88.9" y="50.8" size="1.778" layer="95"/>
+<wire x1="121.92" y1="12.7" x2="111.76" y2="12.7" width="0.1524" layer="91"/>
+<label x="111.76" y="12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R29" gate="G$1" pin="2"/>
@@ -8590,8 +8618,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="2_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="5"/>
-<wire x1="99.06" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
-<label x="88.9" y="55.88" size="1.778" layer="95"/>
+<wire x1="121.92" y1="17.78" x2="111.76" y2="17.78" width="0.1524" layer="91"/>
+<label x="111.76" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="Y"/>
@@ -8609,8 +8637,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="2_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="6"/>
-<wire x1="99.06" y1="53.34" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
-<label x="88.9" y="53.34" size="1.778" layer="95"/>
+<wire x1="121.92" y1="15.24" x2="111.76" y2="15.24" width="0.1524" layer="91"/>
+<label x="111.76" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="Z"/>
@@ -8626,8 +8654,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="2_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="8"/>
-<wire x1="99.06" y1="48.26" x2="88.9" y2="48.26" width="0.1524" layer="91"/>
-<label x="88.9" y="48.26" size="1.778" layer="95"/>
+<wire x1="121.92" y1="10.16" x2="111.76" y2="10.16" width="0.1524" layer="91"/>
+<label x="111.76" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="B"/>
@@ -8643,8 +8671,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="4_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="14"/>
-<wire x1="99.06" y1="33.02" x2="88.9" y2="33.02" width="0.1524" layer="91"/>
-<label x="88.9" y="33.02" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-5.08" x2="111.76" y2="-5.08" width="0.1524" layer="91"/>
+<label x="111.76" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="Z"/>
@@ -8660,8 +8688,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="4_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="15"/>
-<wire x1="99.06" y1="30.48" x2="88.9" y2="30.48" width="0.1524" layer="91"/>
-<label x="88.9" y="30.48" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-7.62" x2="111.76" y2="-7.62" width="0.1524" layer="91"/>
+<label x="111.76" y="-7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R33" gate="G$1" pin="2"/>
@@ -8677,8 +8705,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="4_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="16"/>
-<wire x1="99.06" y1="27.94" x2="88.9" y2="27.94" width="0.1524" layer="91"/>
-<label x="88.9" y="27.94" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-10.16" x2="111.76" y2="-10.16" width="0.1524" layer="91"/>
+<label x="111.76" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="B"/>
@@ -8694,8 +8722,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="3_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="12"/>
-<wire x1="99.06" y1="38.1" x2="88.9" y2="38.1" width="0.1524" layer="91"/>
-<label x="88.9" y="38.1" size="1.778" layer="95"/>
+<wire x1="121.92" y1="0" x2="111.76" y2="0" width="0.1524" layer="91"/>
+<label x="111.76" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="B"/>
@@ -8711,8 +8739,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="4_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="13"/>
-<wire x1="99.06" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
-<label x="88.9" y="35.56" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-2.54" x2="111.76" y2="-2.54" width="0.1524" layer="91"/>
+<label x="111.76" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="Y"/>
@@ -8730,8 +8758,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="3_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="9"/>
-<wire x1="99.06" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
-<label x="88.9" y="45.72" size="1.778" layer="95"/>
+<wire x1="121.92" y1="7.62" x2="111.76" y2="7.62" width="0.1524" layer="91"/>
+<label x="111.76" y="7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="Y"/>
@@ -8749,8 +8777,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="3_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="10"/>
-<wire x1="99.06" y1="43.18" x2="88.9" y2="43.18" width="0.1524" layer="91"/>
-<label x="88.9" y="43.18" size="1.778" layer="95"/>
+<wire x1="121.92" y1="5.08" x2="111.76" y2="5.08" width="0.1524" layer="91"/>
+<label x="111.76" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="Z"/>
@@ -8766,8 +8794,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="3_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="11"/>
-<wire x1="99.06" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
-<label x="88.9" y="40.64" size="1.778" layer="95"/>
+<wire x1="121.92" y1="2.54" x2="111.76" y2="2.54" width="0.1524" layer="91"/>
+<label x="111.76" y="2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R31" gate="G$1" pin="2"/>
@@ -8783,8 +8811,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="6_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="23"/>
-<wire x1="99.06" y1="10.16" x2="88.9" y2="10.16" width="0.1524" layer="91"/>
-<label x="88.9" y="10.16" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-27.94" x2="111.76" y2="-27.94" width="0.1524" layer="91"/>
+<label x="111.76" y="-27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R45" gate="G$1" pin="2"/>
@@ -8800,8 +8828,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="6_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="24"/>
-<wire x1="99.06" y1="7.62" x2="88.9" y2="7.62" width="0.1524" layer="91"/>
-<label x="88.9" y="7.62" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-30.48" x2="111.76" y2="-30.48" width="0.1524" layer="91"/>
+<label x="111.76" y="-30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="B"/>
@@ -8817,8 +8845,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="6_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="21"/>
-<wire x1="99.06" y1="15.24" x2="88.9" y2="15.24" width="0.1524" layer="91"/>
-<label x="88.9" y="15.24" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-22.86" x2="111.76" y2="-22.86" width="0.1524" layer="91"/>
+<label x="111.76" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="Y"/>
@@ -8836,8 +8864,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="6_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="22"/>
-<wire x1="99.06" y1="12.7" x2="88.9" y2="12.7" width="0.1524" layer="91"/>
-<label x="88.9" y="12.7" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-25.4" x2="111.76" y2="-25.4" width="0.1524" layer="91"/>
+<label x="111.76" y="-25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="Z"/>
@@ -8853,8 +8881,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="7_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="27"/>
-<wire x1="99.06" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
-<label x="88.9" y="0" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-38.1" x2="111.76" y2="-38.1" width="0.1524" layer="91"/>
+<label x="111.76" y="-38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R35" gate="G$1" pin="2"/>
@@ -8870,8 +8898,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="7_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="28"/>
-<wire x1="99.06" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
-<label x="88.9" y="-2.54" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-40.64" x2="111.76" y2="-40.64" width="0.1524" layer="91"/>
+<label x="111.76" y="-40.64" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="B"/>
@@ -8887,8 +8915,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="7_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="25"/>
-<wire x1="99.06" y1="5.08" x2="88.9" y2="5.08" width="0.1524" layer="91"/>
-<label x="88.9" y="5.08" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-33.02" x2="111.76" y2="-33.02" width="0.1524" layer="91"/>
+<label x="111.76" y="-33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="Y"/>
@@ -8906,8 +8934,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="7_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="26"/>
-<wire x1="99.06" y1="2.54" x2="88.9" y2="2.54" width="0.1524" layer="91"/>
-<label x="88.9" y="2.54" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-35.56" x2="111.76" y2="-35.56" width="0.1524" layer="91"/>
+<label x="111.76" y="-35.56" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="Z"/>
@@ -8923,8 +8951,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="5_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="17"/>
-<wire x1="99.06" y1="25.4" x2="88.9" y2="25.4" width="0.1524" layer="91"/>
-<label x="88.9" y="25.4" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-12.7" x2="111.76" y2="-12.7" width="0.1524" layer="91"/>
+<label x="111.76" y="-12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_9" gate="G$1" pin="Y"/>
@@ -8942,8 +8970,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="5_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="18"/>
-<wire x1="99.06" y1="22.86" x2="88.9" y2="22.86" width="0.1524" layer="91"/>
-<label x="88.9" y="22.86" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-15.24" x2="111.76" y2="-15.24" width="0.1524" layer="91"/>
+<label x="111.76" y="-15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_9" gate="G$1" pin="Z"/>
@@ -8959,8 +8987,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="5_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="19"/>
-<wire x1="99.06" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<label x="88.9" y="20.32" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-17.78" x2="111.76" y2="-17.78" width="0.1524" layer="91"/>
+<label x="111.76" y="-17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R43" gate="G$1" pin="2"/>
@@ -8976,15 +9004,15 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="5_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="20"/>
-<wire x1="99.06" y1="17.78" x2="88.9" y2="17.78" width="0.1524" layer="91"/>
-<label x="88.9" y="17.78" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-20.32" x2="111.76" y2="-20.32" width="0.1524" layer="91"/>
+<label x="111.76" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="8_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="29"/>
-<wire x1="99.06" y1="-5.08" x2="88.9" y2="-5.08" width="0.1524" layer="91"/>
-<label x="88.9" y="-5.08" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-43.18" x2="111.76" y2="-43.18" width="0.1524" layer="91"/>
+<label x="111.76" y="-43.18" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="Y"/>
@@ -9002,8 +9030,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="8_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="30"/>
-<wire x1="99.06" y1="-7.62" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
-<label x="88.9" y="-7.62" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-45.72" x2="111.76" y2="-45.72" width="0.1524" layer="91"/>
+<label x="111.76" y="-45.72" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="Z"/>
@@ -9019,8 +9047,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="8_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="31"/>
-<wire x1="99.06" y1="-10.16" x2="88.9" y2="-10.16" width="0.1524" layer="91"/>
-<label x="88.9" y="-10.16" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-48.26" x2="111.76" y2="-48.26" width="0.1524" layer="91"/>
+<label x="111.76" y="-48.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R37" gate="G$1" pin="2"/>
@@ -9036,8 +9064,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="8_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="32"/>
-<wire x1="99.06" y1="-12.7" x2="88.9" y2="-12.7" width="0.1524" layer="91"/>
-<label x="88.9" y="-12.7" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-50.8" x2="111.76" y2="-50.8" width="0.1524" layer="91"/>
+<label x="111.76" y="-50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="B"/>
@@ -9053,8 +9081,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="9_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="33"/>
-<wire x1="99.06" y1="-15.24" x2="88.9" y2="-15.24" width="0.1524" layer="91"/>
-<label x="88.9" y="-15.24" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-53.34" x2="111.76" y2="-53.34" width="0.1524" layer="91"/>
+<label x="111.76" y="-53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="Y"/>
@@ -9072,8 +9100,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="9_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="34"/>
-<wire x1="99.06" y1="-17.78" x2="88.9" y2="-17.78" width="0.1524" layer="91"/>
-<label x="88.9" y="-17.78" size="1.778" layer="95"/>
+<wire x1="121.92" y1="-55.88" x2="111.76" y2="-55.88" width="0.1524" layer="91"/>
+<label x="111.76" y="-55.88" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="Z"/>
@@ -9089,8 +9117,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="9_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="36"/>
-<wire x1="119.38" y1="63.5" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
-<label x="121.92" y="63.5" size="1.778" layer="95"/>
+<wire x1="142.24" y1="25.4" x2="152.4" y2="25.4" width="0.1524" layer="91"/>
+<label x="144.78" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="B"/>
@@ -9106,8 +9134,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="9_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="35"/>
-<wire x1="119.38" y1="66.04" x2="129.54" y2="66.04" width="0.1524" layer="91"/>
-<label x="121.92" y="66.04" size="1.778" layer="95"/>
+<wire x1="142.24" y1="27.94" x2="152.4" y2="27.94" width="0.1524" layer="91"/>
+<label x="144.78" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R39" gate="G$1" pin="2"/>
@@ -9123,8 +9151,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="10_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="37"/>
-<wire x1="119.38" y1="60.96" x2="129.54" y2="60.96" width="0.1524" layer="91"/>
-<label x="121.92" y="60.96" size="1.778" layer="95"/>
+<wire x1="142.24" y1="22.86" x2="152.4" y2="22.86" width="0.1524" layer="91"/>
+<label x="144.78" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="Y"/>
@@ -9142,8 +9170,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="10_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="38"/>
-<wire x1="119.38" y1="58.42" x2="129.54" y2="58.42" width="0.1524" layer="91"/>
-<label x="121.92" y="58.42" size="1.778" layer="95"/>
+<wire x1="142.24" y1="20.32" x2="152.4" y2="20.32" width="0.1524" layer="91"/>
+<label x="144.78" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="Z"/>
@@ -9159,8 +9187,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="10_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="39"/>
-<wire x1="119.38" y1="55.88" x2="129.54" y2="55.88" width="0.1524" layer="91"/>
-<label x="121.92" y="55.88" size="1.778" layer="95"/>
+<wire x1="142.24" y1="17.78" x2="152.4" y2="17.78" width="0.1524" layer="91"/>
+<label x="144.78" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R41" gate="G$1" pin="2"/>
@@ -9176,8 +9204,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="10_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="40"/>
-<wire x1="119.38" y1="53.34" x2="129.54" y2="53.34" width="0.1524" layer="91"/>
-<label x="121.92" y="53.34" size="1.778" layer="95"/>
+<wire x1="142.24" y1="15.24" x2="152.4" y2="15.24" width="0.1524" layer="91"/>
+<label x="144.78" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="B"/>
@@ -9193,8 +9221,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="11_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="41"/>
-<wire x1="119.38" y1="50.8" x2="129.54" y2="50.8" width="0.1524" layer="91"/>
-<label x="121.92" y="50.8" size="1.778" layer="95"/>
+<wire x1="142.24" y1="12.7" x2="152.4" y2="12.7" width="0.1524" layer="91"/>
+<label x="144.78" y="12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="Y"/>
@@ -9212,8 +9240,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="11_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="42"/>
-<wire x1="119.38" y1="48.26" x2="129.54" y2="48.26" width="0.1524" layer="91"/>
-<label x="121.92" y="48.26" size="1.778" layer="95"/>
+<wire x1="142.24" y1="10.16" x2="152.4" y2="10.16" width="0.1524" layer="91"/>
+<label x="144.78" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="Z"/>
@@ -9229,8 +9257,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="11_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="43"/>
-<wire x1="119.38" y1="45.72" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
-<label x="121.92" y="45.72" size="1.778" layer="95"/>
+<wire x1="142.24" y1="7.62" x2="152.4" y2="7.62" width="0.1524" layer="91"/>
+<label x="144.78" y="7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R47" gate="G$1" pin="2"/>
@@ -9246,8 +9274,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="11_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="44"/>
-<wire x1="119.38" y1="43.18" x2="129.54" y2="43.18" width="0.1524" layer="91"/>
-<label x="121.92" y="43.18" size="1.778" layer="95"/>
+<wire x1="142.24" y1="5.08" x2="152.4" y2="5.08" width="0.1524" layer="91"/>
+<label x="144.78" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="B"/>
@@ -9263,27 +9291,15 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="12_TX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="45"/>
-<wire x1="119.38" y1="40.64" x2="129.54" y2="40.64" width="0.1524" layer="91"/>
-<label x="121.92" y="40.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_12" gate="G$1" pin="Y"/>
-<wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-132.08" x2="33.02" y2="-137.16" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-137.16" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
-<pinref part="R50" gate="G$1" pin="1"/>
-<wire x1="50.8" y1="-137.16" x2="63.5" y2="-137.16" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="-132.08" x2="50.8" y2="-132.08" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="-132.08" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
-<junction x="50.8" y="-137.16"/>
-<label x="53.34" y="-137.16" size="1.778" layer="95"/>
+<wire x1="142.24" y1="2.54" x2="152.4" y2="2.54" width="0.1524" layer="91"/>
+<label x="144.78" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12_TX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="46"/>
-<wire x1="119.38" y1="38.1" x2="129.54" y2="38.1" width="0.1524" layer="91"/>
-<label x="121.92" y="38.1" size="1.778" layer="95"/>
+<wire x1="142.24" y1="0" x2="152.4" y2="0" width="0.1524" layer="91"/>
+<label x="144.78" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="Z"/>
@@ -9299,8 +9315,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="12_RX+" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="47"/>
-<wire x1="119.38" y1="35.56" x2="129.54" y2="35.56" width="0.1524" layer="91"/>
-<label x="121.92" y="35.56" size="1.778" layer="95"/>
+<wire x1="142.24" y1="-2.54" x2="152.4" y2="-2.54" width="0.1524" layer="91"/>
+<label x="144.78" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R49" gate="G$1" pin="2"/>
@@ -9316,8 +9332,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="12_RX-" class="0">
 <segment>
 <pinref part="U$36" gate="G$1" pin="48"/>
-<wire x1="119.38" y1="33.02" x2="129.54" y2="33.02" width="0.1524" layer="91"/>
-<label x="121.92" y="33.02" size="1.778" layer="95"/>
+<wire x1="142.24" y1="-5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
+<label x="144.78" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="B"/>
@@ -9761,38 +9777,54 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <plain>
 </plain>
 <instances>
-<instance part="RS-485-1" gate="G$1" x="0" y="99.06"/>
-<instance part="+3V25" gate="G$1" x="-25.4" y="114.3"/>
-<instance part="GND5" gate="1" x="-25.4" y="91.44" rot="R270"/>
-<instance part="U$1" gate="G$1" x="43.18" y="99.06"/>
-<instance part="RS-485-2" gate="G$1" x="0" y="63.5"/>
-<instance part="+3V39" gate="G$1" x="-25.4" y="78.74"/>
-<instance part="GND42" gate="1" x="-25.4" y="55.88" rot="R270"/>
-<instance part="U$3" gate="G$1" x="43.18" y="63.5"/>
-<instance part="RS-485-3" gate="G$1" x="0" y="27.94"/>
-<instance part="+3V40" gate="G$1" x="-25.4" y="43.18"/>
-<instance part="GND43" gate="1" x="-25.4" y="20.32" rot="R270"/>
-<instance part="U$5" gate="G$1" x="43.18" y="27.94"/>
-<instance part="RS-485-4" gate="G$1" x="0" y="-7.62"/>
-<instance part="+3V41" gate="G$1" x="-25.4" y="7.62"/>
-<instance part="GND44" gate="1" x="-25.4" y="-15.24" rot="R270"/>
-<instance part="U$6" gate="G$1" x="43.18" y="-7.62"/>
-<instance part="RS-485-5" gate="G$1" x="104.14" y="99.06"/>
-<instance part="+3V42" gate="G$1" x="78.74" y="114.3"/>
-<instance part="GND45" gate="1" x="78.74" y="91.44" rot="R270"/>
-<instance part="U$7" gate="G$1" x="147.32" y="99.06"/>
-<instance part="RS-485-6" gate="G$1" x="104.14" y="63.5"/>
-<instance part="+3V43" gate="G$1" x="78.74" y="78.74"/>
-<instance part="GND46" gate="1" x="78.74" y="55.88" rot="R270"/>
-<instance part="U$8" gate="G$1" x="147.32" y="63.5"/>
-<instance part="RS-485-7" gate="G$1" x="104.14" y="27.94"/>
-<instance part="+3V44" gate="G$1" x="78.74" y="43.18"/>
-<instance part="GND47" gate="1" x="78.74" y="20.32" rot="R270"/>
-<instance part="U$9" gate="G$1" x="147.32" y="27.94"/>
-<instance part="RS-485-8" gate="G$1" x="104.14" y="-7.62"/>
-<instance part="+3V45" gate="G$1" x="78.74" y="7.62"/>
-<instance part="GND48" gate="1" x="78.74" y="-15.24" rot="R270"/>
-<instance part="U$10" gate="G$1" x="147.32" y="-7.62"/>
+<instance part="RS-485-1" gate="G$1" x="-20.32" y="99.06"/>
+<instance part="+3V25" gate="G$1" x="-38.1" y="111.76"/>
+<instance part="GND5" gate="1" x="-38.1" y="86.36"/>
+<instance part="U$1" gate="G$1" x="33.02" y="99.06"/>
+<instance part="R51" gate="G$1" x="5.08" y="106.68"/>
+<instance part="R52" gate="G$1" x="5.08" y="91.44"/>
+<instance part="RS-485-2" gate="G$1" x="-20.32" y="60.96"/>
+<instance part="+3V39" gate="G$1" x="-38.1" y="73.66"/>
+<instance part="GND42" gate="1" x="-38.1" y="48.26"/>
+<instance part="U$3" gate="G$1" x="33.02" y="60.96"/>
+<instance part="R53" gate="G$1" x="5.08" y="68.58"/>
+<instance part="R54" gate="G$1" x="5.08" y="53.34"/>
+<instance part="RS-485-3" gate="G$1" x="-20.32" y="20.32"/>
+<instance part="+3V40" gate="G$1" x="-38.1" y="33.02"/>
+<instance part="GND43" gate="1" x="-38.1" y="7.62"/>
+<instance part="U$4" gate="G$1" x="33.02" y="20.32"/>
+<instance part="R55" gate="G$1" x="5.08" y="27.94"/>
+<instance part="R56" gate="G$1" x="5.08" y="12.7"/>
+<instance part="RS-485-4" gate="G$1" x="-20.32" y="-17.78"/>
+<instance part="+3V41" gate="G$1" x="-38.1" y="-5.08"/>
+<instance part="GND44" gate="1" x="-38.1" y="-30.48"/>
+<instance part="U$5" gate="G$1" x="33.02" y="-17.78"/>
+<instance part="R57" gate="G$1" x="5.08" y="-10.16"/>
+<instance part="R58" gate="G$1" x="5.08" y="-25.4"/>
+<instance part="RS-485-5" gate="G$1" x="93.98" y="99.06"/>
+<instance part="+3V42" gate="G$1" x="76.2" y="111.76"/>
+<instance part="GND45" gate="1" x="76.2" y="86.36"/>
+<instance part="U$6" gate="G$1" x="147.32" y="99.06"/>
+<instance part="R59" gate="G$1" x="119.38" y="106.68"/>
+<instance part="R60" gate="G$1" x="119.38" y="91.44"/>
+<instance part="RS-485-6" gate="G$1" x="93.98" y="60.96"/>
+<instance part="+3V43" gate="G$1" x="76.2" y="73.66"/>
+<instance part="GND46" gate="1" x="76.2" y="48.26"/>
+<instance part="U$7" gate="G$1" x="147.32" y="60.96"/>
+<instance part="R61" gate="G$1" x="119.38" y="68.58"/>
+<instance part="R62" gate="G$1" x="119.38" y="53.34"/>
+<instance part="RS-485-7" gate="G$1" x="93.98" y="20.32"/>
+<instance part="+3V44" gate="G$1" x="76.2" y="33.02"/>
+<instance part="GND47" gate="1" x="76.2" y="7.62"/>
+<instance part="U$8" gate="G$1" x="147.32" y="20.32"/>
+<instance part="R63" gate="G$1" x="119.38" y="27.94"/>
+<instance part="R64" gate="G$1" x="119.38" y="12.7"/>
+<instance part="RS-485-8" gate="G$1" x="93.98" y="-17.78"/>
+<instance part="+3V45" gate="G$1" x="76.2" y="-5.08"/>
+<instance part="GND48" gate="1" x="76.2" y="-30.48"/>
+<instance part="U$9" gate="G$1" x="147.32" y="-17.78"/>
+<instance part="R65" gate="G$1" x="119.38" y="-10.16"/>
+<instance part="R66" gate="G$1" x="119.38" y="-25.4"/>
 </instances>
 <busses>
 </busses>
@@ -9800,477 +9832,645 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="+3V25" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="111.76" x2="-25.4" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="109.22" x2="-38.1" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="RS-485-1" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="106.68" x2="-15.24" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="106.68" x2="-35.56" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V39" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="76.2" x2="-25.4" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="71.12" x2="-38.1" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="RS-485-2" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="71.12" x2="-15.24" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="68.58" x2="-35.56" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V40" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="40.64" x2="-25.4" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="30.48" x2="-38.1" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="RS-485-3" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="35.56" x2="-15.24" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V41" gate="G$1" pin="+3V3"/>
-<wire x1="-25.4" y1="5.08" x2="-25.4" y2="0" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="-7.62" x2="-38.1" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="RS-485-4" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="0" x2="-15.24" y2="0" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="-10.16" x2="-35.56" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V42" gate="G$1" pin="+3V3"/>
-<wire x1="78.74" y1="111.76" x2="78.74" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="109.22" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="RS-485-5" gate="G$1" pin="VCC"/>
-<wire x1="78.74" y1="106.68" x2="88.9" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="106.68" x2="78.74" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V43" gate="G$1" pin="+3V3"/>
-<wire x1="78.74" y1="76.2" x2="78.74" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="71.12" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="RS-485-6" gate="G$1" pin="VCC"/>
-<wire x1="78.74" y1="71.12" x2="88.9" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="68.58" x2="78.74" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V44" gate="G$1" pin="+3V3"/>
-<wire x1="78.74" y1="40.64" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="30.48" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="RS-485-7" gate="G$1" pin="VCC"/>
-<wire x1="78.74" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="27.94" x2="78.74" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="+3V45" gate="G$1" pin="+3V3"/>
-<wire x1="78.74" y1="5.08" x2="78.74" y2="0" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="-7.62" x2="76.2" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="RS-485-8" gate="G$1" pin="VCC"/>
-<wire x1="78.74" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="GND" class="0">
-<segment>
-<pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="RS-485-1" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="91.44" x2="-15.24" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND42" gate="1" pin="GND"/>
-<pinref part="RS-485-2" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="55.88" x2="-15.24" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND43" gate="1" pin="GND"/>
-<pinref part="RS-485-3" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="20.32" x2="-15.24" y2="20.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND44" gate="1" pin="GND"/>
-<pinref part="RS-485-4" gate="G$1" pin="GND"/>
-<wire x1="-22.86" y1="-15.24" x2="-15.24" y2="-15.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND45" gate="1" pin="GND"/>
-<pinref part="RS-485-5" gate="G$1" pin="GND"/>
-<wire x1="81.28" y1="91.44" x2="88.9" y2="91.44" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND46" gate="1" pin="GND"/>
-<pinref part="RS-485-6" gate="G$1" pin="GND"/>
-<wire x1="81.28" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND47" gate="1" pin="GND"/>
-<pinref part="RS-485-7" gate="G$1" pin="GND"/>
-<wire x1="81.28" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND48" gate="1" pin="GND"/>
-<pinref part="RS-485-8" gate="G$1" pin="GND"/>
-<wire x1="81.28" y1="-15.24" x2="88.9" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="-10.16" x2="78.74" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RS485_13_RX" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="101.6" x2="-40.64" y2="101.6" width="0.1524" layer="91"/>
-<label x="-38.1" y="101.6" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="101.6" x2="-60.96" y2="101.6" width="0.1524" layer="91"/>
+<label x="-58.42" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_13_TX" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="96.52" x2="-40.64" y2="96.52" width="0.1524" layer="91"/>
-<label x="-38.1" y="96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="RS-485-1" gate="G$1" pin="A"/>
-<wire x1="15.24" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="106.68" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="109.22" x2="30.48" y2="109.22" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="RS-485-1" gate="G$1" pin="B"/>
-<wire x1="15.24" y1="101.6" x2="22.86" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="101.6" x2="22.86" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="106.68" x2="30.48" y2="106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="RS-485-1" gate="G$1" pin="Y"/>
-<wire x1="15.24" y1="91.44" x2="25.4" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="91.44" x2="25.4" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="3"/>
-<wire x1="25.4" y1="104.14" x2="30.48" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="96.52" x2="-60.96" y2="96.52" width="0.1524" layer="91"/>
+<label x="-58.42" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="Z"/>
 <pinref part="U$1" gate="G$1" pin="6"/>
-<wire x1="15.24" y1="96.52" x2="30.48" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="96.52" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R52" gate="G$1" pin="2"/>
+<wire x1="12.7" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="91.44" x2="12.7" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="91.44" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
+<junction x="12.7" y="96.52"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="RS-485-1" gate="G$1" pin="A"/>
+<pinref part="R51" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="106.68" x2="-2.54" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="106.68" x2="0" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="106.68" x2="-2.54" y2="111.76" width="0.1524" layer="91"/>
+<junction x="-2.54" y="106.68"/>
+<wire x1="-2.54" y1="111.76" x2="15.24" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="111.76" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="109.22" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="RS-485-1" gate="G$1" pin="B"/>
+<wire x1="-5.08" y1="101.6" x2="12.7" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="101.6" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R51" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="106.68" x2="12.7" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="106.68" x2="12.7" y2="101.6" width="0.1524" layer="91"/>
+<junction x="12.7" y="101.6"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="RS-485-1" gate="G$1" pin="Y"/>
+<pinref part="R52" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="91.44" x2="-2.54" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="91.44" x2="0" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="91.44" x2="-2.54" y2="86.36" width="0.1524" layer="91"/>
+<junction x="-2.54" y="91.44"/>
+<wire x1="17.78" y1="86.36" x2="17.78" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="104.14" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="86.36" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND" class="0">
+<segment>
+<pinref part="RS-485-1" gate="G$1" pin="GND"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="-35.56" y1="91.44" x2="-38.1" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="91.44" x2="-38.1" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-2" gate="G$1" pin="GND"/>
+<pinref part="GND42" gate="1" pin="GND"/>
+<wire x1="-35.56" y1="53.34" x2="-38.1" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="53.34" x2="-38.1" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-3" gate="G$1" pin="GND"/>
+<pinref part="GND43" gate="1" pin="GND"/>
+<wire x1="-35.56" y1="12.7" x2="-38.1" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="12.7" x2="-38.1" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-4" gate="G$1" pin="GND"/>
+<pinref part="GND44" gate="1" pin="GND"/>
+<wire x1="-35.56" y1="-25.4" x2="-38.1" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-38.1" y1="-25.4" x2="-38.1" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-5" gate="G$1" pin="GND"/>
+<pinref part="GND45" gate="1" pin="GND"/>
+<wire x1="78.74" y1="91.44" x2="76.2" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="91.44" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-6" gate="G$1" pin="GND"/>
+<pinref part="GND46" gate="1" pin="GND"/>
+<wire x1="78.74" y1="53.34" x2="76.2" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="53.34" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-7" gate="G$1" pin="GND"/>
+<pinref part="GND47" gate="1" pin="GND"/>
+<wire x1="78.74" y1="12.7" x2="76.2" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="12.7" x2="76.2" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RS-485-8" gate="G$1" pin="GND"/>
+<pinref part="GND48" gate="1" pin="GND"/>
+<wire x1="78.74" y1="-25.4" x2="76.2" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="-25.4" x2="76.2" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="RS-485-2" gate="G$1" pin="Z"/>
+<pinref part="U$3" gate="G$1" pin="6"/>
+<wire x1="-5.08" y1="58.42" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R54" gate="G$1" pin="2"/>
+<wire x1="12.7" y1="58.42" x2="20.32" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="53.34" x2="12.7" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="53.34" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
+<junction x="12.7" y="58.42"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="A"/>
-<wire x1="15.24" y1="71.12" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="71.12" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R53" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="68.58" x2="-2.54" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="68.58" x2="-2.54" y2="73.66" width="0.1524" layer="91"/>
+<junction x="-2.54" y="68.58"/>
+<wire x1="-2.54" y1="73.66" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="73.66" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="73.66" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="71.12" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="B"/>
-<wire x1="15.24" y1="66.04" x2="22.86" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="66.04" x2="22.86" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="63.5" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="63.5" x2="15.24" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="63.5" x2="15.24" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="71.12" x2="30.48" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="68.58" x2="20.32" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R53" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="68.58" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="68.58" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
+<junction x="12.7" y="63.5"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="Y"/>
-<wire x1="15.24" y1="55.88" x2="25.4" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="55.88" x2="25.4" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R54" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="53.34" x2="-2.54" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="53.34" x2="0" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="53.34" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
+<junction x="-2.54" y="53.34"/>
+<wire x1="17.78" y1="48.26" x2="17.78" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="3"/>
-<wire x1="25.4" y1="68.58" x2="30.48" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="66.04" x2="20.32" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="RS-485-2" gate="G$1" pin="Z"/>
-<pinref part="U$3" gate="G$1" pin="6"/>
-<wire x1="15.24" y1="60.96" x2="30.48" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="RS-485-3" gate="G$1" pin="Z"/>
+<pinref part="U$4" gate="G$1" pin="6"/>
+<wire x1="-5.08" y1="17.78" x2="12.7" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R56" gate="G$1" pin="2"/>
+<wire x1="12.7" y1="17.78" x2="20.32" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="12.7" x2="12.7" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="12.7" x2="12.7" y2="17.78" width="0.1524" layer="91"/>
+<junction x="12.7" y="17.78"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="A"/>
-<wire x1="15.24" y1="35.56" x2="20.32" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="35.56" x2="20.32" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="38.1" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="R55" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="27.94" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="27.94" x2="0" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="27.94" x2="-2.54" y2="33.02" width="0.1524" layer="91"/>
+<junction x="-2.54" y="27.94"/>
+<wire x1="-2.54" y1="33.02" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="33.02" x2="15.24" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="30.48" x2="20.32" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="B"/>
-<wire x1="15.24" y1="30.48" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="30.48" x2="22.86" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="35.56" x2="30.48" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="22.86" x2="12.7" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="22.86" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="22.86" x2="15.24" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="27.94" x2="20.32" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="R55" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="27.94" x2="12.7" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="27.94" x2="12.7" y2="22.86" width="0.1524" layer="91"/>
+<junction x="12.7" y="22.86"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="Y"/>
-<wire x1="15.24" y1="20.32" x2="25.4" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="20.32" x2="25.4" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="3"/>
-<wire x1="25.4" y1="33.02" x2="30.48" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="R56" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="12.7" x2="-2.54" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="12.7" x2="0" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="12.7" x2="-2.54" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-2.54" y="12.7"/>
+<wire x1="17.78" y1="7.62" x2="17.78" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="25.4" x2="20.32" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="7.62" x2="17.78" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="RS-485-3" gate="G$1" pin="Z"/>
+<pinref part="RS-485-4" gate="G$1" pin="Z"/>
 <pinref part="U$5" gate="G$1" pin="6"/>
-<wire x1="15.24" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="-20.32" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="R58" gate="G$1" pin="2"/>
+<wire x1="12.7" y1="-20.32" x2="20.32" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="-25.4" x2="12.7" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-25.4" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="12.7" y="-20.32"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="A"/>
-<wire x1="15.24" y1="0" x2="20.32" y2="0" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="0" x2="20.32" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="2.54" x2="30.48" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="R57" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="-10.16" x2="-2.54" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-10.16" x2="0" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-10.16" x2="-2.54" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="-2.54" y="-10.16"/>
+<wire x1="-2.54" y1="-5.08" x2="15.24" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="-5.08" x2="15.24" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="1"/>
+<wire x1="15.24" y1="-7.62" x2="20.32" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="B"/>
-<wire x1="15.24" y1="-5.08" x2="22.86" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="-5.08" x2="22.86" y2="0" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="0" x2="30.48" y2="0" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="-15.24" x2="12.7" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-15.24" x2="15.24" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="-15.24" x2="15.24" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="2"/>
+<wire x1="15.24" y1="-10.16" x2="20.32" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="R57" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="-10.16" x2="12.7" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-10.16" x2="12.7" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="12.7" y="-15.24"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="Y"/>
-<wire x1="15.24" y1="-15.24" x2="25.4" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-15.24" x2="25.4" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="3"/>
-<wire x1="25.4" y1="-2.54" x2="30.48" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="R58" gate="G$1" pin="1"/>
+<wire x1="-5.08" y1="-25.4" x2="-2.54" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-25.4" x2="0" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-25.4" x2="-2.54" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="-2.54" y="-25.4"/>
+<wire x1="17.78" y1="-30.48" x2="17.78" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="-12.7" x2="20.32" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-30.48" x2="17.78" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
-<pinref part="RS-485-4" gate="G$1" pin="Z"/>
+<pinref part="RS-485-5" gate="G$1" pin="Z"/>
 <pinref part="U$6" gate="G$1" pin="6"/>
-<wire x1="15.24" y1="-10.16" x2="30.48" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="96.52" x2="127" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R60" gate="G$1" pin="2"/>
+<wire x1="127" y1="96.52" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="91.44" x2="127" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="127" y1="91.44" x2="127" y2="96.52" width="0.1524" layer="91"/>
+<junction x="127" y="96.52"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="A"/>
-<wire x1="119.38" y1="106.68" x2="124.46" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="106.68" x2="124.46" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="109.22" x2="134.62" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="R59" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="106.68" x2="114.3" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="106.68" x2="111.76" y2="111.76" width="0.1524" layer="91"/>
+<junction x="111.76" y="106.68"/>
+<wire x1="111.76" y1="111.76" x2="129.54" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="111.76" x2="129.54" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="109.22" x2="134.62" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="B"/>
-<wire x1="119.38" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="127" y1="101.6" x2="127" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="2"/>
-<wire x1="127" y1="106.68" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="127" y1="101.6" x2="129.54" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="101.6" x2="129.54" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="106.68" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R59" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="106.68" x2="127" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="127" y1="106.68" x2="127" y2="101.6" width="0.1524" layer="91"/>
+<junction x="127" y="101.6"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="Y"/>
-<wire x1="119.38" y1="91.44" x2="129.54" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="91.44" x2="129.54" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="3"/>
-<wire x1="129.54" y1="104.14" x2="134.62" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="R60" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="91.44" x2="111.76" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="91.44" x2="114.3" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="91.44" x2="111.76" y2="86.36" width="0.1524" layer="91"/>
+<junction x="111.76" y="91.44"/>
+<wire x1="132.08" y1="86.36" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="3"/>
+<wire x1="132.08" y1="104.14" x2="134.62" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="86.36" x2="132.08" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="0">
 <segment>
-<pinref part="RS-485-5" gate="G$1" pin="Z"/>
+<pinref part="RS-485-6" gate="G$1" pin="Z"/>
 <pinref part="U$7" gate="G$1" pin="6"/>
-<wire x1="119.38" y1="96.52" x2="134.62" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="58.42" x2="127" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="R62" gate="G$1" pin="2"/>
+<wire x1="127" y1="58.42" x2="134.62" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="53.34" x2="127" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="127" y1="53.34" x2="127" y2="58.42" width="0.1524" layer="91"/>
+<junction x="127" y="58.42"/>
 </segment>
 </net>
 <net name="N$34" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="A"/>
-<wire x1="119.38" y1="71.12" x2="124.46" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="71.12" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="73.66" x2="134.62" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R61" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="68.58" x2="111.76" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="68.58" x2="114.3" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="68.58" x2="111.76" y2="73.66" width="0.1524" layer="91"/>
+<junction x="111.76" y="68.58"/>
+<wire x1="111.76" y1="73.66" x2="129.54" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="73.66" x2="129.54" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="71.12" x2="134.62" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$35" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="B"/>
-<wire x1="119.38" y1="66.04" x2="127" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="127" y1="66.04" x2="127" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="2"/>
-<wire x1="127" y1="71.12" x2="134.62" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="63.5" x2="127" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="127" y1="63.5" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="63.5" x2="129.54" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="68.58" x2="134.62" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R61" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="68.58" x2="127" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="127" y1="68.58" x2="127" y2="63.5" width="0.1524" layer="91"/>
+<junction x="127" y="63.5"/>
 </segment>
 </net>
 <net name="N$36" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="Y"/>
-<wire x1="119.38" y1="55.88" x2="129.54" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="55.88" x2="129.54" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="3"/>
-<wire x1="129.54" y1="68.58" x2="134.62" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="R62" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="53.34" x2="111.76" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="53.34" x2="114.3" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="53.34" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
+<junction x="111.76" y="53.34"/>
+<wire x1="132.08" y1="48.26" x2="132.08" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="3"/>
+<wire x1="132.08" y1="66.04" x2="134.62" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="48.26" x2="132.08" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$37" class="0">
 <segment>
-<pinref part="RS-485-6" gate="G$1" pin="Z"/>
+<pinref part="RS-485-7" gate="G$1" pin="Z"/>
 <pinref part="U$8" gate="G$1" pin="6"/>
-<wire x1="119.38" y1="60.96" x2="134.62" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="17.78" x2="127" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R64" gate="G$1" pin="2"/>
+<wire x1="127" y1="17.78" x2="134.62" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="12.7" x2="127" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="127" y1="12.7" x2="127" y2="17.78" width="0.1524" layer="91"/>
+<junction x="127" y="17.78"/>
 </segment>
 </net>
 <net name="N$38" class="0">
 <segment>
 <pinref part="RS-485-7" gate="G$1" pin="A"/>
-<wire x1="119.38" y1="35.56" x2="124.46" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="35.56" x2="124.46" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="38.1" x2="134.62" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="R63" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="27.94" x2="111.76" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="27.94" x2="114.3" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="27.94" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
+<junction x="111.76" y="27.94"/>
+<wire x1="111.76" y1="33.02" x2="129.54" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="33.02" x2="129.54" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="30.48" x2="134.62" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$39" class="0">
 <segment>
 <pinref part="RS-485-7" gate="G$1" pin="B"/>
-<wire x1="119.38" y1="30.48" x2="127" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="127" y1="30.48" x2="127" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="2"/>
-<wire x1="127" y1="35.56" x2="134.62" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="22.86" x2="127" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="127" y1="22.86" x2="129.54" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="22.86" x2="129.54" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="27.94" x2="134.62" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="R63" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="27.94" x2="127" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="127" y1="27.94" x2="127" y2="22.86" width="0.1524" layer="91"/>
+<junction x="127" y="22.86"/>
 </segment>
 </net>
 <net name="N$40" class="0">
 <segment>
 <pinref part="RS-485-7" gate="G$1" pin="Y"/>
-<wire x1="119.38" y1="20.32" x2="129.54" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="20.32" x2="129.54" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="3"/>
-<wire x1="129.54" y1="33.02" x2="134.62" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="R64" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="12.7" x2="111.76" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="12.7" x2="114.3" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="12.7" x2="111.76" y2="7.62" width="0.1524" layer="91"/>
+<junction x="111.76" y="12.7"/>
+<wire x1="132.08" y1="7.62" x2="132.08" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="3"/>
+<wire x1="132.08" y1="25.4" x2="134.62" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="7.62" x2="132.08" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$41" class="0">
 <segment>
-<pinref part="RS-485-7" gate="G$1" pin="Z"/>
+<pinref part="RS-485-8" gate="G$1" pin="Z"/>
 <pinref part="U$9" gate="G$1" pin="6"/>
-<wire x1="119.38" y1="25.4" x2="134.62" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-20.32" x2="127" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="R66" gate="G$1" pin="2"/>
+<wire x1="127" y1="-20.32" x2="134.62" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-25.4" x2="127" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="127" y1="-25.4" x2="127" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="127" y="-20.32"/>
 </segment>
 </net>
 <net name="N$42" class="0">
 <segment>
 <pinref part="RS-485-8" gate="G$1" pin="A"/>
-<wire x1="119.38" y1="0" x2="124.46" y2="0" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="0" x2="124.46" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="2.54" x2="134.62" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="R65" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="-10.16" x2="111.76" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-10.16" x2="114.3" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-10.16" x2="111.76" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="111.76" y="-10.16"/>
+<wire x1="111.76" y1="-5.08" x2="129.54" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="-5.08" x2="129.54" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="-7.62" x2="134.62" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$43" class="0">
 <segment>
 <pinref part="RS-485-8" gate="G$1" pin="B"/>
-<wire x1="119.38" y1="-5.08" x2="127" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="127" y1="-5.08" x2="127" y2="0" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="2"/>
-<wire x1="127" y1="0" x2="134.62" y2="0" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-15.24" x2="127" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="127" y1="-15.24" x2="129.54" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="-15.24" x2="129.54" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="-10.16" x2="134.62" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="R65" gate="G$1" pin="2"/>
+<wire x1="124.46" y1="-10.16" x2="127" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="127" y1="-10.16" x2="127" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="127" y="-15.24"/>
 </segment>
 </net>
 <net name="N$44" class="0">
 <segment>
 <pinref part="RS-485-8" gate="G$1" pin="Y"/>
-<wire x1="119.38" y1="-15.24" x2="129.54" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="-15.24" x2="129.54" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="3"/>
-<wire x1="129.54" y1="-2.54" x2="134.62" y2="-2.54" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$45" class="0">
-<segment>
-<pinref part="RS-485-8" gate="G$1" pin="Z"/>
-<pinref part="U$10" gate="G$1" pin="6"/>
-<wire x1="119.38" y1="-10.16" x2="134.62" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="R66" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="-25.4" x2="111.76" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-25.4" x2="114.3" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-25.4" x2="111.76" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="111.76" y="-25.4"/>
+<wire x1="132.08" y1="-30.48" x2="132.08" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="3"/>
+<wire x1="132.08" y1="-12.7" x2="134.62" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-30.48" x2="132.08" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RS485_14_RX" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="66.04" x2="-40.64" y2="66.04" width="0.1524" layer="91"/>
-<label x="-38.1" y="66.04" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="63.5" x2="-60.96" y2="63.5" width="0.1524" layer="91"/>
+<label x="-58.42" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_14_TX" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="60.96" x2="-40.64" y2="60.96" width="0.1524" layer="91"/>
-<label x="-38.1" y="60.96" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="58.42" x2="-60.96" y2="58.42" width="0.1524" layer="91"/>
+<label x="-58.42" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_15_RX" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="30.48" x2="-40.64" y2="30.48" width="0.1524" layer="91"/>
-<label x="-38.1" y="30.48" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="22.86" x2="-60.96" y2="22.86" width="0.1524" layer="91"/>
+<label x="-58.42" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_15_TX" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="25.4" x2="-40.64" y2="25.4" width="0.1524" layer="91"/>
-<label x="-38.1" y="25.4" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="17.78" x2="-60.96" y2="17.78" width="0.1524" layer="91"/>
+<label x="-58.42" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_16_RX" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="R0"/>
-<wire x1="-15.24" y1="-5.08" x2="-40.64" y2="-5.08" width="0.1524" layer="91"/>
-<label x="-38.1" y="-5.08" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="-15.24" x2="-60.96" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-58.42" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_16_TX" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="DI"/>
-<wire x1="-15.24" y1="-10.16" x2="-40.64" y2="-10.16" width="0.1524" layer="91"/>
-<label x="-38.1" y="-10.16" size="1.778" layer="95"/>
+<wire x1="-35.56" y1="-20.32" x2="-60.96" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-58.42" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_17_RX" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="R0"/>
-<wire x1="88.9" y1="101.6" x2="63.5" y2="101.6" width="0.1524" layer="91"/>
-<label x="66.04" y="101.6" size="1.778" layer="95"/>
+<wire x1="78.74" y1="101.6" x2="53.34" y2="101.6" width="0.1524" layer="91"/>
+<label x="55.88" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_17_TX" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="DI"/>
-<wire x1="88.9" y1="96.52" x2="63.5" y2="96.52" width="0.1524" layer="91"/>
-<label x="66.04" y="96.52" size="1.778" layer="95"/>
+<wire x1="78.74" y1="96.52" x2="53.34" y2="96.52" width="0.1524" layer="91"/>
+<label x="55.88" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_18_RX" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="R0"/>
-<wire x1="88.9" y1="66.04" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
-<label x="66.04" y="66.04" size="1.778" layer="95"/>
+<wire x1="78.74" y1="63.5" x2="53.34" y2="63.5" width="0.1524" layer="91"/>
+<label x="55.88" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_18_TX" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="DI"/>
-<wire x1="88.9" y1="60.96" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
-<label x="66.04" y="60.96" size="1.778" layer="95"/>
+<wire x1="78.74" y1="58.42" x2="53.34" y2="58.42" width="0.1524" layer="91"/>
+<label x="55.88" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_19_RX" class="0">
 <segment>
 <pinref part="RS-485-7" gate="G$1" pin="R0"/>
-<wire x1="88.9" y1="30.48" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
-<label x="66.04" y="30.48" size="1.778" layer="95"/>
+<wire x1="78.74" y1="22.86" x2="53.34" y2="22.86" width="0.1524" layer="91"/>
+<label x="55.88" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_19_TX" class="0">
 <segment>
 <pinref part="RS-485-7" gate="G$1" pin="DI"/>
-<wire x1="88.9" y1="25.4" x2="63.5" y2="25.4" width="0.1524" layer="91"/>
-<label x="66.04" y="25.4" size="1.778" layer="95"/>
+<wire x1="78.74" y1="17.78" x2="53.34" y2="17.78" width="0.1524" layer="91"/>
+<label x="55.88" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_20_RX" class="0">
 <segment>
 <pinref part="RS-485-8" gate="G$1" pin="R0"/>
-<wire x1="88.9" y1="-5.08" x2="63.5" y2="-5.08" width="0.1524" layer="91"/>
-<label x="66.04" y="-5.08" size="1.778" layer="95"/>
+<wire x1="78.74" y1="-15.24" x2="53.34" y2="-15.24" width="0.1524" layer="91"/>
+<label x="55.88" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_20_TX" class="0">
 <segment>
 <pinref part="RS-485-8" gate="G$1" pin="DI"/>
-<wire x1="88.9" y1="-10.16" x2="63.5" y2="-10.16" width="0.1524" layer="91"/>
-<label x="66.04" y="-10.16" size="1.778" layer="95"/>
+<wire x1="78.74" y1="-20.32" x2="53.34" y2="-20.32" width="0.1524" layer="91"/>
+<label x="55.88" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

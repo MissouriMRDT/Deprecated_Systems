@@ -8997,28 +8997,28 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10K"/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10K"/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="RX_MUX_1" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="RX_MUX_1" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V26" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
-<part name="RX_MUX_2" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="RX_MUX_2" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V27" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="TX_MUX_1" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="TX_MUX_1" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V28" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
-<part name="TX_MUX_2" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="TX_MUX_2" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="RX_MUX_3" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="RX_MUX_3" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V30" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
-<part name="RX_MUX_4" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="RX_MUX_4" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V31" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
-<part name="TX_MUX_3" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="TX_MUX_3" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V32" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
-<part name="TX_MUX_4" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device=""/>
+<part name="TX_MUX_4" library="MC74LVXT8051" deviceset="MC74LVXT8051DG" device="" value="8:1 Mux"/>
 <part name="+3V38" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>

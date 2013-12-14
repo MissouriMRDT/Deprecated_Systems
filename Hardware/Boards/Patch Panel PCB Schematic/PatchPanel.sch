@@ -1155,6 +1155,42 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 </deviceset>
 </devicesets>
 </library>
+<library name="MLX">
+<packages>
+<package name="42002-2">
+<pad name="P$1" x="0" y="0" drill="1.778" shape="square"/>
+<pad name="P$2" x="6.35" y="0" drill="1.778" shape="square"/>
+</package>
+</packages>
+<symbols>
+<symbol name="2PIN">
+<pin name="P$1" x="0" y="-5.08" length="middle" rot="R90"/>
+<pin name="P$2" x="5.08" y="-5.08" length="middle" rot="R90"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MLX-2">
+<gates>
+<gate name="G$1" symbol="2PIN" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="42002-2">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1220,6 +1256,18 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="U$8" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$9" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$10" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$11" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$12" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$13" library="MLX" deviceset="MLX-2" device=""/>
+<part name="12IN1" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="12IN2" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="12IN3" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="12IN4" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="12IN5" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="12IN6" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
 </parts>
 <sheets>
 <sheet>
@@ -1283,6 +1331,18 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <instance part="P+14" gate="1" x="30.48" y="228.6"/>
 <instance part="GND7" gate="1" x="38.1" y="213.36"/>
 <instance part="GND8" gate="1" x="66.04" y="213.36"/>
+<instance part="U$8" gate="G$1" x="106.68" y="241.3"/>
+<instance part="U$9" gate="G$1" x="121.92" y="241.3"/>
+<instance part="U$10" gate="G$1" x="137.16" y="241.3"/>
+<instance part="U$11" gate="G$1" x="152.4" y="241.3"/>
+<instance part="U$12" gate="G$1" x="167.64" y="241.3"/>
+<instance part="U$13" gate="G$1" x="182.88" y="241.3"/>
+<instance part="12IN1" gate="G$1" x="109.22" y="220.98" rot="R90"/>
+<instance part="12IN2" gate="G$1" x="124.46" y="220.98" rot="R90"/>
+<instance part="12IN3" gate="G$1" x="139.7" y="220.98" rot="R90"/>
+<instance part="12IN4" gate="G$1" x="154.94" y="220.98" rot="R90"/>
+<instance part="12IN5" gate="G$1" x="170.18" y="220.98" rot="R90"/>
+<instance part="12IN6" gate="G$1" x="185.42" y="220.98" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -2335,6 +2395,96 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pinref part="P+12" gate="1" pin="+5V"/>
 <wire x1="68.58" y1="241.3" x2="58.42" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="241.3" x2="58.42" y2="246.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$49" class="0">
+<segment>
+<pinref part="12IN1" gate="G$1" pin="2"/>
+<pinref part="U$8" gate="G$1" pin="P$1"/>
+<wire x1="106.68" y1="228.6" x2="106.68" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$50" class="0">
+<segment>
+<pinref part="12IN1" gate="G$1" pin="1"/>
+<pinref part="U$8" gate="G$1" pin="P$2"/>
+<wire x1="109.22" y1="228.6" x2="111.76" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="228.6" x2="111.76" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="12IN2" gate="G$1" pin="2"/>
+<pinref part="U$9" gate="G$1" pin="P$1"/>
+<wire x1="121.92" y1="228.6" x2="121.92" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$52" class="0">
+<segment>
+<pinref part="12IN2" gate="G$1" pin="1"/>
+<pinref part="U$9" gate="G$1" pin="P$2"/>
+<wire x1="124.46" y1="228.6" x2="127" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="127" y1="228.6" x2="127" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$53" class="0">
+<segment>
+<pinref part="12IN3" gate="G$1" pin="2"/>
+<pinref part="U$10" gate="G$1" pin="P$1"/>
+<wire x1="137.16" y1="228.6" x2="137.16" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$54" class="0">
+<segment>
+<pinref part="12IN3" gate="G$1" pin="1"/>
+<pinref part="U$10" gate="G$1" pin="P$2"/>
+<wire x1="139.7" y1="228.6" x2="142.24" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="228.6" x2="142.24" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$55" class="0">
+<segment>
+<pinref part="12IN4" gate="G$1" pin="2"/>
+<pinref part="U$11" gate="G$1" pin="P$1"/>
+<wire x1="152.4" y1="228.6" x2="152.4" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$56" class="0">
+<segment>
+<pinref part="12IN4" gate="G$1" pin="1"/>
+<pinref part="U$11" gate="G$1" pin="P$2"/>
+<wire x1="154.94" y1="228.6" x2="157.48" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="228.6" x2="157.48" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$57" class="0">
+<segment>
+<pinref part="12IN5" gate="G$1" pin="2"/>
+<pinref part="U$12" gate="G$1" pin="P$1"/>
+<wire x1="167.64" y1="228.6" x2="167.64" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$58" class="0">
+<segment>
+<pinref part="12IN5" gate="G$1" pin="1"/>
+<pinref part="U$12" gate="G$1" pin="P$2"/>
+<wire x1="170.18" y1="228.6" x2="172.72" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="228.6" x2="172.72" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$59" class="0">
+<segment>
+<pinref part="12IN6" gate="G$1" pin="2"/>
+<pinref part="U$13" gate="G$1" pin="P$1"/>
+<wire x1="182.88" y1="228.6" x2="182.88" y2="236.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$60" class="0">
+<segment>
+<pinref part="12IN6" gate="G$1" pin="1"/>
+<pinref part="U$13" gate="G$1" pin="P$2"/>
+<wire x1="185.42" y1="228.6" x2="187.96" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="228.6" x2="187.96" y2="236.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

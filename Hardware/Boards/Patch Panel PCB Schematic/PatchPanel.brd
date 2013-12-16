@@ -125,20 +125,20 @@
 <wire x1="226.04" y1="0" x2="226.04" y2="111.43" width="0" layer="20"/>
 <wire x1="226.04" y1="111.43" x2="0" y2="111.43" width="0" layer="20"/>
 <wire x1="0" y1="111.43" x2="0" y2="0" width="0" layer="20"/>
-<hole x="6.35" y="6.35" drill="6.35"/>
-<hole x="50.8" y="6.35" drill="6.35"/>
-<hole x="81.28" y="6.35" drill="6.35"/>
-<hole x="111.76" y="6.35" drill="6.35"/>
-<hole x="142.24" y="6.35" drill="6.35"/>
-<hole x="172.72" y="6.35" drill="6.35"/>
-<hole x="219.71" y="6.35" drill="6.35"/>
-<hole x="6.35" y="105.41" drill="6.35"/>
-<hole x="50.8" y="105.41" drill="6.35"/>
-<hole x="81.28" y="105.41" drill="6.35"/>
-<hole x="111.76" y="105.41" drill="6.35"/>
-<hole x="142.24" y="105.41" drill="6.35"/>
-<hole x="172.72" y="105.41" drill="6.35"/>
-<hole x="219.71" y="105.41" drill="6.35"/>
+<hole x="6.35" y="6.35" drill="5.5372"/>
+<hole x="50.8" y="6.35" drill="5.5372"/>
+<hole x="81.28" y="6.35" drill="5.5372"/>
+<hole x="111.76" y="6.35" drill="5.5372"/>
+<hole x="142.24" y="6.35" drill="5.5372"/>
+<hole x="172.72" y="6.35" drill="5.5372"/>
+<hole x="219.71" y="6.35" drill="5.5372"/>
+<hole x="6.35" y="105.41" drill="5.5372"/>
+<hole x="50.8" y="105.41" drill="5.5372"/>
+<hole x="81.28" y="105.41" drill="5.5372"/>
+<hole x="111.76" y="105.41" drill="5.5372"/>
+<hole x="142.24" y="105.41" drill="5.5372"/>
+<hole x="172.72" y="105.41" drill="5.5372"/>
+<hole x="219.71" y="105.41" drill="5.5372"/>
 <text x="167.64" y="57.15" size="1.778" layer="121">Motor 1</text>
 <text x="182.88" y="57.15" size="1.778" layer="121">Motor 2</text>
 <text x="195.58" y="57.15" size="1.778" layer="121">Motor 3</text>
@@ -154,11 +154,11 @@
 <text x="172.72" y="41.91" size="1.778" layer="121" rot="R270">GND</text>
 <text x="186.69" y="41.91" size="1.778" layer="121" rot="R270">GND</text>
 <text x="200.66" y="41.91" size="1.778" layer="121" rot="R270">GND</text>
-<hole x="50.8" y="29.21" drill="6.35"/>
-<hole x="81.28" y="29.21" drill="6.35"/>
-<hole x="111.76" y="29.21" drill="6.35"/>
-<hole x="142.24" y="29.21" drill="6.35"/>
-<hole x="172.72" y="29.21" drill="6.35"/>
+<hole x="50.8" y="29.21" drill="5.5372"/>
+<hole x="81.28" y="29.21" drill="5.5372"/>
+<hole x="111.76" y="29.21" drill="5.5372"/>
+<hole x="142.24" y="29.21" drill="5.5372"/>
+<hole x="172.72" y="29.21" drill="5.5372"/>
 <text x="15.24" y="104.14" size="1.27" layer="121" font="vector">Mars Rover Design Team
 Patch Panel V1.0, 2013</text>
 </plain>

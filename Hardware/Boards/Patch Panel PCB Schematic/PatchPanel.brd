@@ -159,7 +159,7 @@
 <hole x="111.76" y="29.21" drill="6.35"/>
 <hole x="142.24" y="29.21" drill="6.35"/>
 <hole x="172.72" y="29.21" drill="6.35"/>
-<text x="199.39" y="15.24" size="1.27" layer="121" font="vector">Mars Rover Design Team
+<text x="15.24" y="104.14" size="1.27" layer="121" font="vector">Mars Rover Design Team
 Patch Panel V1.0, 2013</text>
 </plain>
 <libraries>

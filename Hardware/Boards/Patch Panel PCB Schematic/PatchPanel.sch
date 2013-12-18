@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1918,6 +1918,57 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 </deviceset>
 </devicesets>
 </library>
+<library name="ant-pass-through">
+<packages>
+<package name="N-TYPE">
+<circle x="0" y="0" radius="8.001" width="0.127" layer="21"/>
+<wire x1="-7" y1="-7" x2="7" y2="-7" width="0.127" layer="21"/>
+<hole x="0" y="0" drill="3.2"/>
+<circle x="0" y="0" radius="10" width="0.127" layer="21"/>
+</package>
+<package name="SMA">
+<hole x="0" y="0" drill="3.2"/>
+<circle x="0" y="0" radius="3.302" width="0.127" layer="21"/>
+<wire x1="-2.921" y1="-2.921" x2="2.921" y2="-2.921" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="4" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ANT">
+<text x="2.54" y="2.54" size="1.27" layer="94">Antenna Pass-Through</text>
+<wire x1="0" y1="0" x2="0" y2="7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="7.62" x2="22.86" y2="7.62" width="0.254" layer="94"/>
+<wire x1="22.86" y1="7.62" x2="22.86" y2="0" width="0.254" layer="94"/>
+<wire x1="22.86" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="N-TYPE-THRU">
+<gates>
+<gate name="G$1" symbol="ANT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="N-TYPE">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SMA-THRU">
+<gates>
+<gate name="G$1" symbol="ANT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SMA">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1996,7 +2047,9 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="12IN5" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
 <part name="12IN6" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M16" device="PTH"/>
-<part name="JP2" library="SparkFun-Connectors" deviceset="M16" device="PTH"/>
+<part name="U$14" library="ant-pass-through" deviceset="N-TYPE-THRU" device=""/>
+<part name="U$15" library="ant-pass-through" deviceset="N-TYPE-THRU" device=""/>
+<part name="U$16" library="ant-pass-through" deviceset="SMA-THRU" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2073,7 +2126,9 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <instance part="12IN5" gate="G$1" x="170.18" y="220.98" rot="R90"/>
 <instance part="12IN6" gate="G$1" x="185.42" y="220.98" rot="R90"/>
 <instance part="JP1" gate="G$1" x="127" y="208.28" rot="R270"/>
-<instance part="JP2" gate="G$1" x="124.46" y="177.8" rot="R90"/>
+<instance part="U$14" gate="G$1" x="-55.88" y="200.66"/>
+<instance part="U$15" gate="G$1" x="-55.88" y="190.5"/>
+<instance part="U$16" gate="G$1" x="-30.48" y="195.58"/>
 </instances>
 <busses>
 </busses>
@@ -3216,118 +3271,6 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pinref part="U$13" gate="G$1" pin="P$2"/>
 <wire x1="185.42" y1="228.6" x2="187.96" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="228.6" x2="187.96" y2="236.22" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$61" class="0">
-<segment>
-<pinref part="JP2" gate="G$1" pin="16"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<wire x1="106.68" y1="187.96" x2="106.68" y2="198.12" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$62" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<pinref part="JP2" gate="G$1" pin="15"/>
-<wire x1="109.22" y1="198.12" x2="109.22" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$63" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="3"/>
-<pinref part="JP2" gate="G$1" pin="14"/>
-<wire x1="111.76" y1="198.12" x2="111.76" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$64" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="4"/>
-<pinref part="JP2" gate="G$1" pin="13"/>
-<wire x1="114.3" y1="198.12" x2="114.3" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$65" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="5"/>
-<pinref part="JP2" gate="G$1" pin="12"/>
-<wire x1="116.84" y1="198.12" x2="116.84" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$66" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="6"/>
-<pinref part="JP2" gate="G$1" pin="11"/>
-<wire x1="119.38" y1="198.12" x2="119.38" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$67" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="7"/>
-<pinref part="JP2" gate="G$1" pin="10"/>
-<wire x1="121.92" y1="198.12" x2="121.92" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$68" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="8"/>
-<pinref part="JP2" gate="G$1" pin="9"/>
-<wire x1="124.46" y1="198.12" x2="124.46" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$69" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="9"/>
-<pinref part="JP2" gate="G$1" pin="8"/>
-<wire x1="127" y1="198.12" x2="127" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$70" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="10"/>
-<pinref part="JP2" gate="G$1" pin="7"/>
-<wire x1="129.54" y1="198.12" x2="129.54" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$71" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="11"/>
-<pinref part="JP2" gate="G$1" pin="6"/>
-<wire x1="132.08" y1="198.12" x2="132.08" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$72" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="12"/>
-<pinref part="JP2" gate="G$1" pin="5"/>
-<wire x1="134.62" y1="198.12" x2="134.62" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$73" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="13"/>
-<pinref part="JP2" gate="G$1" pin="4"/>
-<wire x1="137.16" y1="198.12" x2="137.16" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$74" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="14"/>
-<pinref part="JP2" gate="G$1" pin="3"/>
-<wire x1="139.7" y1="198.12" x2="139.7" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$75" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="15"/>
-<pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="198.12" x2="142.24" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$76" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="16"/>
-<pinref part="JP2" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="198.12" x2="144.78" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

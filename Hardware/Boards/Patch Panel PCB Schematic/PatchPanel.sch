@@ -1887,6 +1887,10 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <package name="42002-2">
 <pad name="P$1" x="0" y="0" drill="1.778" shape="square"/>
 <pad name="P$2" x="6.35" y="0" drill="1.778" shape="square"/>
+<wire x1="-5.715" y1="-5.08" x2="12.065" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="-5.08" x2="12.065" y2="5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="5.08" x2="-5.715" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="5.08" x2="-5.715" y2="-5.08" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>

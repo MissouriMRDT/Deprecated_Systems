@@ -704,7 +704,7 @@ design rules under a new name.</description>
 <element name="JP1" library="SparkFun-Connectors" package="1X16" value="M16PTH" x="93.98" y="40.005"/>
 <element name="U$14" library="ant-pass-through" package="N-TYPE" value="N-TYPE-THRU" x="12.7" y="21.59"/>
 <element name="U$15" library="ant-pass-through" package="N-TYPE" value="N-TYPE-THRU" x="181.61" y="46.99"/>
-<element name="U$16" library="ant-pass-through" package="SMA" value="SMA-THRU" x="127" y="111.76"/>
+<element name="U$16" library="ant-pass-through" package="SMA" value="SMA-THRU" x="154.94" y="39.37"/>
 </elements>
 <signals>
 <signal name="N$1">

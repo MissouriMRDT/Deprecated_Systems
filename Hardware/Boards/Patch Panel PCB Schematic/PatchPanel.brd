@@ -681,14 +681,14 @@ design rules under a new name.</description>
 <element name="RS-485_OUT8" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="15.24" y="97.79" rot="MR180"/>
 <element name="RS-485_OUT7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="43.18" y="97.79" rot="MR180"/>
 <element name="U$1" library="harting-scsi" package="60050685100" value="TB60050685100" x="85.09" y="71.12"/>
-<element name="12IN" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="53.34" y="50.8"/>
+<element name="12IN" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="53.34" y="43.18"/>
 <element name="5IN" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="53.34" y="71.12"/>
 <element name="U$2" library="molex-power" package="0.93&quot;" value="3PIN" x="5.08" y="74.93" rot="MR180"/>
 <element name="U$3" library="molex-power" package="0.93&quot;" value="3PIN" x="29.21" y="74.93" rot="MR180"/>
-<element name="U$4" library="molex-power" package="0.93&quot;" value="3PIN" x="5.08" y="64.77" rot="MR180"/>
-<element name="U$5" library="molex-power" package="0.93&quot;" value="3PIN" x="29.21" y="64.77" rot="MR180"/>
-<element name="U$6" library="molex-power" package="0.93&quot;" value="3PIN" x="5.08" y="54.61" rot="MR180"/>
-<element name="U$7" library="molex-power" package="0.93&quot;" value="3PIN" x="29.21" y="54.61" rot="MR180"/>
+<element name="U$4" library="molex-power" package="0.93&quot;" value="3PIN" x="5.08" y="60.96" rot="MR180"/>
+<element name="U$5" library="molex-power" package="0.93&quot;" value="3PIN" x="29.21" y="60.96" rot="MR180"/>
+<element name="U$6" library="molex-power" package="0.93&quot;" value="3PIN" x="5.08" y="46.99" rot="MR180"/>
+<element name="U$7" library="molex-power" package="0.93&quot;" value="3PIN" x="29.21" y="46.99" rot="MR180"/>
 <element name="U$8" library="MLX" package="42002-2" value="MLX-2" x="172.72" y="69.85" rot="MR0"/>
 <element name="U$9" library="MLX" package="42002-2" value="MLX-2" x="194.31" y="64.77" rot="R90"/>
 <element name="U$10" library="MLX" package="42002-2" value="MLX-2" x="217.17" y="59.69" rot="MR0"/>
@@ -1455,20 +1455,20 @@ design rules under a new name.</description>
 <contactref element="U$5" pad="3"/>
 <contactref element="U$7" pad="3"/>
 <contactref element="U$6" pad="3"/>
-<wire x1="9.271" y1="70.739" x2="9.271" y2="60.579" width="2.54" layer="1"/>
-<wire x1="9.271" y1="60.579" x2="9.271" y2="50.419" width="2.54" layer="1"/>
-<wire x1="33.401" y1="70.739" x2="33.401" y2="60.579" width="2.54" layer="1"/>
-<wire x1="33.401" y1="60.579" x2="33.401" y2="50.419" width="2.54" layer="1"/>
-<wire x1="56.84" y1="50.8" x2="56.84" y2="71.12" width="2.54" layer="1"/>
+<wire x1="9.271" y1="70.739" x2="9.271" y2="56.769" width="2.54" layer="1"/>
+<wire x1="9.271" y1="56.769" x2="9.271" y2="42.799" width="2.54" layer="1"/>
+<wire x1="33.401" y1="70.739" x2="33.401" y2="56.769" width="2.54" layer="1"/>
+<wire x1="33.401" y1="56.769" x2="33.401" y2="42.799" width="2.54" layer="1"/>
+<wire x1="56.84" y1="43.18" x2="56.84" y2="71.12" width="2.54" layer="1"/>
 <wire x1="56.84" y1="71.12" x2="57.15" y2="71.12" width="2.54" layer="1"/>
-<wire x1="57.15" y1="71.12" x2="57.15" y2="46.99" width="2.54" layer="1"/>
-<wire x1="57.15" y1="46.99" x2="55.88" y2="45.72" width="2.54" layer="1"/>
-<wire x1="55.88" y1="45.72" x2="33.02" y2="45.72" width="2.54" layer="1"/>
-<wire x1="11.43" y1="45.72" x2="9.271" y2="47.879" width="2.54" layer="1"/>
-<wire x1="9.271" y1="47.879" x2="9.271" y2="50.419" width="2.54" layer="1"/>
-<wire x1="11.43" y1="45.72" x2="33.02" y2="45.72" width="2.54" layer="1"/>
-<wire x1="33.02" y1="45.72" x2="33.401" y2="46.101" width="2.54" layer="1"/>
-<wire x1="33.401" y1="46.101" x2="33.401" y2="50.419" width="2.54" layer="1"/>
+<wire x1="57.15" y1="71.12" x2="57.15" y2="39.37" width="2.54" layer="1"/>
+<wire x1="57.15" y1="39.37" x2="55.88" y2="38.1" width="2.54" layer="1"/>
+<wire x1="55.88" y1="38.1" x2="33.02" y2="38.1" width="2.54" layer="1"/>
+<wire x1="11.43" y1="38.1" x2="9.271" y2="40.259" width="2.54" layer="1"/>
+<wire x1="9.271" y1="40.259" x2="9.271" y2="42.799" width="2.54" layer="1"/>
+<wire x1="11.43" y1="38.1" x2="33.02" y2="38.1" width="2.54" layer="1"/>
+<wire x1="33.02" y1="38.1" x2="33.401" y2="38.481" width="2.54" layer="1"/>
+<wire x1="33.401" y1="38.481" x2="33.401" y2="42.799" width="2.54" layer="1"/>
 </signal>
 <signal name="+12V">
 <contactref element="12IN" pad="1"/>
@@ -1478,19 +1478,19 @@ design rules under a new name.</description>
 <contactref element="U$5" pad="1"/>
 <contactref element="U$7" pad="1"/>
 <contactref element="U$6" pad="1"/>
-<wire x1="19.3294" y1="50.419" x2="19.3294" y2="60.579" width="2.54" layer="1"/>
-<wire x1="19.3294" y1="60.579" x2="19.3294" y2="70.739" width="2.54" layer="1"/>
-<wire x1="43.4594" y1="70.739" x2="43.4594" y2="60.579" width="2.54" layer="1"/>
-<wire x1="43.4594" y1="50.419" x2="43.4594" y2="55.88" width="2.54" layer="1"/>
-<wire x1="43.4594" y1="55.88" x2="43.4594" y2="60.579" width="2.54" layer="1"/>
+<wire x1="19.3294" y1="42.799" x2="19.3294" y2="56.769" width="2.54" layer="1"/>
+<wire x1="19.3294" y1="56.769" x2="19.3294" y2="70.739" width="2.54" layer="1"/>
+<wire x1="43.4594" y1="70.739" x2="43.4594" y2="56.769" width="2.54" layer="1"/>
+<wire x1="43.4594" y1="42.799" x2="43.4594" y2="48.26" width="2.54" layer="1"/>
+<wire x1="43.4594" y1="48.26" x2="43.4594" y2="56.769" width="2.54" layer="1"/>
 <wire x1="43.4594" y1="70.739" x2="43.18" y2="70.4596" width="2.54" layer="16"/>
 <wire x1="43.18" y1="70.4596" x2="43.18" y2="67.945" width="2.54" layer="16"/>
 <wire x1="43.18" y1="67.945" x2="41.275" y2="66.04" width="2.54" layer="16"/>
 <wire x1="41.275" y1="66.04" x2="22.86" y2="66.04" width="2.54" layer="16"/>
 <wire x1="22.86" y1="66.04" x2="19.3294" y2="69.5706" width="2.54" layer="16"/>
 <wire x1="19.3294" y1="69.5706" x2="19.3294" y2="70.739" width="2.54" layer="16"/>
-<wire x1="53.34" y1="50.8" x2="48.26" y2="55.88" width="2.54" layer="1"/>
-<wire x1="48.26" y1="55.88" x2="43.4594" y2="55.88" width="2.54" layer="1"/>
+<wire x1="53.34" y1="43.18" x2="48.26" y2="48.26" width="2.54" layer="1"/>
+<wire x1="48.26" y1="48.26" x2="43.4594" y2="48.26" width="2.54" layer="1"/>
 </signal>
 <signal name="+5V">
 <contactref element="5IN" pad="1"/>
@@ -1500,10 +1500,10 @@ design rules under a new name.</description>
 <contactref element="U$5" pad="2"/>
 <contactref element="U$7" pad="2"/>
 <contactref element="U$6" pad="2"/>
-<wire x1="14.3002" y1="70.739" x2="14.3002" y2="60.579" width="2.54" layer="1"/>
-<wire x1="14.3002" y1="60.579" x2="14.3002" y2="50.419" width="2.54" layer="1"/>
-<wire x1="38.4302" y1="70.739" x2="38.4302" y2="60.579" width="2.54" layer="1"/>
-<wire x1="38.4302" y1="60.579" x2="38.4302" y2="50.419" width="2.54" layer="1"/>
+<wire x1="14.3002" y1="70.739" x2="14.3002" y2="56.769" width="2.54" layer="1"/>
+<wire x1="14.3002" y1="56.769" x2="14.3002" y2="42.799" width="2.54" layer="1"/>
+<wire x1="38.4302" y1="70.739" x2="38.4302" y2="56.769" width="2.54" layer="1"/>
+<wire x1="38.4302" y1="56.769" x2="38.4302" y2="42.799" width="2.54" layer="1"/>
 <wire x1="53.34" y1="71.12" x2="49.53" y2="74.93" width="2.54" layer="1"/>
 <wire x1="38.4302" y1="74.93" x2="17.78" y2="74.93" width="2.54" layer="1"/>
 <wire x1="17.78" y1="74.93" x2="14.3002" y2="71.4502" width="2.54" layer="1"/>

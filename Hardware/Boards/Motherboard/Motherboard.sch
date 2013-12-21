@@ -9271,8 +9271,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="GND101" library="supply1" deviceset="GND" device=""/>
 <part name="JP11" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>
-<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
-<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
+<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="Y6" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="5X3" value="32MHz"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>
 <part name="JP9" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>

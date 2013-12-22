@@ -9271,8 +9271,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="P+7" library="supply1" deviceset="+12V" device=""/>
 <part name="GND101" library="supply1" deviceset="GND" device=""/>
 <part name="JP11" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>
-<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
-<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
+<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="3.5MM"/>
 <part name="Y6" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="5X3" value="32MHz"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>
 <part name="JP9" library="SparkFun-Connectors" deviceset="M04" device="POLAR"/>
@@ -15297,11 +15297,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <approved hash="111,8,5.08,68.58,+3V3,,,,,"/>
 <approved hash="115,6,-68.58,99.8432,GPS,,,,,"/>
 <approved hash="115,6,93.98,-0.148166,IMU,,,,,"/>
-<approved hash="115,1,-103.751,-38.0426,ARM_RST,,,,,"/>
-<approved hash="115,6,-116.783,42.7905,328_RST,,,,,"/>
 <approved hash="115,6,94.6573,-67.1153,JP2,,,,,"/>
-<approved hash="115,7,-6.82829,75.8105,328_STR_RST,,,,,"/>
-<approved hash="115,8,-1.74829,83.4305,328_FAN_RST,,,,,"/>
 <approved hash="115,8,135.297,48.4547,JP4,,,,,"/>
 <approved hash="115,8,135.297,71.3147,JP8,,,,,"/>
 <approved hash="115,8,188.637,48.4547,JP10,,,,,"/>

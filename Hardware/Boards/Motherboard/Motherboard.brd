@@ -3925,6 +3925,9 @@ design rules under a new name.</description>
 <via x="98.298" y="70.612" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="94.615" y1="70.615" x2="98.295" y2="70.615" width="0.6096" layer="1"/>
 <wire x1="98.295" y1="70.615" x2="98.298" y2="70.612" width="0.6096" layer="1"/>
+<via x="95.25" y="48.768" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="97.476" y1="48.641" x2="95.377" y2="48.641" width="0.6096" layer="1"/>
+<wire x1="95.377" y1="48.641" x2="95.25" y2="48.768" width="0.6096" layer="1"/>
 <wire x1="87.3125" y1="85.4075" x2="97.349" y2="89.154" width="0" layer="19" extent="1-16"/>
 <wire x1="20.885" y1="88.7476" x2="21.24375" y2="88.5825" width="0" layer="19" extent="1-16"/>
 <wire x1="103.255" y1="4.35" x2="104.255" y2="4.35" width="0" layer="19" extent="1-1"/>
@@ -3942,7 +3945,6 @@ design rules under a new name.</description>
 <wire x1="36.76" y1="13.855" x2="32.635" y2="11.33875" width="0" layer="19" extent="1-1"/>
 <wire x1="30.48" y1="3.68" x2="29.5275" y2="8.5725" width="0" layer="19" extent="1-1"/>
 <wire x1="95.25" y1="32.766" x2="90.805" y2="35.56" width="0" layer="19" extent="1-1"/>
-<wire x1="97.476" y1="48.641" x2="98.93" y2="43.815" width="0" layer="19" extent="1-16"/>
 <wire x1="15.0525" y1="28.73375" x2="20.32" y2="30.61" width="0" layer="19" extent="1-16"/>
 <wire x1="99.5426" y1="21.99" x2="102.235" y2="27.305" width="0" layer="19" extent="1-1"/>
 <wire x1="99.5426" y1="20.39" x2="99.5426" y2="21.99" width="0" layer="19" extent="1-1"/>
@@ -4371,11 +4373,15 @@ design rules under a new name.</description>
 </polygon>
 <via x="104.14" y="81.788" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="104.14" y1="80.14" x2="104.14" y2="81.788" width="1.016" layer="16"/>
+<via x="103.378" y="44.45" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="103.378" y1="44.45" x2="102.365" y2="44.45" width="0.6096" layer="16"/>
+<wire x1="102.365" y1="44.45" x2="101.73" y2="43.815" width="0.6096" layer="16"/>
+<via x="103.378" y="58.928" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="101.73" y1="59.69" x2="102.616" y2="59.69" width="0.6096" layer="16"/>
+<wire x1="102.616" y1="59.69" x2="103.378" y2="58.928" width="0.6096" layer="16"/>
 <wire x1="102.549" y1="98.044" x2="98.93" y2="100.33" width="0" layer="19" extent="1-16"/>
 <wire x1="18.44375" y1="80.3275" x2="19.285" y2="80.1624" width="0" layer="19" extent="1-16"/>
 <wire x1="90.805" y1="25.2125" x2="90.9574" y2="23.59" width="0" layer="19" extent="1-16"/>
-<wire x1="101.73" y1="59.69" x2="102.676" y2="57.531" width="0" layer="19" extent="1-16"/>
-<wire x1="101.73" y1="43.815" x2="102.549" y2="41.529" width="0" layer="19" extent="1-16"/>
 <wire x1="30.48" y1="16.85625" x2="28.01" y2="15.855" width="0" layer="19" extent="1-16"/>
 <wire x1="96.9675" y1="10.795" x2="95.32" y2="8.225" width="0" layer="19" extent="1-1"/>
 <wire x1="32.255" y1="83.185" x2="29.975" y2="86.36" width="0" layer="19" extent="1-16"/>
@@ -8077,6 +8083,14 @@ design rules under a new name.</description>
 <wire x1="13.5255" y1="85.88375" x2="10.19175" y2="82.55" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$62">
+</signal>
+<signal name="N$63">
+<polygon width="0.254" layer="1">
+<vertex x="100.584" y="3.81"/>
+<vertex x="100.584" y="2.794"/>
+<vertex x="101.346" y="2.794"/>
+<vertex x="101.346" y="3.81"/>
+</polygon>
 </signal>
 </signals>
 </board>

@@ -4066,7 +4066,6 @@ design rules under a new name.</description>
 <wire x1="88.42375" y1="88.265" x2="88.42375" y2="87.59825" width="0.254" layer="1"/>
 <wire x1="88.42375" y1="87.59825" x2="89.154" y2="86.868" width="0.254" layer="1"/>
 <wire x1="60.198" y1="60.96" x2="60.195" y2="60.96" width="0" layer="19" extent="1-1"/>
-<wire x1="48.26" y1="42.545" x2="48.26" y2="45.085" width="0" layer="19" extent="1-1"/>
 <wire x1="60.96" y1="49.3014" x2="60.96" y2="45.2882" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CLKO">
@@ -5164,9 +5163,9 @@ design rules under a new name.</description>
 <wire x1="66.5734" y1="43.18" x2="66.5734" y2="36.0934" width="0.254" layer="1"/>
 <wire x1="66.5734" y1="36.0934" x2="63.5" y2="33.02" width="0.254" layer="1"/>
 <wire x1="63.5" y1="33.02" x2="38.1" y2="33.02" width="0.254" layer="1"/>
-<wire x1="38.1" y1="33.02" x2="36.83" y2="34.29" width="0.254" layer="1"/>
-<via x="36.83" y="34.29" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="36.83" y1="34.29" x2="33.3375" y2="37.7825" width="0.254" layer="16"/>
+<wire x1="38.1" y1="33.02" x2="35.814" y2="35.306" width="0.254" layer="1"/>
+<via x="35.814" y="35.306" extent="1-16" drill="0.6" shape="square"/>
+<wire x1="35.814" y1="35.306" x2="33.3375" y2="37.7825" width="0.254" layer="16"/>
 </signal>
 <signal name="STR_SPI_MISO">
 <contactref element="U1" pad="62"/>

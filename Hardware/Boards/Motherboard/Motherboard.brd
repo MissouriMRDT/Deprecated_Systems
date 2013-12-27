@@ -169,6 +169,12 @@
 <vertex x="121.92" y="30.226"/>
 <vertex x="121.92" y="37.338"/>
 </polygon>
+<polygon width="0.254" layer="41">
+<vertex x="0.762" y="132.588"/>
+<vertex x="9.144" y="132.588"/>
+<vertex x="9.144" y="106.172"/>
+<vertex x="0.762" y="106.172"/>
+</polygon>
 </plain>
 <libraries>
 <library name="Main_Processor">

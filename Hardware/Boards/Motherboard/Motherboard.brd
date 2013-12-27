@@ -4000,10 +4000,10 @@ design rules under a new name.</description>
 <wire x1="11.684" y1="121.028" x2="14.732" y2="121.028" width="1.016" layer="1"/>
 <wire x1="14.732" y1="121.028" x2="14.859" y2="120.901" width="1.016" layer="1"/>
 <via x="16.51" y="127.9525" extent="1-16" drill="0.6" shape="square"/>
-<via x="18.89125" y="130.65125" extent="1-16" drill="0.6" shape="square"/>
+<via x="18.53565" y="130.65125" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="14.859" y1="127.913" x2="16.4705" y2="127.913" width="1.016" layer="1"/>
 <wire x1="16.4705" y1="127.913" x2="16.51" y2="127.9525" width="1.016" layer="1"/>
-<wire x1="18.89125" y1="130.65125" x2="20.24925" y2="130.65125" width="1.016" layer="1"/>
+<wire x1="18.53565" y1="130.65125" x2="20.24925" y2="130.65125" width="1.016" layer="1"/>
 <wire x1="20.24925" y1="130.65125" x2="20.295" y2="130.697" width="1.016" layer="1"/>
 <via x="16.51" y="120.904" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="16.51" y1="120.904" x2="14.862" y2="120.904" width="1.016" layer="1"/>

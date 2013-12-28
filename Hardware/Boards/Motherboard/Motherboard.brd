@@ -3233,7 +3233,7 @@ design rules under a new name.</description>
 </element>
 <element name="J2" library="SparkFun-Connectors" package="U.FL" value="U.FL" x="54.61" y="16.98625"/>
 <element name="RS-485-1" library="MAX3077" package="MAX3070E" value="MAX3077" x="120.523" y="124.46" rot="R270"/>
-<element name="JTAG_CON" library="SparkFun-Connectors" package="2X10" value="M10X2" x="49.53" y="48.895" rot="R90"/>
+<element name="JTAG_CON" library="SparkFun-Connectors" package="2X10" value="M10X2" x="49.53" y="48.895" smashed="yes" rot="R90"/>
 <element name="ARM_RST" library="switch-omron" package="B3F-10XX" value="" x="43.18" y="49.53" rot="R90">
 <attribute name="OC_NEWARK" value="36M3542" x="130.81" y="127" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="B3F-1000" x="130.81" y="127" size="1.778" layer="27" rot="R90" display="off"/>
@@ -3242,7 +3242,7 @@ design rules under a new name.</description>
 </element>
 <element name="U$2" library="LD1117" package="LD1117SOT-223" value="LD1117" x="23.495" y="128.397" rot="R270"/>
 <element name="JP1" library="SparkFun-Connectors" package="SCREWTERMINAL-5MM-2" value="M025MM" x="5.08" y="128.905" rot="R270"/>
-<element name="BLUETOOTH" library="SPBT2632C2A" package="SPBT2632C2A" value="SPBT2632C2A" x="39.37" y="66.04" rot="R270"/>
+<element name="BLUETOOTH" library="SPBT2632C2A" package="SPBT2632C2A" value="SPBT2632C2A" x="39.37" y="66.04" smashed="yes" rot="R270"/>
 <element name="U3" library="SparkFun-DigitalIC" package="TQFP32-08" value="ATMEGA328P" x="95.25" y="21.59" rot="R180">
 <attribute name="PROD_ID" value="IC-09069" x="-30.48" y="54.61" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" value="ATMEGA328P" x="-30.48" y="54.61" size="1.778" layer="27" rot="R180" display="off"/>
@@ -3256,7 +3256,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="119.888" y="22.225" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="Y2" library="SparkFun-FreqCtrl" package="HC49US" value="8MHz" x="103.8225" y="23.33625" rot="R270"/>
-<element name="J1" library="SparkFun-Connectors" package="2X3-NS" value="AVR_SPI_PRG_6NS" x="77.47" y="24.13" rot="R270"/>
+<element name="J1" library="SparkFun-Connectors" package="2X3-NS" value="AVR_SPI_PRG_6NS" x="77.47" y="24.13" smashed="yes" rot="R270"/>
 <element name="C6" library="SparkFun-Passives" package="1206" value="2.2nF" x="106.68" y="12.065"/>
 <element name="C8" library="SparkFun-Passives" package="1206" value="0.1uF" x="103.98125" y="1.74625"/>
 <element name="C9" library="SparkFun-Passives" package="1206" value="10nF" x="109.855" y="5.842"/>
@@ -3276,7 +3276,9 @@ design rules under a new name.</description>
 <element name="C7" library="SparkFun-Passives" package="1206" value="10uF" x="90.32875" y="6.35" rot="MR270"/>
 <element name="C11" library="SparkFun-Passives" package="1206" value="100nF" x="91.59875" y="6.35" rot="R270"/>
 <element name="C12" library="SparkFun-Passives" package="1206" value="0.1uF" x="40.64" y="56.515" rot="R180"/>
-<element name="Y3" library="SparkFun-FreqCtrl" package="HC49US" value="25MHz" x="48.26" y="15.24" rot="R270"/>
+<element name="Y3" library="SparkFun-FreqCtrl" package="HC49US" value="25MHz" x="48.26" y="15.24" smashed="yes" rot="R270">
+<attribute name="VALUE" x="51.054" y="14.986" size="1.27" layer="27" ratio="10" rot="R270"/>
+</element>
 <element name="C13" library="SparkFun-Passives" package="1206" value="18pF" x="49.53" y="10.16" rot="MR180"/>
 <element name="C14" library="SparkFun-Passives" package="1206" value="18pF" x="49.53" y="20.32" rot="MR180"/>
 <element name="J3" library="SparkFun-Connectors" package="MAGJACK" value="MAGJACK" x="-5.08" y="26.67" rot="R270"/>
@@ -3339,14 +3341,22 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value="IC-09069" x="-34.925" y="66.675" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" value="ATMEGA328P" x="-34.925" y="66.675" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="Y4" library="SparkFun-FreqCtrl" package="HC49US" value="8MHz" x="15.875" y="49.8475"/>
+<element name="Y4" library="SparkFun-FreqCtrl" package="HC49US" value="8MHz" x="15.875" y="49.8475" smashed="yes">
+<attribute name="VALUE" x="10.795" y="45.9105" size="1.27" layer="27" ratio="10"/>
+</element>
 <element name="C22" library="SparkFun-Passives" package="1206" value="22pF" x="12.065" y="52.22875" rot="MR0"/>
 <element name="C23" library="SparkFun-Passives" package="1206" value="22pF" x="20.0025" y="52.22875" rot="MR180"/>
 <element name="L1" library="inductors" package="0402" value="BML15HB121SN1" x="83.02625" y="3.65125" rot="R180"/>
 <element name="C26" library="SparkFun-Passives" package="1206" value="1uF" x="79.53375" y="5.08" rot="R90"/>
 <element name="C27" library="SparkFun-Passives" package="1206" value="0.01uF" x="76.67625" y="5.08" rot="R90"/>
-<element name="R19" library="SparkFun-Passives" package="1206" value="330" x="78.105" y="14.9225" rot="R180"/>
-<element name="R20" library="SparkFun-Passives" package="1206" value="330" x="78.105" y="17.4625" rot="R180"/>
+<element name="R19" library="SparkFun-Passives" package="1206" value="330" x="78.105" y="14.9225" smashed="yes" rot="R180">
+<attribute name="NAME" x="77.343" y="13.9065" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="80.01" y="13.9065" size="0.4064" layer="27" rot="R180"/>
+</element>
+<element name="R20" library="SparkFun-Passives" package="1206" value="330" x="78.105" y="17.4625" smashed="yes" rot="R180">
+<attribute name="NAME" x="77.47" y="16.4465" size="0.4064" layer="25" rot="R180"/>
+<attribute name="VALUE" x="80.01" y="16.4465" size="0.4064" layer="27" rot="R180"/>
+</element>
 <element name="C28" library="SparkFun-Passives" package="1206" value="0.1uF" x="40.64" y="61.595" rot="MR180"/>
 <element name="C29" library="SparkFun-Passives" package="EIA3216" value="10uF/16V" x="25.24125" y="5.08" rot="R90"/>
 <element name="C30" library="SparkFun-Passives" package="EIA3216" value="10uF/16V" x="43.65625" y="8.73125" rot="R270"/>
@@ -3466,11 +3476,12 @@ design rules under a new name.</description>
 <element name="JP2" library="SparkFun-Connectors" package="1X03" value="" x="90.805" y="35.56" rot="R270"/>
 <element name="C72" library="SparkFun-Passives" package="1206" value="100nF" x="101.092" y="27.813"/>
 <element name="R67" library="SparkFun-Passives" package="1206" value="1K" x="99.06" y="30.4165"/>
-<element name="328_STR_RST" library="switch-omron" package="B3F-10XX" value="" x="32.004" y="46.99">
+<element name="328_STR_RST" library="switch-omron" package="B3F-10XX" value="" x="32.004" y="46.99" smashed="yes">
 <attribute name="OC_NEWARK" value="36M3542" x="80.264" y="-40.64" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="B3F-1000" x="80.264" y="-40.64" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="80.264" y="-40.64" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="176432" x="80.264" y="-40.64" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="28.956" y="41.91" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="R68" library="SparkFun-Resistors" package="1206" value="10k" x="32.0675" y="46.99" rot="MR0"/>
 <element name="328_FAN_RST" library="switch-omron" package="B3F-10XX" value="" x="35.56" y="75.692">
@@ -3498,20 +3509,23 @@ design rules under a new name.</description>
 <element name="JP10" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="2.57175" y="82.55"/>
 <element name="JP11" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="4.445" y="96.52" rot="R90"/>
 <element name="JP5" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="3.937" y="49.276" rot="R270"/>
-<element name="JP6" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="3.81" y="40.64" rot="R270"/>
+<element name="JP6" library="SparkFun-Connectors" package="SCREWTERMINAL-3.5MM-2" value="M023.5MM" x="3.81" y="40.64" smashed="yes" rot="R270">
+<attribute name="NAME" x="6.35" y="41.91" size="0.4064" layer="25" rot="R270"/>
+<attribute name="VALUE" x="5.08" y="41.91" size="0.4064" layer="27" rot="R270"/>
+</element>
 <element name="Y6" library="SparkFun-FreqCtrl" package="CRYSTAL-SMD-5X3" value="32MHz" x="57.94375" y="41.11625" rot="R90"/>
 <element name="JP3" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="2.54" y="64.77"/>
 <element name="JP9" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="13.97" y="64.77"/>
 <element name="JP12" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="13.97" y="57.15"/>
 <element name="JP13" library="SparkFun-Connectors" package="MOLEX-1X4" value="" x="2.54" y="57.15"/>
-<element name="J4" library="SparkFun-Connectors" package="2X3-NS" value="AVR_SPI_PRG_6NS" x="29.845" y="40.259" rot="R180"/>
+<element name="J4" library="SparkFun-Connectors" package="2X3-NS" value="AVR_SPI_PRG_6NS" x="29.845" y="40.259" smashed="yes" rot="R180"/>
 <element name="J5" library="SparkFun-Connectors" package="2X3-NS" value="AVR_SPI_PRG_6NS" x="25.4" y="72.517" rot="R90"/>
 <element name="JP16" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="13.97" y="70.485" rot="R90"/>
 <element name="JP15" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="16.51" y="70.485" rot="R90"/>
 <element name="JP17" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="19.05" y="70.485" rot="R90"/>
-<element name="JP18" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.36" y="26.67" rot="R180"/>
-<element name="JP19" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.36" y="24.13" rot="R180"/>
-<element name="JP20" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.51875" y="21.59" rot="R180"/>
+<element name="JP18" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.36" y="26.67" smashed="yes" rot="R180"/>
+<element name="JP19" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.36" y="24.13" smashed="yes" rot="R180"/>
+<element name="JP20" library="SparkFun-Passives" package="1X03" value="JUMPER-3PTH" x="86.51875" y="21.59" smashed="yes" rot="R180"/>
 <element name="D2" library="SparkFun-LED" package="LED-1206" value="GREEN" x="13.97" y="116.078" rot="R270">
 <attribute name="PROD_ID" value="DIO-00862" x="-106.68" y="77.978" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" value="GREEN" x="-106.68" y="77.978" size="1.778" layer="27" rot="R270" display="off"/>

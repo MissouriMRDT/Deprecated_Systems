@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/Batman/Documents/GitHub/motherboard-squad/Hardware/Boards/Motherboard/Motherboard.brd
+Job           : C:/Users/Zeus/Documents/GitHub/motherboard-squad/Hardware/Boards/Motherboard/Motherboard.brd
 
-Start at      : 01:20:49 (12/14/2013)
-End at        : 01:21:16 (12/14/2013)
-Elapsed time  : 00:00:27
+Start at      : 21:43:08 (12/27/2013)
+End at        : 21:43:09 (12/27/2013)
+Elapsed time  : 00:00:01
 
-Signals       :   267   RoutingGrid: 50 mil  Layers: 2
-Connections   :   739   predefined:  4 ( 0 Vias )
+Signals       :   274   RoutingGrid: 50 mil  Layers: 2
+Connections   :   739   predefined:  736 ( 405 Vias )
 
-Router memory :   65536
+Router memory :   60568
 
-Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
+Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:01  00:00:15  00:00:03  00:00:03  00:00:02  00:00:03
-Number of Ripups  :         0         3         0         0         0         0
-max. Level        :         0         7         0         0         0         0
-max. Total        :         0        89         0         0         0         0
+Time per pass     :  00:00:00  00:00:00  00:00:01  00:00:00  00:00:00
+Number of Ripups  :         0         0         0         0         0
+max. Level        :         1         0         0         0         0
+max. Total        :         0         0         0         0         0
 
-Routed            :        68       380       380       380       380       380
-Vias              :         0       323       116        87        71        71
-Resolution        :     9.7 %    52.0 %    52.0 %    52.0 %    52.0 %    52.0 %
+Routed            :         0         0         0         0         0
+Vias              :         0         0         0         0         0
+Resolution        :    99.6 %    99.6 %    99.6 %    99.6 %    99.6 %
 
-Final             : 52.0% finished
+Final             : 99.6% finished. Polygons may have fallen apart.

@@ -147,6 +147,7 @@
 <vertex x="1.016" y="19.05"/>
 <vertex x="8.382" y="19.05"/>
 </polygon>
+<text x="0.762" y="0.762" size="1.27" layer="21">MRDT Motherboard V1.0</text>
 </plain>
 <libraries>
 <library name="Main_Processor">

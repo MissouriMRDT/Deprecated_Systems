@@ -3835,8 +3835,8 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="PTH1"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value="20pF"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value="20pF"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value="10u"/>
 <part name="C5" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value=".33u"/>
 <part name="C6" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value=".1u"/>

@@ -4,7 +4,6 @@
 
 int main()
 {
-  printf("Hello Mars\n");
+  printf("Hello\n");
   return 0;
-  ksadlkdsk
 }

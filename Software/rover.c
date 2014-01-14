@@ -5,5 +5,6 @@
 int main()
 {
   printf("Hello Mars\n");
+  printf("hey");
   return 0;
 }

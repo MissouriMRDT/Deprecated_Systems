@@ -12,8 +12,6 @@
 #include <stddef.h>
 #include <stdio.h>
 
-#include "serialize.h"
-
 //*****************************************************************************
 //
 //! \addtogroup example_list

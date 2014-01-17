@@ -11,17 +11,17 @@
     <View>
       <WinId>38003</WinId>
       <ViewName>Registers</ViewName>
-      <TableColWidths>115 76</TableColWidths>
+      <TableColWidths>131 207</TableColWidths>
     </View>
     <View>
       <WinId>346</WinId>
       <ViewName>Code Coverage</ViewName>
-      <TableColWidths>634 160</TableColWidths>
+      <TableColWidths>634 370</TableColWidths>
     </View>
     <View>
       <WinId>204</WinId>
       <ViewName>Performance Analyzer</ViewName>
-      <TableColWidths>794</TableColWidths>
+      <TableColWidths>239 119 119 527</TableColWidths>
     </View>
   </SECTreeCtrl>
 
@@ -60,8 +60,8 @@
 
   <WindowSettings>
     <LogicAnalizer>
-      <ShowLACursor>1</ShowLACursor>
-      <ShowSignalInfo>1</ShowSignalInfo>
+      <ShowLACursor>0</ShowLACursor>
+      <ShowSignalInfo>0</ShowSignalInfo>
       <ShowCycles>0</ShowCycles>
     </LogicAnalizer>
   </WindowSettings>
@@ -73,8 +73,8 @@
       <flags>2</flags>
       <showCmd>3</showCmd>
       <MinPosition>
-        <xPos>-1</xPos>
-        <yPos>-1</yPos>
+        <xPos>-32000</xPos>
+        <yPos>-32000</yPos>
       </MinPosition>
       <MaxPosition>
         <xPos>-1</xPos>
@@ -90,8 +90,8 @@
     <MDIClientArea>
       <RegID>0</RegID>
       <MDITabState>
-        <Len>302</Len>
-        <Data>01000000040000000100000001000000010000000100000000000000020000000000000001000000010000000000000028000000280000000100000001000000000000000100000066433A5C55736572735C5A6575735C446F63756D656E74735C4769744875625C6D6F74686572626F6172642D73717561645C536F6674776172655C4C61756E63687061645C5374656C6C61726973576172655C6472697665726C69625C726561646D652E747874000000000A726561646D652E74787400000000FFDC7800FFFFFFFF0100000010000000C5D4F200FFDC7800BECEA100F0A0A100BCA8E1009CC1B600F7B88600D9ADC200A5C2D700B3A6BE00EAD6A300F6FA7D00B5E99D005FC3CF00C1838300CACAD500010000000000000002000000CD00000066000000560500005D020000</Data>
+        <Len>243</Len>
+        <Data>0100000004000000010000000100000001000000010000000000000002000000000000000100000001000000000000002800000028000000010000000100000000000000010000002B433A5C55736572735C5A6575735C4465736B746F705C4C61756E6368546573745C4C61756E636854657374000000000A4C61756E63685465737400000000FFDC7800FFFFFFFF0100000010000000C5D4F200FFDC7800BECEA100F0A0A100BCA8E1009CC1B600F7B88600D9ADC200A5C2D700B3A6BE00EAD6A300F6FA7D00B5E99D005FC3CF00C1838300CACAD500010000000000000002000000CD00000066000000560500005D020000</Data>
       </MDITabState>
     </MDIClientArea>
     <ViewEx>
@@ -2586,5 +2586,23 @@
       <CurrentLine>31</CurrentLine>
     </Doc>
   </AlienFiles>
+
+  <MDIGroups>
+    <Orientation>1</Orientation>
+    <ActiveMDIGroup>0</ActiveMDIGroup>
+    <MDIGroup>
+      <Size>100</Size>
+      <ActiveTab>0</ActiveTab>
+      <Doc>
+        <Name>C:\Users\Zeus\Desktop\LaunchTest\LaunchTest</Name>
+        <ColumnNumber>26</ColumnNumber>
+        <TopLine>15</TopLine>
+        <CurrentLine>31</CurrentLine>
+        <Folding>1</Folding>
+        <ContractedFolders></ContractedFolders>
+        <PaneID>0</PaneID>
+      </Doc>
+    </MDIGroup>
+  </MDIGroups>
 
 </ProjectGui>

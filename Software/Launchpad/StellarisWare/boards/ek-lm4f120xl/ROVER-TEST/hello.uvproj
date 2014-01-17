@@ -413,16 +413,6 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\utils\uartstdio.c</FilePath>
             </File>
-            <File>
-              <FileName>tpl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\tpl-master\src\tpl.h</FilePath>
-            </File>
-            <File>
-              <FileName>tpl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\tpl-master\src\tpl.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

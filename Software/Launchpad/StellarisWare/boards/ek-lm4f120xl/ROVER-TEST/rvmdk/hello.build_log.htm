@@ -11,12 +11,81 @@ Rebuild target 'hello'
 compiling hello.c...
 assembling startup_rvmdk.S...
 compiling uartstdio.c...
-linking...
-Program Size: Code=2124 RO-data=540 RW-data=8 ZI-data=512  
-After Build - User command #1: fromelf --bin --output .\rvmdk\hello.bin .\rvmdk\hello.axf
-".\rvmdk\hello.axf" - 0 Error(s), 0 Warning(s).
-tware\tpl-master\src\tpl.c(35): error:  #5: cannot open source input file "unistd.h": No such file or directory
-  #include <unistd.h>     /* for ftruncate */
-C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\tpl-master\src\tpl.c: 0 warnings, 1 error
-".\rvmdk\hello.axf" - 2 Error(s), 0 Warning(s).
+compiling serialize.c...
+serialize.c(67): warning:  #186-D: pointless comparison of unsigned integer with zero
+    if (!id || size < 0)
+serialize.c(79): warning:  #223-D: function "strdup" declared implicitly
+    dup_id = strdup(id);
+serialize.c(79): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+    dup_id = strdup(id);
+serialize.c(245): error:  #852: expression must be a pointer to a complete object type
+      ptr = thing + el_w * count;
+serialize.c(293): warning:  #223-D: function "strdup" declared implicitly
+    dup_type = strdup(type);
+serialize.c(293): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+    dup_type = strdup(type);
+serialize.c(294): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+    dup_tag = strdup(tag);
+serialize.c(534): warning:  #223-D: function "strdup" declared implicitly
+    job.holder[1].type = strdup(type);
+serialize.c(534): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+    job.holder[1].type = strdup(type);
+serialize.c(965): error:  #852: expression must be a pointer to a complete object type
+      array_start = thing + field->offset;
+serialize.c(1038): error:  #852: expression must be a pointer to a complete object type
+    c = ser_numeric_cast(thing + count_field->offset, count_field->type);
+serialize.c(1082): error:  #852: expression must be a pointer to a complete object type
+      field_ptr = array_start + ser_field_size(job, field->type, field->ref) * i;
+serialize.c(1168): error:  #20: identifier "time_t" is undefined
+      return *(time_t*)ptr;
+serialize.c(1168): error:  #29: expected an expression
+      return *(time_t*)ptr;
+serialize.c(1168): error:  #65: expected a ";"
+      return *(time_t*)ptr;
+serialize.c(1257): error:  #852: expression must be a pointer to a complete object type
+      array_start = thing + field->offset;
+serialize.c(1302): error:  #268: declaration may not appear after executable statement in block
+        ser_tra_t * anon_tra;
+serialize.c(1318): error:  #852: expression must be a pointer to a complete object type
+        field_ptr = array_start + el_size * i;
+serialize.c(1332): error:  #268: declaration may not appear after executable statement in block
+        size_t target_index;
+serialize.c(1333): error:  #268: declaration may not appear after executable statement in block
+        size_t target_size;
+serialize.c(1337): error:  #852: expression must be a pointer to a complete object type
+        field_ptr = array_start + el_size * i;
+serialize.c(1371): warning:  #223-D: function "strdup" declared implicitly
+        job->holder[target_index].type = strdup(field->type);
+serialize.c(1371): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+        job->holder[target_index].type = strdup(field->type);
+serialize.c(1481): error:  #268: declaration may not appear after executable statement in block
+    char * p;
+serialize.c(1586): error:  #20: identifier "ushort" is undefined
+      sprintf(tmp, "%u", *(ushort *)field_ptr);
+serialize.c(1586): error:  #29: expected an expression
+      sprintf(tmp, "%u", *(ushort *)field_ptr);
+serialize.c(1586): error:  #18: expected a ")"
+      sprintf(tmp, "%u", *(ushort *)field_ptr);
+serialize.c(1610): error:  #20: identifier "time_t" is undefined
+      sprintf(tmp, "%ld", *(time_t *)field_ptr);
+serialize.c(1610): error:  #29: expected an expression
+      sprintf(tmp, "%ld", *(time_t *)field_ptr);
+serialize.c(1610): error:  #18: expected a ")"
+      sprintf(tmp, "%ld", *(time_t *)field_ptr);
+serialize.c(2045): warning:  #223-D: function "strdup" declared implicitly
+        job.holder[id].type = strdup(type);
+serialize.c(2045): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+        job.holder[id].type = strdup(type);
+serialize.c(2146): warning:  #223-D: function "strdup" declared implicitly
+    holder->type = strdup(type);
+serialize.c(2146): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
+    holder->type = strdup(type);
+serialize.c(2157): error:  #268: declaration may not appear after executable statement in block
+    ser_tok_t r;
+serialize.c(2158): error:  #268: declaration may not appear after executable statement in block
+    char * value;
+serialize.c(2159): error:  #268: declaration may not appear after executable statement in block
+    long tmp;
+serialize.c: 7 warnings, 30 errors
+".\rvmdk\hello.axf" - 30 Error(s), 7 Warning(s).
 Target not created

@@ -8,10 +8,6 @@
 #include "driverlib/sysctl.h"
 #include "utils/uartstdio.h"
 
-#include <stdlib.h>
-#include <stddef.h>
-#include <stdio.h>
-
 //*****************************************************************************
 //
 //! \addtogroup example_list

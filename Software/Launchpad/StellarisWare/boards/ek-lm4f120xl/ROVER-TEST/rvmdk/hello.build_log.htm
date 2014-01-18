@@ -11,81 +11,38 @@ Rebuild target 'hello'
 compiling hello.c...
 assembling startup_rvmdk.S...
 compiling uartstdio.c...
-compiling serialize.c...
-serialize.c(67): warning:  #186-D: pointless comparison of unsigned integer with zero
-    if (!id || size < 0)
-serialize.c(79): warning:  #223-D: function "strdup" declared implicitly
-    dup_id = strdup(id);
-serialize.c(79): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-    dup_id = strdup(id);
-serialize.c(245): error:  #852: expression must be a pointer to a complete object type
-      ptr = thing + el_w * count;
-serialize.c(293): warning:  #223-D: function "strdup" declared implicitly
-    dup_type = strdup(type);
-serialize.c(293): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-    dup_type = strdup(type);
-serialize.c(294): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-    dup_tag = strdup(tag);
-serialize.c(534): warning:  #223-D: function "strdup" declared implicitly
-    job.holder[1].type = strdup(type);
-serialize.c(534): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-    job.holder[1].type = strdup(type);
-serialize.c(965): error:  #852: expression must be a pointer to a complete object type
-      array_start = thing + field->offset;
-serialize.c(1038): error:  #852: expression must be a pointer to a complete object type
-    c = ser_numeric_cast(thing + count_field->offset, count_field->type);
-serialize.c(1082): error:  #852: expression must be a pointer to a complete object type
-      field_ptr = array_start + ser_field_size(job, field->type, field->ref) * i;
-serialize.c(1168): error:  #20: identifier "time_t" is undefined
-      return *(time_t*)ptr;
-serialize.c(1168): error:  #29: expected an expression
-      return *(time_t*)ptr;
-serialize.c(1168): error:  #65: expected a ";"
-      return *(time_t*)ptr;
-serialize.c(1257): error:  #852: expression must be a pointer to a complete object type
-      array_start = thing + field->offset;
-serialize.c(1302): error:  #268: declaration may not appear after executable statement in block
-        ser_tra_t * anon_tra;
-serialize.c(1318): error:  #852: expression must be a pointer to a complete object type
-        field_ptr = array_start + el_size * i;
-serialize.c(1332): error:  #268: declaration may not appear after executable statement in block
-        size_t target_index;
-serialize.c(1333): error:  #268: declaration may not appear after executable statement in block
-        size_t target_size;
-serialize.c(1337): error:  #852: expression must be a pointer to a complete object type
-        field_ptr = array_start + el_size * i;
-serialize.c(1371): warning:  #223-D: function "strdup" declared implicitly
-        job->holder[target_index].type = strdup(field->type);
-serialize.c(1371): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-        job->holder[target_index].type = strdup(field->type);
-serialize.c(1481): error:  #268: declaration may not appear after executable statement in block
-    char * p;
-serialize.c(1586): error:  #20: identifier "ushort" is undefined
-      sprintf(tmp, "%u", *(ushort *)field_ptr);
-serialize.c(1586): error:  #29: expected an expression
-      sprintf(tmp, "%u", *(ushort *)field_ptr);
-serialize.c(1586): error:  #18: expected a ")"
-      sprintf(tmp, "%u", *(ushort *)field_ptr);
-serialize.c(1610): error:  #20: identifier "time_t" is undefined
-      sprintf(tmp, "%ld", *(time_t *)field_ptr);
-serialize.c(1610): error:  #29: expected an expression
-      sprintf(tmp, "%ld", *(time_t *)field_ptr);
-serialize.c(1610): error:  #18: expected a ")"
-      sprintf(tmp, "%ld", *(time_t *)field_ptr);
-serialize.c(2045): warning:  #223-D: function "strdup" declared implicitly
-        job.holder[id].type = strdup(type);
-serialize.c(2045): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-        job.holder[id].type = strdup(type);
-serialize.c(2146): warning:  #223-D: function "strdup" declared implicitly
-    holder->type = strdup(type);
-serialize.c(2146): error:  #513: a value of type "int" cannot be assigned to an entity of type "char *"
-    holder->type = strdup(type);
-serialize.c(2157): error:  #268: declaration may not appear after executable statement in block
-    ser_tok_t r;
-serialize.c(2158): error:  #268: declaration may not appear after executable statement in block
-    char * value;
-serialize.c(2159): error:  #268: declaration may not appear after executable statement in block
-    long tmp;
-serialize.c: 7 warnings, 30 errors
-".\rvmdk\hello.axf" - 30 Error(s), 7 Warning(s).
-Target not created
+compiling RTX_Conf_CM.c...
+linking...
+Program Size: Code=6268 RO-data=156 RW-data=76 ZI-data=2836  
+After Build - User command #1: fromelf --bin --output .\rvmdk\hello.bin .\rvmdk\hello.axf
+".\rvmdk\hello.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.3.20.4.pack
+                ::CMSIS:RTOS:1.0 (API)
+                Cortex Microcontroller Software Interface Standard (CMSIS) CORE, DSP, RTOS, Driver
+   * Component: RTOS Version: 1.0
+   * Component: Keil RTX Version: 4.74.0
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE
+  C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS:RTOS:1.0 (API)
+
+   * Component: ARM::CMSIS:RTOS:Keil RTX:4.74.0
+      Source file:   CMSIS_RTX\Templates\RTX_Conf_CM.c
+      Include file:  CMSIS_RTX\UserCodeTemplates\osObjects.h
+      Source file:   CMSIS_RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS_RTX\UserCodeTemplates\MailQueue.c
+      Include file:  CMSIS_RTX\INC\cmsis_os.h
+      Source file:   CMSIS_RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS_RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS_RTX\UserCodeTemplates\Mutex.c
+      Library file:  CMSIS_RTX\Lib\ARM\RTX_CM4.lib
+      Source file:   CMSIS_RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS_RTX\UserCodeTemplates\Semaphore.c

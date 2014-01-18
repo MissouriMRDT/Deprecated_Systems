@@ -8,9 +8,3 @@
 .\rvmdk\hello.o: ..\..\..\driverlib/rom.h
 .\rvmdk\hello.o: ..\..\..\driverlib/sysctl.h
 .\rvmdk\hello.o: ..\..\..\utils/uartstdio.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stddef.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\rvmdk\hello.o: serialize.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h

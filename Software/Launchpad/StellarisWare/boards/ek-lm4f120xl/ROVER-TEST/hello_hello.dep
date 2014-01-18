@@ -1,5 +1,5 @@
 Dependencies for Project 'hello', Target 'hello': (DO NOT MODIFY !)
-F (.\hello.c)(0x52D9A73B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\hello.o --omf_browse .\rvmdk\hello.crf --depend .\rvmdk\hello.d)
+F (.\hello.c)(0x52D9F51C)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\hello.o --omf_browse .\rvmdk\hello.crf --depend .\rvmdk\hello.d)
 I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
 I (..\..\..\inc/hw_types.h)(0x52D964CF)
 I (..\..\..\driverlib/debug.h)(0x52D964CD)
@@ -9,14 +9,8 @@ I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
 I (..\..\..\driverlib/rom.h)(0x52D964CE)
 I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
 I (..\..\..\utils/uartstdio.h)(0x52D964D9)
-I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
-I (serialize.h)(0x50F2E581)
-I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
-F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
-F (..\..\..\utils\uartstdio.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
+F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
+F (..\..\..\utils\uartstdio.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
 I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x52852AFC)
 I (..\..\..\inc/hw_ints.h)(0x52D964CF)
 I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
@@ -29,15 +23,11 @@ I (..\..\..\driverlib/rom_map.h)(0x52D964CE)
 I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
 I (..\..\..\driverlib/uart.h)(0x52D964CE)
 I (..\..\..\utils/uartstdio.h)(0x52D964D9)
-F (.\serialize.c)(0x50F2E581)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\serialize.o --omf_browse .\rvmdk\serialize.crf --depend .\rvmdk\serialize.d)
-I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
-I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x52852AF8)
-I (C:\Keil\ARM\ARMCC\include\limits.h)(0x52852AF4)
-I (serialize.h)(0x50F2E581)
-I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
 F (..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib)(0x52D9909E)()
 F (.\readme.txt)(0x52D964CB)()
+F (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\Lib\ARM\RTX_CM4.lib)(0x52813E58)()
+F (RTE\CMSIS\RTX_Conf_CM.c)(0x5249E84E)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\rtx_conf_cm.o --omf_browse .\rvmdk\rtx_conf_cm.crf --depend .\rvmdk\rtx_conf_cm.d)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC\cmsis_os.h)(0x52813E58)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC\RTX_CM_lib.h)(0x52374ECA)

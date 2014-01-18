@@ -141,7 +141,7 @@
             <RestoreTracepoints>0</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>4</TargetSelection>
+          <TargetSelection>3</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -357,7 +357,7 @@
               <MiscControls></MiscControls>
               <Define>rvmdk PART_LM4F120H5QR TARGET_IS_BLIZZARD_RA1</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..;..\..\..;..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F;..\..\..\third_party\FreeRTOS;..\..\..\third_party\FreeRTOS\Source\include;..\..\..\third_party;</IncludePath>
+              <IncludePath>.;..;..\..\..;..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F;..\..\..\third_party\FreeRTOS;..\..\..\third_party\FreeRTOS\Source\include;..\..\..\third_party</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

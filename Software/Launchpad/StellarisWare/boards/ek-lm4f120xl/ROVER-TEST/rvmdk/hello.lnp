@@ -3,6 +3,8 @@
 ".\rvmdk\startup_rvmdk.o"
 ".\rvmdk\uartstdio.o"
 "..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib"
+"C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\Lib\ARM\RTX_CM4.lib"
+".\rvmdk\rtx_conf_cm.o"
 --library_type=microlib --strict --scatter "hello.sct"
 
 --entry Reset_Handler --summary_stderr --info summarysizes --map --xref --callgraph --symbols

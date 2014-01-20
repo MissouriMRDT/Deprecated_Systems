@@ -32,8 +32,6 @@
 #include "driverlib/sysctl.h"
 #include "utils/uartstdio.h"
 
-#include "tpl.h"
-
 //*****************************************************************************
 //
 //! \addtogroup example_list
@@ -81,7 +79,7 @@ main(void)
     // Set the clocking to run directly from the crystal.
     //
     ROM_SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ |
-                       SYSCTL_OSC_MAIN);
+                      SYSCTL_OSC_MAIN);
 
                        
     //

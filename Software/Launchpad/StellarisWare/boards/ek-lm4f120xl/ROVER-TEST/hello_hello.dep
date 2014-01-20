@@ -1,5 +1,5 @@
 Dependencies for Project 'hello', Target 'hello': (DO NOT MODIFY !)
-F (.\hello.c)(0x52DC6F4B)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\hello.o --omf_browse .\rvmdk\hello.crf --depend .\rvmdk\hello.d)
+F (.\hello.c)(0x52DC7F76)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\hello.o --omf_browse .\rvmdk\hello.crf --depend .\rvmdk\hello.d)
 I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
 I (..\..\..\inc/hw_types.h)(0x52D964CF)
 I (..\..\..\driverlib/debug.h)(0x52D964CD)
@@ -9,10 +9,6 @@ I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
 I (..\..\..\driverlib/rom.h)(0x52D964CE)
 I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
 I (..\..\..\utils/uartstdio.h)(0x52D964D9)
-I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
-I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC\cmsis_os.h)(0x52813E58)
-I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
-I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
 F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
 F (..\..\..\utils\uartstdio.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__RTX -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\RTE-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC-D_RTE_ -Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
 I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x52852AFC)

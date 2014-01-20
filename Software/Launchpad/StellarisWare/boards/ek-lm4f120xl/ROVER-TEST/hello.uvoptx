@@ -209,10 +209,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>20</ColumnNumber>
+      <ColumnNumber>6</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>45</TopLine>
-      <CurrentLine>80</CurrentLine>
+      <TopLine>69</TopLine>
+      <CurrentLine>54</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\hello.c</PathWithFileName>
       <FilenameWithoutPath>hello.c</FilenameWithoutPath>
@@ -225,10 +225,10 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>251</TopLine>
-      <CurrentLine>258</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\startup_rvmdk.S</PathWithFileName>
       <FilenameWithoutPath>startup_rvmdk.S</FilenameWithoutPath>
@@ -322,7 +322,7 @@
 
   <Group>
     <GroupName>::CMSIS</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
@@ -346,7 +346,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>7</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>

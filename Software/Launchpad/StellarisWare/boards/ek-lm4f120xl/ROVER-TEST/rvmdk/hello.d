@@ -8,7 +8,3 @@
 .\rvmdk\hello.o: ..\..\..\driverlib/rom.h
 .\rvmdk\hello.o: ..\..\..\driverlib/sysctl.h
 .\rvmdk\hello.o: ..\..\..\utils/uartstdio.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\rvmdk\hello.o: C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS_RTX\INC\cmsis_os.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\rvmdk\hello.o: C:\Keil\ARM\ARMCC\bin\..\include\stddef.h

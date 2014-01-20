@@ -8,22 +8,22 @@
 #include "driverlib/sysctl.h"
 #include "utils/uartstdio.h"
 
-#include <stdio.h>
-
-#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX             */
+//#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX             */
  
 /* Thread IDs */
-osThreadId thread1_id;
+//osThreadId thread1_id;
  
 /* Forward reference */
-void job1 (void const *argument);
+//void job1 (void const *argument);
  
 /* Thread definitions */
-osThreadDef(job1, osPriorityAboveNormal, 1, 0);
+//osThreadDef(job1, osPriorityAboveNormal, 1, 0);
+
 
 /*----------------------------------------------------------------------------
      Thread 1: 'job1'
  *---------------------------------------------------------------------------*/
+/*
 void job1 (void const *argument) {    
   while (1) {                         
     UARTprintf("Hello, world!\n");          
@@ -31,6 +31,7 @@ void job1 (void const *argument) {
   }
 }
 
+*/
 
 //*****************************************************************************
 //
@@ -44,11 +45,7 @@ __error__(char *pcFilename, unsigned long ulLine)
 }
 #endif
 
-//*****************************************************************************
-//
-// Print "Hello World!" to the UART on the Stellaris evaluation board.
-//
-//*****************************************************************************
+// MAIN
 int main(void)
 {
 	
@@ -76,14 +73,12 @@ int main(void)
     ROM_GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
     UARTStdioInit(1);
 
+		UARTprintf("Hello, world!\n");
 
-		printf("hello");
-UARTprintf("Hello, world!\n");
+    //osKernelInitialize ();
 
-    osKernelInitialize ();
-
-		thread1_id = osThreadCreate(osThread(job1),NULL);  /* create thread1 */
+		//thread1_id = osThreadCreate(osThread(job1),NULL);  /* create thread1 */
 		
-		osKernelStart ();
+		//osKernelStart ();
 
 }

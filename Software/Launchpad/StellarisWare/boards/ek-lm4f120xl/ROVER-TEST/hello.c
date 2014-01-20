@@ -8,19 +8,28 @@
 #include "driverlib/sysctl.h"
 #include "utils/uartstdio.h"
 
+#include <stdio.h>
 
-//*****************************************************************************
-//
-//! \addtogroup example_list
-//! <h1>Hello World (hello)</h1>
-//!
-//! A very simple ``hello world'' example.  It simply displays ``Hello World!''
-//! on the UART and is a starting point for more complicated applications.
-//!
-//! UART0, connected to the Stellaris Virtual Serial Port and running at 
-//! 115,200, 8-N-1, is used to display messages from this application.
-//
-//*****************************************************************************
+#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX             */
+ 
+/* Thread IDs */
+osThreadId thread1_id;
+ 
+/* Forward reference */
+void job1 (void const *argument);
+ 
+/* Thread definitions */
+osThreadDef(job1, osPriorityAboveNormal, 1, 0);
+
+/*----------------------------------------------------------------------------
+     Thread 1: 'job1'
+ *---------------------------------------------------------------------------*/
+void job1 (void const *argument) {    
+  while (1) {                         
+    UARTprintf("Hello, world!\n");          
+    osDelay(500);                      
+  }
+}
 
 
 //*****************************************************************************
@@ -40,9 +49,9 @@ __error__(char *pcFilename, unsigned long ulLine)
 // Print "Hello World!" to the UART on the Stellaris evaluation board.
 //
 //*****************************************************************************
-int
-main(void)
+int main(void)
 {
+	
     volatile unsigned long ulLoop;
 
     //
@@ -67,12 +76,14 @@ main(void)
     ROM_GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
     UARTStdioInit(1);
 
-    
-    //
-    // We are finished.  Hang around doing nothing.
-    //
-    while(1)
-    {
-			UARTprintf("Hello, world!\n");
-    }
+
+		printf("hello");
+UARTprintf("Hello, world!\n");
+
+    osKernelInitialize ();
+
+		thread1_id = osThreadCreate(osThread(job1),NULL);  /* create thread1 */
+		
+		osKernelStart ();
+
 }

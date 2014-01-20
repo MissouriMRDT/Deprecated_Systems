@@ -4,7 +4,7 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\ROVER-TEST\hello.uvprojx
-Project File Date:  01/17/2014
+Project File Date:  01/19/2014
 
 <h2>Output:</h2>
 Rebuild target 'hello'
@@ -13,7 +13,7 @@ assembling startup_rvmdk.S...
 compiling uartstdio.c...
 compiling RTX_Conf_CM.c...
 linking...
-Program Size: Code=6268 RO-data=156 RW-data=76 ZI-data=2836  
+Program Size: Code=6476 RO-data=172 RW-data=84 ZI-data=2836  
 After Build - User command #1: fromelf --bin --output .\rvmdk\hello.bin .\rvmdk\hello.axf
 ".\rvmdk\hello.axf" - 0 Error(s), 0 Warning(s).
 
@@ -35,17 +35,19 @@ Package Vendor: ARM
    * Component: ::CMSIS:RTOS:1.0 (API)
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.74.0
+      Include file:  CMSIS_RTX\INC\cmsis_os.h
       Source file:   CMSIS_RTX\Templates\RTX_Conf_CM.c
       Include file:  CMSIS_RTX\UserCodeTemplates\osObjects.h
       Source file:   CMSIS_RTX\UserCodeTemplates\main.c
       Source file:   CMSIS_RTX\UserCodeTemplates\MailQueue.c
-      Include file:  CMSIS_RTX\INC\cmsis_os.h
-      Source file:   CMSIS_RTX\UserCodeTemplates\Thread.c
-      Source file:   CMSIS_RTX\UserCodeTemplates\MemPool.c
       Source file:   CMSIS_RTX\UserCodeTemplates\Mutex.c
       Library file:  CMSIS_RTX\Lib\ARM\RTX_CM4.lib
+      Source file:   CMSIS_RTX\UserCodeTemplates\MemPool.c
       Source file:   CMSIS_RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS_RTX\UserCodeTemplates\Thread.c
       Source file:   CMSIS_RTX\UserCodeTemplates\Semaphore.c
-</pre>
-</body>
-</html>
+Load "C:\\Users\\Zeus\\Documents\\GitHub\\motherboard-squad\\Software\\Launchpad\\StellarisWare\\boards\\ek-lm4f120xl\\ROVER-TEST\\rvmdk\\hello.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.

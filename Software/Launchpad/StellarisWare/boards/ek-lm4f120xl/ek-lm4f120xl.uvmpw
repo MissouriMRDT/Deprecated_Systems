@@ -10,6 +10,7 @@
   <project>
     <PathAndName>..\..\driverlib\driverlib-cm4f.uvproj</PathAndName>
     <NodeIsActive>1</NodeIsActive>
+    <NodeIsExpanded>1</NodeIsExpanded>
     <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
   </project>
 

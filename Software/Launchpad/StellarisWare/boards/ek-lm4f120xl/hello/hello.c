@@ -73,13 +73,13 @@ main(void)
     // instructions to be used within interrupt handlers, but at the expense of
     // extra stack usage.
     //
-    ROM_FPULazyStackingEnable();
+    //ROM_FPULazyStackingEnable();
 
     //
     // Set the clocking to run directly from the crystal.
     //
-    ROM_SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ |
-                      SYSCTL_OSC_MAIN);
+   // ROM_SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ |
+                      //SYSCTL_OSC_MAIN);
 
                        
     //

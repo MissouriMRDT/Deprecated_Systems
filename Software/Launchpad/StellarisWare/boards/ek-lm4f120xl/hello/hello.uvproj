@@ -439,4 +439,17 @@
     </Target>
   </Targets>
 
+  <RTE>
+    <apis/>
+    <components/>
+    <files>
+      <file attr="config" category="source" name="CMSIS_RTX\Templates\RTX_Conf_CM.c">
+        <instance index="0" removed="1">RTE\CMSIS\RTX_Conf_CM.c</instance>
+        <component Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cvendor="ARM" Cversion="4.74.0" condition="CMSIS Core"/>
+        <package name="CMSIS" schemaVersion="1.0" url="http://www.keil.com/pack/" vendor="ARM" version="3.20.4"/>
+        <targetInfos/>
+      </file>
+    </files>
+  </RTE>
+
 </Project>

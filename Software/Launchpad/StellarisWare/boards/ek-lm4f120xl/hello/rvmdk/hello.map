@@ -314,19 +314,19 @@ Image Symbol Table
     i.__scatterload_null                     0x00000786   Section        2  handlers.o(i.__scatterload_null)
     i.__scatterload_zeroinit                 0x00000788   Section       14  handlers.o(i.__scatterload_zeroinit)
     i.main                                   0x00000798   Section        0  hello.o(i.main)
-    .constdata                               0x0000084c   Section       28  uartstdio.o(.constdata)
-    g_pcHex                                  0x0000084c   Data           4  uartstdio.o(.constdata)
-    g_ulUARTBase                             0x00000850   Data          12  uartstdio.o(.constdata)
-    g_ulUARTPeriph                           0x0000085c   Data          12  uartstdio.o(.constdata)
-    .constdata                               0x00000868   Section      460  sysctl.o(.constdata)
-    g_pulDCRegs                              0x00000868   Data          16  sysctl.o(.constdata)
-    g_pulSRCRRegs                            0x00000878   Data          12  sysctl.o(.constdata)
-    g_pulRCGCRegs                            0x00000884   Data          12  sysctl.o(.constdata)
-    g_pulSCGCRegs                            0x00000890   Data          12  sysctl.o(.constdata)
-    g_pulDCGCRegs                            0x0000089c   Data          12  sysctl.o(.constdata)
-    g_pulXtals                               0x000008a8   Data         108  sysctl.o(.constdata)
-    g_ppulPeripheralMap                      0x00000914   Data         288  sysctl.o(.constdata)
-    .conststring                             0x00000a34   Section       17  uartstdio.o(.conststring)
+    .constdata                               0x00000838   Section       28  uartstdio.o(.constdata)
+    g_pcHex                                  0x00000838   Data           4  uartstdio.o(.constdata)
+    g_ulUARTBase                             0x0000083c   Data          12  uartstdio.o(.constdata)
+    g_ulUARTPeriph                           0x00000848   Data          12  uartstdio.o(.constdata)
+    .constdata                               0x00000854   Section      460  sysctl.o(.constdata)
+    g_pulDCRegs                              0x00000854   Data          16  sysctl.o(.constdata)
+    g_pulSRCRRegs                            0x00000864   Data          12  sysctl.o(.constdata)
+    g_pulRCGCRegs                            0x00000870   Data          12  sysctl.o(.constdata)
+    g_pulSCGCRegs                            0x0000087c   Data          12  sysctl.o(.constdata)
+    g_pulDCGCRegs                            0x00000888   Data          12  sysctl.o(.constdata)
+    g_pulXtals                               0x00000894   Data         108  sysctl.o(.constdata)
+    g_ppulPeripheralMap                      0x00000900   Data         288  sysctl.o(.constdata)
+    .conststring                             0x00000a20   Section       17  uartstdio.o(.conststring)
     .data                                    0x20000000   Section        8  uartstdio.o(.data)
     bLastWasCR                               0x20000000   Data           1  uartstdio.o(.data)
     g_ulBase                                 0x20000004   Data           4  uartstdio.o(.data)
@@ -367,9 +367,9 @@ Image Symbol Table
     __scatterload_copy                       0x00000779   Thumb Code    14  handlers.o(i.__scatterload_copy)
     __scatterload_null                       0x00000787   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x00000789   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x00000799   Thumb Code   142  hello.o(i.main)
-    Region$$Table$$Base                      0x00000a48   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000a68   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x00000799   Thumb Code   128  hello.o(i.main)
+    Region$$Table$$Base                      0x00000a34   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000a54   Number         0  anon$$obj.o(Region$$Table)
     __initial_sp                             0x20000208   Data           0  startup_rvmdk.o(STACK)
 
 
@@ -380,9 +380,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_IROM (Base: 0x00000000, Size: 0x00000a70, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM (Base: 0x00000000, Size: 0x00000a5c, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM (Base: 0x00000000, Size: 0x00000a68, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM (Base: 0x00000000, Size: 0x00000a54, Max: 0x00040000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -411,12 +411,12 @@ Memory Map of the image
     0x00000786   0x00000002   Code   RO          870    i.__scatterload_null  mc_w.l(handlers.o)
     0x00000788   0x0000000e   Code   RO          871    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00000796   0x00000002   PAD
-    0x00000798   0x000000b4   Code   RO            1    i.main              hello.o
-    0x0000084c   0x0000001c   Data   RO           56    .constdata          uartstdio.o
-    0x00000868   0x000001cc   Data   RO          466    .constdata          driverlib-cm4f.lib(sysctl.o)
-    0x00000a34   0x00000011   Data   RO           57    .conststring        uartstdio.o
-    0x00000a45   0x00000003   PAD
-    0x00000a48   0x00000020   Data   RO          867    Region$$Table       anon$$obj.o
+    0x00000798   0x000000a0   Code   RO            1    i.main              hello.o
+    0x00000838   0x0000001c   Data   RO           56    .constdata          uartstdio.o
+    0x00000854   0x000001cc   Data   RO          466    .constdata          driverlib-cm4f.lib(sysctl.o)
+    0x00000a20   0x00000011   Data   RO           57    .conststring        uartstdio.o
+    0x00000a31   0x00000003   PAD
+    0x00000a34   0x00000020   Data   RO          867    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM (Base: 0x20000000, Size: 0x00000208, Max: 0x00008000, ABSOLUTE)
@@ -434,12 +434,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       180         38          0          0          0       2011   hello.o
+       160         32          0          0          0       2003   hello.o
        648        622          0          0        512        296   startup_rvmdk.o
        634         30         45          8          0       5294   uartstdio.o
 
     ----------------------------------------------------------------------
-      1464        690         80          8        512       7601   Object Totals
+      1444        684         80          8        512       7593   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          3          0          0          0   (incl. Padding)
 
@@ -481,15 +481,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2124        750        540          8        512      13930   Grand Totals
-      2124        750        540          8        512      13930   ELF Image Totals
-      2124        750        540          8          0          0   ROM Totals
+      2104        744        540          8        512      13922   Grand Totals
+      2104        744        540          8        512      13922   ELF Image Totals
+      2104        744        540          8          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2664 (   2.60kB)
+    Total RO  Size (Code + RO Data)                 2644 (   2.58kB)
     Total RW  Size (RW Data + ZI Data)               520 (   0.51kB)
-    Total ROM Size (Code + RO Data + RW Data)       2672 (   2.61kB)
+    Total ROM Size (Code + RO Data + RW Data)       2652 (   2.59kB)
 
 ==============================================================================
 

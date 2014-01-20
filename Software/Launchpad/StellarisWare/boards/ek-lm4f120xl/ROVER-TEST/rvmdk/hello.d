@@ -8,3 +8,4 @@
 .\rvmdk\hello.o: ..\..\..\driverlib/rom.h
 .\rvmdk\hello.o: ..\..\..\driverlib/sysctl.h
 .\rvmdk\hello.o: ..\..\..\utils/uartstdio.h
+.\rvmdk\hello.o: structs.h

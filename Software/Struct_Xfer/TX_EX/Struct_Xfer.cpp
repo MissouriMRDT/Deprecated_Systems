@@ -1,7 +1,10 @@
-#include "StructXfer.h"
+#include "EasyTransfer.h"
 
-//Captures address and size StructXferof struct
-void StructXfer::begin(uint8_t * ptr, uint8_t length, HardwareSerial *theSerial){
+
+
+
+//Captures address and size of struct
+void EasyTransfer::begin(uint8_t * ptr, uint8_t length, HardwareSerial *theSerial){
 	address = ptr;
 	size = length;
 	_serial = theSerial;
@@ -11,7 +14,7 @@ void StructXfer::begin(uint8_t * ptr, uint8_t length, HardwareSerial *theSerial)
 }
 
 //Sends out struct in binary, with header, length info and checksum
-void StructXfer::sendData(){
+void EasyTransfer::sendData(){
   uint8_t CS = size;
   _serial->write(0x06);
   _serial->write(0x85);
@@ -24,7 +27,7 @@ void StructXfer::sendData(){
 
 }
 
-boolean StructXfer::receiveData(){
+boolean EasyTransfer::receiveData(){
   
   //start off by looking for the header bytes. If they were already found in a previous call, skip it.
   if(rx_len == 0){

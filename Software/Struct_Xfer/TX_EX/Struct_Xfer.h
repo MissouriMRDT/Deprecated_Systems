@@ -15,7 +15,6 @@
 class Struct_Xfer {
 public:
   void begin(uint8_t *, uint8_t, HardwareSerial *theSerial);
-  //void begin(uint8_t *, uint8_t, NewSoftSerial *theSerial);
   void sendData();
   boolean receiveData();
   

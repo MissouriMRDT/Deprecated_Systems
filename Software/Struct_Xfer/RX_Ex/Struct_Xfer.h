@@ -18,9 +18,9 @@ public:
   //void begin(uint8_t *, uint8_t, NewSoftSerial *theSerial);
   void sendData();
   boolean receiveData();
-  
 private:
   HardwareSerial *_serial;
+  //NewSoftSerial *_serial;
   uint8_t * address;  //address of struct
   uint8_t size;       //size of struct
   uint8_t * rx_buffer; //address for temporary storage and parsing buffer

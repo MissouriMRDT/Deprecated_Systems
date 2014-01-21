@@ -1,43 +1,27 @@
 #include "Struct_Xfer.h"
+#include "Test_Structs.h"
 
-//create object
-EasyTransfer ET; 
-
-struct SEND_DATA_STRUCTURE{
-  //put your variable definitions here for the data you want to send
-  //THIS MUST BE EXACTLY THE SAME ON THE OTHER ARDUINO
-  int blinks;
-  int pause;
-};
+//create connection object
+Struct_Xfer CONNECTION; 
 
 //give a name to the group of data
-SEND_DATA_STRUCTURE mydata;
+Foo mydata;
 
 void setup(){
-  Serial.begin(9600);
-  //start the library, pass in the data details and the name of the serial port. Can be Serial, Serial1, Serial2, etc.
-  ET.begin(details(mydata), &Serial);
+  // Star Serial Port
+  Serial.begin(115200);
   
-  pinMode(13, OUTPUT);
-  
-  randomSeed(analogRead(0));
+  //start the library, pass in the data details and the name of the serial port
+  CONNECTION.begin(details(mydata), &Serial);
   
 }
 
 void loop(){
-  //this is how you access the variables. [name of the group].[variable name]
-  mydata.blinks = random(5);
-  mydata.pause = random(5);
-  //send the data
-  ET.sendData();
+
+  mydata.x = random(5);
+  mydata.y = random(5);
   
-  //Just for fun, we will blink it out too
-   for(int i = mydata.blinks; i>0; i--){
-      digitalWrite(13, HIGH);
-      delay(mydata.pause * 100);
-      digitalWrite(13, LOW);
-      delay(mydata.pause * 100);
-    }
+  CONNECTION.sendData();
   
-  delay(5000);
+  delay(1000);
 }

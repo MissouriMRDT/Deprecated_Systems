@@ -2244,13 +2244,13 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <part name="U$2" library="LD1117" deviceset="LD1117" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
-<part name="C42" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100nF"/>
-<part name="C43" library="SparkFun-Passives" deviceset="CAP" device="1206" value="10uF"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100nF"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="10uF"/>
 <part name="GND58" library="supply1" deviceset="GND" device=""/>
 <part name="D1" library="SparkFun-LED" deviceset="LED-GREEN" device="LARGE" value="GREEN"/>
 <part name="GND94" library="supply1" deviceset="GND" device=""/>
 <part name="+3V53" library="supply1" deviceset="+3V3" device=""/>
-<part name="R70" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
+<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
@@ -2262,13 +2262,13 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <instance part="U$2" gate="G$1" x="0" y="22.86"/>
 <instance part="+3V2" gate="G$1" x="15.24" y="40.64"/>
 <instance part="JP1" gate="G$1" x="-38.1" y="22.86"/>
-<instance part="C42" gate="G$1" x="-22.86" y="12.7"/>
-<instance part="C43" gate="G$1" x="15.24" y="12.7"/>
+<instance part="C1" gate="G$1" x="-22.86" y="12.7"/>
+<instance part="C2" gate="G$1" x="15.24" y="12.7"/>
 <instance part="GND58" gate="1" x="-12.7" y="2.54"/>
 <instance part="D1" gate="G$1" x="5.08" y="-15.24" rot="R90"/>
 <instance part="GND94" gate="1" x="12.7" y="-20.32"/>
 <instance part="+3V53" gate="G$1" x="-15.24" y="-10.16"/>
-<instance part="R70" gate="G$1" x="-5.08" y="-15.24"/>
+<instance part="R1" gate="G$1" x="-5.08" y="-15.24"/>
 <instance part="P+5" gate="1" x="-22.86" y="40.64"/>
 </instances>
 <busses>
@@ -2278,12 +2278,12 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <segment>
 <pinref part="+3V53" gate="G$1" pin="+3V3"/>
 <wire x1="-15.24" y1="-12.7" x2="-15.24" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="R70" gate="G$1" pin="1"/>
+<pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="-15.24" y1="-15.24" x2="-10.16" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VOUT"/>
-<pinref part="C43" gate="G$1" pin="1"/>
+<pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="22.86" x2="10.16" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="17.78" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
@@ -2300,11 +2300,11 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <wire x1="-27.94" y1="7.62" x2="-22.86" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="7.62" x2="-12.7" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="7.62" x2="-12.7" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="C43" gate="G$1" pin="2"/>
+<pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="10.16" x2="15.24" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="7.62" x2="-12.7" y2="7.62" width="0.1524" layer="91"/>
 <junction x="-12.7" y="7.62"/>
-<pinref part="C42" gate="G$1" pin="2"/>
+<pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="-22.86" y1="10.16" x2="-22.86" y2="7.62" width="0.1524" layer="91"/>
 <junction x="-22.86" y="7.62"/>
 <pinref part="U$2" gate="G$1" pin="GND"/>
@@ -2321,7 +2321,7 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 </net>
 <net name="N$45" class="0">
 <segment>
-<pinref part="R70" gate="G$1" pin="2"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="0" y1="-15.24" x2="2.54" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
@@ -2331,7 +2331,7 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <pinref part="U$2" gate="G$1" pin="VIN"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="-30.48" y1="25.4" x2="-22.86" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="C42" gate="G$1" pin="1"/>
+<pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="-22.86" y1="25.4" x2="-10.16" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="-22.86" y1="17.78" x2="-22.86" y2="25.4" width="0.1524" layer="91"/>
 <junction x="-22.86" y="25.4"/>

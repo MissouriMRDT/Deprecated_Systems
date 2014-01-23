@@ -1,0 +1,14 @@
+.\rvmdk\interrupts.o: interrupts.c
+.\rvmdk\interrupts.o: ..\..\..\inc/hw_ints.h
+.\rvmdk\interrupts.o: ..\..\..\inc/hw_memmap.h
+.\rvmdk\interrupts.o: ..\..\..\inc/hw_nvic.h
+.\rvmdk\interrupts.o: ..\..\..\inc/hw_types.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/debug.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/fpu.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/gpio.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/pin_map.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/interrupt.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/rom.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/sysctl.h
+.\rvmdk\interrupts.o: ..\..\..\driverlib/systick.h
+.\rvmdk\interrupts.o: ..\..\..\utils/uartstdio.h

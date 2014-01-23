@@ -695,6 +695,42 @@ design rules under a new name.</description>
 <signal name="GND2">
 <contactref element="U$1" pad="GND2"/>
 </signal>
+<signal name="U1RX">
+<contactref element="U$1" pad="PB0"/>
+</signal>
+<signal name="U1TX">
+<contactref element="U$1" pad="PB1"/>
+</signal>
+<signal name="U4RX">
+<contactref element="U$1" pad="PC4"/>
+</signal>
+<signal name="U4TX">
+<contactref element="U$1" pad="PC5"/>
+</signal>
+<signal name="U3RX">
+<contactref element="U$1" pad="PC6"/>
+</signal>
+<signal name="U3TX">
+<contactref element="U$1" pad="PC7"/>
+</signal>
+<signal name="U2RX">
+<contactref element="U$1" pad="PD6"/>
+</signal>
+<signal name="U2TX">
+<contactref element="U$1" pad="PD7"/>
+</signal>
+<signal name="U7RX">
+<contactref element="U$1" pad="PE0"/>
+</signal>
+<signal name="U7TX">
+<contactref element="U$1" pad="PE1"/>
+</signal>
+<signal name="U5RX">
+<contactref element="U$1" pad="PE4"/>
+</signal>
+<signal name="U5TX">
+<contactref element="U$1" pad="PE5"/>
+</signal>
 </signals>
 </board>
 </drawing>

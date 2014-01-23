@@ -613,11 +613,95 @@ Using all header pins to connect to XL booster packs.</description>
 <plain>
 </plain>
 <instances>
-<instance part="U$1" gate="G$1" x="15.24" y="50.8"/>
+<instance part="U$1" gate="G$1" x="0" y="0"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="U1RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PB0"/>
+<wire x1="15.24" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
+<label x="20.32" y="33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U1TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PB1"/>
+<wire x1="15.24" y1="30.48" x2="35.56" y2="30.48" width="0.1524" layer="91"/>
+<label x="20.32" y="30.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PC4"/>
+<wire x1="-15.24" y1="0" x2="-35.56" y2="0" width="0.1524" layer="91"/>
+<label x="-33.02" y="0" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PC5"/>
+<wire x1="-15.24" y1="-2.54" x2="-35.56" y2="-2.54" width="0.1524" layer="91"/>
+<label x="-33.02" y="-2.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PC6"/>
+<wire x1="-15.24" y1="-5.08" x2="-35.56" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-33.02" y="-5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PC7"/>
+<wire x1="-15.24" y1="-7.62" x2="-35.56" y2="-7.62" width="0.1524" layer="91"/>
+<label x="-33.02" y="-7.62" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PD6"/>
+<wire x1="15.24" y1="-5.08" x2="35.56" y2="-5.08" width="0.1524" layer="91"/>
+<label x="20.32" y="-5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PD7"/>
+<wire x1="15.24" y1="-7.62" x2="35.56" y2="-7.62" width="0.1524" layer="91"/>
+<label x="20.32" y="-7.62" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE0"/>
+<wire x1="-15.24" y1="-12.7" x2="-35.56" y2="-12.7" width="0.1524" layer="91"/>
+<label x="-33.02" y="-12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE1"/>
+<wire x1="-15.24" y1="-15.24" x2="-35.56" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-33.02" y="-15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5RX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE4"/>
+<wire x1="-15.24" y1="-22.86" x2="-35.56" y2="-22.86" width="0.1524" layer="91"/>
+<label x="-33.02" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5TX" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="PE5"/>
+<wire x1="-15.24" y1="-25.4" x2="-35.56" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-33.02" y="-25.4" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

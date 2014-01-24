@@ -3036,32 +3036,32 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-1" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_13" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_14" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R30" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
-<part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_15" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R34" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
-<part name="U$8" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_16" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R36" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R37" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
-<part name="U$4" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_17" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R27" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
-<part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="RS485_18" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C15" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
@@ -4891,32 +4891,32 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <instances>
 <instance part="RS-485-1" gate="G$1" x="-73.66" y="58.42"/>
 <instance part="GND5" gate="1" x="-91.44" y="45.72"/>
-<instance part="U$3" gate="G$1" x="-20.32" y="58.42"/>
+<instance part="RS485_13" gate="G$1" x="-20.32" y="58.42"/>
 <instance part="R26" gate="G$1" x="-48.26" y="66.04"/>
 <instance part="R28" gate="G$1" x="-48.26" y="50.8"/>
 <instance part="RS-485-3" gate="G$1" x="-73.66" y="20.32"/>
 <instance part="GND42" gate="1" x="-91.44" y="7.62"/>
-<instance part="U$5" gate="G$1" x="-20.32" y="20.32"/>
+<instance part="RS485_14" gate="G$1" x="-20.32" y="20.32"/>
 <instance part="R30" gate="G$1" x="-48.26" y="27.94"/>
 <instance part="R32" gate="G$1" x="-48.26" y="12.7"/>
 <instance part="RS-485-5" gate="G$1" x="-73.66" y="-20.32"/>
 <instance part="GND43" gate="1" x="-91.44" y="-33.02"/>
-<instance part="U$7" gate="G$1" x="-20.32" y="-20.32"/>
+<instance part="RS485_15" gate="G$1" x="-20.32" y="-20.32"/>
 <instance part="R34" gate="G$1" x="-48.26" y="-12.7"/>
 <instance part="R35" gate="G$1" x="-48.26" y="-27.94"/>
 <instance part="RS-485-6" gate="G$1" x="-73.66" y="-58.42"/>
 <instance part="GND44" gate="1" x="-91.44" y="-71.12"/>
-<instance part="U$8" gate="G$1" x="-20.32" y="-58.42"/>
+<instance part="RS485_16" gate="G$1" x="-20.32" y="-58.42"/>
 <instance part="R36" gate="G$1" x="-48.26" y="-50.8"/>
 <instance part="R37" gate="G$1" x="-48.26" y="-66.04"/>
 <instance part="RS-485-2" gate="G$1" x="71.12" y="58.42"/>
 <instance part="GND45" gate="1" x="53.34" y="45.72"/>
-<instance part="U$4" gate="G$1" x="124.46" y="58.42"/>
+<instance part="RS485_17" gate="G$1" x="124.46" y="58.42"/>
 <instance part="R27" gate="G$1" x="96.52" y="66.04"/>
 <instance part="R29" gate="G$1" x="96.52" y="50.8"/>
 <instance part="RS-485-4" gate="G$1" x="71.12" y="20.32"/>
 <instance part="GND46" gate="1" x="53.34" y="7.62"/>
-<instance part="U$6" gate="G$1" x="124.46" y="20.32"/>
+<instance part="RS485_18" gate="G$1" x="124.46" y="20.32"/>
 <instance part="R31" gate="G$1" x="96.52" y="27.94"/>
 <instance part="R33" gate="G$1" x="96.52" y="12.7"/>
 <instance part="C15" gate="G$1" x="-124.46" y="53.34"/>
@@ -4958,7 +4958,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$9" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="Z"/>
-<pinref part="U$3" gate="G$1" pin="6"/>
+<pinref part="RS485_13" gate="G$1" pin="6"/>
 <wire x1="-58.42" y1="55.88" x2="-40.64" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="R28" gate="G$1" pin="2"/>
 <wire x1="-40.64" y1="55.88" x2="-33.02" y2="55.88" width="0.1524" layer="91"/>
@@ -4977,7 +4977,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="-55.88" y="66.04"/>
 <wire x1="-55.88" y1="71.12" x2="-38.1" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="71.12" x2="-38.1" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="RS485_13" gate="G$1" pin="1"/>
 <wire x1="-38.1" y1="68.58" x2="-33.02" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4987,7 +4987,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-58.42" y1="60.96" x2="-40.64" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="60.96" x2="-38.1" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="60.96" x2="-38.1" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
+<pinref part="RS485_13" gate="G$1" pin="2"/>
 <wire x1="-38.1" y1="66.04" x2="-33.02" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="-43.18" y1="66.04" x2="-40.64" y2="66.04" width="0.1524" layer="91"/>
@@ -5004,7 +5004,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-55.88" y1="50.8" x2="-55.88" y2="45.72" width="0.1524" layer="91"/>
 <junction x="-55.88" y="50.8"/>
 <wire x1="-35.56" y1="45.72" x2="-35.56" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="3"/>
+<pinref part="RS485_13" gate="G$1" pin="3"/>
 <wire x1="-35.56" y1="63.5" x2="-33.02" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-55.88" y1="45.72" x2="-35.56" y2="45.72" width="0.1524" layer="91"/>
 </segment>
@@ -5080,7 +5080,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$8" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="Z"/>
-<pinref part="U$5" gate="G$1" pin="6"/>
+<pinref part="RS485_14" gate="G$1" pin="6"/>
 <wire x1="-58.42" y1="17.78" x2="-40.64" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="R32" gate="G$1" pin="2"/>
 <wire x1="-40.64" y1="17.78" x2="-33.02" y2="17.78" width="0.1524" layer="91"/>
@@ -5099,7 +5099,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="-55.88" y="27.94"/>
 <wire x1="-55.88" y1="33.02" x2="-38.1" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="33.02" x2="-38.1" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="1"/>
+<pinref part="RS485_14" gate="G$1" pin="1"/>
 <wire x1="-38.1" y1="30.48" x2="-33.02" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5109,7 +5109,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-58.42" y1="22.86" x2="-40.64" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="22.86" x2="-38.1" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="22.86" x2="-38.1" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="2"/>
+<pinref part="RS485_14" gate="G$1" pin="2"/>
 <wire x1="-38.1" y1="27.94" x2="-33.02" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R30" gate="G$1" pin="2"/>
 <wire x1="-43.18" y1="27.94" x2="-40.64" y2="27.94" width="0.1524" layer="91"/>
@@ -5126,7 +5126,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-55.88" y1="12.7" x2="-55.88" y2="7.62" width="0.1524" layer="91"/>
 <junction x="-55.88" y="12.7"/>
 <wire x1="-35.56" y1="7.62" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="3"/>
+<pinref part="RS485_14" gate="G$1" pin="3"/>
 <wire x1="-35.56" y1="25.4" x2="-33.02" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="-55.88" y1="7.62" x2="-35.56" y2="7.62" width="0.1524" layer="91"/>
 </segment>
@@ -5134,7 +5134,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$13" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="Z"/>
-<pinref part="U$7" gate="G$1" pin="6"/>
+<pinref part="RS485_15" gate="G$1" pin="6"/>
 <wire x1="-58.42" y1="-22.86" x2="-40.64" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="R35" gate="G$1" pin="2"/>
 <wire x1="-40.64" y1="-22.86" x2="-33.02" y2="-22.86" width="0.1524" layer="91"/>
@@ -5153,7 +5153,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="-55.88" y="-12.7"/>
 <wire x1="-55.88" y1="-7.62" x2="-38.1" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="-7.62" x2="-38.1" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="1"/>
+<pinref part="RS485_15" gate="G$1" pin="1"/>
 <wire x1="-38.1" y1="-10.16" x2="-33.02" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5163,7 +5163,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-58.42" y1="-17.78" x2="-40.64" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="-17.78" x2="-38.1" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="-17.78" x2="-38.1" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="2"/>
+<pinref part="RS485_15" gate="G$1" pin="2"/>
 <wire x1="-38.1" y1="-12.7" x2="-33.02" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="R34" gate="G$1" pin="2"/>
 <wire x1="-43.18" y1="-12.7" x2="-40.64" y2="-12.7" width="0.1524" layer="91"/>
@@ -5180,7 +5180,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-55.88" y1="-27.94" x2="-55.88" y2="-33.02" width="0.1524" layer="91"/>
 <junction x="-55.88" y="-27.94"/>
 <wire x1="-35.56" y1="-33.02" x2="-35.56" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="3"/>
+<pinref part="RS485_15" gate="G$1" pin="3"/>
 <wire x1="-35.56" y1="-15.24" x2="-33.02" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-55.88" y1="-33.02" x2="-35.56" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
@@ -5188,7 +5188,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$17" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="Z"/>
-<pinref part="U$8" gate="G$1" pin="6"/>
+<pinref part="RS485_16" gate="G$1" pin="6"/>
 <wire x1="-58.42" y1="-60.96" x2="-40.64" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="R37" gate="G$1" pin="2"/>
 <wire x1="-40.64" y1="-60.96" x2="-33.02" y2="-60.96" width="0.1524" layer="91"/>
@@ -5207,7 +5207,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="-55.88" y="-50.8"/>
 <wire x1="-55.88" y1="-45.72" x2="-38.1" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="-45.72" x2="-38.1" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="1"/>
+<pinref part="RS485_16" gate="G$1" pin="1"/>
 <wire x1="-38.1" y1="-48.26" x2="-33.02" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5217,7 +5217,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-58.42" y1="-55.88" x2="-40.64" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="-40.64" y1="-55.88" x2="-38.1" y2="-55.88" width="0.1524" layer="91"/>
 <wire x1="-38.1" y1="-55.88" x2="-38.1" y2="-50.8" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="2"/>
+<pinref part="RS485_16" gate="G$1" pin="2"/>
 <wire x1="-38.1" y1="-50.8" x2="-33.02" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="R36" gate="G$1" pin="2"/>
 <wire x1="-43.18" y1="-50.8" x2="-40.64" y2="-50.8" width="0.1524" layer="91"/>
@@ -5234,7 +5234,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-55.88" y1="-66.04" x2="-55.88" y2="-71.12" width="0.1524" layer="91"/>
 <junction x="-55.88" y="-66.04"/>
 <wire x1="-35.56" y1="-71.12" x2="-35.56" y2="-53.34" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="3"/>
+<pinref part="RS485_16" gate="G$1" pin="3"/>
 <wire x1="-35.56" y1="-53.34" x2="-33.02" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="-55.88" y1="-71.12" x2="-35.56" y2="-71.12" width="0.1524" layer="91"/>
 </segment>
@@ -5242,7 +5242,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$21" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="Z"/>
-<pinref part="U$4" gate="G$1" pin="6"/>
+<pinref part="RS485_17" gate="G$1" pin="6"/>
 <wire x1="86.36" y1="55.88" x2="104.14" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="R29" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="55.88" x2="111.76" y2="55.88" width="0.1524" layer="91"/>
@@ -5261,7 +5261,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="88.9" y="66.04"/>
 <wire x1="88.9" y1="71.12" x2="106.68" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="71.12" x2="106.68" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="1"/>
+<pinref part="RS485_17" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="68.58" x2="111.76" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5271,7 +5271,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="86.36" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="60.96" x2="106.68" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="60.96" x2="106.68" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="2"/>
+<pinref part="RS485_17" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="66.04" x2="111.76" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="66.04" x2="104.14" y2="66.04" width="0.1524" layer="91"/>
@@ -5288,7 +5288,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="88.9" y1="50.8" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
 <junction x="88.9" y="50.8"/>
 <wire x1="109.22" y1="45.72" x2="109.22" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="3"/>
+<pinref part="RS485_17" gate="G$1" pin="3"/>
 <wire x1="109.22" y1="63.5" x2="111.76" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="45.72" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
 </segment>
@@ -5296,7 +5296,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <net name="N$33" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="Z"/>
-<pinref part="U$6" gate="G$1" pin="6"/>
+<pinref part="RS485_18" gate="G$1" pin="6"/>
 <wire x1="86.36" y1="17.78" x2="104.14" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="104.14" y1="17.78" x2="111.76" y2="17.78" width="0.1524" layer="91"/>
@@ -5315,7 +5315,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <junction x="88.9" y="27.94"/>
 <wire x1="88.9" y1="33.02" x2="106.68" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="33.02" x2="106.68" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="1"/>
+<pinref part="RS485_18" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="30.48" x2="111.76" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -5325,7 +5325,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="86.36" y1="22.86" x2="104.14" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="22.86" x2="106.68" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="22.86" x2="106.68" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="2"/>
+<pinref part="RS485_18" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="27.94" x2="111.76" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R31" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="27.94" x2="104.14" y2="27.94" width="0.1524" layer="91"/>
@@ -5342,7 +5342,7 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="88.9" y1="12.7" x2="88.9" y2="7.62" width="0.1524" layer="91"/>
 <junction x="88.9" y="12.7"/>
 <wire x1="109.22" y1="7.62" x2="109.22" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="3"/>
+<pinref part="RS485_18" gate="G$1" pin="3"/>
 <wire x1="109.22" y1="25.4" x2="111.76" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="7.62" x2="109.22" y2="7.62" width="0.1524" layer="91"/>
 </segment>

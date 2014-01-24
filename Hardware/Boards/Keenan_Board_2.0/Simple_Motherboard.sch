@@ -2434,6 +2434,8 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="U1" library="SparkFun-Boards" deviceset="WIZ811MJ" device=""/>
+<part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2648,6 +2650,41 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-20.32" y1="-35.56" x2="-20.32" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="TCP_SCLK" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA2"/>
+<wire x1="-15.24" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
+<label x="-33.02" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_SS" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA3"/>
+<wire x1="-15.24" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
+<label x="-33.02" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_MISO" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA4"/>
+<wire x1="-15.24" y1="22.86" x2="-35.56" y2="22.86" width="0.1524" layer="91"/>
+<label x="-33.02" y="22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_MOSI" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA5"/>
+<wire x1="-15.24" y1="20.32" x2="-35.56" y2="20.32" width="0.1524" layer="91"/>
+<label x="-33.02" y="20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="RST"/>
+<wire x1="15.24" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
+<label x="20.32" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -2655,10 +2692,83 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 </plain>
 <instances>
 <instance part="U1" gate="G$1" x="0" y="0"/>
+<instance part="GND2" gate="1" x="-17.78" y="-35.56"/>
+<instance part="+3V3" gate="G$1" x="-20.32" y="35.56"/>
 </instances>
 <busses>
 </busses>
 <nets>
+<net name="TCP_SCLK" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="SCLK"/>
+<wire x1="15.24" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+<label x="20.32" y="20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_SS" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="/SCS"/>
+<wire x1="15.24" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
+<label x="20.32" y="17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_MOSI" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="MOSI"/>
+<wire x1="15.24" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
+<label x="20.32" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TCP_MISO" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="MISO"/>
+<wire x1="15.24" y1="12.7" x2="35.56" y2="12.7" width="0.1524" layer="91"/>
+<label x="20.32" y="12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GND" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="GND@1"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="-15.24" y1="-20.32" x2="-17.78" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-20.32" x2="-17.78" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="GND@5"/>
+<wire x1="-17.78" y1="-22.86" x2="-17.78" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-25.4" x2="-17.78" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-27.94" x2="-17.78" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-30.48" x2="-17.78" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="-30.48" x2="-17.78" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="-17.78" y="-30.48"/>
+<pinref part="U1" gate="G$1" pin="GND@4"/>
+<wire x1="-15.24" y1="-27.94" x2="-17.78" y2="-27.94" width="0.1524" layer="91"/>
+<junction x="-17.78" y="-27.94"/>
+<pinref part="U1" gate="G$1" pin="GND@3"/>
+<wire x1="-15.24" y1="-25.4" x2="-17.78" y2="-25.4" width="0.1524" layer="91"/>
+<junction x="-17.78" y="-25.4"/>
+<pinref part="U1" gate="G$1" pin="GND@2"/>
+<wire x1="-15.24" y1="-22.86" x2="-17.78" y2="-22.86" width="0.1524" layer="91"/>
+<junction x="-17.78" y="-22.86"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="/RESET"/>
+<wire x1="15.24" y1="27.94" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
+<label x="20.32" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="+3V3" class="0">
+<segment>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+<wire x1="-20.32" y1="33.02" x2="-20.32" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VCC@2"/>
+<wire x1="-20.32" y1="27.94" x2="-20.32" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="25.4" x2="-15.24" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VCC@1"/>
+<wire x1="-15.24" y1="27.94" x2="-20.32" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-20.32" y="27.94"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>

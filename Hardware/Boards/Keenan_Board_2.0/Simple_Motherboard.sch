@@ -2227,6 +2227,187 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-Boards">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find boards and modules: Arduino footprints, breadboards, non-RF modules, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; CC v3.0 Share-Alike You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="WIZ811MJ">
+<description>&lt;h3&gt;WIZnet W5100 Network Module with MagJack - WIZ811MJ&lt;/h3&gt;
+WIZnet's WIZ811MJ is a breakout board for the W5100 embedded TCP/IP chip. Also included on the board is a RJ-45 MagJack Connector (RJ45 with X'FMR).&lt;br&gt;&lt;br&gt;
+
+See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more documentation and info.&lt;br&gt;
+&lt;B&gt;**UNPROVEN&lt;/b&gt;</description>
+<wire x1="-31.86" y1="-23.73" x2="-31.86" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-31.86" y1="1.27" x2="20.14" y2="1.27" width="0.127" layer="21"/>
+<wire x1="20.14" y1="1.27" x2="20.14" y2="-23.73" width="0.127" layer="21"/>
+<wire x1="20.14" y1="-23.73" x2="-31.86" y2="-23.73" width="0.127" layer="21"/>
+<wire x1="2.14" y1="-19.18" x2="23.34" y2="-19.18" width="0.127" layer="51"/>
+<wire x1="23.34" y1="-19.18" x2="23.34" y2="-3.28" width="0.127" layer="51"/>
+<wire x1="23.34" y1="-3.28" x2="2.14" y2="-3.28" width="0.127" layer="51"/>
+<wire x1="2.14" y1="-19.18" x2="2.14" y2="-3.28" width="0.127" layer="51"/>
+<pad name="40" x="-22.86" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="38" x="-20.32" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="36" x="-17.78" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="34" x="-15.24" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="32" x="-12.7" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="30" x="-10.16" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="28" x="-7.62" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="26" x="-5.08" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="24" x="-2.54" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="22" x="0" y="-22.46" drill="1.02" diameter="1.8796"/>
+<pad name="39" x="-22.86" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="37" x="-20.32" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="35" x="-17.78" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="33" x="-15.24" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="31" x="-12.7" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="29" x="-10.16" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="27" x="-7.62" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="25" x="-5.08" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="23" x="-2.54" y="-19.92" drill="1.02" diameter="1.8796"/>
+<pad name="21" x="0" y="-19.92" drill="1.02" diameter="1.8796" shape="square"/>
+<pad name="19" x="-22.86" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="17" x="-20.32" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="15" x="-17.78" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="13" x="-15.24" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="11" x="-12.7" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="9" x="-10.16" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="7" x="-7.62" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="5" x="-5.08" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="3" x="-2.54" y="0" drill="1.02" diameter="1.8796"/>
+<pad name="1" x="0" y="0" drill="1.02" diameter="1.8796" shape="square"/>
+<pad name="20" x="-22.86" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="18" x="-20.32" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="16" x="-17.78" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="14" x="-15.24" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="12" x="-12.7" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="10" x="-10.16" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="8" x="-7.62" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="6" x="-5.08" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="4" x="-2.54" y="-2.54" drill="1.02" diameter="1.8796"/>
+<pad name="2" x="0" y="-2.54" drill="1.02" diameter="1.8796"/>
+<text x="1.14" y="-1.73" size="1.27" layer="51">J1</text>
+<text x="1.14" y="-21.73" size="1.27" layer="51">J2</text>
+<text x="6.14" y="-0.73" size="1.27" layer="51">WIZnet</text>
+<text x="3.44" y="-23.33" size="1.27" layer="51">WIZ811MJ REV1.0</text>
+<text x="-30.59" y="-7.22" size="1.778" layer="25">&gt;Name</text>
+<text x="-30.59" y="-17.38" size="1.778" layer="27">&gt;Value</text>
+<hole x="-27.86" y="-19.73" drill="3"/>
+<hole x="-27.86" y="-2.73" drill="3"/>
+</package>
+</packages>
+<symbols>
+<symbol name="WIZ811MJ">
+<wire x1="-12.7" y1="30.48" x2="-12.7" y2="-33.02" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-33.02" x2="12.7" y2="-33.02" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-33.02" x2="12.7" y2="30.48" width="0.254" layer="94"/>
+<wire x1="12.7" y1="30.48" x2="-12.7" y2="30.48" width="0.254" layer="94"/>
+<text x="-12.7" y="30.988" size="1.778" layer="95">&gt;Name</text>
+<text x="-12.7" y="-35.56" size="1.778" layer="96">&gt;Value</text>
+<pin name="VCC@1" x="-15.24" y="27.94" length="short"/>
+<pin name="VCC@2" x="-15.24" y="25.4" length="short"/>
+<pin name="GND@1" x="-15.24" y="-20.32" length="short"/>
+<pin name="GND@2" x="-15.24" y="-22.86" length="short"/>
+<pin name="GND@3" x="-15.24" y="-25.4" length="short"/>
+<pin name="GND@4" x="-15.24" y="-27.94" length="short"/>
+<pin name="GND@5" x="-15.24" y="-30.48" length="short"/>
+<pin name="SCLK" x="15.24" y="20.32" length="short" rot="R180"/>
+<pin name="/SCS" x="15.24" y="17.78" length="short" rot="R180"/>
+<pin name="MOSI" x="15.24" y="15.24" length="short" rot="R180"/>
+<pin name="MISO" x="15.24" y="12.7" length="short" rot="R180"/>
+<pin name="A14" x="15.24" y="5.08" length="short" rot="R180"/>
+<pin name="A13" x="15.24" y="2.54" length="short" rot="R180"/>
+<pin name="A12" x="15.24" y="0" length="short" rot="R180"/>
+<pin name="A11" x="15.24" y="-2.54" length="short" rot="R180"/>
+<pin name="A10" x="15.24" y="-5.08" length="short" rot="R180"/>
+<pin name="A9" x="15.24" y="-7.62" length="short" rot="R180"/>
+<pin name="A8" x="15.24" y="-10.16" length="short" rot="R180"/>
+<pin name="A7" x="15.24" y="-12.7" length="short" rot="R180"/>
+<pin name="D7" x="-15.24" y="-12.7" length="short"/>
+<pin name="D6" x="-15.24" y="-10.16" length="short"/>
+<pin name="D5" x="-15.24" y="-7.62" length="short"/>
+<pin name="D4" x="-15.24" y="-5.08" length="short"/>
+<pin name="D3" x="-15.24" y="-2.54" length="short"/>
+<pin name="D2" x="-15.24" y="0" length="short"/>
+<pin name="D1" x="-15.24" y="2.54" length="short"/>
+<pin name="/RD" x="-15.24" y="12.7" length="short"/>
+<pin name="/CS" x="-15.24" y="10.16" length="short"/>
+<pin name="/WR" x="-15.24" y="15.24" length="short"/>
+<pin name="/INT" x="-15.24" y="17.78" length="short"/>
+<pin name="D0" x="-15.24" y="5.08" length="short"/>
+<pin name="/RESET" x="15.24" y="27.94" length="short" rot="R180"/>
+<pin name="A6" x="15.24" y="-15.24" length="short" rot="R180"/>
+<pin name="A5" x="15.24" y="-17.78" length="short" rot="R180"/>
+<pin name="A4" x="15.24" y="-20.32" length="short" rot="R180"/>
+<pin name="A3" x="15.24" y="-22.86" length="short" rot="R180"/>
+<pin name="A2" x="15.24" y="-25.4" length="short" rot="R180"/>
+<pin name="A1" x="15.24" y="-27.94" length="short" rot="R180"/>
+<pin name="A0" x="15.24" y="-30.48" length="short" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="WIZ811MJ" prefix="U">
+<description>&lt;h3&gt;WIZnet W5100 Network Module with MagJack - WIZ811MJ&lt;/h3&gt;
+WIZnet's WIZ811MJ is a breakout board for the W5100 embedded TCP/IP chip. Also included on the board is a RJ-45 MagJack Connector (RJ45 with X'FMR).&lt;br&gt;&lt;br&gt;
+
+See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more documentation and info.&lt;br&gt;
+&lt;B&gt;**UNPROVEN&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="WIZ811MJ" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="WIZ811MJ">
+<connects>
+<connect gate="G$1" pin="/CS" pad="27"/>
+<connect gate="G$1" pin="/INT" pad="28"/>
+<connect gate="G$1" pin="/RD" pad="26"/>
+<connect gate="G$1" pin="/RESET" pad="22"/>
+<connect gate="G$1" pin="/SCS" pad="24"/>
+<connect gate="G$1" pin="/WR" pad="25"/>
+<connect gate="G$1" pin="A0" pad="31"/>
+<connect gate="G$1" pin="A1" pad="32"/>
+<connect gate="G$1" pin="A10" pad="15"/>
+<connect gate="G$1" pin="A11" pad="16"/>
+<connect gate="G$1" pin="A12" pad="17"/>
+<connect gate="G$1" pin="A13" pad="18"/>
+<connect gate="G$1" pin="A14" pad="19"/>
+<connect gate="G$1" pin="A2" pad="33"/>
+<connect gate="G$1" pin="A3" pad="34"/>
+<connect gate="G$1" pin="A4" pad="35"/>
+<connect gate="G$1" pin="A5" pad="36"/>
+<connect gate="G$1" pin="A6" pad="37"/>
+<connect gate="G$1" pin="A7" pad="38"/>
+<connect gate="G$1" pin="A8" pad="13"/>
+<connect gate="G$1" pin="A9" pad="14"/>
+<connect gate="G$1" pin="D0" pad="4"/>
+<connect gate="G$1" pin="D1" pad="3"/>
+<connect gate="G$1" pin="D2" pad="6"/>
+<connect gate="G$1" pin="D3" pad="5"/>
+<connect gate="G$1" pin="D4" pad="8"/>
+<connect gate="G$1" pin="D5" pad="7"/>
+<connect gate="G$1" pin="D6" pad="10"/>
+<connect gate="G$1" pin="D7" pad="9"/>
+<connect gate="G$1" pin="GND@1" pad="11"/>
+<connect gate="G$1" pin="GND@2" pad="29"/>
+<connect gate="G$1" pin="GND@3" pad="39"/>
+<connect gate="G$1" pin="GND@4" pad="40"/>
+<connect gate="G$1" pin="GND@5" pad="30"/>
+<connect gate="G$1" pin="MISO" pad="2"/>
+<connect gate="G$1" pin="MOSI" pad="1"/>
+<connect gate="G$1" pin="SCLK" pad="23"/>
+<connect gate="G$1" pin="VCC@1" pad="12"/>
+<connect gate="G$1" pin="VCC@2" pad="21"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2252,6 +2433,7 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <part name="+3V53" library="supply1" deviceset="+3V3" device=""/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
+<part name="U1" library="SparkFun-Boards" deviceset="WIZ811MJ" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2466,6 +2648,17 @@ LILYPAD- DIO-09910&lt;br&gt;</description>
 <wire x1="-20.32" y1="-35.56" x2="-20.32" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
+</nets>
+</sheet>
+<sheet>
+<plain>
+</plain>
+<instances>
+<instance part="U1" gate="G$1" x="0" y="0"/>
+</instances>
+<busses>
+</busses>
+<nets>
 </nets>
 </sheet>
 </sheets>

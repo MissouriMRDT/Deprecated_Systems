@@ -3098,6 +3098,26 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <part name="P+21" library="supply1" deviceset="+5V" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="U2_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
+<part name="P+22" library="supply1" deviceset="+5V" device=""/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="GND7" library="supply1" deviceset="GND" device=""/>
+<part name="U3_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
+<part name="P+23" library="supply1" deviceset="+5V" device=""/>
+<part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="GND9" library="supply1" deviceset="GND" device=""/>
+<part name="U4_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
+<part name="P+24" library="supply1" deviceset="+5V" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
+<part name="GND11" library="supply1" deviceset="GND" device=""/>
+<part name="U5_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
+<part name="P+25" library="supply1" deviceset="+5V" device=""/>
+<part name="GND12" library="supply1" deviceset="GND" device=""/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
+<part name="U7_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
+<part name="P+26" library="supply1" deviceset="+5V" device=""/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
+<part name="GND27" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3345,6 +3365,88 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <pinref part="LM4F120XL" gate="G$1" pin="RST"/>
 <wire x1="15.24" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
 <label x="20.32" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U1_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA6"/>
+<wire x1="-15.24" y1="17.78" x2="-35.56" y2="17.78" width="0.1524" layer="91"/>
+<label x="-33.02" y="17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U1_MUX_S1" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PA7"/>
+<wire x1="-15.24" y1="15.24" x2="-35.56" y2="15.24" width="0.1524" layer="91"/>
+<label x="-33.02" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PE2"/>
+<wire x1="-15.24" y1="-17.78" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-33.02" y="-17.78" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="-35.56" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="LM4F120XL" gate="G$1" pin="PE3"/>
+<label x="-33.02" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB2"/>
+<wire x1="15.24" y1="27.94" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
+<label x="20.32" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3_MUX_S1" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB3"/>
+<wire x1="15.24" y1="25.4" x2="35.56" y2="25.4" width="0.1524" layer="91"/>
+<label x="20.32" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB4"/>
+<wire x1="15.24" y1="22.86" x2="35.56" y2="22.86" width="0.1524" layer="91"/>
+<label x="20.32" y="22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4_MUX_S1" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB5"/>
+<wire x1="15.24" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+<label x="20.32" y="20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB6"/>
+<wire x1="15.24" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
+<label x="20.32" y="17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5_MUX_S1" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PB7"/>
+<wire x1="15.24" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
+<label x="20.32" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7_MUX_S0" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PD0"/>
+<wire x1="15.24" y1="10.16" x2="35.56" y2="10.16" width="0.1524" layer="91"/>
+<label x="20.32" y="10.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7_MUX_S1" class="0">
+<segment>
+<pinref part="LM4F120XL" gate="G$1" pin="PD1"/>
+<wire x1="15.24" y1="7.62" x2="35.56" y2="7.62" width="0.1524" layer="91"/>
+<label x="20.32" y="7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -5382,6 +5484,26 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <instance part="P+21" gate="1" x="-10.16" y="53.34"/>
 <instance part="GND3" gate="1" x="-15.24" y="43.18" rot="R270"/>
 <instance part="GND4" gate="1" x="-10.16" y="20.32"/>
+<instance part="U2_MUX" gate="A" x="101.6" y="38.1"/>
+<instance part="P+22" gate="1" x="81.28" y="53.34"/>
+<instance part="GND6" gate="1" x="76.2" y="43.18" rot="R270"/>
+<instance part="GND7" gate="1" x="81.28" y="20.32"/>
+<instance part="U3_MUX" gate="A" x="195.58" y="38.1"/>
+<instance part="P+23" gate="1" x="175.26" y="53.34"/>
+<instance part="GND8" gate="1" x="170.18" y="43.18" rot="R270"/>
+<instance part="GND9" gate="1" x="175.26" y="20.32"/>
+<instance part="U4_MUX" gate="A" x="10.16" y="-20.32"/>
+<instance part="P+24" gate="1" x="-10.16" y="-5.08"/>
+<instance part="GND10" gate="1" x="-15.24" y="-15.24" rot="R270"/>
+<instance part="GND11" gate="1" x="-10.16" y="-38.1"/>
+<instance part="U5_MUX" gate="A" x="101.6" y="-20.32"/>
+<instance part="P+25" gate="1" x="81.28" y="-5.08"/>
+<instance part="GND12" gate="1" x="76.2" y="-15.24" rot="R270"/>
+<instance part="GND13" gate="1" x="81.28" y="-38.1"/>
+<instance part="U7_MUX" gate="A" x="195.58" y="-20.32"/>
+<instance part="P+26" gate="1" x="175.26" y="-5.08"/>
+<instance part="GND26" gate="1" x="170.18" y="-15.24" rot="R270"/>
+<instance part="GND27" gate="1" x="175.26" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -5392,6 +5514,36 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-10.16" y1="50.8" x2="-10.16" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="U1_MUX" gate="A" pin="VCC"/>
 <wire x1="-10.16" y1="48.26" x2="-7.62" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+22" gate="1" pin="+5V"/>
+<wire x1="81.28" y1="50.8" x2="81.28" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U2_MUX" gate="A" pin="VCC"/>
+<wire x1="81.28" y1="48.26" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+23" gate="1" pin="+5V"/>
+<wire x1="175.26" y1="50.8" x2="175.26" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U3_MUX" gate="A" pin="VCC"/>
+<wire x1="175.26" y1="48.26" x2="177.8" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+24" gate="1" pin="+5V"/>
+<wire x1="-10.16" y1="-7.62" x2="-10.16" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="U4_MUX" gate="A" pin="VCC"/>
+<wire x1="-10.16" y1="-10.16" x2="-7.62" y2="-10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+25" gate="1" pin="+5V"/>
+<wire x1="81.28" y1="-7.62" x2="81.28" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="U5_MUX" gate="A" pin="VCC"/>
+<wire x1="81.28" y1="-10.16" x2="83.82" y2="-10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+26" gate="1" pin="+5V"/>
+<wire x1="175.26" y1="-7.62" x2="175.26" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="U7_MUX" gate="A" pin="VCC"/>
+<wire x1="175.26" y1="-10.16" x2="177.8" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5409,6 +5561,81 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <wire x1="-7.62" y1="30.48" x2="-10.16" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="30.48" x2="-10.16" y2="25.4" width="0.1524" layer="91"/>
 <junction x="-10.16" y="25.4"/>
+</segment>
+<segment>
+<pinref part="U2_MUX" gate="A" pin="~E"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="83.82" y1="43.18" x2="78.74" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="81.28" y1="22.86" x2="81.28" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U2_MUX" gate="A" pin="GND"/>
+<wire x1="81.28" y1="25.4" x2="83.82" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U2_MUX" gate="A" pin="VEE"/>
+<wire x1="83.82" y1="30.48" x2="81.28" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="30.48" x2="81.28" y2="25.4" width="0.1524" layer="91"/>
+<junction x="81.28" y="25.4"/>
+</segment>
+<segment>
+<pinref part="U3_MUX" gate="A" pin="~E"/>
+<pinref part="GND8" gate="1" pin="GND"/>
+<wire x1="177.8" y1="43.18" x2="172.72" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND9" gate="1" pin="GND"/>
+<wire x1="175.26" y1="22.86" x2="175.26" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U3_MUX" gate="A" pin="GND"/>
+<wire x1="175.26" y1="25.4" x2="177.8" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U3_MUX" gate="A" pin="VEE"/>
+<wire x1="177.8" y1="30.48" x2="175.26" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="30.48" x2="175.26" y2="25.4" width="0.1524" layer="91"/>
+<junction x="175.26" y="25.4"/>
+</segment>
+<segment>
+<pinref part="U4_MUX" gate="A" pin="~E"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="-7.62" y1="-15.24" x2="-12.7" y2="-15.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="-10.16" y1="-35.56" x2="-10.16" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U4_MUX" gate="A" pin="GND"/>
+<wire x1="-10.16" y1="-33.02" x2="-7.62" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U4_MUX" gate="A" pin="VEE"/>
+<wire x1="-7.62" y1="-27.94" x2="-10.16" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-27.94" x2="-10.16" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="-10.16" y="-33.02"/>
+</segment>
+<segment>
+<pinref part="U5_MUX" gate="A" pin="~E"/>
+<pinref part="GND12" gate="1" pin="GND"/>
+<wire x1="83.82" y1="-15.24" x2="78.74" y2="-15.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="81.28" y1="-35.56" x2="81.28" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U5_MUX" gate="A" pin="GND"/>
+<wire x1="81.28" y1="-33.02" x2="83.82" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U5_MUX" gate="A" pin="VEE"/>
+<wire x1="83.82" y1="-27.94" x2="81.28" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="-27.94" x2="81.28" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="81.28" y="-33.02"/>
+</segment>
+<segment>
+<pinref part="U7_MUX" gate="A" pin="~E"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+<wire x1="177.8" y1="-15.24" x2="172.72" y2="-15.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND27" gate="1" pin="GND"/>
+<wire x1="175.26" y1="-35.56" x2="175.26" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U7_MUX" gate="A" pin="GND"/>
+<wire x1="175.26" y1="-33.02" x2="177.8" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="U7_MUX" gate="A" pin="VEE"/>
+<wire x1="177.8" y1="-27.94" x2="175.26" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-27.94" x2="175.26" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="175.26" y="-33.02"/>
 </segment>
 </net>
 <net name="U1_MUX_S0" class="0">
@@ -5446,20 +5673,6 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <label x="30.48" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_2_RX" class="0">
-<segment>
-<pinref part="U1_MUX" gate="A" pin="1Y1"/>
-<wire x1="27.94" y1="38.1" x2="48.26" y2="38.1" width="0.1524" layer="91"/>
-<label x="30.48" y="38.1" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_3_RX" class="0">
-<segment>
-<pinref part="U1_MUX" gate="A" pin="1Y2"/>
-<wire x1="27.94" y1="35.56" x2="48.26" y2="35.56" width="0.1524" layer="91"/>
-<label x="30.48" y="35.56" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RS485_1_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y0"/>
@@ -5467,18 +5680,382 @@ See http://www.sparkfun.com/commerce/product_info.php?products_id=9473 for more 
 <label x="30.48" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_2_TX" class="0">
+<net name="RS485_8_RX" class="0">
+<segment>
+<pinref part="U1_MUX" gate="A" pin="1Y1"/>
+<wire x1="27.94" y1="38.1" x2="48.26" y2="38.1" width="0.1524" layer="91"/>
+<label x="30.48" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_9_RX" class="0">
+<segment>
+<pinref part="U1_MUX" gate="A" pin="1Y2"/>
+<wire x1="27.94" y1="35.56" x2="48.26" y2="35.56" width="0.1524" layer="91"/>
+<label x="30.48" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_8_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y1"/>
 <wire x1="27.94" y1="25.4" x2="48.26" y2="25.4" width="0.1524" layer="91"/>
 <label x="30.48" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_3_TX" class="0">
+<net name="RS485_9_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y2"/>
 <wire x1="27.94" y1="22.86" x2="48.26" y2="22.86" width="0.1524" layer="91"/>
 <label x="30.48" y="22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2_MUX_S0" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="S0"/>
+<wire x1="83.82" y1="38.1" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<label x="66.04" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2_MUX_S1" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="S1"/>
+<wire x1="83.82" y1="35.56" x2="63.5" y2="35.56" width="0.1524" layer="91"/>
+<label x="66.04" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2RX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="1Z"/>
+<wire x1="119.38" y1="48.26" x2="139.7" y2="48.26" width="0.1524" layer="91"/>
+<label x="121.92" y="48.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U2TX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="2Z"/>
+<wire x1="119.38" y1="45.72" x2="139.7" y2="45.72" width="0.1524" layer="91"/>
+<label x="121.92" y="45.72" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_2_RX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="1Y0"/>
+<wire x1="119.38" y1="40.64" x2="139.7" y2="40.64" width="0.1524" layer="91"/>
+<label x="121.92" y="40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_7_RX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="1Y1"/>
+<wire x1="119.38" y1="38.1" x2="139.7" y2="38.1" width="0.1524" layer="91"/>
+<label x="121.92" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_10_RX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="1Y2"/>
+<wire x1="119.38" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
+<label x="121.92" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_2_TX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="2Y0"/>
+<wire x1="119.38" y1="27.94" x2="139.7" y2="27.94" width="0.1524" layer="91"/>
+<label x="121.92" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_7_TX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="2Y1"/>
+<wire x1="119.38" y1="25.4" x2="139.7" y2="25.4" width="0.1524" layer="91"/>
+<label x="121.92" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_10_TX" class="0">
+<segment>
+<pinref part="U2_MUX" gate="A" pin="2Y2"/>
+<wire x1="119.38" y1="22.86" x2="139.7" y2="22.86" width="0.1524" layer="91"/>
+<label x="121.92" y="22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3_MUX_S0" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="S0"/>
+<wire x1="177.8" y1="38.1" x2="157.48" y2="38.1" width="0.1524" layer="91"/>
+<label x="160.02" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3_MUX_S1" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="S1"/>
+<wire x1="177.8" y1="35.56" x2="157.48" y2="35.56" width="0.1524" layer="91"/>
+<label x="160.02" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3RX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="1Z"/>
+<wire x1="213.36" y1="48.26" x2="233.68" y2="48.26" width="0.1524" layer="91"/>
+<label x="215.9" y="48.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U3TX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="2Z"/>
+<wire x1="213.36" y1="45.72" x2="233.68" y2="45.72" width="0.1524" layer="91"/>
+<label x="215.9" y="45.72" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_3_RX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="1Y0"/>
+<wire x1="213.36" y1="40.64" x2="233.68" y2="40.64" width="0.1524" layer="91"/>
+<label x="215.9" y="40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_3_TX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="2Y0"/>
+<wire x1="213.36" y1="27.94" x2="233.68" y2="27.94" width="0.1524" layer="91"/>
+<label x="215.9" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_6_RX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="1Y1"/>
+<wire x1="213.36" y1="38.1" x2="233.68" y2="38.1" width="0.1524" layer="91"/>
+<label x="215.9" y="38.1" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_6_TX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="2Y1"/>
+<wire x1="213.36" y1="25.4" x2="233.68" y2="25.4" width="0.1524" layer="91"/>
+<label x="215.9" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_11_RX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="1Y2"/>
+<wire x1="213.36" y1="35.56" x2="233.68" y2="35.56" width="0.1524" layer="91"/>
+<label x="215.9" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_11_TX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="2Y2"/>
+<wire x1="213.36" y1="22.86" x2="233.68" y2="22.86" width="0.1524" layer="91"/>
+<label x="215.9" y="22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4_MUX_S0" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="S0"/>
+<wire x1="-7.62" y1="-20.32" x2="-27.94" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-25.4" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4_MUX_S1" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="S1"/>
+<wire x1="-7.62" y1="-22.86" x2="-27.94" y2="-22.86" width="0.1524" layer="91"/>
+<label x="-25.4" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Z"/>
+<wire x1="27.94" y1="-10.16" x2="48.26" y2="-10.16" width="0.1524" layer="91"/>
+<label x="30.48" y="-10.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U4TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Z"/>
+<wire x1="27.94" y1="-12.7" x2="48.26" y2="-12.7" width="0.1524" layer="91"/>
+<label x="30.48" y="-12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_4_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y0"/>
+<wire x1="27.94" y1="-17.78" x2="48.26" y2="-17.78" width="0.1524" layer="91"/>
+<label x="30.48" y="-17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_4_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y0"/>
+<wire x1="27.94" y1="-30.48" x2="48.26" y2="-30.48" width="0.1524" layer="91"/>
+<label x="30.48" y="-30.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_5_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y1"/>
+<wire x1="27.94" y1="-20.32" x2="48.26" y2="-20.32" width="0.1524" layer="91"/>
+<label x="30.48" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_5_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y1"/>
+<wire x1="27.94" y1="-33.02" x2="48.26" y2="-33.02" width="0.1524" layer="91"/>
+<label x="30.48" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_12_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y2"/>
+<wire x1="27.94" y1="-22.86" x2="48.26" y2="-22.86" width="0.1524" layer="91"/>
+<label x="30.48" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_12_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y2"/>
+<wire x1="27.94" y1="-35.56" x2="48.26" y2="-35.56" width="0.1524" layer="91"/>
+<label x="30.48" y="-35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5_MUX_S0" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="S0"/>
+<wire x1="83.82" y1="-20.32" x2="63.5" y2="-20.32" width="0.1524" layer="91"/>
+<label x="66.04" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5_MUX_S1" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="S1"/>
+<wire x1="83.82" y1="-22.86" x2="63.5" y2="-22.86" width="0.1524" layer="91"/>
+<label x="66.04" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5RX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="1Z"/>
+<wire x1="119.38" y1="-10.16" x2="139.7" y2="-10.16" width="0.1524" layer="91"/>
+<label x="121.92" y="-10.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U5TX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="2Z"/>
+<wire x1="119.38" y1="-12.7" x2="139.7" y2="-12.7" width="0.1524" layer="91"/>
+<label x="121.92" y="-12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7_MUX_S0" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="S0"/>
+<wire x1="177.8" y1="-20.32" x2="157.48" y2="-20.32" width="0.1524" layer="91"/>
+<label x="160.02" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7_MUX_S1" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="S1"/>
+<wire x1="177.8" y1="-22.86" x2="157.48" y2="-22.86" width="0.1524" layer="91"/>
+<label x="160.02" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7RX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="1Z"/>
+<wire x1="213.36" y1="-10.16" x2="233.68" y2="-10.16" width="0.1524" layer="91"/>
+<label x="215.9" y="-10.16" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7TX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="2Z"/>
+<wire x1="213.36" y1="-12.7" x2="233.68" y2="-12.7" width="0.1524" layer="91"/>
+<label x="215.9" y="-12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_13_RX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="1Y0"/>
+<wire x1="119.38" y1="-17.78" x2="139.7" y2="-17.78" width="0.1524" layer="91"/>
+<label x="121.92" y="-17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_13_TX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="2Y0"/>
+<wire x1="119.38" y1="-30.48" x2="139.7" y2="-30.48" width="0.1524" layer="91"/>
+<label x="121.92" y="-30.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_14_RX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="1Y1"/>
+<wire x1="119.38" y1="-20.32" x2="139.7" y2="-20.32" width="0.1524" layer="91"/>
+<label x="121.92" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_14_TX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="2Y1"/>
+<wire x1="119.38" y1="-33.02" x2="139.7" y2="-33.02" width="0.1524" layer="91"/>
+<label x="121.92" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_15_RX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="1Y2"/>
+<wire x1="119.38" y1="-22.86" x2="139.7" y2="-22.86" width="0.1524" layer="91"/>
+<label x="121.92" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_15_TX" class="0">
+<segment>
+<pinref part="U5_MUX" gate="A" pin="2Y2"/>
+<wire x1="119.38" y1="-35.56" x2="139.7" y2="-35.56" width="0.1524" layer="91"/>
+<label x="121.92" y="-35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_16_RX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="1Y0"/>
+<wire x1="213.36" y1="-17.78" x2="233.68" y2="-17.78" width="0.1524" layer="91"/>
+<label x="215.9" y="-17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_16_TX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="2Y0"/>
+<wire x1="213.36" y1="-30.48" x2="233.68" y2="-30.48" width="0.1524" layer="91"/>
+<label x="215.9" y="-30.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_17_RX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="1Y1"/>
+<wire x1="213.36" y1="-20.32" x2="233.68" y2="-20.32" width="0.1524" layer="91"/>
+<label x="215.9" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_18_RX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="1Y2"/>
+<wire x1="213.36" y1="-22.86" x2="233.68" y2="-22.86" width="0.1524" layer="91"/>
+<label x="215.9" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_17_TX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="2Y1"/>
+<wire x1="213.36" y1="-33.02" x2="233.68" y2="-33.02" width="0.1524" layer="91"/>
+<label x="215.9" y="-33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_18_TX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="2Y2"/>
+<wire x1="213.36" y1="-35.56" x2="233.68" y2="-35.56" width="0.1524" layer="91"/>
+<label x="215.9" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

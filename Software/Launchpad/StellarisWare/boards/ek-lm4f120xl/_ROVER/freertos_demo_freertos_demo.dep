@@ -1,0 +1,167 @@
+Dependencies for Project 'freertos_demo', Target 'freertos_demo': (DO NOT MODIFY !)
+F (..\drivers\buttons.c)(0x52D964CB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\buttons.o --omf_browse .\rvmdk\buttons.crf --depend .\rvmdk\buttons.d)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_gpio.h)(0x52D964CF)
+I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
+I (..\..\..\driverlib/gpio.h)(0x52D964CD)
+I (..\drivers/buttons.h)(0x52D964CB)
+F (.\freertos_demo.c)(0x52DB20B7)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\freertos_demo.o --omf_browse .\rvmdk\freertos_demo.crf --depend .\rvmdk\freertos_demo.d)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\driverlib/gpio.h)(0x52D964CD)
+I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
+I (..\..\..\driverlib/uart.h)(0x52D964CE)
+I (..\..\..\utils/uartstdio.h)(0x52D964D9)
+I (led_task.h)(0x52D964CB)
+I (switch_task.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\queue.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\semphr.h)(0x52D964D8)
+F (..\..\..\third_party\FreeRTOS\Source\portable\MemMang\heap_2.c)(0x52D964D8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\heap_2.o --omf_browse .\rvmdk\heap_2.crf --depend .\rvmdk\heap_2.d)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+F (.\led_task.c)(0x52D964CB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\led_task.o --omf_browse .\rvmdk\led_task.crf --depend .\rvmdk\led_task.d)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\driverlib/gpio.h)(0x52D964CD)
+I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\drivers/rgb.h)(0x52D964CB)
+I (..\drivers/buttons.h)(0x52D964CB)
+I (..\..\..\utils/uartstdio.h)(0x52D964D9)
+I (led_task.h)(0x52D964CB)
+I (priorities.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\queue.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\semphr.h)(0x52D964D8)
+F (..\..\..\third_party\FreeRTOS\Source\list.c)(0x52D964D8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\list.o --omf_browse .\rvmdk\list.crf --depend .\rvmdk\list.d)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+F (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\port.c)(0x52D964D8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\port.o --omf_browse .\rvmdk\port.crf --depend .\rvmdk\port.d)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+F (..\..\..\third_party\FreeRTOS\Source\queue.c)(0x52D964D8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\queue.o --omf_browse .\rvmdk\queue.crf --depend .\rvmdk\queue.d)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+F (..\drivers\rgb.c)(0x52D964CB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\rgb.o --omf_browse .\rvmdk\rgb.crf --depend .\rvmdk\rgb.d)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_timer.h)(0x52D964CF)
+I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
+I (..\..\..\driverlib/timer.h)(0x52D964CE)
+I (..\..\..\driverlib/gpio.h)(0x52D964CD)
+I (..\drivers\rgb.h)(0x52D964CB)
+F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
+F (.\switch_task.c)(0x52D964CB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\switch_task.o --omf_browse .\rvmdk\switch_task.crf --depend .\rvmdk\switch_task.d)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\inc/hw_gpio.h)(0x52D964CF)
+I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
+I (..\..\..\driverlib/gpio.h)(0x52D964CD)
+I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\drivers/buttons.h)(0x52D964CB)
+I (..\..\..\utils/uartstdio.h)(0x52D964D9)
+I (switch_task.h)(0x52D964CB)
+I (led_task.h)(0x52D964CB)
+I (priorities.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\queue.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\semphr.h)(0x52D964D8)
+F (..\..\..\third_party\FreeRTOS\Source\tasks.c)(0x52D964D8)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\tasks.o --omf_browse .\rvmdk\tasks.crf --depend .\rvmdk\tasks.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\FreeRTOS.h)(0x52D964D8)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\..\..\third_party\FreeRTOS\Source\include\projdefs.h)(0x52D964D8)
+I (.\FreeRTOSConfig.h)(0x52D964CB)
+I (..\..\..\third_party\FreeRTOS\Source\include\portable.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F\portmacro.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\mpu_wrappers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\task.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\list.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\timers.h)(0x52D964D8)
+I (..\..\..\third_party\FreeRTOS\Source\include\StackMacros.h)(0x52D964D8)
+F (..\..\..\utils\uartstdio.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
+I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x52852AFC)
+I (..\..\..\inc/hw_ints.h)(0x52D964CF)
+I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
+I (..\..\..\inc/hw_types.h)(0x52D964CF)
+I (..\..\..\inc/hw_uart.h)(0x52D964CF)
+I (..\..\..\driverlib/debug.h)(0x52D964CD)
+I (..\..\..\driverlib/interrupt.h)(0x52D964CD)
+I (..\..\..\driverlib/rom.h)(0x52D964CE)
+I (..\..\..\driverlib/rom_map.h)(0x52D964CE)
+I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
+I (..\..\..\driverlib/uart.h)(0x52D964CE)
+I (..\..\..\utils/uartstdio.h)(0x52D964D9)
+F (..\..\..\utils\ustdlib.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I. -I.. -I..\..\.. -I..\..\..\third_party\FreeRTOS\Source\portable\RVDS\ARM_CM4F -I..\..\..\third_party\FreeRTOS -I..\..\..\third_party\FreeRTOS\Source\include -I..\..\..\third_party-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\ustdlib.o --omf_browse .\rvmdk\ustdlib.crf --depend .\rvmdk\ustdlib.d)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\..\..\driverlib/debug.h)(0x52D964CD)
+I (..\..\..\utils/ustdlib.h)(0x52D964D9)
+I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x52852AFC)
+F (..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib)(0x52D9909E)()
+F (.\readme.txt)(0x52D964CB)()

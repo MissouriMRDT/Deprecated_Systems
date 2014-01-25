@@ -3244,8 +3244,6 @@ Using all header pins to connect to XL booster packs.</description>
 <part name="U$9" library="harting-scsi" deviceset="TB60050685100" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="RS-485-1" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
-<part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
@@ -3254,77 +3252,66 @@ Using all header pins to connect to XL booster packs.</description>
 <part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_2" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C10" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_3" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C11" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_4" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
-<part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C12" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_7" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
 <part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C15" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="R27" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_8" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
 <part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C16" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_9" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND70" library="supply1" deviceset="GND" device=""/>
-<part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
 <part name="R30" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C17" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND71" library="supply1" deviceset="GND" device=""/>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_10" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND72" library="supply1" deviceset="GND" device=""/>
-<part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
 <part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C18" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND73" library="supply1" deviceset="GND" device=""/>
 <part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_5" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND74" library="supply1" deviceset="GND" device=""/>
-<part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C13" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND75" library="supply1" deviceset="GND" device=""/>
 <part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_6" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND76" library="supply1" deviceset="GND" device=""/>
-<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 <part name="R24" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C14" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND77" library="supply1" deviceset="GND" device=""/>
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_11" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND78" library="supply1" deviceset="GND" device=""/>
-<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="R34" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C19" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND79" library="supply1" deviceset="GND" device=""/>
 <part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_12" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND80" library="supply1" deviceset="GND" device=""/>
-<part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="R36" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="C20" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
@@ -3332,31 +3319,26 @@ Using all header pins to connect to XL booster packs.</description>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V39" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
 <part name="U$4" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V40" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
 <part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V41" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V42" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
 <part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R10" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R11" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="+3V43" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
 <part name="U$8" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
 <part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
@@ -3427,6 +3409,24 @@ Using all header pins to connect to XL booster packs.</description>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="C26" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
+<part name="P+8" library="supply1" deviceset="+5V" device=""/>
+<part name="P+9" library="supply1" deviceset="+5V" device=""/>
+<part name="P+10" library="supply1" deviceset="+5V" device=""/>
+<part name="P+11" library="supply1" deviceset="+5V" device=""/>
+<part name="P+12" library="supply1" deviceset="+5V" device=""/>
+<part name="P+13" library="supply1" deviceset="+5V" device=""/>
+<part name="P+14" library="supply1" deviceset="+5V" device=""/>
+<part name="P+15" library="supply1" deviceset="+5V" device=""/>
+<part name="P+16" library="supply1" deviceset="+5V" device=""/>
+<part name="P+17" library="supply1" deviceset="+5V" device=""/>
+<part name="P+18" library="supply1" deviceset="+5V" device=""/>
+<part name="P+19" library="supply1" deviceset="+5V" device=""/>
+<part name="P+20" library="supply1" deviceset="+5V" device=""/>
+<part name="P+22" library="supply1" deviceset="+5V" device=""/>
+<part name="P+23" library="supply1" deviceset="+5V" device=""/>
+<part name="P+24" library="supply1" deviceset="+5V" device=""/>
+<part name="P+25" library="supply1" deviceset="+5V" device=""/>
+<part name="P+26" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4492,37 +4492,31 @@ Using all header pins to connect to XL booster packs.</description>
 </plain>
 <instances>
 <instance part="RS-485-1" gate="G$1" x="-20.32" y="99.06"/>
-<instance part="+3V25" gate="G$1" x="-71.12" y="111.76"/>
 <instance part="GND5" gate="1" x="-38.1" y="86.36"/>
 <instance part="U$3" gate="G$1" x="33.02" y="99.06"/>
 <instance part="R2" gate="G$1" x="5.08" y="106.68"/>
 <instance part="R3" gate="G$1" x="5.08" y="91.44"/>
 <instance part="RS-485-2" gate="G$1" x="-20.32" y="60.96"/>
-<instance part="+3V39" gate="G$1" x="-71.12" y="73.66"/>
 <instance part="GND42" gate="1" x="-38.1" y="48.26"/>
 <instance part="U$4" gate="G$1" x="33.02" y="60.96"/>
 <instance part="R4" gate="G$1" x="5.08" y="68.58"/>
 <instance part="R5" gate="G$1" x="5.08" y="53.34"/>
 <instance part="RS-485-3" gate="G$1" x="-20.32" y="20.32"/>
-<instance part="+3V40" gate="G$1" x="-71.12" y="33.02"/>
 <instance part="GND43" gate="1" x="-38.1" y="7.62"/>
 <instance part="U$5" gate="G$1" x="33.02" y="20.32"/>
 <instance part="R6" gate="G$1" x="5.08" y="27.94"/>
 <instance part="R7" gate="G$1" x="5.08" y="12.7"/>
 <instance part="RS-485-4" gate="G$1" x="-20.32" y="-17.78"/>
-<instance part="+3V41" gate="G$1" x="-71.12" y="-5.08"/>
 <instance part="GND44" gate="1" x="-38.1" y="-30.48"/>
 <instance part="U$6" gate="G$1" x="33.02" y="-17.78"/>
 <instance part="R8" gate="G$1" x="5.08" y="-10.16"/>
 <instance part="R9" gate="G$1" x="5.08" y="-25.4"/>
 <instance part="RS-485-5" gate="G$1" x="124.46" y="99.06"/>
-<instance part="+3V42" gate="G$1" x="76.2" y="111.76"/>
 <instance part="GND45" gate="1" x="106.68" y="86.36"/>
 <instance part="U$7" gate="G$1" x="177.8" y="99.06"/>
 <instance part="R10" gate="G$1" x="149.86" y="106.68"/>
 <instance part="R11" gate="G$1" x="149.86" y="91.44"/>
 <instance part="RS-485-6" gate="G$1" x="124.46" y="60.96"/>
-<instance part="+3V43" gate="G$1" x="76.2" y="73.66"/>
 <instance part="GND46" gate="1" x="106.68" y="48.26"/>
 <instance part="U$8" gate="G$1" x="177.8" y="60.96"/>
 <instance part="R12" gate="G$1" x="149.86" y="68.58"/>
@@ -4539,66 +4533,16 @@ Using all header pins to connect to XL booster packs.</description>
 <instance part="GND86" gate="1" x="76.2" y="86.36"/>
 <instance part="C8" gate="G$1" x="76.2" y="55.88"/>
 <instance part="GND87" gate="1" x="76.2" y="48.26"/>
+<instance part="P+8" gate="1" x="-71.12" y="33.02"/>
+<instance part="P+9" gate="1" x="-71.12" y="-5.08"/>
+<instance part="P+10" gate="1" x="-71.12" y="73.66"/>
+<instance part="P+11" gate="1" x="-71.12" y="111.76"/>
+<instance part="P+12" gate="1" x="76.2" y="111.76"/>
+<instance part="P+13" gate="1" x="76.2" y="73.66"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="+3V3" class="0">
-<segment>
-<pinref part="+3V25" gate="G$1" pin="+3V3"/>
-<wire x1="-71.12" y1="109.22" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="RS-485-1" gate="G$1" pin="VCC"/>
-<wire x1="-71.12" y1="106.68" x2="-35.56" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="-71.12" y1="99.06" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
-<junction x="-71.12" y="106.68"/>
-</segment>
-<segment>
-<pinref part="+3V39" gate="G$1" pin="+3V3"/>
-<wire x1="-71.12" y1="71.12" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="RS-485-2" gate="G$1" pin="VCC"/>
-<wire x1="-71.12" y1="68.58" x2="-35.56" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="-71.12" y1="60.96" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
-<junction x="-71.12" y="68.58"/>
-</segment>
-<segment>
-<pinref part="+3V40" gate="G$1" pin="+3V3"/>
-<wire x1="-71.12" y1="30.48" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="RS-485-3" gate="G$1" pin="VCC"/>
-<wire x1="-71.12" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="-71.12" y1="20.32" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
-<junction x="-71.12" y="27.94"/>
-</segment>
-<segment>
-<pinref part="+3V41" gate="G$1" pin="+3V3"/>
-<wire x1="-71.12" y1="-7.62" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="RS-485-4" gate="G$1" pin="VCC"/>
-<wire x1="-71.12" y1="-10.16" x2="-35.56" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="-71.12" y1="-17.78" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
-<junction x="-71.12" y="-10.16"/>
-</segment>
-<segment>
-<pinref part="+3V42" gate="G$1" pin="+3V3"/>
-<wire x1="76.2" y1="109.22" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="RS-485-5" gate="G$1" pin="VCC"/>
-<wire x1="76.2" y1="106.68" x2="109.22" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="C7" gate="G$1" pin="1"/>
-<wire x1="76.2" y1="99.06" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
-<junction x="76.2" y="106.68"/>
-</segment>
-<segment>
-<pinref part="+3V43" gate="G$1" pin="+3V3"/>
-<wire x1="76.2" y1="71.12" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="RS-485-6" gate="G$1" pin="VCC"/>
-<wire x1="76.2" y1="68.58" x2="109.22" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="76.2" y1="60.96" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
-<junction x="76.2" y="68.58"/>
-</segment>
-</net>
 <net name="RS485_13_RX" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="R0"/>
@@ -5075,6 +5019,62 @@ Using all header pins to connect to XL booster packs.</description>
 <label x="86.36" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="RS-485-4" gate="G$1" pin="VCC"/>
+<wire x1="-71.12" y1="-10.16" x2="-35.56" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="-71.12" y1="-17.78" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="1" pin="+5V"/>
+<wire x1="-71.12" y1="-7.62" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
+<junction x="-71.12" y="-10.16"/>
+</segment>
+<segment>
+<pinref part="RS-485-3" gate="G$1" pin="VCC"/>
+<wire x1="-71.12" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="-71.12" y1="20.32" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="P+8" gate="1" pin="+5V"/>
+<wire x1="-71.12" y1="30.48" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-71.12" y="27.94"/>
+</segment>
+<segment>
+<pinref part="RS-485-2" gate="G$1" pin="VCC"/>
+<wire x1="-71.12" y1="68.58" x2="-35.56" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="-71.12" y1="60.96" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="P+10" gate="1" pin="+5V"/>
+<wire x1="-71.12" y1="71.12" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-71.12" y="68.58"/>
+</segment>
+<segment>
+<pinref part="RS-485-1" gate="G$1" pin="VCC"/>
+<wire x1="-71.12" y1="106.68" x2="-35.56" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="-71.12" y1="99.06" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="P+11" gate="1" pin="+5V"/>
+<wire x1="-71.12" y1="109.22" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
+<junction x="-71.12" y="106.68"/>
+</segment>
+<segment>
+<pinref part="RS-485-5" gate="G$1" pin="VCC"/>
+<wire x1="76.2" y1="106.68" x2="109.22" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="99.06" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="P+12" gate="1" pin="+5V"/>
+<wire x1="76.2" y1="109.22" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
+<junction x="76.2" y="106.68"/>
+</segment>
+<segment>
+<pinref part="RS-485-6" gate="G$1" pin="VCC"/>
+<wire x1="76.2" y1="68.58" x2="109.22" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="60.96" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="P+13" gate="1" pin="+5V"/>
+<wire x1="76.2" y1="71.12" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
+<junction x="76.2" y="68.58"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -5087,88 +5087,88 @@ Using all header pins to connect to XL booster packs.</description>
 <instance part="RS_TRANS_1" gate="G$1" x="-106.68" y="86.36"/>
 <instance part="U$9" gate="G$1" x="127" y="27.94" rot="R270"/>
 <instance part="GND14" gate="1" x="-124.46" y="73.66"/>
-<instance part="+3V13" gate="G$1" x="-154.94" y="99.06"/>
 <instance part="R14" gate="G$1" x="-78.74" y="93.98" rot="R180"/>
 <instance part="C9" gate="G$1" x="-154.94" y="86.36"/>
 <instance part="GND15" gate="1" x="-154.94" y="78.74"/>
 <instance part="R15" gate="G$1" x="-78.74" y="78.74" rot="R180"/>
 <instance part="RS_TRANS_2" gate="G$1" x="-106.68" y="43.18"/>
 <instance part="GND16" gate="1" x="-124.46" y="30.48"/>
-<instance part="+3V14" gate="G$1" x="-154.94" y="55.88"/>
 <instance part="R16" gate="G$1" x="-78.74" y="50.8" rot="R180"/>
 <instance part="C10" gate="G$1" x="-154.94" y="43.18"/>
 <instance part="GND17" gate="1" x="-154.94" y="35.56"/>
 <instance part="R17" gate="G$1" x="-78.74" y="35.56" rot="R180"/>
 <instance part="RS_TRANS_3" gate="G$1" x="-106.68" y="0"/>
 <instance part="GND18" gate="1" x="-124.46" y="-12.7"/>
-<instance part="+3V15" gate="G$1" x="-154.94" y="12.7"/>
 <instance part="R18" gate="G$1" x="-78.74" y="7.62" rot="R180"/>
 <instance part="C11" gate="G$1" x="-154.94" y="0"/>
 <instance part="GND19" gate="1" x="-154.94" y="-7.62"/>
 <instance part="R19" gate="G$1" x="-78.74" y="-7.62" rot="R180"/>
 <instance part="RS_TRANS_4" gate="G$1" x="-106.68" y="-40.64"/>
 <instance part="GND20" gate="1" x="-124.46" y="-53.34"/>
-<instance part="+3V16" gate="G$1" x="-154.94" y="-27.94"/>
 <instance part="R20" gate="G$1" x="-78.74" y="-33.02" rot="R180"/>
 <instance part="C12" gate="G$1" x="-154.94" y="-40.64"/>
 <instance part="GND21" gate="1" x="-154.94" y="-48.26"/>
 <instance part="R21" gate="G$1" x="-78.74" y="-48.26" rot="R180"/>
 <instance part="RS_TRANS_7" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND22" gate="1" x="-2.54" y="73.66"/>
-<instance part="+3V17" gate="G$1" x="-33.02" y="99.06"/>
 <instance part="R26" gate="G$1" x="43.18" y="93.98" rot="R180"/>
 <instance part="C15" gate="G$1" x="-33.02" y="86.36"/>
 <instance part="GND23" gate="1" x="-33.02" y="78.74"/>
 <instance part="R27" gate="G$1" x="43.18" y="78.74" rot="R180"/>
 <instance part="RS_TRANS_8" gate="G$1" x="15.24" y="43.18"/>
 <instance part="GND24" gate="1" x="-2.54" y="30.48"/>
-<instance part="+3V18" gate="G$1" x="-33.02" y="55.88"/>
 <instance part="R28" gate="G$1" x="43.18" y="50.8" rot="R180"/>
 <instance part="C16" gate="G$1" x="-33.02" y="43.18"/>
 <instance part="GND25" gate="1" x="-33.02" y="35.56"/>
 <instance part="R29" gate="G$1" x="43.18" y="35.56" rot="R180"/>
 <instance part="RS_TRANS_9" gate="G$1" x="15.24" y="0"/>
 <instance part="GND70" gate="1" x="-2.54" y="-12.7"/>
-<instance part="+3V19" gate="G$1" x="-33.02" y="12.7"/>
 <instance part="R30" gate="G$1" x="43.18" y="7.62" rot="R180"/>
 <instance part="C17" gate="G$1" x="-33.02" y="0"/>
 <instance part="GND71" gate="1" x="-33.02" y="-7.62"/>
 <instance part="R31" gate="G$1" x="43.18" y="-7.62" rot="R180"/>
 <instance part="RS_TRANS_10" gate="G$1" x="15.24" y="-40.64"/>
 <instance part="GND72" gate="1" x="-2.54" y="-53.34"/>
-<instance part="+3V20" gate="G$1" x="-33.02" y="-27.94"/>
 <instance part="R32" gate="G$1" x="43.18" y="-33.02" rot="R180"/>
 <instance part="C18" gate="G$1" x="-33.02" y="-40.64"/>
 <instance part="GND73" gate="1" x="-33.02" y="-48.26"/>
 <instance part="R33" gate="G$1" x="43.18" y="-48.26" rot="R180"/>
 <instance part="RS_TRANS_5" gate="G$1" x="-106.68" y="-83.82"/>
 <instance part="GND74" gate="1" x="-124.46" y="-96.52"/>
-<instance part="+3V21" gate="G$1" x="-154.94" y="-71.12"/>
 <instance part="R22" gate="G$1" x="-78.74" y="-76.2" rot="R180"/>
 <instance part="C13" gate="G$1" x="-154.94" y="-83.82"/>
 <instance part="GND75" gate="1" x="-154.94" y="-91.44"/>
 <instance part="R23" gate="G$1" x="-78.74" y="-91.44" rot="R180"/>
 <instance part="RS_TRANS_6" gate="G$1" x="-106.68" y="-124.46"/>
 <instance part="GND76" gate="1" x="-124.46" y="-137.16"/>
-<instance part="+3V22" gate="G$1" x="-154.94" y="-111.76"/>
 <instance part="R24" gate="G$1" x="-78.74" y="-116.84" rot="R180"/>
 <instance part="C14" gate="G$1" x="-154.94" y="-124.46"/>
 <instance part="GND77" gate="1" x="-154.94" y="-132.08"/>
 <instance part="R25" gate="G$1" x="-78.74" y="-132.08" rot="R180"/>
 <instance part="RS_TRANS_11" gate="G$1" x="15.24" y="-83.82"/>
 <instance part="GND78" gate="1" x="-2.54" y="-96.52"/>
-<instance part="+3V23" gate="G$1" x="-33.02" y="-71.12"/>
 <instance part="R34" gate="G$1" x="43.18" y="-76.2" rot="R180"/>
 <instance part="C19" gate="G$1" x="-33.02" y="-83.82"/>
 <instance part="GND79" gate="1" x="-33.02" y="-91.44"/>
 <instance part="R35" gate="G$1" x="43.18" y="-91.44" rot="R180"/>
 <instance part="RS_TRANS_12" gate="G$1" x="15.24" y="-124.46"/>
 <instance part="GND80" gate="1" x="-2.54" y="-137.16"/>
-<instance part="+3V24" gate="G$1" x="-33.02" y="-111.76"/>
 <instance part="R36" gate="G$1" x="43.18" y="-116.84" rot="R180"/>
 <instance part="C20" gate="G$1" x="-33.02" y="-124.46"/>
 <instance part="GND81" gate="1" x="-33.02" y="-132.08"/>
 <instance part="R37" gate="G$1" x="43.18" y="-132.08" rot="R180"/>
+<instance part="P+14" gate="1" x="-154.94" y="99.06"/>
+<instance part="P+15" gate="1" x="-154.94" y="55.88"/>
+<instance part="P+16" gate="1" x="-33.02" y="99.06"/>
+<instance part="P+17" gate="1" x="-33.02" y="55.88"/>
+<instance part="P+18" gate="1" x="-33.02" y="12.7"/>
+<instance part="P+19" gate="1" x="-33.02" y="-27.94"/>
+<instance part="P+20" gate="1" x="-33.02" y="-71.12"/>
+<instance part="P+22" gate="1" x="-33.02" y="-111.76"/>
+<instance part="P+23" gate="1" x="-154.94" y="-111.76"/>
+<instance part="P+24" gate="1" x="-154.94" y="-71.12"/>
+<instance part="P+25" gate="1" x="-154.94" y="12.7"/>
+<instance part="P+26" gate="1" x="-154.94" y="-27.94"/>
 </instances>
 <busses>
 </busses>
@@ -6161,116 +6161,6 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-33.02" y1="-127" x2="-33.02" y2="-129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="+3V3" class="0">
-<segment>
-<pinref part="RS_TRANS_1" gate="G$1" pin="VCC"/>
-<pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="93.98" x2="-154.94" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="93.98" x2="-154.94" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="+3V13" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="96.52" x2="-154.94" y2="93.98" width="0.1524" layer="91"/>
-<junction x="-154.94" y="93.98"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_2" gate="G$1" pin="VCC"/>
-<pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="50.8" x2="-154.94" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="50.8" x2="-154.94" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="+3V14" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="53.34" x2="-154.94" y2="50.8" width="0.1524" layer="91"/>
-<junction x="-154.94" y="50.8"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_3" gate="G$1" pin="VCC"/>
-<pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="7.62" x2="-154.94" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="7.62" x2="-154.94" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="+3V15" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="10.16" x2="-154.94" y2="7.62" width="0.1524" layer="91"/>
-<junction x="-154.94" y="7.62"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_4" gate="G$1" pin="VCC"/>
-<pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="-33.02" x2="-154.94" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="-33.02" x2="-154.94" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="+3V16" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="-30.48" x2="-154.94" y2="-33.02" width="0.1524" layer="91"/>
-<junction x="-154.94" y="-33.02"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="VCC"/>
-<pinref part="C15" gate="G$1" pin="1"/>
-<wire x1="0" y1="93.98" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="93.98" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="+3V17" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="96.52" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
-<junction x="-33.02" y="93.98"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="VCC"/>
-<pinref part="C16" gate="G$1" pin="1"/>
-<wire x1="0" y1="50.8" x2="-33.02" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="50.8" x2="-33.02" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="+3V18" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="53.34" x2="-33.02" y2="50.8" width="0.1524" layer="91"/>
-<junction x="-33.02" y="50.8"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="VCC"/>
-<pinref part="C17" gate="G$1" pin="1"/>
-<wire x1="0" y1="7.62" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="7.62" x2="-33.02" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="+3V19" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="10.16" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
-<junction x="-33.02" y="7.62"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="VCC"/>
-<pinref part="C18" gate="G$1" pin="1"/>
-<wire x1="0" y1="-33.02" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="-33.02" x2="-33.02" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="+3V20" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="-30.48" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
-<junction x="-33.02" y="-33.02"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="VCC"/>
-<pinref part="C13" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="-76.2" x2="-154.94" y2="-76.2" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="-76.2" x2="-154.94" y2="-78.74" width="0.1524" layer="91"/>
-<pinref part="+3V21" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="-73.66" x2="-154.94" y2="-76.2" width="0.1524" layer="91"/>
-<junction x="-154.94" y="-76.2"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="VCC"/>
-<pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="-116.84" x2="-154.94" y2="-116.84" width="0.1524" layer="91"/>
-<wire x1="-154.94" y1="-116.84" x2="-154.94" y2="-119.38" width="0.1524" layer="91"/>
-<pinref part="+3V22" gate="G$1" pin="+3V3"/>
-<wire x1="-154.94" y1="-114.3" x2="-154.94" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="-154.94" y="-116.84"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_11" gate="G$1" pin="VCC"/>
-<pinref part="C19" gate="G$1" pin="1"/>
-<wire x1="0" y1="-76.2" x2="-33.02" y2="-76.2" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="-76.2" x2="-33.02" y2="-78.74" width="0.1524" layer="91"/>
-<pinref part="+3V23" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="-73.66" x2="-33.02" y2="-76.2" width="0.1524" layer="91"/>
-<junction x="-33.02" y="-76.2"/>
-</segment>
-<segment>
-<pinref part="RS_TRANS_12" gate="G$1" pin="VCC"/>
-<pinref part="C20" gate="G$1" pin="1"/>
-<wire x1="0" y1="-116.84" x2="-33.02" y2="-116.84" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="-116.84" x2="-33.02" y2="-119.38" width="0.1524" layer="91"/>
-<pinref part="+3V24" gate="G$1" pin="+3V3"/>
-<wire x1="-33.02" y1="-114.3" x2="-33.02" y2="-116.84" width="0.1524" layer="91"/>
-<junction x="-33.02" y="-116.84"/>
-</segment>
-</net>
 <net name="RS485_2_RX" class="0">
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="R0"/>
@@ -6423,6 +6313,116 @@ Using all header pins to connect to XL booster packs.</description>
 <pinref part="RS_TRANS_12" gate="G$1" pin="DI"/>
 <wire x1="0" y1="-127" x2="-22.86" y2="-127" width="0.1524" layer="91"/>
 <label x="-20.32" y="-127" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="RS_TRANS_1" gate="G$1" pin="VCC"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="93.98" x2="-154.94" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="93.98" x2="-154.94" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="P+14" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="96.52" x2="-154.94" y2="93.98" width="0.1524" layer="91"/>
+<junction x="-154.94" y="93.98"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_7" gate="G$1" pin="VCC"/>
+<pinref part="C15" gate="G$1" pin="1"/>
+<wire x1="0" y1="93.98" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="93.98" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="P+16" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="96.52" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
+<junction x="-33.02" y="93.98"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_2" gate="G$1" pin="VCC"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="50.8" x2="-154.94" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="50.8" x2="-154.94" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="P+15" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="53.34" x2="-154.94" y2="50.8" width="0.1524" layer="91"/>
+<junction x="-154.94" y="50.8"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_8" gate="G$1" pin="VCC"/>
+<pinref part="C16" gate="G$1" pin="1"/>
+<wire x1="0" y1="50.8" x2="-33.02" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="50.8" x2="-33.02" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="P+17" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="53.34" x2="-33.02" y2="50.8" width="0.1524" layer="91"/>
+<junction x="-33.02" y="50.8"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_9" gate="G$1" pin="VCC"/>
+<pinref part="C17" gate="G$1" pin="1"/>
+<wire x1="0" y1="7.62" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="7.62" x2="-33.02" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="P+18" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="10.16" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-33.02" y="7.62"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_3" gate="G$1" pin="VCC"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="7.62" x2="-154.94" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="7.62" x2="-154.94" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="P+25" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="10.16" x2="-154.94" y2="7.62" width="0.1524" layer="91"/>
+<junction x="-154.94" y="7.62"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_10" gate="G$1" pin="VCC"/>
+<pinref part="C18" gate="G$1" pin="1"/>
+<wire x1="0" y1="-33.02" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-33.02" x2="-33.02" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="P+19" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="-30.48" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="-33.02" y="-33.02"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_4" gate="G$1" pin="VCC"/>
+<pinref part="C12" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="-33.02" x2="-154.94" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="-33.02" x2="-154.94" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="P+26" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="-30.48" x2="-154.94" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="-154.94" y="-33.02"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_5" gate="G$1" pin="VCC"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="-76.2" x2="-154.94" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="-76.2" x2="-154.94" y2="-78.74" width="0.1524" layer="91"/>
+<pinref part="P+24" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="-73.66" x2="-154.94" y2="-76.2" width="0.1524" layer="91"/>
+<junction x="-154.94" y="-76.2"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_11" gate="G$1" pin="VCC"/>
+<pinref part="C19" gate="G$1" pin="1"/>
+<wire x1="0" y1="-76.2" x2="-33.02" y2="-76.2" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-76.2" x2="-33.02" y2="-78.74" width="0.1524" layer="91"/>
+<pinref part="P+20" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="-76.2" x2="-33.02" y2="-73.66" width="0.1524" layer="91"/>
+<junction x="-33.02" y="-76.2"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_12" gate="G$1" pin="VCC"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<wire x1="0" y1="-116.84" x2="-33.02" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="-116.84" x2="-33.02" y2="-119.38" width="0.1524" layer="91"/>
+<pinref part="P+22" gate="1" pin="+5V"/>
+<wire x1="-33.02" y1="-114.3" x2="-33.02" y2="-116.84" width="0.1524" layer="91"/>
+<junction x="-33.02" y="-116.84"/>
+</segment>
+<segment>
+<pinref part="RS_TRANS_6" gate="G$1" pin="VCC"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="-116.84" x2="-154.94" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="-116.84" x2="-154.94" y2="-119.38" width="0.1524" layer="91"/>
+<pinref part="P+23" gate="1" pin="+5V"/>
+<wire x1="-154.94" y1="-114.3" x2="-154.94" y2="-116.84" width="0.1524" layer="91"/>
+<junction x="-154.94" y="-116.84"/>
 </segment>
 </net>
 </nets>

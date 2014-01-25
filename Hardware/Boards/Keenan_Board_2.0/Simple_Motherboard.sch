@@ -2769,8 +2769,8 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <package name="LAUNCHPAD-XL">
 <description>Stellaris LaunchPad layout.</description>
 <wire x1="0" y1="0" x2="0" y2="50.8" width="0" layer="21"/>
-<wire x1="0" y1="50.8" x2="66.04" y2="50.8" width="0" layer="20"/>
-<wire x1="66.04" y1="50.8" x2="66.04" y2="0" width="0" layer="20"/>
+<wire x1="0" y1="50.8" x2="66.04" y2="50.8" width="0" layer="21"/>
+<wire x1="66.04" y1="50.8" x2="66.04" y2="0" width="0" layer="21"/>
 <wire x1="21.59" y1="50.8" x2="21.59" y2="0" width="0.127" layer="49" style="shortdash"/>
 <wire x1="29.21" y1="3.81" x2="29.21" y2="1.27" width="0.127" layer="21"/>
 <wire x1="29.21" y1="1.27" x2="31.496" y2="1.27" width="0.127" layer="21"/>
@@ -2820,7 +2820,7 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <wire x1="49.276" y1="1.27" x2="49.53" y2="1.524" width="0.127" layer="21"/>
 <wire x1="51.816" y1="1.27" x2="52.07" y2="1.524" width="0.127" layer="21"/>
 <wire x1="49.784" y1="1.27" x2="51.816" y2="1.27" width="0.127" layer="21"/>
-<wire x1="66.04" y1="0" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="66.04" y1="0" x2="0" y2="0" width="0" layer="21"/>
 <wire x1="29.21" y1="49.53" x2="29.21" y2="46.99" width="0.127" layer="21"/>
 <wire x1="31.496" y1="46.99" x2="31.75" y2="47.244" width="0.127" layer="21"/>
 <wire x1="31.75" y1="47.244" x2="32.004" y2="46.99" width="0.127" layer="21"/>
@@ -3241,139 +3241,139 @@ Using all header pins to connect to XL booster packs.</description>
 </classes>
 <parts>
 <part name="RS_TRANS_1" library="MAX3077" deviceset="MAX3077" device=""/>
-<part name="U$36" library="harting-scsi" deviceset="TB60050685100" device=""/>
+<part name="U$9" library="harting-scsi" deviceset="TB60050685100" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="RS-485-1" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="U$1" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R27" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C44" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_2" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
-<part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C46" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="R30" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_3" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C48" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
-<part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_4" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
-<part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C50" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C12" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="R34" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_5" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_7" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
-<part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C52" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C15" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="R36" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_6" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R27" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_8" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
-<part name="R37" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C54" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C16" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="R38" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_7" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_9" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND70" library="supply1" deviceset="GND" device=""/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
-<part name="R39" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C56" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R30" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C17" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND71" library="supply1" deviceset="GND" device=""/>
-<part name="R40" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_8" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_10" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND72" library="supply1" deviceset="GND" device=""/>
 <part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
-<part name="R41" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C58" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C18" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND73" library="supply1" deviceset="GND" device=""/>
-<part name="R42" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_9" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_5" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND74" library="supply1" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
-<part name="R43" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C60" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C13" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND75" library="supply1" deviceset="GND" device=""/>
-<part name="R44" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="RS_TRANS_10" library="MAX3077" deviceset="MAX3077" device=""/>
+<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="RS_TRANS_6" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND76" library="supply1" deviceset="GND" device=""/>
 <part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
-<part name="R45" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C61" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R24" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C14" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND77" library="supply1" deviceset="GND" device=""/>
-<part name="R46" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_11" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND78" library="supply1" deviceset="GND" device=""/>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
-<part name="R47" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C62" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R34" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C19" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND79" library="supply1" deviceset="GND" device=""/>
-<part name="R48" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS_TRANS_12" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND80" library="supply1" deviceset="GND" device=""/>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
-<part name="R49" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C63" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R36" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C20" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
-<part name="R50" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R51" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R52" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R37" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V39" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R53" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R54" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="U$4" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-3" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V40" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND43" library="supply1" deviceset="GND" device=""/>
-<part name="U$4" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R55" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R56" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-4" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V41" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
-<part name="U$5" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R57" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R58" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-5" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V42" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND45" library="supply1" deviceset="GND" device=""/>
-<part name="U$6" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R59" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R60" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R10" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R11" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="RS-485-6" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="+3V43" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND46" library="supply1" deviceset="GND" device=""/>
-<part name="U$7" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
-<part name="R61" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="R62" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C64" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="U$8" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
+<part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND82" library="supply1" deviceset="GND" device=""/>
-<part name="C65" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND83" library="supply1" deviceset="GND" device=""/>
-<part name="C66" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND84" library="supply1" deviceset="GND" device=""/>
-<part name="C67" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C6" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND85" library="supply1" deviceset="GND" device=""/>
-<part name="C68" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C7" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND86" library="supply1" deviceset="GND" device=""/>
-<part name="C69" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C8" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND87" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="LD1117" deviceset="LD1117" device=""/>
+<part name="U$1" library="LD1117" deviceset="LD1117" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100nF"/>
@@ -3394,27 +3394,39 @@ Using all header pins to connect to XL booster packs.</description>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="U2_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
-<part name="P+22" library="supply1" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="U3_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
-<part name="P+23" library="supply1" deviceset="+5V" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="U4_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
-<part name="P+24" library="supply1" deviceset="+5V" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="U5_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
-<part name="P+25" library="supply1" deviceset="+5V" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="U7_MUX" library="4x1_Dual_Mux" deviceset="74HC4052D,653" device=""/>
-<part name="P+26" library="supply1" deviceset="+5V" device=""/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-SPDT" device="PTH_LOCK"/>
-<part name="U$8" library="StellarisLaunchPad_Fred" deviceset="STELLARIS-LAUNCHPAD" device="STELLARIS-LAUNCHPAD-XL"/>
+<part name="U$2" library="StellarisLaunchPad_Fred" deviceset="STELLARIS-LAUNCHPAD" device="STELLARIS-LAUNCHPAD-XL"/>
+<part name="C21" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND28" library="supply1" deviceset="GND" device=""/>
+<part name="P+2" library="supply1" deviceset="+5V" device=""/>
+<part name="C22" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND29" library="supply1" deviceset="GND" device=""/>
+<part name="P+3" library="supply1" deviceset="+5V" device=""/>
+<part name="C23" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND30" library="supply1" deviceset="GND" device=""/>
+<part name="P+4" library="supply1" deviceset="+5V" device=""/>
+<part name="C24" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND31" library="supply1" deviceset="GND" device=""/>
+<part name="P+6" library="supply1" deviceset="+5V" device=""/>
+<part name="C25" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND32" library="supply1" deviceset="GND" device=""/>
+<part name="P+7" library="supply1" deviceset="+5V" device=""/>
+<part name="C26" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="GND33" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3422,7 +3434,7 @@ Using all header pins to connect to XL booster packs.</description>
 <plain>
 </plain>
 <instances>
-<instance part="U$2" gate="G$1" x="2.54" y="20.32"/>
+<instance part="U$1" gate="G$1" x="2.54" y="20.32"/>
 <instance part="+3V2" gate="G$1" x="17.78" y="38.1"/>
 <instance part="JP1" gate="G$1" x="-35.56" y="20.32"/>
 <instance part="C1" gate="G$1" x="-20.32" y="12.7"/>
@@ -3445,7 +3457,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-12.7" y1="-17.78" x2="-7.62" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="VOUT"/>
+<pinref part="U$1" gate="G$1" pin="VOUT"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="20.32" x2="12.7" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="17.78" x2="17.78" y2="20.32" width="0.1524" layer="91"/>
@@ -3470,7 +3482,7 @@ Using all header pins to connect to XL booster packs.</description>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="-20.32" y1="10.16" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
 <junction x="-20.32" y="5.08"/>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
 <wire x1="-7.62" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="17.78" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
 <junction x="-10.16" y="5.08"/>
@@ -3491,7 +3503,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="+5V" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="VIN"/>
+<pinref part="U$1" gate="G$1" pin="VIN"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="-27.94" y1="22.86" x2="-20.32" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
@@ -3512,7 +3524,7 @@ Using all header pins to connect to XL booster packs.</description>
 <instance part="GND1" gate="1" x="20.32" y="-43.18"/>
 <instance part="P+1" gate="1" x="-43.18" y="-27.94"/>
 <instance part="S1" gate="1" x="-33.02" y="-35.56"/>
-<instance part="U$8" gate="G$1" x="0" y="0"/>
+<instance part="U$2" gate="G$1" x="0" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -3521,84 +3533,84 @@ Using all header pins to connect to XL booster packs.</description>
 <segment>
 <wire x1="15.24" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
 <label x="20.32" y="33.02" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB0"/>
+<pinref part="U$2" gate="G$1" pin="PB0"/>
 </segment>
 </net>
 <net name="U1TX" class="0">
 <segment>
 <wire x1="15.24" y1="30.48" x2="35.56" y2="30.48" width="0.1524" layer="91"/>
 <label x="20.32" y="30.48" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB1"/>
+<pinref part="U$2" gate="G$1" pin="PB1"/>
 </segment>
 </net>
 <net name="U4RX" class="0">
 <segment>
 <wire x1="-15.24" y1="0" x2="-35.56" y2="0" width="0.1524" layer="91"/>
 <label x="-33.02" y="0" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PC4"/>
+<pinref part="U$2" gate="G$1" pin="PC4"/>
 </segment>
 </net>
 <net name="U4TX" class="0">
 <segment>
 <wire x1="-15.24" y1="-2.54" x2="-35.56" y2="-2.54" width="0.1524" layer="91"/>
 <label x="-33.02" y="-2.54" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PC5"/>
+<pinref part="U$2" gate="G$1" pin="PC5"/>
 </segment>
 </net>
 <net name="U3RX" class="0">
 <segment>
 <wire x1="-15.24" y1="-5.08" x2="-35.56" y2="-5.08" width="0.1524" layer="91"/>
 <label x="-33.02" y="-5.08" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PC6"/>
+<pinref part="U$2" gate="G$1" pin="PC6"/>
 </segment>
 </net>
 <net name="U3TX" class="0">
 <segment>
 <wire x1="-15.24" y1="-7.62" x2="-35.56" y2="-7.62" width="0.1524" layer="91"/>
 <label x="-33.02" y="-7.62" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PC7"/>
+<pinref part="U$2" gate="G$1" pin="PC7"/>
 </segment>
 </net>
 <net name="U2RX" class="0">
 <segment>
 <wire x1="15.24" y1="-5.08" x2="35.56" y2="-5.08" width="0.1524" layer="91"/>
 <label x="20.32" y="-5.08" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PD6"/>
+<pinref part="U$2" gate="G$1" pin="PD6"/>
 </segment>
 </net>
 <net name="U2TX" class="0">
 <segment>
 <wire x1="15.24" y1="-7.62" x2="35.56" y2="-7.62" width="0.1524" layer="91"/>
 <label x="20.32" y="-7.62" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PD7"/>
+<pinref part="U$2" gate="G$1" pin="PD7"/>
 </segment>
 </net>
 <net name="U7RX" class="0">
 <segment>
 <wire x1="-15.24" y1="-12.7" x2="-35.56" y2="-12.7" width="0.1524" layer="91"/>
 <label x="-33.02" y="-12.7" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE0"/>
+<pinref part="U$2" gate="G$1" pin="PE0"/>
 </segment>
 </net>
 <net name="U7TX" class="0">
 <segment>
 <wire x1="-15.24" y1="-15.24" x2="-35.56" y2="-15.24" width="0.1524" layer="91"/>
 <label x="-33.02" y="-15.24" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE1"/>
+<pinref part="U$2" gate="G$1" pin="PE1"/>
 </segment>
 </net>
 <net name="U5RX" class="0">
 <segment>
 <wire x1="-15.24" y1="-22.86" x2="-35.56" y2="-22.86" width="0.1524" layer="91"/>
 <label x="-33.02" y="-22.86" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE4"/>
+<pinref part="U$2" gate="G$1" pin="PE4"/>
 </segment>
 </net>
 <net name="U5TX" class="0">
 <segment>
 <wire x1="-15.24" y1="-25.4" x2="-35.56" y2="-25.4" width="0.1524" layer="91"/>
 <label x="-33.02" y="-25.4" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE5"/>
+<pinref part="U$2" gate="G$1" pin="PE5"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3609,120 +3621,120 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="20.32" y1="-38.1" x2="20.32" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="20.32" y="-38.1"/>
 <wire x1="20.32" y1="-35.56" x2="15.24" y2="-35.56" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="GND2"/>
-<pinref part="U$8" gate="G$1" pin="GND1"/>
+<pinref part="U$2" gate="G$1" pin="GND2"/>
+<pinref part="U$2" gate="G$1" pin="GND1"/>
 </segment>
 </net>
 <net name="TCP_SCLK" class="0">
 <segment>
 <wire x1="-15.24" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
 <label x="-33.02" y="27.94" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA2"/>
+<pinref part="U$2" gate="G$1" pin="PA2"/>
 </segment>
 </net>
 <net name="TCP_SS" class="0">
 <segment>
 <wire x1="-15.24" y1="25.4" x2="-35.56" y2="25.4" width="0.1524" layer="91"/>
 <label x="-33.02" y="25.4" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA3"/>
+<pinref part="U$2" gate="G$1" pin="PA3"/>
 </segment>
 </net>
 <net name="TCP_MISO" class="0">
 <segment>
 <wire x1="-15.24" y1="22.86" x2="-35.56" y2="22.86" width="0.1524" layer="91"/>
 <label x="-33.02" y="22.86" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA4"/>
+<pinref part="U$2" gate="G$1" pin="PA4"/>
 </segment>
 </net>
 <net name="TCP_MOSI" class="0">
 <segment>
 <wire x1="-15.24" y1="20.32" x2="-35.56" y2="20.32" width="0.1524" layer="91"/>
 <label x="-33.02" y="20.32" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA5"/>
+<pinref part="U$2" gate="G$1" pin="PA5"/>
 </segment>
 </net>
 <net name="RESET" class="0">
 <segment>
 <wire x1="15.24" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
 <label x="20.32" y="-33.02" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="RST"/>
+<pinref part="U$2" gate="G$1" pin="RST"/>
 </segment>
 </net>
 <net name="U1_MUX_S0" class="0">
 <segment>
 <wire x1="-15.24" y1="17.78" x2="-35.56" y2="17.78" width="0.1524" layer="91"/>
 <label x="-33.02" y="17.78" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA6"/>
+<pinref part="U$2" gate="G$1" pin="PA6"/>
 </segment>
 </net>
 <net name="U1_MUX_S1" class="0">
 <segment>
 <wire x1="-15.24" y1="15.24" x2="-35.56" y2="15.24" width="0.1524" layer="91"/>
 <label x="-33.02" y="15.24" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PA7"/>
+<pinref part="U$2" gate="G$1" pin="PA7"/>
 </segment>
 </net>
 <net name="U2_MUX_S0" class="0">
 <segment>
 <wire x1="-15.24" y1="-17.78" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
 <label x="-33.02" y="-17.78" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE2"/>
+<pinref part="U$2" gate="G$1" pin="PE2"/>
 </segment>
 </net>
 <net name="U3_MUX_S0" class="0">
 <segment>
 <wire x1="15.24" y1="27.94" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
 <label x="20.32" y="27.94" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB2"/>
+<pinref part="U$2" gate="G$1" pin="PB2"/>
 </segment>
 </net>
 <net name="U3_MUX_S1" class="0">
 <segment>
 <wire x1="15.24" y1="25.4" x2="35.56" y2="25.4" width="0.1524" layer="91"/>
 <label x="20.32" y="25.4" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB3"/>
+<pinref part="U$2" gate="G$1" pin="PB3"/>
 </segment>
 </net>
 <net name="U4_MUX_S0" class="0">
 <segment>
 <wire x1="15.24" y1="22.86" x2="35.56" y2="22.86" width="0.1524" layer="91"/>
 <label x="20.32" y="22.86" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB4"/>
+<pinref part="U$2" gate="G$1" pin="PB4"/>
 </segment>
 </net>
 <net name="U4_MUX_S1" class="0">
 <segment>
 <wire x1="15.24" y1="20.32" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
 <label x="20.32" y="20.32" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB5"/>
+<pinref part="U$2" gate="G$1" pin="PB5"/>
 </segment>
 </net>
 <net name="U5_MUX_S0" class="0">
 <segment>
 <wire x1="15.24" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
 <label x="20.32" y="17.78" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB6"/>
+<pinref part="U$2" gate="G$1" pin="PB6"/>
 </segment>
 </net>
 <net name="U5_MUX_S1" class="0">
 <segment>
 <wire x1="15.24" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
 <label x="20.32" y="15.24" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PB7"/>
+<pinref part="U$2" gate="G$1" pin="PB7"/>
 </segment>
 </net>
 <net name="U7_MUX_S0" class="0">
 <segment>
 <wire x1="15.24" y1="10.16" x2="35.56" y2="10.16" width="0.1524" layer="91"/>
 <label x="20.32" y="10.16" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PD0"/>
+<pinref part="U$2" gate="G$1" pin="PD0"/>
 </segment>
 </net>
 <net name="U7_MUX_S1" class="0">
 <segment>
 <wire x1="15.24" y1="7.62" x2="35.56" y2="7.62" width="0.1524" layer="91"/>
 <label x="20.32" y="7.62" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PD1"/>
+<pinref part="U$2" gate="G$1" pin="PD1"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -3737,14 +3749,14 @@ Using all header pins to connect to XL booster packs.</description>
 <segment>
 <wire x1="-35.56" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
 <label x="-33.02" y="-20.32" size="1.778" layer="95"/>
-<pinref part="U$8" gate="G$1" pin="PE3"/>
+<pinref part="U$2" gate="G$1" pin="PE3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="S"/>
 <wire x1="-27.94" y1="-38.1" x2="-15.24" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="VBUS"/>
+<pinref part="U$2" gate="G$1" pin="VBUS"/>
 </segment>
 </net>
 </nets>
@@ -3839,87 +3851,112 @@ Using all header pins to connect to XL booster packs.</description>
 <plain>
 </plain>
 <instances>
-<instance part="U1_MUX" gate="A" x="-91.44" y="33.02"/>
-<instance part="P+21" gate="1" x="-111.76" y="48.26"/>
-<instance part="GND3" gate="1" x="-116.84" y="38.1" rot="R270"/>
-<instance part="GND4" gate="1" x="-111.76" y="15.24"/>
+<instance part="U1_MUX" gate="A" x="-114.3" y="33.02"/>
+<instance part="P+21" gate="1" x="-165.1" y="48.26"/>
+<instance part="GND3" gate="1" x="-139.7" y="38.1" rot="R270"/>
+<instance part="GND4" gate="1" x="-134.62" y="15.24"/>
 <instance part="U2_MUX" gate="A" x="0" y="33.02"/>
-<instance part="P+22" gate="1" x="-20.32" y="48.26"/>
 <instance part="GND6" gate="1" x="-25.4" y="38.1" rot="R270"/>
 <instance part="GND7" gate="1" x="-20.32" y="15.24"/>
-<instance part="U3_MUX" gate="A" x="93.98" y="33.02"/>
-<instance part="P+23" gate="1" x="73.66" y="48.26"/>
-<instance part="GND8" gate="1" x="68.58" y="38.1" rot="R270"/>
-<instance part="GND9" gate="1" x="73.66" y="15.24"/>
-<instance part="U4_MUX" gate="A" x="-91.44" y="-25.4"/>
-<instance part="P+24" gate="1" x="-111.76" y="-10.16"/>
-<instance part="GND10" gate="1" x="-116.84" y="-20.32" rot="R270"/>
-<instance part="GND11" gate="1" x="-111.76" y="-43.18"/>
+<instance part="U3_MUX" gate="A" x="116.84" y="33.02"/>
+<instance part="GND8" gate="1" x="91.44" y="38.1" rot="R270"/>
+<instance part="GND9" gate="1" x="96.52" y="15.24"/>
+<instance part="U4_MUX" gate="A" x="-114.3" y="-25.4"/>
+<instance part="GND10" gate="1" x="-139.7" y="-20.32" rot="R270"/>
+<instance part="GND11" gate="1" x="-134.62" y="-43.18"/>
 <instance part="U5_MUX" gate="A" x="0" y="-25.4"/>
-<instance part="P+25" gate="1" x="-20.32" y="-10.16"/>
 <instance part="GND12" gate="1" x="-25.4" y="-20.32" rot="R270"/>
 <instance part="GND13" gate="1" x="-20.32" y="-43.18"/>
-<instance part="U7_MUX" gate="A" x="93.98" y="-25.4"/>
-<instance part="P+26" gate="1" x="73.66" y="-10.16"/>
-<instance part="GND26" gate="1" x="68.58" y="-20.32" rot="R270"/>
-<instance part="GND27" gate="1" x="73.66" y="-43.18"/>
+<instance part="U7_MUX" gate="A" x="116.84" y="-25.4"/>
+<instance part="GND26" gate="1" x="91.44" y="-20.32" rot="R270"/>
+<instance part="GND27" gate="1" x="96.52" y="-43.18"/>
+<instance part="C21" gate="G$1" x="-165.1" y="35.56"/>
+<instance part="GND28" gate="1" x="-165.1" y="27.94"/>
+<instance part="P+2" gate="1" x="-50.8" y="48.26"/>
+<instance part="C22" gate="G$1" x="-50.8" y="35.56"/>
+<instance part="GND29" gate="1" x="-50.8" y="27.94"/>
+<instance part="P+3" gate="1" x="66.04" y="48.26"/>
+<instance part="C23" gate="G$1" x="66.04" y="35.56"/>
+<instance part="GND30" gate="1" x="66.04" y="27.94"/>
+<instance part="P+4" gate="1" x="-165.1" y="-10.16"/>
+<instance part="C24" gate="G$1" x="-165.1" y="-22.86"/>
+<instance part="GND31" gate="1" x="-165.1" y="-30.48"/>
+<instance part="P+6" gate="1" x="-50.8" y="-10.16"/>
+<instance part="C25" gate="G$1" x="-50.8" y="-22.86"/>
+<instance part="GND32" gate="1" x="-50.8" y="-30.48"/>
+<instance part="P+7" gate="1" x="66.04" y="-10.16"/>
+<instance part="C26" gate="G$1" x="66.04" y="-22.86"/>
+<instance part="GND33" gate="1" x="66.04" y="-30.48"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="+5V" class="0">
 <segment>
-<pinref part="P+21" gate="1" pin="+5V"/>
-<wire x1="-111.76" y1="45.72" x2="-111.76" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="U1_MUX" gate="A" pin="VCC"/>
-<wire x1="-111.76" y1="43.18" x2="-109.22" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="43.18" x2="-165.1" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+<wire x1="-165.1" y1="43.18" x2="-165.1" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="P+21" gate="1" pin="+5V"/>
+<wire x1="-165.1" y1="43.18" x2="-165.1" y2="45.72" width="0.1524" layer="91"/>
+<junction x="-165.1" y="43.18"/>
 </segment>
 <segment>
-<pinref part="P+22" gate="1" pin="+5V"/>
-<wire x1="-20.32" y1="45.72" x2="-20.32" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U2_MUX" gate="A" pin="VCC"/>
-<wire x1="-20.32" y1="43.18" x2="-17.78" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="43.18" x2="-50.8" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+<wire x1="-50.8" y1="43.18" x2="-50.8" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="1" pin="+5V"/>
+<wire x1="-50.8" y1="43.18" x2="-50.8" y2="45.72" width="0.1524" layer="91"/>
+<junction x="-50.8" y="43.18"/>
 </segment>
 <segment>
-<pinref part="P+23" gate="1" pin="+5V"/>
-<wire x1="73.66" y1="45.72" x2="73.66" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U3_MUX" gate="A" pin="VCC"/>
-<wire x1="73.66" y1="43.18" x2="76.2" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="43.18" x2="66.04" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="43.18" x2="66.04" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="66.04" y1="43.18" x2="66.04" y2="45.72" width="0.1524" layer="91"/>
+<junction x="66.04" y="43.18"/>
 </segment>
 <segment>
-<pinref part="P+24" gate="1" pin="+5V"/>
-<wire x1="-111.76" y1="-12.7" x2="-111.76" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="U4_MUX" gate="A" pin="VCC"/>
-<wire x1="-111.76" y1="-15.24" x2="-109.22" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="-15.24" x2="-165.1" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="C24" gate="G$1" pin="1"/>
+<wire x1="-165.1" y1="-15.24" x2="-165.1" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="P+4" gate="1" pin="+5V"/>
+<wire x1="-165.1" y1="-15.24" x2="-165.1" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="-165.1" y="-15.24"/>
 </segment>
 <segment>
-<pinref part="P+25" gate="1" pin="+5V"/>
-<wire x1="-20.32" y1="-12.7" x2="-20.32" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="U5_MUX" gate="A" pin="VCC"/>
-<wire x1="-20.32" y1="-15.24" x2="-17.78" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-15.24" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="C25" gate="G$1" pin="1"/>
+<wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="P+6" gate="1" pin="+5V"/>
+<wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="-50.8" y="-15.24"/>
 </segment>
 <segment>
-<pinref part="P+26" gate="1" pin="+5V"/>
-<wire x1="73.66" y1="-12.7" x2="73.66" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="U7_MUX" gate="A" pin="VCC"/>
-<wire x1="73.66" y1="-15.24" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="-15.24" x2="66.04" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="C26" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="-15.24" x2="66.04" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="P+7" gate="1" pin="+5V"/>
+<wire x1="66.04" y1="-15.24" x2="66.04" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="66.04" y="-15.24"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="~E"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="-109.22" y1="38.1" x2="-114.3" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="38.1" x2="-137.16" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="-111.76" y1="17.78" x2="-111.76" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="17.78" x2="-134.62" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U1_MUX" gate="A" pin="GND"/>
-<wire x1="-111.76" y1="20.32" x2="-109.22" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="20.32" x2="-132.08" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U1_MUX" gate="A" pin="VEE"/>
-<wire x1="-109.22" y1="25.4" x2="-111.76" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="-111.76" y1="25.4" x2="-111.76" y2="20.32" width="0.1524" layer="91"/>
-<junction x="-111.76" y="20.32"/>
+<wire x1="-132.08" y1="25.4" x2="-134.62" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="25.4" x2="-134.62" y2="20.32" width="0.1524" layer="91"/>
+<junction x="-134.62" y="20.32"/>
 </segment>
 <segment>
 <pinref part="U2_MUX" gate="A" pin="~E"/>
@@ -3939,32 +3976,32 @@ Using all header pins to connect to XL booster packs.</description>
 <segment>
 <pinref part="U3_MUX" gate="A" pin="~E"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="76.2" y1="38.1" x2="71.12" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="38.1" x2="93.98" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
-<wire x1="73.66" y1="17.78" x2="73.66" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="17.78" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U3_MUX" gate="A" pin="GND"/>
-<wire x1="73.66" y1="20.32" x2="76.2" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="20.32" x2="99.06" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="U3_MUX" gate="A" pin="VEE"/>
-<wire x1="76.2" y1="25.4" x2="73.66" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="25.4" x2="73.66" y2="20.32" width="0.1524" layer="91"/>
-<junction x="73.66" y="20.32"/>
+<wire x1="99.06" y1="25.4" x2="96.52" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="25.4" x2="96.52" y2="20.32" width="0.1524" layer="91"/>
+<junction x="96.52" y="20.32"/>
 </segment>
 <segment>
 <pinref part="U4_MUX" gate="A" pin="~E"/>
 <pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="-109.22" y1="-20.32" x2="-114.3" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="-20.32" x2="-137.16" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="-111.76" y1="-40.64" x2="-111.76" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="-40.64" x2="-134.62" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="U4_MUX" gate="A" pin="GND"/>
-<wire x1="-111.76" y1="-38.1" x2="-109.22" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="-38.1" x2="-132.08" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="U4_MUX" gate="A" pin="VEE"/>
-<wire x1="-109.22" y1="-33.02" x2="-111.76" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-111.76" y1="-33.02" x2="-111.76" y2="-38.1" width="0.1524" layer="91"/>
-<junction x="-111.76" y="-38.1"/>
+<wire x1="-132.08" y1="-33.02" x2="-134.62" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="-33.02" x2="-134.62" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="-134.62" y="-38.1"/>
 </segment>
 <segment>
 <pinref part="U5_MUX" gate="A" pin="~E"/>
@@ -3984,87 +4021,117 @@ Using all header pins to connect to XL booster packs.</description>
 <segment>
 <pinref part="U7_MUX" gate="A" pin="~E"/>
 <pinref part="GND26" gate="1" pin="GND"/>
-<wire x1="76.2" y1="-20.32" x2="71.12" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="-20.32" x2="93.98" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND27" gate="1" pin="GND"/>
-<wire x1="73.66" y1="-40.64" x2="73.66" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-40.64" x2="96.52" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="U7_MUX" gate="A" pin="GND"/>
-<wire x1="73.66" y1="-38.1" x2="76.2" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-38.1" x2="99.06" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="U7_MUX" gate="A" pin="VEE"/>
-<wire x1="76.2" y1="-33.02" x2="73.66" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="-33.02" x2="73.66" y2="-38.1" width="0.1524" layer="91"/>
-<junction x="73.66" y="-38.1"/>
+<wire x1="99.06" y1="-33.02" x2="96.52" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-33.02" x2="96.52" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="96.52" y="-38.1"/>
+</segment>
+<segment>
+<pinref part="GND28" gate="1" pin="GND"/>
+<pinref part="C21" gate="G$1" pin="2"/>
+<wire x1="-165.1" y1="33.02" x2="-165.1" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND29" gate="1" pin="GND"/>
+<pinref part="C22" gate="G$1" pin="2"/>
+<wire x1="-50.8" y1="33.02" x2="-50.8" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND30" gate="1" pin="GND"/>
+<pinref part="C23" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="33.02" x2="66.04" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND31" gate="1" pin="GND"/>
+<pinref part="C24" gate="G$1" pin="2"/>
+<wire x1="-165.1" y1="-25.4" x2="-165.1" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND32" gate="1" pin="GND"/>
+<pinref part="C25" gate="G$1" pin="2"/>
+<wire x1="-50.8" y1="-25.4" x2="-50.8" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND33" gate="1" pin="GND"/>
+<pinref part="C26" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="-25.4" x2="66.04" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="U1_MUX_S0" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="S0"/>
-<wire x1="-109.22" y1="33.02" x2="-129.54" y2="33.02" width="0.1524" layer="91"/>
-<label x="-127" y="33.02" size="1.778" layer="95"/>
+<wire x1="-132.08" y1="33.02" x2="-152.4" y2="33.02" width="0.1524" layer="91"/>
+<label x="-149.86" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U1_MUX_S1" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="S1"/>
-<wire x1="-109.22" y1="30.48" x2="-129.54" y2="30.48" width="0.1524" layer="91"/>
-<label x="-127" y="30.48" size="1.778" layer="95"/>
+<wire x1="-132.08" y1="30.48" x2="-152.4" y2="30.48" width="0.1524" layer="91"/>
+<label x="-149.86" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U1RX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="1Z"/>
-<wire x1="-73.66" y1="43.18" x2="-53.34" y2="43.18" width="0.1524" layer="91"/>
-<label x="-71.12" y="43.18" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="43.18" x2="-76.2" y2="43.18" width="0.1524" layer="91"/>
+<label x="-93.98" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U1TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Z"/>
-<wire x1="-73.66" y1="40.64" x2="-53.34" y2="40.64" width="0.1524" layer="91"/>
-<label x="-71.12" y="40.64" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="40.64" x2="-76.2" y2="40.64" width="0.1524" layer="91"/>
+<label x="-93.98" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_1_RX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="1Y0"/>
-<wire x1="-73.66" y1="35.56" x2="-53.34" y2="35.56" width="0.1524" layer="91"/>
-<label x="-71.12" y="35.56" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="35.56" x2="-76.2" y2="35.56" width="0.1524" layer="91"/>
+<label x="-93.98" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_1_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y0"/>
-<wire x1="-73.66" y1="22.86" x2="-53.34" y2="22.86" width="0.1524" layer="91"/>
-<label x="-71.12" y="22.86" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="22.86" x2="-76.2" y2="22.86" width="0.1524" layer="91"/>
+<label x="-93.98" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_8_RX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="1Y1"/>
-<wire x1="-73.66" y1="33.02" x2="-53.34" y2="33.02" width="0.1524" layer="91"/>
-<label x="-71.12" y="33.02" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="33.02" x2="-76.2" y2="33.02" width="0.1524" layer="91"/>
+<label x="-93.98" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_9_RX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="1Y2"/>
-<wire x1="-73.66" y1="30.48" x2="-53.34" y2="30.48" width="0.1524" layer="91"/>
-<label x="-71.12" y="30.48" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="30.48" x2="-76.2" y2="30.48" width="0.1524" layer="91"/>
+<label x="-93.98" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_8_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y1"/>
-<wire x1="-73.66" y1="20.32" x2="-53.34" y2="20.32" width="0.1524" layer="91"/>
-<label x="-71.12" y="20.32" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="20.32" x2="-76.2" y2="20.32" width="0.1524" layer="91"/>
+<label x="-93.98" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_9_TX" class="0">
 <segment>
 <pinref part="U1_MUX" gate="A" pin="2Y2"/>
-<wire x1="-73.66" y1="17.78" x2="-53.34" y2="17.78" width="0.1524" layer="91"/>
-<label x="-71.12" y="17.78" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="17.78" x2="-76.2" y2="17.78" width="0.1524" layer="91"/>
+<label x="-93.98" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U2_MUX_S0" class="0">
@@ -4140,141 +4207,141 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="U3_MUX_S0" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="S0"/>
-<wire x1="76.2" y1="33.02" x2="55.88" y2="33.02" width="0.1524" layer="91"/>
-<label x="58.42" y="33.02" size="1.778" layer="95"/>
+<wire x1="99.06" y1="33.02" x2="78.74" y2="33.02" width="0.1524" layer="91"/>
+<label x="81.28" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U3_MUX_S1" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="S1"/>
-<wire x1="76.2" y1="30.48" x2="55.88" y2="30.48" width="0.1524" layer="91"/>
-<label x="58.42" y="30.48" size="1.778" layer="95"/>
+<wire x1="99.06" y1="30.48" x2="78.74" y2="30.48" width="0.1524" layer="91"/>
+<label x="81.28" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U3RX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="1Z"/>
-<wire x1="111.76" y1="43.18" x2="132.08" y2="43.18" width="0.1524" layer="91"/>
-<label x="114.3" y="43.18" size="1.778" layer="95"/>
+<wire x1="134.62" y1="43.18" x2="154.94" y2="43.18" width="0.1524" layer="91"/>
+<label x="137.16" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U3TX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="2Z"/>
-<wire x1="111.76" y1="40.64" x2="132.08" y2="40.64" width="0.1524" layer="91"/>
-<label x="114.3" y="40.64" size="1.778" layer="95"/>
+<wire x1="134.62" y1="40.64" x2="154.94" y2="40.64" width="0.1524" layer="91"/>
+<label x="137.16" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_3_RX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="1Y0"/>
-<wire x1="111.76" y1="35.56" x2="132.08" y2="35.56" width="0.1524" layer="91"/>
-<label x="114.3" y="35.56" size="1.778" layer="95"/>
+<wire x1="134.62" y1="35.56" x2="154.94" y2="35.56" width="0.1524" layer="91"/>
+<label x="137.16" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_3_TX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="2Y0"/>
-<wire x1="111.76" y1="22.86" x2="132.08" y2="22.86" width="0.1524" layer="91"/>
-<label x="114.3" y="22.86" size="1.778" layer="95"/>
+<wire x1="134.62" y1="22.86" x2="154.94" y2="22.86" width="0.1524" layer="91"/>
+<label x="137.16" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_6_RX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="1Y1"/>
-<wire x1="111.76" y1="33.02" x2="132.08" y2="33.02" width="0.1524" layer="91"/>
-<label x="114.3" y="33.02" size="1.778" layer="95"/>
+<wire x1="134.62" y1="33.02" x2="154.94" y2="33.02" width="0.1524" layer="91"/>
+<label x="137.16" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_6_TX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="2Y1"/>
-<wire x1="111.76" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
-<label x="114.3" y="20.32" size="1.778" layer="95"/>
+<wire x1="134.62" y1="20.32" x2="154.94" y2="20.32" width="0.1524" layer="91"/>
+<label x="137.16" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_11_RX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="1Y2"/>
-<wire x1="111.76" y1="30.48" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
-<label x="114.3" y="30.48" size="1.778" layer="95"/>
+<wire x1="134.62" y1="30.48" x2="154.94" y2="30.48" width="0.1524" layer="91"/>
+<label x="137.16" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_11_TX" class="0">
 <segment>
 <pinref part="U3_MUX" gate="A" pin="2Y2"/>
-<wire x1="111.76" y1="17.78" x2="132.08" y2="17.78" width="0.1524" layer="91"/>
-<label x="114.3" y="17.78" size="1.778" layer="95"/>
+<wire x1="134.62" y1="17.78" x2="154.94" y2="17.78" width="0.1524" layer="91"/>
+<label x="137.16" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U4_MUX_S0" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="S0"/>
-<wire x1="-109.22" y1="-25.4" x2="-129.54" y2="-25.4" width="0.1524" layer="91"/>
-<label x="-127" y="-25.4" size="1.778" layer="95"/>
+<wire x1="-132.08" y1="-25.4" x2="-152.4" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-149.86" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U4_MUX_S1" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="S1"/>
-<wire x1="-109.22" y1="-27.94" x2="-129.54" y2="-27.94" width="0.1524" layer="91"/>
-<label x="-127" y="-27.94" size="1.778" layer="95"/>
+<wire x1="-132.08" y1="-27.94" x2="-152.4" y2="-27.94" width="0.1524" layer="91"/>
+<label x="-149.86" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U4RX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="1Z"/>
-<wire x1="-73.66" y1="-15.24" x2="-53.34" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-71.12" y="-15.24" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-15.24" x2="-76.2" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-93.98" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U4TX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="2Z"/>
-<wire x1="-73.66" y1="-17.78" x2="-53.34" y2="-17.78" width="0.1524" layer="91"/>
-<label x="-71.12" y="-17.78" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-17.78" x2="-76.2" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-93.98" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_4_RX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="1Y0"/>
-<wire x1="-73.66" y1="-22.86" x2="-53.34" y2="-22.86" width="0.1524" layer="91"/>
-<label x="-71.12" y="-22.86" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-22.86" x2="-76.2" y2="-22.86" width="0.1524" layer="91"/>
+<label x="-93.98" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_4_TX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="2Y0"/>
-<wire x1="-73.66" y1="-35.56" x2="-53.34" y2="-35.56" width="0.1524" layer="91"/>
-<label x="-71.12" y="-35.56" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-35.56" x2="-76.2" y2="-35.56" width="0.1524" layer="91"/>
+<label x="-93.98" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_5_RX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="1Y1"/>
-<wire x1="-73.66" y1="-25.4" x2="-53.34" y2="-25.4" width="0.1524" layer="91"/>
-<label x="-71.12" y="-25.4" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-25.4" x2="-76.2" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-93.98" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_5_TX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="2Y1"/>
-<wire x1="-73.66" y1="-38.1" x2="-53.34" y2="-38.1" width="0.1524" layer="91"/>
-<label x="-71.12" y="-38.1" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-38.1" x2="-76.2" y2="-38.1" width="0.1524" layer="91"/>
+<label x="-93.98" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_12_RX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="1Y2"/>
-<wire x1="-73.66" y1="-27.94" x2="-53.34" y2="-27.94" width="0.1524" layer="91"/>
-<label x="-71.12" y="-27.94" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-27.94" x2="-76.2" y2="-27.94" width="0.1524" layer="91"/>
+<label x="-93.98" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_12_TX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="2Y2"/>
-<wire x1="-73.66" y1="-40.64" x2="-53.34" y2="-40.64" width="0.1524" layer="91"/>
-<label x="-71.12" y="-40.64" size="1.778" layer="95"/>
+<wire x1="-96.52" y1="-40.64" x2="-76.2" y2="-40.64" width="0.1524" layer="91"/>
+<label x="-93.98" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U5_MUX_S0" class="0">
@@ -4308,29 +4375,29 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="U7_MUX_S0" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="S0"/>
-<wire x1="76.2" y1="-25.4" x2="55.88" y2="-25.4" width="0.1524" layer="91"/>
-<label x="58.42" y="-25.4" size="1.778" layer="95"/>
+<wire x1="99.06" y1="-25.4" x2="78.74" y2="-25.4" width="0.1524" layer="91"/>
+<label x="81.28" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U7_MUX_S1" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="S1"/>
-<wire x1="76.2" y1="-27.94" x2="55.88" y2="-27.94" width="0.1524" layer="91"/>
-<label x="58.42" y="-27.94" size="1.778" layer="95"/>
+<wire x1="99.06" y1="-27.94" x2="78.74" y2="-27.94" width="0.1524" layer="91"/>
+<label x="81.28" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U7RX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="1Z"/>
-<wire x1="111.76" y1="-15.24" x2="132.08" y2="-15.24" width="0.1524" layer="91"/>
-<label x="114.3" y="-15.24" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-15.24" x2="154.94" y2="-15.24" width="0.1524" layer="91"/>
+<label x="137.16" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U7TX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="2Z"/>
-<wire x1="111.76" y1="-17.78" x2="132.08" y2="-17.78" width="0.1524" layer="91"/>
-<label x="114.3" y="-17.78" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-17.78" x2="154.94" y2="-17.78" width="0.1524" layer="91"/>
+<label x="137.16" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_13_RX" class="0">
@@ -4378,43 +4445,43 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="RS485_16_RX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="1Y0"/>
-<wire x1="111.76" y1="-22.86" x2="132.08" y2="-22.86" width="0.1524" layer="91"/>
-<label x="114.3" y="-22.86" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-22.86" x2="154.94" y2="-22.86" width="0.1524" layer="91"/>
+<label x="137.16" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_16_TX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="2Y0"/>
-<wire x1="111.76" y1="-35.56" x2="132.08" y2="-35.56" width="0.1524" layer="91"/>
-<label x="114.3" y="-35.56" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-35.56" x2="154.94" y2="-35.56" width="0.1524" layer="91"/>
+<label x="137.16" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_17_RX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="1Y1"/>
-<wire x1="111.76" y1="-25.4" x2="132.08" y2="-25.4" width="0.1524" layer="91"/>
-<label x="114.3" y="-25.4" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-25.4" x2="154.94" y2="-25.4" width="0.1524" layer="91"/>
+<label x="137.16" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_18_RX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="1Y2"/>
-<wire x1="111.76" y1="-27.94" x2="132.08" y2="-27.94" width="0.1524" layer="91"/>
-<label x="114.3" y="-27.94" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-27.94" x2="154.94" y2="-27.94" width="0.1524" layer="91"/>
+<label x="137.16" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_17_TX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="2Y1"/>
-<wire x1="111.76" y1="-38.1" x2="132.08" y2="-38.1" width="0.1524" layer="91"/>
-<label x="114.3" y="-38.1" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-38.1" x2="154.94" y2="-38.1" width="0.1524" layer="91"/>
+<label x="137.16" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_18_TX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="2Y2"/>
-<wire x1="111.76" y1="-40.64" x2="132.08" y2="-40.64" width="0.1524" layer="91"/>
-<label x="114.3" y="-40.64" size="1.778" layer="95"/>
+<wire x1="134.62" y1="-40.64" x2="154.94" y2="-40.64" width="0.1524" layer="91"/>
+<label x="137.16" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -4427,50 +4494,50 @@ Using all header pins to connect to XL booster packs.</description>
 <instance part="RS-485-1" gate="G$1" x="-20.32" y="99.06"/>
 <instance part="+3V25" gate="G$1" x="-71.12" y="111.76"/>
 <instance part="GND5" gate="1" x="-38.1" y="86.36"/>
-<instance part="U$1" gate="G$1" x="33.02" y="99.06"/>
-<instance part="R51" gate="G$1" x="5.08" y="106.68"/>
-<instance part="R52" gate="G$1" x="5.08" y="91.44"/>
+<instance part="U$3" gate="G$1" x="33.02" y="99.06"/>
+<instance part="R2" gate="G$1" x="5.08" y="106.68"/>
+<instance part="R3" gate="G$1" x="5.08" y="91.44"/>
 <instance part="RS-485-2" gate="G$1" x="-20.32" y="60.96"/>
 <instance part="+3V39" gate="G$1" x="-71.12" y="73.66"/>
 <instance part="GND42" gate="1" x="-38.1" y="48.26"/>
-<instance part="U$3" gate="G$1" x="33.02" y="60.96"/>
-<instance part="R53" gate="G$1" x="5.08" y="68.58"/>
-<instance part="R54" gate="G$1" x="5.08" y="53.34"/>
+<instance part="U$4" gate="G$1" x="33.02" y="60.96"/>
+<instance part="R4" gate="G$1" x="5.08" y="68.58"/>
+<instance part="R5" gate="G$1" x="5.08" y="53.34"/>
 <instance part="RS-485-3" gate="G$1" x="-20.32" y="20.32"/>
 <instance part="+3V40" gate="G$1" x="-71.12" y="33.02"/>
 <instance part="GND43" gate="1" x="-38.1" y="7.62"/>
-<instance part="U$4" gate="G$1" x="33.02" y="20.32"/>
-<instance part="R55" gate="G$1" x="5.08" y="27.94"/>
-<instance part="R56" gate="G$1" x="5.08" y="12.7"/>
+<instance part="U$5" gate="G$1" x="33.02" y="20.32"/>
+<instance part="R6" gate="G$1" x="5.08" y="27.94"/>
+<instance part="R7" gate="G$1" x="5.08" y="12.7"/>
 <instance part="RS-485-4" gate="G$1" x="-20.32" y="-17.78"/>
 <instance part="+3V41" gate="G$1" x="-71.12" y="-5.08"/>
 <instance part="GND44" gate="1" x="-38.1" y="-30.48"/>
-<instance part="U$5" gate="G$1" x="33.02" y="-17.78"/>
-<instance part="R57" gate="G$1" x="5.08" y="-10.16"/>
-<instance part="R58" gate="G$1" x="5.08" y="-25.4"/>
+<instance part="U$6" gate="G$1" x="33.02" y="-17.78"/>
+<instance part="R8" gate="G$1" x="5.08" y="-10.16"/>
+<instance part="R9" gate="G$1" x="5.08" y="-25.4"/>
 <instance part="RS-485-5" gate="G$1" x="124.46" y="99.06"/>
 <instance part="+3V42" gate="G$1" x="76.2" y="111.76"/>
 <instance part="GND45" gate="1" x="106.68" y="86.36"/>
-<instance part="U$6" gate="G$1" x="177.8" y="99.06"/>
-<instance part="R59" gate="G$1" x="149.86" y="106.68"/>
-<instance part="R60" gate="G$1" x="149.86" y="91.44"/>
+<instance part="U$7" gate="G$1" x="177.8" y="99.06"/>
+<instance part="R10" gate="G$1" x="149.86" y="106.68"/>
+<instance part="R11" gate="G$1" x="149.86" y="91.44"/>
 <instance part="RS-485-6" gate="G$1" x="124.46" y="60.96"/>
 <instance part="+3V43" gate="G$1" x="76.2" y="73.66"/>
 <instance part="GND46" gate="1" x="106.68" y="48.26"/>
-<instance part="U$7" gate="G$1" x="177.8" y="60.96"/>
-<instance part="R61" gate="G$1" x="149.86" y="68.58"/>
-<instance part="R62" gate="G$1" x="149.86" y="53.34"/>
-<instance part="C64" gate="G$1" x="-71.12" y="93.98"/>
+<instance part="U$8" gate="G$1" x="177.8" y="60.96"/>
+<instance part="R12" gate="G$1" x="149.86" y="68.58"/>
+<instance part="R13" gate="G$1" x="149.86" y="53.34"/>
+<instance part="C3" gate="G$1" x="-71.12" y="93.98"/>
 <instance part="GND82" gate="1" x="-71.12" y="86.36"/>
-<instance part="C65" gate="G$1" x="-71.12" y="55.88"/>
+<instance part="C4" gate="G$1" x="-71.12" y="55.88"/>
 <instance part="GND83" gate="1" x="-71.12" y="48.26"/>
-<instance part="C66" gate="G$1" x="-71.12" y="15.24"/>
+<instance part="C5" gate="G$1" x="-71.12" y="15.24"/>
 <instance part="GND84" gate="1" x="-71.12" y="7.62"/>
-<instance part="C67" gate="G$1" x="-71.12" y="-22.86"/>
+<instance part="C6" gate="G$1" x="-71.12" y="-22.86"/>
 <instance part="GND85" gate="1" x="-71.12" y="-30.48"/>
-<instance part="C68" gate="G$1" x="76.2" y="93.98"/>
+<instance part="C7" gate="G$1" x="76.2" y="93.98"/>
 <instance part="GND86" gate="1" x="76.2" y="86.36"/>
-<instance part="C69" gate="G$1" x="76.2" y="55.88"/>
+<instance part="C8" gate="G$1" x="76.2" y="55.88"/>
 <instance part="GND87" gate="1" x="76.2" y="48.26"/>
 </instances>
 <busses>
@@ -4482,7 +4549,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-71.12" y1="109.22" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="RS-485-1" gate="G$1" pin="VCC"/>
 <wire x1="-71.12" y1="106.68" x2="-35.56" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="C64" gate="G$1" pin="1"/>
+<pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="99.06" x2="-71.12" y2="106.68" width="0.1524" layer="91"/>
 <junction x="-71.12" y="106.68"/>
 </segment>
@@ -4491,7 +4558,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-71.12" y1="71.12" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="RS-485-2" gate="G$1" pin="VCC"/>
 <wire x1="-71.12" y1="68.58" x2="-35.56" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="C65" gate="G$1" pin="1"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="60.96" x2="-71.12" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-71.12" y="68.58"/>
 </segment>
@@ -4500,7 +4567,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-71.12" y1="30.48" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="RS-485-3" gate="G$1" pin="VCC"/>
 <wire x1="-71.12" y1="27.94" x2="-35.56" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="C66" gate="G$1" pin="1"/>
+<pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="20.32" x2="-71.12" y2="27.94" width="0.1524" layer="91"/>
 <junction x="-71.12" y="27.94"/>
 </segment>
@@ -4509,7 +4576,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-71.12" y1="-7.62" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
 <pinref part="RS-485-4" gate="G$1" pin="VCC"/>
 <wire x1="-71.12" y1="-10.16" x2="-35.56" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="C67" gate="G$1" pin="1"/>
+<pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-17.78" x2="-71.12" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="-71.12" y="-10.16"/>
 </segment>
@@ -4518,7 +4585,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="76.2" y1="109.22" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="RS-485-5" gate="G$1" pin="VCC"/>
 <wire x1="76.2" y1="106.68" x2="109.22" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="C68" gate="G$1" pin="1"/>
+<pinref part="C7" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="99.06" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
 <junction x="76.2" y="106.68"/>
 </segment>
@@ -4527,7 +4594,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="76.2" y1="71.12" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="RS-485-6" gate="G$1" pin="VCC"/>
 <wire x1="76.2" y1="68.58" x2="109.22" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="C69" gate="G$1" pin="1"/>
+<pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="60.96" x2="76.2" y2="68.58" width="0.1524" layer="91"/>
 <junction x="76.2" y="68.58"/>
 </segment>
@@ -4549,9 +4616,9 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$9" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="Z"/>
-<pinref part="U$1" gate="G$1" pin="6"/>
+<pinref part="U$3" gate="G$1" pin="6"/>
 <wire x1="-5.08" y1="96.52" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R52" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="91.44" x2="12.7" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="91.44" x2="12.7" y2="96.52" width="0.1524" layer="91"/>
@@ -4561,14 +4628,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$1" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="A"/>
-<pinref part="R51" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="106.68" x2="-2.54" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="106.68" x2="0" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="106.68" x2="-2.54" y2="111.76" width="0.1524" layer="91"/>
 <junction x="-2.54" y="106.68"/>
 <wire x1="-2.54" y1="111.76" x2="15.24" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="111.76" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="1"/>
+<pinref part="U$3" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="109.22" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4578,9 +4645,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-5.08" y1="101.6" x2="12.7" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="101.6" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="2"/>
+<pinref part="U$3" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="R51" gate="G$1" pin="2"/>
+<pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="106.68" x2="12.7" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="106.68" x2="12.7" y2="101.6" width="0.1524" layer="91"/>
 <junction x="12.7" y="101.6"/>
@@ -4589,13 +4656,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$4" class="0">
 <segment>
 <pinref part="RS-485-1" gate="G$1" pin="Y"/>
-<pinref part="R52" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="91.44" x2="-2.54" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="91.44" x2="0" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="91.44" x2="-2.54" y2="86.36" width="0.1524" layer="91"/>
 <junction x="-2.54" y="91.44"/>
 <wire x1="17.78" y1="86.36" x2="17.78" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="3"/>
+<pinref part="U$3" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="104.14" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="86.36" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
 </segment>
@@ -4639,41 +4706,41 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND82" gate="1" pin="GND"/>
-<pinref part="C64" gate="G$1" pin="2"/>
+<pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="-71.12" y1="91.44" x2="-71.12" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND83" gate="1" pin="GND"/>
-<pinref part="C65" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="-71.12" y1="53.34" x2="-71.12" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND84" gate="1" pin="GND"/>
-<pinref part="C66" gate="G$1" pin="2"/>
+<pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="-71.12" y1="12.7" x2="-71.12" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND85" gate="1" pin="GND"/>
-<pinref part="C67" gate="G$1" pin="2"/>
+<pinref part="C6" gate="G$1" pin="2"/>
 <wire x1="-71.12" y1="-25.4" x2="-71.12" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND86" gate="1" pin="GND"/>
-<pinref part="C68" gate="G$1" pin="2"/>
+<pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="76.2" y1="91.44" x2="76.2" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND87" gate="1" pin="GND"/>
-<pinref part="C69" gate="G$1" pin="2"/>
+<pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="76.2" y1="53.34" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="Z"/>
-<pinref part="U$3" gate="G$1" pin="6"/>
+<pinref part="U$4" gate="G$1" pin="6"/>
 <wire x1="-5.08" y1="58.42" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="R54" gate="G$1" pin="2"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="58.42" x2="20.32" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="53.34" x2="12.7" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="53.34" x2="12.7" y2="58.42" width="0.1524" layer="91"/>
@@ -4683,14 +4750,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$10" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="A"/>
-<pinref part="R53" gate="G$1" pin="1"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="68.58" x2="-2.54" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="68.58" x2="0" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="68.58" x2="-2.54" y2="73.66" width="0.1524" layer="91"/>
 <junction x="-2.54" y="68.58"/>
 <wire x1="-2.54" y1="73.66" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="73.66" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="71.12" x2="20.32" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4700,9 +4767,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-5.08" y1="63.5" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="63.5" x2="15.24" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="63.5" x2="15.24" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
+<pinref part="U$4" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="68.58" x2="20.32" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="R53" gate="G$1" pin="2"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="68.58" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="68.58" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
 <junction x="12.7" y="63.5"/>
@@ -4711,13 +4778,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$12" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="Y"/>
-<pinref part="R54" gate="G$1" pin="1"/>
+<pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="53.34" x2="-2.54" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="53.34" x2="0" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="53.34" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
 <junction x="-2.54" y="53.34"/>
 <wire x1="17.78" y1="48.26" x2="17.78" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="3"/>
+<pinref part="U$4" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="66.04" x2="20.32" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
 </segment>
@@ -4725,9 +4792,9 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$13" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="Z"/>
-<pinref part="U$4" gate="G$1" pin="6"/>
+<pinref part="U$5" gate="G$1" pin="6"/>
 <wire x1="-5.08" y1="17.78" x2="12.7" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="R56" gate="G$1" pin="2"/>
+<pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="17.78" x2="20.32" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="12.7" x2="12.7" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="12.7" x2="12.7" y2="17.78" width="0.1524" layer="91"/>
@@ -4737,14 +4804,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$14" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="A"/>
-<pinref part="R55" gate="G$1" pin="1"/>
+<pinref part="R6" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="27.94" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="27.94" x2="0" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="27.94" x2="-2.54" y2="33.02" width="0.1524" layer="91"/>
 <junction x="-2.54" y="27.94"/>
 <wire x1="-2.54" y1="33.02" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="33.02" x2="15.24" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="1"/>
+<pinref part="U$5" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="30.48" x2="20.32" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4754,9 +4821,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-5.08" y1="22.86" x2="12.7" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="22.86" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="22.86" x2="15.24" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="2"/>
+<pinref part="U$5" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="27.94" x2="20.32" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="R55" gate="G$1" pin="2"/>
+<pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="27.94" x2="12.7" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="27.94" x2="12.7" y2="22.86" width="0.1524" layer="91"/>
 <junction x="12.7" y="22.86"/>
@@ -4765,13 +4832,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$16" class="0">
 <segment>
 <pinref part="RS-485-3" gate="G$1" pin="Y"/>
-<pinref part="R56" gate="G$1" pin="1"/>
+<pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="12.7" x2="-2.54" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="12.7" x2="0" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="12.7" x2="-2.54" y2="7.62" width="0.1524" layer="91"/>
 <junction x="-2.54" y="12.7"/>
 <wire x1="17.78" y1="7.62" x2="17.78" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="3"/>
+<pinref part="U$5" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="25.4" x2="20.32" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="7.62" x2="17.78" y2="7.62" width="0.1524" layer="91"/>
 </segment>
@@ -4779,9 +4846,9 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$17" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="Z"/>
-<pinref part="U$5" gate="G$1" pin="6"/>
+<pinref part="U$6" gate="G$1" pin="6"/>
 <wire x1="-5.08" y1="-20.32" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
-<pinref part="R58" gate="G$1" pin="2"/>
+<pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="-20.32" x2="20.32" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="-25.4" x2="12.7" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="-25.4" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
@@ -4791,14 +4858,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$18" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="A"/>
-<pinref part="R57" gate="G$1" pin="1"/>
+<pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="-10.16" x2="-2.54" y2="-10.16" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-10.16" x2="0" y2="-10.16" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-10.16" x2="-2.54" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-10.16"/>
 <wire x1="-2.54" y1="-5.08" x2="15.24" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="-5.08" x2="15.24" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="1"/>
+<pinref part="U$6" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="-7.62" x2="20.32" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4808,9 +4875,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-5.08" y1="-15.24" x2="12.7" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="-15.24" x2="15.24" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="-15.24" x2="15.24" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="2"/>
+<pinref part="U$6" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="-10.16" x2="20.32" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="R57" gate="G$1" pin="2"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="-10.16" x2="12.7" y2="-10.16" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="-10.16" x2="12.7" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="12.7" y="-15.24"/>
@@ -4819,13 +4886,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$20" class="0">
 <segment>
 <pinref part="RS-485-4" gate="G$1" pin="Y"/>
-<pinref part="R58" gate="G$1" pin="1"/>
+<pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="-25.4" x2="-2.54" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-25.4" x2="0" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-25.4" x2="-2.54" y2="-30.48" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-25.4"/>
 <wire x1="17.78" y1="-30.48" x2="17.78" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="3"/>
+<pinref part="U$6" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="-12.7" x2="20.32" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-30.48" x2="17.78" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
@@ -4833,9 +4900,9 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$21" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="Z"/>
-<pinref part="U$6" gate="G$1" pin="6"/>
+<pinref part="U$7" gate="G$1" pin="6"/>
 <wire x1="139.7" y1="96.52" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R60" gate="G$1" pin="2"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="157.48" y1="96.52" x2="165.1" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="91.44" x2="157.48" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="91.44" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
@@ -4845,14 +4912,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$22" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="A"/>
-<pinref part="R59" gate="G$1" pin="1"/>
+<pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="106.68" x2="142.24" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="106.68" x2="144.78" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="106.68" x2="142.24" y2="111.76" width="0.1524" layer="91"/>
 <junction x="142.24" y="106.68"/>
 <wire x1="142.24" y1="111.76" x2="160.02" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="111.76" x2="160.02" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="1"/>
+<pinref part="U$7" gate="G$1" pin="1"/>
 <wire x1="160.02" y1="109.22" x2="165.1" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4862,9 +4929,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="139.7" y1="101.6" x2="157.48" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="101.6" x2="160.02" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="2"/>
+<pinref part="U$7" gate="G$1" pin="2"/>
 <wire x1="160.02" y1="106.68" x2="165.1" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="R59" gate="G$1" pin="2"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="106.68" x2="157.48" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="106.68" x2="157.48" y2="101.6" width="0.1524" layer="91"/>
 <junction x="157.48" y="101.6"/>
@@ -4873,13 +4940,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$29" class="0">
 <segment>
 <pinref part="RS-485-5" gate="G$1" pin="Y"/>
-<pinref part="R60" gate="G$1" pin="1"/>
+<pinref part="R11" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="91.44" x2="142.24" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="91.44" x2="144.78" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="91.44" x2="142.24" y2="86.36" width="0.1524" layer="91"/>
 <junction x="142.24" y="91.44"/>
 <wire x1="162.56" y1="86.36" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="3"/>
+<pinref part="U$7" gate="G$1" pin="3"/>
 <wire x1="162.56" y1="104.14" x2="165.1" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="86.36" x2="162.56" y2="86.36" width="0.1524" layer="91"/>
 </segment>
@@ -4887,9 +4954,9 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$33" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="Z"/>
-<pinref part="U$7" gate="G$1" pin="6"/>
+<pinref part="U$8" gate="G$1" pin="6"/>
 <wire x1="139.7" y1="58.42" x2="157.48" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="R62" gate="G$1" pin="2"/>
+<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="157.48" y1="58.42" x2="165.1" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="53.34" x2="157.48" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="53.34" x2="157.48" y2="58.42" width="0.1524" layer="91"/>
@@ -4899,14 +4966,14 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$34" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="A"/>
-<pinref part="R61" gate="G$1" pin="1"/>
+<pinref part="R12" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="68.58" x2="142.24" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="68.58" x2="144.78" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="68.58" x2="142.24" y2="73.66" width="0.1524" layer="91"/>
 <junction x="142.24" y="68.58"/>
 <wire x1="142.24" y1="73.66" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="73.66" x2="160.02" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="1"/>
+<pinref part="U$8" gate="G$1" pin="1"/>
 <wire x1="160.02" y1="71.12" x2="165.1" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4916,9 +4983,9 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="139.7" y1="63.5" x2="157.48" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="63.5" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="63.5" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="2"/>
+<pinref part="U$8" gate="G$1" pin="2"/>
 <wire x1="160.02" y1="68.58" x2="165.1" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="R61" gate="G$1" pin="2"/>
+<pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="68.58" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="68.58" x2="157.48" y2="63.5" width="0.1524" layer="91"/>
 <junction x="157.48" y="63.5"/>
@@ -4927,13 +4994,13 @@ Using all header pins to connect to XL booster packs.</description>
 <net name="N$36" class="0">
 <segment>
 <pinref part="RS-485-6" gate="G$1" pin="Y"/>
-<pinref part="R62" gate="G$1" pin="1"/>
+<pinref part="R13" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="53.34" x2="142.24" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="53.34" x2="144.78" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="53.34" x2="142.24" y2="48.26" width="0.1524" layer="91"/>
 <junction x="142.24" y="53.34"/>
 <wire x1="162.56" y1="48.26" x2="162.56" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="3"/>
+<pinref part="U$8" gate="G$1" pin="3"/>
 <wire x1="162.56" y1="66.04" x2="165.1" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="48.26" x2="162.56" y2="48.26" width="0.1524" layer="91"/>
 </segment>
@@ -5018,97 +5085,97 @@ Using all header pins to connect to XL booster packs.</description>
 </plain>
 <instances>
 <instance part="RS_TRANS_1" gate="G$1" x="-106.68" y="86.36"/>
-<instance part="U$36" gate="G$1" x="127" y="27.94" rot="R270"/>
+<instance part="U$9" gate="G$1" x="127" y="27.94" rot="R270"/>
 <instance part="GND14" gate="1" x="-124.46" y="73.66"/>
 <instance part="+3V13" gate="G$1" x="-154.94" y="99.06"/>
-<instance part="R27" gate="G$1" x="-78.74" y="93.98" rot="R180"/>
-<instance part="C44" gate="G$1" x="-154.94" y="86.36"/>
+<instance part="R14" gate="G$1" x="-78.74" y="93.98" rot="R180"/>
+<instance part="C9" gate="G$1" x="-154.94" y="86.36"/>
 <instance part="GND15" gate="1" x="-154.94" y="78.74"/>
-<instance part="R28" gate="G$1" x="-78.74" y="78.74" rot="R180"/>
+<instance part="R15" gate="G$1" x="-78.74" y="78.74" rot="R180"/>
 <instance part="RS_TRANS_2" gate="G$1" x="-106.68" y="43.18"/>
 <instance part="GND16" gate="1" x="-124.46" y="30.48"/>
 <instance part="+3V14" gate="G$1" x="-154.94" y="55.88"/>
-<instance part="R29" gate="G$1" x="-78.74" y="50.8" rot="R180"/>
-<instance part="C46" gate="G$1" x="-154.94" y="43.18"/>
+<instance part="R16" gate="G$1" x="-78.74" y="50.8" rot="R180"/>
+<instance part="C10" gate="G$1" x="-154.94" y="43.18"/>
 <instance part="GND17" gate="1" x="-154.94" y="35.56"/>
-<instance part="R30" gate="G$1" x="-78.74" y="35.56" rot="R180"/>
+<instance part="R17" gate="G$1" x="-78.74" y="35.56" rot="R180"/>
 <instance part="RS_TRANS_3" gate="G$1" x="-106.68" y="0"/>
 <instance part="GND18" gate="1" x="-124.46" y="-12.7"/>
 <instance part="+3V15" gate="G$1" x="-154.94" y="12.7"/>
-<instance part="R31" gate="G$1" x="-78.74" y="7.62" rot="R180"/>
-<instance part="C48" gate="G$1" x="-154.94" y="0"/>
+<instance part="R18" gate="G$1" x="-78.74" y="7.62" rot="R180"/>
+<instance part="C11" gate="G$1" x="-154.94" y="0"/>
 <instance part="GND19" gate="1" x="-154.94" y="-7.62"/>
-<instance part="R32" gate="G$1" x="-78.74" y="-7.62" rot="R180"/>
+<instance part="R19" gate="G$1" x="-78.74" y="-7.62" rot="R180"/>
 <instance part="RS_TRANS_4" gate="G$1" x="-106.68" y="-40.64"/>
 <instance part="GND20" gate="1" x="-124.46" y="-53.34"/>
 <instance part="+3V16" gate="G$1" x="-154.94" y="-27.94"/>
-<instance part="R33" gate="G$1" x="-78.74" y="-33.02" rot="R180"/>
-<instance part="C50" gate="G$1" x="-154.94" y="-40.64"/>
+<instance part="R20" gate="G$1" x="-78.74" y="-33.02" rot="R180"/>
+<instance part="C12" gate="G$1" x="-154.94" y="-40.64"/>
 <instance part="GND21" gate="1" x="-154.94" y="-48.26"/>
-<instance part="R34" gate="G$1" x="-78.74" y="-48.26" rot="R180"/>
-<instance part="RS_TRANS_5" gate="G$1" x="15.24" y="86.36"/>
+<instance part="R21" gate="G$1" x="-78.74" y="-48.26" rot="R180"/>
+<instance part="RS_TRANS_7" gate="G$1" x="15.24" y="86.36"/>
 <instance part="GND22" gate="1" x="-2.54" y="73.66"/>
 <instance part="+3V17" gate="G$1" x="-33.02" y="99.06"/>
-<instance part="R35" gate="G$1" x="43.18" y="93.98" rot="R180"/>
-<instance part="C52" gate="G$1" x="-33.02" y="86.36"/>
+<instance part="R26" gate="G$1" x="43.18" y="93.98" rot="R180"/>
+<instance part="C15" gate="G$1" x="-33.02" y="86.36"/>
 <instance part="GND23" gate="1" x="-33.02" y="78.74"/>
-<instance part="R36" gate="G$1" x="43.18" y="78.74" rot="R180"/>
-<instance part="RS_TRANS_6" gate="G$1" x="15.24" y="43.18"/>
+<instance part="R27" gate="G$1" x="43.18" y="78.74" rot="R180"/>
+<instance part="RS_TRANS_8" gate="G$1" x="15.24" y="43.18"/>
 <instance part="GND24" gate="1" x="-2.54" y="30.48"/>
 <instance part="+3V18" gate="G$1" x="-33.02" y="55.88"/>
-<instance part="R37" gate="G$1" x="43.18" y="50.8" rot="R180"/>
-<instance part="C54" gate="G$1" x="-33.02" y="43.18"/>
+<instance part="R28" gate="G$1" x="43.18" y="50.8" rot="R180"/>
+<instance part="C16" gate="G$1" x="-33.02" y="43.18"/>
 <instance part="GND25" gate="1" x="-33.02" y="35.56"/>
-<instance part="R38" gate="G$1" x="43.18" y="35.56" rot="R180"/>
-<instance part="RS_TRANS_7" gate="G$1" x="15.24" y="0"/>
+<instance part="R29" gate="G$1" x="43.18" y="35.56" rot="R180"/>
+<instance part="RS_TRANS_9" gate="G$1" x="15.24" y="0"/>
 <instance part="GND70" gate="1" x="-2.54" y="-12.7"/>
 <instance part="+3V19" gate="G$1" x="-33.02" y="12.7"/>
-<instance part="R39" gate="G$1" x="43.18" y="7.62" rot="R180"/>
-<instance part="C56" gate="G$1" x="-33.02" y="0"/>
+<instance part="R30" gate="G$1" x="43.18" y="7.62" rot="R180"/>
+<instance part="C17" gate="G$1" x="-33.02" y="0"/>
 <instance part="GND71" gate="1" x="-33.02" y="-7.62"/>
-<instance part="R40" gate="G$1" x="43.18" y="-7.62" rot="R180"/>
-<instance part="RS_TRANS_8" gate="G$1" x="15.24" y="-40.64"/>
+<instance part="R31" gate="G$1" x="43.18" y="-7.62" rot="R180"/>
+<instance part="RS_TRANS_10" gate="G$1" x="15.24" y="-40.64"/>
 <instance part="GND72" gate="1" x="-2.54" y="-53.34"/>
 <instance part="+3V20" gate="G$1" x="-33.02" y="-27.94"/>
-<instance part="R41" gate="G$1" x="43.18" y="-33.02" rot="R180"/>
-<instance part="C58" gate="G$1" x="-33.02" y="-40.64"/>
+<instance part="R32" gate="G$1" x="43.18" y="-33.02" rot="R180"/>
+<instance part="C18" gate="G$1" x="-33.02" y="-40.64"/>
 <instance part="GND73" gate="1" x="-33.02" y="-48.26"/>
-<instance part="R42" gate="G$1" x="43.18" y="-48.26" rot="R180"/>
-<instance part="RS_TRANS_9" gate="G$1" x="-106.68" y="-83.82"/>
+<instance part="R33" gate="G$1" x="43.18" y="-48.26" rot="R180"/>
+<instance part="RS_TRANS_5" gate="G$1" x="-106.68" y="-83.82"/>
 <instance part="GND74" gate="1" x="-124.46" y="-96.52"/>
 <instance part="+3V21" gate="G$1" x="-154.94" y="-71.12"/>
-<instance part="R43" gate="G$1" x="-78.74" y="-76.2" rot="R180"/>
-<instance part="C60" gate="G$1" x="-154.94" y="-83.82"/>
+<instance part="R22" gate="G$1" x="-78.74" y="-76.2" rot="R180"/>
+<instance part="C13" gate="G$1" x="-154.94" y="-83.82"/>
 <instance part="GND75" gate="1" x="-154.94" y="-91.44"/>
-<instance part="R44" gate="G$1" x="-78.74" y="-91.44" rot="R180"/>
-<instance part="RS_TRANS_10" gate="G$1" x="-106.68" y="-124.46"/>
+<instance part="R23" gate="G$1" x="-78.74" y="-91.44" rot="R180"/>
+<instance part="RS_TRANS_6" gate="G$1" x="-106.68" y="-124.46"/>
 <instance part="GND76" gate="1" x="-124.46" y="-137.16"/>
 <instance part="+3V22" gate="G$1" x="-154.94" y="-111.76"/>
-<instance part="R45" gate="G$1" x="-78.74" y="-116.84" rot="R180"/>
-<instance part="C61" gate="G$1" x="-154.94" y="-124.46"/>
+<instance part="R24" gate="G$1" x="-78.74" y="-116.84" rot="R180"/>
+<instance part="C14" gate="G$1" x="-154.94" y="-124.46"/>
 <instance part="GND77" gate="1" x="-154.94" y="-132.08"/>
-<instance part="R46" gate="G$1" x="-78.74" y="-132.08" rot="R180"/>
+<instance part="R25" gate="G$1" x="-78.74" y="-132.08" rot="R180"/>
 <instance part="RS_TRANS_11" gate="G$1" x="15.24" y="-83.82"/>
 <instance part="GND78" gate="1" x="-2.54" y="-96.52"/>
 <instance part="+3V23" gate="G$1" x="-33.02" y="-71.12"/>
-<instance part="R47" gate="G$1" x="43.18" y="-76.2" rot="R180"/>
-<instance part="C62" gate="G$1" x="-33.02" y="-83.82"/>
+<instance part="R34" gate="G$1" x="43.18" y="-76.2" rot="R180"/>
+<instance part="C19" gate="G$1" x="-33.02" y="-83.82"/>
 <instance part="GND79" gate="1" x="-33.02" y="-91.44"/>
-<instance part="R48" gate="G$1" x="43.18" y="-91.44" rot="R180"/>
+<instance part="R35" gate="G$1" x="43.18" y="-91.44" rot="R180"/>
 <instance part="RS_TRANS_12" gate="G$1" x="15.24" y="-124.46"/>
 <instance part="GND80" gate="1" x="-2.54" y="-137.16"/>
 <instance part="+3V24" gate="G$1" x="-33.02" y="-111.76"/>
-<instance part="R49" gate="G$1" x="43.18" y="-116.84" rot="R180"/>
-<instance part="C63" gate="G$1" x="-33.02" y="-124.46"/>
+<instance part="R36" gate="G$1" x="43.18" y="-116.84" rot="R180"/>
+<instance part="C20" gate="G$1" x="-33.02" y="-124.46"/>
 <instance part="GND81" gate="1" x="-33.02" y="-132.08"/>
-<instance part="R50" gate="G$1" x="43.18" y="-132.08" rot="R180"/>
+<instance part="R37" gate="G$1" x="43.18" y="-132.08" rot="R180"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="1_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="1"/>
+<pinref part="U$9" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="27.94" x2="111.76" y2="27.94" width="0.1524" layer="91"/>
 <label x="111.76" y="27.94" size="1.778" layer="95"/>
 </segment>
@@ -5117,7 +5184,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-91.44" y1="78.74" x2="-88.9" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="78.74" x2="-88.9" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="73.66" x2="-71.12" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R28" gate="G$1" pin="1"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="73.66" x2="-58.42" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="78.74" x2="-71.12" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="78.74" x2="-71.12" y2="73.66" width="0.1524" layer="91"/>
@@ -5127,14 +5194,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="1_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="2"/>
+<pinref part="U$9" gate="G$1" pin="2"/>
 <wire x1="121.92" y1="25.4" x2="111.76" y2="25.4" width="0.1524" layer="91"/>
 <label x="111.76" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="83.82" x2="-86.36" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R28" gate="G$1" pin="2"/>
+<pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="83.82" x2="-86.36" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="78.74" x2="-83.82" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="83.82" x2="-58.42" y2="83.82" width="0.1524" layer="91"/>
@@ -5144,12 +5211,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="1_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="3"/>
+<pinref part="U$9" gate="G$1" pin="3"/>
 <wire x1="121.92" y1="22.86" x2="111.76" y2="22.86" width="0.1524" layer="91"/>
 <label x="111.76" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R27" gate="G$1" pin="2"/>
+<pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_1" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="93.98" x2="-86.36" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="93.98" x2="-83.82" y2="93.98" width="0.1524" layer="91"/>
@@ -5161,14 +5228,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="1_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="4"/>
+<pinref part="U$9" gate="G$1" pin="4"/>
 <wire x1="121.92" y1="20.32" x2="111.76" y2="20.32" width="0.1524" layer="91"/>
 <label x="111.76" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="88.9" x2="-71.12" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R27" gate="G$1" pin="1"/>
+<pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="93.98" x2="-71.12" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="93.98" x2="-71.12" y2="88.9" width="0.1524" layer="91"/>
 <junction x="-71.12" y="88.9"/>
@@ -5178,12 +5245,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="2_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="7"/>
+<pinref part="U$9" gate="G$1" pin="7"/>
 <wire x1="121.92" y1="12.7" x2="111.76" y2="12.7" width="0.1524" layer="91"/>
 <label x="111.76" y="12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R29" gate="G$1" pin="2"/>
+<pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_2" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="50.8" x2="-86.36" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="50.8" x2="-83.82" y2="50.8" width="0.1524" layer="91"/>
@@ -5195,7 +5262,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="2_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="5"/>
+<pinref part="U$9" gate="G$1" pin="5"/>
 <wire x1="121.92" y1="17.78" x2="111.76" y2="17.78" width="0.1524" layer="91"/>
 <label x="111.76" y="17.78" size="1.778" layer="95"/>
 </segment>
@@ -5204,7 +5271,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-91.44" y1="35.56" x2="-88.9" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="35.56" x2="-88.9" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="30.48" x2="-71.12" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="R30" gate="G$1" pin="1"/>
+<pinref part="R17" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="30.48" x2="-58.42" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="35.56" x2="-71.12" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="35.56" x2="-71.12" y2="30.48" width="0.1524" layer="91"/>
@@ -5214,14 +5281,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="2_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="6"/>
+<pinref part="U$9" gate="G$1" pin="6"/>
 <wire x1="121.92" y1="15.24" x2="111.76" y2="15.24" width="0.1524" layer="91"/>
 <label x="111.76" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="40.64" x2="-86.36" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="R30" gate="G$1" pin="2"/>
+<pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="40.64" x2="-86.36" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="35.56" x2="-83.82" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="40.64" x2="-58.42" y2="40.64" width="0.1524" layer="91"/>
@@ -5231,14 +5298,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="2_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="8"/>
+<pinref part="U$9" gate="G$1" pin="8"/>
 <wire x1="121.92" y1="10.16" x2="111.76" y2="10.16" width="0.1524" layer="91"/>
 <label x="111.76" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="45.72" x2="-71.12" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="R29" gate="G$1" pin="1"/>
+<pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="50.8" x2="-71.12" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="50.8" x2="-71.12" y2="45.72" width="0.1524" layer="91"/>
 <junction x="-71.12" y="45.72"/>
@@ -5248,14 +5315,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="4_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="14"/>
+<pinref part="U$9" gate="G$1" pin="14"/>
 <wire x1="121.92" y1="-5.08" x2="111.76" y2="-5.08" width="0.1524" layer="91"/>
 <label x="111.76" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-43.18" x2="-86.36" y2="-43.18" width="0.1524" layer="91"/>
-<pinref part="R34" gate="G$1" pin="2"/>
+<pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="-43.18" x2="-86.36" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-48.26" x2="-83.82" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-43.18" x2="-58.42" y2="-43.18" width="0.1524" layer="91"/>
@@ -5265,12 +5332,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="4_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="15"/>
+<pinref part="U$9" gate="G$1" pin="15"/>
 <wire x1="121.92" y1="-7.62" x2="111.76" y2="-7.62" width="0.1524" layer="91"/>
 <label x="111.76" y="-7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R33" gate="G$1" pin="2"/>
+<pinref part="R20" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_4" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="-33.02" x2="-86.36" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-33.02" x2="-83.82" y2="-33.02" width="0.1524" layer="91"/>
@@ -5282,14 +5349,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="4_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="16"/>
+<pinref part="U$9" gate="G$1" pin="16"/>
 <wire x1="121.92" y1="-10.16" x2="111.76" y2="-10.16" width="0.1524" layer="91"/>
 <label x="111.76" y="-10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-38.1" x2="-71.12" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="R33" gate="G$1" pin="1"/>
+<pinref part="R20" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="-33.02" x2="-71.12" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-33.02" x2="-71.12" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="-71.12" y="-38.1"/>
@@ -5299,14 +5366,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="3_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="12"/>
+<pinref part="U$9" gate="G$1" pin="12"/>
 <wire x1="121.92" y1="0" x2="111.76" y2="0" width="0.1524" layer="91"/>
 <label x="111.76" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="2.54" x2="-71.12" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="R31" gate="G$1" pin="1"/>
+<pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="7.62" x2="-71.12" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="7.62" x2="-71.12" y2="2.54" width="0.1524" layer="91"/>
 <junction x="-71.12" y="2.54"/>
@@ -5316,7 +5383,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="4_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="13"/>
+<pinref part="U$9" gate="G$1" pin="13"/>
 <wire x1="121.92" y1="-2.54" x2="111.76" y2="-2.54" width="0.1524" layer="91"/>
 <label x="111.76" y="-2.54" size="1.778" layer="95"/>
 </segment>
@@ -5325,7 +5392,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-91.44" y1="-48.26" x2="-88.9" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-48.26" x2="-88.9" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-53.34" x2="-71.12" y2="-53.34" width="0.1524" layer="91"/>
-<pinref part="R34" gate="G$1" pin="1"/>
+<pinref part="R21" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-53.34" x2="-58.42" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="-48.26" x2="-71.12" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-48.26" x2="-71.12" y2="-53.34" width="0.1524" layer="91"/>
@@ -5335,7 +5402,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="3_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="9"/>
+<pinref part="U$9" gate="G$1" pin="9"/>
 <wire x1="121.92" y1="7.62" x2="111.76" y2="7.62" width="0.1524" layer="91"/>
 <label x="111.76" y="7.62" size="1.778" layer="95"/>
 </segment>
@@ -5344,7 +5411,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="-91.44" y1="-7.62" x2="-88.9" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-7.62" x2="-88.9" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-12.7" x2="-71.12" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="R32" gate="G$1" pin="1"/>
+<pinref part="R19" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-12.7" x2="-58.42" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="-7.62" x2="-71.12" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-7.62" x2="-71.12" y2="-12.7" width="0.1524" layer="91"/>
@@ -5354,14 +5421,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="3_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="10"/>
+<pinref part="U$9" gate="G$1" pin="10"/>
 <wire x1="121.92" y1="5.08" x2="111.76" y2="5.08" width="0.1524" layer="91"/>
 <label x="111.76" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-2.54" x2="-86.36" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="R32" gate="G$1" pin="2"/>
+<pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="-2.54" x2="-86.36" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-7.62" x2="-83.82" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-2.54" x2="-58.42" y2="-2.54" width="0.1524" layer="91"/>
@@ -5371,12 +5438,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="3_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="11"/>
+<pinref part="U$9" gate="G$1" pin="11"/>
 <wire x1="121.92" y1="2.54" x2="111.76" y2="2.54" width="0.1524" layer="91"/>
 <label x="111.76" y="2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R31" gate="G$1" pin="2"/>
+<pinref part="R18" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_3" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="7.62" x2="-86.36" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="7.62" x2="-83.82" y2="7.62" width="0.1524" layer="91"/>
@@ -5388,13 +5455,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="6_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="23"/>
+<pinref part="U$9" gate="G$1" pin="23"/>
 <wire x1="121.92" y1="-27.94" x2="111.76" y2="-27.94" width="0.1524" layer="91"/>
 <label x="111.76" y="-27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R45" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_10" gate="G$1" pin="A"/>
+<pinref part="R24" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="-116.84" x2="-86.36" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-116.84" x2="-83.82" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-116.84" x2="-86.36" y2="-111.76" width="0.1524" layer="91"/>
@@ -5405,14 +5472,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="6_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="24"/>
+<pinref part="U$9" gate="G$1" pin="24"/>
 <wire x1="121.92" y1="-30.48" x2="111.76" y2="-30.48" width="0.1524" layer="91"/>
 <label x="111.76" y="-30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-121.92" x2="-71.12" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="R45" gate="G$1" pin="1"/>
+<pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="-116.84" x2="-71.12" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-116.84" x2="-71.12" y2="-121.92" width="0.1524" layer="91"/>
 <junction x="-71.12" y="-121.92"/>
@@ -5422,16 +5489,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="6_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="21"/>
+<pinref part="U$9" gate="G$1" pin="21"/>
 <wire x1="121.92" y1="-22.86" x2="111.76" y2="-22.86" width="0.1524" layer="91"/>
 <label x="111.76" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-132.08" x2="-88.9" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-132.08" x2="-88.9" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-137.16" x2="-71.12" y2="-137.16" width="0.1524" layer="91"/>
-<pinref part="R46" gate="G$1" pin="1"/>
+<pinref part="R25" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-137.16" x2="-58.42" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="-132.08" x2="-71.12" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-132.08" x2="-71.12" y2="-137.16" width="0.1524" layer="91"/>
@@ -5441,14 +5508,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="6_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="22"/>
+<pinref part="U$9" gate="G$1" pin="22"/>
 <wire x1="121.92" y1="-25.4" x2="111.76" y2="-25.4" width="0.1524" layer="91"/>
 <label x="111.76" y="-25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-127" x2="-86.36" y2="-127" width="0.1524" layer="91"/>
-<pinref part="R46" gate="G$1" pin="2"/>
+<pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="-127" x2="-86.36" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-132.08" x2="-83.82" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-127" x2="-58.42" y2="-127" width="0.1524" layer="91"/>
@@ -5458,13 +5525,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="7_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="27"/>
+<pinref part="U$9" gate="G$1" pin="27"/>
 <wire x1="121.92" y1="-38.1" x2="111.76" y2="-38.1" width="0.1524" layer="91"/>
 <label x="111.76" y="-38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R35" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_5" gate="G$1" pin="A"/>
+<pinref part="R26" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="93.98" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="93.98" x2="38.1" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="93.98" x2="35.56" y2="99.06" width="0.1524" layer="91"/>
@@ -5475,14 +5542,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="7_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="28"/>
+<pinref part="U$9" gate="G$1" pin="28"/>
 <wire x1="121.92" y1="-40.64" x2="111.76" y2="-40.64" width="0.1524" layer="91"/>
 <label x="111.76" y="-40.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="88.9" x2="50.8" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="R35" gate="G$1" pin="1"/>
+<pinref part="R26" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="93.98" x2="50.8" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="93.98" x2="50.8" y2="88.9" width="0.1524" layer="91"/>
 <junction x="50.8" y="88.9"/>
@@ -5492,16 +5559,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="7_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="25"/>
+<pinref part="U$9" gate="G$1" pin="25"/>
 <wire x1="121.92" y1="-33.02" x2="111.76" y2="-33.02" width="0.1524" layer="91"/>
 <label x="111.76" y="-33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="78.74" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="78.74" x2="33.02" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="73.66" x2="50.8" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R36" gate="G$1" pin="1"/>
+<pinref part="R27" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="73.66" x2="63.5" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="78.74" x2="50.8" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="78.74" x2="50.8" y2="73.66" width="0.1524" layer="91"/>
@@ -5511,14 +5578,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="7_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="26"/>
+<pinref part="U$9" gate="G$1" pin="26"/>
 <wire x1="121.92" y1="-35.56" x2="111.76" y2="-35.56" width="0.1524" layer="91"/>
 <label x="111.76" y="-35.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="83.82" x2="35.56" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="R36" gate="G$1" pin="2"/>
+<pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="83.82" x2="35.56" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="78.74" x2="38.1" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="83.82" x2="63.5" y2="83.82" width="0.1524" layer="91"/>
@@ -5528,16 +5595,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="5_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="17"/>
+<pinref part="U$9" gate="G$1" pin="17"/>
 <wire x1="121.92" y1="-12.7" x2="111.76" y2="-12.7" width="0.1524" layer="91"/>
 <label x="111.76" y="-12.7" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-91.44" x2="-88.9" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-91.44" x2="-88.9" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="-88.9" y1="-96.52" x2="-71.12" y2="-96.52" width="0.1524" layer="91"/>
-<pinref part="R44" gate="G$1" pin="1"/>
+<pinref part="R23" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="-96.52" x2="-58.42" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="-73.66" y1="-91.44" x2="-71.12" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-91.44" x2="-71.12" y2="-96.52" width="0.1524" layer="91"/>
@@ -5547,14 +5614,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="5_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="18"/>
+<pinref part="U$9" gate="G$1" pin="18"/>
 <wire x1="121.92" y1="-15.24" x2="111.76" y2="-15.24" width="0.1524" layer="91"/>
 <label x="111.76" y="-15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-86.36" x2="-86.36" y2="-86.36" width="0.1524" layer="91"/>
-<pinref part="R44" gate="G$1" pin="2"/>
+<pinref part="R23" gate="G$1" pin="2"/>
 <wire x1="-86.36" y1="-86.36" x2="-86.36" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-91.44" x2="-83.82" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-86.36" x2="-58.42" y2="-86.36" width="0.1524" layer="91"/>
@@ -5564,13 +5631,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="5_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="19"/>
+<pinref part="U$9" gate="G$1" pin="19"/>
 <wire x1="121.92" y1="-17.78" x2="111.76" y2="-17.78" width="0.1524" layer="91"/>
 <label x="111.76" y="-17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R43" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_9" gate="G$1" pin="A"/>
+<pinref part="R22" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="A"/>
 <wire x1="-91.44" y1="-76.2" x2="-86.36" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-76.2" x2="-83.82" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-76.2" x2="-86.36" y2="-71.12" width="0.1524" layer="91"/>
@@ -5581,14 +5648,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="5_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="20"/>
+<pinref part="U$9" gate="G$1" pin="20"/>
 <wire x1="121.92" y1="-20.32" x2="111.76" y2="-20.32" width="0.1524" layer="91"/>
 <label x="111.76" y="-20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-81.28" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
-<pinref part="R43" gate="G$1" pin="1"/>
+<pinref part="R22" gate="G$1" pin="1"/>
 <wire x1="-73.66" y1="-76.2" x2="-71.12" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="-71.12" y1="-76.2" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="-71.12" y="-81.28"/>
@@ -5598,16 +5665,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="8_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="29"/>
+<pinref part="U$9" gate="G$1" pin="29"/>
 <wire x1="121.92" y1="-43.18" x2="111.76" y2="-43.18" width="0.1524" layer="91"/>
 <label x="111.76" y="-43.18" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="35.56" x2="33.02" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="35.56" x2="33.02" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="30.48" x2="50.8" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="R38" gate="G$1" pin="1"/>
+<pinref part="R29" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="30.48" x2="63.5" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="35.56" x2="50.8" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="35.56" x2="50.8" y2="30.48" width="0.1524" layer="91"/>
@@ -5617,14 +5684,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="8_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="30"/>
+<pinref part="U$9" gate="G$1" pin="30"/>
 <wire x1="121.92" y1="-45.72" x2="111.76" y2="-45.72" width="0.1524" layer="91"/>
 <label x="111.76" y="-45.72" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="40.64" x2="35.56" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="R38" gate="G$1" pin="2"/>
+<pinref part="R29" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="40.64" x2="35.56" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="35.56" x2="38.1" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="40.64" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
@@ -5634,13 +5701,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="8_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="31"/>
+<pinref part="U$9" gate="G$1" pin="31"/>
 <wire x1="121.92" y1="-48.26" x2="111.76" y2="-48.26" width="0.1524" layer="91"/>
 <label x="111.76" y="-48.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R37" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_6" gate="G$1" pin="A"/>
+<pinref part="R28" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="50.8" x2="35.56" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="50.8" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="50.8" x2="35.56" y2="55.88" width="0.1524" layer="91"/>
@@ -5651,14 +5718,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="8_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="32"/>
+<pinref part="U$9" gate="G$1" pin="32"/>
 <wire x1="121.92" y1="-50.8" x2="111.76" y2="-50.8" width="0.1524" layer="91"/>
 <label x="111.76" y="-50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="45.72" x2="50.8" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="R37" gate="G$1" pin="1"/>
+<pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="50.8" x2="50.8" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="50.8" x2="50.8" y2="45.72" width="0.1524" layer="91"/>
 <junction x="50.8" y="45.72"/>
@@ -5668,16 +5735,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="9_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="33"/>
+<pinref part="U$9" gate="G$1" pin="33"/>
 <wire x1="121.92" y1="-53.34" x2="111.76" y2="-53.34" width="0.1524" layer="91"/>
 <label x="111.76" y="-53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-7.62" x2="33.02" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-7.62" x2="33.02" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-12.7" x2="50.8" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="R40" gate="G$1" pin="1"/>
+<pinref part="R31" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="-12.7" x2="63.5" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="-7.62" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-7.62" x2="50.8" y2="-12.7" width="0.1524" layer="91"/>
@@ -5687,14 +5754,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="9_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="34"/>
+<pinref part="U$9" gate="G$1" pin="34"/>
 <wire x1="121.92" y1="-55.88" x2="111.76" y2="-55.88" width="0.1524" layer="91"/>
 <label x="111.76" y="-55.88" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-2.54" x2="35.56" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="R40" gate="G$1" pin="2"/>
+<pinref part="R31" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="-2.54" x2="35.56" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-7.62" x2="38.1" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-2.54" x2="63.5" y2="-2.54" width="0.1524" layer="91"/>
@@ -5704,14 +5771,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="9_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="36"/>
+<pinref part="U$9" gate="G$1" pin="36"/>
 <wire x1="142.24" y1="25.4" x2="152.4" y2="25.4" width="0.1524" layer="91"/>
 <label x="144.78" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="2.54" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="R39" gate="G$1" pin="1"/>
+<pinref part="R30" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="7.62" x2="50.8" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="7.62" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
 <junction x="50.8" y="2.54"/>
@@ -5721,13 +5788,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="9_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="35"/>
+<pinref part="U$9" gate="G$1" pin="35"/>
 <wire x1="142.24" y1="27.94" x2="152.4" y2="27.94" width="0.1524" layer="91"/>
 <label x="144.78" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R39" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_7" gate="G$1" pin="A"/>
+<pinref part="R30" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="7.62" x2="35.56" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="7.62" x2="38.1" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="7.62" x2="35.56" y2="12.7" width="0.1524" layer="91"/>
@@ -5738,16 +5805,16 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="10_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="37"/>
+<pinref part="U$9" gate="G$1" pin="37"/>
 <wire x1="142.24" y1="22.86" x2="152.4" y2="22.86" width="0.1524" layer="91"/>
 <label x="144.78" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="Y"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-48.26" x2="33.02" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-48.26" x2="33.02" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-53.34" x2="50.8" y2="-53.34" width="0.1524" layer="91"/>
-<pinref part="R42" gate="G$1" pin="1"/>
+<pinref part="R33" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="-53.34" x2="63.5" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="-48.26" x2="50.8" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-48.26" x2="50.8" y2="-53.34" width="0.1524" layer="91"/>
@@ -5757,14 +5824,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="10_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="38"/>
+<pinref part="U$9" gate="G$1" pin="38"/>
 <wire x1="142.24" y1="20.32" x2="152.4" y2="20.32" width="0.1524" layer="91"/>
 <label x="144.78" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="Z"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-43.18" x2="35.56" y2="-43.18" width="0.1524" layer="91"/>
-<pinref part="R42" gate="G$1" pin="2"/>
+<pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="-43.18" x2="35.56" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-48.26" x2="38.1" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-43.18" x2="63.5" y2="-43.18" width="0.1524" layer="91"/>
@@ -5774,13 +5841,13 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="10_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="39"/>
+<pinref part="U$9" gate="G$1" pin="39"/>
 <wire x1="142.24" y1="17.78" x2="152.4" y2="17.78" width="0.1524" layer="91"/>
 <label x="144.78" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R41" gate="G$1" pin="2"/>
-<pinref part="RS_TRANS_8" gate="G$1" pin="A"/>
+<pinref part="R32" gate="G$1" pin="2"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="-33.02" x2="35.56" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-33.02" x2="38.1" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-33.02" x2="35.56" y2="-27.94" width="0.1524" layer="91"/>
@@ -5791,14 +5858,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="10_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="40"/>
+<pinref part="U$9" gate="G$1" pin="40"/>
 <wire x1="142.24" y1="15.24" x2="152.4" y2="15.24" width="0.1524" layer="91"/>
 <label x="144.78" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="B"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-38.1" x2="50.8" y2="-38.1" width="0.1524" layer="91"/>
-<pinref part="R41" gate="G$1" pin="1"/>
+<pinref part="R32" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="-33.02" x2="50.8" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-33.02" x2="50.8" y2="-38.1" width="0.1524" layer="91"/>
 <junction x="50.8" y="-38.1"/>
@@ -5808,7 +5875,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="11_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="41"/>
+<pinref part="U$9" gate="G$1" pin="41"/>
 <wire x1="142.24" y1="12.7" x2="152.4" y2="12.7" width="0.1524" layer="91"/>
 <label x="144.78" y="12.7" size="1.778" layer="95"/>
 </segment>
@@ -5817,7 +5884,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="30.48" y1="-91.44" x2="33.02" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-91.44" x2="33.02" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-96.52" x2="50.8" y2="-96.52" width="0.1524" layer="91"/>
-<pinref part="R48" gate="G$1" pin="1"/>
+<pinref part="R35" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="-96.52" x2="63.5" y2="-96.52" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="-91.44" x2="50.8" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-91.44" x2="50.8" y2="-96.52" width="0.1524" layer="91"/>
@@ -5827,14 +5894,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="11_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="42"/>
+<pinref part="U$9" gate="G$1" pin="42"/>
 <wire x1="142.24" y1="10.16" x2="152.4" y2="10.16" width="0.1524" layer="91"/>
 <label x="144.78" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-86.36" x2="35.56" y2="-86.36" width="0.1524" layer="91"/>
-<pinref part="R48" gate="G$1" pin="2"/>
+<pinref part="R35" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="-86.36" x2="35.56" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-91.44" x2="38.1" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-86.36" x2="63.5" y2="-86.36" width="0.1524" layer="91"/>
@@ -5844,12 +5911,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="11_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="43"/>
+<pinref part="U$9" gate="G$1" pin="43"/>
 <wire x1="142.24" y1="7.62" x2="152.4" y2="7.62" width="0.1524" layer="91"/>
 <label x="144.78" y="7.62" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R47" gate="G$1" pin="2"/>
+<pinref part="R34" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_11" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="-76.2" x2="35.56" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-76.2" x2="38.1" y2="-76.2" width="0.1524" layer="91"/>
@@ -5861,14 +5928,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="11_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="44"/>
+<pinref part="U$9" gate="G$1" pin="44"/>
 <wire x1="142.24" y1="5.08" x2="152.4" y2="5.08" width="0.1524" layer="91"/>
 <label x="144.78" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-81.28" x2="50.8" y2="-81.28" width="0.1524" layer="91"/>
-<pinref part="R47" gate="G$1" pin="1"/>
+<pinref part="R34" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="-76.2" x2="50.8" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-76.2" x2="50.8" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="50.8" y="-81.28"/>
@@ -5878,7 +5945,7 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="12_TX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="45"/>
+<pinref part="U$9" gate="G$1" pin="45"/>
 <wire x1="142.24" y1="2.54" x2="152.4" y2="2.54" width="0.1524" layer="91"/>
 <label x="144.78" y="2.54" size="1.778" layer="95"/>
 </segment>
@@ -5887,7 +5954,7 @@ Using all header pins to connect to XL booster packs.</description>
 <wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-132.08" x2="33.02" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="-137.16" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
-<pinref part="R50" gate="G$1" pin="1"/>
+<pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="50.8" y1="-137.16" x2="63.5" y2="-137.16" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="-132.08" x2="50.8" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-132.08" x2="50.8" y2="-137.16" width="0.1524" layer="91"/>
@@ -5897,14 +5964,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="12_TX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="46"/>
+<pinref part="U$9" gate="G$1" pin="46"/>
 <wire x1="142.24" y1="0" x2="152.4" y2="0" width="0.1524" layer="91"/>
 <label x="144.78" y="0" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-127" x2="35.56" y2="-127" width="0.1524" layer="91"/>
-<pinref part="R50" gate="G$1" pin="2"/>
+<pinref part="R37" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="-127" x2="35.56" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-132.08" x2="38.1" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-127" x2="63.5" y2="-127" width="0.1524" layer="91"/>
@@ -5914,12 +5981,12 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="12_RX+" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="47"/>
+<pinref part="U$9" gate="G$1" pin="47"/>
 <wire x1="142.24" y1="-2.54" x2="152.4" y2="-2.54" width="0.1524" layer="91"/>
 <label x="144.78" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R49" gate="G$1" pin="2"/>
+<pinref part="R36" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_12" gate="G$1" pin="A"/>
 <wire x1="30.48" y1="-116.84" x2="35.56" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="-116.84" x2="38.1" y2="-116.84" width="0.1524" layer="91"/>
@@ -5931,14 +5998,14 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="12_RX-" class="0">
 <segment>
-<pinref part="U$36" gate="G$1" pin="48"/>
+<pinref part="U$9" gate="G$1" pin="48"/>
 <wire x1="142.24" y1="-5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
 <label x="144.78" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-121.92" x2="50.8" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="R49" gate="G$1" pin="1"/>
+<pinref part="R36" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="-116.84" x2="50.8" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-116.84" x2="50.8" y2="-121.92" width="0.1524" layer="91"/>
 <junction x="50.8" y="-121.92"/>
@@ -5969,7 +6036,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND15" gate="1" pin="GND"/>
-<pinref part="C44" gate="G$1" pin="2"/>
+<pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="83.82" x2="-154.94" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -5980,7 +6047,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
-<pinref part="C46" gate="G$1" pin="2"/>
+<pinref part="C10" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="40.64" x2="-154.94" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -5991,7 +6058,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
-<pinref part="C48" gate="G$1" pin="2"/>
+<pinref part="C11" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="-2.54" x2="-154.94" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -6002,73 +6069,73 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND21" gate="1" pin="GND"/>
-<pinref part="C50" gate="G$1" pin="2"/>
+<pinref part="C12" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="-43.18" x2="-154.94" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="GND"/>
 <pinref part="GND22" gate="1" pin="GND"/>
 <wire x1="0" y1="78.74" x2="-2.54" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="78.74" x2="-2.54" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND23" gate="1" pin="GND"/>
-<pinref part="C52" gate="G$1" pin="2"/>
+<pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="83.82" x2="-33.02" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="GND"/>
 <pinref part="GND24" gate="1" pin="GND"/>
 <wire x1="0" y1="35.56" x2="-2.54" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="35.56" x2="-2.54" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND25" gate="1" pin="GND"/>
-<pinref part="C54" gate="G$1" pin="2"/>
+<pinref part="C16" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="40.64" x2="-33.02" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="GND"/>
 <pinref part="GND70" gate="1" pin="GND"/>
 <wire x1="0" y1="-7.62" x2="-2.54" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-7.62" x2="-2.54" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND71" gate="1" pin="GND"/>
-<pinref part="C56" gate="G$1" pin="2"/>
+<pinref part="C17" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-2.54" x2="-33.02" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="GND"/>
 <pinref part="GND72" gate="1" pin="GND"/>
 <wire x1="0" y1="-48.26" x2="-2.54" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="-48.26" x2="-2.54" y2="-50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND73" gate="1" pin="GND"/>
-<pinref part="C58" gate="G$1" pin="2"/>
+<pinref part="C18" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-43.18" x2="-33.02" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="GND"/>
 <pinref part="GND74" gate="1" pin="GND"/>
 <wire x1="-121.92" y1="-91.44" x2="-124.46" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="-91.44" x2="-124.46" y2="-93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND75" gate="1" pin="GND"/>
-<pinref part="C60" gate="G$1" pin="2"/>
+<pinref part="C13" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="-86.36" x2="-154.94" y2="-88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="GND"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="GND"/>
 <pinref part="GND76" gate="1" pin="GND"/>
 <wire x1="-121.92" y1="-132.08" x2="-124.46" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="-132.08" x2="-124.46" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND77" gate="1" pin="GND"/>
-<pinref part="C61" gate="G$1" pin="2"/>
+<pinref part="C14" gate="G$1" pin="2"/>
 <wire x1="-154.94" y1="-127" x2="-154.94" y2="-129.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -6079,7 +6146,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND79" gate="1" pin="GND"/>
-<pinref part="C62" gate="G$1" pin="2"/>
+<pinref part="C19" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-86.36" x2="-33.02" y2="-88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -6090,14 +6157,14 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="GND81" gate="1" pin="GND"/>
-<pinref part="C63" gate="G$1" pin="2"/>
+<pinref part="C20" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="-127" x2="-33.02" y2="-129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="VCC"/>
-<pinref part="C44" gate="G$1" pin="1"/>
+<pinref part="C9" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="93.98" x2="-154.94" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="93.98" x2="-154.94" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="+3V13" gate="G$1" pin="+3V3"/>
@@ -6106,7 +6173,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="VCC"/>
-<pinref part="C46" gate="G$1" pin="1"/>
+<pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="50.8" x2="-154.94" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="50.8" x2="-154.94" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="+3V14" gate="G$1" pin="+3V3"/>
@@ -6115,7 +6182,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="VCC"/>
-<pinref part="C48" gate="G$1" pin="1"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="7.62" x2="-154.94" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="7.62" x2="-154.94" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="+3V15" gate="G$1" pin="+3V3"/>
@@ -6124,7 +6191,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="RS_TRANS_4" gate="G$1" pin="VCC"/>
-<pinref part="C50" gate="G$1" pin="1"/>
+<pinref part="C12" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="-33.02" x2="-154.94" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="-33.02" x2="-154.94" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="+3V16" gate="G$1" pin="+3V3"/>
@@ -6132,8 +6199,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-154.94" y="-33.02"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="VCC"/>
-<pinref part="C52" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="VCC"/>
+<pinref part="C15" gate="G$1" pin="1"/>
 <wire x1="0" y1="93.98" x2="-33.02" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="93.98" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="+3V17" gate="G$1" pin="+3V3"/>
@@ -6141,8 +6208,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-33.02" y="93.98"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="VCC"/>
-<pinref part="C54" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="VCC"/>
+<pinref part="C16" gate="G$1" pin="1"/>
 <wire x1="0" y1="50.8" x2="-33.02" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="50.8" x2="-33.02" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="+3V18" gate="G$1" pin="+3V3"/>
@@ -6150,8 +6217,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-33.02" y="50.8"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="VCC"/>
-<pinref part="C56" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="VCC"/>
+<pinref part="C17" gate="G$1" pin="1"/>
 <wire x1="0" y1="7.62" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="7.62" x2="-33.02" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="+3V19" gate="G$1" pin="+3V3"/>
@@ -6159,8 +6226,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-33.02" y="7.62"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="VCC"/>
-<pinref part="C58" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="VCC"/>
+<pinref part="C18" gate="G$1" pin="1"/>
 <wire x1="0" y1="-33.02" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="-33.02" x2="-33.02" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="+3V20" gate="G$1" pin="+3V3"/>
@@ -6168,8 +6235,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-33.02" y="-33.02"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="VCC"/>
-<pinref part="C60" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="VCC"/>
+<pinref part="C13" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="-76.2" x2="-154.94" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="-76.2" x2="-154.94" y2="-78.74" width="0.1524" layer="91"/>
 <pinref part="+3V21" gate="G$1" pin="+3V3"/>
@@ -6177,8 +6244,8 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-154.94" y="-76.2"/>
 </segment>
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="VCC"/>
-<pinref part="C61" gate="G$1" pin="1"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="VCC"/>
+<pinref part="C14" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="-116.84" x2="-154.94" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="-154.94" y1="-116.84" x2="-154.94" y2="-119.38" width="0.1524" layer="91"/>
 <pinref part="+3V22" gate="G$1" pin="+3V3"/>
@@ -6187,7 +6254,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="VCC"/>
-<pinref part="C62" gate="G$1" pin="1"/>
+<pinref part="C19" gate="G$1" pin="1"/>
 <wire x1="0" y1="-76.2" x2="-33.02" y2="-76.2" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="-76.2" x2="-33.02" y2="-78.74" width="0.1524" layer="91"/>
 <pinref part="+3V23" gate="G$1" pin="+3V3"/>
@@ -6196,7 +6263,7 @@ Using all header pins to connect to XL booster packs.</description>
 </segment>
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="VCC"/>
-<pinref part="C63" gate="G$1" pin="1"/>
+<pinref part="C20" gate="G$1" pin="1"/>
 <wire x1="0" y1="-116.84" x2="-33.02" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="-116.84" x2="-33.02" y2="-119.38" width="0.1524" layer="91"/>
 <pinref part="+3V24" gate="G$1" pin="+3V3"/>
@@ -6248,84 +6315,84 @@ Using all header pins to connect to XL booster packs.</description>
 </net>
 <net name="RS485_5_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="R0"/>
 <wire x1="-121.92" y1="-81.28" x2="-144.78" y2="-81.28" width="0.1524" layer="91"/>
 <label x="-142.24" y="-81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_5_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_9" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_5" gate="G$1" pin="DI"/>
 <wire x1="-121.92" y1="-86.36" x2="-144.78" y2="-86.36" width="0.1524" layer="91"/>
 <label x="-142.24" y="-86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_6_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="R0"/>
 <wire x1="-121.92" y1="-121.92" x2="-144.78" y2="-121.92" width="0.1524" layer="91"/>
 <label x="-142.24" y="-121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_6_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_10" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_6" gate="G$1" pin="DI"/>
 <wire x1="-121.92" y1="-127" x2="-144.78" y2="-127" width="0.1524" layer="91"/>
 <label x="-142.24" y="-127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_7_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="R0"/>
 <wire x1="0" y1="88.9" x2="-22.86" y2="88.9" width="0.1524" layer="91"/>
 <label x="-20.32" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_7_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_5" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_7" gate="G$1" pin="DI"/>
 <wire x1="0" y1="83.82" x2="-22.86" y2="83.82" width="0.1524" layer="91"/>
 <label x="-20.32" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_8_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="R0"/>
 <wire x1="0" y1="45.72" x2="-22.86" y2="45.72" width="0.1524" layer="91"/>
 <label x="-20.32" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_8_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_6" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_8" gate="G$1" pin="DI"/>
 <wire x1="0" y1="40.64" x2="-22.86" y2="40.64" width="0.1524" layer="91"/>
 <label x="-20.32" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_9_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="R0"/>
 <wire x1="0" y1="2.54" x2="-22.86" y2="2.54" width="0.1524" layer="91"/>
 <label x="-20.32" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_9_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_7" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_9" gate="G$1" pin="DI"/>
 <wire x1="0" y1="-2.54" x2="-22.86" y2="-2.54" width="0.1524" layer="91"/>
 <label x="-20.32" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_10_RX" class="0">
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="R0"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="R0"/>
 <wire x1="0" y1="-38.1" x2="-22.86" y2="-38.1" width="0.1524" layer="91"/>
 <label x="-20.32" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_10_TX" class="0">
 <segment>
-<pinref part="RS_TRANS_8" gate="G$1" pin="DI"/>
+<pinref part="RS_TRANS_10" gate="G$1" pin="DI"/>
 <wire x1="0" y1="-43.18" x2="-22.86" y2="-43.18" width="0.1524" layer="91"/>
 <label x="-20.32" y="-43.18" size="1.778" layer="95"/>
 </segment>

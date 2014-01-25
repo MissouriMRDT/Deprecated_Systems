@@ -1,7 +1,7 @@
 
 
 #include <Wire.h>
-int tmp102Address = 0x48;
+int tmp102Address = 0x48;  //correct address if ADD0 pin is grounded (ours is)
 
 void setup(){
   Serial.begin(9600);

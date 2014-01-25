@@ -3512,7 +3512,7 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <instance part="LM4F120XL" gate="G$1" x="0" y="0"/>
 <instance part="GND1" gate="1" x="20.32" y="-43.18"/>
 <instance part="P+1" gate="1" x="-43.18" y="-27.94"/>
-<instance part="S1" gate="1" x="-33.02" y="-33.02"/>
+<instance part="S1" gate="1" x="-33.02" y="-35.56"/>
 </instances>
 <busses>
 </busses>
@@ -3668,11 +3668,6 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <wire x1="-15.24" y1="-17.78" x2="-35.56" y2="-17.78" width="0.1524" layer="91"/>
 <label x="-33.02" y="-17.78" size="1.778" layer="95"/>
 </segment>
-<segment>
-<wire x1="-35.56" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
-<pinref part="LM4F120XL" gate="G$1" pin="PE3"/>
-<label x="-33.02" y="-20.32" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="U3_MUX_S0" class="0">
 <segment>
@@ -3733,16 +3728,23 @@ DPDT SMT slide switch, AYZ0202, SWCH-08179</description>
 <net name="+5V" class="0">
 <segment>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="-43.18" y1="-30.48" x2="-43.18" y2="-33.02" width="0.1524" layer="91"/>
 <pinref part="S1" gate="1" pin="P"/>
-<wire x1="-43.18" y1="-33.02" x2="-35.56" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-35.56" x2="-43.18" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="-35.56" x2="-43.18" y2="-30.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="U2_MUX_S1" class="0">
+<segment>
+<wire x1="-35.56" y1="-20.32" x2="-15.24" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="LM4F120XL" gate="G$1" pin="PE3"/>
+<label x="-33.02" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="S"/>
-<pinref part="LM4F120XL" gate="G$1" pin="3.3V"/>
-<wire x1="-27.94" y1="-35.56" x2="-15.24" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="LM4F120XL" gate="G$1" pin="VBUS"/>
+<wire x1="-27.94" y1="-38.1" x2="-15.24" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

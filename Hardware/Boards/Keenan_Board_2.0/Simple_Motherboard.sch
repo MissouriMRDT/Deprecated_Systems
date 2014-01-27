@@ -3902,35 +3902,39 @@ Using all header pins to connect to XL booster packs.</description>
 <junction x="-165.1" y="43.18"/>
 </segment>
 <segment>
-<wire x1="-17.78" y1="43.18" x2="-50.8" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="C22" gate="G$1" pin="1"/>
-<wire x1="-50.8" y1="43.18" x2="-50.8" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="P+2" gate="1" pin="+5V"/>
+<wire x1="-50.8" y1="40.64" x2="-50.8" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U2_MUX" gate="A" pin="VCC"/>
 <wire x1="-50.8" y1="43.18" x2="-50.8" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="43.18" x2="-50.8" y2="43.18" width="0.1524" layer="91"/>
 <junction x="-50.8" y="43.18"/>
 </segment>
 <segment>
-<wire x1="99.06" y1="43.18" x2="66.04" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="C23" gate="G$1" pin="1"/>
-<wire x1="66.04" y1="43.18" x2="66.04" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="66.04" y1="40.64" x2="66.04" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U3_MUX" gate="A" pin="VCC"/>
 <wire x1="66.04" y1="43.18" x2="66.04" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="43.18" x2="66.04" y2="43.18" width="0.1524" layer="91"/>
 <junction x="66.04" y="43.18"/>
 </segment>
 <segment>
-<wire x1="-132.08" y1="-15.24" x2="-165.1" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C24" gate="G$1" pin="1"/>
-<wire x1="-165.1" y1="-15.24" x2="-165.1" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
+<wire x1="-165.1" y1="-17.78" x2="-165.1" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="U4_MUX" gate="A" pin="VCC"/>
 <wire x1="-165.1" y1="-15.24" x2="-165.1" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-132.08" y1="-15.24" x2="-165.1" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="-165.1" y="-15.24"/>
 </segment>
 <segment>
-<wire x1="-17.78" y1="-15.24" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C25" gate="G$1" pin="1"/>
-<wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="P+6" gate="1" pin="+5V"/>
+<wire x1="-50.8" y1="-17.78" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="U5_MUX" gate="A" pin="VCC"/>
 <wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="-15.24" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="-50.8" y="-15.24"/>
 </segment>
 <segment>

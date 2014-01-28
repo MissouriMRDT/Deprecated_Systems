@@ -7111,14 +7111,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <label x="137.16" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPS_RX" class="0">
+<net name="328_RX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="2Y3"/>
 <wire x1="17.78" y1="-43.18" x2="38.1" y2="-43.18" width="0.1524" layer="91"/>
 <label x="20.32" y="-43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPS_TX" class="0">
+<net name="328_TX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="1Y3"/>
 <wire x1="17.78" y1="-30.48" x2="38.1" y2="-30.48" width="0.1524" layer="91"/>

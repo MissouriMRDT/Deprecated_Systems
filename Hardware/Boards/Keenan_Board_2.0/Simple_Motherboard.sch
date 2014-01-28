@@ -4887,6 +4887,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="P+30" library="supply1" deviceset="+5V" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="GPS" library="SparkFun-Connectors" deviceset="M09" device=""/>
+<part name="P+31" library="supply1" deviceset="+5V" device=""/>
+<part name="GND36" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7954,6 +7956,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="P+30" gate="1" x="25.4" y="-50.8"/>
 <instance part="GND35" gate="1" x="25.4" y="-73.66"/>
 <instance part="GPS" gate="G$1" x="114.3" y="-5.08" rot="R180"/>
+<instance part="P+31" gate="1" x="96.52" y="-12.7" rot="R90"/>
+<instance part="GND36" gate="1" x="88.9" y="-15.24"/>
 </instances>
 <busses>
 </busses>
@@ -7993,6 +7997,12 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="GND35" gate="1" pin="GND"/>
 <wire x1="7.62" y1="-63.5" x2="25.4" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="-63.5" x2="25.4" y2="-71.12" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND36" gate="1" pin="GND"/>
+<wire x1="88.9" y1="-12.7" x2="88.9" y2="-10.16" width="0.1524" layer="91"/>
+<pinref part="GPS" gate="G$1" pin="7"/>
+<wire x1="88.9" y1="-10.16" x2="104.14" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ATCLK3" class="0">
@@ -8054,6 +8064,11 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="P+30" gate="1" pin="+5V"/>
 <wire x1="7.62" y1="-58.42" x2="25.4" y2="-58.42" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="-58.42" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+31" gate="1" pin="+5V"/>
+<pinref part="GPS" gate="G$1" pin="8"/>
+<wire x1="99.06" y1="-12.7" x2="104.14" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="328_RX" class="0">
@@ -8120,6 +8135,30 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="J1" gate="G$1" pin="5"/>
 <wire x1="-10.16" y1="-63.5" x2="-33.02" y2="-63.5" width="0.1524" layer="91"/>
 <label x="-30.48" y="-63.5" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPS_RX" class="0">
+<segment>
+<pinref part="GPS" gate="G$1" pin="6"/>
+<wire x1="104.14" y1="-7.62" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
+<label x="91.44" y="-7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PD2(INT0)"/>
+<wire x1="25.4" y1="-2.54" x2="48.26" y2="-2.54" width="0.1524" layer="91"/>
+<label x="27.94" y="-2.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="GPS_TX" class="0">
+<segment>
+<pinref part="GPS" gate="G$1" pin="5"/>
+<wire x1="104.14" y1="-5.08" x2="88.9" y2="-5.08" width="0.1524" layer="91"/>
+<label x="91.44" y="-5.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PD3(INT1)"/>
+<wire x1="25.4" y1="-5.08" x2="48.26" y2="-5.08" width="0.1524" layer="91"/>
+<label x="27.94" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

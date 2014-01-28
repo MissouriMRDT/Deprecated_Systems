@@ -2,12 +2,12 @@ EAGLE AutoRouter Statistics:
 
 Job           : C:/Users/Zeus/Documents/GitHub/motherboard-squad/Hardware/Boards/Keenan_Board_2.0/Simple_Motherboard.brd
 
-Start at      : 17:38:06 (1/27/2014)
-End at        : 17:38:07 (1/27/2014)
+Start at      : 19:03:47 (1/27/2014)
+End at        : 19:03:48 (1/27/2014)
 Elapsed time  : 00:00:01
 
 Signals       :   152   RoutingGrid: 50 mil  Layers: 2
-Connections   :   337   predefined:  301 ( 151 Vias )
+Connections   :   337   predefined:  334 ( 184 Vias )
 
 Router memory :   79380
 
@@ -18,8 +18,8 @@ Number of Ripups  :         0         0         0         0         0
 max. Level        :         1         0         0         0         0
 max. Total        :         0         0         0         0         0
 
-Routed            :        33        33        33        33        33
-Vias              :        48        32        28        28        29
-Resolution        :    99.1 %    99.1 %    99.1 %    99.1 %    99.1 %
+Routed            :         1         1         1         1         1
+Vias              :         0         0         0         0         0
+Resolution        :    99.4 %    99.4 %    99.4 %    99.4 %    99.4 %
 
-Final             : 97.3% finished. Polygons may have fallen apart.
+Final             : 99.4% finished

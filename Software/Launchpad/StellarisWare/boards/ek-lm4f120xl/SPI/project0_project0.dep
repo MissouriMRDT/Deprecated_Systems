@@ -1,5 +1,13 @@
 Dependencies for Project 'project0', Target 'project0': (DO NOT MODIFY !)
-F (.\project0.c)(0x52D964CB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA2 -o .\rvmdk\project0.o --omf_browse .\rvmdk\project0.crf --depend .\rvmdk\project0.d)
+F (.\project0.c)(0x52E5F5A7)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA2 -o .\rvmdk\project0.o --omf_browse .\rvmdk\project0.crf --depend .\rvmdk\project0.d)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_memmap.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_ssi.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_types.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\ssi.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\sysctl.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\gpio.h)(0x52D964CD)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\pin_map.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\utils\uartstdio.h)(0x52D964D9)
 F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
 F (..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib)(0x52D9909E)()
 F (.\readme.txt)(0x52D964CB)()

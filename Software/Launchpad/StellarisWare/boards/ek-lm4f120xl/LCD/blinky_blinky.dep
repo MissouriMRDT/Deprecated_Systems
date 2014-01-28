@@ -1,0 +1,14 @@
+Dependencies for Project 'blinky', Target 'blinky': (DO NOT MODIFY !)
+F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
+F (.\lcd44780_LP.c)(0x52E7EE21)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -o .\rvmdk\lcd44780_lp.o --omf_browse .\rvmdk\lcd44780_lp.crf --depend .\rvmdk\lcd44780_lp.d)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_ints.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_types.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\inc\hw_memmap.h)(0x52D964CF)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\sysctl.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\gpio.h)(0x52D964CD)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\pin_map.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\interrupt.h)(0x52D964CD)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\driverlib\timer.h)(0x52D964CE)
+I (C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\Launchpad\StellarisWare\boards\ek-lm4f120xl\LCD\lcd44780_LP.h)(0x52E7EE21)
+F (.\main.c)(0x52E7F1E3)()
+F (.\readme.txt)(0x52E7F1E2)()

@@ -7316,6 +7316,12 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="FAN4" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
+<part name="FAN5" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
+<part name="GND51" library="supply1" deviceset="GND" device=""/>
+<part name="P+14" library="supply1" deviceset="+12V" device=""/>
+<part name="FAN6" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
+<part name="GND52" library="supply1" deviceset="GND" device=""/>
+<part name="P+15" library="supply1" deviceset="+12V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7352,6 +7358,12 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="FAN4" gate="G$1" x="111.76" y="33.02" rot="R270"/>
 <instance part="GND50" gate="1" x="109.22" y="17.78"/>
 <instance part="P+13" gate="1" x="111.76" y="22.86" rot="R180"/>
+<instance part="FAN5" gate="G$1" x="68.58" y="5.08" rot="R270"/>
+<instance part="GND51" gate="1" x="66.04" y="-10.16"/>
+<instance part="P+14" gate="1" x="68.58" y="-5.08" rot="R180"/>
+<instance part="FAN6" gate="G$1" x="88.9" y="5.08" rot="R270"/>
+<instance part="GND52" gate="1" x="86.36" y="-10.16"/>
+<instance part="P+15" gate="1" x="88.9" y="-5.08" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -7417,6 +7429,16 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <wire x1="109.22" y1="27.94" x2="109.22" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND50" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="FAN5" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="0" x2="66.04" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND51" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN6" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="0" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="GND52" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$45" class="0">
 <segment>
@@ -7470,6 +7492,16 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="FAN4" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="27.94" x2="111.76" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="P+13" gate="1" pin="+12V"/>
+</segment>
+<segment>
+<pinref part="FAN5" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="0" x2="68.58" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="P+14" gate="1" pin="+12V"/>
+</segment>
+<segment>
+<pinref part="FAN6" gate="G$1" pin="2"/>
+<wire x1="88.9" y1="0" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="P+15" gate="1" pin="+12V"/>
 </segment>
 </net>
 </nets>

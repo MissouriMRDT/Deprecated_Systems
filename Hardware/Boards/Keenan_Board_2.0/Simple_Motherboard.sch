@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6498,6 +6498,71 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+<library name="Lib_TH">
+<packages>
+<package name="H_MNTHOLE_#4">
+<circle x="0" y="0" radius="5.461" width="0.127" layer="21"/>
+<pad name="1" x="0" y="0" drill="2.9464"/>
+<text x="-3.81" y="6.35" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-7.62" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="H_MNTHOLE_#6">
+<circle x="0" y="0" radius="6.604" width="0.127" layer="21"/>
+<pad name="1" x="0" y="0" drill="3.556"/>
+<text x="-3.81" y="7.62" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-8.89" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="H_MNTHOLE_#8">
+<circle x="0" y="0" radius="7.874" width="0.127" layer="21"/>
+<pad name="1" x="0" y="0" drill="4.2164"/>
+<text x="-3.81" y="8.89" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-10.16" size="1.27" layer="25">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="MNTHOLE">
+<wire x1="0" y1="2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="2.54" width="2.54" layer="94"/>
+<text x="-5.08" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="0" y="0" visible="off" length="point" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="H_MNTHOLE" prefix="H" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="MNTHOLE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_#4" package="H_MNTHOLE_#4">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_#6" package="H_MNTHOLE_#6">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_#8" package="H_MNTHOLE_#8">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6728,6 +6793,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="P+34" library="supply1" deviceset="+5V" device=""/>
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="P+35" library="supply1" deviceset="+5V" device=""/>
+<part name="H1" library="Lib_TH" deviceset="H_MNTHOLE" device="_#4"/>
+<part name="H2" library="Lib_TH" deviceset="H_MNTHOLE" device="_#4"/>
+<part name="H3" library="Lib_TH" deviceset="H_MNTHOLE" device="_#4"/>
+<part name="H4" library="Lib_TH" deviceset="H_MNTHOLE" device="_#4"/>
 </parts>
 <sheets>
 <sheet>
@@ -6746,6 +6815,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R1" gate="G$1" x="-2.54" y="-17.78"/>
 <instance part="P+5" gate="1" x="-20.32" y="38.1"/>
 <instance part="P+27" gate="1" x="-10.16" y="-12.7"/>
+<instance part="H1" gate="G$1" x="-40.64" y="53.34"/>
+<instance part="H2" gate="G$1" x="-27.94" y="53.34"/>
+<instance part="H3" gate="G$1" x="-17.78" y="53.34"/>
+<instance part="H4" gate="G$1" x="-7.62" y="53.34"/>
 </instances>
 <busses>
 </busses>

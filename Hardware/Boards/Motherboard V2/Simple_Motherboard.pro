@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/Zeus/Documents/GitHub/motherboard-squad/Hardware/Boards/Keenan_Board_2.0/Simple_Motherboard.brd
+Job           : C:/Users/Zeus/Documents/GitHub/motherboard-squad/Hardware/Boards/Motherboard V2/Simple_Motherboard.brd
 
-Start at      : 00:21:37 (1/29/2014)
-End at        : 00:21:38 (1/29/2014)
-Elapsed time  : 00:00:00
+Start at      : 13:59:22 (1/30/2014)
+End at        : 13:59:24 (1/30/2014)
+Elapsed time  : 00:00:02
 
-Signals       :   177   RoutingGrid: 50 mil  Layers: 2
-Connections   :   397   predefined:  391 ( 229 Vias )
+Signals       :   180   RoutingGrid: 50 mil  Layers: 2
+Connections   :   414   predefined:  360 ( 219 Vias )
 
 Router memory :   63984
 
 Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:00  00:00:00  00:00:00  00:00:00  00:00:00
+Time per pass     :  00:00:01  00:00:00  00:00:00  00:00:01  00:00:00
 Number of Ripups  :         0         0         0         0         0
-max. Level        :         0         0         0         0         0
+max. Level        :         1         0         0         0         0
 max. Total        :         0         0         0         0         0
 
-Routed            :         6         6         6         6         6
-Vias              :        16        14        13        13        13
-Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :        50        50        50        50        50
+Vias              :        50        25        24        22        24
+Resolution        :    99.0 %    99.0 %    99.0 %    99.0 %    99.0 %
 
-Final             : 99.7% finished. Polygons may have fallen apart.
+Final             : 97.6% finished. Polygons may have fallen apart.

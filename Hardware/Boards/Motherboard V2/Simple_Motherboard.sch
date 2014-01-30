@@ -6953,6 +6953,21 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="LCD" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="30.48" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND40" gate="1" pin="GND"/>
+<pinref part="U$10" gate="G$1" pin="E"/>
+<wire x1="86.36" y1="17.78" x2="86.36" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="12.7" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-7.62" x2="86.36" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="LCD" gate="G$1" pin="16"/>
+<wire x1="132.08" y1="-7.62" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="86.36" y="-7.62"/>
+<pinref part="LCD" gate="G$1" pin="5"/>
+<wire x1="132.08" y1="20.32" x2="91.44" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="20.32" x2="91.44" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="12.7" x2="86.36" y2="12.7" width="0.1524" layer="91"/>
+<junction x="86.36" y="12.7"/>
+</segment>
 </net>
 <net name="TCP_SCLK" class="0">
 <segment>
@@ -7189,24 +7204,6 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="U$10" gate="G$1" pin="S"/>
 <wire x1="132.08" y1="25.4" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="3"/>
-</segment>
-</net>
-<net name="LCD_RW" class="0">
-<segment>
-<pinref part="GND40" gate="1" pin="GND"/>
-<pinref part="U$10" gate="G$1" pin="E"/>
-<wire x1="86.36" y1="17.78" x2="86.36" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="15.24" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="-7.62" x2="86.36" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="15.24" x2="88.9" y2="15.24" width="0.1524" layer="91"/>
-<junction x="86.36" y="15.24"/>
-<label x="111.76" y="20.32" size="1.778" layer="95"/>
-<wire x1="132.08" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="15.24" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="LCD" gate="G$1" pin="16"/>
-<wire x1="132.08" y1="-7.62" x2="86.36" y2="-7.62" width="0.1524" layer="91"/>
-<junction x="86.36" y="-7.62"/>
-<pinref part="LCD" gate="G$1" pin="5"/>
 </segment>
 </net>
 </nets>

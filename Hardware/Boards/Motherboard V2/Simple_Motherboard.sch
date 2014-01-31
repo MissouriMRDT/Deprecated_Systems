@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7334,24 +7334,24 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="R1" gate="G$1" x="-2.54" y="-17.78"/>
 <instance part="P+5" gate="1" x="-20.32" y="38.1"/>
 <instance part="P+27" gate="1" x="-10.16" y="-12.7"/>
-<instance part="H1" gate="G$1" x="-40.64" y="53.34"/>
-<instance part="H2" gate="G$1" x="-27.94" y="53.34"/>
-<instance part="H3" gate="G$1" x="-17.78" y="53.34"/>
-<instance part="H4" gate="G$1" x="-7.62" y="53.34"/>
-<instance part="FAN1" gate="G$1" x="50.8" y="33.02" rot="R270"/>
+<instance part="H1" gate="G$1" x="66.04" y="15.24"/>
+<instance part="H2" gate="G$1" x="78.74" y="15.24"/>
+<instance part="H3" gate="G$1" x="88.9" y="15.24"/>
+<instance part="H4" gate="G$1" x="99.06" y="15.24"/>
+<instance part="FAN1" gate="G$1" x="-40.64" y="-53.34" rot="R270"/>
 <instance part="12V" gate="G$1" x="-43.18" y="0"/>
 <instance part="P+9" gate="1" x="-30.48" y="7.62"/>
-<instance part="GND47" gate="1" x="48.26" y="17.78"/>
-<instance part="P+10" gate="1" x="50.8" y="22.86" rot="R180"/>
-<instance part="FAN2" gate="G$1" x="71.12" y="33.02" rot="R270"/>
-<instance part="GND48" gate="1" x="68.58" y="17.78"/>
-<instance part="P+11" gate="1" x="71.12" y="22.86" rot="R180"/>
-<instance part="FAN3" gate="G$1" x="91.44" y="33.02" rot="R270"/>
-<instance part="GND49" gate="1" x="88.9" y="17.78"/>
-<instance part="P+12" gate="1" x="91.44" y="22.86" rot="R180"/>
-<instance part="FAN4" gate="G$1" x="111.76" y="33.02" rot="R270"/>
-<instance part="GND50" gate="1" x="109.22" y="17.78"/>
-<instance part="P+13" gate="1" x="111.76" y="22.86" rot="R180"/>
+<instance part="GND47" gate="1" x="-43.18" y="-68.58"/>
+<instance part="P+10" gate="1" x="-40.64" y="-63.5" rot="R180"/>
+<instance part="FAN2" gate="G$1" x="-20.32" y="-53.34" rot="R270"/>
+<instance part="GND48" gate="1" x="-22.86" y="-68.58"/>
+<instance part="P+11" gate="1" x="-20.32" y="-63.5" rot="R180"/>
+<instance part="FAN3" gate="G$1" x="0" y="-53.34" rot="R270"/>
+<instance part="GND49" gate="1" x="-2.54" y="-68.58"/>
+<instance part="P+12" gate="1" x="0" y="-63.5" rot="R180"/>
+<instance part="FAN4" gate="G$1" x="20.32" y="-53.34" rot="R270"/>
+<instance part="GND50" gate="1" x="17.78" y="-68.58"/>
+<instance part="P+13" gate="1" x="20.32" y="-63.5" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -7399,22 +7399,22 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 </segment>
 <segment>
 <pinref part="FAN1" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="27.94" x2="48.26" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="-58.42" x2="-43.18" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND47" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="FAN2" gate="G$1" pin="1"/>
-<wire x1="68.58" y1="27.94" x2="68.58" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="-58.42" x2="-22.86" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND48" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="FAN3" gate="G$1" pin="1"/>
-<wire x1="88.9" y1="27.94" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-58.42" x2="-2.54" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND49" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="FAN4" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="27.94" x2="109.22" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="-58.42" x2="17.78" y2="-66.04" width="0.1524" layer="91"/>
 <pinref part="GND50" gate="1" pin="GND"/>
 </segment>
 </net>
@@ -7453,22 +7453,22 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 </segment>
 <segment>
 <pinref part="FAN1" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="27.94" x2="50.8" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="-58.42" x2="-40.64" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="P+10" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN2" gate="G$1" pin="2"/>
-<wire x1="71.12" y1="27.94" x2="71.12" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="-58.42" x2="-20.32" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="P+11" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN3" gate="G$1" pin="2"/>
-<wire x1="91.44" y1="27.94" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="0" y1="-58.42" x2="0" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="P+12" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN4" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="27.94" x2="111.76" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="-58.42" x2="20.32" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="P+13" gate="1" pin="+12V"/>
 </segment>
 </net>

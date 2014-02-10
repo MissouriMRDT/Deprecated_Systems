@@ -449,6 +449,14 @@ Void EK_LM4F120XL_initUART()
     GPIOPinConfigure(GPIO_PA1_U0TX);
     GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 
+    UART_init();
+
+    /* Enable and configure the peripherals used by the uart. */
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART1);
+	GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+	GPIOPinConfigure(GPIO_PB0_U1RX);
+	GPIOPinConfigure(GPIO_PB1_U1TX);
+
     /* Initialize the UART driver */
     UART_init();
 }

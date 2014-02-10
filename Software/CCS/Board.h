@@ -75,6 +75,13 @@ extern "C" {
 #define Board_USBDEVICE             EK_LM4F120XL_USBDEVICE
 
 #define Board_UART0                 EK_LM4F120XL_UART0
+#define Board_UART1                 EK_LM4F120XL_UART1
+#define Board_UART2                 EK_LM4F120XL_UART2
+#define Board_UART3                 EK_LM4F120XL_UART3
+#define Board_UART4                 EK_LM4F120XL_UART4
+#define Board_UART5                 EK_LM4F120XL_UART5
+#define Board_UART6                 EK_LM4F120XL_UART6
+#define Board_UART8                 EK_LM4F120XL_UART8
 
 #define Board_WATCHDOG0             EK_LM4F120XL_WATCHDOG0
 

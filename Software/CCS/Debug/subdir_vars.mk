@@ -7,19 +7,19 @@ CMD_SRCS += \
 ../EK_LM4F120XL.cmd 
 
 CFG_SRCS += \
-../empty.cfg 
+../main.cfg 
 
 C_SRCS += \
 ../EK_LM4F120XL.c \
-../empty.c 
+../main.c 
 
 OBJS += \
 ./EK_LM4F120XL.obj \
-./empty.obj 
+./main.obj 
 
 C_DEPS += \
 ./EK_LM4F120XL.pp \
-./empty.pp 
+./main.pp 
 
 GEN_MISC_DIRS += \
 ./configPkg/ 
@@ -43,15 +43,15 @@ GEN_MISC_DIRS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "EK_LM4F120XL.pp" \
-"empty.pp" 
+"main.pp" 
 
 OBJS__QUOTED += \
 "EK_LM4F120XL.obj" \
-"empty.obj" 
+"main.obj" 
 
 C_SRCS__QUOTED += \
 "../EK_LM4F120XL.c" \
-"../empty.c" 
+"../main.c" 
 
 GEN_CMDS__FLAG += \
 -l"./configPkg/linker.cmd" 

@@ -81,7 +81,7 @@ dmtimer_Timer_asm.obj: timers/dmtimer/Timer_asm.sv7M makefile
 	$(ASSEMBLE) --output_file=dmtimer_Timer_asm.obj
 
 
-BIOS.obj: BIOS.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Timer.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Event.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c family/arm/m3/Hwi.c family/arm/m3/TaskSupport.c family/arm/lm4/TimestampProvider.c family/arm/lm4/Timer.c heaps/HeapMem.c gates/GateHwi.c gates/GateMutex.c utils/Load.c utils/Load_CPU.c makefile
+BIOS.obj: BIOS.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Timer.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Event.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c family/arm/m3/Hwi.c family/arm/m3/TaskSupport.c family/arm/lm4/TimestampProvider.c family/arm/lm4/Timer.c heaps/HeapMem.c io/DEV.c io/GIO.c io/IOM_stub.c gates/GateHwi.c gates/GateMutex.c xdcruntime/SemThreadSupport.c utils/Load.c utils/Load_CPU.c makefile
 	@-$(call RM, $@)
 	@echo clem4f $< ...
 	@$(CC) $(BIOS_DEFS) $(XOPTS) $(BIOS_INC) \
@@ -104,8 +104,12 @@ BIOS.obj: BIOS.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Timer.c knl/Clo
 	$(BIOS_ROOT)family/arm/lm4/TimestampProvider.c \
 	$(BIOS_ROOT)family/arm/lm4/Timer.c \
 	$(BIOS_ROOT)heaps/HeapMem.c \
+	$(BIOS_ROOT)io/DEV.c \
+	$(BIOS_ROOT)io/GIO.c \
+	$(BIOS_ROOT)io/IOM_stub.c \
 	$(BIOS_ROOT)gates/GateHwi.c \
 	$(BIOS_ROOT)gates/GateMutex.c \
+	$(BIOS_ROOT)xdcruntime/SemThreadSupport.c \
 	$(BIOS_ROOT)utils/Load.c \
 	$(BIOS_ROOT)utils/Load_CPU.c \
 

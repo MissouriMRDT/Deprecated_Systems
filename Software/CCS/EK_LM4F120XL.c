@@ -426,15 +426,59 @@ UARTTiva_Object uartTivaObjects[EK_LM4F120XL_UARTCOUNT];
 
 /* UART configuration structure */
 const UARTTiva_HWAttrs uartTivaHWAttrs[EK_LM4F120XL_UARTCOUNT] = {
-    {UART0_BASE, INT_UART0}, /* EK_LM4F120XL_UART0 */
+    {UART0_BASE, INT_UART0},
+    {UART1_BASE, INT_UART1},
+    {UART2_BASE, INT_UART2 },
+    {UART3_BASE, INT_UART3},
+    {UART4_BASE, INT_UART4},
+    {UART5_BASE, INT_UART5},
+    {UART7_BASE, INT_UART7},
+
 };
 
 const UART_Config UART_config[] = {
-    {
+	// UART 0
+	{
         &UARTTiva_fxnTable,
         &uartTivaObjects[0],
         &uartTivaHWAttrs[0]
     },
+    // UART 1
+    {
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[1],
+		&uartTivaHWAttrs[1]
+    },
+    // UART 2
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[2],
+		&uartTivaHWAttrs[2]
+	},
+	// UART 3
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[3],
+		&uartTivaHWAttrs[3]
+	},
+	// UART 4
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[4],
+		&uartTivaHWAttrs[4]
+	},
+	// UART 5
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[5],
+		&uartTivaHWAttrs[5]
+	},
+	// UART 7
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[7],
+		&uartTivaHWAttrs[7]
+	},
     {NULL, NULL, NULL}
 };
 
@@ -443,22 +487,48 @@ const UART_Config UART_config[] = {
  */
 Void EK_LM4F120XL_initUART()
 {
-    /* Enable and configure the peripherals used by the uart. */
+    /* Enable and configure the peripherals used by the uart0. */
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
     GPIOPinConfigure(GPIO_PA0_U0RX);
     GPIOPinConfigure(GPIO_PA1_U0TX);
     GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 
-    UART_init();
-
-    /* Enable and configure the peripherals used by the uart. */
+    /* Enable and configure the peripherals used by the uart1. */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART1);
-	GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 	GPIOPinConfigure(GPIO_PB0_U1RX);
 	GPIOPinConfigure(GPIO_PB1_U1TX);
+	GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+
+	/* Enable and configure the peripherals used by the uart2. */
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART2);
+	GPIOPinConfigure(GPIO_PD6_U2RX);
+	GPIOPinConfigure(GPIO_PD7_U2TX);
+	GPIOPinTypeUART(GPIO_PORTD_BASE, GPIO_PIN_6 | GPIO_PIN_7);
+
+	/* Enable and configure the peripherals used by the uart3 and uart4. */
+	//UART 3
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART3);
+	GPIOPinConfigure(GPIO_PC6_U3RX);
+	GPIOPinConfigure(GPIO_PC7_U3TX);
+	//UART 4
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART4);
+	GPIOPinConfigure(GPIO_PC4_U4RX);
+	GPIOPinConfigure(GPIO_PC5_U4TX);
+	GPIOPinTypeUART(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7);
+
+	/* Enable and configure the peripherals used by the uart5. */
+	//UART 5
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART5);
+	GPIOPinConfigure(GPIO_PE4_U5RX);
+	GPIOPinConfigure(GPIO_PE5_U5TX);
+	//UART 7
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7	);
+	GPIOPinConfigure(GPIO_PE0_U7RX);
+	GPIOPinConfigure(GPIO_PE1_U7TX);
+	GPIOPinTypeUART(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4 | GPIO_PIN_5);
 
     /* Initialize the UART driver */
-    UART_init();
+	UART_init();
 }
 #endif /* TI_DRIVERS_UART_INCLUDED */
 

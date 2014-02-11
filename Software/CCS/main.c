@@ -26,24 +26,21 @@ Void echoFxn(UArg arg0, UArg arg1)
 {
     UART_Handle uart;
     UART_Params uartParams;
-    const Char echoPrompt[] = "\fEchoing characters:\r\n";
 
     /* Create a UART with data processing off. */
     UART_Params_init(&uartParams);
     uartParams.readReturnMode = UART_RETURN_FULL;
     uartParams.readEcho = UART_ECHO_OFF;
     uartParams.baudRate = 9600;
-    uart = UART_open(1, &uartParams);
+    uart = UART_open(2, &uartParams);
 
     if (uart == NULL) {
         System_abort("Error opening the UART");
     }
 
-    UART_write(uart, echoPrompt, sizeof(echoPrompt));
-
     /* Loop forever echoing */
     while (TRUE) {
-        UART_write(uart, "hello", 5);
+        UART_write(uart, "hello\n", 6);
     }
 }
 

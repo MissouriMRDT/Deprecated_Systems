@@ -432,6 +432,7 @@ const UARTTiva_HWAttrs uartTivaHWAttrs[EK_LM4F120XL_UARTCOUNT] = {
     {UART3_BASE, INT_UART3},
     {UART4_BASE, INT_UART4},
     {UART5_BASE, INT_UART5},
+    {UART6_BASE, INT_UART6},
     {UART7_BASE, INT_UART7},
 
 };
@@ -472,6 +473,12 @@ const UART_Config UART_config[] = {
 		&UARTTiva_fxnTable,
 		&uartTivaObjects[5],
 		&uartTivaHWAttrs[5]
+	},
+	// UART 6
+	{
+		&UARTTiva_fxnTable,
+		&uartTivaObjects[6],
+		&uartTivaHWAttrs[6]
 	},
 	// UART 7
 	{
@@ -521,8 +528,9 @@ Void EK_LM4F120XL_initUART()
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART5);
 	GPIOPinConfigure(GPIO_PE4_U5RX);
 	GPIOPinConfigure(GPIO_PE5_U5TX);
+
 	//UART 7
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7	);
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7);
 	GPIOPinConfigure(GPIO_PE0_U7RX);
 	GPIOPinConfigure(GPIO_PE1_U7TX);
 	GPIOPinTypeUART(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4 | GPIO_PIN_5);

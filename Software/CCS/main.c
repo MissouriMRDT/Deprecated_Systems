@@ -32,7 +32,7 @@ Void echoFxn(UArg arg0, UArg arg1)
     uartParams.readReturnMode = UART_RETURN_FULL;
     uartParams.readEcho = UART_ECHO_OFF;
     uartParams.baudRate = 9600;
-    uart = UART_open(2, &uartParams);
+    uart = UART_open(7, &uartParams);
 
     if (uart == NULL) {
         System_abort("Error opening the UART");

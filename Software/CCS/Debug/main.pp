@@ -177,6 +177,10 @@ main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driver
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/watchdog.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/SPI.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/UART.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ssi.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h
+main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h
 main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
 
@@ -357,5 +361,9 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/watchdog.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/SPI.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/UART.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ssi.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h: 
+C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h: 
 ../Board.h: 
 ../EK_LM4F120XL.h: 

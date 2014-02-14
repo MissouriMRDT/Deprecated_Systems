@@ -25,14 +25,10 @@ void setup() {
    while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
-
-
   // give the Ethernet shield a second to initialize:
   delay(1000);
-  Serial.println("connecting...");
-  
+  //Attempt connection
   while(!client.connect(server, port));
-  Serial.println("connected!\n");
 }
 
 void loop()
@@ -55,9 +51,7 @@ void loop()
 
   // if the server's disconnected, stop the client:
   if (!client.connected()) {
-    Serial.println("\ndisconnecting\n");
     client.stop();
-    Serial.println("Reconnecting...\n");
     while(!client.connect(server, port));
   }
 }

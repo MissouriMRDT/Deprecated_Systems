@@ -14,6 +14,8 @@ net.createServer(function (socket) {
  
   // Put this new client in the list
   clients.push(socket);
+  
+  client[0].write('d');
  
   // Handle incoming messages from clients.
   socket.on('data', function (data) {

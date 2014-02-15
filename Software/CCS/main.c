@@ -66,7 +66,6 @@ Void echoFxn(UArg arg0, UArg arg1)
 		System_flush();
 		UART_write(uart2, &input, 1);
     }
-
 }
 
 /*

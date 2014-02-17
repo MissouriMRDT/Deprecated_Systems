@@ -8,7 +8,13 @@
 #include <xdc/std.h>
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle echo;
+extern const ti_sysbios_knl_Task_Handle uart_1;
+
+#include <ti/sysbios/knl/Task.h>
+extern const ti_sysbios_knl_Task_Handle uart_2;
+
+#include <ti/sysbios/knl/Queue.h>
+extern const ti_sysbios_knl_Queue_Handle queue0;
 
 #define TI_DRIVERS_EMAC_INCLUDED 0
 

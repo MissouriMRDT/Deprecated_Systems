@@ -148,7 +148,7 @@
  */
 xdc_runtime_Startup__EXECFXN__C = 1;
 xdc_runtime_Startup__RESETFXN__C = 1;
-TSK_idle = ti_sysbios_knl_Task_Object__table__V + 80;
+TSK_idle = ti_sysbios_knl_Task_Object__table__V + 160;
 
 
 SECTIONS

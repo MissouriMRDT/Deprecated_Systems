@@ -30,7 +30,7 @@ void init_mux_pins()
 
 }
 
-// Function to change mux1 to various
+// Function to change mux 1 to
 // RS-485 transceivers below
 //
 // 1, 8, 9
@@ -51,13 +51,13 @@ void mux_1( int rs_485_transceiver)
 	    	break;
 	    default :
 	    	// Not a valid input
-	    	System_printf("Not a vaid MUX_1 Location");
+	    	System_printf("Not a vaid MUX_1 Transceiver");
 	    	System_flush();
 	    	break;
 	}
 }
 
-// Function to change mux2 to various
+// Function to change mux 2 to
 // RS-485 transceivers below
 //
 // 2, 7, 10
@@ -78,7 +78,119 @@ void mux_2( int rs_485_transceiver)
 	        break;
 	    default :
 		    // Not a valid input
-		    System_printf("Not a vaid MUX_1 Location");
+		    System_printf("Not a vaid MUX_2 Transceiver");
+		    System_flush();
+		    break;
+	}
+}
+
+// Function to change mux 3 to
+// RS-485 transceivers below
+//
+// 3, 6, 11
+//
+void mux_3( int rs_485_transceiver)
+{
+	switch(rs_485_transceiver){
+	    case 3  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2 | GPIO_PIN_3), (0));
+	        break;
+	    case 6  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (~0));
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (0));
+	        break;
+	    case 11 :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (0));
+		    GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (~0));
+	        break;
+	    default :
+		    // Not a valid input
+		    System_printf("Not a vaid MUX_3 Transceiver");
+		    System_flush();
+		    break;
+	}
+}
+
+// Function to change mux 4 to
+// RS-485 transceivers below
+//
+// 4, 5, 12
+//
+void mux_4( int rs_485_transceiver)
+{
+	switch(rs_485_transceiver){
+	    case 4  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_4 | GPIO_PIN_5), (0));
+	        break;
+	    case 5  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_4), (~0));
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_5), (0));
+	        break;
+	    case 12 :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_4), (0));
+		    GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_5), (~0));
+	        break;
+	    default :
+		    // Not a valid input
+		    System_printf("Not a vaid MUX_4 Transceiver");
+		    System_flush();
+		    break;
+	}
+}
+
+// Function to change mux 5 to
+// RS-485 transceivers below
+//
+// 13, 14, 15, AT328
+//
+void mux_5( int rs_485_transceiver)
+{
+	switch(rs_485_transceiver){
+	    case 4  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6 | GPIO_PIN_7), (0));
+	        break;
+	    case 5  :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (~0));
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (0));
+	        break;
+	    case 12 :
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (0));
+		    GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (~0));
+	        break;
+	    case 328 :
+			GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (0));
+			GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (~0));
+			break;
+	    default :
+		    // Not a valid input
+		    System_printf("Not a vaid MUX_5 Transceiver");
+		    System_flush();
+		    break;
+	}
+}
+
+// Function to change mux 7 to
+// RS-485 transceivers below
+//
+// 16, 17, 18
+//
+void mux_7( int rs_485_transceiver)
+{
+	switch(rs_485_transceiver){
+	    case 16  :
+	        GPIOPinWrite(GPIO_PORTD_BASE, (GPIO_PIN_0 | GPIO_PIN_1), (0));
+	        break;
+	    case 17  :
+	        GPIOPinWrite(GPIO_PORTD_BASE, (GPIO_PIN_0), (~0));
+	        GPIOPinWrite(GPIO_PORTD_BASE, (GPIO_PIN_1), (0));
+	        break;
+	    case 18 :
+	        GPIOPinWrite(GPIO_PORTD_BASE, (GPIO_PIN_0), (0));
+		    GPIOPinWrite(GPIO_PORTD_BASE, (GPIO_PIN_1), (~0));
+	        break;
+	    default :
+		    // Not a valid input
+		    System_printf("Not a vaid MUX_7 Transceiver");
 		    System_flush();
 		    break;
 	}

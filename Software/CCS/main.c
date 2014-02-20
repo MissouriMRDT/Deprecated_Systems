@@ -100,6 +100,8 @@ Int main(Void)
     //Queue_Handle myQ;
 
     mux_1( 9 );
+    mux_2( 7 );
+    mux_3( 6 );
 
     BIOS_start();
 

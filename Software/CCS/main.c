@@ -49,6 +49,7 @@ Void uart1(UArg arg0, UArg arg1)
 
     /* Loop forever echoing */
     while (TRUE) {
+    	UART_write(uart1, "h", 1);
 		UART_read(uart1, &input, 1);
 		System_printf("Uart1: %x\n",input);
 		System_flush();
@@ -85,7 +86,7 @@ Int main(Void)
     Board_initGPIO();
     Board_initUART();
 
-    // Keenan Inits
+    // Custom Inits
     init_mux_pins();
     init_LCD();
 
@@ -100,6 +101,13 @@ Int main(Void)
     } Rec;
 
     //Queue_Handle myQ;
+
+    mux_1( 9 );
+    mux_2( 2 );
+    mux_3( 3 );
+    mux_4( 4 );
+    mux_5( 13 );
+    mux_7( 16 );
 
     BIOS_start();
 

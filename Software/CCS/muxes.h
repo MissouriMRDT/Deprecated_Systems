@@ -146,14 +146,14 @@ void mux_4( int rs_485_transceiver)
 void mux_5( int rs_485_transceiver)
 {
 	switch(rs_485_transceiver){
-	    case 4  :
+	    case 13  :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6 | GPIO_PIN_7), (0));
 	        break;
-	    case 5  :
+	    case 14  :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (~0));
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (0));
 	        break;
-	    case 12 :
+	    case 15 :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (0));
 		    GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (~0));
 	        break;

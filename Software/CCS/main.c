@@ -27,6 +27,7 @@
 
 // Keenan Include File
 #include "muxes.h"
+#include "lcd.h"
 
 Void uart1(UArg arg0, UArg arg1)
 {
@@ -62,19 +63,19 @@ Void uart2(UArg arg0, UArg arg1)
     //rec.data = "a";
 
 	// Start UART1
-		UART_Params_init(&uartParams5);
-		uartParams5.readReturnMode = UART_RETURN_FULL;
-		uartParams5.readEcho = UART_ECHO_OFF;
-		uartParams5.baudRate = 9600;
-		uart5 = UART_open(5, &uartParams5);
+	UART_Params_init(&uartParams5);
+	uartParams5.readReturnMode = UART_RETURN_FULL;
+	uartParams5.readEcho = UART_ECHO_OFF;
+	uartParams5.baudRate = 9600;
+	uart5 = UART_open(5, &uartParams5);
 
-		if (uart5 == NULL) {
-			System_abort("Error opening the UART2");
+	if (uart5 == NULL) {
+		System_abort("Error opening the UART2");
+	}
+
+	while (TRUE) {
+			UART_write(uart5, "h", 1);
 		}
-
-		while (TRUE) {
-				UART_write(uart5, "h", 1);
-		    }
 }
 
 Int main(Void)
@@ -86,6 +87,7 @@ Int main(Void)
 
     // Keenan Inits
     init_mux_pins();
+    init_LCD();
 
     GPIO_write(Board_LED0, Board_LED_ON);
 
@@ -98,10 +100,6 @@ Int main(Void)
     } Rec;
 
     //Queue_Handle myQ;
-
-    mux_1( 9 );
-    mux_2( 7 );
-    mux_3( 6 );
 
     BIOS_start();
 

@@ -187,6 +187,7 @@ main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h
 main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
 main.obj: ../muxes.h
+main.obj: ../lcd.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -375,3 +376,4 @@ C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h:
 ../Board.h: 
 ../EK_LM4F120XL.h: 
 ../muxes.h: 
+../lcd.h: 

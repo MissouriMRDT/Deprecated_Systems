@@ -99,6 +99,8 @@ Int main(Void)
 
     //Queue_Handle myQ;
 
+    mux_1( 9 );
+
     BIOS_start();
 
     return (0);

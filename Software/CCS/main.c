@@ -56,19 +56,25 @@ Void uart1(UArg arg0, UArg arg1)
 
 Void uart2(UArg arg0, UArg arg1)
 {
-    UART_Handle uart2;
-    UART_Params uartParams2;
+    UART_Handle uart5;
+    UART_Params uartParams5;
+
+    //rec.data = "a";
 
 	// Start UART1
-		UART_Params_init(&uartParams2);
-		uartParams2.readReturnMode = UART_RETURN_FULL;
-		uartParams2.readEcho = UART_ECHO_OFF;
-		uartParams2.baudRate = 9600;
-		uart2 = UART_open(2, &uartParams2);
+		UART_Params_init(&uartParams5);
+		uartParams5.readReturnMode = UART_RETURN_FULL;
+		uartParams5.readEcho = UART_ECHO_OFF;
+		uartParams5.baudRate = 9600;
+		uart5 = UART_open(5, &uartParams5);
 
-		if (uart2 == NULL) {
+		if (uart5 == NULL) {
 			System_abort("Error opening the UART2");
 		}
+
+		while (TRUE) {
+				UART_write(uart5, "h", 1);
+		    }
 }
 
 /*
@@ -92,7 +98,7 @@ Int main(Void)
      Char data;
     } Rec;
 
-    Queue_Handle myQ;
+    //Queue_Handle myQ;
 
     /* Start BIOS */
     BIOS_start();

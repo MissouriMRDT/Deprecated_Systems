@@ -24,7 +24,7 @@ extern const ti_sysbios_knl_Queue_Handle queue0;
 
 #define TI_DRIVERS_SDSPI_INCLUDED 0
 
-#define TI_DRIVERS_SPI_INCLUDED 0
+#define TI_DRIVERS_SPI_INCLUDED 1
 
 #define TI_DRIVERS_UART_INCLUDED 1
 

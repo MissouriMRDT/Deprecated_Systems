@@ -32,7 +32,7 @@
       <priority>1</priority>
     </metaArgs>
   </loggers>
-  <modMap-length>58</modMap-length>
+  <modMap-length>59</modMap-length>
   <modMap key="xdc.runtime.Assert">
     <id>32770</id>
     <logger>null</logger>
@@ -215,6 +215,11 @@
   </modMap>
   <modMap key="ti.drivers.UART">
     <id>13</id>
+    <logger>null</logger>
+    <diagsMask>0000000000000000</diagsMask>
+  </modMap>
+  <modMap key="ti.drivers.SPI">
+    <id>14</id>
     <logger>null</logger>
     <diagsMask>0000000000000000</diagsMask>
   </modMap>

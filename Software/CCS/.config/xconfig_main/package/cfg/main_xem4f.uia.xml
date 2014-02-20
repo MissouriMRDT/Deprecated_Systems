@@ -1687,6 +1687,12 @@
       <packageBase>C:/ti/tirtos_1_21_00_09/packages/ti/drivers/</packageBase>
       <cFileName>UART.c</cFileName>
    </modIdMap>
+   <modIdMap id="14">
+      <moduleName>ti.drivers.SPI</moduleName>
+      <packageVersion>1, 0, 0</packageVersion>
+      <packageBase>C:/ti/tirtos_1_21_00_09/packages/ti/drivers/</packageBase>
+      <cFileName>SPI.c</cFileName>
+   </modIdMap>
    <modIdMap id="32819">
       <moduleName>xdc.runtime.knl.Sync</moduleName>
       <packageVersion>1, 0, 0</packageVersion>
@@ -1711,13 +1717,13 @@
       <packageBase>C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/knl/</packageBase>
       <cFileName>SyncSemThread.c</cFileName>
    </modIdMap>
-   <modIdMap id="14">
+   <modIdMap id="15">
       <moduleName>xdc.runtime.knl.Sync_Proxy</moduleName>
       <packageVersion>1, 0, 0</packageVersion>
       <packageBase>C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/knl/</packageBase>
       <cFileName>null</cFileName>
    </modIdMap>
-   <modIdMap id="15">
+   <modIdMap id="16">
       <moduleName>xdc.runtime.knl.SemThread_Proxy</moduleName>
       <packageVersion>1, 0, 0</packageVersion>
       <packageBase>C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/knl/</packageBase>
@@ -1801,13 +1807,13 @@
       <packageBase>C:/ti/tirtos_1_21_00_09/products/uia_1_04_00_06/packages/ti/uia/runtime/</packageBase>
       <cFileName>null</cFileName>
    </modIdMap>
-   <modIdMap id="16">
+   <modIdMap id="17">
       <moduleName>ti.uia.runtime.LogSync_CpuTimestampProxy</moduleName>
       <packageVersion>1, 0, 0, 2</packageVersion>
       <packageBase>C:/ti/tirtos_1_21_00_09/products/uia_1_04_00_06/packages/ti/uia/runtime/</packageBase>
       <cFileName>null</cFileName>
    </modIdMap>
-   <modIdMap id="17">
+   <modIdMap id="18">
       <moduleName>ti.uia.runtime.LogSync_GlobalTimestampProxy</moduleName>
       <packageVersion>1, 0, 0, 2</packageVersion>
       <packageBase>C:/ti/tirtos_1_21_00_09/products/uia_1_04_00_06/packages/ti/uia/runtime/</packageBase>

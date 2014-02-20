@@ -421,6 +421,9 @@ digraph configuration {
         ti_drivers_UART [style=filled,fillcolor=lightgray, label="UART"];
         ti_drivers__top -> ti_drivers_UART[style=invis];
         ti_drivers_UART -> ti_drivers__bot[style=invis];
+        ti_drivers_SPI [style=filled,fillcolor=lightgray, label="SPI"];
+        ti_drivers__top -> ti_drivers_SPI[style=invis];
+        ti_drivers_SPI -> ti_drivers__bot[style=invis];
     }
     subgraph cluster40 {
         label="";

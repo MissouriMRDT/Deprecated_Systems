@@ -2,9 +2,6 @@
 //
 // Keenan Johnson 2014
 
-/*
- *  ======== empty.c ========
- */
 /* XDCtools Header files */
 #include <xdc/std.h>
 #include <xdc/cfg/global.h>
@@ -27,6 +24,9 @@
 
 /* Board Header file */
 #include "Board.h"
+
+// Keenan Include File
+#include "muxes.h"
 
 Void uart1(UArg arg0, UArg arg1)
 {
@@ -77,17 +77,16 @@ Void uart2(UArg arg0, UArg arg1)
 		    }
 }
 
-/*
- *  ======== main ========
- */
 Int main(Void)
 {
-    /* Call board init functions */
+	// TI RTOS Inits
     Board_initGeneral();
     Board_initGPIO();
     Board_initUART();
 
-    /* Turn on user LED */
+    // Keenan Inits
+    init_mux_pins();
+
     GPIO_write(Board_LED0, Board_LED_ON);
 
     System_printf("Rover booting");
@@ -100,7 +99,6 @@ Int main(Void)
 
     //Queue_Handle myQ;
 
-    /* Start BIOS */
     BIOS_start();
 
     return (0);

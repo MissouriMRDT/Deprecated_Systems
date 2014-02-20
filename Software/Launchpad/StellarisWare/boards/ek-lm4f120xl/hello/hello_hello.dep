@@ -1,27 +1,0 @@
-Dependencies for Project 'hello', Target 'hello': (DO NOT MODIFY !)
-F (.\hello.c)(0x52DD6EEF)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\hello.o --omf_browse .\rvmdk\hello.crf --depend .\rvmdk\hello.d)
-I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
-I (..\..\..\inc/hw_types.h)(0x52D964CF)
-I (..\..\..\driverlib/debug.h)(0x52D964CD)
-I (..\..\..\driverlib/fpu.h)(0x52D964CD)
-I (..\..\..\driverlib/gpio.h)(0x52D964CD)
-I (..\..\..\driverlib/pin_map.h)(0x52D964CE)
-I (..\..\..\driverlib/rom.h)(0x52D964CE)
-I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
-I (..\..\..\utils/uartstdio.h)(0x52D964D9)
-F (.\startup_rvmdk.S)(0x52D964CB)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
-F (..\..\..\utils\uartstdio.c)(0x52D964D9)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR -DTARGET_IS_BLIZZARD_RA1 -o .\rvmdk\uartstdio.o --omf_browse .\rvmdk\uartstdio.crf --depend .\rvmdk\uartstdio.d)
-I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x52852AFC)
-I (..\..\..\inc/hw_ints.h)(0x52D964CF)
-I (..\..\..\inc/hw_memmap.h)(0x52D964CF)
-I (..\..\..\inc/hw_types.h)(0x52D964CF)
-I (..\..\..\inc/hw_uart.h)(0x52D964CF)
-I (..\..\..\driverlib/debug.h)(0x52D964CD)
-I (..\..\..\driverlib/interrupt.h)(0x52D964CD)
-I (..\..\..\driverlib/rom.h)(0x52D964CE)
-I (..\..\..\driverlib/rom_map.h)(0x52D964CE)
-I (..\..\..\driverlib/sysctl.h)(0x52D964CE)
-I (..\..\..\driverlib/uart.h)(0x52D964CE)
-I (..\..\..\utils/uartstdio.h)(0x52D964D9)
-F (..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib)(0x52D9909E)()
-F (.\readme.txt)(0x52D964CB)()

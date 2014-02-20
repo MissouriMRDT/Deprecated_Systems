@@ -1,9 +1,0 @@
---cpu Cortex-M4.fp
-".\rvmdk\project0.o"
-".\rvmdk\startup_rvmdk.o"
-"..\..\..\driverlib\rvmdk-cm4f\driverlib-cm4f.lib"
---library_type=microlib --strict --scatter "project0.sct"
-
---entry Reset_Handler --summary_stderr --info summarysizes --map --xref --callgraph --symbols
---info sizes --info totals --info unused --info veneers
---list ".\rvmdk\project0.map" -o .\rvmdk\project0.axf

@@ -131,6 +131,8 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h
@@ -162,6 +164,7 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IGateProvider.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/BIOS__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/GPIO.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/ENV.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdbool.h
@@ -177,8 +180,16 @@ main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driver
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/watchdog.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/SPI.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/UART.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ssi.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h
+main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h
 main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
+main.obj: ../muxes.h
+main.obj: ../lcd.h
+main.obj: ../tcp.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -311,6 +322,8 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h:
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h: 
@@ -342,6 +355,7 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h:
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IGateProvider.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/BIOS__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/package/BIOS_RtsGateProxy.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/GPIO.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/ENV.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdbool.h: 
@@ -357,5 +371,13 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/watchdog.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/SPI.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/UART.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ssi.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h: 
+C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h: 
 ../Board.h: 
 ../EK_LM4F120XL.h: 
+../muxes.h: 
+../lcd.h: 
+../tcp.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 

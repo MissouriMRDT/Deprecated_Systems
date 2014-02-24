@@ -21,6 +21,7 @@
 #include <inc/hw_types.h>
 #include "driverlib/sysctl.h"
 #include <ti/drivers/Watchdog.h>
+#include <ti/drivers/SPI.h>
 
 /* Board Header file */
 #include "Board.h"
@@ -28,6 +29,7 @@
 // Keenan Include File
 #include "muxes.h"
 #include "lcd.h"
+#include "tcp.h"
 
 Void uart1(UArg arg0, UArg arg1)
 {
@@ -49,33 +51,38 @@ Void uart1(UArg arg0, UArg arg1)
 
     /* Loop forever echoing */
     while (TRUE) {
-    	UART_write(uart1, "h", 1);
-		UART_read(uart1, &input, 1);
-		System_printf("Uart1: %x\n",input);
-		System_flush();
+    	UART_write(uart1, "UART1", 5);
+		//UART_read(uart1, &input, 1);
+		//System_printf("Uart1: %x\n",input);
+		//System_flush();
     }
 }
 
 Void uart2(UArg arg0, UArg arg1)
 {
-    UART_Handle uart5;
-    UART_Params uartParams5;
+    UART_Handle uart7;
+    UART_Params uartParams7;
+
+    char input;
 
     //rec.data = "a";
 
 	// Start UART1
-	UART_Params_init(&uartParams5);
-	uartParams5.readReturnMode = UART_RETURN_FULL;
-	uartParams5.readEcho = UART_ECHO_OFF;
-	uartParams5.baudRate = 9600;
-	uart5 = UART_open(5, &uartParams5);
+	UART_Params_init(&uartParams7);
+	uartParams7.readReturnMode = UART_RETURN_FULL;
+	uartParams7.readEcho = UART_ECHO_OFF;
+	uartParams7.baudRate = 9600;
+	uart7 = UART_open(7, &uartParams7);
 
-	if (uart5 == NULL) {
-		System_abort("Error opening the UART2");
+	if (uart7 == NULL) {
+		System_abort("Error opening the UART7");
 	}
 
 	while (TRUE) {
-			UART_write(uart5, "h", 1);
+			UART_write(uart7, "UART5", 5);
+			//UART_read(uart5, &input, 1);
+			//System_printf("Uart5: %x\n",input);
+			//System_flush();
 		}
 }
 
@@ -85,10 +92,17 @@ Int main(Void)
     Board_initGeneral();
     Board_initGPIO();
     Board_initUART();
+    //Board_initSPI();
 
     // Custom Inits
     init_mux_pins();
     init_LCD();
+
+    uint32_t read;
+
+    //read = SPI_Read(0x0000);
+
+    //System_printf("MR: %d", read);
 
     GPIO_write(Board_LED0, Board_LED_ON);
 
@@ -102,12 +116,9 @@ Int main(Void)
 
     //Queue_Handle myQ;
 
-    mux_1( 9 );
-    mux_2( 2 );
-    mux_3( 3 );
-    mux_4( 4 );
-    mux_5( 13 );
-    mux_7( 16 );
+    mux_1(8);
+    mux_4( 5 );
+    mux_7( 17 );
 
     BIOS_start();
 

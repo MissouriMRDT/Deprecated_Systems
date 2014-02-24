@@ -13,6 +13,7 @@
 -l"C:\ti\tirtos_1_21_00_09\products\uia_1_04_00_06\packages\ti\uia\sysbios\lib\release\ti.uia.sysbios.aem4f"
 -l"C:\ti\tirtos_1_21_00_09\packages\ti\drivers\lib\instrumented\gpio_tivaware.aem4f"
 -l"C:\ti\tirtos_1_21_00_09\packages\ti\drivers\lib\nonInstrumented\uart_tivaware.aem4f"
+-l"C:\ti\tirtos_1_21_00_09\packages\ti\drivers\lib\instrumented\spi_tivaware.aem4f"
 -l"C:\Users\Zeus\Documents\GitHub\motherboard-squad\Software\CCS\src\sysbios\sysbios.aem4f"
 -l"C:\ti\xdctools_3_25_04_88\packages\ti\catalog\arm\cortexm4\tiva\ce\lib\Boot.aem4f"
 -l"C:\ti\tirtos_1_21_00_09\products\uia_1_04_00_06\packages\ti\uia\services\lib\release\ti.uia.services.aem4f"
@@ -148,7 +149,7 @@
  */
 xdc_runtime_Startup__EXECFXN__C = 1;
 xdc_runtime_Startup__RESETFXN__C = 1;
-TSK_idle = ti_sysbios_knl_Task_Object__table__V + 80;
+TSK_idle = ti_sysbios_knl_Task_Object__table__V + 160;
 
 
 SECTIONS

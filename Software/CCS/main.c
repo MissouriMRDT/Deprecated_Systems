@@ -60,26 +60,26 @@ Void uart1(UArg arg0, UArg arg1)
 
 Void uart2(UArg arg0, UArg arg1)
 {
-    UART_Handle uart7;
-    UART_Params uartParams7;
+    UART_Handle uart2;
+    UART_Params uartParams2;
 
     char input;
 
     //rec.data = "a";
 
 	// Start UART1
-	UART_Params_init(&uartParams7);
-	uartParams7.readReturnMode = UART_RETURN_FULL;
-	uartParams7.readEcho = UART_ECHO_OFF;
-	uartParams7.baudRate = 9600;
-	uart7 = UART_open(7, &uartParams7);
+	UART_Params_init(&uartParams2);
+	uartParams2.readReturnMode = UART_RETURN_FULL;
+	uartParams2.readEcho = UART_ECHO_OFF;
+	uartParams2.baudRate = 9600;
+	uart2 = UART_open(2, &uartParams2);
 
-	if (uart7 == NULL) {
+	if (uart2 == NULL) {
 		System_abort("Error opening the UART7");
 	}
 
 	while (TRUE) {
-			UART_write(uart7, "UART5", 5);
+			UART_write(uart2, "UART2", 5);
 			//UART_read(uart5, &input, 1);
 			//System_printf("Uart5: %x\n",input);
 			//System_flush();
@@ -116,9 +116,12 @@ Int main(Void)
 
     //Queue_Handle myQ;
 
-    mux_1(8);
-    mux_4( 5 );
-    mux_7( 17 );
+    mux_1(9);
+    mux_2(10);
+    mux_3(6);
+    mux_4(12);
+    mux_5( 328 );
+    mux_7( 16 );
 
     BIOS_start();
 

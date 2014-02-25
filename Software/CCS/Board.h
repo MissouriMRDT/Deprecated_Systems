@@ -80,7 +80,7 @@ extern "C" {
 #define Board_UART3                 EK_LM4F120XL_UART3
 #define Board_UART4                 EK_LM4F120XL_UART4
 #define Board_UART5                 EK_LM4F120XL_UART5
-#define Board_UART7                 EK_LM4F120XL_UART8
+#define Board_UART7                 EK_LM4F120XL_UART7
 
 #define Board_WATCHDOG0             EK_LM4F120XL_WATCHDOG0
 

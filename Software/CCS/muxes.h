@@ -13,7 +13,7 @@ void init_mux_pins()
 	// Mux # - S0, S1
 
 	// Mux 1 - A5, A6
-	GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_5 | GPIO_PIN_6 );
+	GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6 | GPIO_PIN_7 );
 
 	// Mux 3 - B2, B3
 	// Mux 4 - B4, B5
@@ -39,15 +39,15 @@ void mux_1( int rs_485_transceiver)
 {
 	switch(rs_485_transceiver){
 	    case 1  :
-	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_5 | GPIO_PIN_6), (0));
+	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6 | GPIO_PIN_7), (0));
 	        break;
 	    case 8  :
-	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_5), (~0));
-	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6), (0));
+	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6), (~0));
+	        GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_7), (0));
 	        break;
 	    case 9 :
-	    	GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_5), (0));
-		    GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6), (~0));
+	    	GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6), (0));
+		    GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_7), (~0));
 	    	break;
 	    default :
 	    	// Not a valid input
@@ -97,7 +97,7 @@ void mux_3( int rs_485_transceiver)
 	        break;
 	    case 6  :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (~0));
-	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (0));
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (~0));
 	        break;
 	    case 11 :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (0));
@@ -158,7 +158,7 @@ void mux_5( int rs_485_transceiver)
 		    GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (~0));
 	        break;
 	    case 328 :
-			GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (0));
+			GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_6), (~0));
 			GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_7), (~0));
 			break;
 	    default :

@@ -30,6 +30,7 @@
 #include "muxes.h"
 #include "lcd.h"
 #include "tcp.h"
+#include "UARTS.h"
 
 Void uart1(UArg arg0, UArg arg1)
 {
@@ -97,6 +98,7 @@ Int main(Void)
     // Custom Inits
     init_mux_pins();
     init_LCD();
+    open_UARTs();
 
     uint32_t read;
 
@@ -115,13 +117,6 @@ Int main(Void)
     } Rec;
 
     //Queue_Handle myQ;
-
-    mux_1(9);
-    mux_2(10);
-    mux_3(6);
-    mux_4(12);
-    mux_5( 328 );
-    mux_7( 16 );
 
     BIOS_start();
 

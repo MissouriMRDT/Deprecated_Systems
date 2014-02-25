@@ -10,7 +10,9 @@
 
 void init_mux_pins()
 {
+	//////////////////////
 	// Mux # - S0, S1
+	//////////////////////
 
 	// Mux 1 - A5, A6
 	GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6 | GPIO_PIN_7 );

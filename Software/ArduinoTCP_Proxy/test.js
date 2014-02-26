@@ -25,14 +25,9 @@ net.createServer(function (socket) {
     clients.splice(clients.indexOf(socket), 1);
   });
   
-  // Send a message to all clients
+  // Receive message from rover
   function broadcast(message, sender) {
-    clients.forEach(function (client) {
-      // Don't want to send it to sender
-      if (client === sender) return;
-      client.write(message);
-    });
-    // Log it to the server output too
+    // Display on cmd line
     process.stdout.write(message)
   }
  
@@ -45,6 +40,7 @@ process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('data', function (chunk) {
+	process.stdout.write('Sent to Rover: ' + chunk + "\n");
 	clients.forEach(function (client) {
       client.write(chunk);
     });

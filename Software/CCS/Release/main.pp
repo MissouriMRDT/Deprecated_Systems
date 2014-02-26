@@ -131,7 +131,6 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
@@ -324,7 +323,6 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h:
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
-C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 

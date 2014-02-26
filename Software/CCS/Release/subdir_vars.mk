@@ -11,14 +11,17 @@ CFG_SRCS += \
 
 C_SRCS += \
 ../EK_LM4F120XL.c \
+../UARTS.c \
 ../main.c 
 
 OBJS += \
 ./EK_LM4F120XL.obj \
+./UARTS.obj \
 ./main.obj 
 
 C_DEPS += \
 ./EK_LM4F120XL.pp \
+./UARTS.pp \
 ./main.pp 
 
 GEN_MISC_DIRS += \
@@ -43,14 +46,17 @@ GEN_MISC_DIRS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "EK_LM4F120XL.pp" \
+"UARTS.pp" \
 "main.pp" 
 
 OBJS__QUOTED += \
 "EK_LM4F120XL.obj" \
+"UARTS.obj" \
 "main.obj" 
 
 C_SRCS__QUOTED += \
 "../EK_LM4F120XL.c" \
+"../UARTS.c" \
 "../main.c" 
 
 GEN_CMDS__FLAG += \

@@ -508,6 +508,8 @@ Void EK_LM4F120XL_initUART()
 
 	/* Enable and configure the peripherals used by the uart2. */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART2);
+	HWREG(GPIO_PORTD_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+	HWREG(GPIO_PORTD_BASE + GPIO_O_CR) = 0x80;
 	GPIOPinConfigure(GPIO_PD6_U2RX);
 	GPIOPinConfigure(GPIO_PD7_U2TX);
 	GPIOPinTypeUART(GPIO_PORTD_BASE, GPIO_PIN_6 | GPIO_PIN_7);

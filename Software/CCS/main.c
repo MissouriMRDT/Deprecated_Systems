@@ -34,25 +34,25 @@
 
 Void uart1(UArg arg0, UArg arg1)
 {
-    UART_Handle uart1;
-    UART_Params uartParams1;
+    UART_Handle uart2;
+    UART_Params uartParams2;
 
     char input;
 
     // Start UART1
-    UART_Params_init(&uartParams1);
-    uartParams1.readReturnMode = UART_RETURN_FULL;
-    uartParams1.readEcho = UART_ECHO_OFF;
-    uartParams1.baudRate = 9600;
-    uart1 = UART_open(1, &uartParams1);
+    UART_Params_init(&uartParams2);
+    uartParams2.readReturnMode = UART_RETURN_FULL;
+    uartParams2.readEcho = UART_ECHO_OFF;
+    uartParams2.baudRate = 9600;
+    uart2 = UART_open(2, &uartParams2);
 
-    if (uart1 == NULL) {
-        System_abort("Error opening the UART1");
+    if (uart2 == NULL) {
+        System_abort("Error opening the UART2");
     }
 
     /* Loop forever echoing */
     while (TRUE) {
-    	UART_write(uart1, "UART1", 5);
+    	UART_write(uart2, "UART2", 5);
 		//UART_read(uart1, &input, 1);
 		//System_printf("Uart1: %x\n",input);
 		//System_flush();
@@ -61,30 +61,32 @@ Void uart1(UArg arg0, UArg arg1)
 
 Void uart2(UArg arg0, UArg arg1)
 {
-    UART_Handle uart2;
-    UART_Params uartParams2;
+
+    UART_Handle uart7;
+    UART_Params uartParams7;
 
     char input;
 
     //rec.data = "a";
 
 	// Start UART1
-	UART_Params_init(&uartParams2);
-	uartParams2.readReturnMode = UART_RETURN_FULL;
-	uartParams2.readEcho = UART_ECHO_OFF;
-	uartParams2.baudRate = 9600;
-	uart2 = UART_open(2, &uartParams2);
+	UART_Params_init(&uartParams7);
+	uartParams7.readReturnMode = UART_RETURN_FULL;
+	uartParams7.readEcho = UART_ECHO_OFF;
+	uartParams7.baudRate = 9600;
+	uart7 = UART_open(7, &uartParams7);
 
-	if (uart2 == NULL) {
+	if (uart7 == NULL) {
 		System_abort("Error opening the UART7");
 	}
 
 	while (TRUE) {
-			UART_write(uart2, "UART2", 5);
+			UART_write(uart7, "UART7", 5);
 			//UART_read(uart5, &input, 1);
 			//System_printf("Uart5: %x\n",input);
 			//System_flush();
 		}
+
 }
 
 Int main(Void)
@@ -98,7 +100,7 @@ Int main(Void)
     // Custom Inits
     init_mux_pins();
     init_LCD();
-    open_UARTs();
+    //open_UARTs();
 
     uint32_t read;
 

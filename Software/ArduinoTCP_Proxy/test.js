@@ -14,8 +14,6 @@ net.createServer(function (socket) {
  
   // Put this new client in the list
   clients.push(socket);
-  
-  client[.write('d');
  
   // Handle incoming messages from clients.
   socket.on('data', function (data) {
@@ -38,7 +36,16 @@ net.createServer(function (socket) {
     process.stdout.write(message)
   }
  
-}).listen(5000);
+}).listen(11000);
  
 // Put a friendly message on the terminal of the server.
 console.log("Chat server running at port 5000\n");
+
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+
+process.stdin.on('data', function (chunk) {
+	clients.forEach(function (client) {
+      client.write(chunk);
+    });
+});

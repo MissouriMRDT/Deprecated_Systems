@@ -47,20 +47,6 @@ uint32_t SPI_Read(uint16_t addr)
 
 void init_spi()
 {
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_SSI0);
-
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
-
-	//GPIOPinConfigure(GPIO_PA2_SSI0CLK);
-	//GPIOPinConfigure(GPIO_PA3_SSI0FSS);
-	//GPIOPinConfigure(GPIO_PA4_SSI0RX);
-	//GPIOPinConfigure(GPIO_PA5_SSI0TX);
-
-    //
-    //Ethernet adapter config
-    //
-
     unsigned char mac_addr[] = {0x00,0x16,0x36,0xDE,0x58,0xF6};
     unsigned char ip_addr[] = {192,168,1,27};
     unsigned char sub_mask[] = {255,255,255,0};

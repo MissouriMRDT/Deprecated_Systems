@@ -131,7 +131,7 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h
@@ -187,10 +187,9 @@ main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
 main.obj: ../muxes.h
 main.obj: ../lcd.h
-main.obj: ../tcp.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
-main.obj: ../UARTS.h
-main.obj: ../UARTS.c
+main.obj: ../tcp_task.h
+main.obj: ../uarts.h
+main.obj: ../uart_0.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -323,7 +322,7 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h:
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
-C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h: 
@@ -379,7 +378,6 @@ C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h:
 ../EK_LM4F120XL.h: 
 ../muxes.h: 
 ../lcd.h: 
-../tcp.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
-../UARTS.h: 
-../UARTS.c: 
+../tcp_task.h: 
+../uarts.h: 
+../uart_0.h: 

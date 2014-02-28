@@ -147,7 +147,6 @@ EK_LM4F120XL.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/s
 EK_LM4F120XL.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h
 EK_LM4F120XL.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h
 EK_LM4F120XL.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
-EK_LM4F120XL.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 EK_LM4F120XL.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Error.h
 EK_LM4F120XL.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 EK_LM4F120XL.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
@@ -376,7 +375,6 @@ C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
-C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Error.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 

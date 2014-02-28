@@ -1272,78 +1272,78 @@ __obj = [
     [],    // #1269 ti.sysbios.knl.Event/viewNameMap$
     {},    // #1270 ti.sysbios.knl.Queue
     [],    // #1271 ti.sysbios.knl.Queue/$instances
-    {},    // #1272 ti.sysbios.knl.Queue.Instance#0
-    {},    // #1273 ti.sysbios.knl.Queue.Instance#0/instance
-    {},    // #1274 ti.sysbios.knl.Queue/common$
-    [],    // #1275 ti.sysbios.knl.Queue/configNameMap$
-    {},    // #1276 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'
-    [],    // #1277 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'/fields
-    {},    // #1278 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'
-    [],    // #1279 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'/fields
-    {},    // #1280 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'
-    [],    // #1281 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'/fields
-    {},    // #1282 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'
-    [],    // #1283 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'/fields
-    {},    // #1284 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'
-    [],    // #1285 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'/fields
-    {},    // #1286 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'
-    [],    // #1287 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'/fields
-    [],    // #1288 ti.sysbios.knl.Queue/viewNameMap$
-    {},    // #1289 ti.sysbios.knl.Semaphore
-    [],    // #1290 ti.sysbios.knl.Semaphore/$instances
-    {},    // #1291 xdc.runtime.Assert.Desc#20
-    {},    // #1292 xdc.runtime.Assert.Desc#19
-    {},    // #1293 xdc.runtime.Assert.Desc#18
-    {},    // #1294 xdc.runtime.Assert.Desc#21
-    {},    // #1295 xdc.runtime.Assert.Desc#22
-    {},    // #1296 xdc.runtime.Log.EventDesc#19
-    {},    // #1297 xdc.runtime.Log.EventDesc#18
-    {},    // #1298 ti.sysbios.knl.Semaphore/common$
-    [],    // #1299 ti.sysbios.knl.Semaphore/configNameMap$
-    {},    // #1300 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'
-    [],    // #1301 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'/fields
-    {},    // #1302 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'
-    [],    // #1303 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'/fields
-    {},    // #1304 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'
-    [],    // #1305 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'/fields
-    {},    // #1306 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'
-    [],    // #1307 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'/fields
-    {},    // #1308 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'
-    [],    // #1309 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'/fields
-    {},    // #1310 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'
-    [],    // #1311 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'/fields
-    [],    // #1312 ti.sysbios.knl.Semaphore/viewNameMap$
-    {},    // #1313 ti.sysbios.knl.Swi
-    [],    // #1314 ti.sysbios.knl.Swi/$instances
-    {},    // #1315 ti.sysbios.knl.Swi.Instance#0
-    {},    // #1316 ti.sysbios.knl.Swi.Instance#0/instance
-    {},    // #1317 xdc.runtime.Assert.Desc#24
-    {},    // #1318 xdc.runtime.Assert.Desc#23
-    {},    // #1319 xdc.runtime.Log.EventDesc#21
-    {},    // #1320 xdc.runtime.Log.EventDesc#20
-    {},    // #1321 xdc.runtime.Log.EventDesc#22
-    {},    // #1322 ti.sysbios.knl.Swi/common$
-    [],    // #1323 ti.sysbios.knl.Swi/configNameMap$
-    {},    // #1324 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'
-    [],    // #1325 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'/fields
-    {},    // #1326 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'
-    [],    // #1327 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'/fields
-    {},    // #1328 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'
-    [],    // #1329 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'/fields
-    {},    // #1330 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'
-    [],    // #1331 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'/fields
-    {},    // #1332 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'
-    [],    // #1333 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'/fields
-    {},    // #1334 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'
-    [],    // #1335 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'/fields
-    [],    // #1336 ti.sysbios.knl.Swi/hooks
-    [],    // #1337 ti.sysbios.knl.Swi/viewNameMap$
-    {},    // #1338 ti.sysbios.knl.Task
-    [],    // #1339 ti.sysbios.knl.Task/$instances
-    {},    // #1340 ti.sysbios.knl.Task.Instance#0
-    {},    // #1341 ti.sysbios.knl.Task.Instance#0/instance
-    {},    // #1342 ti.sysbios.knl.Task.Instance#1
-    {},    // #1343 ti.sysbios.knl.Task.Instance#1/instance
+    {},    // #1272 ti.sysbios.knl.Queue/common$
+    [],    // #1273 ti.sysbios.knl.Queue/configNameMap$
+    {},    // #1274 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'
+    [],    // #1275 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'/fields
+    {},    // #1276 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'
+    [],    // #1277 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'/fields
+    {},    // #1278 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'
+    [],    // #1279 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'/fields
+    {},    // #1280 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'
+    [],    // #1281 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'/fields
+    {},    // #1282 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'
+    [],    // #1283 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'/fields
+    {},    // #1284 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'
+    [],    // #1285 ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'/fields
+    [],    // #1286 ti.sysbios.knl.Queue/viewNameMap$
+    {},    // #1287 ti.sysbios.knl.Semaphore
+    [],    // #1288 ti.sysbios.knl.Semaphore/$instances
+    {},    // #1289 xdc.runtime.Assert.Desc#20
+    {},    // #1290 xdc.runtime.Assert.Desc#19
+    {},    // #1291 xdc.runtime.Assert.Desc#18
+    {},    // #1292 xdc.runtime.Assert.Desc#21
+    {},    // #1293 xdc.runtime.Assert.Desc#22
+    {},    // #1294 xdc.runtime.Log.EventDesc#19
+    {},    // #1295 xdc.runtime.Log.EventDesc#18
+    {},    // #1296 ti.sysbios.knl.Semaphore/common$
+    [],    // #1297 ti.sysbios.knl.Semaphore/configNameMap$
+    {},    // #1298 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'
+    [],    // #1299 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'/fields
+    {},    // #1300 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'
+    [],    // #1301 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'/fields
+    {},    // #1302 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'
+    [],    // #1303 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'/fields
+    {},    // #1304 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'
+    [],    // #1305 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'/fields
+    {},    // #1306 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'
+    [],    // #1307 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'/fields
+    {},    // #1308 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'
+    [],    // #1309 ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'/fields
+    [],    // #1310 ti.sysbios.knl.Semaphore/viewNameMap$
+    {},    // #1311 ti.sysbios.knl.Swi
+    [],    // #1312 ti.sysbios.knl.Swi/$instances
+    {},    // #1313 ti.sysbios.knl.Swi.Instance#0
+    {},    // #1314 ti.sysbios.knl.Swi.Instance#0/instance
+    {},    // #1315 xdc.runtime.Assert.Desc#24
+    {},    // #1316 xdc.runtime.Assert.Desc#23
+    {},    // #1317 xdc.runtime.Log.EventDesc#21
+    {},    // #1318 xdc.runtime.Log.EventDesc#20
+    {},    // #1319 xdc.runtime.Log.EventDesc#22
+    {},    // #1320 ti.sysbios.knl.Swi/common$
+    [],    // #1321 ti.sysbios.knl.Swi/configNameMap$
+    {},    // #1322 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'
+    [],    // #1323 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'/fields
+    {},    // #1324 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'
+    [],    // #1325 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'/fields
+    {},    // #1326 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'
+    [],    // #1327 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'/fields
+    {},    // #1328 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'
+    [],    // #1329 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'/fields
+    {},    // #1330 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'
+    [],    // #1331 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'/fields
+    {},    // #1332 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'
+    [],    // #1333 ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'/fields
+    [],    // #1334 ti.sysbios.knl.Swi/hooks
+    [],    // #1335 ti.sysbios.knl.Swi/viewNameMap$
+    {},    // #1336 ti.sysbios.knl.Task
+    [],    // #1337 ti.sysbios.knl.Task/$instances
+    {},    // #1338 ti.sysbios.knl.Task.Instance#0
+    {},    // #1339 ti.sysbios.knl.Task.Instance#0/instance
+    {},    // #1340 ti.sysbios.knl.Task.Instance#1
+    {},    // #1341 ti.sysbios.knl.Task.Instance#1/instance
+    {},    // #1342 ti.sysbios.knl.Task.Instance#2
+    {},    // #1343 ti.sysbios.knl.Task.Instance#2/instance
     {},    // #1344 xdc.runtime.Assert.Desc#31
     {},    // #1345 xdc.runtime.Assert.Desc#29
     {},    // #1346 xdc.runtime.Assert.Desc#26
@@ -1977,9 +1977,9 @@ __o = __obj[1]
     __o['#32801'] = __obj[1211.0]
     __o['#32802'] = __obj[1245.0]
     __o['#32803'] = __obj[1270.0]
-    __o['#32804'] = __obj[1289.0]
-    __o['#32805'] = __obj[1313.0]
-    __o['#32806'] = __obj[1338.0]
+    __o['#32804'] = __obj[1287.0]
+    __o['#32805'] = __obj[1311.0]
+    __o['#32806'] = __obj[1336.0]
     __o['#32810'] = __obj[844.0]
     __o['#32811'] = __obj[1213.0]
     __o['#32812'] = __obj[1366.0]
@@ -2029,9 +2029,9 @@ __o = __obj[1]
     __o['ti.sysbios.knl.Idle'] = __obj[1191.0]
     __o['ti.sysbios.knl.Intrinsics'] = __obj[1211.0]
     __o['ti.sysbios.knl.Queue'] = __obj[1270.0]
-    __o['ti.sysbios.knl.Semaphore'] = __obj[1289.0]
-    __o['ti.sysbios.knl.Swi'] = __obj[1313.0]
-    __o['ti.sysbios.knl.Task'] = __obj[1338.0]
+    __o['ti.sysbios.knl.Semaphore'] = __obj[1287.0]
+    __o['ti.sysbios.knl.Swi'] = __obj[1311.0]
+    __o['ti.sysbios.knl.Task'] = __obj[1336.0]
     __o['ti.sysbios.utils.Load'] = __obj[1847.0]
     __o['ti.sysbios.xdcruntime.SemThreadSupport'] = __obj[1437.0]
     __o['ti.uia.events.DvtTypes'] = __obj[1523.0]
@@ -4055,7 +4055,7 @@ __o = __obj[269]  // ti.drivers.UART
     __o['Object__table'] = null
     __o['common$'] = __obj[271.0]
     __o['configNameMap$'] = __obj[272.0]
-    __o['libType'] = String(java.net.URLDecoder.decode('ti.drivers.UART.LibType_NonInstrumented', 'UTF-8'))
+    __o['libType'] = String(java.net.URLDecoder.decode('ti.drivers.UART.LibType_Instrumented', 'UTF-8'))
     __o['rovShowRawTab$'] = true
     __o['rovViewInfo'] = __obj[133.0]
     __o['viewNameMap$'] = __obj[285.0]
@@ -16919,19 +16919,19 @@ __o = __obj[639]  // xdc.runtime.Text/charTab
     __o['9035'] = 97
     __o['9036'] = 100
     __o['9037'] = 0
-    __o['9038'] = 113
-    __o['9039'] = 117
-    __o['9040'] = 101
-    __o['9041'] = 117
-    __o['9042'] = 101
-    __o['9043'] = 48
+    __o['9038'] = 117
+    __o['9039'] = 97
+    __o['9040'] = 114
+    __o['9041'] = 116
+    __o['9042'] = 95
+    __o['9043'] = 55
     __o['9044'] = 0
     __o['9045'] = 117
     __o['9046'] = 97
     __o['9047'] = 114
     __o['9048'] = 116
     __o['9049'] = 95
-    __o['9050'] = 49
+    __o['9050'] = 48
     __o['9051'] = 0
     __o['9052'] = 116
     __o['9053'] = 105
@@ -23540,30 +23540,17 @@ __o = __obj[1270]  // ti.sysbios.knl.Queue
     __o['Object__heap'] = null
     __o['Object__sizeof'] = 0
     __o['Object__table'] = null
-    __o['common$'] = __obj[1274.0]
-    __o['configNameMap$'] = __obj[1275.0]
+    __o['common$'] = __obj[1272.0]
+    __o['configNameMap$'] = __obj[1273.0]
     __o['rovShowRawTab$'] = true
     __o['rovViewInfo'] = __obj[64.0]
-    __o['viewNameMap$'] = __obj[1288.0]
+    __o['viewNameMap$'] = __obj[1286.0]
 
 __o = __obj[1271]  // ti.sysbios.knl.Queue/$instances
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2F%24instances', 'UTF-8'))
-    __o['0'] = __obj[1272.0]
 
-__o = __obj[1272]  // ti.sysbios.knl.Queue.Instance#0
-    __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
-    __o['$module'] = __obj[1270.0]
-    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue.Instance%230', 'UTF-8'))
-    __o['dummy'] = 0
-    __o['instance'] = __obj[1273.0]
-
-__o = __obj[1273]  // ti.sysbios.knl.Queue.Instance#0/instance
-    __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
-    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue.Instance%230%2Finstance', 'UTF-8'))
-    __o['name'] = String(java.net.URLDecoder.decode('queue0', 'UTF-8'))
-
-__o = __obj[1274]  // ti.sysbios.knl.Queue/common$
+__o = __obj[1272]  // ti.sysbios.knl.Queue/common$
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2Fcommon%24', 'UTF-8'))
     __o['diags_ANALYSIS'] = String(java.net.URLDecoder.decode('xdc.runtime.Diags.ALWAYS_OFF', 'UTF-8'))
@@ -23593,25 +23580,25 @@ __o = __obj[1274]  // ti.sysbios.knl.Queue/common$
     __o['namedModule'] = true
     __o['romPatchTable'] = false
 
-__o = __obj[1275]  // ti.sysbios.knl.Queue/configNameMap$
+__o = __obj[1273]  // ti.sysbios.knl.Queue/configNameMap$
     __o.$keys = []
-    __o.push(__o['xdc.runtime/Memory'] = __obj[1276.0]); __o.$keys.push('xdc.runtime/Memory')
-    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1278.0]); __o.$keys.push('xdc.runtime/Diagnostics')
-    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1280.0]); __o.$keys.push('xdc.runtime/Concurrency')
-    __o.push(__o['xdc.runtime/Log Events'] = __obj[1282.0]); __o.$keys.push('xdc.runtime/Log Events')
-    __o.push(__o['xdc.runtime/Asserts'] = __obj[1284.0]); __o.$keys.push('xdc.runtime/Asserts')
-    __o.push(__o['xdc.runtime/Errors'] = __obj[1286.0]); __o.$keys.push('xdc.runtime/Errors')
+    __o.push(__o['xdc.runtime/Memory'] = __obj[1274.0]); __o.$keys.push('xdc.runtime/Memory')
+    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1276.0]); __o.$keys.push('xdc.runtime/Diagnostics')
+    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1278.0]); __o.$keys.push('xdc.runtime/Concurrency')
+    __o.push(__o['xdc.runtime/Log Events'] = __obj[1280.0]); __o.$keys.push('xdc.runtime/Log Events')
+    __o.push(__o['xdc.runtime/Asserts'] = __obj[1282.0]); __o.$keys.push('xdc.runtime/Asserts')
+    __o.push(__o['xdc.runtime/Errors'] = __obj[1284.0]); __o.$keys.push('xdc.runtime/Errors')
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24', 'UTF-8'))
 
-__o = __obj[1276]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'
+__o = __obj[1274]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27', 'UTF-8'))
-    __o['fields'] = __obj[1277.0]
+    __o['fields'] = __obj[1275.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1277]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'/fields
+__o = __obj[1275]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.instanceHeap', 'UTF-8'))
@@ -23622,14 +23609,14 @@ __o = __obj[1277]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Memory'/f
     __o['5'] = String(java.net.URLDecoder.decode('common%24.fxntab', 'UTF-8'))
     __o['6'] = String(java.net.URLDecoder.decode('common%24.romPatchTable', 'UTF-8'))
 
-__o = __obj[1278]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'
+__o = __obj[1276]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27', 'UTF-8'))
-    __o['fields'] = __obj[1279.0]
+    __o['fields'] = __obj[1277.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1279]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'/fields
+__o = __obj[1277]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnostics'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.logger', 'UTF-8'))
@@ -23648,71 +23635,71 @@ __o = __obj[1279]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Diagnosti
     __o['13'] = String(java.net.URLDecoder.decode('common%24.diags_INFO', 'UTF-8'))
     __o['14'] = String(java.net.URLDecoder.decode('common%24.diags_ANALYSIS', 'UTF-8'))
 
-__o = __obj[1280]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'
+__o = __obj[1278]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27', 'UTF-8'))
-    __o['fields'] = __obj[1281.0]
+    __o['fields'] = __obj[1279.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1281]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'/fields
+__o = __obj[1279]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Concurrency'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.gate', 'UTF-8'))
     __o['1'] = String(java.net.URLDecoder.decode('common%24.gateParams', 'UTF-8'))
 
-__o = __obj[1282]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'
+__o = __obj[1280]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27', 'UTF-8'))
-    __o['fields'] = __obj[1283.0]
+    __o['fields'] = __obj[1281.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1283]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'/fields
+__o = __obj[1281]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Log Events'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Log.Event', 'UTF-8'))
 
-__o = __obj[1284]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'
+__o = __obj[1282]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27', 'UTF-8'))
-    __o['fields'] = __obj[1285.0]
+    __o['fields'] = __obj[1283.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1285]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'/fields
+__o = __obj[1283]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Asserts'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Assert.Id', 'UTF-8'))
 
-__o = __obj[1286]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'
+__o = __obj[1284]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27', 'UTF-8'))
-    __o['fields'] = __obj[1287.0]
+    __o['fields'] = __obj[1285.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1287]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'/fields
+__o = __obj[1285]  // ti.sysbios.knl.Queue/configNameMap$/'xdc.runtime/Errors'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Error.Id', 'UTF-8'))
 
-__o = __obj[1288]  // ti.sysbios.knl.Queue/viewNameMap$
+__o = __obj[1286]  // ti.sysbios.knl.Queue/viewNameMap$
     __o.$keys = []
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Queue%2FviewNameMap%24', 'UTF-8'))
 
-__o = __obj[1289]  // ti.sysbios.knl.Semaphore
+__o = __obj[1287]  // ti.sysbios.knl.Semaphore
     __o['$category'] = String(java.net.URLDecoder.decode('Module', 'UTF-8'))
-    __o['$instances'] = __obj[1290.0]
+    __o['$instances'] = __obj[1288.0]
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore', 'UTF-8'))
-    __o['A_badContext'] = __obj[1291.0]
-    __o['A_invTimeout'] = __obj[1292.0]
-    __o['A_noEvents'] = __obj[1293.0]
-    __o['A_overflow'] = __obj[1294.0]
-    __o['A_pendTaskDisabled'] = __obj[1295.0]
-    __o['LM_pend'] = __obj[1296.0]
-    __o['LM_post'] = __obj[1297.0]
+    __o['A_badContext'] = __obj[1289.0]
+    __o['A_invTimeout'] = __obj[1290.0]
+    __o['A_noEvents'] = __obj[1291.0]
+    __o['A_overflow'] = __obj[1292.0]
+    __o['A_pendTaskDisabled'] = __obj[1293.0]
+    __o['LM_pend'] = __obj[1294.0]
+    __o['LM_post'] = __obj[1295.0]
     __o['Module__diagsEnabled'] = 144
     __o['Module__diagsIncluded'] = 912
     __o['Module__diagsMask'] = String(java.net.URLDecoder.decode('%26ti_sysbios_knl_Semaphore_Module__root__V.mask', 'UTF-8'))
@@ -23731,64 +23718,64 @@ __o = __obj[1289]  // ti.sysbios.knl.Semaphore
     __o['Object__heap'] = null
     __o['Object__sizeof'] = 0
     __o['Object__table'] = null
-    __o['common$'] = __obj[1298.0]
-    __o['configNameMap$'] = __obj[1299.0]
+    __o['common$'] = __obj[1296.0]
+    __o['configNameMap$'] = __obj[1297.0]
     __o['eventPost'] = null
     __o['eventSync'] = null
     __o['rovShowRawTab$'] = true
     __o['rovViewInfo'] = __obj[67.0]
     __o['supportsEvents'] = false
-    __o['viewNameMap$'] = __obj[1312.0]
+    __o['viewNameMap$'] = __obj[1310.0]
 
-__o = __obj[1290]  // ti.sysbios.knl.Semaphore/$instances
+__o = __obj[1288]  // ti.sysbios.knl.Semaphore/$instances
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2F%24instances', 'UTF-8'))
 
-__o = __obj[1291]  // xdc.runtime.Assert.Desc#20
+__o = __obj[1289]  // xdc.runtime.Assert.Desc#20
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2320', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_badContext%3A+bad+calling+context.+Must+be+called+from+a+Task.', 'UTF-8'))
 
-__o = __obj[1292]  // xdc.runtime.Assert.Desc#19
+__o = __obj[1290]  // xdc.runtime.Assert.Desc#19
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2319', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_invTimeout%3A+Can%27t+use+BIOS_EVENT_ACQUIRED+with+this+Semaphore.', 'UTF-8'))
 
-__o = __obj[1293]  // xdc.runtime.Assert.Desc#18
+__o = __obj[1291]  // xdc.runtime.Assert.Desc#18
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2318', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_noEvents%3A+The+Event.supportsEvents+flag+is+disabled.', 'UTF-8'))
 
-__o = __obj[1294]  // xdc.runtime.Assert.Desc#21
+__o = __obj[1292]  // xdc.runtime.Assert.Desc#21
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2321', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_overflow%3A+Count+has+exceeded+65535+and+rolled+over.', 'UTF-8'))
 
-__o = __obj[1295]  // xdc.runtime.Assert.Desc#22
+__o = __obj[1293]  // xdc.runtime.Assert.Desc#22
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2322', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_pendTaskDisabled%3A+Cannot+call+Semaphore_pend%28%29+while+the+Task+or+Swi+scheduler+is+disabled.', 'UTF-8'))
 
-__o = __obj[1296]  // xdc.runtime.Log.EventDesc#19
+__o = __obj[1294]  // xdc.runtime.Log.EventDesc#19
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Log.EventDesc%2319', 'UTF-8'))
     __o['level'] = undefined
     __o['mask'] = 768
     __o['msg'] = String(java.net.URLDecoder.decode('LM_pend%3A+sem%3A+0x%25x%2C+count%3A+%25d%2C+timeout%3A+%25d', 'UTF-8'))
 
-__o = __obj[1297]  // xdc.runtime.Log.EventDesc#18
+__o = __obj[1295]  // xdc.runtime.Log.EventDesc#18
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Log.EventDesc%2318', 'UTF-8'))
     __o['level'] = undefined
     __o['mask'] = 768
     __o['msg'] = String(java.net.URLDecoder.decode('LM_post%3A+sem%3A+0x%25x%2C+count%3A+%25d', 'UTF-8'))
 
-__o = __obj[1298]  // ti.sysbios.knl.Semaphore/common$
+__o = __obj[1296]  // ti.sysbios.knl.Semaphore/common$
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2Fcommon%24', 'UTF-8'))
     __o['diags_ANALYSIS'] = String(java.net.URLDecoder.decode('xdc.runtime.Diags.ALWAYS_OFF', 'UTF-8'))
@@ -23818,25 +23805,25 @@ __o = __obj[1298]  // ti.sysbios.knl.Semaphore/common$
     __o['namedModule'] = true
     __o['romPatchTable'] = false
 
-__o = __obj[1299]  // ti.sysbios.knl.Semaphore/configNameMap$
+__o = __obj[1297]  // ti.sysbios.knl.Semaphore/configNameMap$
     __o.$keys = []
-    __o.push(__o['xdc.runtime/Memory'] = __obj[1300.0]); __o.$keys.push('xdc.runtime/Memory')
-    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1302.0]); __o.$keys.push('xdc.runtime/Diagnostics')
-    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1304.0]); __o.$keys.push('xdc.runtime/Concurrency')
-    __o.push(__o['xdc.runtime/Log Events'] = __obj[1306.0]); __o.$keys.push('xdc.runtime/Log Events')
-    __o.push(__o['xdc.runtime/Asserts'] = __obj[1308.0]); __o.$keys.push('xdc.runtime/Asserts')
-    __o.push(__o['xdc.runtime/Errors'] = __obj[1310.0]); __o.$keys.push('xdc.runtime/Errors')
+    __o.push(__o['xdc.runtime/Memory'] = __obj[1298.0]); __o.$keys.push('xdc.runtime/Memory')
+    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1300.0]); __o.$keys.push('xdc.runtime/Diagnostics')
+    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1302.0]); __o.$keys.push('xdc.runtime/Concurrency')
+    __o.push(__o['xdc.runtime/Log Events'] = __obj[1304.0]); __o.$keys.push('xdc.runtime/Log Events')
+    __o.push(__o['xdc.runtime/Asserts'] = __obj[1306.0]); __o.$keys.push('xdc.runtime/Asserts')
+    __o.push(__o['xdc.runtime/Errors'] = __obj[1308.0]); __o.$keys.push('xdc.runtime/Errors')
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24', 'UTF-8'))
 
-__o = __obj[1300]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'
+__o = __obj[1298]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27', 'UTF-8'))
-    __o['fields'] = __obj[1301.0]
+    __o['fields'] = __obj[1299.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1301]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'/fields
+__o = __obj[1299]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memory'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.instanceHeap', 'UTF-8'))
@@ -23847,14 +23834,14 @@ __o = __obj[1301]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Memor
     __o['5'] = String(java.net.URLDecoder.decode('common%24.fxntab', 'UTF-8'))
     __o['6'] = String(java.net.URLDecoder.decode('common%24.romPatchTable', 'UTF-8'))
 
-__o = __obj[1302]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'
+__o = __obj[1300]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27', 'UTF-8'))
-    __o['fields'] = __obj[1303.0]
+    __o['fields'] = __obj[1301.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1303]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'/fields
+__o = __obj[1301]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagnostics'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.logger', 'UTF-8'))
@@ -23873,69 +23860,69 @@ __o = __obj[1303]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Diagn
     __o['13'] = String(java.net.URLDecoder.decode('common%24.diags_INFO', 'UTF-8'))
     __o['14'] = String(java.net.URLDecoder.decode('common%24.diags_ANALYSIS', 'UTF-8'))
 
-__o = __obj[1304]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'
+__o = __obj[1302]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27', 'UTF-8'))
-    __o['fields'] = __obj[1305.0]
+    __o['fields'] = __obj[1303.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1305]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'/fields
+__o = __obj[1303]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Concurrency'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.gate', 'UTF-8'))
     __o['1'] = String(java.net.URLDecoder.decode('common%24.gateParams', 'UTF-8'))
 
-__o = __obj[1306]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'
+__o = __obj[1304]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27', 'UTF-8'))
-    __o['fields'] = __obj[1307.0]
+    __o['fields'] = __obj[1305.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1307]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'/fields
+__o = __obj[1305]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Log Events'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Log.Event', 'UTF-8'))
 
-__o = __obj[1308]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'
+__o = __obj[1306]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27', 'UTF-8'))
-    __o['fields'] = __obj[1309.0]
+    __o['fields'] = __obj[1307.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1309]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'/fields
+__o = __obj[1307]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Asserts'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Assert.Id', 'UTF-8'))
 
-__o = __obj[1310]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'
+__o = __obj[1308]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27', 'UTF-8'))
-    __o['fields'] = __obj[1311.0]
+    __o['fields'] = __obj[1309.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1311]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'/fields
+__o = __obj[1309]  // ti.sysbios.knl.Semaphore/configNameMap$/'xdc.runtime/Errors'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Error.Id', 'UTF-8'))
 
-__o = __obj[1312]  // ti.sysbios.knl.Semaphore/viewNameMap$
+__o = __obj[1310]  // ti.sysbios.knl.Semaphore/viewNameMap$
     __o.$keys = []
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Semaphore%2FviewNameMap%24', 'UTF-8'))
 
-__o = __obj[1313]  // ti.sysbios.knl.Swi
+__o = __obj[1311]  // ti.sysbios.knl.Swi
     __o['$category'] = String(java.net.URLDecoder.decode('Module', 'UTF-8'))
-    __o['$instances'] = __obj[1314.0]
+    __o['$instances'] = __obj[1312.0]
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi', 'UTF-8'))
-    __o['A_badPriority'] = __obj[1317.0]
-    __o['A_swiDisabled'] = __obj[1318.0]
-    __o['LD_end'] = __obj[1319.0]
-    __o['LM_begin'] = __obj[1320.0]
-    __o['LM_post'] = __obj[1321.0]
+    __o['A_badPriority'] = __obj[1315.0]
+    __o['A_swiDisabled'] = __obj[1316.0]
+    __o['LD_end'] = __obj[1317.0]
+    __o['LM_begin'] = __obj[1318.0]
+    __o['LM_post'] = __obj[1319.0]
     __o['Module__diagsEnabled'] = 144
     __o['Module__diagsIncluded'] = 144
     __o['Module__diagsMask'] = null
@@ -23954,71 +23941,71 @@ __o = __obj[1313]  // ti.sysbios.knl.Swi
     __o['Object__heap'] = null
     __o['Object__sizeof'] = 0
     __o['Object__table'] = null
-    __o['common$'] = __obj[1322.0]
-    __o['configNameMap$'] = __obj[1323.0]
-    __o['hooks'] = __obj[1336.0]
+    __o['common$'] = __obj[1320.0]
+    __o['configNameMap$'] = __obj[1321.0]
+    __o['hooks'] = __obj[1334.0]
     __o['numConstructedSwis'] = 0
     __o['numPriorities'] = 16
     __o['rovShowRawTab$'] = true
     __o['rovViewInfo'] = __obj[70.0]
     __o['taskDisable'] = String(java.net.URLDecoder.decode('%26ti_sysbios_knl_Task_disable__E', 'UTF-8'))
     __o['taskRestore'] = String(java.net.URLDecoder.decode('%26ti_sysbios_knl_Task_restore__E', 'UTF-8'))
-    __o['viewNameMap$'] = __obj[1337.0]
+    __o['viewNameMap$'] = __obj[1335.0]
 
-__o = __obj[1314]  // ti.sysbios.knl.Swi/$instances
+__o = __obj[1312]  // ti.sysbios.knl.Swi/$instances
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2F%24instances', 'UTF-8'))
-    __o['0'] = __obj[1315.0]
+    __o['0'] = __obj[1313.0]
 
-__o = __obj[1315]  // ti.sysbios.knl.Swi.Instance#0
+__o = __obj[1313]  // ti.sysbios.knl.Swi.Instance#0
     __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
-    __o['$module'] = __obj[1313.0]
+    __o['$module'] = __obj[1311.0]
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi.Instance%230', 'UTF-8'))
     __o['arg0'] = 0
     __o['arg1'] = 0
-    __o['instance'] = __obj[1316.0]
+    __o['instance'] = __obj[1314.0]
     __o['priority'] = 15
     __o['trigger'] = 0
 
-__o = __obj[1316]  // ti.sysbios.knl.Swi.Instance#0/instance
+__o = __obj[1314]  // ti.sysbios.knl.Swi.Instance#0/instance
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi.Instance%230%2Finstance', 'UTF-8'))
     __o['name'] = null
 
-__o = __obj[1317]  // xdc.runtime.Assert.Desc#24
+__o = __obj[1315]  // xdc.runtime.Assert.Desc#24
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2324', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_badPriority%3A+An+invalid+Swi+priority+was+used.', 'UTF-8'))
 
-__o = __obj[1318]  // xdc.runtime.Assert.Desc#23
+__o = __obj[1316]  // xdc.runtime.Assert.Desc#23
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Assert.Desc%2323', 'UTF-8'))
     __o['mask'] = 16
     __o['msg'] = String(java.net.URLDecoder.decode('A_swiDisabled%3A+Cannot+create+a+Swi+when+Swi+is+disabled.', 'UTF-8'))
 
-__o = __obj[1319]  // xdc.runtime.Log.EventDesc#21
+__o = __obj[1317]  // xdc.runtime.Log.EventDesc#21
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Log.EventDesc%2321', 'UTF-8'))
     __o['level'] = undefined
     __o['mask'] = 512
     __o['msg'] = String(java.net.URLDecoder.decode('LD_end%3A+swi%3A+0x%25x', 'UTF-8'))
 
-__o = __obj[1320]  // xdc.runtime.Log.EventDesc#20
+__o = __obj[1318]  // xdc.runtime.Log.EventDesc#20
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Log.EventDesc%2320', 'UTF-8'))
     __o['level'] = undefined
     __o['mask'] = 768
     __o['msg'] = String(java.net.URLDecoder.decode('LM_begin%3A+swi%3A+0x%25x%2C+func%3A+0x%25x%2C+preThread%3A+%25d', 'UTF-8'))
 
-__o = __obj[1321]  // xdc.runtime.Log.EventDesc#22
+__o = __obj[1319]  // xdc.runtime.Log.EventDesc#22
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Log.EventDesc%2322', 'UTF-8'))
     __o['level'] = undefined
     __o['mask'] = 768
     __o['msg'] = String(java.net.URLDecoder.decode('LM_post%3A+swi%3A+0x%25x%2C+func%3A+0x%25x%2C+pri%3A+%25d', 'UTF-8'))
 
-__o = __obj[1322]  // ti.sysbios.knl.Swi/common$
+__o = __obj[1320]  // ti.sysbios.knl.Swi/common$
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2Fcommon%24', 'UTF-8'))
     __o['diags_ANALYSIS'] = String(java.net.URLDecoder.decode('xdc.runtime.Diags.ALWAYS_OFF', 'UTF-8'))
@@ -24048,25 +24035,25 @@ __o = __obj[1322]  // ti.sysbios.knl.Swi/common$
     __o['namedModule'] = true
     __o['romPatchTable'] = false
 
-__o = __obj[1323]  // ti.sysbios.knl.Swi/configNameMap$
+__o = __obj[1321]  // ti.sysbios.knl.Swi/configNameMap$
     __o.$keys = []
-    __o.push(__o['xdc.runtime/Memory'] = __obj[1324.0]); __o.$keys.push('xdc.runtime/Memory')
-    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1326.0]); __o.$keys.push('xdc.runtime/Diagnostics')
-    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1328.0]); __o.$keys.push('xdc.runtime/Concurrency')
-    __o.push(__o['xdc.runtime/Log Events'] = __obj[1330.0]); __o.$keys.push('xdc.runtime/Log Events')
-    __o.push(__o['xdc.runtime/Asserts'] = __obj[1332.0]); __o.$keys.push('xdc.runtime/Asserts')
-    __o.push(__o['xdc.runtime/Errors'] = __obj[1334.0]); __o.$keys.push('xdc.runtime/Errors')
+    __o.push(__o['xdc.runtime/Memory'] = __obj[1322.0]); __o.$keys.push('xdc.runtime/Memory')
+    __o.push(__o['xdc.runtime/Diagnostics'] = __obj[1324.0]); __o.$keys.push('xdc.runtime/Diagnostics')
+    __o.push(__o['xdc.runtime/Concurrency'] = __obj[1326.0]); __o.$keys.push('xdc.runtime/Concurrency')
+    __o.push(__o['xdc.runtime/Log Events'] = __obj[1328.0]); __o.$keys.push('xdc.runtime/Log Events')
+    __o.push(__o['xdc.runtime/Asserts'] = __obj[1330.0]); __o.$keys.push('xdc.runtime/Asserts')
+    __o.push(__o['xdc.runtime/Errors'] = __obj[1332.0]); __o.$keys.push('xdc.runtime/Errors')
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24', 'UTF-8'))
 
-__o = __obj[1324]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'
+__o = __obj[1322]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27', 'UTF-8'))
-    __o['fields'] = __obj[1325.0]
+    __o['fields'] = __obj[1323.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1325]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'/fields
+__o = __obj[1323]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FMemory%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.instanceHeap', 'UTF-8'))
@@ -24077,14 +24064,14 @@ __o = __obj[1325]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Memory'/fie
     __o['5'] = String(java.net.URLDecoder.decode('common%24.fxntab', 'UTF-8'))
     __o['6'] = String(java.net.URLDecoder.decode('common%24.romPatchTable', 'UTF-8'))
 
-__o = __obj[1326]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'
+__o = __obj[1324]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27', 'UTF-8'))
-    __o['fields'] = __obj[1327.0]
+    __o['fields'] = __obj[1325.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1327]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'/fields
+__o = __obj[1325]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FDiagnostics%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.logger', 'UTF-8'))
@@ -24103,67 +24090,67 @@ __o = __obj[1327]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Diagnostics
     __o['13'] = String(java.net.URLDecoder.decode('common%24.diags_INFO', 'UTF-8'))
     __o['14'] = String(java.net.URLDecoder.decode('common%24.diags_ANALYSIS', 'UTF-8'))
 
-__o = __obj[1328]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'
+__o = __obj[1326]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27', 'UTF-8'))
-    __o['fields'] = __obj[1329.0]
+    __o['fields'] = __obj[1327.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('module', 'UTF-8'))
 
-__o = __obj[1329]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'/fields
+__o = __obj[1327]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Concurrency'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FConcurrency%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('common%24.gate', 'UTF-8'))
     __o['1'] = String(java.net.URLDecoder.decode('common%24.gateParams', 'UTF-8'))
 
-__o = __obj[1330]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'
+__o = __obj[1328]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27', 'UTF-8'))
-    __o['fields'] = __obj[1331.0]
+    __o['fields'] = __obj[1329.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1331]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'/fields
+__o = __obj[1329]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Log Events'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FLog+Events%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Log.Event', 'UTF-8'))
 
-__o = __obj[1332]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'
+__o = __obj[1330]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27', 'UTF-8'))
-    __o['fields'] = __obj[1333.0]
+    __o['fields'] = __obj[1331.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1333]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'/fields
+__o = __obj[1331]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Asserts'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FAsserts%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Assert.Id', 'UTF-8'))
 
-__o = __obj[1334]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'
+__o = __obj[1332]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27', 'UTF-8'))
-    __o['fields'] = __obj[1335.0]
+    __o['fields'] = __obj[1333.0]
     __o['viewFxn'] = undefined
     __o['viewType'] = String(java.net.URLDecoder.decode('instance', 'UTF-8'))
 
-__o = __obj[1335]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'/fields
+__o = __obj[1333]  // ti.sysbios.knl.Swi/configNameMap$/'xdc.runtime/Errors'/fields
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FconfigNameMap%24%2F%27xdc.runtime%2FErrors%27%2Ffields', 'UTF-8'))
     __o['0'] = String(java.net.URLDecoder.decode('Error.Id', 'UTF-8'))
 
-__o = __obj[1336]  // ti.sysbios.knl.Swi/hooks
+__o = __obj[1334]  // ti.sysbios.knl.Swi/hooks
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2Fhooks', 'UTF-8'))
 
-__o = __obj[1337]  // ti.sysbios.knl.Swi/viewNameMap$
+__o = __obj[1335]  // ti.sysbios.knl.Swi/viewNameMap$
     __o.$keys = []
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Swi%2FviewNameMap%24', 'UTF-8'))
 
-__o = __obj[1338]  // ti.sysbios.knl.Task
+__o = __obj[1336]  // ti.sysbios.knl.Task
     __o['$category'] = String(java.net.URLDecoder.decode('Module', 'UTF-8'))
-    __o['$instances'] = __obj[1339.0]
+    __o['$instances'] = __obj[1337.0]
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task', 'UTF-8'))
     __o['AFFINITY_NONE'] = -1
     __o['A_badAffinity'] = __obj[1344.0]
@@ -24229,16 +24216,39 @@ __o = __obj[1338]  // ti.sysbios.knl.Task
     __o['startupHookFunc'] = null
     __o['viewNameMap$'] = __obj[1400.0]
 
-__o = __obj[1339]  // ti.sysbios.knl.Task/$instances
+__o = __obj[1337]  // ti.sysbios.knl.Task/$instances
     __o['$category'] = String(java.net.URLDecoder.decode('Vector', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task%2F%24instances', 'UTF-8'))
-    __o['0'] = __obj[1340.0]
-    __o['1'] = __obj[1342.0]
+    __o['0'] = __obj[1338.0]
+    __o['1'] = __obj[1340.0]
+    __o['2'] = __obj[1342.0]
 
-__o = __obj[1340]  // ti.sysbios.knl.Task.Instance#0
+__o = __obj[1338]  // ti.sysbios.knl.Task.Instance#0
     __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
-    __o['$module'] = __obj[1338.0]
+    __o['$module'] = __obj[1336.0]
     __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%230', 'UTF-8'))
+    __o['AFFINITY_NONE'] = -1
+    __o['affinity'] = 0
+    __o['arg0'] = 0
+    __o['arg1'] = 0
+    __o['env'] = null
+    __o['instance'] = __obj[1339.0]
+    __o['priority'] = 1
+    __o['stack'] = null
+    __o['stackHeap'] = null
+    __o['stackSection'] = String(java.net.URLDecoder.decode('.bss%3AtaskStackSection', 'UTF-8'))
+    __o['stackSize'] = 2048
+    __o['vitalTaskFlag'] = true
+
+__o = __obj[1339]  // ti.sysbios.knl.Task.Instance#0/instance
+    __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
+    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%230%2Finstance', 'UTF-8'))
+    __o['name'] = String(java.net.URLDecoder.decode('uart_7', 'UTF-8'))
+
+__o = __obj[1340]  // ti.sysbios.knl.Task.Instance#1
+    __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
+    __o['$module'] = __obj[1336.0]
+    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%231', 'UTF-8'))
     __o['AFFINITY_NONE'] = -1
     __o['affinity'] = 0
     __o['arg0'] = 0
@@ -24252,15 +24262,15 @@ __o = __obj[1340]  // ti.sysbios.knl.Task.Instance#0
     __o['stackSize'] = 2048
     __o['vitalTaskFlag'] = true
 
-__o = __obj[1341]  // ti.sysbios.knl.Task.Instance#0/instance
+__o = __obj[1341]  // ti.sysbios.knl.Task.Instance#1/instance
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
-    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%230%2Finstance', 'UTF-8'))
-    __o['name'] = String(java.net.URLDecoder.decode('uart_1', 'UTF-8'))
+    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%231%2Finstance', 'UTF-8'))
+    __o['name'] = String(java.net.URLDecoder.decode('uart_0', 'UTF-8'))
 
-__o = __obj[1342]  // ti.sysbios.knl.Task.Instance#1
+__o = __obj[1342]  // ti.sysbios.knl.Task.Instance#2
     __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
-    __o['$module'] = __obj[1338.0]
-    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%231', 'UTF-8'))
+    __o['$module'] = __obj[1336.0]
+    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%232', 'UTF-8'))
     __o['AFFINITY_NONE'] = -1
     __o['affinity'] = 0
     __o['arg0'] = 0
@@ -24274,9 +24284,9 @@ __o = __obj[1342]  // ti.sysbios.knl.Task.Instance#1
     __o['stackSize'] = 2048
     __o['vitalTaskFlag'] = true
 
-__o = __obj[1343]  // ti.sysbios.knl.Task.Instance#1/instance
+__o = __obj[1343]  // ti.sysbios.knl.Task.Instance#2/instance
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
-    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%231%2Finstance', 'UTF-8'))
+    __o['$name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.Instance%232%2Finstance', 'UTF-8'))
     __o['name'] = String(java.net.URLDecoder.decode('ti.sysbios.knl.Task.IdleTask', 'UTF-8'))
 
 __o = __obj[1344]  // xdc.runtime.Assert.Desc#31

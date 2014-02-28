@@ -29,6 +29,7 @@
 // Keenan Include File
 #include "muxes.h"
 #include "lcd.h"
+#include "tcp.h"
 #include "tcp_task.h"
 #include "uart_0.h"
 
@@ -38,10 +39,11 @@ Int main(Void)
     Board_initGeneral();
     Board_initGPIO();
     Board_initUART();
-    Board_initSPI();
+    //Board_initSPI();
 
     // Custom Inits
     init_mux_pins();
+    init_spi();
 
     GPIO_write(Board_LED0, Board_LED_ON);
 

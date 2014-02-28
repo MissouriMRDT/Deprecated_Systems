@@ -187,6 +187,9 @@ main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
 main.obj: ../muxes.h
 main.obj: ../lcd.h
+main.obj: ../tcp.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: ../tcp_task.h
 main.obj: ../uarts.h
 main.obj: ../uart_0.h
@@ -378,6 +381,9 @@ C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h:
 ../EK_LM4F120XL.h: 
 ../muxes.h: 
 ../lcd.h: 
+../tcp.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 ../tcp_task.h: 
 ../uarts.h: 
 ../uart_0.h: 

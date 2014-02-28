@@ -11,7 +11,11 @@ extern Void uart_0_task(UArg arg0, UArg arg1)
 {
 	// Init Uart 0
 	UART_Handle uart0 = init_uart( 0 );
-	UART_write(uart0, "Hey", 3);
+
+	while(1)
+	{
+		UART_write(uart0, "Hey", 3);
+	}
 }
 
 #endif /* UART_0_H_ */

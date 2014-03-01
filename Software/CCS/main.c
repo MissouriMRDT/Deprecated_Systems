@@ -39,14 +39,18 @@ Int main(Void)
     Board_initGeneral();
     Board_initGPIO();
     Board_initUART();
-    //Board_initSPI();
 
     // Custom Inits
     init_mux_pins();
     init_spi();
 
+    //Establish TCP connection
+    set_up_tcp();
+
+    // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
+    // Start BIOS (RTOS)
     BIOS_start();
 
     return (0);

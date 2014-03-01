@@ -8,6 +8,7 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/arm_5.1.1
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./tcp.obj" \
 "./main.obj" \
 "./EK_LM4F120XL.obj" \
 "../EK_LM4F120XL.cmd" \
@@ -126,8 +127,8 @@ rover.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 clean:
 	-$(RM) $(TMS470_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "rover.out"
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "EK_LM4F120XL.pp" "main.pp" 
-	-$(RM) "EK_LM4F120XL.obj" "main.obj" 
+	-$(RM) "EK_LM4F120XL.pp" "main.pp" "tcp.pp" 
+	-$(RM) "EK_LM4F120XL.obj" "main.obj" "tcp.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

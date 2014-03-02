@@ -40,15 +40,6 @@ void loop()
     Serial.print(c);
   }
 
-  // as long as there are bytes in the serial queue,
-  // read them and send them out the socket if it's open:
-  while (Serial.available() > 0) {
-    char inChar = Serial.read();
-    if (client.connected()) {
-      client.print(inChar); 
-    }
-  }
-
   // if the server's disconnected, stop the client:
   if (!client.connected()) {
     client.stop();

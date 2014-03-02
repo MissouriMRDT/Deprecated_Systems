@@ -19,6 +19,7 @@
 #include <ti/drivers/SPI.h>
 #include "driverlib/rom.h"
 #include <driverlib/pin_map.h>
+#include <xdc/runtime/System.h>
 
 #define WIZNET_WRITE_OPCODE 0xF0
 #define WIZNET_READ_OPCODE 0x0F
@@ -38,7 +39,7 @@
 #define S0_IR      0x0402      // Socket 0: Interrupt Register Address
 #define S0_SR      0x0403      // Socket 0: Status Register Address
 #define S0_PORT    0x0404      // Socket 0: Source Port: 0x0404 to 0x0405
-#define SO_TX_FSR  0x0420      // Socket 0: Tx Free Size Register: 0x0420 to 0x0421
+#define S0_TX_FSR  0x0420      // Socket 0: Tx Free Size Register: 0x0420 to 0x0421
 #define S0_TX_RD   0x0422      // Socket 0: Tx Read Pointer Register: 0x0422 to 0x0423
 #define S0_TX_WR   0x0424      // Socket 0: Tx Write Pointer Register: 0x0424 to 0x0425
 #define S0_RX_RSR  0x0426      // Socket 0: Rx Received Size Pointer Register: 0x0425 to 0x0427
@@ -48,14 +49,7 @@
 #define RXBUFADDR  0x6000      // W5100 Read Buffer Base Address
 
 // S0_MR values
-#define MR_CLOSE      0x00    // Unused socket
 #define MR_TCP        0x01    // TCP
-#define MR_UDP        0x02    // UDP
-#define MR_IPRAW      0x03    // IP LAYER RAW SOCK
-#define MR_MACRAW     0x04    // MAC LAYER RAW SOCK
-#define MR_PPPOE      0x05    // PPPoE
-#define MR_ND         0x20    // No Delayed Ack(TCP) flag
-#define MR_MULTI      0x80    // support multicating
 
 // S0_CR values
 #define CR_OPEN          0x01     // Initialize or open socket
@@ -84,6 +78,9 @@
 #define SOCK_IPRAW       0x32     // IP raw mode socket
 #define SOCK_MACRAW      0x42     // MAC raw mode socket
 #define SOCK_PPPOE       0x5F     // PPPOE socket
+
+#define SN_DIPR			 0x040C	  // Server IP
+#define SN_DPORT		 0x0410	  // Server Port
 
 #define TX_BUF_MASK      0x07FF   // Tx 2K Buffer Mask:
 #define RX_BUF_MASK      0x07FF   // Rx 2K Buffer Mask:

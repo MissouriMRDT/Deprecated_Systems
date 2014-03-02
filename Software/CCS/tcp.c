@@ -53,14 +53,14 @@ void init_spi()
 
 void set_up_tcp()
 {
-	//
-	//Ethernet adapter config
-	//
-
+	// Motherboard Info
 	unsigned char mac_addr[] = {0x00,0x16,0x36,0xDE,0x58,0xF6};
-	unsigned char ip_addr[] = {192,168,1,25};
+	unsigned char ip_addr[] = {192,168,1,22};
 	unsigned char sub_mask[] = {255,255,255,0};
 	unsigned char gtw_addr[] = {192,168,1,100};
+
+	//Server Info
+	unsigned char server_ip[] = {192,168,1,2};
 
 	//
 	// Basic IP configuration
@@ -103,13 +103,33 @@ void set_up_tcp()
 	// Configure Socket 0 as TCP Client
 	//
 	SPI_Send(S0_MR, MR_TCP);                  //TCP Mode activation
+
 	SPI_Send(S0_PORT, 0x11);                  //Using port 4500 = 0x1194
-	SPI_Send(S0_PORT+1, 0x94);
-	SPI_Send(IMR,1);                          //Enable Socket 0 Interrupts only
+	SPI_Send(S0_PORT+1, 0x94);                //Enable Socket 0 Interrupts only
+	SPI_Send(IMR,1);
 	SPI_Send(S0_CR, CR_CLOSE);
 	SPI_Send(S0_CR, CR_OPEN);
-	while(SPI_Read(S0_CR));                   //Wait for socket init
-	SPI_Send(S0_CR, CR_LISTEN);
 	while(SPI_Read(S0_CR));
+
+	// Set server IP
+	SPI_Send(SN_DIPR+0, server_ip[0]);
+	SPI_Send(SN_DIPR+1, server_ip[1]);
+	SPI_Send(SN_DIPR+2, server_ip[2]);
+	SPI_Send(SN_DIPR+3, server_ip[3]);
+
+	// Set server Port
+	// 11000 = 0x02AF8
+	SPI_Send(SN_DPORT, 0x2A);
+	SPI_Send(SN_DPORT, 0xF8);
+
+	// Connect
+	SPI_Send(S0_CR, CR_CONNECT);
+	while(SPI_Read(S0_CR));
+
+	uint32_t buf;
+	buf = SPI_Read(S0_SR);
+
+	System_printf("S0_SR: %x\n", buf);
+	System_flush();
 }
 

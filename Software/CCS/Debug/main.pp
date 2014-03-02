@@ -190,6 +190,7 @@ main.obj: ../lcd.h
 main.obj: ../tcp.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../tcp_task.h
 main.obj: ../uarts.h
 main.obj: ../uart_0.h
@@ -384,6 +385,7 @@ C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h:
 ../tcp.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 ../tcp_task.h: 
 ../uarts.h: 
 ../uart_0.h: 

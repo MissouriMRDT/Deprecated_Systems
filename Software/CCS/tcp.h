@@ -91,6 +91,12 @@
 void SPI_Send(uint16_t addr, uint32_t data);
 uint32_t SPI_Read(uint32_t addr);
 void init_spi();
+// Sets up TCP and start socket
 void set_up_tcp();
+// Checks if socket status
+// register is connected
+bool socket_connected();
+//resends the connect command
+void reconnect_tcp();
 
 #endif /* TCP_H_ */

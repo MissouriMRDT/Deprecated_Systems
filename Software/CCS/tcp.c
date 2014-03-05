@@ -99,13 +99,13 @@ void set_up_tcp()
 	SPI_Send(RMSR,0x55);
 	SPI_Send(TMSR,0x55);
 
-	//
 	// Configure Socket 0 as TCP Client
-	//
-	SPI_Send(S0_MR, MR_TCP);                  //TCP Mode activation
+	SPI_Send(S0_MR, MR_TCP);
 
-	SPI_Send(S0_PORT, 0x11);                  //Using port 4500 = 0x1194
-	SPI_Send(S0_PORT+1, 0x94);                //Enable Socket 0 Interrupts only
+	//Using port 4500 = 0x1194
+	//Enable Socket 0 Interrupts only
+	SPI_Send(S0_PORT, 0x11);
+	SPI_Send(S0_PORT+1, 0x94);
 	SPI_Send(IMR,1);
 	SPI_Send(S0_CR, CR_CLOSE);
 	SPI_Send(S0_CR, CR_OPEN);
@@ -125,11 +125,24 @@ void set_up_tcp()
 	// Connect
 	SPI_Send(S0_CR, CR_CONNECT);
 	while(SPI_Read(S0_CR));
+}
 
-	uint32_t buf;
-	buf = SPI_Read(S0_SR);
+bool socket_connected()
+{
+	if( SPI_Read(S0_SR) == SOCK_ESTABLISHED )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
-	System_printf("S0_SR: %x\n", buf);
-	System_flush();
+void reconnect_tcp()
+{
+	// Connect
+	SPI_Send(S0_CR, CR_CONNECT);
+	while(SPI_Read(S0_CR));
 }
 

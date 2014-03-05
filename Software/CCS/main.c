@@ -50,6 +50,8 @@ Int main(Void)
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
+    mux_1(1);
+
     // Start BIOS (RTOS)
     BIOS_start();
 

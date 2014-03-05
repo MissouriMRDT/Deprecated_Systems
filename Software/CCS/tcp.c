@@ -57,10 +57,10 @@ void set_up_tcp()
 	unsigned char mac_addr[] = {0x00,0x16,0x36,0xDE,0x58,0xF6};
 	unsigned char ip_addr[] = {192,168,1,22};
 	unsigned char sub_mask[] = {255,255,255,0};
-	unsigned char gtw_addr[] = {192,168,1,100};
+	unsigned char gtw_addr[] = {192,168,1,1};
 
 	//Server Info
-	unsigned char server_ip[] = {192,168,1,2};
+	unsigned char server_ip[] = {192,168,1,6};
 
 	//
 	// Basic IP configuration
@@ -119,8 +119,8 @@ void set_up_tcp()
 
 	// Set server Port
 	// 11000 = 0x02AF8
-	SPI_Send(SN_DPORT, 0x2A);
-	SPI_Send(SN_DPORT, 0xF8);
+	SPI_Send(SN_DPORT0, 0x2A);
+	SPI_Send(SN_DPORT1, 0xF8);
 
 	// Connect
 	SPI_Send(S0_CR, CR_CONNECT);

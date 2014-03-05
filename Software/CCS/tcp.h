@@ -80,7 +80,8 @@
 #define SOCK_PPPOE       0x5F     // PPPOE socket
 
 #define SN_DIPR			 0x040C	  // Server IP
-#define SN_DPORT		 0x0410	  // Server Port
+#define SN_DPORT0		 0x0410	  // Server Port
+#define SN_DPORT1		 0x0411	  // Server Port
 
 #define TX_BUF_MASK      0x07FF   // Tx 2K Buffer Mask:
 #define RX_BUF_MASK      0x07FF   // Rx 2K Buffer Mask:

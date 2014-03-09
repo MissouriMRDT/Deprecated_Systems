@@ -1,25 +1,29 @@
 #include <SoftwareSerial.h>
 #include <Adafruit_GPS.h>
 #include "Arduino.h"
+#include "DHT.h"
 #include "Setup.h"
 
 SoftwareSerial gpsSerial(3, 2); // (Rx, Tx)
 Adafruit_GPS GPS(&gpsSerial);
+#define GPSECHO true //set to true if you want raw GPS data printed to serial monitor
 
-//set to true if you want raw GPS data printed to serial monitor
-#define GPSECHO true 
+#define DHTPIN A0
+#define DHTTYPE DHT22
+DHT temp_sensor(DHTPIN, DHTTYPE);
 
 All_Data all_data;  //struct to contain all sensor data
 
-//timer collecting raw GPS once every millisecond
-SIGNAL(TIMER0_COMPA_vect) {
+//timer collecting raw GPS data once every millisecond
+SIGNAL(TIMER0_COMPA_vect)
+{
   char c = GPS.read();
-#ifdef UDR0
-  if (GPSECHO)
-    if (c) UDR0 = c;  
-    // writing direct to UDR0 is much much faster than Serial.print 
-    // but only one character can be written at a time. 
-#endif
+  #ifdef UDR0
+    if (GPSECHO)
+      if (c) UDR0 = c;  
+      // writing direct to UDR0 is much much faster than Serial.print 
+      // but only one character can be written at a time. 
+  #endif
 }
 
 
@@ -29,10 +33,9 @@ void setup()
   Serial.println("Mars Rover Sensor Test");
   
   GPS_Setup(GPS, all_data);
+  temp_sensor.begin();
   
-  
-  delay(1000);
-  
+  delay(1000); 
 }
 
 uint32_t timer = millis();
@@ -41,7 +44,7 @@ void loop()
   if(GPS.newNMEAreceived())
   {
     if(!GPS.parse(GPS.lastNMEA()))
-      return;
+      return; //if fails to parse, go back to top of loop
   }
   
   //if millis or timer overflows, reset
@@ -50,8 +53,8 @@ void loop()
   
   //update struct data every 1.5 seconds
   
-  /*
-  if(millis() - timer > 2000)
+  
+  if(millis() - timer > 1500)
   {
     timer = millis();
     
@@ -87,18 +90,24 @@ void loop()
       Serial.print("Speed (knots): "); Serial.println(all_data.gps_data.speed);
       Serial.print("Altitude: "); Serial.println(all_data.gps_data.altitude);
       Serial.print("Satellites: "); Serial.println((int)all_data.gps_data.satellites);
-      
-      
-      
     }
     
-  }
+    float h = temp_sensor.readHumidity();
+    float t = temp_sensor.readTemperature();
     
-    */
-  
-  
-  
-  
-  
-  
+    if (isnan(t) || isnan(h))
+    {
+      
+      Serial.println("Failed to read from DHT");
+    } 
+    else
+    {
+      Serial.print("Humidity: "); 
+      Serial.print(h);
+      Serial.print(" %\t");
+      Serial.print("Temperature: "); 
+      Serial.print(t);
+      Serial.println(" *C");
+    }
+  }
 }

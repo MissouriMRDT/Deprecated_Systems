@@ -31,6 +31,7 @@
 #include "lcd.h"
 #include "tcp.h"
 #include "tcp_task.h"
+#include "uarts.h"
 #include "uart_0.h"
 
 Int main(Void)
@@ -54,6 +55,9 @@ Int main(Void)
 
     // Start BIOS (RTOS)
     BIOS_start();
+
+    //System_printf("%c", input);
+	//System_flush()
 
     return (0);
 }

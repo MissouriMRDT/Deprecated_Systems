@@ -1,8 +1,6 @@
 /*
  * tcp_task.h
  *
- *  Created on: Feb 27, 2014
- *      Author: Zeus
  */
 
 #ifndef TCP_TASK_H_
@@ -12,13 +10,20 @@
 
 extern Void tcp(UArg arg0, UArg arg1)
 {
+	UART_Handle uart0 = init_uart( 0 );
+	UART_write(uart0, "Hey", 3);
+
 	while(1)
 	{
-		if (SPI_Read(S0_RX_RSR) != 0x0000)
-		{
-			System_printf("GOT DATA");
-			System_flush();
-		}
+		uint32_t buf;
+
+		buf = SPI_Read(S0_RX_RSR);
+		System_printf("%x", buf);
+		System_flush();
+
+		UART_write(uart0, buf, 1);
+
+
 	}
 }
 

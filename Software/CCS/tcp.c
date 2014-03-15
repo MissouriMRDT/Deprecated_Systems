@@ -60,7 +60,7 @@ void set_up_tcp()
 	unsigned char gtw_addr[] = {192,168,1,1};
 
 	//Server Info
-	unsigned char server_ip[] = {192,168,1,6};
+	unsigned char server_ip[] = {192,168,1,2};
 
 	//
 	// Basic IP configuration
@@ -106,7 +106,7 @@ void set_up_tcp()
 	//Enable Socket 0 Interrupts only
 	SPI_Send(S0_PORT, 0x11);
 	SPI_Send(S0_PORT+1, 0x94);
-	SPI_Send(IMR,1);
+	//SPI_Send(IMR,1);
 	SPI_Send(S0_CR, CR_CLOSE);
 	SPI_Send(S0_CR, CR_OPEN);
 	while(SPI_Read(S0_CR));

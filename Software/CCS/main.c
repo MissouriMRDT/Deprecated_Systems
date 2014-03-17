@@ -43,15 +43,13 @@ Int main(Void)
 
     // Custom Inits
     init_mux_pins();
-    init_spi();
+    //init_spi();
 
     //Establish TCP connection
-    set_up_tcp();
+    //set_up_tcp();
 
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
-
-    mux_1(1);
 
     // Start BIOS (RTOS)
     BIOS_start();

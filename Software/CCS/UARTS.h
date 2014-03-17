@@ -23,7 +23,7 @@ UART_Handle init_uart( UInt uart_index )
 	uart_handle = UART_open(uart_index, &uartParams);
 
 	if (uart_handle == NULL) {
-		System_abort("Error opening the UART7");
+		System_abort("Error opening the UART");
 	}
 
 	return uart_handle;

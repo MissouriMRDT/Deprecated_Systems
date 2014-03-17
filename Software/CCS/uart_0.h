@@ -16,8 +16,6 @@ extern Void uart_0_task(UArg arg0, UArg arg1)
 	{
 		UART_write(uart1, "Hey", 3);
 		//UART_read(uart7, &input, 1);
-		    	//System_printf("%c", input);
-		    	//System_flush()
 	}
 }
 

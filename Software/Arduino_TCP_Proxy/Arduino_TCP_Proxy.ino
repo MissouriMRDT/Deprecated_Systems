@@ -5,10 +5,10 @@
 // The IP address will be dependent on your local network:
 byte mac[] = {  
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192,168,1,25);
+IPAddress ip(192,168,1,22);
 
 // Enter the IP address of the server you're connecting to:
-IPAddress server(192,168,1,6); 
+IPAddress server(192,168,1,2);
 int port = 11000;
 
 // Initialize the Ethernet client library
@@ -43,6 +43,7 @@ void loop()
   // if the server's disconnected, stop the client:
   if (!client.connected()) {
     client.stop();
+    // and reconnect
     while(!client.connect(server, port));
   }
 }

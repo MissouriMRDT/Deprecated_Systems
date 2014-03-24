@@ -193,6 +193,10 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../tcp_task.h
 main.obj: ../uarts.h
 main.obj: ../uart_0.h
+main.obj: ../struct_test.h
+main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
+main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
+main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -387,3 +391,7 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h:
 ../tcp_task.h: 
 ../uarts.h: 
 ../uart_0.h: 
+../struct_test.h: 
+C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
+C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 
+C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h: 

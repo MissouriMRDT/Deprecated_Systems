@@ -8,7 +8,7 @@ byte mac[] = {
 IPAddress ip(192,168,1,22);
 
 // Enter the IP address of the server you're connecting to:
-IPAddress server(192,168,1,2);
+IPAddress server(192,168,1,6);
 int port = 11000;
 
 // Initialize the Ethernet client library

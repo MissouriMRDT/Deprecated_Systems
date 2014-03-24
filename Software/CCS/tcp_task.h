@@ -25,29 +25,37 @@ extern Void tcp(UArg arg0, UArg arg1)
 
 	char tcp_input;
 
+	//Send to first set of motor controllers
+	mux_1(1);
+
 	while(1)
 	{
 		//Read byte from TCP
-		UART_read(uart7, &tcp_input, 1);
+		//UART_read(uart7, &tcp_input, 1);
 
-		//Send byte out debug port
-		UART_write(uart0, &tcp_input, 1);
-
-		//Send to first set of motor controllers
-		mux_1(1);
-		mux_2(2);
-
+		//Go foreward
+		tcp_input = 0xFF;
 		//Send command
 		UART_write(uart1, &tcp_input, 1);
-		UART_write(uart2, &tcp_input, 1);
+		SysCtlDelay( SysCtlClockGet()  );
 
-		//Send to second set of motor controllers
-		mux_1(8);
-		mux_2(7);
-
+		//Stop
+		tcp_input = 0x80;
 		//Send command
 		UART_write(uart1, &tcp_input, 1);
-		UART_write(uart2, &tcp_input, 1);
+		SysCtlDelay( SysCtlClockGet()  );
+
+		//Backwards
+		tcp_input = 0x01;
+		//Send command
+		UART_write(uart1, &tcp_input, 1);
+		SysCtlDelay( SysCtlClockGet()  );
+
+		//Stop
+		tcp_input = 0x80;
+		//Send command
+		UART_write(uart1, &tcp_input, 1);
+		SysCtlDelay( SysCtlClockGet()  );
 	}
 }
 

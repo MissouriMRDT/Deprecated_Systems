@@ -33,6 +33,7 @@
 #include "tcp_task.h"
 #include "uarts.h"
 #include "uart_0.h"
+#include "struct_test.h"
 
 Int main(Void)
 {

@@ -11,17 +11,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define start_byte1 0x06
-#define start_byte2 0x85
-
 enum peripheral_devices{motor_controller1, motor_controller2, robotic_arm};
+
+uint8_t start_byte1=0x06;
+uint8_t start_byte2=0x85;
 
 
 struct example_struct
 {
-    int x;
-    int y;
-    int z;
+	uint16_t x;
+	uint16_t y;
+	uint16_t z;
 };
 
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
@@ -43,20 +43,32 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
     uint8_t* rx_buffer = (uint8_t*) malloc(size);
     uint8_t CS = size;
 
+    UART_write(uart, &start_byte1, 1);
+    System_printf("Start1: %x\n", start_byte1);
+    System_flush();
 
+    UART_write(uart, &start_byte2, 1);
+    System_printf("Start2: %x\n", start_byte2);
+	System_flush();
 
-    UART_write(uart, start_byte1, 1);
-    UART_write(uart, start_byte2, 1);
-    UART_write(uart, size, 1);
+    UART_write(uart, &size, 1);
+    System_printf("Size: %x\n", size);
+	System_flush();
 
     int i;
     for(i = 0; i<size; i++)
     {
         CS^=*(address+i);
-        UART_write(uart, *(address+i), 1);
+        UART_write(uart, &(*(address+i)), 1);
+        System_printf("DATA: %x\n", *(address+i));
+		System_flush();
         //serial.write(*(address+i));
     }
-    UART_write(uart, CS, 1);
+
+    System_printf("CS: %x\n", CS);
+    System_flush();
+    UART_write(uart, &CS, 1);
+
     //serial.write(CS);
 
 };
@@ -75,10 +87,17 @@ extern Void struct_xfer_test()
 	{
 		System_printf("Writing struct\n");
 		System_flush();
-		send_struct(uart1, &test_struct, motor_controller2);
-		SysCtlDelay( SysCtlClockGet() * 3 );
-	}
 
+		//uint8_t test_int = 0x05;
+
+		//UART_write(uart1, &test_int, 1);
+
+		// Send struct
+		send_struct(uart1, &test_struct, motor_controller2);
+
+		// Delay 1 seconds
+		SysCtlDelay( SysCtlClockGet());
+	}
 }
 
 #endif /* STRUCT_TEST_H_ */

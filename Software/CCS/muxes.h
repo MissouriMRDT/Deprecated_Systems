@@ -99,7 +99,7 @@ void mux_3( int rs_485_transceiver)
 	        break;
 	    case 6  :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (~0));
-	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (~0));
+	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_3), (0));
 	        break;
 	    case 11 :
 	        GPIOPinWrite(GPIO_PORTB_BASE, (GPIO_PIN_2), (0));

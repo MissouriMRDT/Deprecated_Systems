@@ -99,6 +99,7 @@ void set_up_tcp()
 	SPI_Send(RMSR,0x55);
 	SPI_Send(TMSR,0x55);
 
+	/*
 	// Configure Socket 0 as TCP Client
 	SPI_Send(S0_MR, MR_TCP);
 
@@ -110,21 +111,22 @@ void set_up_tcp()
 	SPI_Send(S0_CR, CR_CLOSE);
 	SPI_Send(S0_CR, CR_OPEN);
 	while(SPI_Read(S0_CR));
+	*/
 
 	// Set server IP
-	SPI_Send(SN_DIPR+0, server_ip[0]);
-	SPI_Send(SN_DIPR+1, server_ip[1]);
-	SPI_Send(SN_DIPR+2, server_ip[2]);
-	SPI_Send(SN_DIPR+3, server_ip[3]);
+	//SPI_Send(SN_DIPR+0, server_ip[0]);
+	//SPI_Send(SN_DIPR+1, server_ip[1]);
+	//SPI_Send(SN_DIPR+2, server_ip[2]);
+	//SPI_Send(SN_DIPR+3, server_ip[3]);
 
 	// Set server Port
 	// 11000 = 0x02AF8
-	SPI_Send(SN_DPORT0, 0x2A);
+	//SPI_Send(SN_DPORT0, 0x2A);
 	SPI_Send(SN_DPORT1, 0xF8);
-
+//
 	// Connect
-	SPI_Send(S0_CR, CR_CONNECT);
-	while(SPI_Read(S0_CR));
+	//SPI_Send(S0_CR, CR_CONNECT);
+	//while(SPI_Read(S0_CR));
 }
 
 bool socket_connected()

@@ -40,7 +40,7 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
     }
 
     uint8_t* address = (uint8_t*) my_struct;
-    uint8_t* rx_buffer = (uint8_t*) malloc(size);
+    uint8_t* rx_buffer = (uint8_t*) malloc(size);  //think we can remove this, only used when receiving structs
     uint8_t CS = size;
 
     UART_write(uart, &start_byte1, 1);

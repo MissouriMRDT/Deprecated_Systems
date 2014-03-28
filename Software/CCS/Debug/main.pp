@@ -182,18 +182,18 @@ main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
-main.obj: ../muxes.h
-main.obj: ../lcd.h
-main.obj: ../tcp.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
+main.obj: ../include/muxes.h
+main.obj: ../include/lcd.h
+main.obj: ../include/tcp.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
-main.obj: ../tcp_task.h
-main.obj: ../uarts.h
-main.obj: ../uart_0.h
-main.obj: ../struct_test.h
+main.obj: ../include/tcp_task.h
+main.obj: ../include/uarts.h
+main.obj: ../include/uart_0.h
+main.obj: ../include/struct_test.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h
@@ -380,18 +380,18 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ssi.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
 ../Board.h: 
 ../EK_LM4F120XL.h: 
-../muxes.h: 
-../lcd.h: 
-../tcp.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
+../include/muxes.h: 
+../include/lcd.h: 
+../include/tcp.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
-../tcp_task.h: 
-../uarts.h: 
-../uart_0.h: 
-../struct_test.h: 
+../include/tcp_task.h: 
+../include/uarts.h: 
+../include/uart_0.h: 
+../include/struct_test.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h: 

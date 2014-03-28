@@ -11,18 +11,15 @@ CFG_SRCS += \
 
 C_SRCS += \
 ../EK_LM4F120XL.c \
-../main.c \
-../tcp.c 
+../main.c 
 
 OBJS += \
 ./EK_LM4F120XL.obj \
-./main.obj \
-./tcp.obj 
+./main.obj 
 
 C_DEPS += \
 ./EK_LM4F120XL.pp \
-./main.pp \
-./tcp.pp 
+./main.pp 
 
 GEN_MISC_DIRS += \
 ./configPkg/ 
@@ -46,18 +43,15 @@ GEN_MISC_DIRS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "EK_LM4F120XL.pp" \
-"main.pp" \
-"tcp.pp" 
+"main.pp" 
 
 OBJS__QUOTED += \
 "EK_LM4F120XL.obj" \
-"main.obj" \
-"tcp.obj" 
+"main.obj" 
 
 C_SRCS__QUOTED += \
 "../EK_LM4F120XL.c" \
-"../main.c" \
-"../tcp.c" 
+"../main.c" 
 
 GEN_CMDS__FLAG += \
 -l"./configPkg/linker.cmd" 

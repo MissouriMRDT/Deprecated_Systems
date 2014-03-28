@@ -22,18 +22,20 @@
 #include "driverlib/sysctl.h"
 #include <ti/drivers/Watchdog.h>
 #include <ti/drivers/SPI.h>
+#include "driverlib/uart.h"
+#include "driverlib/rom.h"
 
 /* Board Header file */
 #include "Board.h"
 
 // Keenan Include File
-#include "muxes.h"
-#include "lcd.h"
-#include "tcp.h"
-#include "tcp_task.h"
-#include "uarts.h"
-#include "uart_0.h"
-#include "struct_test.h"
+#include "include/muxes.h"
+#include "include/lcd.h"
+#include "include/tcp.h"
+#include "include/tcp_task.h"
+#include "include/uarts.h"
+#include "include/uart_0.h"
+#include "include/struct_test.h"
 
 Int main(Void)
 {
@@ -42,15 +44,19 @@ Int main(Void)
     Board_initGPIO();
     Board_initUART();
 
+
     // Custom Inits
     init_mux_pins();
-    init_spi();
+    //init_spi();
 
     //Establish TCP connection
-    set_up_tcp();
+    //set_up_tcp();
 
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
+
+	UART_Handle uart0 = init_uart( 0 );
+	UART_write(uart0, "Reset\n", 6);
 
     // Start BIOS (RTOS)
     BIOS_start();

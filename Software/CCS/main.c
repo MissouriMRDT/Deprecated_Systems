@@ -28,6 +28,9 @@
 /* Board Header file */
 #include "Board.h"
 
+// Stellarino
+#include "Stellarino/stellarino_uart.h"
+
 // Keenan Include File
 #include "include/muxes.h"
 #include "include/lcd.h"
@@ -57,6 +60,8 @@ Int main(Void)
 
 	UART_Handle uart0 = init_uart( 0 );
 	UART_write(uart0, "Reset\n", 6);
+
+	UARTputc(0, "h");
 
     // Start BIOS (RTOS)
     BIOS_start();

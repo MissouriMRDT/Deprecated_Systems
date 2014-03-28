@@ -20,9 +20,13 @@
 #ifndef STELLARINO_UART_H
 #define STELLARINO_UART_H
 
-#include <stellarino.h>
+#define PERMIT_STDIO
 
-void enableUART(uint8_t UART, unsigned long baudRate);
+#include <stdint.h>
+#include <stdbool.h>
+#include "driverlib/uart.h"
+#include "driverlib/pin_map.h"
+#include "inc/hw_memmap.h"
 
 int16_t UARTgetBufferLevel(uint8_t UART);
 bool UARToverflow(uint8_t UART);

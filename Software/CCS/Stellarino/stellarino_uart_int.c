@@ -17,7 +17,33 @@
     along with Stellarino. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stellarino_uart.h>
+#include "stellarino_uart.h"
+#include "driverlib/uart.h"
+#include "driverlib/rom.h"
+#include "stellarino_uart.h"
+#include "driverlib/uart.h"
+#include "inc/hw_types.h"
+#include "inc/hw_memmap.h"
+#include "driverlib/rom.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/debug.h"
+#include "driverlib/fpu.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+#include "driverlib/timer.h"
+#include "driverlib/adc.h"
+#include "driverlib/uart.h"
+#include "driverlib/ssi.h"
+
+
+static const uint8_t bit8[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
+
+static const uint32_t UARTBASE[] =
+{
+    UART0_BASE, UART1_BASE, UART2_BASE, UART3_BASE, UART4_BASE, UART5_BASE,
+    UART6_BASE, UART7_BASE
+};
 
 #define UART_BUFFSIZE 256
 
@@ -51,6 +77,7 @@ static inline uint8_t rxDequeue(uint8_t UART)
     return c;
 }
 
+/*
 // Called when UART RX FIFO has data in it
 static void flushReadFIFO(uint8_t UART)
 {
@@ -69,6 +96,7 @@ static void flushReadFIFO(uint8_t UART)
     // Clear the appropriate interrupt flag
     ROM_UARTIntClear(UARTBASE[UART], UART_INT_RX);
 }
+*/
 
 void rxInt0(void) {flushReadFIFO(0);}
 void rxInt1(void) {flushReadFIFO(1);}
@@ -83,43 +111,6 @@ void (*rxInterrupts[8])(void) =
 {
     rxInt0, rxInt1, rxInt2, rxInt3, rxInt4, rxInt5, rxInt6, rxInt7
 };
-
-void enableUART(uint8_t UART, unsigned long baudRate)
-{
-    // We must unlock PD7 to use UART2
-    if (UART == 2)
-    {
-        // GPIO Port D Lock Register is at 0x40007520
-        HWREG(0x40007520) = GPIO_LOCK_KEY;
-        // GPIO Port D Control Register is at 0x40007524
-        HWREG(0x40007524) = 0x80;
-    }
-
-    // Enable the UART peripheral in SysCtl
-    ROM_SysCtlPeripheralEnable(SysCtlGPIOs[UARTPins[UART][0] / 8]);
-    ROM_SysCtlPeripheralSleepEnable(SysCtlGPIOs[UARTPins[UART][0] / 8]);
-    ROM_SysCtlPeripheralEnable(SysCtlUARTs[UART]);
-    ROM_SysCtlPeripheralSleepEnable(SysCtlUARTs[UART]);
-
-    // Configure the associated GPIO pins for UART
-    ROM_GPIOPinConfigure(UARTPins[UART][2]);
-    ROM_GPIOPinConfigure(UARTPins[UART][3]);
-    ROM_GPIOPinTypeUART(GPIO[UARTPins[UART][0] / 8],
-            bit8[UARTPins[UART][0] % 8] | bit8[UARTPins[UART][1] % 8]);
-
-    // Configure the UART
-    ROM_UARTConfigSetExpClk(UARTBASE[UART], ROM_SysCtlClockGet(), baudRate,
-            (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE | UART_CONFIG_PAR_NONE));
-    ROM_UARTFIFOEnable(UARTBASE[UART]);
-
-    // Configure the UART receive (rx) interrupt
-    ROM_UARTIntEnable(UARTBASE[UART], UART_INT_RX);
-    UARTFIFOLevelSet(UARTBASE[UART], UART_FIFO_TX4_8, UART_FIFO_RX4_8);
-    UARTIntRegister(UARTBASE[UART], rxInterrupts[UART]);
-
-    // Enable the UART
-    ROM_UARTEnable(UARTBASE[UART]);
-}
 
 int16_t UARTgetBufferLevel(uint8_t UART)
 {

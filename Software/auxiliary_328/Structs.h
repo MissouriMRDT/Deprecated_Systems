@@ -9,9 +9,16 @@ struct GPS_Data
   uint8_t hour, minute, seconds, fixquality, satellites;
 };
 
+struct Temp_Data
+{
+  float temperature;
+  float humidity;
+};
+
 struct All_Data
 {
   GPS_Data gps_data;
+  Temp_Data temp_data;
     
     
     

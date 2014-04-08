@@ -43,6 +43,8 @@
 #include "tasks/Mux_test_task.h"
 #include "tasks/debug_console_task.h"
 
+Queue_Handle debug_Q;
+
 Int main(Void)
 {
 	// TI RTOS Inits
@@ -61,8 +63,8 @@ Int main(Void)
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
-	UART_Handle uart0 = init_uart( 0 );
-	UART_write(uart0, "Reset\n", 6);
+    // Create qeueues
+    debug_Q = Queue_create(NULL, NULL);
 
     // Start BIOS (RTOS)
     BIOS_start();

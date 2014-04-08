@@ -131,6 +131,7 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h
@@ -197,8 +198,12 @@ main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h
 main.obj: ../tasks/tcp_task.h
+main.obj: ../tasks/../include/queue_elements.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: ../tasks/Mux_test_task.h
 main.obj: ../tasks/debug_console_task.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -331,6 +336,7 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h:
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/interfaces/ITaskSupport.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/package/Task_SupportProxy.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/ISystemSupport.h: 
@@ -397,5 +403,9 @@ C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h:
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h: 
 ../tasks/tcp_task.h: 
+../tasks/../include/queue_elements.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 ../tasks/Mux_test_task.h: 
 ../tasks/debug_console_task.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h: 

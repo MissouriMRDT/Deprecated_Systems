@@ -22,6 +22,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	// Init UARTs
 	UART_Handle uart0 = init_uart( 0 );
+	UART_Handle uart1 = init_uart( 1 );
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
@@ -101,10 +102,12 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			while(is_end_of_value == false)
 			{
+				//Check for ending } which denotes end of value
 				if( JSON_string_buf[json_value_string_index] == '}' )
 				{
 					is_end_of_value = true;
 				}
+				// this char is a digit of a value
 				else
 				{
 					Value[value_index] = JSON_string_buf[json_value_string_index];
@@ -127,7 +130,14 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			// ISSUE DRIVE COMMANDS
 			//////////////////////
 
-			//if ( )
+			mux_1( 1 );
+
+			// Left Wheels
+			if( Id == "4011")
+			{
+				UART_write(uart1, &value_byte, 1);
+			}
+
 
 			////////////////////
 			// Clean up

@@ -9,7 +9,6 @@
 #define TCP_TASK_H_
 
 #include "../include/queue_elements.h"
-#include "../include/frozen.h"
 
 #include <string.h>
 #include <stdbool.h>
@@ -32,13 +31,23 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	UART_write(uart0, "Rover Booting\n", 14);
 
-	bool end_bracket = false;
+	size_t len;
+
+	bool end_bracket;
+	bool is_end_of_value;
+	int value_index;
+	int json_value_string_index;
+
+	char Id[4];
+	char Value[10];
+	int value_byte;
 
 	while(1)
 	{
 		////////////////////////
 		// JSON String Buffer
 		////////////////////////
+		end_bracket = false;
 
 		// Read one byte from TCP
 		UART_read(uart7, &tcp_input, 1);
@@ -47,7 +56,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		if (tcp_input == '{')
 		{
 			// Place { into buf
-			size_t len = strlen(JSON_string_buf);
+			len = strlen(JSON_string_buf);
 			JSON_string_buf[len++] = tcp_input;
 			JSON_string_buf[len] = '\0';
 
@@ -77,17 +86,39 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			// TODO: fix this and make it less brittle
 			///////////////
 
-			// Get ID
-			char Id[4];
-
+			// Get Id
 			Id[0] = JSON_string_buf[6];
 			Id[1] = JSON_string_buf[7];
 			Id[2] = JSON_string_buf[8];
 			Id[3] = JSON_string_buf[9];
 
-			// Get Value
+			// Get Value starting at 19
+			Value[0] = '\0';
+			is_end_of_value = false;
 
+			value_index = 0;
+			json_value_string_index = 19;
+
+			while(is_end_of_value == false)
+			{
+				if( JSON_string_buf[json_value_string_index] == '}' )
+				{
+					is_end_of_value = true;
+				}
+				else
+				{
+					Value[value_index] = JSON_string_buf[json_value_string_index];
+					value_index++;
+					json_value_string_index++;
+				}
+			}
+
+			//Convert from string to int
+			value_byte = atoi("12");
+
+			// Debug prints
 			UART_write(uart0, Id, 4);
+			UART_write(uart0, Value, value_index);
 
 			////////////////////
 			// Clean up

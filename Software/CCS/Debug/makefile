@@ -11,7 +11,6 @@ $(GEN_CMDS__FLAG) \
 "./Stellarino/stellarino_uart_int.obj" \
 "./Stellarino/stellarino_uart.obj" \
 "./include/tcp.obj" \
-"./jsmn/jsmn.obj" \
 "./main.obj" \
 "./EK_LM4F120XL.obj" \
 "../EK_LM4F120XL.cmd" \
@@ -27,11 +26,9 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
--include jsmn/subdir_vars.mk
 -include include/subdir_vars.mk
 -include Stellarino/subdir_vars.mk
 -include subdir_rules.mk
--include jsmn/subdir_rules.mk
 -include include/subdir_rules.mk
 -include Stellarino/subdir_rules.mk
 -include objects.mk
@@ -136,8 +133,8 @@ rover.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 clean:
 	-$(RM) $(TMS470_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "rover.out"
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "EK_LM4F120XL.pp" "main.pp" "jsmn\jsmn.pp" "include\tcp.pp" "Stellarino\stellarino_uart.pp" "Stellarino\stellarino_uart_int.pp" 
-	-$(RM) "EK_LM4F120XL.obj" "main.obj" "jsmn\jsmn.obj" "include\tcp.obj" "Stellarino\stellarino_uart.obj" "Stellarino\stellarino_uart_int.obj" 
+	-$(RM) "EK_LM4F120XL.pp" "main.pp" "include\tcp.pp" "Stellarino\stellarino_uart.pp" "Stellarino\stellarino_uart_int.pp" 
+	-$(RM) "EK_LM4F120XL.obj" "main.obj" "include\tcp.obj" "Stellarino\stellarino_uart.obj" "Stellarino\stellarino_uart_int.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -25,7 +25,7 @@ struct example_struct
 };
 
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
-{
+{/*
     uint8_t size;
 
     switch(device)
@@ -70,7 +70,7 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
     UART_write(uart, &CS, 1);
 
     //serial.write(CS);
-
+*/
 };
 
 extern Void struct_xfer_test()

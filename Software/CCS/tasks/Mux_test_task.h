@@ -17,6 +17,7 @@ extern Void mux_test(UArg arg0, UArg arg1)
 
 	while(1)
 	{
+		/*
 		//Go foreward
 		tcp_input = 0xFF;
 
@@ -43,7 +44,7 @@ extern Void mux_test(UArg arg0, UArg arg1)
 		SysCtlDelay( SysCtlClockGet() / 10 );
 		UART_writePolling(uart1, &tcp_input, 1);
 
-		SysCtlDelay( SysCtlClockGet()  );
+		SysCtlDelay( SysCtlClockGet()  );*/
 	}
 
 

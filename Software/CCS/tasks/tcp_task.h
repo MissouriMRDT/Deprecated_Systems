@@ -11,6 +11,7 @@
 #include "../include/queue_elements.h"
 
 #include <string.h>
+#include <stdbool.h>
 
 extern Queue_Handle debug_Q;
 
@@ -26,9 +27,11 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	// Read buffer
 	char tcp_input;
 
-	char JSON_string_buf[40] = {};
+	char JSON_string_buf[50] = "";
 
-	UART_write(uart0, "Rover Booting", 13);
+	UART_write(uart0, "Rover Booting\n", 14);
+
+	bool end_bracket = false;
 
 	while(1)
 	{
@@ -39,21 +42,32 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		if (tcp_input == '{')
 		{
 			// Place { into buf
-			strcat(JSON_string_buf, tcp_input);
+			size_t len = strlen(JSON_string_buf);
+			JSON_string_buf[len++] = tcp_input;
+			JSON_string_buf[len] = '\0';
 
 			// Place rest of JSON string into buf
-			while( UART_read(uart7, &tcp_input, 1) != '}' )
+			while( end_bracket == false )
 			{
-				strcat(JSON_string_buf, tcp_input);
+				// Read char
+				UART_read(uart7, &tcp_input, 1);
+
+				// Place char in buf
+				len = strlen(JSON_string_buf);
+				JSON_string_buf[len++] = tcp_input;
+				JSON_string_buf[len] = '\0';
+
+				// Check for end bracket
+				if( tcp_input == '}')
+				{
+					end_bracket = true;
+				}
 			}
 
-			// Place } into Json buf
-			strcat(JSON_string_buf, tcp_input);
-
-			UART_write(uart0, JSON_string_buf, 24);
+			UART_write(uart0, JSON_string_buf, 40);
 
 			// Clear c string for the next JSON string
-			strcpy(JSON_string_buf, "");
+			JSON_string_buf[0] = '\0';
 		}
 	}
 }

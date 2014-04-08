@@ -64,7 +64,7 @@ Int main(Void)
     GPIO_write(Board_LED0, Board_LED_ON);
 
     // Create qeueues
-    debug_Q = Queue_create(NULL, NULL);
+    //debug_Q = Queue_create(NULL, NULL);
 
     // Start BIOS (RTOS)
     BIOS_start();

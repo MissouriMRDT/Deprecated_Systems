@@ -71,15 +71,23 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			///////////////
 			// JSON Parse
+			//
+			// Handwritten for now
+			//
+			// TODO: fix this and make it less brittle
 			///////////////
 
-			struct json_token *arr, *tok;
+			// Get ID
+			char Id[4];
 
-			// Tokenize json string, fill in tokens array
-			arr = parse_json2(JSON_string_buf, strlen(JSON_string_buf));
+			Id[0] = JSON_string_buf[6];
+			Id[1] = JSON_string_buf[7];
+			Id[2] = JSON_string_buf[8];
+			Id[3] = JSON_string_buf[9];
 
-			// free allocated tokens array
-		    free(arr);
+			// Get Value
+
+			UART_write(uart0, Id, 4);
 
 			////////////////////
 			// Clean up

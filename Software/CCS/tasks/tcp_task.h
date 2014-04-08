@@ -114,11 +114,20 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			}
 
 			//Convert from string to int
-			value_byte = atoi("12");
+			value_byte = atoi( Value );
 
 			// Debug prints
+			UART_write(uart0, "Cmd ID:", 7);
 			UART_write(uart0, Id, 4);
+			UART_write(uart0, " Value: ", 8);
 			UART_write(uart0, Value, value_index);
+			UART_write(uart0, "\n", 1);
+
+			////////////////////
+			// ISSUE DRIVE COMMANDS
+			//////////////////////
+
+			//if ( )
 
 			////////////////////
 			// Clean up

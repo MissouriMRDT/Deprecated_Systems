@@ -31,13 +31,17 @@
 // Stellarino
 #include "Stellarino/stellarino_uart.h"
 
-// Keenan Include File
+// Driver Files
 #include "include/muxes.h"
 #include "include/lcd.h"
 #include "include/tcp.h"
-#include "include/tcp_task.h"
 #include "include/uarts.h"
 #include "include/struct_test.h"
+
+//Task Files
+#include "tasks/tcp_task.h"
+#include "tasks/Mux_test_task.h"
+#include "tasks/debug_console_task.h"
 
 Int main(Void)
 {

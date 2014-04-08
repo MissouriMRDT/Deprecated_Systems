@@ -9,7 +9,7 @@
 #define TCP_TASK_H_
 
 #include "../include/queue_elements.h"
-#include "../include/json.h"
+#include "../include/frozen.h"
 
 #include <string.h>
 #include <stdbool.h>
@@ -73,9 +73,13 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			// JSON Parse
 			///////////////
 
-			//json_value* parsed_json;
+			struct json_token *arr, *tok;
 
-			//parsed_json = json_parse (JSON_string_buf, strlen(JSON_string_buf));
+			// Tokenize json string, fill in tokens array
+			arr = parse_json2(JSON_string_buf, strlen(JSON_string_buf));
+
+			// free allocated tokens array
+		    free(arr);
 
 			////////////////////
 			// Clean up

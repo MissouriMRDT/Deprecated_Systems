@@ -11,16 +11,10 @@ Stellarino/stellarino_uart_int.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include
 Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/uart.h
 Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_types.h
+Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/interrupt.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/debug.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/fpu.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/gpio.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h
-Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h
+Stellarino/stellarino_uart_int.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ints.h
 
 ../Stellarino/stellarino_uart_int.c: 
 ../Stellarino/stellarino_uart.h: 
@@ -33,13 +27,7 @@ C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/_lock.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/uart.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_memmap.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_types.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/interrupt.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/debug.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/fpu.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/gpio.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/inc/hw_ints.h: 

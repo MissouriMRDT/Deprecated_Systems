@@ -37,7 +37,6 @@
 #include "include/tcp.h"
 #include "include/tcp_task.h"
 #include "include/uarts.h"
-#include "include/uart_0.h"
 #include "include/struct_test.h"
 
 Int main(Void)
@@ -60,8 +59,6 @@ Int main(Void)
 
 	UART_Handle uart0 = init_uart( 0 );
 	UART_write(uart0, "Reset\n", 6);
-
-	UARTputc(0, "h");
 
     // Start BIOS (RTOS)
     BIOS_start();

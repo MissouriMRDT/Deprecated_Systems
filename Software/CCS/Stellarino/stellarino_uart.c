@@ -19,6 +19,7 @@
 
 #include <stdlib.h> // for atof
 #include "stellarino_uart.h"
+
 #include "driverlib/uart.h"
 #include "driverlib/rom.h"
 #include "inc/hw_types.h"
@@ -33,7 +34,7 @@
 #include "driverlib/timer.h"
 #include "driverlib/adc.h"
 #include "driverlib/uart.h"
-#include "driverlib/ssi.h"
+
 
 static unsigned long power(unsigned long base, int exp)
 {

@@ -28,7 +28,7 @@
 #define TARGET_IS_BLIZZARD_RA1
 #endif
 
-#include "inc/tm4c123gh6pm.h"
+#include "EK_LM4F120XL.h"
 #include "inc/hw_types.h"
 #include "inc/hw_memmap.h"
 #include "driverlib/rom.h"

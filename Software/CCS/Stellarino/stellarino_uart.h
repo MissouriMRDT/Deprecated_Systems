@@ -20,8 +20,6 @@
 #ifndef STELLARINO_UART_H
 #define STELLARINO_UART_H
 
-#define PERMIT_STDIO
-
 #include <stdint.h>
 #include <stdbool.h>
 #include "driverlib/uart.h"
@@ -56,27 +54,5 @@ unsigned long UARTgeth(uint8_t UART, uint8_t digits);
 
 void UARTputf(uint8_t UART, float f, uint8_t decimal);
 float UARTgetf(uint8_t UART);
-
-// Some of these macros have names that conflict with stdio.h
-// You can #define PERMIT_STDIO to avoid the conflict
-#ifndef PERMIT_STDIO
-
-#define puts(s) UARTputs(0, (s))
-#define gets(s, n) UARTgets(0, (s), (n))
-#define putc(c) UARTputc(0, (c))
-#define putln() UARTputln(0)
-#define getc() UARTgetc(0)
-#define peek() UARTpeek(0)
-#define peekBlocking() UARTpeekBlocking(0)
-#define puti(i) UARTputi(0, (i))
-#define geti() UARTgeti(0)
-#define putu(u, d) UARTputu(0, (u), (d))
-#define getu(d) UARTgetu(0, (d))
-#define puth(h, d) UARTputh(0, (h), (d))
-#define geth(d) UARTgeth(0, (d))
-#define putf(f, d) UARTputf(0, (f), (d))
-#define getf() UARTgetf(0)
-
-#endif
 
 #endif

@@ -194,6 +194,11 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../include/tcp_task.h
 main.obj: ../include/uarts.h
 main.obj: ../include/uart_0.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/interrupt.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/debug.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/fpu.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h
 main.obj: ../include/struct_test.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
@@ -393,6 +398,11 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h:
 ../include/tcp_task.h: 
 ../include/uarts.h: 
 ../include/uart_0.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/interrupt.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/debug.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/fpu.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h: 
 ../include/struct_test.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 

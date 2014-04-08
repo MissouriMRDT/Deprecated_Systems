@@ -17,25 +17,15 @@
     along with Stellarino. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "stellarino_uart.h"
-#include "driverlib/uart.h"
-#include "driverlib/rom.h"
+#define TARGET_IS_BLIZZARD_RA1
+
 #include "stellarino_uart.h"
 #include "driverlib/uart.h"
 #include "inc/hw_types.h"
 #include "inc/hw_memmap.h"
 #include "driverlib/rom.h"
 #include "driverlib/interrupt.h"
-#include "driverlib/debug.h"
-#include "driverlib/fpu.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/sysctl.h"
-#include "driverlib/gpio.h"
-#include "driverlib/timer.h"
-#include "driverlib/adc.h"
-#include "driverlib/uart.h"
-#include "driverlib/ssi.h"
-
+#include "inc/hw_ints.h"
 
 static const uint8_t bit8[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 
@@ -77,7 +67,7 @@ static inline uint8_t rxDequeue(uint8_t UART)
     return c;
 }
 
-/*
+
 // Called when UART RX FIFO has data in it
 static void flushReadFIFO(uint8_t UART)
 {
@@ -96,7 +86,7 @@ static void flushReadFIFO(uint8_t UART)
     // Clear the appropriate interrupt flag
     ROM_UARTIntClear(UARTBASE[UART], UART_INT_RX);
 }
-*/
+
 
 void rxInt0(void) {flushReadFIFO(0);}
 void rxInt1(void) {flushReadFIFO(1);}

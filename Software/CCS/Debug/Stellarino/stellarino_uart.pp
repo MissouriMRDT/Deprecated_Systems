@@ -21,7 +21,6 @@ Stellarino/stellarino_uart.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Seri
 Stellarino/stellarino_uart.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/gpio.h
 Stellarino/stellarino_uart.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h
 Stellarino/stellarino_uart.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h
-Stellarino/stellarino_uart.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h
 
 ../Stellarino/stellarino_uart.c: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
@@ -44,4 +43,3 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/sysctl
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/gpio.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/timer.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/adc.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/ssi.h: 

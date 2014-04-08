@@ -17,23 +17,20 @@ Debug_message test;
 extern Void tcp_connection(UArg arg0, UArg arg1)
 {
 
-	// Init UART
+	// Init UARTs
+	UART_Handle uart0 = init_uart( 0 );
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
 	uint8_t tcp_input;
 
-
+	UART_write(uart0, "Rover Booting", 13);
 
 	while(1)
 	{
 		// Read one byte from TCP
 		UART_read(uart7, &tcp_input, 1);
-
-		if ( tcp_input == '{')
-		{
-
-		}
+		UART_write(uart0, &tcp_input, 1);
 	}
 }
 

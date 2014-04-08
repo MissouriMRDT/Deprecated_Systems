@@ -10,6 +10,8 @@
 
 #include "../include/queue_elements.h"
 
+#include <string.h>
+
 extern Queue_Handle debug_Q;
 
 Debug_message test;
@@ -22,7 +24,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
-	uint8_t tcp_input;
+	char tcp_input;
+
+	char JSON_string_buf[40] = {};
 
 	UART_write(uart0, "Rover Booting", 13);
 
@@ -30,7 +34,27 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	{
 		// Read one byte from TCP
 		UART_read(uart7, &tcp_input, 1);
-		UART_write(uart0, &tcp_input, 1);
+
+		//Check if start of JSON string
+		if (tcp_input == '{')
+		{
+			// Place { into buf
+			strcat(JSON_string_buf, tcp_input);
+
+			// Place rest of JSON string into buf
+			while( UART_read(uart7, &tcp_input, 1) != '}' )
+			{
+				strcat(JSON_string_buf, tcp_input);
+			}
+
+			// Place } into Json buf
+			strcat(JSON_string_buf, tcp_input);
+
+			UART_write(uart0, JSON_string_buf, 24);
+
+			// Clear c string for the next JSON string
+			strcpy(JSON_string_buf, "");
+		}
 	}
 }
 

@@ -9,6 +9,7 @@
 #define TCP_TASK_H_
 
 #include "../include/queue_elements.h"
+#include "../include/json.h"
 
 #include <string.h>
 #include <stdbool.h>
@@ -35,6 +36,10 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	while(1)
 	{
+		////////////////////////
+		// JSON String Buffer
+		////////////////////////
+
 		// Read one byte from TCP
 		UART_read(uart7, &tcp_input, 1);
 
@@ -64,7 +69,17 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 			}
 
-			UART_write(uart0, JSON_string_buf, 40);
+			///////////////
+			// JSON Parse
+			///////////////
+
+			//json_value* parsed_json;
+
+			//parsed_json = json_parse (JSON_string_buf, strlen(JSON_string_buf));
+
+			////////////////////
+			// Clean up
+			////////////////////
 
 			// Clear c string for the next JSON string
 			JSON_string_buf[0] = '\0';

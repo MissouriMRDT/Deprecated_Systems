@@ -133,10 +133,8 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			mux_1( 1 );
 
 			// Left Wheels
-			if( Id == "4011")
-			{
-				UART_write(uart1, &value_byte, 1);
-			}
+
+			UART_write(uart1, &value_byte, 1);
 
 
 			////////////////////

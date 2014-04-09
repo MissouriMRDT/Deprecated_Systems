@@ -37,6 +37,12 @@ void loop()
     char c = client.read();
     Serial.print(c);
   }
+  
+  while(Serial.available())
+  {
+     client.println(Serial.read());
+  }
+  
 
   // if the server's disconnected, stop the client:
   if (!client.connected()) {

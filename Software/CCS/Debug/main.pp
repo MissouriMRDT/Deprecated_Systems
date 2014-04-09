@@ -188,7 +188,6 @@ main.obj: ../EK_LM4F120XL.h
 main.obj: ../Stellarino/stellarino_uart.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: ../include/muxes.h
-main.obj: ../include/lcd.h
 main.obj: ../include/tcp.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../include/uarts.h
@@ -393,7 +392,6 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h:
 ../Stellarino/stellarino_uart.h: 
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 ../include/muxes.h: 
-../include/lcd.h: 
 ../include/tcp.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 ../include/uarts.h: 

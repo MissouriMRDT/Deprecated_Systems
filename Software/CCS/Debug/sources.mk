@@ -112,4 +112,5 @@ SUBDIRS := \
 . \
 include \
 Stellarino \
+LCD \
 

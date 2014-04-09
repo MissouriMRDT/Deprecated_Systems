@@ -33,7 +33,6 @@
 
 // Driver Files
 #include "include/muxes.h"
-#include "include/lcd.h"
 #include "include/tcp.h"
 #include "include/uarts.h"
 #include "include/struct_test.h"

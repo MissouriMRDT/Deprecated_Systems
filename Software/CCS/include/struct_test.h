@@ -20,12 +20,10 @@ uint8_t start_byte2=0x85;
 struct example_struct
 {
 	uint16_t x;
-	uint16_t y;
-	uint16_t z;
 };
 
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
-{/*
+{
     uint8_t size;
 
     switch(device)
@@ -70,30 +68,26 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
     UART_write(uart, &CS, 1);
 
     //serial.write(CS);
-*/
+
 };
 
 extern Void struct_xfer_test()
 {
-	UART_Handle uart1 = init_uart( 1 );
+	UART_Handle uart = init_uart( 5 );
 
 	struct example_struct test_struct;
 
-	test_struct.x = 15;
-	test_struct.y = 20;
-	test_struct.z = 30;
+	test_struct.x = 300;
+
+	mux_5( 13 );
 
 	while(1)
 	{
 		System_printf("Writing struct\n");
 		System_flush();
 
-		//uint8_t test_int = 0x05;
-
-		//UART_write(uart1, &test_int, 1);
-
 		// Send struct
-		send_struct(uart1, &test_struct, motor_controller2);
+		send_struct(uart, &test_struct, motor_controller2);
 
 		// Delay 1 seconds
 		SysCtlDelay( SysCtlClockGet());

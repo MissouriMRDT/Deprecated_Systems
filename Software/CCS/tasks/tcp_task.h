@@ -23,6 +23,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	// Init UARTs
 	UART_Handle uart0 = init_uart( 0 );
 	UART_Handle uart1 = init_uart( 1 );
+	UART_Handle uart2 = init_uart( 2 );
+	UART_Handle uart3 = init_uart( 3 );
+	UART_Handle uart4 = init_uart( 4 );
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
@@ -42,6 +45,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	char Id[4];
 	char Value[10];
 	int value_byte;
+	int cmd_number;
 
 	while(1)
 	{
@@ -93,6 +97,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			Id[2] = JSON_string_buf[8];
 			Id[3] = JSON_string_buf[9];
 
+			//Convert from string to int
+			cmd_number = atoi( Id );
+
 			// Get Value starting at 19
 			Value[0] = '\0';
 			is_end_of_value = false;
@@ -130,12 +137,60 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			// ISSUE DRIVE COMMANDS
 			//////////////////////
 
+			// Drive all for now
+
 			mux_1( 1 );
 
 			// Left Wheels
 
 			UART_write(uart1, &value_byte, 1);
 
+			/*
+
+			//////////////////////////
+			// Send cmd out all ports
+			//////////////////////////
+			//
+			// Position 0
+			mux_1( 1 );
+			mux_2( 2 );
+			mux_3( 3 );
+			mux_4( 4 );
+
+			SysCtlDelay( SysCtlClockGet() / 100 );
+
+			UART_writePolling(uart1, &value_byte, 1);
+			UART_writePolling(uart2, &value_byte, 1);
+			UART_writePolling(uart3, &value_byte, 1);
+			UART_writePolling(uart4, &value_byte, 1);
+
+			// Position 1
+			mux_1( 8 );
+			mux_2( 7 );
+			mux_3( 6 );
+			mux_4( 5 );
+
+			SysCtlDelay( SysCtlClockGet() / 100 );
+
+			UART_writePolling(uart1, &value_byte, 1);
+			UART_writePolling(uart2, &value_byte, 1);
+			UART_writePolling(uart3, &value_byte, 1);
+			UART_writePolling(uart4, &value_byte, 1);
+
+			// Position 2
+			mux_1( 9 );
+			mux_2( 10 );
+			mux_3( 11 );
+			mux_4( 12 );
+
+			SysCtlDelay( SysCtlClockGet() / 100 );
+
+			UART_writePolling(uart1, &value_byte, 1);
+			UART_writePolling(uart2, &value_byte, 1);
+			UART_writePolling(uart3, &value_byte, 1);
+			UART_writePolling(uart4, &value_byte, 1);
+
+			*/
 
 			////////////////////
 			// Clean up

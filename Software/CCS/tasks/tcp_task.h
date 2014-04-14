@@ -113,6 +113,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				if( JSON_string_buf[json_value_string_index] == '}' )
 				{
 					is_end_of_value = true;
+					Value[value_index] = '\0';
 				}
 				// this char is a digit of a value
 				else
@@ -139,13 +140,15 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			// Drive all for now
 
-			mux_1( 1 );
+			//mux_1( 1 );
 
 			// Left Wheels
 
-			UART_write(uart1, &value_byte, 1);
+			//UART_write(uart1, &value_byte, 1);
 
-			/*
+			#define mux_delay 100
+			#define uart_delay 100
+
 
 			//////////////////////////
 			// Send cmd out all ports
@@ -157,12 +160,14 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			mux_3( 3 );
 			mux_4( 4 );
 
-			SysCtlDelay( SysCtlClockGet() / 100 );
+			SysCtlDelay( SysCtlClockGet() / mux_delay );
 
 			UART_writePolling(uart1, &value_byte, 1);
 			UART_writePolling(uart2, &value_byte, 1);
 			UART_writePolling(uart3, &value_byte, 1);
 			UART_writePolling(uart4, &value_byte, 1);
+
+			SysCtlDelay( SysCtlClockGet() / uart_delay );
 
 			// Position 1
 			mux_1( 8 );
@@ -170,12 +175,14 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			mux_3( 6 );
 			mux_4( 5 );
 
-			SysCtlDelay( SysCtlClockGet() / 100 );
+			SysCtlDelay( SysCtlClockGet() / mux_delay );
 
-			UART_writePolling(uart1, &value_byte, 1);
-			UART_writePolling(uart2, &value_byte, 1);
-			UART_writePolling(uart3, &value_byte, 1);
-			UART_writePolling(uart4, &value_byte, 1);
+			UART_write(uart1, &value_byte, 1);
+			UART_write(uart2, &value_byte, 1);
+			UART_write(uart3, &value_byte, 1);
+			UART_write(uart4, &value_byte, 1);
+
+			SysCtlDelay( SysCtlClockGet() / uart_delay );
 
 			// Position 2
 			mux_1( 9 );
@@ -183,14 +190,16 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			mux_3( 11 );
 			mux_4( 12 );
 
-			SysCtlDelay( SysCtlClockGet() / 100 );
+			SysCtlDelay( SysCtlClockGet() / mux_delay );
 
-			UART_writePolling(uart1, &value_byte, 1);
-			UART_writePolling(uart2, &value_byte, 1);
-			UART_writePolling(uart3, &value_byte, 1);
-			UART_writePolling(uart4, &value_byte, 1);
+			UART_write(uart1, &value_byte, 1);
+			UART_write(uart2, &value_byte, 1);
+			UART_write(uart3, &value_byte, 1);
+			UART_write(uart4, &value_byte, 1);
 
-			*/
+			SysCtlDelay( SysCtlClockGet() / uart_delay );
+
+
 
 			////////////////////
 			// Clean up

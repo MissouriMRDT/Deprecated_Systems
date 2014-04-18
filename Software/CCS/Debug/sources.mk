@@ -111,6 +111,5 @@ S64_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 include \
-Stellarino \
 LCD \
 

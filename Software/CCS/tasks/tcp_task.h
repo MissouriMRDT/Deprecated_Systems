@@ -13,19 +13,23 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "../global.h"
+
+
 extern Queue_Handle debug_Q;
 
 Debug_message test;
+
+#define mux_delay 100
+#define uart_delay 100
 
 extern Void tcp_connection(UArg arg0, UArg arg1)
 {
 
 	// Init UARTs
-	UART_Handle uart0 = init_uart( 0 );
+	//UART_Handle uart0 = init_uart( 0 );
 	UART_Handle uart1 = init_uart( 1 );
 	UART_Handle uart2 = init_uart( 2 );
-	UART_Handle uart3 = init_uart( 3 );
-	UART_Handle uart4 = init_uart( 4 );
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
@@ -33,7 +37,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	char JSON_string_buf[50] = "";
 
-	UART_write(uart0, "Rover Booting\n", 14);
+	//UART_write(uart0, "Rover Booting\n", 14);
 
 	size_t len;
 
@@ -44,11 +48,16 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	char Id[4];
 	char Value[10];
-	int value_byte;
-	int cmd_number;
+	extern uint8_t value_byte_L;
+	extern uint8_t value_byte_R;
+	extern uint8_t cmd_number;
+	int local_val_l;
+	int local_val_r;
 
 	while(1)
 	{
+
+		/*
 		////////////////////////
 		// JSON String Buffer
 		////////////////////////
@@ -60,6 +69,8 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		//Check if start of JSON string
 		if (tcp_input == '{')
 		{
+			len=0;
+
 			// Place { into buf
 			len = strlen(JSON_string_buf);
 			JSON_string_buf[len++] = tcp_input;
@@ -126,13 +137,59 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			//Convert from string to int
 			value_byte = atoi( Value );
+			*/
 
+		// Read one byte from TCP
+			UART_read(uart7, &tcp_input, 1);
+			//UART_write(uart0, &tcp_input, 1);
+
+			if( tcp_input == 'L' )
+			{
+				UART_read(uart7, &tcp_input, 1);
+				if( tcp_input != 'L' && tcp_input != 'R')
+				{
+					//////////////////////////
+					// Left Command
+					//////////////////////////
+					mux_1( 8 );
+					mux_2( 7 );
+
+					SysCtlDelay( SysCtlClockGet() / mux_delay );
+
+					UART_write(uart1, &tcp_input, 1);
+					UART_write(uart2, &tcp_input, 1);
+
+					SysCtlDelay( SysCtlClockGet() / uart_delay );
+				}
+
+			}
+			if( tcp_input == 'R' )
+			{
+				UART_read(uart7, &tcp_input, 1);
+				if( tcp_input != 'L' && tcp_input != 'R')
+				{
+					//////////////////////////
+					// Left Command
+					//////////////////////////
+					mux_1( 9 );
+					mux_2( 2 );
+
+					SysCtlDelay( SysCtlClockGet() / mux_delay );
+
+					UART_write(uart1, &tcp_input, 1);
+					UART_write(uart2, &tcp_input, 1);
+
+					SysCtlDelay( SysCtlClockGet() / uart_delay );
+				}
+			}
+/*
 			// Debug prints
 			UART_write(uart0, "Cmd ID:", 7);
 			UART_write(uart0, Id, 4);
 			UART_write(uart0, " Value: ", 8);
 			UART_write(uart0, Value, value_index);
 			UART_write(uart0, "\n", 1);
+			*/
 
 			////////////////////
 			// ISSUE DRIVE COMMANDS
@@ -146,9 +203,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			//UART_write(uart1, &value_byte, 1);
 
+			/*
 			#define mux_delay 100
 			#define uart_delay 100
-
 
 			//////////////////////////
 			// Send cmd out all ports
@@ -207,8 +264,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			// Clear c string for the next JSON string
 			JSON_string_buf[0] = '\0';
+			*/
 		}
 	}
-}
+
 
 #endif /* TCP_TASK_H_ */

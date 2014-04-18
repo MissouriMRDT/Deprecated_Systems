@@ -10,6 +10,8 @@
 /* BIOS Header files */
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Queue.h>
+#include <ti/sysbios/knl/Mailbox.h>
+#include <xdc/cfg/global.h>
 
 /* TI-RTOS Header files */
 #include <ti/drivers/GPIO.h>
@@ -29,20 +31,28 @@
 #include "Board.h"
 
 // Stellarino
-#include "Stellarino/stellarino_uart.h"
 
 // Driver Files
 #include "include/muxes.h"
 #include "include/tcp.h"
 #include "include/uarts.h"
 #include "include/struct_test.h"
+#include "global.h"
 
 //Task Files
 #include "tasks/tcp_task.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/debug_console_task.h"
+#include "tasks/send_cmds.h"
 
 Queue_Handle debug_Q;
+
+Mailbox_Handle value_R_box;
+Mailbox_Handle value_L_box;
+
+uint8_t value_byte_L;
+uint8_t value_byte_R;
+uint8_t cmd_number;
 
 Int main(Void)
 {
@@ -58,6 +68,9 @@ Int main(Void)
 
     //Establish TCP connection
     //set_up_tcp();
+
+    value_byte_L = 0x80;
+    value_byte_R = 0x80;
 
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);

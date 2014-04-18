@@ -163,6 +163,36 @@ main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IGateProvider.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/BIOS__epilogue.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Mailbox.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IHeap.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Semaphore.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Log.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event__prologue.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Log.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Clock.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Diags.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event__epilogue.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Clock.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Diags.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event.h
+main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/GPIO.h
 main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/ENV.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdbool.h
@@ -185,16 +215,16 @@ main.obj: C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h
 main.obj: ../Board.h
 main.obj: ../EK_LM4F120XL.h
-main.obj: ../Stellarino/stellarino_uart.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: ../include/muxes.h
 main.obj: ../include/tcp.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../include/uarts.h
 main.obj: ../include/struct_test.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h
+main.obj: ../global.h
 main.obj: ../tasks/tcp_task.h
 main.obj: ../tasks/../include/queue_elements.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
@@ -203,6 +233,7 @@ main.obj: ../tasks/Mux_test_task.h
 main.obj: ../tasks/debug_console_task.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h
+main.obj: ../tasks/send_cmds.h
 
 ../main.c: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/std.h: 
@@ -367,6 +398,36 @@ C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IGateProvider.h:
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/BIOS__epilogue.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/package/BIOS_RtsGateProxy.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Mailbox.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IHeap.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Semaphore.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Log.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Types.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IInstance.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event__prologue.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Task.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Log.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Clock.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Diags.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event__epilogue.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Clock.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Diags.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/IModule.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Event.h: 
+C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/Assert.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/GPIO.h: 
 C:/ti/tirtos_1_21_00_09/packages/ti/drivers/ENV.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdbool.h: 
@@ -389,16 +450,16 @@ C:/ti/tirtos_1_21_00_09/packages/ti/drivers/Watchdog.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h: 
 ../Board.h: 
 ../EK_LM4F120XL.h: 
-../Stellarino/stellarino_uart.h: 
-C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 ../include/muxes.h: 
 ../include/tcp.h: 
+C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 ../include/uarts.h: 
 ../include/struct_test.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h: 
+../global.h: 
 ../tasks/tcp_task.h: 
 ../tasks/../include/queue_elements.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
@@ -407,3 +468,4 @@ C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h:
 ../tasks/debug_console_task.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h: 
+../tasks/send_cmds.h: 

@@ -220,19 +220,15 @@ main.obj: ../include/tcp.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h
 main.obj: C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h
 main.obj: ../include/uarts.h
-main.obj: ../include/struct_test.h
-main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h
-main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h
-main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h
 main.obj: ../global.h
 main.obj: ../tasks/tcp_task.h
-main.obj: ../tasks/../include/queue_elements.h
-main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h
 main.obj: ../tasks/Mux_test_task.h
 main.obj: ../tasks/debug_console_task.h
 main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h
+main.obj: ../tasks/../include/queue_elements.h
+main.obj: C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h
 main.obj: ../tasks/send_cmds.h
 
 ../main.c: 
@@ -455,17 +451,13 @@ C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/rom.h:
 C:/ti/tirtos_1_21_00_09/products/TivaWare_C_Series-2.0.1.11577a/driverlib/pin_map.h: 
 C:/ti/xdctools_3_25_04_88/packages/xdc/runtime/System.h: 
 ../include/uarts.h: 
-../include/struct_test.h: 
-C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdlib.h: 
-C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdio.h: 
-C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/stdarg.h: 
 ../global.h: 
 ../tasks/tcp_task.h: 
-../tasks/../include/queue_elements.h: 
-C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h: 
 ../tasks/Mux_test_task.h: 
 ../tasks/debug_console_task.h: 
 C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 C:/ti/ccsv5/tools/compiler/arm_5.1.1/include/string.h: 
+../tasks/../include/queue_elements.h: 
+C:/ti/tirtos_1_21_00_09/products/bios_6_37_00_20/packages/ti/sysbios/knl/Queue.h: 
 ../tasks/send_cmds.h: 

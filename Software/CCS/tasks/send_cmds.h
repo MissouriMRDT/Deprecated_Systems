@@ -49,14 +49,6 @@ extern Void mux_cmds(UArg arg0, UArg arg1)
 
 		SysCtlDelay( SysCtlClockGet() / uart_delay );
 
-		mux_1( 9 );
-
-		SysCtlDelay( SysCtlClockGet() / mux_delay );
-
-		UART_writePolling(uart1, &value_byte_R, 1);
-
-		SysCtlDelay( SysCtlClockGet() / uart_delay );
-
 		//////////////////////////
 		// Left Command
 		//////////////////////////

@@ -21,7 +21,7 @@ extern Void mux_test(UArg arg0, UArg arg1)
 		tcp_input = 0x9B;
 
 		//Send command
-		mux_1(9);
+		mux_1(1);
 		SysCtlDelay( SysCtlClockGet() / 10 );
 		UART_writePolling(uart1, &tcp_input, 1);
 		SysCtlDelay( SysCtlClockGet()  );

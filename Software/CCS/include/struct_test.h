@@ -71,6 +71,7 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
 
 };
 
+/*
 extern Void struct_xfer_test()
 {
 	UART_Handle uart = init_uart( 5 );
@@ -93,5 +94,6 @@ extern Void struct_xfer_test()
 		SysCtlDelay( SysCtlClockGet());
 	}
 }
+*/
 
 #endif /* STRUCT_TEST_H_ */

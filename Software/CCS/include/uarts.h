@@ -19,7 +19,7 @@ UART_Handle init_uart( UInt uart_index )
 	UART_Params_init(&uartParams);
 	uartParams.readReturnMode = UART_RETURN_FULL;
 	uartParams.readEcho = UART_ECHO_OFF;
-	uartParams.baudRate = 9600;
+	uartParams.baudRate = 115200;
 	uart_handle = UART_open(uart_index, &uartParams);
 
 	if (uart_handle == NULL) {

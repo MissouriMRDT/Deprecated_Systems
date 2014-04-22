@@ -36,7 +36,7 @@
 #include "include/muxes.h"
 #include "include/tcp.h"
 #include "include/uarts.h"
-#include "include/struct_test.h"
+//#include "include/struct_test.h"
 #include "global.h"
 
 //Task Files
@@ -44,6 +44,7 @@
 #include "tasks/Mux_test_task.h"
 #include "tasks/debug_console_task.h"
 #include "tasks/send_cmds.h"
+//#include "tasks/Struct_tcp_task.h"
 
 Queue_Handle debug_Q;
 

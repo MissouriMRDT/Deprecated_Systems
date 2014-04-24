@@ -64,6 +64,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	//UART_Handle uart0 = init_uart( 0 );
 	UART_Handle uart1 = init_uart( 1 );
 	UART_Handle uart2 = init_uart( 2 );
+	UART_Handle uart3 = init_uart( 3 );
 	UART_Handle uart7 = init_uart( 7 );
 
 	// Read buffer
@@ -87,9 +88,11 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				//////////////////////////
 				mux_1( 8 );
 				mux_2( 7 );
+				mux_3( 6 );
 
 				send_struct(uart1, &_struct, motor_controller2);
 				send_struct(uart2, &_struct, motor_controller2);
+				send_struct(uart3, &_struct, motor_controller2);
 			}
 			if( tcp_input == 'R' )
 			{
@@ -101,9 +104,11 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				//////////////////////////
 				mux_1( 1 );
 				mux_2( 2 );
+				mux_3( 3 );
 
 				send_struct(uart1, &_struct, motor_controller2);
 				send_struct(uart2, &_struct, motor_controller2);
+				send_struct(uart3, &_struct, motor_controller2);
 			}
 		}
 	}

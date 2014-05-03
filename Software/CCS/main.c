@@ -36,11 +36,11 @@
 #include "include/muxes.h"
 #include "include/tcp.h"
 #include "include/uarts.h"
-//#include "include/struct_test.h"
+#include "include/struct_test.h"
 #include "global.h"
 
 //Task Files
-#include "tasks/tcp_task.h"
+//#include "tasks/tcp_task.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/debug_console_task.h"
 #include "tasks/send_cmds.h"

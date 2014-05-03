@@ -701,9 +701,9 @@ typedef struct ti_sysbios_knl_Mailbox_Module__ {
 /* Module__root__V */
 extern ti_sysbios_knl_Mailbox_Module__ ti_sysbios_knl_Mailbox_Module__root__V;
 
-/* <-- ti_sysbios_knl_Semaphore_Object */
-
 /* <-- ti_sysbios_knl_Queue_Object */
+
+/* <-- ti_sysbios_knl_Semaphore_Object */
 
 /* Object__ */
 typedef struct ti_sysbios_knl_Mailbox_Object__ {
@@ -2248,8 +2248,8 @@ __T1_ti_sysbios_knl_Task_Instance_State__stack ti_sysbios_knl_Task_Instance_Stat
 #endif
 #endif
 
-/* --> tcp_connection */
-extern xdc_Void tcp_connection(xdc_UArg,xdc_UArg);
+/* --> struct_xfer_test */
+extern xdc_Void struct_xfer_test(xdc_UArg,xdc_UArg);
 
 /* --> ti_sysbios_knl_Task_Instance_State_0_hookEnv__A */
 __T1_ti_sysbios_knl_Task_Instance_State__hookEnv ti_sysbios_knl_Task_Instance_State_0_hookEnv__A[2];
@@ -6766,7 +6766,7 @@ ti_sysbios_knl_Task_Object__ ti_sysbios_knl_Task_Object__table__V[2] = {
         (xdc_SizeT)0x800,  /* stackSize */
         ((void*)ti_sysbios_knl_Task_Instance_State_0_stack__A),  /* stack */
         0,  /* stackHeap */
-        ((xdc_Void(*)(xdc_UArg,xdc_UArg))((xdc_Fxn)tcp_connection)),  /* fxn */
+        ((xdc_Void(*)(xdc_UArg,xdc_UArg))((xdc_Fxn)struct_xfer_test)),  /* fxn */
         ((xdc_UArg)(0x0)),  /* arg0 */
         ((xdc_UArg)(0x0)),  /* arg1 */
         ((xdc_Ptr)0),  /* env */

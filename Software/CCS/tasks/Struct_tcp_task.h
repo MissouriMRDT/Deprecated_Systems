@@ -23,6 +23,7 @@ struct motor_struct
 
 extern Void struct_tcp(UArg arg0, UArg arg1)
 {
+	/*
 
 	// Init UARTs
 	//UART_Handle uart0 = init_uart( 0 );
@@ -94,6 +95,7 @@ extern Void struct_tcp(UArg arg0, UArg arg1)
 			SysCtlDelay( SysCtlClockGet() / uart_delay );
 		}
 	}
+*/
 }
 
 

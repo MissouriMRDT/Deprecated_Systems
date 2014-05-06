@@ -16,7 +16,6 @@ enum peripheral_devices{motor_controller1, motor_controller2, robotic_arm};
 uint8_t start_byte1=0x06;
 uint8_t start_byte2=0x85;
 
-
 struct example_struct
 {
 	uint16_t x;

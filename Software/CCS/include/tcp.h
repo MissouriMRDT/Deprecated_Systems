@@ -21,6 +21,10 @@
 #include <driverlib/pin_map.h>
 #include <xdc/runtime/System.h>
 
+///////////////////////////////
+//  W5100 Codes
+///////////////////////////////
+
 #define WIZNET_WRITE_OPCODE 0xF0
 #define WIZNET_READ_OPCODE 0x0F
 
@@ -86,17 +90,40 @@
 #define TX_BUF_MASK      0x07FF   // Tx 2K Buffer Mask:
 #define RX_BUF_MASK      0x07FF   // Rx 2K Buffer Mask:
 
-
+//////////////////
 // FUNCTIONS
+//////////////////
+
+// Sends 32 bits to W5100
 void SPI_Send(uint16_t addr, uint32_t data);
+
+// Receives 32 bits from w5100
 uint32_t SPI_Read(uint32_t addr);
+
+// Initializes Stellaris SPI hardware
 void init_spi();
+
 // Sets up TCP and start socket
-void set_up_tcp();
+void init_w5100();
+
+// Initializes the socket
+// Sets local port
+int init_socket();
+
+// Makes TCP connection
+void tcp_connect();
+
 // Checks if socket status
 // register is connected
 bool socket_connected();
-//resends the connect command
-void reconnect_tcp();
+
+// Closes Socket
+void socket_close();
+
+// Send Data
+void send_tcp_data( uint8_t *buf, uint16_t buflen );
+
+// Receive Data from TCP chip
+void receive_tcp_data(uint8_t *buf, uint16_t buflen);
 
 #endif /* TCP_H_ */

@@ -17,7 +17,6 @@ void SPI_Send(uint16_t addr, uint32_t data)
   while( SSIDataGetNonBlocking(SSI0_BASE, &dataAux) > 0);
 }
 
-
 uint32_t SPI_Read(uint32_t addr)
 {
   uint32_t dataAux;
@@ -51,7 +50,7 @@ void init_spi()
 	SSIEnable(SSI0_BASE);
 }
 
-void set_up_tcp()
+void init_w5100()
 {
 	// Motherboard Info
 	unsigned char mac_addr[] = {0x00,0x16,0x36,0xDE,0x58,0xF6};
@@ -59,12 +58,7 @@ void set_up_tcp()
 	unsigned char sub_mask[] = {255,255,255,0};
 	unsigned char gtw_addr[] = {192,168,1,1};
 
-	//Server Info
-	unsigned char server_ip[] = {192,168,1,2};
-
-	//
 	// Basic IP configuration
-	//
 	SPI_Send(MR,0x80);    //Reset
 
 	SysCtlDelay( SysCtlClockGet() / 1000 );
@@ -95,56 +89,124 @@ void set_up_tcp()
 	SPI_Send(SIPR+2,ip_addr[2]);
 	SPI_Send(SIPR+3,ip_addr[3]);
 
-	// Setting the Wiznet W5100 RX and TX Memory Size, we use 2KB for Rx/Tx 4 channels
+	// Setting the Wiznet W5100 RX and TX Memory Size
 	SPI_Send(RMSR,0x55);
 	SPI_Send(TMSR,0x55);
+}
 
-	/*
+int init_socket()
+{
+	int socket_open;
+
 	// Configure Socket 0 as TCP Client
 	SPI_Send(S0_MR, MR_TCP);
 
 	//Using port 4500 = 0x1194
-	//Enable Socket 0 Interrupts only
 	SPI_Send(S0_PORT, 0x11);
 	SPI_Send(S0_PORT+1, 0x94);
-	//SPI_Send(IMR,1);
-	SPI_Send(S0_CR, CR_CLOSE);
+
+	// Open Socket
 	SPI_Send(S0_CR, CR_OPEN);
-	while(SPI_Read(S0_CR));
-	*/
+
+	if ( SPI_Read(S0_SR) != SOCK_INIT )
+	{
+		// Close Socket
+		SPI_Send(S0_CR, CR_CLOSE);
+		socket_open=0;
+	}
+	else
+	{
+		// Success
+		socket_open=1;
+	}
+
+	return socket_open;
+}
+
+void tcp_connect()
+{
+	//Server Info
+	unsigned char server_ip[] = {192,168,1,2};
+
+	// Initialize socket
+	//
+	// May take a bit
+	while( init_socket() != 1)
+	{
+		System_printf("Socket init\n");
+		System_flush();
+
+	}
 
 	// Set server IP
-	//SPI_Send(SN_DIPR+0, server_ip[0]);
-	//SPI_Send(SN_DIPR+1, server_ip[1]);
-	//SPI_Send(SN_DIPR+2, server_ip[2]);
-	//SPI_Send(SN_DIPR+3, server_ip[3]);
+	SPI_Send(SN_DIPR+0, server_ip[0]);
+	SPI_Send(SN_DIPR+1, server_ip[1]);
+	SPI_Send(SN_DIPR+2, server_ip[2]);
+	SPI_Send(SN_DIPR+3, server_ip[3]);
 
 	// Set server Port
 	// 11000 = 0x02AF8
-	//SPI_Send(SN_DPORT0, 0x2A);
+	SPI_Send(SN_DPORT0, 0x2A);
 	SPI_Send(SN_DPORT1, 0xF8);
-//
+
 	// Connect
-	//SPI_Send(S0_CR, CR_CONNECT);
-	//while(SPI_Read(S0_CR));
+	SPI_Send(S0_CR, CR_CONNECT);
+
+	// Wait for Connection to Establish
+	while ( SPI_Read( S0_SR ) !=  SOCK_ESTABLISHED );
 }
 
 bool socket_connected()
 {
-	if( SPI_Read(S0_SR) == SOCK_ESTABLISHED )
-	{
-		return true;
-	}
-	else
+	if( SPI_Read(S0_SR) == SOCK_CLOSED )
 	{
 		return false;
 	}
+	else
+	{
+		return true;
+	}
 }
 
-void reconnect_tcp()
+void socket_close()
 {
-	// Connect
-	SPI_Send(S0_CR, CR_CONNECT);
-	while(SPI_Read(S0_CR));
+	// Sends socket close command
+	SPI_Send(S0_CR, CR_CLOSE );
 }
 
+void send_tcp_data(uint8_t *buf, uint16_t buflen)
+{
+
+}
+
+void receive_tcp_data(uint8_t *buf, uint16_t buflen)
+{
+	uint16_t ptr, offaddr, realaddr;
+
+	// Get the read pointer
+	ptr = SPI_Read( S0_RX_RD );
+
+	// Calculate offset address
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read( S0_RX_RD+1));
+
+	// Read data
+	while( buflen )
+	{
+		buflen--;
+		realaddr = RXBUFADDR + ( offaddr & RX_BUF_MASK);
+		*buf = SPI_Read(realaddr);
+		offaddr++;
+		buf++;
+	}
+	*buf = '\n'; // Null Terminator
+
+	// Increase S0_RX_RD Value
+	SPI_Send( S0_RX_RD, (offaddr & 0xFF00) >> 8 );
+	SPI_Send( S0_RX_RD + 1, (offaddr & 0x00FF));
+
+	// Send Rec command
+	SPI_Send( S0_CR, CR_RECV);
+
+	// Delay a bit
+	SysCtlDelay( SysCtlClockGet() / 1000000 );
+}

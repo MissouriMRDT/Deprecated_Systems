@@ -11,26 +11,26 @@
 
 extern Void mux_test(UArg arg0, UArg arg1)
 {
-	UART_Handle uart1 = init_uart( 1 );
+	UART_Handle uart1 = init_uart( 5 );
 
-	int tcp_input;
+	char* tcp_input;
 
 	while(1)
 	{
 		//Go foreward
-		tcp_input = 0x9B;
+		tcp_input = (char*) 0x9B;
 
 		//Send command
-		mux_1(1);
+		mux_5(13);
 		SysCtlDelay( SysCtlClockGet() / 10 );
-		UART_writePolling(uart1, &tcp_input, 1);
+		UART_writePolling(uart1, tcp_input, 1);
 		SysCtlDelay( SysCtlClockGet()  );
 
 		//Stop
-		tcp_input = 0x80;
+		tcp_input = (char*) 0x80;
 		//Send command
 		SysCtlDelay( SysCtlClockGet() / 10 );
-		UART_writePolling(uart1, &tcp_input, 1);
+		UART_writePolling(uart1, tcp_input, 1);
 		SysCtlDelay( SysCtlClockGet()  );
 	}
 }

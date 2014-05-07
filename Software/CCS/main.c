@@ -16,7 +16,6 @@
 /* TI-RTOS Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/SPI.h>
-#include <ti/drivers/UART.h>
 #include <inc/hw_ssi.h>
 #include <driverlib/ssi.h>
 #include <inc/hw_memmap.h>
@@ -42,15 +41,6 @@
 #include "tasks/simple_drive.h"
 #include "tasks/Mux_test_task.h"
 
-Queue_Handle debug_Q;
-
-Mailbox_Handle value_R_box;
-Mailbox_Handle value_L_box;
-
-uint8_t value_byte_L;
-uint8_t value_byte_R;
-uint8_t cmd_number;
-
 Int main(Void)
 {
 	// TI RTOS Inits
@@ -58,16 +48,12 @@ Int main(Void)
     Board_initGPIO();
     Board_initUART();
 
-
     // Custom Inits
     init_mux_pins();
     //init_spi();
 
     //Establish TCP connection
     //set_up_tcp();
-
-    value_byte_L = 0x80;
-    value_byte_R = 0x80;
 
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);

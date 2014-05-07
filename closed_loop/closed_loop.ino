@@ -7,7 +7,11 @@
  * (C) 2014
  */
 
-#define DEBUG_MODE
+#define DEBUG_MODE // remove this define for normal operation
+
+#ifndef DEBUG_MODE // production-mode serial communication stuff
+#include "EasyTransfer.h"
+#endif
  
 //Global variables
 float measuredSpeed = 0; // speed measured by the encoder
@@ -26,6 +30,29 @@ int proportionalTerm = 0; // Used to keep track of proportional error term
 const float KP = 60;//50
 const float KI = 150;//100
 
+// Production mode serial communication setup
+#ifndef DEBUG_MODE
+
+  EasyTransfer ETsend;
+  EasyTransfer ETreceive;
+  
+  struct RECEIVE_DATA_STRUCTURE
+  {
+    unsigned char closedLoopMode; // 0 for open loop control, non-zero for closed-loop
+    float setSpeed; // speed in km/hr for closed-loop control. This is intentionally redundant (for debug and production mode)
+    unsigned char openPWM; // directly set the PWM value for open-loop control mode
+  };
+  
+  struct SEND_DATA_STRUCTURE
+  {
+    unsigned int currentDraw;
+    unsigned int temperature;
+  };
+  
+  RECEIVE_DATA_STRUCTURE receiveData;
+  SEND_DATA_STRUCTURE sendData;
+  
+#endif
 
 void setup()
 {
@@ -60,11 +87,46 @@ void setup()
   #ifdef DEBUG_MODE
     Serial.println("Starting...");
   #endif
+  
+  #ifndef DEBUG_MODE
+    // Initialize easy transfer stuff
+    ETreceive.begin(details(receiveData), &Serial);
+    //ETsend.begin(details(sendData), &Serial); //TODO: Test if you can initialize two of these objects on a single Serial port object
+    
+    // initilize values of the serial data structs
+    setSpeed = 0.0; // The Debug mode setup initializes this to a non-zero value...bad for production mode!
+    receiveData.closedLoopMode = 1; // 0 for open loop control, non-zero for closed-loop
+    receiveData.setSpeed = 0.0; // speed in km/hr for closed-loop control
+    receiveData.openPWM = 128; // directly set the PWM value for open-loop control mode
+    
+    sendData.currentDraw = 0;
+    sendData.temperature = 0;
+    
+    
+  #endif
 }
 
 void loop()
 {
   // Serial communication will happen here
+  #ifndef DEBUG_MODE
+    if(ETreceive.receiveData())
+    {
+      if(receiveData.closedLoopMode)
+      {
+        // if still in closed loop mode
+        setSpeed = receiveData.setSpeed;
+      }
+      else
+      {
+        // now in open loop mode
+        cli(); // Disable interrupts
+        OCR2A = receiveData.openPWM; // set the duty cycle directly
+      }
+      // change between open and closed loop control if necessary
+    }
+    // TODO: Report back sensor telemetry
+  #endif
 }
 
 //Timer and Counter Interrupt (for making speed measurements)

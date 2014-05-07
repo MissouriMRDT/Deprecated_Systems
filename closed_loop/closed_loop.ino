@@ -6,6 +6,8 @@
  * Hardware: Lukas Mueller
  * (C) 2014
  */
+
+#define DEBUG_MODE
  
 //Global variables
 float measuredSpeed = 0; // speed measured by the encoder
@@ -55,7 +57,9 @@ void setup()
   DDRB = 0b00101000;// set PWM pin as output
   PORTB = 0x0;
   
-  Serial.println("Starting...");
+  #ifdef DEBUG_MODE
+    Serial.println("Starting...");
+  #endif
 }
 
 void loop()
@@ -83,15 +87,21 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
     
     measuredSpeed *= direct; // add direction component to speed scalar
     
-    Serial.println(measuredSpeed);
+    #ifdef DEBUG_MODE
+      Serial.println(measuredSpeed);
+    #endif
   	
     // Calculate PI correction based on error
     int correction = PIcorrection();
-    Serial.println(correction);
+    #ifdef DEBUG_MODE
+      Serial.println(correction);
+    #endif
     pwm += correction;
   	
     pwm=constrain(pwm,0,255); // constrain pwm duty cycle value to register constraints [0,255]
-    Serial.println(OCR2A);
+    #ifdef DEBUG_MODE
+      Serial.println(OCR2A);
+    #endif
     OCR2A = pwm; // set new PWM duty cycle
   }
 }

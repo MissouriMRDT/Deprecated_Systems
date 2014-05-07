@@ -1,34 +1,38 @@
-float measuredSpeed = 0;
-const int SPEED_SAMPLE_RATE = 40;
-const int TIMER0_DIVIDER = 40;
-int timer0ExecuteCounter = 0;
-float setSpeed = 5.4;
-int pwm = 128;
-int firstDirection = 0, secondDirection = 0;
-int direct = 0;
+/*
+ * Missouri S&T Mars Rover Design Team
+ * Main Brushed DC Motor Controller Closed-Loop (PI) Speed Control Software
+ * Software: Josh Jetter and Lukas Mueller
+ * Hardware: Lukas Mueller
+ * (C) 2014
+ */
+ 
+//Global variables
+float measuredSpeed = 0; // speed measured by the encoder
+const int TIMER0_DIVIDER = 40; // Timer0 will rollover multiple times before we actually use the ISR
+int timer0ExecuteCounter = 0; // Keep track of how many times Timer0 has rolled over
+float setSpeed = 5.4;//The user will specify this in km/hr
+int pwm = 128; // written to the OCR2A to control PWM duty cycle. 128 = 0rpm
+int firstDirection = 0, secondDirection = 0; // Used to determine encoder direction by tracking state of channel A and B
+int direct = 0; // Global to add direction to speed scalar
 
-int integralTerm = 0;
-const int integralTermDT = 1;
-int proportionalTerm = 0;
+int integralTerm = 0; // Used to keep track of integral term over time
+const int integralTermDT = 1; // Used in discrete-time calculation of integral term
+int proportionalTerm = 0; // Used to keep track of proportional error term
 
+//PI constants
 const float KP = 60;//50
 const float KI = 150;//100
 
 
 void setup()
 {
-  Serial.begin(115200);
-  Serial.println("Hi");
-  
+  Serial.begin(115200); // Communicate at 115200 baud
   
   PRR = 0x0;//disable low power modes to enable extra counters
   
   //setup encoder counter
-  DDRD |= 0x42;
-  //DDRD |= 0xff;
+  DDRD |= 0x42; // set pins as inputs
   TCCR1A=0;        // reset timer / the current count is stored here
-  //bitSet(TCCR1B ,CS12);  // Counter Clock source is external pin
-  //bitSet(TCCR1B ,CS11);  // Clock on rising edge
   
 
   //timer 0 stuff
@@ -38,18 +42,15 @@ void setup()
   //TCCR0B |= (0 << CS01) | (1 << CS00);
   //1024 prescaler
   TCCR0A = 0x05;
-  TCCR1B |= 0x06;//same as above two lines
+  TCCR1B |= 0x06;// Counter for encoder. Make source external pin, and increment on rising edge
   TIMSK0 |= (1 << OCIE0A);//enable timer 0 overflow interrupt
   
   
   
   //setup timer2 stuff for PWM output
-  //TCCR2A &= (1 << COM2A1);//non-inverting mode
-  //TCCR2A &= (0 << WGM22) & (0 << WGM21) & (1 << WGM20); //PWM Phase Correction
-  //TCCR2B = TCCR2B & 0b11111000 | 0x01; //Set prescaler to 1 and start PWM
-  TCCR2A = 0b10000001;
-  TCCR2B = 0b00000001;
-  OCR2A = 128;
+  TCCR2A = 0b10000001; // Set non-inverting mode with PWM phase correction
+  TCCR2B = 0b00000001; // Set prescaler to 1 and start PWM
+  OCR2A = 128; // Start at 50% duty cycle
   DDRB = 0b00101000;// set PWM pin as output
   PORTB = 0x0;
   

@@ -2,7 +2,7 @@ float measuredSpeed = 0;
 const int SPEED_SAMPLE_RATE = 40;
 const int TIMER0_DIVIDER = 40;
 int timer0ExecuteCounter = 0;
-float setSpeed = 8.4;
+float setSpeed = 2.4;
 int pwm = 128;
 int firstDirection = 0, secondDirection = 0;
 int direct = 0;
@@ -18,6 +18,7 @@ const float KI = 100;
 void setup()
 {
   Serial.begin(115200);
+  Serial.println("Hi");
   
   
   PRR = 0x0;//disable low power modes to enable extra counters
@@ -91,10 +92,11 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
   	
     //Calculate PI correction based on error
     int correction = PIcorrection();
+    Serial.println(correction);
     pwm += correction;
     //Serial.println(pwm);
   	
-    pwm=constrain(pwm,0,256);
+    pwm=constrain(pwm,0,255);
     Serial.println(OCR2A);
     OCR2A = pwm; //set new PWM duty cycle
   }

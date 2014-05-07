@@ -1,6 +1,7 @@
 /*
  * Missouri S&T Mars Rover Design Team
  * Main Brushed DC Motor Controller Closed-Loop (PI) Speed Control Software
+ * Tuned to 2014 Rover with 500CPR encoder, specific gearbox and wheel size
  * Software: Josh Jetter and Lukas Mueller
  * Hardware: Lukas Mueller
  * (C) 2014
@@ -59,61 +60,52 @@ void setup()
 
 void loop()
 {
-  //Serial.println(TCNT1);
-  //delay(500);
+  // Serial communication will happen here
 }
 
-//Timer and Counter Interrupt
+//Timer and Counter Interrupt (for making speed measurements)
 ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
 {
   timer0ExecuteCounter++;
   if(timer0ExecuteCounter%TIMER0_DIVIDER == 0)
   {
-    //Serial.println(count);
-    timer0ExecuteCounter = 0;
+    
+    timer0ExecuteCounter = 0; // reset ISR counter
     TCCR1B = 0; //Stop counting while reading out counter
-    measuredSpeed = TCNT1/208.0; //Copy value from counter register
+    measuredSpeed = TCNT1/208.0; //Copy value from counter register. Scalar 208.0 changes from CPR to Km/Hr for our rover
     
     TCNT1 = 0; //reset counter
-    firstDirection = PIND & (0b00100100);//read channels A and B
-    sei();
+    firstDirection = PIND & (0b00100100); // read channels A and B. This will be used in the other ISR to determine direction
+    sei(); // enable external interrupts so we can make a direction measurement on next encoder waveform rising edge
     EIMSK = 0x01;//enable interrupt 0
     EICRA = 0x01;//rising edge activated
-    //bitSet(TCCR1B ,CS12);  // Restart counter  
-    //bitSet(TCCR1B ,CS11);  //
-    TCCR1B |= 0x06;//same as above two lines
+    TCCR1B |= 0x06;// Restart counter
     
-    measuredSpeed *= direct;
+    measuredSpeed *= direct; // add direction component to speed scalar
     
     Serial.println(measuredSpeed);
-    
-    //TODO implement direction measurement
-    //We know speed, now we require the direction
-    //EIMSK |= (1 << INT0);//Enable interrupt on Pin3
   	
-    //Calculate PI correction based on error
+    // Calculate PI correction based on error
     int correction = PIcorrection();
     Serial.println(correction);
     pwm += correction;
-    //Serial.println(pwm);
   	
-    pwm=constrain(pwm,0,255);
+    pwm=constrain(pwm,0,255); // constrain pwm duty cycle value to register constraints [0,255]
     Serial.println(OCR2A);
-    OCR2A = pwm; //set new PWM duty cycle
+    OCR2A = pwm; // set new PWM duty cycle
   }
 }
 
+// interrupt for determining direction
 ISR(INT0_vect)
 {
-  EIMSK &= (0<< INT0 ) ; //disable this interrupt
+  EIMSK &= (0 << INT0) ; //disable this interrupt
   cli();
    
     // Turn off INT0 adain untill the controller gets executed again 
     
-   
-    //B=digitalRead(5) ;
-    //delay(10);
-    secondDirection = PIND & (0b00100100);//read channel A and B
+    secondDirection = PIND & (0b00100100); // read econder channel A and B
+    
     
     if(firstDirection == 0)
     {
@@ -170,25 +162,6 @@ ISR(INT0_vect)
         return;
       }
     }
-   //Serial.println(firstDirection);
-   //Serial.println(secondDirection);
-    /*switch (secondDirection)
-    { 
-         case 0 : 
-               direct=1 ; 
-               Serial.println("F");
-               break; 
-         case 4 : 
-               direct = -1 ;
-               Serial.println("B"); 
-               break ; 
-           
-         default : 
-                direct = 0 ; 
-                Serial.println(secondDirection);
-                break ;  
-                
-     }*/
 }
 
 int PIcorrection()
@@ -201,5 +174,5 @@ int PIcorrection()
   integralTerm += error*integralTermDT;
   integralTerm = constrain(integralTerm, 0, 1024);
   
-  return (error/KP) + (integralTerm/KI);//TODO: may be able to remove the KI multiplication
+  return (error/KP) + (integralTerm/KI);//TODO: may be able to remove the KI multiplication by combining it with the integral term DT multiplication
 }

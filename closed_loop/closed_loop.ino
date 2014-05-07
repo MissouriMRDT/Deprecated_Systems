@@ -2,7 +2,7 @@ float measuredSpeed = 0;
 const int SPEED_SAMPLE_RATE = 40;
 const int TIMER0_DIVIDER = 40;
 int timer0ExecuteCounter = 0;
-float setSpeed = 2.4;
+float setSpeed = 5.4;
 int pwm = 128;
 int firstDirection = 0, secondDirection = 0;
 int direct = 0;
@@ -11,8 +11,8 @@ int integralTerm = 0;
 const int integralTermDT = 1;
 int proportionalTerm = 0;
 
-const float KP = 50;
-const float KI = 100;
+const float KP = 60;//50
+const float KI = 150;//100
 
 
 void setup()
@@ -192,7 +192,7 @@ ISR(INT0_vect)
 
 int PIcorrection()
 {
-  float error = setSpeed - measuredSpeed;
+  float error = (setSpeed - measuredSpeed)*200;
   //Serial.println(error);
   //TODO: implement error deadband
   

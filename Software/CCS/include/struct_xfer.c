@@ -7,13 +7,21 @@
 
 #include "struct_xfer.h"
 
-void send_struct(UART_Handle uart, void* my_struct)
+#include <xdc/runtime/System.h>
+#include "../structs.h"
+
+void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
 {
     uint8_t size;
     uint8_t start_byte1 = 0x06;
     uint8_t start_byte2 = 0x85;
 
-    size = sizeof(*(my_struct));
+    switch(device)
+    {
+        case motor_controller:
+            size = sizeof(*((struct motor_struct*)my_struct));
+            break;
+    }
 
     uint8_t* address = (uint8_t*) my_struct;
     uint8_t CS = size;
@@ -29,7 +37,9 @@ void send_struct(UART_Handle uart, void* my_struct)
     {
         CS^=*(address+i);
         UART_write(uart, (char*) &(*(address+i)), 1);
+
     }
+
     UART_write(uart, (char*) &CS, 1);
-}
+};
 

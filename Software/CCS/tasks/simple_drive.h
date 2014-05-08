@@ -11,13 +11,16 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../include/struct_xfer.h"
+#include "../structs.h"
 
-struct motor_struct
+
+// This is temporary and should be removed
+// once the base station is updated
+float fix_drive_cmds( char cmd_value )
 {
-	unsigned char closedLoopMode; // 0 for open loop control, non-zero for closed-loop
-	float setSpeed; // speed in km/hr for closed-loop control. This is intentionally redundant (for debug and production mode)
-	unsigned char openPWM; // directly set the PWM value for open-loop control mode
-};
+	return ((cmd_value/255)*32) - 16 ;
+}
+
 
 extern Void tcp_connection(UArg arg0, UArg arg1)
 {
@@ -38,6 +41,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	struct motor_struct _struct;
 
+	// Enable close loop mode
 	_struct.closedLoopMode = 1;
 
 	while(1)
@@ -49,7 +53,8 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				UART_read(uart7, &tcp_input, 1);
 
-				_struct.x = tcp_input;
+				_struct.setSpeed = - fix_drive_cmds( tcp_input );
+
 				//////////////////////////
 				// Left Command
 				//////////////////////////
@@ -57,15 +62,16 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				mux_2( 7 );
 				mux_3( 6 );
 
-				send_struct(uart1, &_struct);
-				send_struct(uart2, &_struct);
-				send_struct(uart3, &_struct);
+				send_struct(uart1, &_struct, motor_controller);
+				send_struct(uart2, &_struct, motor_controller);
+				send_struct(uart3, &_struct, motor_controller);
 			}
 			if( tcp_input == 'R' )
 			{
 				UART_read(uart7, &tcp_input, 1);
 
-				_struct.x = tcp_input;
+				_struct.setSpeed = fix_drive_cmds( tcp_input );
+
 				//////////////////////////
 				// Left Command
 				//////////////////////////
@@ -73,9 +79,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				mux_2( 2 );
 				mux_3( 3 );
 
-				send_struct(uart1, &_struct);
-				send_struct(uart2, &_struct);
-				send_struct(uart3, &_struct);
+				send_struct(uart1, &_struct, motor_controller);
+				send_struct(uart2, &_struct, motor_controller);
+				send_struct(uart3, &_struct, motor_controller);
 			}
 		}
 	}

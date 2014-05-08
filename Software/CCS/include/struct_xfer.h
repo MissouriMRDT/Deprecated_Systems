@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include <ti/drivers/UART.h>
 
-void send_struct(UART_Handle uart, void* my_struct);
+enum peripheral_devices{motor_controller, robotic_arm};
+
+void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device);
 
 #endif /* STRUCT_XFER_H_ */

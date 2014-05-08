@@ -8,6 +8,7 @@
 
 #include "../include/struct_xfer.h"
 #include "../include/structs.h"
+#include "../include/timing.h"
 
 // This is temporary and should be removed
 // once the base station is updated
@@ -40,7 +41,8 @@ extern Void mux_test(UArg arg0, UArg arg1)
 		//Send command
 		send_struct(uart1, &_struct, motor_controller);
 
-		SysCtlDelay( SysCtlClockGet() / 100 );
+
+		ms_delay( 1 );
 
 		/*
 		//Stop

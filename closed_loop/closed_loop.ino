@@ -15,20 +15,22 @@
  
 //Global variables
 float measuredSpeed = 0; // speed measured by the encoder
-const int TIMER0_DIVIDER = 40; // Timer0 will rollover multiple times before we actually use the ISR
+const int TIMER0_DIVIDER = 20; // Timer0 will rollover multiple times before we actually use the ISR
 int timer0ExecuteCounter = 0; // Keep track of how many times Timer0 has rolled over
 float setSpeed = 5.4;//The user will specify this in km/hr
 int pwm = 128; // written to the OCR2A to control PWM duty cycle. 128 = 0rpm
 int firstDirection = 0, secondDirection = 0; // Used to determine encoder direction by tracking state of channel A and B
 int direct = 0; // Global to add direction to speed scalar
 
-int integralTerm = 0; // Used to keep track of integral term over time
+long int integralTerm = 0; // Used to keep track of integral term over time
 const int integralTermDT = 1; // Used in discrete-time calculation of integral term
 int proportionalTerm = 0; // Used to keep track of proportional error term
 
 //PI constants
 const float KP = 60;//50
 const float KI = 150;//100
+
+boolean pinState = false;//lol
 
 // Production mode serial communication setup
 #ifndef DEBUG_MODE
@@ -69,7 +71,7 @@ void setup()
   // turn on CTC mode
   TCCR0A |= (1 << WGM01);
   // Set CS01 and CS00 bits for 64 prescaler
-  //TCCR0B |= (0 << CS01) | (1 << CS00);
+  TCCR0B |= 0x01;//lol
   //1024 prescaler
   TCCR0A = 0x05;
   TCCR1B |= 0x06;// Counter for encoder. Make source external pin, and increment on rising edge
@@ -135,6 +137,11 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
   timer0ExecuteCounter++;
   if(timer0ExecuteCounter%TIMER0_DIVIDER == 0)
   {
+    pinState = !pinState;//lol
+    if(pinState)
+      digitalWrite(9,HIGH);//lol
+    else
+      digitalWrite(9,LOW);
     
     timer0ExecuteCounter = 0; // reset ISR counter
     TCCR1B = 0; //Stop counting while reading out counter
@@ -150,19 +157,19 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
     measuredSpeed *= direct; // add direction component to speed scalar
     
     #ifdef DEBUG_MODE
-      Serial.println(measuredSpeed);
+      Serial.println(measuredSpeed);//lol
     #endif
   	
     // Calculate PI correction based on error
     int correction = PIcorrection();
     #ifdef DEBUG_MODE
-      Serial.println(correction);
+      //Serial.println(correction);//lol
     #endif
     pwm += correction;
   	
     pwm=constrain(pwm,0,255); // constrain pwm duty cycle value to register constraints [0,255]
     #ifdef DEBUG_MODE
-      Serial.println(OCR2A);
+      //Serial.println(OCR2A);//lol
     #endif
     OCR2A = pwm; // set new PWM duty cycle
   }
@@ -244,7 +251,7 @@ int PIcorrection()
   
   //calculate integral term
   integralTerm += error*integralTermDT;
-  integralTerm = constrain(integralTerm, 0, 1024);
+  integralTerm = constrain(integralTerm, -30000, 30000);
   
   return (error/KP) + (integralTerm/KI);//TODO: may be able to remove the KI multiplication by combining it with the integral term DT multiplication
 }

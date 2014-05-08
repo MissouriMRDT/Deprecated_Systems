@@ -15,7 +15,7 @@
  
 //Global variables
 float measuredSpeed = 0; // speed measured by the encoder
-const int TIMER0_DIVIDER = 20; // Timer0 will rollover multiple times before we actually use the ISR
+const int TIMER0_DIVIDER = 15; // Timer0 will rollover multiple times before we actually use the ISR
 int timer0ExecuteCounter = 0; // Keep track of how many times Timer0 has rolled over
 float setSpeed = 5.4;//The user will specify this in km/hr
 int pwm = 128; // written to the OCR2A to control PWM duty cycle. 128 = 0rpm
@@ -28,7 +28,7 @@ int proportionalTerm = 0; // Used to keep track of proportional error term
 
 //PI constants
 const float KP = 60;//50
-const float KI = 150;//100
+const float KI = 200;//100
 
 boolean pinState = false;//lol
 
@@ -157,7 +157,7 @@ ISR (TIMER0_COMPA_vect)  // timer0 overflow interrupt
     measuredSpeed *= direct; // add direction component to speed scalar
     
     #ifdef DEBUG_MODE
-      Serial.println(measuredSpeed);//lol
+      //Serial.println(measuredSpeed);//lol
     #endif
   	
     // Calculate PI correction based on error

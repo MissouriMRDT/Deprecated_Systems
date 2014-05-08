@@ -15,7 +15,7 @@ struct test_motor_struct
 
 extern Void mux_test(UArg arg0, UArg arg1)
 {
-	UART_Handle uart1 = init_uart( 5 );
+	UART_Handle uart1 = init_uart( 5, 115200 );
 
 	struct test_motor_struct test;
 

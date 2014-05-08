@@ -14,29 +14,36 @@
 
 struct motor_struct
 {
-	uint8_t x;
+	unsigned char closedLoopMode; // 0 for open loop control, non-zero for closed-loop
+	float setSpeed; // speed in km/hr for closed-loop control. This is intentionally redundant (for debug and production mode)
+	unsigned char openPWM; // directly set the PWM value for open-loop control mode
 };
 
 extern Void tcp_connection(UArg arg0, UArg arg1)
 {
 
 	// Init UARTs
-	//UART_Handle uart0 = init_uart( 0 );
-	UART_Handle uart1 = init_uart( 1 );
-	UART_Handle uart2 = init_uart( 2 );
-	UART_Handle uart3 = init_uart( 3 );
-	UART_Handle uart7 = init_uart( 7 );
+	int baud_rate = 115200;
+	UART_Handle uart0 = init_uart( 0, baud_rate );
+	UART_Handle uart1 = init_uart( 1, baud_rate );
+	UART_Handle uart2 = init_uart( 2, baud_rate );
+	UART_Handle uart3 = init_uart( 3, baud_rate );
+	UART_Handle uart7 = init_uart( 7, baud_rate );
+
+	// Debug
+	UART_write(uart0, "Rover Booting\n", 14);
 
 	// Read buffer
 	char tcp_input;
 
 	struct motor_struct _struct;
 
+	_struct.closedLoopMode = 1;
+
 	while(1)
 	{
 		// Read one byte from TCP
 			UART_read(uart7, &tcp_input, 1);
-			//UART_write(uart0, &tcp_input, 1);
 
 			if( tcp_input == 'L' )
 			{

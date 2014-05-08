@@ -7,7 +7,7 @@
 #ifndef UARTS_H_
 #define UARTS_H_
 
-UART_Handle init_uart( UInt uart_index )
+UART_Handle init_uart( UInt uart_index, UInt baud_rate )
 {
 	UART_Handle uart_handle;
 
@@ -19,7 +19,7 @@ UART_Handle init_uart( UInt uart_index )
 	UART_Params_init(&uartParams);
 	uartParams.readReturnMode = UART_RETURN_FULL;
 	uartParams.readEcho = UART_ECHO_OFF;
-	uartParams.baudRate = 115200;
+	uartParams.baudRate = baud_rate;
 	uart_handle = UART_open(uart_index, &uartParams);
 
 	if (uart_handle == NULL) {

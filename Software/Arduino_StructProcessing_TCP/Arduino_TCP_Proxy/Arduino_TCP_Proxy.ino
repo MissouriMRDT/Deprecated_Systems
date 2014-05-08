@@ -75,61 +75,61 @@ void loop()
 	
    }
   }
-			///////////////
-			// JSON Parse
-			//
-			// Handwritten for now
-			//
-			// TODO: fix this and make it less brittle
-			///////////////
+	///////////////
+	// JSON Parse
+	//
+	// Handwritten for now
+	//
+	// TODO: fix this and make it less brittle
+	///////////////
 
-                        char Id[5];
-	                char Value[10];
-                        
-			// Get Id
-			Id[0] = JSON_string_buf[6];
-			Id[1] = JSON_string_buf[7];
-			Id[2] = JSON_string_buf[8];
-			Id[3] = JSON_string_buf[9];
-                        Id[4] = '\0';
-                        
-                        int cmd_value = atoi( Id);
-                        byte cmd;
+				char Id[5];
+			char Value[10];
+				
+	// Get Id
+	Id[0] = JSON_string_buf[6];
+	Id[1] = JSON_string_buf[7];
+	Id[2] = JSON_string_buf[8];
+	Id[3] = JSON_string_buf[9];
+	Id[4] = '\0';
+	
+	int cmd_value = atoi( Id);
+	byte cmd;
 
-                        // Drive Left
-                        if ( cmd_value == 4010 )
-                        {  
-                           cmd = 'L';
-                        }
-                        
-                        // Drive Right
-                        if ( cmd_value == 4011 )
-                        {  
-                           cmd = 'R';
-                        }
+	// Drive Left
+	if ( cmd_value == 4010 )
+	{  
+	   cmd = 'L';
+	}
+	
+	// Drive Right
+	if ( cmd_value == 4011 )
+	{  
+	   cmd = 'R';
+	}
 
-			// Get Value starting at 19
-			Value[0] = '\0';
-			bool is_end_of_value = false;
+	// Get Value starting at 19
+	Value[0] = '\0';
+	bool is_end_of_value = false;
 
-			int value_index = 0;
-			int json_value_string_index = 19;
+	int value_index = 0;
+	int json_value_string_index = 19;
 
-			while(is_end_of_value == false)
-			{
-				//Check for ending } which denotes end of value
-				if( JSON_string_buf[json_value_string_index] == '}' )
-				{
-					is_end_of_value = true;
-					Value[value_index] = '\0';
-				}
-				// this char is a digit of a value
-				else
-				{
-					Value[value_index] = JSON_string_buf[json_value_string_index];
-					value_index++;
-					json_value_string_index++;
-				}
+	while(is_end_of_value == false)
+	{
+		//Check for ending } which denotes end of value
+		if( JSON_string_buf[json_value_string_index] == '}' )
+		{
+			is_end_of_value = true;
+			Value[value_index] = '\0';
+		}
+		// this char is a digit of a value
+		else
+		{
+			Value[value_index] = JSON_string_buf[json_value_string_index];
+			value_index++;
+			json_value_string_index++;
+		}
     }
     
     int value_byte = atoi( Value );

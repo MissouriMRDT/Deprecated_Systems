@@ -2,7 +2,7 @@
  * structs.h
  *
  *  Created on: May 8, 2014
- *      Author: Zeus
+ *      Author: Keenan Johnson
  */
 
 #ifndef STRUCTS_H_

@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../include/struct_xfer.h"
-#include "../structs.h"
+#include "../include/structs.h"
 
 
 // This is temporary and should be removed

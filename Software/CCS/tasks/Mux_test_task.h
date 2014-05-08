@@ -7,7 +7,7 @@
 #define MUX_TEST_TASK_H_
 
 #include "../include/struct_xfer.h"
-#include "../structs.h"
+#include "../include/structs.h"
 
 // This is temporary and should be removed
 // once the base station is updated

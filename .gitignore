@@ -40,3 +40,4 @@
 # Ignore build files
 Software/CCS/Debug/
 Software/CCS/Release/
+Software/CCS/.launches/

@@ -50,7 +50,6 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 	uint8_t start_byte1 = 0x06;
 	uint8_t start_byte2 = 0x85;
 	uint8_t size;
-	uint8_t* address = (uint8_t*) my_struct; //address of struct to be written to
 	uint8_t calc_CS;	   //calculated Chacksum
 	int i;
 
@@ -98,6 +97,7 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 
 	// calculate checksum
 	calc_CS = size;
+
 	for ( i=0 ; i<size ; i++ )
 	{
 		calc_CS ^= rx_buffer[i];

@@ -29,8 +29,6 @@
 /* Board Header file */
 #include "Board.h"
 
-// Stellarino
-
 // Driver Files
 #include "include/muxes.h"
 #include "include/tcp.h"
@@ -41,6 +39,7 @@
 #include "tasks/simple_drive.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/Uart_loopback_task.h"
+#include "tasks/test.h"
 
 Int main(Void)
 {

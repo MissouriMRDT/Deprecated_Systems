@@ -18,7 +18,7 @@
 // once the base station is updated
 float fix_drive_cmds( char cmd_value )
 {
-	return ((cmd_value/255)*32) - 16 ;
+	return ((((float) cmd_value/255)*32) - 16) ;
 }
 
 

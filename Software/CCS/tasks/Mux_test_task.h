@@ -7,7 +7,6 @@
 #define MUX_TEST_TASK_H_
 
 #include "../include/struct_xfer.h"
-#include "../include/structs.h"
 #include "../include/timing.h"
 
 // This is temporary and should be removed
@@ -42,7 +41,7 @@ extern Void mux_test(UArg arg0, UArg arg1)
 		send_struct(uart1, &_struct, motor_controller);
 
 
-		ms_delay( 1 );
+		//ms_delay( 1 );
 
 		/*
 		//Stop

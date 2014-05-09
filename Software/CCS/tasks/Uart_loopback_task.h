@@ -6,15 +6,19 @@
 #ifndef UART_LOOPBACK_TASK_H_
 #define UART_LOOPBACK_TASK_H_
 
+#include "../include/struct_xfer.h"
+
 extern Void uartTest(UArg arg0, UArg arg1)
 {
-	UART_Handle uart = init_uart( 5, 115200 );
+	UART_Handle uart = init_uart( 1, 115200 );
 
-	mux_5(13);
+	struct receive_test test_struct;
 
 	while(1)
 	{
-		//int = sizeof(*test);
+		recv_struct( uart, &test_struct, recv_test );
+		System_printf("Value: %i\n", test_struct.data);
+		System_flush();
 	}
 }
 

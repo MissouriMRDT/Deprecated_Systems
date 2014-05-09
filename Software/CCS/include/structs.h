@@ -15,4 +15,9 @@ struct motor_struct
 	unsigned char openPWM; // directly set the PWM value for open-loop control mode
 }__attribute__((packed));
 
+struct receive_test
+{
+	uint16_t data;
+}__attribute__((packed));
+
 #endif /* STRUCTS_H_ */

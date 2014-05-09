@@ -138,11 +138,14 @@ void loop()
     Serial.write(value_byte);
 }
 
+while(Serial.available())
+{
+   client.write(Serial.read());
+}
 
   // if the server's disconnected, stop the client:
   if (!client.connected()) {
     client.stop();
-    Serial.println("Closed connection");
     // and reconnect
     while(!client.connect(server, port));
   }

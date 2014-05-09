@@ -10,15 +10,38 @@
 
 extern Void uartTest(UArg arg0, UArg arg1)
 {
-	UART_Handle uart = init_uart( 1, 115200 );
+	UART_Handle uart = init_uart( 4, 115200 );
 
-	struct receive_test test_struct;
+	mux_4(12);
+
+	struct bms_data_struct test_struct;
+
+	bool is_valid = false;
 
 	while(1)
 	{
-		recv_struct( uart, &test_struct, recv_test );
-		System_printf("Value: %i\n", test_struct.data);
-		System_flush();
+		is_valid = recv_struct( uart, &test_struct, bms );
+
+		if ( is_valid )
+		{
+			System_printf("Volt 0: %i\n", test_struct.volt0);
+			System_printf("Volt 1: %i\n", test_struct.volt1);
+			System_printf("Volt 2: %i\n", test_struct.volt2);
+			System_printf("Volt 3: %i\n", test_struct.volt3);
+			System_printf("Volt 4: %i\n", test_struct.volt4);
+			System_printf("Volt 5: %i\n", test_struct.volt5);
+			System_printf("Volt 6: %i\n", test_struct.volt6);
+
+			System_printf("Temp 0: %i\n", test_struct.temp0);
+			System_printf("Temp 1: %i\n", test_struct.temp1);
+			System_printf("Temp 2: %i\n", test_struct.temp2);
+			System_printf("Temp 3: %i\n", test_struct.temp3);
+			System_printf("Temp 4: %i\n", test_struct.temp4);
+			System_printf("Temp 5: %i\n", test_struct.temp5);
+			System_printf("Temp 6: %i\n", test_struct.temp6);
+			System_flush();
+
+		}
 	}
 }
 

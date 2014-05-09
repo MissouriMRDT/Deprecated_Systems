@@ -138,9 +138,13 @@ void loop()
     Serial.write(value_byte);
 }
 
-while(Serial.available())
+// Look for data on serial port
+// Send to the base station
+if(Serial.available())
 {
-   client.write(Serial.read());
+  Serial.read();
+   //client.write(Serial.read());
+   client.write("Hello\0");
 }
 
   // if the server's disconnected, stop the client:

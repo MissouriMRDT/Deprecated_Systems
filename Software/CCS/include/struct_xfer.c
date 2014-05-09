@@ -54,9 +54,12 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 	uint8_t calc_CS;	   //calculated Chacksum
 	int i;
 
+	// Get size of struct
 	switch(device)
 	{
-		// Get size of struct
+		case bms:
+			size = sizeof(*((struct bms_data_struct*)my_struct));
+			break;
 		case recv_test:
 			size = sizeof(*((struct receive_test*)my_struct));
 			break;

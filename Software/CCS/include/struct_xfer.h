@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include <ti/drivers/UART.h>
 
-enum peripheral_devices{motor_controller, robotic_arm, recv_test};
+enum peripheral_devices{motor_controller, bms, robotic_arm, recv_test};
 
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device);
 

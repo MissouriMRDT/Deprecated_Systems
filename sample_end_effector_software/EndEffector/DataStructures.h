@@ -2,34 +2,31 @@
 #define DATA_STRUCTURES_H
 #include "Arduino.h"
 
-struct SgasData
+//id = 1
+struct s_State
 {
+  //Gas Data
   uint16_t hydrogenReading;
   uint16_t methaneReading;
   uint16_t ammoniaReading;
-};
-
-struct SthermoData
-{
+  
+  //Thermo Data
   float temp;
-};
-
-struct SdrillCtrlState
-{
+  
+  //Drill Ctrl
   uint8_t goalSpeed;
   uint8_t actualSpeed;
-  uint8_t goalCurrent;
-  uint8_t actualCurrent;
-};
-
-struct SthermoCtrl
-{
+  uint16_t goalCurrent;
+  uint16_t actualCurrent;
+  bool direction;
+  
+  //Thermo Ctrl
   bool heaterPower;
+  
+  //Gas Ctrl
+  bool sensorPower;
+  bool takeReadings; //Readings will only be updated when true
 };
 
-struct SgasCtrl
-{
-  bool sensorPower;
-};
 
 #endif

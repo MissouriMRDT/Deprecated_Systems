@@ -39,6 +39,7 @@
 #include "tasks/simple_drive.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/Uart_loopback_task.h"
+#include "tasks/json_test.h"
 
 Int main(Void)
 {

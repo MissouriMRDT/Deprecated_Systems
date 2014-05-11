@@ -10,6 +10,8 @@
 
 extern Void uartTest(UArg arg0, UArg arg1)
 {
+	System_printf("Starting battery check program");
+	System_flush();
 	UART_Handle uart = init_uart( 5, 115200 );
 
 	mux_5(14);

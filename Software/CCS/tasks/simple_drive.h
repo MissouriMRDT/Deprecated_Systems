@@ -39,58 +39,70 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	// Read buffer
 	char tcp_input;
 
+	// Motor Controller Struct
 	struct motor_struct _struct;
 
 	while(1)
 	{
+		///////////////////////////////////////////////////
+		// DRIVE COMMANDS
+		///////////////////////////////////////////////////
+
+
 		// Read one byte from TCP
+		UART_read(uart7, &tcp_input, 1);
+
+		if( tcp_input == 'L' )
+		{
 			UART_read(uart7, &tcp_input, 1);
 
-			if( tcp_input == 'L' )
+			if( (tcp_input > 110) && (tcp_input < 135) )
 			{
-				UART_read(uart7, &tcp_input, 1);
-
-				if( (tcp_input > 110) && (tcp_input < 135) )
-				{
-					tcp_input = 128;
-				}
-
-				_struct.value = tcp_input ;
-
-				//////////////////////////
-				// Left Command
-				//////////////////////////
-				mux_1( 8 );
-				mux_2( 7 );
-				mux_3( 6 );
-
-				send_struct(uart1, &_struct, motor_controller);
-				send_struct(uart2, &_struct, motor_controller);
-				send_struct(uart3, &_struct, motor_controller);
+				tcp_input = 128;
 			}
-			if( tcp_input == 'R' )
-			{
-				UART_read(uart7, &tcp_input, 1);
 
-				if( (tcp_input > 110) && (tcp_input < 135) )
-				{
-					tcp_input = 128;
-				}
+			_struct.value = tcp_input ;
 
-				_struct.value =  tcp_input ;
+			//////////////////////////
+			// Left Command
+			//////////////////////////
+			mux_1( 8 );
+			mux_2( 7 );
+			mux_3( 6 );
 
-				//////////////////////////
-				// Left Command
-				//////////////////////////
-				mux_1( 1 );
-				mux_2( 2 );
-				mux_3( 3 );
-
-				send_struct(uart1, &_struct, motor_controller);
-				send_struct(uart2, &_struct, motor_controller);
-				send_struct(uart3, &_struct, motor_controller);
-			}
+			send_struct(uart1, &_struct, motor_controller);
+			send_struct(uart2, &_struct, motor_controller);
+			send_struct(uart3, &_struct, motor_controller);
 		}
+		if( tcp_input == 'R' )
+		{
+			UART_read(uart7, &tcp_input, 1);
+
+			if( (tcp_input > 110) && (tcp_input < 135) )
+			{
+				tcp_input = 128;
+			}
+
+			_struct.value =  tcp_input ;
+
+			//////////////////////////
+			// Left Command
+			//////////////////////////
+			mux_1( 1 );
+			mux_2( 2 );
+			mux_3( 3 );
+
+			send_struct(uart1, &_struct, motor_controller);
+			send_struct(uart2, &_struct, motor_controller);
+			send_struct(uart3, &_struct, motor_controller);
+		}
+
+		/////////////////////////////////////////////////////
+		// Read Battery Data
+		/////////////////////////////////////////////////////
+
+
 	}
+}
 
 #endif /* SIMPLE_DRIVE_H_ */

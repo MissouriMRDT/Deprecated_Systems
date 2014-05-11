@@ -83,8 +83,8 @@ void loop()
 	// TODO: fix this and make it less brittle
 	///////////////
 
-				char Id[5];
-			char Value[10];
+	char Id[5];
+	char Value[10];
 				
 	// Get Id
 	Id[0] = JSON_string_buf[6];
@@ -143,8 +143,8 @@ void loop()
 if(Serial.available())
 {
   Serial.read();
-   //client.write(Serial.read());
-   client.write("Hello\0");
+   client.write(Serial.read());
+   //client.write("Hello\0");
 }
 
   // if the server's disconnected, stop the client:

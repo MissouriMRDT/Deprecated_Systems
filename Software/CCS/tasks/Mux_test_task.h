@@ -24,8 +24,8 @@ extern Void mux_test(UArg arg0, UArg arg1)
 	struct motor_struct _struct;
 
 		// Enable close loop mode
-	_struct.closedLoopMode = 3;
-	_struct.openPWM = 5;
+	//_struct.closedLoopMode = 3;
+	//_struct.openPWM = 5;
 
 	mux_5(13);
 
@@ -35,7 +35,7 @@ extern Void mux_test(UArg arg0, UArg arg1)
 		UART_write(uart0, "Sending data\n", 13);
 
 		//Go foreward
-		_struct.setSpeed = 2;
+		//_struct.setSpeed = 2;
 
 		//Send command
 		send_struct(uart1, &_struct, motor_controller);

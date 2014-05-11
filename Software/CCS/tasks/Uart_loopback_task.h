@@ -10,9 +10,9 @@
 
 extern Void uartTest(UArg arg0, UArg arg1)
 {
-	UART_Handle uart = init_uart( 4, 115200 );
+	UART_Handle uart = init_uart( 5, 115200 );
 
-	mux_4(12);
+	mux_5(14);
 
 	struct bms_data_struct test_struct;
 

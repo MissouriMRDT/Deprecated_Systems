@@ -41,9 +41,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	struct motor_struct _struct;
 
-	// Enable close loop mode
-	_struct.closedLoopMode = 1;
-
 	while(1)
 	{
 		// Read one byte from TCP
@@ -53,7 +50,12 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				UART_read(uart7, &tcp_input, 1);
 
-				_struct.setSpeed = - fix_drive_cmds( tcp_input );
+				if( (tcp_input > 110) && (tcp_input < 135) )
+				{
+					tcp_input = 128;
+				}
+
+				_struct.value = tcp_input ;
 
 				//////////////////////////
 				// Left Command
@@ -70,7 +72,12 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				UART_read(uart7, &tcp_input, 1);
 
-				_struct.setSpeed = fix_drive_cmds( tcp_input );
+				if( (tcp_input > 110) && (tcp_input < 135) )
+				{
+					tcp_input = 128;
+				}
+
+				_struct.value =  tcp_input ;
 
 				//////////////////////////
 				// Left Command

@@ -8,7 +8,7 @@
 
 #include "../include/struct_xfer.h"
 
-extern Void uartTest(UArg arg0, UArg arg1)
+extern Void bms_data(UArg arg0, UArg arg1)
 {
 	System_printf("Starting battery check program");
 	System_flush();

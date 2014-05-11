@@ -2,7 +2,7 @@
  * simple_drive.h
  *
  *  Created on: May 6, 2014
- *      Author: Zeus
+ *      Author: Keenan Johnson
  */
 
 #ifndef SIMPLE_DRIVE_H_
@@ -48,13 +48,15 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		// DRIVE COMMANDS
 		///////////////////////////////////////////////////
 
-
 		// Read one byte from TCP
 		UART_read(uart7, &tcp_input, 1);
 
 		if( tcp_input == 'L' )
 		{
 			UART_read(uart7, &tcp_input, 1);
+
+			// Debug
+			UART_write(uart0, "LEFT\n", 5);
 
 			if( (tcp_input > 110) && (tcp_input < 135) )
 			{
@@ -77,6 +79,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		if( tcp_input == 'R' )
 		{
 			UART_read(uart7, &tcp_input, 1);
+
+			// Debug
+			UART_write(uart0, "RIGHT\n", 5);
 
 			if( (tcp_input > 110) && (tcp_input < 135) )
 			{

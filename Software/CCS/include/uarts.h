@@ -18,6 +18,7 @@ UART_Handle init_uart( UInt uart_index, UInt baud_rate )
 	// Start UART7
 	UART_Params_init(&uartParams);
 	uartParams.readReturnMode = UART_RETURN_FULL;
+	uartParams.readMode = UART_MODE_BLOCKING;
 	uartParams.readEcho = UART_ECHO_OFF;
 	uartParams.baudRate = baud_rate;
 	uart_handle = UART_open(uart_index, &uartParams);

@@ -7,6 +7,7 @@
 #define UART_LOOPBACK_TASK_H_
 
 #include "../include/struct_xfer.h"
+#include "../include/json.h"
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {

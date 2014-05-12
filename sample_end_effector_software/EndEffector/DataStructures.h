@@ -22,10 +22,11 @@ struct s_State
   
   //Thermo Ctrl
   bool heaterPower;
+  bool thermoReadings;
   
   //Gas Ctrl
   bool sensorPower;
-  bool takeReadings; //Readings will only be updated when true
+  bool gasReadings; //Readings will only be updated when true
 };
 
 

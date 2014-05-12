@@ -34,9 +34,13 @@ void continuousUpdates(s_State& state)
     updateMotor(state);
     setDriverOutput(state.actualSpeed);
   }
-  if(state.takeReadings)
+  if(state.gasReadings)
   {
     updateGasData(state);
+  }
+  if(state.thermoReadings)
+  {
+    state.temp = get_temp_c();
   }
   if(state.heaterPower)
   {

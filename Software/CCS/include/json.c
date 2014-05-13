@@ -7,9 +7,6 @@
 
 #include "json.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 /* reverse:  reverse string s in place */
  void reverse(char s[])
  {
@@ -43,11 +40,11 @@
  void generate_json_int(char *string_buf, const char *id, const int value)
  {
 	 // Add beginning of json
-	 strcpy(string_buf, "{\"Id\":");
+	 strcpy(string_buf, "{'Id':");
 
 	// Add id
 	strcat(string_buf, id);
-	strcat(string_buf, ",\"Value\":");
+	strcat(string_buf, ",'Value':");
 
 	// Convert value to string
 	// and add it
@@ -58,3 +55,13 @@
 	// Add ending closing brace
 	strcat(string_buf, "}");
  }
+
+void write_json(UART_Handle uart, char *json_string)
+{
+	// Get size of JSON string
+	int size = strlen(json_string);
+
+	// Write data out UART
+	UART_write(uart, json_string, size+1);
+
+}

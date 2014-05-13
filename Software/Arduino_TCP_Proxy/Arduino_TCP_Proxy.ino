@@ -142,9 +142,10 @@ void loop()
 // Send to the base station
 if(Serial.available())
 {
-  Serial.read();
-   client.write(Serial.read());
-   //client.write("Hello\0");
+  while(Serial.available())
+  {
+     client.write(Serial.read());
+  }
 }
 
   // if the server's disconnected, stop the client:

@@ -38,8 +38,10 @@
 //Task Files
 #include "tasks/simple_drive.h"
 #include "tasks/Mux_test_task.h"
-#include "tasks/Uart_loopback_task.h"
+#include "tasks/telemetry_task.h"
 #include "tasks/json_test.h"
+
+UART_Handle uart7;
 
 Int main(Void)
 {
@@ -50,16 +52,11 @@ Int main(Void)
 
     // Custom Inits
     init_mux_pins();
-    //init_spi();
-
-    //Establish TCP connection
-    //set_up_tcp();
 
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
-    // Create qeueues
-    //debug_Q = Queue_create(NULL, NULL);
+    uart7 = init_uart( 7, 115200 );
 
     // Start BIOS (RTOS)
     BIOS_start();

@@ -31,7 +31,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	UART_Handle uart1 = init_uart( 1, baud_rate );
 	UART_Handle uart2 = init_uart( 2, baud_rate );
 	UART_Handle uart3 = init_uart( 3, baud_rate );
-	UART_Handle uart7 = init_uart( 7, baud_rate );
+	extern UART_Handle uart7;
 
 	// Debug
 	UART_write(uart0, "Rover Booting\n", 14);
@@ -101,12 +101,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			send_struct(uart2, &_struct, motor_controller);
 			send_struct(uart3, &_struct, motor_controller);
 		}
-
-		/////////////////////////////////////////////////////
-		// Read Battery Data
-		/////////////////////////////////////////////////////
-
-
 	}
 }
 

@@ -7,9 +7,6 @@
 
 #include "struct_xfer.h"
 
-#include <xdc/runtime/System.h>
-#include "../include/structs.h"
-
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
 {
     uint8_t size;

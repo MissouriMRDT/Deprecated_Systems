@@ -8,6 +8,8 @@
 #ifndef STRUCT_XFER_H_
 #define STRUCT_XFER_H_
 
+#include <xdc/runtime/System.h>
+#include "../include/structs.h"
 #include <stdint.h>
 #include <ti/drivers/UART.h>
 

@@ -14,6 +14,7 @@
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {
+
 	extern UART_Handle uart7;
 
 	System_printf("Starting battery check program");
@@ -130,6 +131,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			System_flush();
 		}
 
+		//ms_delay( 100 );
 	}
 }
 

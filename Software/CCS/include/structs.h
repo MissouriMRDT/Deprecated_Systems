@@ -29,6 +29,8 @@ struct bms_data_struct
   uint16_t temp5;
   uint16_t volt6;
   uint16_t temp6;
+  uint16_t main_bat_cur;
+  uint16_t main_bat_volt;
 }__attribute__((packed));
 
 struct receive_test

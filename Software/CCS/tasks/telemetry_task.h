@@ -113,6 +113,16 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			write_json(uart7, json);
 			ms_delay( delay );
 
+			// Main Current
+			generate_json_int(json, "3015", test_struct.main_bat_cur);
+			write_json(uart7, json);
+			ms_delay( delay );
+
+			// Main Voltage
+			generate_json_int(json, "3016", test_struct.main_bat_volt);
+			write_json(uart7, json);
+			ms_delay( delay );
+
 			System_printf("Volt 0: %i\n", test_struct.volt0);
 			System_printf("Volt 1: %i\n", test_struct.volt1);
 			System_printf("Volt 2: %i\n", test_struct.volt2);
@@ -128,6 +138,9 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			System_printf("Temp 4: %i\n", test_struct.temp4);
 			System_printf("Temp 5: %i\n", test_struct.temp5);
 			System_printf("Temp 6: %i\n", test_struct.temp6);
+
+			System_printf("Main Current: %i\n", test_struct.main_bat_cur);
+			System_printf("Main Voltage: %i\n", test_struct.main_bat_volt);
 			System_flush();
 		}
 

@@ -223,6 +223,8 @@ void loop(){
   }
   batterydata();
   senddata();
+  fault = false;
+  PORTB = PORTB | B00000010; 
  }
 }
 //This Function reads the average from a port
@@ -322,6 +324,7 @@ void batterydata(){
   if(MC > cmax){
    CF++; 
   }
+  MV=long_adc(MV_PIN);
 }
 
 void updatecharger(){

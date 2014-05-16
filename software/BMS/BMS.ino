@@ -22,8 +22,6 @@ struct SEND_DATA
   int main_bat_volt;
 };
 SEND_DATA batteryData;
-  
-
 
 //Setting up port names
 const uint8_t A = 2;//Multiplexer Selector A
@@ -164,6 +162,10 @@ TCCR1A |= (1 << COM1B1);
 }
 
 void loop(){
+  
+  ////////////////////
+  // EStop
+  ////////////////////
   estop=analogRead(4);
   if(estop>512){
    PORTB = PORTB & B11111101; 
@@ -175,6 +177,10 @@ void loop(){
    
    senddata();
   }
+  
+  /////////////////////
+  // Charging
+  /////////////////////
   else{
   switchport(7);
   CV=analogRead(VOLTS);
@@ -215,66 +221,9 @@ void loop(){
     ctn = 0;
     Serial.println("Done Charging");
   }
-  
-  if( fault == false){
-    PORTB = PORTB | B00000010;
   batterydata();
   senddata();
-   if( B0F>10 || B1F>10 || B2F>10 || B3F>10 || B4F>10 || B5F>10 || B6F>10 || CF>10){
-     PORTB = PORTB & B11111101;
-     Serial.println("Sustained Battery Fault");
-     fault = true;
-     ctn = 0;
-   }
-   ctn++;
-   if(ctn>100){
-    B0F = 0;
-    B1F = 0;
-    B2F = 0;
-    B3F = 0;
-    B4F = 0;
-    B5F = 0;
-    B6F = 0;
-    CF = 0;
-    ctn = 0;
-   }}
-   else{
-     if(ctn == 1){
-      //delay(10000); 
-     }
-     batteryretry();
-     ctn++;
-    if(ctn>=1000){ 
-    if( B0R>50 || B1R>50 || B2R>50 || B3R>50 || B4R>50 || B5R>50 || B6R>50){
-     Serial.println("Fault not cleared");
-    }
-    else{
-     Serial.println("Battery On");
-     fault = false;
-     PORTB = PORTB | B00000010;
-      B0F = 0;
-      B1F = 0;
-      B2F = 0;
-      B3F = 0;
-      B4F = 0;
-      B5F = 0;
-      B6F = 0;
-      CF = 0;
-    }  
- ctn=0;
- B0R=0;
- B1R=0;
- B2R=0;
- B3R=0;
- B4R=0;
- B5R=0;
- B6R=0;
-    }
-  }
-
-    
-    
-}
+ }
 }
 //This Function reads the average from a port
 int long_adc(int channel){ 
@@ -372,51 +321,6 @@ void batterydata(){
   MC=long_adc(MC_PIN);
   if(MC > cmax){
    CF++; 
-  }
-}
-
-void batteryretry(){
-  switchport(0);
-  VB0=long_adc(VOLTS);
-  TB0=long_adc(TEMP);
-  switchport(1);
-  if ( VB0 > vmaxR || TB0 > tempmaxR || VB0 < vminR){
-    B0R++;
-  }
-  VB1=long_adc(VOLTS);
-  TB1=long_adc(TEMP);
-  switchport(2);
-  if ( VB1 > vmaxR || TB1 > tempmaxR || VB1 < vminR){
-    B1R++;
-  }
-  VB2=long_adc(VOLTS);
-  TB2=long_adc(TEMP);
-  switchport(3);
-  if ( VB2 > vmaxR || TB2 > tempmaxR || VB2 < vminR){
-    B2R++;
-  }
-  VB3=long_adc(VOLTS);
-  TB3=long_adc(TEMP);
-  switchport(4);
-  if ( VB3 > vmaxR || TB3 > tempmaxR || VB3 < vminR){
-    B3R++;
-  }
-  VB4=long_adc(VOLTS);
-  TB4=long_adc(TEMP);
-  switchport(5);
-  if ( VB4 > vmaxR || TB4 > 1024 || VB4 < vminR){
-    B4R++;
-  }
-  VB5=long_adc(VOLTS);
-  TB5=long_adc(TEMP);
-  switchport(6);
-  if ( VB5 > vmaxR || TB5 > tempmaxR || VB5 < vminR){
-    B5R++;
-  }
-  VB6=long_adc(VOLTS);
-  TB6=long_adc(TEMP);
-  if ( VB6 > vmaxR || TB6 > tempmaxR || VB6 < vminR){
-    B6R++;
   }
 }
 

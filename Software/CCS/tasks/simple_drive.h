@@ -31,6 +31,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	UART_Handle uart1 = init_uart( 1, baud_rate );
 	UART_Handle uart2 = init_uart( 2, baud_rate );
 	UART_Handle uart3 = init_uart( 3, baud_rate );
+	UART_Handle uart4 = init_uart( 4, baud_rate );
 	extern UART_Handle uart7;
 
 	// Debug
@@ -91,13 +92,13 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			_struct.value =  tcp_input ;
 
 			//////////////////////////
-			// Left Command
+			// Right Command
 			//////////////////////////
-			mux_1( 1 );
+			mux_4( 4 );
 			mux_2( 2 );
 			mux_3( 3 );
 
-			send_struct(uart1, &_struct, motor_controller);
+			send_struct(uart4, &_struct, motor_controller);
 			send_struct(uart2, &_struct, motor_controller);
 			send_struct(uart3, &_struct, motor_controller);
 		}

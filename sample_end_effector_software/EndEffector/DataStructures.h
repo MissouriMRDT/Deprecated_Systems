@@ -11,8 +11,8 @@ struct s_Controls
   uint8_t direction;
   
   //Thermo Ctrl
-  bool heaterPower;
-  bool thermoReadings;
+  uint8_t heaterPower;
+  uint8_t thermoReadings;
   
   //Gas Ctrl
   uint8_t sensorPower;

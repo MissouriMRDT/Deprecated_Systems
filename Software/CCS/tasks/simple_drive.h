@@ -26,12 +26,11 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 {
 
 	// Init UARTs
-	int baud_rate = 115200;
-	UART_Handle uart0 = init_uart( 0, baud_rate );
-	UART_Handle uart1 = init_uart( 1, baud_rate );
-	UART_Handle uart2 = init_uart( 2, baud_rate );
-	UART_Handle uart3 = init_uart( 3, baud_rate );
-	UART_Handle uart4 = init_uart( 4, baud_rate );
+	extern UART_Handle uart0;
+	extern UART_Handle uart1;
+	extern UART_Handle uart2;
+	extern UART_Handle uart3;
+	extern UART_Handle uart4;
 	extern UART_Handle uart7;
 
 	bool cmd_valid = false;
@@ -41,6 +40,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	// Motor Controller Struct
 	struct motor_struct _struct;
+
+	// Drill struct
+	struct drill_Controls drill_cmd;
 
 	while(1)
 	{
@@ -83,6 +85,19 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				send_struct(uart1, &_struct, motor_controller);
 				send_struct(uart2, &_struct, motor_controller);
 				send_struct(uart3, &_struct, motor_controller);
+			}
+
+			//////////////////////////////
+			// Drill Command
+			///////////////////////////////
+			if( cmd_struct.id == 5000 )
+			{
+				drill_cmd.direction = 1;
+				drill_cmd.goalSpeed = cmd_struct.value;
+
+				mux_4(4);
+
+				send_struct(uart4, &drill_cmd, drill);
 			}
 		}
 	}

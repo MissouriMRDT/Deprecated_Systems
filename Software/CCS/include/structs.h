@@ -39,6 +39,39 @@ struct bms_data_struct
   uint16_t main_bat_volt;
 }__attribute__((packed));
 
+struct drill_Controls
+{
+
+  //Drill Ctrl
+  uint8_t goalSpeed;
+  uint8_t direction;
+
+  //Thermo Ctrl
+  uint8_t heaterPower;
+  uint8_t thermoReadings;
+
+  //Gas Ctrl
+  uint8_t sensorPower;
+  uint8_t gasReadings; //Readings will only be updated when true
+}__attribute__((packed));
+
+struct drill_Telemetry
+{
+    //Gas Data
+  uint16_t hydrogenReading;
+  uint16_t methaneReading;
+  uint16_t ammoniaReading;
+
+  //Thermo Data
+  float temp;
+
+  //Drill Data
+  uint8_t actualSpeed;
+  uint16_t goalCurrent;
+  uint16_t actualCurrent;
+
+}__attribute__((packed));
+
 struct receive_test
 {
 	uint16_t data;

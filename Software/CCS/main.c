@@ -41,6 +41,13 @@
 #include "tasks/telemetry_task.h"
 #include "tasks/json_test.h"
 
+// UART Handles
+UART_Handle uart0;
+UART_Handle uart1;
+UART_Handle uart2;
+UART_Handle uart3;
+UART_Handle uart4;
+UART_Handle uart5;
 UART_Handle uart7;
 
 Int main(Void)
@@ -56,6 +63,12 @@ Int main(Void)
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
+    uart0 = init_uart( 0, 115200 );
+    uart1 = init_uart( 1, 115200 );
+    uart2 = init_uart( 2, 115200 );
+    uart3 = init_uart( 3, 115200 );
+    uart4 = init_uart( 4, 115200 );
+    uart5 = init_uart( 5, 115200 );
     uart7 = init_uart( 7, 115200 );
 
     // Start BIOS (RTOS)

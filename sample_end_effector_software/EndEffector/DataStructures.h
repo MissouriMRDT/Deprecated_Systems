@@ -8,15 +8,15 @@ struct s_Controls
 
   //Drill Ctrl
   uint8_t goalSpeed;
-  bool direction;
+  uint8_t direction;
   
   //Thermo Ctrl
   bool heaterPower;
   bool thermoReadings;
   
   //Gas Ctrl
-  bool sensorPower;
-  bool gasReadings; //Readings will only be updated when true
+  uint8_t sensorPower;
+  uint8_t gasReadings; //Readings will only be updated when true
 };
 
 struct s_Telemetry

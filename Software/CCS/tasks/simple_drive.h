@@ -98,6 +98,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				mux_4(4);
 
 				send_struct(uart4, &drill_cmd, drill);
+
+				System_printf("Drill command: %i\n", cmd_struct.value);
+				System_flush();
 			}
 		}
 	}

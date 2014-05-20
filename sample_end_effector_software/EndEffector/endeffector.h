@@ -25,10 +25,10 @@ const int HEAT_CTRL = 12;
 
 //Detects changes in input and updates accordingly
 //will update heater
-void discreteUpdates(s_State& state, const s_State& prev_state);
+void discreteUpdates(s_Controls& state, const s_Controls& prev_state, s_Telemetry& telemetry);
 
 //Updates sensors, drill, or heater depending on what is powered
 //Should be run as frequently as possible
-void continuousUpdates(s_State& state);
+void continuousUpdates(s_Controls& state, s_Telemetry telemetry);
 
 #endif

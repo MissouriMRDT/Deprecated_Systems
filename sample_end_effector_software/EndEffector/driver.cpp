@@ -25,36 +25,36 @@ int currentRead(const int pin, const int acc)
 
 
 //int updateMotor(const int desired_speed, const int actual_speed, const int current)
-int updateMotor(s_State &State)
+int updateMotor(s_Controls &State, s_Telemetry& telemetry)
 {
-  int new_speed = State.actualSpeed;
-  State.actualCurrent = currentRead(DRILL_CS, READ_ACC);
+  int new_speed = telemetry.actualSpeed;
+  telemetry.actualCurrent = currentRead(DRILL_CS, READ_ACC);
   
   //Calculates current that should be seen when operating at desired speed
-  State.goalCurrent = calculate_desired_current(State.goalSpeed);
+  telemetry.goalCurrent = calculate_desired_current(State.goalSpeed);
   
   //Check to see if motor is struggling or stuck
-  if(State.actualCurrent > State.goalCurrent)
+  if(telemetry.actualCurrent > telemetry.goalCurrent)
   {
     //Calculates current that should be seen when operating at actual, elevated speed
-    float max_current = calculate_desired_current(State.actualSpeed);
+    float max_current = calculate_desired_current(telemetry.actualSpeed);
     max_current *= MAX_VARIATION;
-    if(State.actualCurrent > CUTOFF_CURRENT)
+    if(telemetry.actualCurrent > CUTOFF_CURRENT)
     {
-      new_speed = State.actualSpeed - SPEED_STEP;
-    } else if(State.actualSpeed > DRILL_FULL_SPEED)
+      new_speed = telemetry.actualSpeed - SPEED_STEP;
+    } else if(telemetry.actualSpeed > DRILL_FULL_SPEED)
     {
       new_speed = DRILL_FULL_SPEED;
     //Drill is still stalled out, not running at max power
-    } else if(State.actualCurrent > max_current)
+    } else if(telemetry.actualCurrent > max_current)
     {
-      new_speed = State.actualSpeed + SPEED_STEP;
+      new_speed = telemetry.actualSpeed + SPEED_STEP;
     //Drill has broken stall, scale back speed
     } else {  
-      new_speed = State.actualSpeed - SPEED_STEP;
+      new_speed = telemetry.actualSpeed - SPEED_STEP;
     } 
   }
-  State.actualSpeed = new_speed;
+  telemetry.actualSpeed = new_speed;
   return new_speed;
 }
 
@@ -72,7 +72,7 @@ void setDriverOutput(const int motor_speed)
   analogWrite(MOT_PWM, motor_speed);
 }
 
-void SetDrillDirection(const s_State &state)
+void SetDrillDirection(const s_Controls &state)
 {
   if(state.direction!=false)
   {
@@ -87,7 +87,7 @@ void SetDrillDirection(const s_State &state)
   return;
 }
 
-void maintainCurrent(s_State& state, const int current)
+void maintainCurrent(s_Telemetry& state, const int current)
 {
   state.actualCurrent = currentRead(DRILL_CS, READ_ACC);
   if(state.actualCurrent > (current + MAINTAIN_TOLERANCE))

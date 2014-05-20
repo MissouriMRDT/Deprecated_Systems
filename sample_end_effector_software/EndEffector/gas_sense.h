@@ -24,6 +24,6 @@ int readGas(const int sensor);
 void updateGasHeaters(const bool sensorPower);
 
 //Reads gas data in from all sensors and updates the state
-void updateGasData(s_State &gasData);
+void updateGasData(s_Telemetry &gasData);
 
 #endif  

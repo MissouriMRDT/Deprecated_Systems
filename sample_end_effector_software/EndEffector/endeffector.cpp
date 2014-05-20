@@ -11,7 +11,7 @@
 #include "gas_sense.h"
 #include "thermo_test.h"
 
-void discreteUpdates(s_State& state, const s_State& prev_state)
+void discreteUpdates(s_Controls& state, const s_Controls& prev_state,s_Telemetry& telemetry)
 {
   if(state.sensorPower != prev_state.sensorPower)
     updateGasHeaters(state.sensorPower);
@@ -22,28 +22,28 @@ void discreteUpdates(s_State& state, const s_State& prev_state)
   
   //Emergency kill, skips current prediction calculations for fast response
   if(0 == state.goalSpeed)
-    state.actualSpeed = 0;
+    telemetry.actualSpeed = 0;
     setDriverOutput(0);    
   return;
 }
 
-void continuousUpdates(s_State& state)
+void continuousUpdates(s_Controls& state, s_Telemetry telemetry)
 {
   if(state.goalSpeed && (!state.heaterPower))
   {
-    updateMotor(state);
-    setDriverOutput(state.actualSpeed);
+    updateMotor(state, telemetry);
+    setDriverOutput(telemetry.actualSpeed);
   }
   if(state.gasReadings)
   {
-    updateGasData(state);
+    updateGasData(telemetry);
   }
   if(state.thermoReadings)
   {
-    state.temp = get_temp_c();
+    telemetry.temp = get_temp_c();
   }
   if(state.heaterPower)
   {
-    maintainCurrent(state, HEATER_CURRENT);
+    maintainCurrent(telemetry, HEATER_CURRENT);
   }
 }

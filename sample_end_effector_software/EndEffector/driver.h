@@ -41,7 +41,7 @@ int currentRead(int pin, int acc = 0);
 // Pre: goalSpeed is defined in state
 // Post: goalCurrent, actualCurrent, actualSpeed updated in State. 
 // Note: New speed is not actually applied, just calculated.
-int updateMotor(s_State &State);
+int updateMotor(s_Controls &State, s_Telemetry& telemetry);
 
 //Calculates expected reading on the current sense pin for a given speed
 // based on data from testing
@@ -51,11 +51,11 @@ float calculate_desired_current(int motor_speed);
 void setDriverOutput(const int motor_speed);
 
 //Sets the drill direction based on the direction variable of the given state
-void SetDrillDirection(const s_State &state);
+void SetDrillDirection(const s_Controls &state);
 
 //Tries to keep the output at a constant current
 //
-void maintainCurrent(s_State &state, const int current);
+void maintainCurrent(s_Telemetry& telemetry, const int current);
 
 //Switches output between drill and heating element
 void changeOutput(const bool driv_output);

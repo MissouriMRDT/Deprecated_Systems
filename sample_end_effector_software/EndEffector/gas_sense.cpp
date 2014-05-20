@@ -28,7 +28,7 @@ void updateGasHeaters(const bool sensorPower)
   return;
 }
 
-void updateGasData(s_State &gasData)
+void updateGasData(s_Telemetry &gasData)
 {
   gasData.hydrogenReading = readGas(ADC0);
   gasData.methaneReading = readGas(ADC1);

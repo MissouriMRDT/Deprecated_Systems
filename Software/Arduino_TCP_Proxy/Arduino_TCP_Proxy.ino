@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <Ethernet.h>
+#include <EasyTransfer.h>
 
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
@@ -12,17 +13,33 @@ char serverName[] = "";
 IPAddress server(192,168,1,2);
 int port = 11000;
 
+//create object
+EasyTransfer ET;
+
 // Initialize the Ethernet client library
 // with the IP address and port of the server 
 // that you want to connect to (port 23 is default for telnet;
 // if you're using Processing's ChatServer, use  port 10002):
 EthernetClient client;
 
+// Data structure for
+// Sending commands to the motherboard
+struct cmd_struct{
+  int  id;
+  uint8_t value;
+};
+
+//give a name to the group of data
+cmd_struct command;
+
 void setup() {
   // start the Ethernet connection:
   Ethernet.begin(mac, ip);
  // Open serial communications and wait for port to open:
   Serial.begin(115200);
+  
+  // Start Easy Transfer
+    ET.begin(details(command), &Serial);
   
   // give the Ethernet shield a second to initialize:
   delay(1000);
@@ -93,20 +110,8 @@ void loop()
 	Id[3] = JSON_string_buf[9];
 	Id[4] = '\0';
 	
+        // Convert cmd value
 	int cmd_value = atoi( Id);
-	byte cmd;
-
-	// Drive Left
-	if ( cmd_value == 4010 )
-	{  
-	   cmd = 'L';
-	}
-	
-	// Drive Right
-	if ( cmd_value == 4011 )
-	{  
-	   cmd = 'R';
-	}
 
 	// Get Value starting at 19
 	Value[0] = '\0';
@@ -132,10 +137,13 @@ void loop()
 		}
     }
     
-    int value_byte = atoi( Value );
+    // Convert string value to real value
+    byte value_byte = atoi( Value );
     
-    Serial.write(cmd);
-    Serial.write(value_byte);
+    // Send data
+    command.id = cmd_value;
+    command.value = value_byte;
+    ET.sendData();
 }
 
 // Look for data on serial port

@@ -56,6 +56,9 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 		case bms:
 			size = sizeof(*((struct bms_data_struct*)my_struct));
 			break;
+		case tcp_cmd:
+			size = sizeof(*((struct base_station_cmd_struct*)my_struct));
+			break;
 		case recv_test:
 			size = sizeof(*((struct receive_test*)my_struct));
 			break;

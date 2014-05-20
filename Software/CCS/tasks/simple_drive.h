@@ -34,11 +34,10 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	UART_Handle uart4 = init_uart( 4, baud_rate );
 	extern UART_Handle uart7;
 
-	// Debug
-	UART_write(uart0, "Rover Booting\n", 14);
+	bool cmd_valid = false;
 
 	// Read buffer
-	char tcp_input;
+	struct base_station_cmd_struct cmd_struct;
 
 	// Motor Controller Struct
 	struct motor_struct _struct;
@@ -49,58 +48,42 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		// DRIVE COMMANDS
 		///////////////////////////////////////////////////
 
-		// Read one byte from TCP
-		UART_read(uart7, &tcp_input, 1);
+		// Read cmd from TCP
+		cmd_valid = recv_struct( uart7, &cmd_struct, tcp_cmd );
 
-		if( tcp_input == 'L' )
+		if ( cmd_valid == true )
 		{
-			UART_read(uart7, &tcp_input, 1);
-
-			// Debug
-			UART_write(uart0, "LEFT\n", 5);
-
-			if( (tcp_input > 110) && (tcp_input < 135) )
-			{
-				tcp_input = 128;
-			}
-
-			_struct.value = tcp_input ;
-
 			//////////////////////////
 			// Left Command
 			//////////////////////////
-			mux_1( 8 );
-			mux_2( 7 );
-			mux_3( 6 );
-
-			send_struct(uart1, &_struct, motor_controller);
-			send_struct(uart2, &_struct, motor_controller);
-			send_struct(uart3, &_struct, motor_controller);
-		}
-		if( tcp_input == 'R' )
-		{
-			UART_read(uart7, &tcp_input, 1);
-
-			// Debug
-			UART_write(uart0, "RIGHT\n", 5);
-
-			if( (tcp_input > 110) && (tcp_input < 135) )
+			if( cmd_struct.id == 4009 )
 			{
-				tcp_input = 128;
-			}
+				_struct.value = cmd_struct.value;
 
-			_struct.value =  tcp_input ;
+				mux_1( 8 );
+				mux_2( 7 );
+				mux_3( 6 );
+
+				send_struct(uart1, &_struct, motor_controller);
+				send_struct(uart2, &_struct, motor_controller);
+				send_struct(uart3, &_struct, motor_controller);
+			}
 
 			//////////////////////////
 			// Right Command
 			//////////////////////////
-			mux_4( 4 );
-			mux_2( 2 );
-			mux_3( 3 );
+			if( cmd_struct.id == 4010 )
+			{
+				_struct.value = cmd_struct.value;
 
-			send_struct(uart4, &_struct, motor_controller);
-			send_struct(uart2, &_struct, motor_controller);
-			send_struct(uart3, &_struct, motor_controller);
+				mux_1( 1 );
+				mux_2( 2 );
+				mux_3( 3 );
+
+				send_struct(uart1, &_struct, motor_controller);
+				send_struct(uart2, &_struct, motor_controller);
+				send_struct(uart3, &_struct, motor_controller);
+			}
 		}
 	}
 }

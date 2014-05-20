@@ -8,6 +8,12 @@
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
+struct base_station_cmd_struct
+{
+	uint16_t  id;
+    uint8_t value;
+}__attribute__((packed));
+
 struct motor_struct
 {
 	uint8_t value; // 0 for open loop control, non-zero for closed-loop

@@ -169,13 +169,10 @@ void loop(){
   estop=analogRead(4);
   if(estop>512){
    PORTB = PORTB & B11111101; 
-   Serial.println("E-Stop");
-   Serial.println(estop);
+
    
    fault = false;
-   Serial.println("Fault Reset");
-   
-   senddata();
+
   }
   
   /////////////////////

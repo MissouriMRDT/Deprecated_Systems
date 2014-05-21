@@ -18,6 +18,9 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
         case motor_controller:
             size = sizeof(*((struct motor_struct*)my_struct));
             break;
+        case robotic_arm:
+        	size = sizeof(*((struct arm_control_struct*)my_struct));
+        	break;
         case drill:
         	size = sizeof(*((struct drill_Controls*)my_struct));
         	break;

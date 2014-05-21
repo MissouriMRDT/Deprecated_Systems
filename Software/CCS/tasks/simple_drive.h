@@ -13,15 +13,6 @@
 #include "../include/struct_xfer.h"
 #include "../include/structs.h"
 
-
-// This is temporary and should be removed
-// once the base station is updated
-float fix_drive_cmds( char cmd_value )
-{
-	return ((((float) cmd_value/255)*32) - 16) ;
-}
-
-
 extern Void tcp_connection(UArg arg0, UArg arg1)
 {
 
@@ -40,6 +31,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	// Motor Controller Struct
 	struct motor_struct _struct;
+
+	// Robotic Arm Struct
+	struct arm_control_struct arm_control;
 
 	// Drill struct
 	struct drill_Controls drill_cmd;
@@ -88,8 +82,449 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			}
 
 			//////////////////////////////
+			// Robotic ARM Stuff
+			/////////////////////////////
+
+			//*************
+			// Right Wrist
+			//*************
+			if ( cmd_struct.id == 2001 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 1;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 1;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Left Wrist
+			//*************
+			if ( cmd_struct.id == 2002 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 1;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 1;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Right Belt
+			//*************
+			if ( cmd_struct.id == 2003 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 1;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 1;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Left belt
+			//*************
+			if ( cmd_struct.id == 2004 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 1;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 1;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//****************
+			// Linear Actuator
+			//****************
+			if ( cmd_struct.id == 2005 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 1;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 1;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Left Wrist
+			//*************
+			if ( cmd_struct.id == 2006 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Forward
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 1;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Backward
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 1;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Forearm Group
+			//*************
+			if ( cmd_struct.id == 2007 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Counterclockwise
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 1;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 1;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Clockwise
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 1;
+					arm_control.joint4Forward = 1;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Up
+				if ( cmd_struct.value == 2 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 1;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 1;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Down
+				if ( cmd_struct.value == 3 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 1;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 1;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//*************
+			// Wrist Group
+			//*************
+			if ( cmd_struct.id == 2008 )
+			{
+				// Set Mux
+				mux_1( 9 );
+
+				// Left
+				if ( cmd_struct.value == 0 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 1;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 1;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Right
+				if ( cmd_struct.value == 1 )
+				{
+					arm_control.joint1Forward = 1;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 1;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Up
+				if ( cmd_struct.value == 2 )
+				{
+					arm_control.joint1Forward = 0;
+					arm_control.joint1Backward = 1;
+					arm_control.joint2Forward = 1;
+					arm_control.joint2Backward = 0;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Down
+				if ( cmd_struct.value == 3 )
+				{
+					arm_control.joint1Forward = 1;
+					arm_control.joint1Backward = 0;
+					arm_control.joint2Forward = 0;
+					arm_control.joint2Backward = 1;
+					arm_control.joint3Forward = 0;
+					arm_control.joint3Backward = 0;
+					arm_control.joint4Forward = 0;
+					arm_control.joint4Backward = 0;
+					arm_control.joint5Forward = 0;
+					arm_control.joint5Backward = 0;
+					arm_control.joint6Forward = 0;
+					arm_control.joint6Backward = 0;
+				}
+
+				// Send Command
+				send_struct(uart1, &arm_control, robotic_arm);
+			}
+
+			//////////////////////////////
 			// Drill Command
-			///////////////////////////////
+			//////////////////////////////
+
 			if( cmd_struct.id == 5000 )
 			{
 				drill_cmd.direction = 1;
@@ -99,8 +534,16 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 				send_struct(uart4, &drill_cmd, drill);
 
-				System_printf("Drill command: %i\n", cmd_struct.value);
+				System_printf("Got data");
 				System_flush();
+
+				bool drill_cmd_echo = recv_struct( uart4, &drill_cmd, drill );
+
+				if( drill_cmd_echo )
+				{
+					System_printf("Got data");
+					System_flush();
+				}
 			}
 		}
 	}

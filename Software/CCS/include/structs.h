@@ -39,6 +39,22 @@ struct bms_data_struct
   uint16_t main_bat_volt;
 }__attribute__((packed));
 
+struct arm_control_struct
+{
+  uint8_t joint1Forward;
+  uint8_t joint1Backward;
+  uint8_t joint2Forward;
+  uint8_t joint2Backward;
+  uint8_t joint3Forward;
+  uint8_t joint3Backward;
+  uint8_t joint4Forward;
+  uint8_t joint4Backward;
+  uint8_t joint5Forward;
+  uint8_t joint5Backward;
+  uint8_t joint6Forward;
+  uint8_t joint6Backward;
+}__attribute__((packed));
+
 struct drill_Controls
 {
 

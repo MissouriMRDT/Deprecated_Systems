@@ -33,6 +33,8 @@ struct cmd_struct{
 cmd_struct command;
 
 void setup() {
+
+  
   // start the Ethernet connection:
   Ethernet.begin(mac, ip);
  // Open serial communications and wait for port to open:

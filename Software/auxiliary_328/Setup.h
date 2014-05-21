@@ -28,12 +28,4 @@ void GPS_setup(Adafruit_GPS &GPS, All_Data &all_data)
   TIMSK0 |= _BV(OCIE0A);
 }
 
-void temp_setup(DHT &temp_sensor, All_Data &all_data)
-{
-  temp_sensor.begin();
-  all_data.temp_data.temperature = 0;
-  all_data.temp_data.humidity = 0;
-}
-
-
 #endif

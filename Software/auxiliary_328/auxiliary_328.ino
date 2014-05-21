@@ -2,7 +2,6 @@
 #include <Adafruit_GPS.h>
 #include <EasyTransfer.h>
 #include "Arduino.h"
-#include "DHT.h"
 #include "Setup.h"
 
 //create ET object
@@ -13,13 +12,7 @@ SoftwareSerial gpsSerial(3, 2); // (Rx, Tx)
 Adafruit_GPS GPS(&gpsSerial);
 #define GPSECHO true //set to true if you want raw GPS data printed to serial monitor
 
-//temperature sensor 
-#define DHTPIN A0
-#define DHTTYPE DHT22
-DHT temp_sensor(DHTPIN, DHTTYPE);
-#define CONVERT_TO_FARENHEIT true
-
-#define data_delay 1500  //milliseconds between data collection
+#define data_delay 100  //milliseconds between data collection
 
 All_Data all_data;  //instantiate struct to contain all sensor data
 
@@ -42,7 +35,6 @@ void setup()
   Serial.println("Mars Rover Sensor Test");
   
   GPS_setup(GPS, all_data);
-  temp_setup(temp_sensor, all_data);
   
   ET.begin(details(all_data), &Serial);
   
@@ -103,35 +95,6 @@ void loop()
       Serial.print("Satellites: "); Serial.println((int)all_data.gps_data.satellites);
       */
     }
-    
-    float humidity = temp_sensor.readHumidity();
-    float temperature = temp_sensor.readTemperature(CONVERT_TO_FARENHEIT);
-    
-    if (isnan(temperature) || isnan(humidity))
-    {
-      //Serial.println("Failed to read from DHT");
-      return;
-    } 
-    else
-    {
-      //update temp data
-      all_data.temp_data.humidity = humidity;
-      all_data.temp_data.temperature = temperature;
-      
-      /*
-      Serial.print("Humidity: "); 
-      Serial.print(humidity);
-      Serial.print(" %\t");
-      Serial.print("Temperature: "); 
-      Serial.print(temperature);
-      Serial.println(" *C");
-      */
-    }
   }
-  
-  if(ET.receiveData())
-  {
     ET.sendData();
-  }
-  
 }

@@ -38,6 +38,13 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	// Drill struct
 	struct drill_Controls drill_cmd;
 
+	drill_cmd.direction = 0;
+	drill_cmd.goalSpeed = 0;
+	drill_cmd.heaterPower = 0;
+	drill_cmd.thermoReadings = 0;
+	drill_cmd.sensorPower = 0;
+	drill_cmd.gasReadings = 0;
+
 	// Gripper struct
 	struct gripper_control_struct gripper_cmd;
 
@@ -525,28 +532,79 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			}
 
 			//////////////////////////////
-			// Drill Command
+			// Drill Commands
 			//////////////////////////////
 
-			if( cmd_struct.id == 5000 )
+			//*************
+			// Drill Speed
+			//**************
+			if( cmd_struct.id == 6001 )
 			{
-				drill_cmd.direction = 1;
 				drill_cmd.goalSpeed = cmd_struct.value;
 
 				mux_4(4);
 
 				send_struct(uart4, &drill_cmd, drill);
+			}
 
-				System_printf("Got data");
-				System_flush();
+			//*************
+			// Drill Direction
+			//**************
+			if( cmd_struct.id == 6002 )
+			{
+				drill_cmd.direction = cmd_struct.value;
 
-				bool drill_cmd_echo = recv_struct( uart4, &drill_cmd, drill );
+				mux_4(4);
 
-				if( drill_cmd_echo )
-				{
-					System_printf("Got data");
-					System_flush();
-				}
+				send_struct(uart4, &drill_cmd, drill);
+			}
+
+			//*************
+			// Heater Power
+			//**************
+			if( cmd_struct.id == 6003 )
+			{
+				drill_cmd.heaterPower = cmd_struct.value;
+
+				mux_4(4);
+
+				send_struct(uart4, &drill_cmd, drill);
+			}
+
+			//*************
+			// Thermo Readings
+			//**************
+			if( cmd_struct.id == 6004 )
+			{
+				drill_cmd.thermoReadings = cmd_struct.value;
+
+				mux_4(4);
+
+				send_struct(uart4, &drill_cmd, drill);
+			}
+
+			//*************
+			// Sensor Power
+			//**************
+			if( cmd_struct.id == 6005 )
+			{
+				drill_cmd.sensorPower = cmd_struct.value;
+
+				mux_4(4);
+
+				send_struct(uart4, &drill_cmd, drill);
+			}
+
+			//*************
+			// Gas Readings
+			//**************
+			if( cmd_struct.id == 6006 )
+			{
+				drill_cmd.gasReadings = cmd_struct.value;
+
+				mux_4(4);
+
+				send_struct(uart4, &drill_cmd, drill);
 			}
 
 			//////////////////////////////

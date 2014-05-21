@@ -11,38 +11,17 @@
 
 extern Void mux_test(UArg arg0, UArg arg1)
 {
-	UART_Handle uart1 = init_uart( 1, 115200 );
+	extern UART_Handle uart4;
 
-	struct motor_struct _struct;
+	struct drill_Controls _struct;
 
-		// Enable close loop mode
-	//_struct.closedLoopMode = 3;
-	//_struct.openPWM = 5;
-
-	mux_1(1);
+	mux_4(4);
 
 	while(1)
 	{
-
-		//Go foreward
-		//_struct.setSpeed = 2;
-
 		//Send command
-		send_struct(uart1, &_struct, motor_controller);
+		send_struct(uart4, &_struct, drill);
 
-
-		//ms_delay( 1 );
-
-		/*
-		//Stop
-		_struct.setSpeed = 0;
-		//Send command
-
-		//Send command
-		send_struct(uart1, &_struct);
-
-		SysCtlDelay( SysCtlClockGet()  );
-		*/
 	}
 }
 

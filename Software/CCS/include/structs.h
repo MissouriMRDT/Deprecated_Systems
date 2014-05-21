@@ -62,7 +62,6 @@ struct gripper_control_struct
 
 struct drill_Controls
 {
-
   //Drill Ctrl
   uint8_t goalSpeed;
   uint8_t direction;

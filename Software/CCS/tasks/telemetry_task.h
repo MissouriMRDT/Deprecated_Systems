@@ -25,10 +25,6 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 	struct bms_data_struct bms_struct;
 
-	// Drill struct
-	struct drill_Controls drill_cmd_test;
-	bool drill_cmd_echo = false;
-
 	bool is_valid = false;
 
 	char json[50];

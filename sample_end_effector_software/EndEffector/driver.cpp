@@ -18,7 +18,7 @@ int currentRead(const int pin, const int acc)
     delay(1);
   }
   current /= acc;
-  Serial.println("Current read is " + (String)current);
+//  Serial.println("Current read is " + (String)current);
  
   return current;
 }
@@ -27,7 +27,6 @@ int currentRead(const int pin, const int acc)
 //int updateMotor(const int desired_speed, const int actual_speed, const int current)
 int updateMotor(s_Controls &State, s_Telemetry& telemetry)
 {
-  int new_speed = telemetry.actualSpeed;
   telemetry.actualCurrent = currentRead(DRILL_CS, READ_ACC);
   
   //Calculates current that should be seen when operating at desired speed
@@ -39,42 +38,48 @@ int updateMotor(s_Controls &State, s_Telemetry& telemetry)
     //Calculates current that should be seen when operating at actual, elevated speed
     float max_current = calculate_desired_current(telemetry.actualSpeed);
     max_current *= MAX_VARIATION;
+    
+    //Soft current cutoff. Gradually scales back speed if current is excessive
     if(telemetry.actualCurrent > CUTOFF_CURRENT)
     {
-      new_speed = telemetry.actualSpeed - SPEED_STEP;
+      telemetry.actualSpeed -= SPEED_STEP;
     } else if(telemetry.actualSpeed > DRILL_FULL_SPEED)
     {
-      new_speed = DRILL_FULL_SPEED;
+      telemetry.actualSpeed = DRILL_FULL_SPEED;
     //Drill is still stalled out, not running at max power
     } else if(telemetry.actualCurrent > max_current)
     {
-      new_speed = telemetry.actualSpeed + SPEED_STEP;
+      telemetry.actualSpeed += SPEED_STEP;
     //Drill has broken stall, scale back speed
     } else {  
-      new_speed = telemetry.actualSpeed - SPEED_STEP;
+      telemetry.actualSpeed -= SPEED_STEP;
     } 
+  } else
+  {
+    telemetry.actualSpeed = State.goalSpeed;
   }
-  telemetry.actualSpeed = new_speed;
-  return new_speed;
+  return telemetry.actualSpeed;
 }
 
 
 float calculate_desired_current(int motor_speed)
 {  
   float current = (CURRENT_SLOPE * motor_speed) + CURRENT_INTERCEPT;
-  Serial.println("Desired Current");
-  Serial.println(current);
+//  Serial.println("Desired Current");
+//  Serial.println(current);
   return current;
 }
 
 void setDriverOutput(const int motor_speed)
 {
+  Serial.println("Setting motor speed");
+  Serial.println(motor_speed);
   analogWrite(MOT_PWM, motor_speed);
 }
 
 void SetDrillDirection(const s_Controls &state)
 {
-  if(state.direction!=false)
+  if(state.direction)
   {
     digitalWrite(MOT_INA,HIGH);
     digitalWrite(MOT_INB,LOW);
@@ -97,7 +102,7 @@ void maintainCurrent(s_Telemetry& state, const int current)
   {
     state.actualSpeed += SPEED_STEP;
   }
-  setDriverOutput(state.actualSpeed);
+  analogWrite(MOT_PWM, state.actualSpeed);
   return;
 }
 

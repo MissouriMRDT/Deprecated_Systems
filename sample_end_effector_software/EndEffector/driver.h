@@ -47,9 +47,6 @@ int updateMotor(s_Controls &State, s_Telemetry& telemetry);
 // based on data from testing
 float calculate_desired_current(int motor_speed);
 
-//Writes the speed specified to the driver
-void setDriverOutput(const int motor_speed);
-
 //Sets the drill direction based on the direction variable of the given state
 void SetDrillDirection(const s_Controls &state);
 

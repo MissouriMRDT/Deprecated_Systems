@@ -10,6 +10,7 @@
 #include <EasyTransfer.h>
 #include "DataStructures.h"
 #include "endeffector.h"
+#include "driver.h"
 
 EasyTransfer MotherboardReceive;
 EasyTransfer MotherboardSend;
@@ -23,14 +24,14 @@ void setup()
   // Motherboard handshake
   Serial.begin(115200);
   MotherboardReceive.begin(details(controls), &Serial);
-  MotherboardSend.begin(details(telemetry), &Serial);
-  
-  controls.goalSpeed = 0;
-  controls.direction = 1;
-  controls.heaterPower = 0;
-  controls.thermoReadings = 0;
-  controls.sensorPower = 0;
-  controls.gasReadings = 0;
+//  MotherboardSend.begin(details(telemetry), &Serial);
+  pinMode(MOT_PWM, OUTPUT);
+  pinMode(MOT_INA, OUTPUT);
+  pinMode(MOT_INB, OUTPUT);
+  pinMode(GAS_CTRL, OUTPUT);
+  pinMode(HEAT_CTRL, OUTPUT);
+  SetDrillDirection(controls);
+
   telemetry.actualSpeed = 0;
   telemetry.hydrogenReading = 0;
   telemetry.methaneReading = 0;
@@ -42,21 +43,19 @@ void setup()
   //Connect Thermometer
   i2c_init(); 
   PORTC = (1 << PORTC4) | (1 << PORTC5);//enable internal pullups
-  
 }
 
 void loop() 
 {
-  if(Serial.available())
+  //Will constantly try to receive data
+  if(MotherboardReceive.receiveData())
   {
-    if(MotherboardReceive.receiveData())
-    {
-      //Integrity Check
-      MotherboardReceive.sendData(); 
-      discreteUpdates(controls, prevState, telemetry);
-      prevState = controls;
-    }
+
+    discreteUpdates(controls, prevState, telemetry);
+    prevState = controls;
   }
   continuousUpdates(controls, telemetry);
-  MotherboardSend.sendData();
+//  MotherboardSend.sendData();
+  delay(125);
+
 }

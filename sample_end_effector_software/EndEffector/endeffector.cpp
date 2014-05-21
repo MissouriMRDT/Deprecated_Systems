@@ -23,7 +23,7 @@ void discreteUpdates(s_Controls& state, const s_Controls& prev_state,s_Telemetry
   //Emergency kill, skips current prediction calculations for fast response
   if(0 == state.goalSpeed)
     telemetry.actualSpeed = 0;
-    setDriverOutput(0);    
+    analogWrite(MOT_PWM, 0);    
   return;
 }
 
@@ -31,8 +31,12 @@ void continuousUpdates(s_Controls& state, s_Telemetry telemetry)
 {
   if(state.goalSpeed && (!state.heaterPower))
   {
+    //DEBUG: Skips calculations and directly passes control through
+    //telemetry.actualSpeed = state.goalSpeed;
+    
+    //Uncomment when debug stuff is done
     updateMotor(state, telemetry);
-    setDriverOutput(telemetry.actualSpeed);
+    analogWrite(MOT_PWM, telemetry.actualSpeed);
   }
   if(state.gasReadings)
   {

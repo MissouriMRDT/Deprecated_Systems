@@ -38,6 +38,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	// Drill struct
 	struct drill_Controls drill_cmd;
 
+	// Gripper struct
+	struct gripper_control_struct gripper_cmd;
+
 	while(1)
 	{
 		///////////////////////////////////////////////////
@@ -544,6 +547,21 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 					System_printf("Got data");
 					System_flush();
 				}
+			}
+
+			//////////////////////////////
+			// Gripper
+			/////////////////////////////
+
+			if ( cmd_struct.id == 7001 )
+			{
+				// Set Mux
+				mux_2( 10 );
+
+				gripper_cmd.grip_cmd = cmd_struct.value;
+
+				// Send Command
+				send_struct(uart2, &gripper_cmd, gripper);
 			}
 		}
 	}

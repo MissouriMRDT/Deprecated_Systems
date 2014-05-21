@@ -55,6 +55,11 @@ struct arm_control_struct
   uint8_t joint6Backward;
 }__attribute__((packed));
 
+struct gripper_control_struct
+{
+	uint8_t grip_cmd;
+}__attribute__((packed));
+
 struct drill_Controls
 {
 

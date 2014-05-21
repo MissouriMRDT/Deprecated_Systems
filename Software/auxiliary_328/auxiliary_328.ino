@@ -31,7 +31,7 @@ SIGNAL(TIMER0_COMPA_vect)
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Mars Rover Sensor Test");
   
   GPS_setup(GPS, all_data);

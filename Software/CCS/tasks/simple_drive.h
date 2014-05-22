@@ -60,7 +60,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 		if ( cmd_valid == true )
 		{
 			//////////////////////////
-			// Left Command
+			// Drive Left Command
 			//////////////////////////
 			if( cmd_struct.id == 4009 )
 			{
@@ -76,7 +76,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			}
 
 			//////////////////////////
-			// Right Command
+			// Drive Right Command
 			//////////////////////////
 			if( cmd_struct.id == 4010 )
 			{
@@ -100,9 +100,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2001 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Forward
 				if ( cmd_struct.value == 1 )
 				{
@@ -138,6 +135,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -192,9 +190,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2003 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Forward
 				if ( cmd_struct.value == 1 )
 				{
@@ -230,6 +225,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -238,9 +234,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2004 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Forward
 				if ( cmd_struct.value == 1 )
 				{
@@ -276,6 +269,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -284,9 +278,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//****************
 			if ( cmd_struct.id == 2005 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Forward
 				if ( cmd_struct.value == 1 )
 				{
@@ -322,6 +313,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -330,9 +322,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2006 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Forward
 				if ( cmd_struct.value == 1 )
 				{
@@ -368,6 +357,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -376,9 +366,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2007 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Counterclockwise
 				if ( cmd_struct.value == 0 )
 				{
@@ -448,6 +435,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -456,9 +444,6 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			//*************
 			if ( cmd_struct.id == 2008 )
 			{
-				// Set Mux
-				mux_1( 9 );
-
 				// Left
 				if ( cmd_struct.value == 0 )
 				{
@@ -528,6 +513,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				}
 
 				// Send Command
+				mux_1( 9 );
 				send_struct(uart1, &arm_control, robotic_arm);
 			}
 
@@ -542,9 +528,8 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.goalSpeed = cmd_struct.value;
 
-				mux_4(4);
-
-				send_struct(uart4, &drill_cmd, drill);
+				mux_2(10);
+				send_struct(uart2, &drill_cmd, drill);
 			}
 
 			//*************
@@ -554,8 +539,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.direction = cmd_struct.value;
 
-				mux_4(4);
-
+				mux_2(10);
 				send_struct(uart4, &drill_cmd, drill);
 			}
 
@@ -566,8 +550,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.heaterPower = cmd_struct.value;
 
-				mux_4(4);
-
+				mux_2(10);
 				send_struct(uart4, &drill_cmd, drill);
 			}
 
@@ -578,8 +561,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.thermoReadings = cmd_struct.value;
 
-				mux_4(4);
-
+				mux_2(10);
 				send_struct(uart4, &drill_cmd, drill);
 			}
 
@@ -590,8 +572,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.sensorPower = cmd_struct.value;
 
-				mux_4(4);
-
+				mux_2(10);
 				send_struct(uart4, &drill_cmd, drill);
 			}
 
@@ -602,8 +583,7 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 			{
 				drill_cmd.gasReadings = cmd_struct.value;
 
-				mux_4(4);
-
+				mux_2(10);
 				send_struct(uart4, &drill_cmd, drill);
 			}
 
@@ -613,13 +593,11 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 			if ( cmd_struct.id == 7001 )
 			{
-				// Set Mux
-				mux_2( 10 );
-
 				gripper_cmd.grip_cmd = cmd_struct.value;
 
 				// Send Command
-				send_struct(uart2, &gripper_cmd, gripper);
+				mux_3( 11 );
+				send_struct(uart3, &gripper_cmd, gripper);
 			}
 		}
 	}

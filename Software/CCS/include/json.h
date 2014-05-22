@@ -29,6 +29,11 @@
 // works with floating point values
 void generate_json_float(char *string_buf, const char *id, const float value);
 
+// Generates a json string to
+// send to the base station
+// works with strings
+void generate_json_strings(char *string_buf, const char *id, const char *value);
+
  // Writes json string out a given uart
  void write_json(UART_Handle uart, char *json_string);
 

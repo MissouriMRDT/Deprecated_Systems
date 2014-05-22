@@ -28,6 +28,9 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 	while(1)
 	{
+		generate_json_strings(json, "0", "Testing");
+		write_json(uart7, json);
+
 		/*
 		mux_4(4);
 		drill_cmd_echo = recv_struct( uart4, &drill_cmd_test, drill );
@@ -49,42 +52,49 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		{
 			// GPS Fix
 			generate_json_int(json, "1001", gps_struct.fix);
+			write_json(uart7, json);
 			System_printf("GPS fix: %i\n", gps_struct.fix);
 			System_flush();
 			ms_delay( delay );
 
 			// Latitude
 			generate_json_float(json, "1002", gps_struct.latitude);
+			write_json(uart7, json);
 			System_printf("Latitude: %f\n", gps_struct.latitude);
 			System_flush();
 			ms_delay( delay );
 
 			// Longitude
 			generate_json_float(json, "1003", gps_struct.longitude);
+			write_json(uart7, json);
 			System_printf("Longitude: %f\n", gps_struct.longitude);
 			System_flush();
 			ms_delay( delay );
 
 			// Altitude
 			generate_json_float(json, "1004", gps_struct.altitude);
+			write_json(uart7, json);
 			System_printf("Altitude: %f\n", gps_struct.altitude);
 			System_flush();
 			ms_delay( delay );
 
 			// Speed
 			generate_json_float(json, "1005", gps_struct.speed);
+			write_json(uart7, json);
 			System_printf("Speed: %f\n", gps_struct.speed);
 			System_flush();
 			ms_delay( delay );
 
 			// Fix quality 1006
 			generate_json_int(json, "1006", gps_struct.fixquality);
+			write_json(uart7, json);
 			System_printf("Fix quality: %i\n", gps_struct.fixquality);
 			System_flush();
 			ms_delay( delay );
 
 			// Number of satellites 1007
 			generate_json_int(json, "1007", gps_struct.satellites);
+			write_json(uart7, json);
 			System_printf("Satellites: %i\n", gps_struct.satellites);
 			System_flush();
 			ms_delay( delay );

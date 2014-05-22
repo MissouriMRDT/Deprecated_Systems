@@ -78,6 +78,22 @@ void generate_json_float(char *string_buf, const char *id, const float value)
 	strcat(string_buf, "}");
 }
 
+void generate_json_strings(char *string_buf, const char *id, const char *value)
+{
+	 // Add beginning of json
+	 strcpy(string_buf, "{'Id':");
+
+	// Add id
+	strcat(string_buf, id);
+	strcat(string_buf, ",'Value':'");
+
+	// Add string to value
+	strcat(string_buf, value);
+
+	// Add ending closing brace
+	strcat(string_buf, "'}");
+}
+
 void write_json(UART_Handle uart, char *json_string)
 {
 	// Get size of JSON string

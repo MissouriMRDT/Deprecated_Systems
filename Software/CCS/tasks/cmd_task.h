@@ -39,6 +39,13 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	// Drill struct
 	struct drill_Controls drill_cmd;
 
+	// Science Payload
+	struct science_payload_control_struct science_cmd;
+
+	science_cmd.lb395 = 0;
+	science_cmd.lb440 = 0;
+	science_cmd.doorserv = 0;
+
 	drill_cmd.direction = 0;
 	drill_cmd.goalSpeed = 0;
 	drill_cmd.heaterPower = 0;
@@ -595,6 +602,46 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 				// Send Command
 				mux_3( 11 );
 				send_struct(uart3, &gripper_cmd, gripper);
+			}
+
+			//////////////////////////////
+			// Science Payload
+			/////////////////////////////
+
+			//*************
+			// 395 nm Light
+			//**************
+			if ( cmd_struct.id == 6008)
+			{
+				science_cmd.lb395 = cmd_struct.value;
+
+				// Send command
+				mux_4( 12 );
+				send_struct(uart4, &science_cmd, science_payload);
+			}
+
+			//*************
+			// 440 nm Light
+			//**************
+			if ( cmd_struct.id == 6009)
+			{
+				science_cmd.lb440 = cmd_struct.value;
+
+				// Send command
+				mux_4( 12 );
+				send_struct(uart4, &science_cmd, science_payload);
+			}
+
+			//*************
+			// Door Servo
+			//**************
+			if ( cmd_struct.id == 6010)
+			{
+				science_cmd.doorserv = cmd_struct.value;
+
+				// Send command
+				mux_4( 12 );
+				send_struct(uart4, &science_cmd, science_payload);
 			}
 		}
 	}

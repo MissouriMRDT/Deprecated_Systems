@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <ti/drivers/UART.h>
 
-enum peripheral_devices{motor_controller, bms, robotic_arm, recv_test, tcp_cmd, drill, gripper};
+enum peripheral_devices{motor_controller, bms, robotic_arm, tcp_cmd, drill, gripper, science_payload};
 
 void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device);
 

@@ -27,6 +27,8 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
         case drill:
         	size = sizeof(*((struct drill_Controls*)my_struct));
         	break;
+        case science_payload:
+        	size =  sizeof(*((struct science_payload_control_struct*)my_struct));
     }
 
     uint8_t* address = (uint8_t*) my_struct;
@@ -70,9 +72,6 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 			break;
 		case drill:
 			size = sizeof(*((struct drill_Controls*)my_struct));
-			break;
-		case recv_test:
-			size = sizeof(*((struct receive_test*)my_struct));
 			break;
 	}
 

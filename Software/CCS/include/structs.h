@@ -92,9 +92,16 @@ struct drill_Telemetry
 
 }__attribute__((packed));
 
-struct receive_test
+struct science_payload_control_struct
 {
-	uint16_t data;
+  //1 for on, 0 for off
+  uint8_t lb395;
+
+  //1 for on, 0 for off
+  uint8_t lb440;
+
+  //position. 255 for open, 0 for close
+  uint8_t doorserv;
 }__attribute__((packed));
 
 #endif /* STRUCTS_H_ */

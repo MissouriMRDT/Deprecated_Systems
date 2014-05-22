@@ -73,6 +73,9 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 		case drill:
 			size = sizeof(*((struct drill_Controls*)my_struct));
 			break;
+		case gps:
+			size = sizeof(*((struct gps_data_struct*)my_struct));
+			break;
 	}
 
 	char rx_buffer[60];

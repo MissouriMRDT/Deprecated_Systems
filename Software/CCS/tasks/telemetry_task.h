@@ -18,14 +18,11 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	extern UART_Handle uart5;
 	extern UART_Handle uart7;
 
-	System_printf("Starting battery check program");
-	System_flush();
-
-	mux_5(14);
-
 	struct bms_data_struct bms_struct;
+	struct gps_data_struct gps_struct;
 
-	bool is_valid = false;
+	bool bms_is_valid = false;
+	bool gps_is_valid = false;
 
 	char json[50];
 
@@ -42,13 +39,67 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		}
 		*/
 
-		is_valid = recv_struct( uart5, &bms_struct, bms );
+		///////////////////
+		// Read GPS data
+		///////////////////
+		mux_5 ( 328 );
+		gps_is_valid = recv_struct( uart5, &gps_struct, gps );
 
-		if ( is_valid )
+		if ( gps_is_valid )
 		{
-			/////////////////////
+			// GPS Fix
+			generate_json_int(json, "1001", gps_struct.fix);
+			System_printf("GPS fix: %i\n", gps_struct.fix);
+			System_flush();
+			ms_delay( delay );
+
+			// Latitude
+			generate_json_float(json, "1002", gps_struct.latitude);
+			System_printf("Latitude: %f\n", gps_struct.latitude);
+			System_flush();
+			ms_delay( delay );
+
+			// Longitude
+			generate_json_float(json, "1003", gps_struct.longitude);
+			System_printf("Longitude: %f\n", gps_struct.longitude);
+			System_flush();
+			ms_delay( delay );
+
+			// Altitude
+			generate_json_float(json, "1004", gps_struct.altitude);
+			System_printf("Altitude: %f\n", gps_struct.altitude);
+			System_flush();
+			ms_delay( delay );
+
+			// Speed
+			generate_json_float(json, "1005", gps_struct.speed);
+			System_printf("Speed: %f\n", gps_struct.speed);
+			System_flush();
+			ms_delay( delay );
+
+			// Fix quality 1006
+			generate_json_int(json, "1006", gps_struct.fixquality);
+			System_printf("Fix quality: %i\n", gps_struct.fixquality);
+			System_flush();
+			ms_delay( delay );
+
+			// Number of satellites 1007
+			generate_json_int(json, "1007", gps_struct.satellites);
+			System_printf("Satellites: %i\n", gps_struct.satellites);
+			System_flush();
+			ms_delay( delay );
+		}
+
+
+		///////////////////
+		// Read GPS data
+		///////////////////
+		mux_5(14);
+		bms_is_valid = recv_struct( uart5, &bms_struct, bms );
+
+		if ( bms_is_valid )
+		{
 			// Battery voltages
-			/////////////////////
 
 			// Cell 0
 			generate_json_int(json, "3001", bms_struct.volt0);
@@ -85,9 +136,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			write_json(uart7, json);
 			ms_delay( delay );
 
-			/////////////////////
 			// Battery Temps
-			/////////////////////
 
 			// Cell 0
 			generate_json_int(json, "3008", bms_struct.temp0);

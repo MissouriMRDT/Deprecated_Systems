@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ti/drivers/UART.h>
+#include <xdc/runtime/System.h>
 
 // Reverses a string
  void reverse(char s[]);
@@ -22,6 +23,11 @@
 // send to the base station
 // works with integer values
  void generate_json_int(char *string_buf, const char *id, const int value);
+
+// Generates a json string to
+// send to the base station
+// works with floating point values
+void generate_json_float(char *string_buf, const char *id, const float value);
 
  // Writes json string out a given uart
  void write_json(UART_Handle uart, char *json_string);

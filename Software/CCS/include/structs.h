@@ -19,6 +19,14 @@ struct motor_struct
 	uint8_t value; // 0 for open loop control, non-zero for closed-loop
 }__attribute__((packed));
 
+struct gps_data_struct
+{
+  uint8_t fix;
+  float latitude, longitude, altitude, speed;
+  uint8_t lat, lon;
+  uint8_t hour, minute, seconds, fixquality, satellites;
+}__attribute__((packed));
+
 struct bms_data_struct
 {
   uint16_t volt0;

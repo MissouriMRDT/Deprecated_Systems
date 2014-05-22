@@ -28,7 +28,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 	while(1)
 	{
-		generate_json_strings(json, "0", "Testing");
+		generate_json_strings(json, "0000", "Testing");
 		write_json(uart7, json);
 
 		/*

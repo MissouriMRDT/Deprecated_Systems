@@ -5,15 +5,16 @@
  *      Author: Keenan Johnson
  */
 
-#ifndef SIMPLE_DRIVE_H_
-#define SIMPLE_DRIVE_H_
+#ifndef CMD_TASK_H_
+#define CMD_TASK_H_
 
 #include <string.h>
 #include <stdbool.h>
 #include "../include/struct_xfer.h"
 #include "../include/structs.h"
+#include "../Commands/drive_commands.h"
 
-extern Void tcp_connection(UArg arg0, UArg arg1)
+extern Void process_cmds(UArg arg0, UArg arg1)
 {
 
 	// Init UARTs
@@ -50,18 +51,14 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 
 	while(1)
 	{
-		///////////////////////////////////////////////////
-		// DRIVE COMMANDS
-		///////////////////////////////////////////////////
-
 		// Read cmd from TCP
 		cmd_valid = recv_struct( uart7, &cmd_struct, tcp_cmd );
 
 		if ( cmd_valid == true )
 		{
-			//////////////////////////
-			// Drive Left Command
-			//////////////////////////
+			//*************
+			// Drive Left
+			//*************
 			if( cmd_struct.id == 4009 )
 			{
 				_struct.value = cmd_struct.value;
@@ -75,9 +72,9 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 				send_struct(uart3, &_struct, motor_controller);
 			}
 
-			//////////////////////////
-			// Drive Right Command
-			//////////////////////////
+			//*************
+			// Drive Right
+			//*************
 			if( cmd_struct.id == 4010 )
 			{
 				_struct.value = cmd_struct.value;
@@ -603,4 +600,4 @@ extern Void tcp_connection(UArg arg0, UArg arg1)
 	}
 }
 
-#endif /* SIMPLE_DRIVE_H_ */
+#endif /* CMD_TASK_H_ */

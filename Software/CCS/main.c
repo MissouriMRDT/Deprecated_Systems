@@ -36,7 +36,7 @@
 #include "global.h"
 
 //Task Files
-#include "tasks/simple_drive.h"
+#include "tasks/cmd_task.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/telemetry_task.h"
 #include "tasks/json_test.h"
@@ -63,6 +63,7 @@ Int main(Void)
     // Turn on LED for fun
     GPIO_write(Board_LED0, Board_LED_ON);
 
+    // Init UARTS
     uart0 = init_uart( 0, 115200 );
     uart1 = init_uart( 1, 115200 );
     uart2 = init_uart( 2, 115200 );

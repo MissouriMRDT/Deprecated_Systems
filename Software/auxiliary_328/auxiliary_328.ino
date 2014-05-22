@@ -14,7 +14,7 @@ Adafruit_GPS GPS(&gpsSerial);
 
 #define data_delay 100  //milliseconds between data collection
 
-All_Data all_data;  //instantiate struct to contain all sensor data
+GPS_Data gps_data;  //instantiate struct to contain all sensor data
 
 //timer collecting raw GPS data once every millisecond
 SIGNAL(TIMER0_COMPA_vect)
@@ -34,9 +34,9 @@ void setup()
   Serial.begin(115200);
   Serial.println("Mars Rover Sensor Test");
   
-  GPS_setup(GPS, all_data);
+  GPS_setup(GPS, gps_data);
   
-  ET.begin(details(all_data), &Serial);
+  ET.begin(details(gps_data), &Serial);
   
   delay(1000); 
 }
@@ -58,11 +58,11 @@ void loop()
   {
     timer = millis();
     
-    all_data.gps_data.fix = GPS.fix;
-    all_data.gps_data.fixquality = GPS.fixquality;
-    all_data.gps_data.hour = GPS.hour;
-    all_data.gps_data.minute = GPS.minute;
-    all_data.gps_data.seconds = GPS.seconds;
+    gps_data.fix = GPS.fix;
+    gps_data.fixquality = GPS.fixquality;
+    gps_data.hour = GPS.hour;
+    gps_data.minute = GPS.minute;
+    gps_data.seconds = GPS.seconds;
     
     /* 
     Serial.print("\nTime: ");
@@ -76,13 +76,13 @@ void loop()
     
     if(GPS.fix)
     {
-      all_data.gps_data.latitude = GPS.latitude;
-      all_data.gps_data.longitude = GPS.longitude;
-      all_data.gps_data.altitude = GPS.altitude;
-      all_data.gps_data.speed = GPS.speed;
-      all_data.gps_data.lat = GPS.lat;
-      all_data.gps_data.lon = GPS.lon;
-      all_data.gps_data.satellites = GPS.satellites;
+      gps_data.latitude = GPS.latitude;
+      gps_data.longitude = GPS.longitude;
+      gps_data.altitude = GPS.altitude;
+      gps_data.speed = GPS.speed;
+      gps_data.lat = GPS.lat;
+      gps_data.lon = GPS.lon;
+      gps_data.satellites = GPS.satellites;
       
       /*
       Serial.print("Location: ");

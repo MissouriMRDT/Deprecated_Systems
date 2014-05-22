@@ -39,16 +39,13 @@ void setup()
   pinMode(LB440_PIN, OUTPUT);
   pinMode(SERVO_PIN, OUTPUT);
   controls.begin(details(control_data), &Serial);
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop()
 {
-  if(controls.receiveData())
-  {
-    digitalWrite(LB395_PIN, control_data.lb395);
-    digitalWrite(LB440_PIN, control_data.lb440);
-  }
-//  digitalWrite(LB440_PIN, LOW);
+  controls.receiveData();
+  digitalWrite(LB395_PIN, control_data.lb395);
+  digitalWrite(LB440_PIN, control_data.lb440);
   doorServo.write(control_data.doorserv);
 }

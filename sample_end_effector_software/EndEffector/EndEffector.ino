@@ -56,6 +56,6 @@ void loop()
   }
   continuousUpdates(controls, telemetry);
 //  MotherboardSend.sendData();
-  delay(125);
+
 
 }

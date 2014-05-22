@@ -588,7 +588,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 			// Gripper
 			/////////////////////////////
 
-			if ( cmd_struct.id == 7001 )
+			if ( cmd_struct.id == 6007 )
 			{
 				gripper_cmd.grip_cmd = cmd_struct.value;
 

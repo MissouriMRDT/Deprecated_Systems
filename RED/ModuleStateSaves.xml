@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfModuleStateSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ModuleStateSave>
+    <Name>Primary</Name>
+    <LeftSelection>Networking System</LeftSelection>
+    <RightSelection>Battery System</RightSelection>
+    <TopSelection>Input and Command Systems</TopSelection>
+    <MiddleSelection>Auxiliary Systems</MiddleSelection>
+    <Column1Width>531*</Column1Width>
+    <Column3Width>473*</Column3Width>
+    <Column5Width>484*</Column5Width>
+    <Row1Height>497*</Row1Height>
+    <Row3Height>389*</Row3Height>
+    <Row5Height>0*</Row5Height>
+  </ModuleStateSave>
+</ArrayOfModuleStateSave>

@@ -19,7 +19,7 @@ struct motor_struct
 	uint8_t value; // 0 for open loop control, non-zero for closed-loop
 }__attribute__((packed));
 
-struct GPS_Data
+struct gps_data_struct
 {
   uint8_t fix;
   uint16_t latitude_whole;
@@ -28,8 +28,8 @@ struct GPS_Data
   uint16_t longitude_frac;
   uint16_t altitude_whole;
   uint16_t altitude_frac;
-  uint8_t lat;
-  uint8_t lon;
+  uint8_t lat_dir;
+  uint8_t lon_dir;
   uint8_t satellites;
 }__attribute__((packed));
 

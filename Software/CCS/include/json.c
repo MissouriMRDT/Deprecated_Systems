@@ -56,32 +56,10 @@
 	strcat(string_buf, "}");
  }
 
-void generate_json_float(char *string_buf, const char *id, const float value)
-{
-	 // Add beginning of json
-	 strcpy(string_buf, "{'Id':");
-
-	// Add id
-	strcat(string_buf, id);
-	strcat(string_buf, ",'Value':");
-
-
-	// Convert value to string
-	// and add it
-	char value_buf[15];
-	// convert float to string
-	//System_sprinf();
-	strcat(string_buf, value_buf);
-
-
-	// Add ending closing brace
-	strcat(string_buf, "}");
-}
-
 void generate_json_strings(char *string_buf, const char *id, const char *value)
 {
-	 // Add beginning of json
-	 strcpy(string_buf, "{'Id':");
+	// Add beginning of json
+	strcpy(string_buf, "{'Id':");
 
 	// Add id
 	strcat(string_buf, id);
@@ -89,6 +67,64 @@ void generate_json_strings(char *string_buf, const char *id, const char *value)
 
 	// Add string to value
 	strcat(string_buf, value);
+
+	// Add ending closing brace
+	strcat(string_buf, "'}");
+}
+
+void generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction)
+{
+	// Add beginning of json
+	strcpy(string_buf, "{'Id':");
+
+	// Add id
+	strcat(string_buf, id);
+	strcat(string_buf, ",'Value':'");
+
+	// Add whole value
+	char whole_value_buf[10];
+	itoa(whole_number, whole_value_buf);
+	strcat(string_buf, whole_value_buf);
+
+	// Add dot
+	strcat(string_buf, ".");
+
+	// Add fractional value
+	char frac_value_buf[10];
+	itoa(frac_number, frac_value_buf);
+	strcat(string_buf, frac_value_buf);
+
+	char direction_buf[2];
+	direction_buf[0] = direction;
+
+	// Add direction character
+	strcat(string_buf, direction_buf);
+
+	// Add ending closing brace
+	strcat(string_buf, "'}");
+}
+
+void generate_altitude_json(char *string_buf, const char *id, const int whole_number, const int frac_number)
+{
+	// Add beginning of json
+	strcpy(string_buf, "{'Id':");
+
+	// Add id
+	strcat(string_buf, id);
+	strcat(string_buf, ",'Value':'");
+
+	// Add whole value
+	char whole_value_buf[10];
+	itoa(whole_number, whole_value_buf);
+	strcat(string_buf, whole_value_buf);
+
+	// Add dot
+	strcat(string_buf, ".");
+
+	// Add fractional value
+	char frac_value_buf[10];
+	itoa(frac_number, frac_value_buf);
+	strcat(string_buf, frac_value_buf);
 
 	// Add ending closing brace
 	strcat(string_buf, "'}");

@@ -73,7 +73,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 				//*************
 				// Drive Left
 				//*************
-				case 4009:
+				case 4001:
 					_struct.value = cmd_struct.value;
 
 					mux_1( 8 );
@@ -88,7 +88,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 				//*************
 				// Drive Right
 				//*************
-				case 4010:
+				case 4009:
 					_struct.value = cmd_struct.value;
 
 					mux_1( 1 );

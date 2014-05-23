@@ -19,8 +19,10 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	extern UART_Handle uart7;
 
 	struct bms_data_struct bms_struct;
+	struct gps_data_struct gps_data;
 
 	bool bms_is_valid = false;
+	bool gps_is_valid = false;
 
 	char json[50];
 
@@ -118,7 +120,40 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			write_json(uart7, json);
 			ms_delay( delay );
 		}
-		ms_delay( 100 );
+
+		mux_5 (328);
+		gps_is_valid = recv_struct( uart5, &gps_data, gps );
+		if( gps_is_valid )
+		{
+			// GPS fix
+			generate_json_int(json, "1001", gps_data.fix);
+			write_json(uart7, json);
+			ms_delay( delay );
+
+			if ( gps_data.fix == 1 )
+			{
+				// Latitude
+				generate_gps_json(json, "1002", gps_data.latitude_whole, gps_data.latitude_frac, gps_data.lat_dir);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Longitude
+				generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Altitude
+				generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// GPS fix
+				generate_json_int(json, "1005", gps_data.satellites);
+				write_json(uart7, json);
+				ms_delay( delay );
+			}
+		}
+
 	}
 }
 

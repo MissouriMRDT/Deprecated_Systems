@@ -118,4 +118,16 @@ struct science_payload_control_struct
   uint8_t doorserv;
 }__attribute__((packed));
 
+struct lighting_board_struct
+{
+  uint8_t red;
+  uint8_t green;
+  uint8_t blue;
+  uint8_t pwm1;
+  uint8_t pwm2;
+  uint8_t pwm3;
+  uint8_t d1;
+  uint8_t d2;
+}__attribute__((packed));
+
 #endif /* STRUCTS_H_ */

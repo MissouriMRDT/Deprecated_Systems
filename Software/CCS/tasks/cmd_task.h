@@ -47,6 +47,9 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	// Science Payload
 	struct science_payload_control_struct science_cmd;
 
+	// Lighting board
+	struct lighting_board_struct light_cmd;
+
 	science_cmd.lb395 = 0;
 	science_cmd.lb440 = 0;
 	science_cmd.doorserv = 0;
@@ -57,6 +60,15 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	drill_cmd.thermoReadings = 0;
 	drill_cmd.sensorPower = 0;
 	drill_cmd.gasReadings = 0;
+
+	light_cmd.red = 0;
+	light_cmd.green = 0;
+	light_cmd.blue = 0;
+	light_cmd.pwm1 = 0;
+	light_cmd.pwm2 = 0;
+	light_cmd.pwm3 = 0;
+	light_cmd.d1 = 0;
+	light_cmd.d2 = 0;
 
 	// Gripper struct
 	struct gripper_control_struct gripper_cmd;
@@ -469,7 +481,32 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 				// GPS Data
 				case 1008:
 
-				break;
+					break;
+
+				///////////////////
+				// Lighting Board
+				///////////////////
+
+				// Red light
+				case 6012:
+					light_cmd.red = cmd_struct.value;
+					mux_4( 12 );
+					send_struct(uart4, &light_cmd, lighting_board);
+					break;
+
+				// Green light
+				case 6013:
+					light_cmd.green = cmd_struct.value;
+					mux_4( 12 );
+					send_struct(uart4, &light_cmd, lighting_board);
+					break;
+
+				// Blue light
+				case 6014:
+					light_cmd.blue = cmd_struct.value;
+					mux_4( 12 );
+					send_struct(uart4, &light_cmd, lighting_board);
+					break;
 			}
 		}
 	}

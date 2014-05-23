@@ -10,7 +10,7 @@
 #include "../include/json.h"
 #include "../include/timing.h"
 
-#define delay 1
+#define delay 5
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {

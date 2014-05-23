@@ -9,4 +9,5 @@
 	<connection value="common/targetdb/connections/Stellaris_ICDI_Connection.xml"/>
 	<rts value="libc.a"/>
 	<templateProperties value="id=com.ti.rtsc.TIRTOS.example_6,type=rtsc,products=com.ti.rtsc.TIRTOS,xdcToolsVersion=3.25.04.88,platform=ti.platforms.tiva:LM4F120H5QR,buildProfile=release,isHybrid=true,"/>
+	<isTargetManual value="false"/>
 </projectOptions>

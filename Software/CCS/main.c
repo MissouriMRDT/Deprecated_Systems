@@ -51,7 +51,7 @@ UART_Handle uart5;
 UART_Handle uart7;
 
 Int main(Void)
-{
+ {
 	// TI RTOS Inits
     Board_initGeneral();
     Board_initGPIO();

@@ -65,14 +65,14 @@ void generate_json_float(char *string_buf, const char *id, const float value)
 	strcat(string_buf, id);
 	strcat(string_buf, ",'Value':");
 
-	/*
+
 	// Convert value to string
 	// and add it
 	char value_buf[15];
 	// convert float to string
-	System_sprinf();
+	//System_sprinf();
 	strcat(string_buf, value_buf);
-	*/
+
 
 	// Add ending closing brace
 	strcat(string_buf, "}");

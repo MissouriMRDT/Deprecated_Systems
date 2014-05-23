@@ -10,7 +10,7 @@ EasyTransfer ET;
 //gps sensor
 SoftwareSerial gpsSerial(3, 2); // (Rx, Tx)
 Adafruit_GPS GPS(&gpsSerial);
-#define GPSECHO true //set to true if you want raw GPS data printed to serial monitor
+#define GPSECHO false //set to true if you want raw GPS data printed to serial monitor
 
 #define data_delay 100  //milliseconds between data collection
 
@@ -32,16 +32,18 @@ SIGNAL(TIMER0_COMPA_vect)
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("Mars Rover Sensor Test");
   
+  // Start GPS parse object
   GPS_setup(GPS, gps_data);
   
+  // Begin transfer library
   ET.begin(details(gps_data), &Serial);
   
   delay(1000); 
 }
 
 uint32_t timer = millis();
+
 void loop()
 {
   if(GPS.newNMEAreceived())
@@ -59,41 +61,18 @@ void loop()
     timer = millis();
     
     gps_data.fix = GPS.fix;
-    gps_data.fixquality = GPS.fixquality;
-    gps_data.hour = GPS.hour;
-    gps_data.minute = GPS.minute;
-    gps_data.seconds = GPS.seconds;
-    
-    /* 
-    Serial.print("\nTime: ");
-    Serial.print(all_data.gps_data.hour, DEC); Serial.print(':');
-    Serial.print(all_data.gps_data.minute, DEC); Serial.print(':');
-    Serial.println(all_data.gps_data.seconds, DEC);
-    Serial.print("Date: ");
-    Serial.print("Fix: "); Serial.print((int)all_data.gps_data.fix);
-    Serial.print(" quality: "); Serial.println((int)all_data.gps_data.fixquality);
-    */
     
     if(GPS.fix)
     {
-      gps_data.latitude = GPS.latitude;
-      gps_data.longitude = GPS.longitude;
-      gps_data.altitude = GPS.altitude;
-      gps_data.speed = GPS.speed;
+      gps_data.latitude_whole = GPS.latitude;
+      gps_data.latitude_frac = (GPS.latitude-gps_data.latitude_whole)*1000;
       gps_data.lat = GPS.lat;
+      gps_data.longitude_whole = GPS.longitude;
+      gps_data.longitude_frac = (GPS.longitude-gps_data.longitude_whole)*1000;
       gps_data.lon = GPS.lon;
+      gps_data.altitude_whole = GPS.altitude;
+      gps_data.altitude_frac = (GPS.altitude-gps_data.altitude_whole)*1000; 
       gps_data.satellites = GPS.satellites;
-      
-      /*
-      Serial.print("Location: ");
-      Serial.print(all_data.gps_data.latitude, 4); Serial.print(all_data.gps_data.lat);
-      Serial.print(", "); 
-      Serial.print(all_data.gps_data.longitude, 4); Serial.println(all_data.gps_data.lon);
-      
-      Serial.print("Speed (knots): "); Serial.println(all_data.gps_data.speed);
-      Serial.print("Altitude: "); Serial.println(all_data.gps_data.altitude);
-      Serial.print("Satellites: "); Serial.println((int)all_data.gps_data.satellites);
-      */
     }
   }
     ET.sendData();

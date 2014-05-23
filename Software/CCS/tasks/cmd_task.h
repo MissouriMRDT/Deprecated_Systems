@@ -63,585 +63,593 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 
 		if ( cmd_valid == true )
 		{
-			//*************
-			// Drive Left
-			//*************
-			if( cmd_struct.id == 4009 )
+			switch ( cmd_struct.id )
 			{
-				_struct.value = cmd_struct.value;
+				//*************
+				// Drive Left
+				//*************
+				case 4009:
+					_struct.value = cmd_struct.value;
 
-				mux_1( 8 );
-				mux_2( 7 );
-				mux_3( 6 );
+					mux_1( 8 );
+					mux_2( 7 );
+					mux_3( 6 );
 
-				send_struct(uart1, &_struct, motor_controller);
-				send_struct(uart2, &_struct, motor_controller);
-				send_struct(uart3, &_struct, motor_controller);
-			}
+					send_struct(uart1, &_struct, motor_controller);
+					send_struct(uart2, &_struct, motor_controller);
+					send_struct(uart3, &_struct, motor_controller);
+					break;
 
-			//*************
-			// Drive Right
-			//*************
-			if( cmd_struct.id == 4010 )
-			{
-				_struct.value = cmd_struct.value;
+				//*************
+				// Drive Right
+				//*************
+				case 4010:
+					_struct.value = cmd_struct.value;
 
-				mux_1( 1 );
-				mux_2( 2 );
-				mux_3( 3 );
+					mux_1( 1 );
+					mux_2( 2 );
+					mux_3( 3 );
 
-				send_struct(uart1, &_struct, motor_controller);
-				send_struct(uart2, &_struct, motor_controller);
-				send_struct(uart3, &_struct, motor_controller);
-			}
+					send_struct(uart1, &_struct, motor_controller);
+					send_struct(uart2, &_struct, motor_controller);
+					send_struct(uart3, &_struct, motor_controller);
+					break;
 
-			//////////////////////////////
-			// Robotic ARM Stuff
-			/////////////////////////////
+				//////////////////////////////
+				// Robotic ARM Stuff
+				/////////////////////////////
 
-			//*************
-			// Right Wrist
-			//*************
-			if ( cmd_struct.id == 2001 )
-			{
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 1;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+				//*************
+				// Right Wrist
+				//*************
+				case 2001:
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 1;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 1;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 1;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-			//*************
-			// Left Wrist
-			//*************
-			if ( cmd_struct.id == 2002 )
-			{
-				// Set Mux
-				mux_1( 9 );
+					break;
 
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 1;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+				//*************
+				// Left Wrist
+				//*************
+				case 2002:
+					// Set Mux
+					mux_1( 9 );
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 1;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 1;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Send Command
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 1;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//*************
-			// Right Belt
-			//*************
-			if ( cmd_struct.id == 2003 )
-			{
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 1;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Send Command
+					send_struct(uart1, &arm_control, robotic_arm);
+					break;
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 1;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+				//*************
+				// Right Belt
+				//*************
+				case 2003:
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 1;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 1;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//*************
-			// Left belt
-			//*************
-			if ( cmd_struct.id == 2004 )
-			{
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 1;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 1;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					break;
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+				//*************
+				// Left belt
+				//*************
+				case 2004:
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 1;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//****************
-			// Linear Actuator
-			//****************
-			if ( cmd_struct.id == 2005 )
-			{
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 1;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 1;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 1;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
+					break;
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+				//****************
+				// Linear Actuator
+				//****************
+				case 2005:
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 1;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//*************
-			// Left Wrist
-			//*************
-			if ( cmd_struct.id == 2006 )
-			{
-				// Forward
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 1;
-					arm_control.joint6Backward = 0;
-				}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 1;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Backward
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 1;
-				}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+					break;
 
-			//*************
-			// Forearm Group
-			//*************
-			if ( cmd_struct.id == 2007 )
-			{
-				// Counterclockwise
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 1;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 1;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+				//*************
+				// Left Wrist
+				//*************
+				case 2006:
+					// Forward
+					if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 1;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Clockwise
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 1;
-					arm_control.joint4Forward = 1;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Backward
+					else if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 1;
+					}
 
-				// Up
-				if ( cmd_struct.value == 2 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 1;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 1;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-				// Down
-				if ( cmd_struct.value == 3 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 1;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 1;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					break;
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+				//*************
+				// Forearm Group
+				//*************
+				case 2007:
 
-			//*************
-			// Wrist Group
-			//*************
-			if ( cmd_struct.id == 2008 )
-			{
-				// Left
-				if ( cmd_struct.value == 0 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 1;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 1;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Counterclockwise
+					if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 1;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 1;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Right
-				if ( cmd_struct.value == 1 )
-				{
-					arm_control.joint1Forward = 1;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 1;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Clockwise
+					else if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 1;
+						arm_control.joint4Forward = 1;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Up
-				if ( cmd_struct.value == 2 )
-				{
-					arm_control.joint1Forward = 0;
-					arm_control.joint1Backward = 1;
-					arm_control.joint2Forward = 1;
-					arm_control.joint2Backward = 0;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Up
+					else if ( cmd_struct.value == 2 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 1;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 1;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Down
-				if ( cmd_struct.value == 3 )
-				{
-					arm_control.joint1Forward = 1;
-					arm_control.joint1Backward = 0;
-					arm_control.joint2Forward = 0;
-					arm_control.joint2Backward = 1;
-					arm_control.joint3Forward = 0;
-					arm_control.joint3Backward = 0;
-					arm_control.joint4Forward = 0;
-					arm_control.joint4Backward = 0;
-					arm_control.joint5Forward = 0;
-					arm_control.joint5Backward = 0;
-					arm_control.joint6Forward = 0;
-					arm_control.joint6Backward = 0;
-				}
+					// Down
+					else if ( cmd_struct.value == 3 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 1;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 1;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				// Send Command
-				mux_1( 9 );
-				send_struct(uart1, &arm_control, robotic_arm);
-			}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-			//////////////////////////////
-			// Drill Commands
-			//////////////////////////////
+					break;
 
-			//*************
-			// Drill Speed
-			//**************
-			if( cmd_struct.id == 6001 )
-			{
-				drill_cmd.goalSpeed = cmd_struct.value;
+				//*************
+				// Wrist Group
+				//*************
+				case 2008:
 
-				mux_2(10);
-				send_struct(uart2, &drill_cmd, drill);
-			}
+					// Left
+					if ( cmd_struct.value == 0 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 1;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 1;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//*************
-			// Drill Direction
-			//**************
-			if( cmd_struct.id == 6002 )
-			{
-				drill_cmd.direction = cmd_struct.value;
+					// Right
+					else if ( cmd_struct.value == 1 )
+					{
+						arm_control.joint1Forward = 1;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 1;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				mux_2(10);
-				send_struct(uart4, &drill_cmd, drill);
-			}
+					// Up
+					else if ( cmd_struct.value == 2 )
+					{
+						arm_control.joint1Forward = 0;
+						arm_control.joint1Backward = 1;
+						arm_control.joint2Forward = 1;
+						arm_control.joint2Backward = 0;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-			//*************
-			// Heater Power
-			//**************
-			if( cmd_struct.id == 6003 )
-			{
-				drill_cmd.heaterPower = cmd_struct.value;
+					// Down
+					else if ( cmd_struct.value == 3 )
+					{
+						arm_control.joint1Forward = 1;
+						arm_control.joint1Backward = 0;
+						arm_control.joint2Forward = 0;
+						arm_control.joint2Backward = 1;
+						arm_control.joint3Forward = 0;
+						arm_control.joint3Backward = 0;
+						arm_control.joint4Forward = 0;
+						arm_control.joint4Backward = 0;
+						arm_control.joint5Forward = 0;
+						arm_control.joint5Backward = 0;
+						arm_control.joint6Forward = 0;
+						arm_control.joint6Backward = 0;
+					}
 
-				mux_2(10);
-				send_struct(uart4, &drill_cmd, drill);
-			}
+					// Send Command
+					mux_1( 9 );
+					send_struct(uart1, &arm_control, robotic_arm);
 
-			//*************
-			// Thermo Readings
-			//**************
-			if( cmd_struct.id == 6004 )
-			{
-				drill_cmd.thermoReadings = cmd_struct.value;
+					break;
 
-				mux_2(10);
-				send_struct(uart4, &drill_cmd, drill);
-			}
+				//////////////////////////////
+				// Drill Commands
+				//////////////////////////////
 
-			//*************
-			// Sensor Power
-			//**************
-			if( cmd_struct.id == 6005 )
-			{
-				drill_cmd.sensorPower = cmd_struct.value;
+				//*************
+				// Drill Speed
+				//**************
+				case 6001:
+					drill_cmd.goalSpeed = cmd_struct.value;
 
-				mux_2(10);
-				send_struct(uart4, &drill_cmd, drill);
-			}
+					mux_2(10);
+					send_struct(uart2, &drill_cmd, drill);
 
-			//*************
-			// Gas Readings
-			//**************
-			if( cmd_struct.id == 6006 )
-			{
-				drill_cmd.gasReadings = cmd_struct.value;
+					break;
 
-				mux_2(10);
-				send_struct(uart4, &drill_cmd, drill);
-			}
+				//*************
+				// Drill Direction
+				//**************
+				case 6002:
+					drill_cmd.direction = cmd_struct.value;
 
-			//////////////////////////////
-			// Gripper
-			/////////////////////////////
+					mux_2(10);
+					send_struct(uart4, &drill_cmd, drill);
 
-			if ( cmd_struct.id == 6007 )
-			{
-				gripper_cmd.grip_cmd = cmd_struct.value;
+					break;
 
-				// Send Command
-				mux_3( 11 );
-				send_struct(uart3, &gripper_cmd, gripper);
-			}
+				//*************
+				// Heater Power
+				//**************
+				case 6003:
+					drill_cmd.heaterPower = cmd_struct.value;
 
-			//////////////////////////////
-			// Science Payload
-			/////////////////////////////
+					mux_2(10);
+					send_struct(uart4, &drill_cmd, drill);
 
-			//*************
-			// 395 nm Light
-			//**************
-			if ( cmd_struct.id == 6008)
-			{
-				science_cmd.lb395 = cmd_struct.value;
+					break;
 
-				// Send command
-				mux_4( 12 );
-				send_struct(uart4, &science_cmd, science_payload);
-			}
+				//*************
+				// Thermo Readings
+				//**************
+				case 6004:
 
-			//*************
-			// 440 nm Light
-			//**************
-			if ( cmd_struct.id == 6009)
-			{
-				science_cmd.lb440 = cmd_struct.value;
+					drill_cmd.thermoReadings = cmd_struct.value;
 
-				// Send command
-				mux_4( 12 );
-				send_struct(uart4, &science_cmd, science_payload);
-			}
+					mux_2(10);
+					send_struct(uart4, &drill_cmd, drill);
 
-			//*************
-			// Door Servo
-			//**************
-			if ( cmd_struct.id == 6010)
-			{
-				science_cmd.doorserv = cmd_struct.value;
+					break;
 
-				// Send command
-				mux_4( 12 );
-				send_struct(uart4, &science_cmd, science_payload);
+				//*************
+				// Sensor Power
+				//**************
+				case 6005:
+
+					drill_cmd.sensorPower = cmd_struct.value;
+
+					mux_2(10);
+					send_struct(uart4, &drill_cmd, drill);
+
+					break;
+
+				//*************
+				// Gas Readings
+				//**************
+				case 6006:
+
+					drill_cmd.gasReadings = cmd_struct.value;
+
+					mux_2(10);
+					send_struct(uart4, &drill_cmd, drill);
+
+					break;
+
+				//////////////////////////////
+				// Gripper
+				/////////////////////////////
+
+				case 6007:
+
+					gripper_cmd.grip_cmd = cmd_struct.value;
+
+					// Send Command
+					mux_3( 11 );
+					send_struct(uart3, &gripper_cmd, gripper);
+
+					break;
+
+				//////////////////////////////
+				// Science Payload
+				/////////////////////////////
+
+				//*************
+				// 395 nm Light
+				//**************
+				case 6008:
+
+					science_cmd.lb395 = cmd_struct.value;
+
+					// Send command
+					mux_4( 12 );
+					send_struct(uart4, &science_cmd, science_payload);
+
+					break;
+
+				//*************
+				// 440 nm Light
+				//**************
+				case 6009:
+
+					science_cmd.lb440 = cmd_struct.value;
+
+					// Send command
+					mux_4( 12 );
+					send_struct(uart4, &science_cmd, science_payload);
+
+					break;
+
+				//*************
+				// Door Servo
+				//**************
+				case 6010:
+
+					science_cmd.doorserv = cmd_struct.value;
+
+					// Send command
+					mux_4( 12 );
+					send_struct(uart4, &science_cmd, science_payload);
+
+					break;
 			}
 		}
 	}

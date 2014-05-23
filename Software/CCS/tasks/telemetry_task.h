@@ -10,7 +10,7 @@
 #include "../include/json.h"
 #include "../include/timing.h"
 
-#define delay 5
+#define delay 1
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {
@@ -28,9 +28,6 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 	while(1)
 	{
-		generate_json_strings(json, "0000", "Testing");
-		write_json(uart7, json);
-
 		/*
 		mux_4(4);
 		drill_cmd_echo = recv_struct( uart4, &drill_cmd_test, drill );
@@ -42,6 +39,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		}
 		*/
 
+		/*
 		///////////////////
 		// Read GPS data
 		///////////////////
@@ -53,52 +51,39 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			// GPS Fix
 			generate_json_int(json, "1001", gps_struct.fix);
 			write_json(uart7, json);
-			System_printf("GPS fix: %i\n", gps_struct.fix);
-			System_flush();
 			ms_delay( delay );
 
 			// Latitude
 			generate_json_float(json, "1002", gps_struct.latitude);
 			write_json(uart7, json);
-			System_printf("Latitude: %f\n", gps_struct.latitude);
-			System_flush();
 			ms_delay( delay );
 
 			// Longitude
 			generate_json_float(json, "1003", gps_struct.longitude);
 			write_json(uart7, json);
-			System_printf("Longitude: %f\n", gps_struct.longitude);
-			System_flush();
 			ms_delay( delay );
 
 			// Altitude
 			generate_json_float(json, "1004", gps_struct.altitude);
 			write_json(uart7, json);
-			System_printf("Altitude: %f\n", gps_struct.altitude);
-			System_flush();
 			ms_delay( delay );
 
 			// Speed
 			generate_json_float(json, "1005", gps_struct.speed);
 			write_json(uart7, json);
-			System_printf("Speed: %f\n", gps_struct.speed);
-			System_flush();
 			ms_delay( delay );
 
 			// Fix quality 1006
 			generate_json_int(json, "1006", gps_struct.fixquality);
 			write_json(uart7, json);
-			System_printf("Fix quality: %i\n", gps_struct.fixquality);
-			System_flush();
 			ms_delay( delay );
 
 			// Number of satellites 1007
 			generate_json_int(json, "1007", gps_struct.satellites);
 			write_json(uart7, json);
-			System_printf("Satellites: %i\n", gps_struct.satellites);
-			System_flush();
 			ms_delay( delay );
 		}
+		*/
 
 
 		///////////////////
@@ -192,31 +177,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			generate_json_int(json, "3016", bms_struct.main_bat_volt);
 			write_json(uart7, json);
 			ms_delay( delay );
-
-			/*
-			System_printf("Volt 0: %i\n", test_struct.volt0);
-			System_printf("Volt 1: %i\n", test_struct.volt1);
-			System_printf("Volt 2: %i\n", test_struct.volt2);
-			System_printf("Volt 3: %i\n", test_struct.volt3);
-			System_printf("Volt 4: %i\n", test_struct.volt4);
-			System_printf("Volt 5: %i\n", test_struct.volt5);
-			System_printf("Volt 6: %i\n", test_struct.volt6);
-
-			System_printf("Temp 0: %i\n", test_struct.temp0);
-			System_printf("Temp 1: %i\n", test_struct.temp1);
-			System_printf("Temp 2: %i\n", test_struct.temp2);
-			System_printf("Temp 3: %i\n", test_struct.temp3);
-			System_printf("Temp 4: %i\n", test_struct.temp4);
-			System_printf("Temp 5: %i\n", test_struct.temp5);
-			System_printf("Temp 6: %i\n", test_struct.temp6);
-
-			System_printf("Main Current: %i\n", test_struct.main_bat_cur);
-			System_printf("Main Voltage: %i\n", test_struct.main_bat_volt);
-			System_flush();
-			*/
 		}
-
-		//ms_delay( 100 );
 	}
 }
 

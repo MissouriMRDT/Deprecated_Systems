@@ -49,18 +49,18 @@ struct bms_data_struct
 
 struct arm_control_struct
 {
-  uint8_t joint1Forward;
-  uint8_t joint1Backward;
-  uint8_t joint2Forward;
-  uint8_t joint2Backward;
-  uint8_t joint3Forward;
-  uint8_t joint3Backward;
-  uint8_t joint4Forward;
-  uint8_t joint4Backward;
-  uint8_t joint5Forward;
-  uint8_t joint5Backward;
-  uint8_t joint6Forward;
-  uint8_t joint6Backward;
+	uint8_t wristUp;
+	uint8_t wristDown;
+	uint8_t wristClockWise;
+	uint8_t wristCounterClockWise;
+	uint8_t elbowUp;
+	uint8_t elbowDown;
+	uint8_t elbowClockWise;
+	uint8_t elbowCounterClockWise;
+	uint8_t actuatorForward;
+	uint8_t actuatorReverse;
+	uint8_t baseClockWise;
+	uint8_t baseCounterClockWise;
 }__attribute__((packed));
 
 struct gripper_control_struct

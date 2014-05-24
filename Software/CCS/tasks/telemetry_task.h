@@ -171,11 +171,6 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			generate_json_int(json, "3015", bms_struct.main_bat_cur);
 			write_json(uart7, json);
 			ms_delay( delay );
-
-			// Main Voltage
-			generate_json_int(json, "3016", bms_struct.main_bat_volt);
-			write_json(uart7, json);
-			ms_delay( delay );
 		}
 		else
 		{

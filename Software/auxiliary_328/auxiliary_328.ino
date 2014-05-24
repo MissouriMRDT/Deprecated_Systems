@@ -12,7 +12,7 @@ SoftwareSerial gpsSerial(3, 2); // (Rx, Tx)
 Adafruit_GPS GPS(&gpsSerial);
 #define GPSECHO false //set to true if you want raw GPS data printed to serial monitor
 
-#define data_delay 100  //milliseconds between data collection
+#define data_delay 50  //milliseconds between data collection
 
 GPS_Data gps_data;  //instantiate struct to contain all sensor data
 

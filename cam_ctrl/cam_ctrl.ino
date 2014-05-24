@@ -13,14 +13,10 @@
 
 struct control_struct
 {
-  //1 for on, 0 for off
-  uint8_t lb395; 
-  
-  //1 for on, 0 for off
-  uint8_t lb440;
-  
-  //position. 255 for open, 0 for close
-  uint8_t doorserv;
+  uint8_t pitch;
+  uint8_t yaw;
+  uint8_t roll;
+  uint8_t mode;
 };
 
 const int PITCH = 6; //Blue
@@ -53,8 +49,8 @@ void setup()
 void loop()
 {
   controls.receiveData();
-  pitch.write(controls.pitch);
-  yaw.write(controls.yaw);
-  roll.write(controls.roll);
-  mode.write(controls.mode);
+  pitch.write(control_data.pitch);
+  yaw.write(control_data.yaw);
+  roll.write(control_data.roll);
+  mode.write(control_data.mode);
 }

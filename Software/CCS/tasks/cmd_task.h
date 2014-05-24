@@ -30,6 +30,8 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	extern UART_Handle uart5;
 	extern UART_Handle uart7;
 
+	extern bool drill_telem_active;
+
 	bool cmd_valid = false;
 
 	// Read buffer
@@ -478,9 +480,16 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 
 					break;
 
-				// GPS Data
-				case 1006:
-
+				// Turn Drill telem on or off
+				case 6011:
+					if ( cmd_struct.value == 1 )
+					{
+						drill_telem_active = true;
+					}
+					else if ( cmd_struct.value == 0 )
+					{
+						drill_telem_active = false;
+					}
 					break;
 
 				///////////////////

@@ -14,68 +14,68 @@
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {
+	extern UART_Handle uart2;
 	extern UART_Handle uart4;
 	extern UART_Handle uart5;
 	extern UART_Handle uart7;
 
 	struct bms_data_struct bms_struct;
 	struct gps_data_struct gps_data;
+	struct drill_Telemetry drill_telem;
 
 	bool bms_is_valid = false;
 	bool gps_is_valid = false;
+	bool drill_telem_valid = false;
+
+	extern bool drill_telem_active;
 
 	char json[50];
 
+	int gps_counter = 0;
+
 	while(1)
 	{
-		mux_5(328);
-		ms_delay( delay );
-		gps_is_valid = recv_struct( uart5, &gps_data, gps );
-
-		if( gps_is_valid )
+		if ( gps_counter >= 20 )
 		{
-			// GPS fix
-			generate_json_int(json, "1001", gps_data.fix);
-			write_json(uart7, json);
+			gps_counter = 0;
+			mux_5(328);
 			ms_delay( delay );
+			gps_is_valid = recv_struct( uart5, &gps_data, gps );
 
-			System_printf("%s\n", json);
-			System_flush();
-
-			if ( gps_data.fix == 1 )
+			if( gps_is_valid )
 			{
-				// Latitude
-				generate_gps_json(json, "1002", gps_data.latitude_whole, gps_data.latitude_frac, gps_data.lat_dir);
+				// GPS fix
+				generate_json_int(json, "1001", gps_data.fix);
 				write_json(uart7, json);
 				ms_delay( delay );
 
-				System_printf("%s\n", json);
-				System_flush();
+				if ( gps_data.fix == 1 )
+				{
+					// Latitude
+					generate_gps_json(json, "1002", gps_data.latitude_whole, gps_data.latitude_frac, gps_data.lat_dir);
+					write_json(uart7, json);
+					ms_delay( delay );
 
-				// Longitude
-				generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
-				write_json(uart7, json);
-				ms_delay( delay );
+					// Longitude
+					generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
+					write_json(uart7, json);
+					ms_delay( delay );
 
-				System_printf("%s\n", json);
-				System_flush();
+					// Altitude
+					generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
+					write_json(uart7, json);
+					ms_delay( delay );
 
-				// Altitude
-				generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
-				write_json(uart7, json);
-				ms_delay( delay );
-
-				System_printf("%s\n", json);
-				System_flush();
-
-				// # of satellites
-				generate_json_int(json, "1005", gps_data.satellites);
-				write_json(uart7, json);
-				ms_delay( delay );
-
-				System_printf("%s\n", json);
-				System_flush();
+					// # of satellites
+					generate_json_int(json, "1005", gps_data.satellites);
+					write_json(uart7, json);
+					ms_delay( delay );
+				}
 			}
+		}
+		else
+		{
+			gps_counter++;
 		}
 
 		///////////////////
@@ -170,6 +170,22 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			generate_json_int(json, "3016", bms_struct.main_bat_volt);
 			write_json(uart7, json);
 			ms_delay( delay );
+		}
+
+		// Drill Telemetry
+		if ( drill_telem_active )
+		{
+			// Switch mux
+			mux_2(10);
+			ms_delay( 1 );
+
+			drill_telem_valid = recv_struct( uart2, &drill_telem, drill );
+
+			if ( drill_telem_valid )
+			{
+				System_printf("Drill Telem Good\n");
+				System_flush();
+			}
 		}
 	}
 }

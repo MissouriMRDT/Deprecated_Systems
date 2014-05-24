@@ -75,7 +75,7 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 			size = sizeof(*((struct base_station_cmd_struct*)my_struct));
 			break;
 		case drill:
-			size = sizeof(*((struct drill_Controls*)my_struct));
+			size = sizeof(*((struct drill_Telemetry*)my_struct));
 			break;
 		case gps:
 			size = sizeof(*((struct gps_data_struct*)my_struct));

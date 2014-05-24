@@ -10,7 +10,7 @@
 #include "../include/json.h"
 #include "../include/timing.h"
 
-#define delay 1
+#define delay 2
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {
@@ -28,17 +28,19 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	bool drill_telem_valid = false;
 
 	extern bool drill_telem_active;
+	extern bool gps_telem_active;
 
 	char json[50];
 	char loop_count[15];
 	char loop_string[25];
 
-	int gps_counter = 20;
 	int telem_loop_counter = 0;
 
 	while(1)
 	{
+		//////////////////////////
 		// System tick
+		//////////////////////////
 		telem_loop_counter++;
 		itoa(telem_loop_counter, loop_count);
 		strcpy( loop_string, "Telemetry Loop: " );
@@ -46,11 +48,10 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		generate_json_strings(json, "0000", loop_string);
 		write_json(uart7, json);
 
-		if ( gps_counter >= 10 )
+		if ( gps_telem_active )
 		{
-			gps_counter = 0;
 			mux_5(328);
-			ms_delay( delay );
+			ms_delay( 5 );
 			gps_is_valid = recv_struct( uart5, &gps_data, gps );
 
 			if( gps_is_valid )
@@ -84,16 +85,12 @@ extern Void bms_data(UArg arg0, UArg arg1)
 				}
 			}
 		}
-		else
-		{
-			gps_counter++;
-		}
 
 		///////////////////
 		// Read BMS data
 		///////////////////
 		mux_5(14);
-		ms_delay( delay );
+		ms_delay( 5 );
 		bms_is_valid = recv_struct( uart5, &bms_struct, bms );
 
 		if ( bms_is_valid )
@@ -188,14 +185,45 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		{
 			// Switch mux
 			mux_2(10);
-			ms_delay( 1 );
+			ms_delay( 5 );
 
 			drill_telem_valid = recv_struct( uart2, &drill_telem, drill );
 
 			if ( drill_telem_valid )
 			{
-				System_printf("Drill Telem Good\n");
-				System_flush();
+				// Hydrogen Reading
+				generate_json_int(json, "6015", drill_telem.hydrogenReading);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Methane Reading
+				generate_json_int(json, "6016", drill_telem.methaneReading);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Ammonia Reading
+				generate_json_int(json, "6017", drill_telem.ammoniaReading);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				generate_json_float(json, "6018", drill_telem.temp);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Actual Speed
+				generate_json_int(json, "6019", drill_telem.actualSpeed);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Goal Current
+				generate_json_int(json, "6020", drill_telem.goalCurrent);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Actual Current
+				generate_json_int(json, "6021", drill_telem.actualCurrent);
+				write_json(uart7, json);
+				ms_delay( delay );
 			}
 		}
 	}

@@ -16,8 +16,6 @@
 #include "../include/json.h"
 #include "../include/timing.h"
 
-#define delay 1
-
 extern Void process_cmds(UArg arg0, UArg arg1)
 {
 
@@ -31,6 +29,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	extern UART_Handle uart7;
 
 	extern bool drill_telem_active;
+	extern bool gps_telem_active;
 
 	bool cmd_valid = false;
 
@@ -515,6 +514,18 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 					light_cmd.blue = cmd_struct.value;
 					mux_4( 12 );
 					send_struct(uart4, &light_cmd, lighting_board);
+					break;
+
+				// GPS Telem
+				case 1006:
+					if ( cmd_struct.value == 1 )
+					{
+						gps_telem_active = true;
+					}
+					else if ( cmd_struct.value == 0 )
+					{
+						gps_telem_active = false;
+					}
 					break;
 			}
 		}

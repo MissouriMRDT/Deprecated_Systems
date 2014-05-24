@@ -50,6 +50,7 @@ UART_Handle uart5;
 UART_Handle uart7;
 
 bool drill_telem_active = false;
+bool gps_telem_active = false;
 
 Int main(Void)
 {

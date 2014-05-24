@@ -30,6 +30,11 @@
 void generate_json_strings(char *string_buf, const char *id, const char *value);
 
 // Generates a json string to
+// send to the base station
+// works with floats
+void generate_json_float(char *string_buf, const char *id, const float value);
+
+// Generates a json string to
 // send to base station
 // for gps (lat & long) data
 void generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction);

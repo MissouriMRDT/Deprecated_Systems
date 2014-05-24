@@ -55,6 +55,7 @@ struct bms_data_struct
 
 struct arm_control_struct
 {
+	uint8_t reset;
 	uint8_t wristUp;
 	uint8_t wristDown;
 	uint8_t wristClockWise;

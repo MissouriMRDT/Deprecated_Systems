@@ -125,6 +125,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 					switch( cmd_struct.value )
 					{
 						case 0: // Counterclockwise
+							arm_control.reset =					0;
 							arm_control.wristUp = 				0;
 							arm_control.wristDown = 			0;
 							arm_control.wristClockWise = 		0;
@@ -140,6 +141,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 							break;
 
 						case 1: // Clockwise
+							arm_control.reset =					0;
 							arm_control.wristUp = 				0;
 							arm_control.wristDown = 			0;
 							arm_control.wristClockWise = 		1;
@@ -155,6 +157,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 							break;
 
 						case 2: // Down
+							arm_control.reset =					0;
 							arm_control.wristUp = 				0;
 							arm_control.wristDown = 			1;
 							arm_control.wristClockWise = 		0;
@@ -170,6 +173,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 							break;
 
 						case 3: // Up
+							arm_control.reset =					0;
 							arm_control.wristUp = 				1;
 							arm_control.wristDown = 			0;
 							arm_control.wristClockWise = 		0;
@@ -198,6 +202,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 						switch( cmd_struct.value )
 						{
 							case 0: // Counterclockwise
+								arm_control.reset =					0;
 								arm_control.wristUp = 				0;
 								arm_control.wristDown = 			0;
 								arm_control.wristClockWise = 		0;
@@ -213,6 +218,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 								break;
 
 							case 1: // Clockwise
+								arm_control.reset =					0;
 								arm_control.wristUp = 				0;
 								arm_control.wristDown = 			0;
 								arm_control.wristClockWise = 		0;
@@ -228,6 +234,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 								break;
 
 							case 2: // Down
+								arm_control.reset =					0;
 								arm_control.wristUp = 				0;
 								arm_control.wristDown = 			0;
 								arm_control.wristClockWise = 		0;
@@ -243,6 +250,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 								break;
 
 							case 3: // Up
+								arm_control.reset =					0;
 								arm_control.wristUp = 				0;
 								arm_control.wristDown = 			0;
 								arm_control.wristClockWise = 		0;
@@ -271,6 +279,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 							switch( cmd_struct.value )
 							{
 								case 0: //Backward
+									arm_control.reset =					0;
 									arm_control.wristUp = 				0;
 									arm_control.wristDown = 			0;
 									arm_control.wristClockWise = 		0;
@@ -286,6 +295,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 									break;
 
 								case 1: // Forward
+									arm_control.reset =					0;
 									arm_control.wristUp = 				0;
 									arm_control.wristDown = 			0;
 									arm_control.wristClockWise = 		0;
@@ -314,6 +324,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 							switch( cmd_struct.value )
 							{
 								case 0: // Counterclockwise
+									arm_control.reset =					0;
 									arm_control.wristUp = 				0;
 									arm_control.wristDown = 			0;
 									arm_control.wristClockWise = 		0;
@@ -329,6 +340,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 									break;
 
 								case 1: // Clockwise
+									arm_control.reset =					0;
 									arm_control.wristUp = 				0;
 									arm_control.wristDown = 			0;
 									arm_control.wristClockWise = 		0;
@@ -348,6 +360,29 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 						mux_1( 9 );
 						send_struct(uart1, &arm_control, robotic_arm);
 						break;
+
+						//*************
+						// Reset
+						//*************
+						case 2005:
+							arm_control.reset =					1;
+							arm_control.wristUp = 				0;
+							arm_control.wristDown = 			0;
+							arm_control.wristClockWise = 		0;
+							arm_control.wristCounterClockWise = 0;
+							arm_control.elbowUp =				0;
+							arm_control.elbowDown = 			0;
+							arm_control.elbowClockWise = 		0;
+							arm_control.elbowCounterClockWise = 0;
+							arm_control.actuatorReverse = 		0;
+							arm_control.actuatorForward = 		0;
+							arm_control.baseCounterClockWise = 	0;
+							arm_control.baseClockWise = 		0;
+
+							// Send Command
+							mux_1( 9 );
+							send_struct(uart1, &arm_control, robotic_arm);
+							break;
 
 				//////////////////////////////
 				// Drill Commands

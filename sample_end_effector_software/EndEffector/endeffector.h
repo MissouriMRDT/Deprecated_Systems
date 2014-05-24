@@ -29,6 +29,6 @@ void discreteUpdates(s_Controls& state, const s_Controls& prev_state, s_Telemetr
 
 //Updates sensors, drill, or heater depending on what is powered
 //Should be run as frequently as possible
-void continuousUpdates(s_Controls& state, s_Telemetry telemetry);
+void continuousUpdates(s_Controls& state, s_Telemetry& telemetry);
 
 #endif

@@ -29,7 +29,7 @@ void discreteUpdates(s_Controls& state, const s_Controls& prev_state,s_Telemetry
   return;
 }
 
-void continuousUpdates(s_Controls& state, s_Telemetry telemetry)
+void continuousUpdates(s_Controls& state, s_Telemetry& telemetry)
 {
   if(state.goalSpeed && (!state.heaterPower))
   {

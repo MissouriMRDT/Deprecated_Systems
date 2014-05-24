@@ -10,7 +10,7 @@
 #include "../include/json.h"
 #include "../include/timing.h"
 
-#define delay 2
+#define delay 1
 
 extern Void bms_data(UArg arg0, UArg arg1)
 {
@@ -32,61 +32,52 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	extern bool uart7_sem;
 
 	char json[50];
-	int gps_count=15;;
 
 	while(1)
 	{
 		if ( gps_telem_active )
 		{
-			if ( gps_count >= 7 )
+			mux_5(328);
+			ms_delay( 1 );
+			gps_is_valid = recv_struct( uart5, &gps_data, gps );
+
+			if( gps_is_valid )
 			{
-				gps_count = 0;
-				mux_5(328);
-				ms_delay( 5 );
-				gps_is_valid = recv_struct( uart5, &gps_data, gps );
+				generate_json_strings(json, "0000", "GPS Data Valid");
+				write_json(uart7, json);
 
-				if( gps_is_valid )
+				// GPS fix
+				generate_json_int(json, "1001", gps_data.fix);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				if ( gps_data.fix == 1 )
 				{
-					generate_json_strings(json, "0000", "GPS Data Valid");
-					write_json(uart7, json);
-
-					// GPS fix
-					generate_json_int(json, "1001", gps_data.fix);
+					// Latitude
+					generate_gps_json(json, "1002", gps_data.latitude_whole, gps_data.latitude_frac, gps_data.lat_dir);
 					write_json(uart7, json);
 					ms_delay( delay );
 
-					if ( gps_data.fix == 1 )
-					{
-						// Latitude
-						generate_gps_json(json, "1002", gps_data.latitude_whole, gps_data.latitude_frac, gps_data.lat_dir);
-						write_json(uart7, json);
-						ms_delay( delay );
-
-						// Longitude
-						generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
-						write_json(uart7, json);
-						ms_delay( delay );
-
-						// Altitude
-						generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
-						write_json(uart7, json);
-						ms_delay( delay );
-
-						// # of satellites
-						generate_json_int(json, "1005", gps_data.satellites);
-						write_json(uart7, json);
-						ms_delay( delay );
-					}
-				}
-				else
-				{
-					generate_json_strings(json, "0000", "GPS Data Not Valid");
+					// Longitude
+					generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
 					write_json(uart7, json);
+					ms_delay( delay );
+
+					// Altitude
+					generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
+					write_json(uart7, json);
+					ms_delay( delay );
+
+					// # of satellites
+					generate_json_int(json, "1005", gps_data.satellites);
+					write_json(uart7, json);
+					ms_delay( delay );
 				}
 			}
 			else
 			{
-				gps_count++;
+				generate_json_strings(json, "0000", "GPS Data Not Valid");
+				write_json(uart7, json);
 			}
 		}
 
@@ -94,7 +85,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		// Read BMS data
 		///////////////////
 		mux_5(15);
-		ms_delay( 5 );
+		ms_delay( 1 );
 		bms_is_valid = recv_struct( uart5, &bms_struct, bms );
 
 		if ( bms_is_valid )

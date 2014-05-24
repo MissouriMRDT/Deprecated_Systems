@@ -18,7 +18,9 @@ void discreteUpdates(s_Controls& state, const s_Controls& prev_state,s_Telemetry
   if(state.direction != prev_state.direction)
     SetDrillDirection(state);
   if(state.heaterPower != prev_state.heaterPower)
-    changeOutput(state.heaterPower);
+    //inverts state.heaterPower to compensate for the fact that
+    //The relay used to change outputs is active low
+    changeOutput((1-state.heaterPower));
   
   //Emergency kill, skips current prediction calculations for fast response
   if(0 == state.goalSpeed)

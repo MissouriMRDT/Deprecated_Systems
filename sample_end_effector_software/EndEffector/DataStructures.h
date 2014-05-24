@@ -36,5 +36,6 @@ struct s_Telemetry
   
 };
 
+const int SIZE_CONTROLS = sizeof(s_Controls) / 8;
 //Telemetry Data
 #endif

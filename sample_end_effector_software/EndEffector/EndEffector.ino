@@ -18,18 +18,20 @@ s_Controls controls;
 //prevState is kept for comparison, to determine what changed
 s_Controls prevState;
 s_Telemetry telemetry;
+const int UPDATE_DELAY = 2; //MS to wait for each update
 
 void setup() 
 {
   // Motherboard handshake
   Serial.begin(115200);
   MotherboardReceive.begin(details(controls), &Serial);
-//  MotherboardSend.begin(details(telemetry), &Serial);
+  MotherboardSend.begin(details(telemetry), &Serial);
   pinMode(MOT_PWM, OUTPUT);
   pinMode(MOT_INA, OUTPUT);
   pinMode(MOT_INB, OUTPUT);
   pinMode(GAS_CTRL, OUTPUT);
   pinMode(HEAT_CTRL, OUTPUT);
+  digitalWrite(HEAT_CTRL, HIGH); //must be held high to prevent relay from switching
   SetDrillDirection(controls);
 
   telemetry.actualSpeed = 0;
@@ -47,15 +49,20 @@ void setup()
 
 void loop() 
 {
-  //Will constantly try to receive data
-  if(MotherboardReceive.receiveData())
-  {
-
-    discreteUpdates(controls, prevState, telemetry);
-    prevState = controls;
-  }
   continuousUpdates(controls, telemetry);
-//  MotherboardSend.sendData();
+  MotherboardSend.sendData();
 
-
+  for(int i = 0; i < 5; i++)
+  {
+    if(Serial.available() >= SIZE_CONTROLS)
+    { 
+      if(MotherboardReceive.receiveData())
+      {
+    
+        discreteUpdates(controls, prevState, telemetry);
+        prevState = controls;
+      }
+    }
+  }
+  delay(UPDATE_DELAY);
 }

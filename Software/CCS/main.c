@@ -39,7 +39,6 @@
 #include "tasks/cmd_task.h"
 #include "tasks/Mux_test_task.h"
 #include "tasks/telemetry_task.h"
-#include "tasks/json_test.h"
 
 // UART Handles
 UART_Handle uart0;
@@ -49,6 +48,8 @@ UART_Handle uart3;
 UART_Handle uart4;
 UART_Handle uart5;
 UART_Handle uart7;
+
+bool drill_telem_active = false;
 
 Int main(Void)
 {

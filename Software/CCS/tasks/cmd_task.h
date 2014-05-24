@@ -479,7 +479,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 					break;
 
 				// GPS Data
-				case 1008:
+				case 1006:
 
 					break;
 

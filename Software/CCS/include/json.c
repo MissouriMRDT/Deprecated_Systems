@@ -96,6 +96,7 @@ void generate_gps_json(char *string_buf, const char *id, const int whole_number,
 
 	char direction_buf[2];
 	direction_buf[0] = direction;
+	direction_buf[1] = 0;
 
 	// Add direction character
 	strcat(string_buf, direction_buf);

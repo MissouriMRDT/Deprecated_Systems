@@ -28,14 +28,19 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 	while(1)
 	{
-		mux_5 (328);
+		mux_5(328);
+		ms_delay( delay );
 		gps_is_valid = recv_struct( uart5, &gps_data, gps );
+
 		if( gps_is_valid )
 		{
 			// GPS fix
 			generate_json_int(json, "1001", gps_data.fix);
 			write_json(uart7, json);
 			ms_delay( delay );
+
+			System_printf("%s\n", json);
+			System_flush();
 
 			if ( gps_data.fix == 1 )
 			{
@@ -44,20 +49,32 @@ extern Void bms_data(UArg arg0, UArg arg1)
 				write_json(uart7, json);
 				ms_delay( delay );
 
+				System_printf("%s\n", json);
+				System_flush();
+
 				// Longitude
 				generate_gps_json(json, "1003", gps_data.longitude_whole, gps_data.longitude_frac, gps_data.lon_dir);
 				write_json(uart7, json);
 				ms_delay( delay );
+
+				System_printf("%s\n", json);
+				System_flush();
 
 				// Altitude
 				generate_altitude_json(json, "1004", gps_data.altitude_whole, gps_data.altitude_frac);
 				write_json(uart7, json);
 				ms_delay( delay );
 
-				// GPS fix
+				System_printf("%s\n", json);
+				System_flush();
+
+				// # of satellites
 				generate_json_int(json, "1005", gps_data.satellites);
 				write_json(uart7, json);
 				ms_delay( delay );
+
+				System_printf("%s\n", json);
+				System_flush();
 			}
 		}
 
@@ -65,6 +82,7 @@ extern Void bms_data(UArg arg0, UArg arg1)
 		// Read BMS data
 		///////////////////
 		mux_5(14);
+		ms_delay( delay );
 		bms_is_valid = recv_struct( uart5, &bms_struct, bms );
 
 		if ( bms_is_valid )

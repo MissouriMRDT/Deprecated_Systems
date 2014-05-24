@@ -30,12 +30,23 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	extern bool drill_telem_active;
 
 	char json[50];
+	char loop_count[15];
+	char loop_string[25];
 
-	int gps_counter = 0;
+	int gps_counter = 20;
+	int telem_loop_counter = 0;
 
 	while(1)
 	{
-		if ( gps_counter >= 20 )
+		// System tick
+		telem_loop_counter++;
+		itoa(telem_loop_counter, loop_count);
+		strcpy( loop_string, "Telemetry Loop: " );
+		strcat( loop_string, loop_count);
+		generate_json_strings(json, "0000", loop_string);
+		write_json(uart7, json);
+
+		if ( gps_counter >= 10 )
 		{
 			gps_counter = 0;
 			mux_5(328);

@@ -91,7 +91,7 @@ struct drill_Controls
 
 struct drill_Telemetry
 {
-    //Gas Data
+  //Gas Data
   uint16_t hydrogenReading;
   uint16_t methaneReading;
   uint16_t ammoniaReading;

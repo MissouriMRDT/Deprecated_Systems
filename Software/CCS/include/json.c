@@ -102,7 +102,7 @@ void generate_json_float(char *string_buf, const char *id, const float value)
 	strcat(string_buf, frac_value_buf);
 
 	// Add ending closing brace
-	strcat(string_buf, "'}");
+	strcat(string_buf, "}");
 }
 
 void generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction)

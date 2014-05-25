@@ -84,9 +84,12 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 		case gps:
 			size = sizeof(*((struct gps_data_struct*)my_struct));
 			break;
+		case power_board:
+			size = sizeof(*((struct power_board_telem*)my_struct));
+			break;
 	}
 
-	char rx_buffer[60];
+	char rx_buffer[150];
 	char temp;
 
 	// Check for Start byte 1

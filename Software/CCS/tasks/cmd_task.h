@@ -30,6 +30,7 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 
 	extern bool drill_telem_active;
 	extern bool gps_telem_active;
+	extern bool power_telem_active;
 
 	bool cmd_valid = false;
 
@@ -596,6 +597,20 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 						camera_cmd.mode = cmd_struct.value;
 						mux_4( 1 );
 						send_struct(uart4, &camera_cmd, camera);
+						break;
+
+					//////////////
+					// Power Board
+					//////////////
+					case 5007:
+						if ( cmd_struct.value == 1 )
+						{
+							power_telem_active = true;
+						}
+						else if ( cmd_struct.value == 0 )
+						{
+							power_telem_active = false;
+						}
 						break;
 			}
 		}

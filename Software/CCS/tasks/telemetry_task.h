@@ -22,13 +22,16 @@ extern Void bms_data(UArg arg0, UArg arg1)
 	struct bms_data_struct bms_struct;
 	struct gps_data_struct gps_data;
 	struct drill_Telemetry drill_telem;
+	struct power_board_telem power_telem;
 
 	bool bms_is_valid = false;
 	bool gps_is_valid = false;
 	bool drill_telem_valid = false;
+	bool power_telem_valid = false;
 
 	extern bool drill_telem_active;
 	extern bool gps_telem_active;
+	extern bool power_telem_active;
 	extern bool uart7_sem;
 
 	char json[50];
@@ -90,7 +93,6 @@ extern Void bms_data(UArg arg0, UArg arg1)
 
 		if ( bms_is_valid )
 		{
-
 			generate_json_strings(json, "0000", "BMS Data Valid");
 			write_json(uart7, json);
 			// Battery voltages
@@ -178,7 +180,61 @@ extern Void bms_data(UArg arg0, UArg arg1)
 			write_json(uart7, json);
 		}
 
+		//////////////////////////////
+		// Read Power board data
+		//////////////////////////////
+		if ( power_telem_active )
+		{
+			mux_5(13);
+			ms_delay( 5 );
+			power_telem_valid = recv_struct( uart5, &power_telem, power_board );
+
+			if ( power_telem_valid )
+			{
+				generate_json_strings(json, "0000", "BMS Data Valid");
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Ambient Temperature
+				generate_json_int(json, "5001", power_telem.ambientTemperature);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Bus A Voltage
+				generate_json_int(json, "5002", power_telem.busAVoltage);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Bus B Voltage
+				generate_json_int(json, "5003", power_telem.busBVoltage);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				// Bus C Voltage
+				generate_json_int(json, "5004", power_telem.busCVoltage);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				//Input Voltage
+				generate_json_int(json, "5005", power_telem.inputVoltage);
+				write_json(uart7, json);
+				ms_delay( delay );
+
+				//Input Current
+				generate_json_int(json, "5006", power_telem.inputCurrent);
+				write_json(uart7, json);
+				ms_delay( delay );
+			}
+			else
+			{
+				generate_json_strings(json, "0000", "Power Data Not Valid");
+				write_json(uart7, json);
+			}
+		}
+
+		/////////////////////
 		// Drill Telemetry
+		/////////////////////
 		if ( drill_telem_active )
 		{
 			// Switch mux

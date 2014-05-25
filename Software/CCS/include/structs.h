@@ -139,4 +139,14 @@ struct camera_control_struct
   uint8_t mode;
 }__attribute__((packed));
 
+struct power_board_telem
+{
+  uint16_t ambientTemperature;
+  uint16_t busAVoltage;
+  uint16_t busBVoltage;
+  uint16_t busCVoltage;
+  uint16_t inputVoltage;
+  uint16_t inputCurrent;
+}__attribute__((packed));
+
 #endif /* STRUCTS_H_ */

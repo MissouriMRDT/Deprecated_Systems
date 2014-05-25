@@ -574,28 +574,28 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 					// Camera Pitch
 					case 6022:
 						camera_cmd.pitch = cmd_struct.value;
-						mux_4( 1 );
+						mux_4( 4 );
 						send_struct(uart4, &camera_cmd, camera);
 						break;
 
 					// Camera Yaw
 					case 6023:
 						camera_cmd.yaw = cmd_struct.value;
-						mux_4( 1 );
+						mux_4( 4 );
 						send_struct(uart4, &camera_cmd, camera);
 						break;
 
 					// Camera Roll
 					case 6024:
 						camera_cmd.roll = cmd_struct.value;
-						mux_4( 1 );
+						mux_4( 4 );
 						send_struct(uart4, &camera_cmd, camera);
 						break;
 
 					// Camera Mode
 					case 6025:
 						camera_cmd.mode = cmd_struct.value;
-						mux_4( 1 );
+						mux_4( 4 );
 						send_struct(uart4, &camera_cmd, camera);
 						break;
 

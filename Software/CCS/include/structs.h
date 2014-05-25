@@ -131,4 +131,12 @@ struct lighting_board_struct
   uint8_t d2;
 }__attribute__((packed));
 
+struct camera_control_struct
+{
+  uint8_t pitch;
+  uint8_t yaw;
+  uint8_t roll;
+  uint8_t mode;
+}__attribute__((packed));
+
 #endif /* STRUCTS_H_ */

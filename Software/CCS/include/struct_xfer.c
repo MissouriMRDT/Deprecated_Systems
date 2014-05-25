@@ -33,6 +33,10 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
         case lighting_board:
         	size =  sizeof(*((struct lighting_board_struct*)my_struct));
         	break;
+        case camera:
+        	size =  sizeof(*((struct camera_control_struct*)my_struct));
+			break;
+
     }
 
     uint8_t* address = (uint8_t*) my_struct;

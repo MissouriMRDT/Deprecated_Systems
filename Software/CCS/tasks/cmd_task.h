@@ -51,6 +51,9 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 	// Lighting board
 	struct lighting_board_struct light_cmd;
 
+	// Camera Control
+	struct camera_control_struct camera_cmd;
+
 	science_cmd.lb395 = 0;
 	science_cmd.lb440 = 0;
 	science_cmd.doorserv = 0;
@@ -562,6 +565,38 @@ extern Void process_cmds(UArg arg0, UArg arg1)
 						gps_telem_active = false;
 					}
 					break;
+
+					/////////////////
+					// Camera Control
+					/////////////////
+
+					// Camera Pitch
+					case 6022:
+						camera_cmd.pitch = cmd_struct.value;
+						mux_4( 1 );
+						send_struct(uart4, &camera_cmd, camera);
+						break;
+
+					// Camera Yaw
+					case 6023:
+						camera_cmd.yaw = cmd_struct.value;
+						mux_4( 1 );
+						send_struct(uart4, &camera_cmd, camera);
+						break;
+
+					// Camera Roll
+					case 6024:
+						camera_cmd.roll = cmd_struct.value;
+						mux_4( 1 );
+						send_struct(uart4, &camera_cmd, camera);
+						break;
+
+					// Camera Mode
+					case 6025:
+						camera_cmd.mode = cmd_struct.value;
+						mux_4( 1 );
+						send_struct(uart4, &camera_cmd, camera);
+						break;
 			}
 		}
 	}

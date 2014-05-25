@@ -34,6 +34,7 @@ EasyTransfer controls;
 
 void setup()
 {
+  Serial.begin(115200);  
   pitch.attach(PITCH);
   yaw.attach(YAW);
   roll.attach(ROLL);
@@ -47,7 +48,6 @@ void setup()
   control_data.roll = 90;
   control_data.mode = 90;
   controls.begin(details(control_data), &Serial);
-  Serial.begin(115200);
 }
 
 void loop()

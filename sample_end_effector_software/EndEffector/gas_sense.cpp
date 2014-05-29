@@ -24,7 +24,7 @@ int readGas(const int sensor)
 
 void updateGasHeaters(const bool sensorPower)
 {
-  sensorPower ? digitalWrite(HEAT_CTRL, HIGH) : digitalWrite(HEAT_CTRL, LOW);
+  sensorPower ? digitalWrite(GAS_CTRL, HIGH) : digitalWrite(GAS_CTRL, LOW);
   return;
 }
 

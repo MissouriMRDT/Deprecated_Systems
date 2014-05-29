@@ -48,6 +48,9 @@ void setup()
   control_data.roll = 90;
   control_data.mode = 90;
   controls.begin(details(control_data), &Serial);
+  
+  //Wait for camera module to initialize
+  delay(10000);
 }
 
 void loop()

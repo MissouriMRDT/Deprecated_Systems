@@ -20,7 +20,15 @@ void discreteUpdates(s_Controls& state, const s_Controls& prev_state,s_Telemetry
   if(state.heaterPower != prev_state.heaterPower)
     //inverts state.heaterPower to compensate for the fact that
     //The relay used to change outputs is active low
-    changeOutput((1-state.heaterPower));
+    if(state.heaterPower)
+    {
+      digitalWrite(MOT_PWM, LOW);
+      digitalWrite(HEAT_CTRL, LOW);
+    } else
+    {
+      digitalWrite(MOT_PWM, LOW);
+      digitalWrite(HEAT_CTRL, HIGH);
+    }
   
   //Emergency kill, skips current prediction calculations for fast response
   if(0 == state.goalSpeed)

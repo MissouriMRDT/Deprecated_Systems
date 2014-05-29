@@ -72,7 +72,7 @@ float calculate_desired_current(int motor_speed)
 
 void setDriverOutput(const int motor_speed)
 {
-  Serial.println("Setting motor speed");
+//  Serial.println("Setting motor speed");
   Serial.println(motor_speed);
   analogWrite(MOT_PWM, motor_speed);
 }
@@ -106,7 +106,3 @@ void maintainCurrent(s_Telemetry& state, const int current)
   return;
 }
 
-void changeOutput(const bool driv_output)
-{
-  digitalWrite(HEAT_CTRL, driv_output);
-}

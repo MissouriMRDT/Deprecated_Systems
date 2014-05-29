@@ -35,6 +35,7 @@ EasyTransfer controls;
 void setup()
 {
   doorServo.attach(SERVO_PIN);
+  control_data.doorserv = CLOSED;
   pinMode(LB395_PIN, OUTPUT);
   pinMode(LB440_PIN, OUTPUT);
   pinMode(SERVO_PIN, OUTPUT);

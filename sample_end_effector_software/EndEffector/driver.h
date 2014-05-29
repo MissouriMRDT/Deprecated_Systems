@@ -26,10 +26,10 @@ const int MAINTAIN_TOLERANCE = 2; //Variation allowed in maintainCurrent before 
    current sense data vs pwm of the motor running with no resistance. To get this data
    see MotCurrentSenseTest
 */
-const float CURRENT_SLOPE = 0.146191; //Slope from linear regression of current sense vs pwm
-const float CURRENT_INTERCEPT = 10.3973; //Intercept from linear regression of current sense vs pwm
+const float CURRENT_SLOPE = 0.07614379; //Slope from linear regression of current sense vs pwm
+const float CURRENT_INTERCEPT = 27.0147; //Intercept from linear regression of current sense vs pwm
 const float MAX_VARIATION = 1.3; //Maximum amount current draw is allowed to deviate from model
-const int READ_ACC = 40; //milliseconds current sense reading is averaged over
+const int READ_ACC = 10; //milliseconds current sense reading is averaged over
 const int SPEED_STEP = 16; //Smallest amount motor will increase its speed to overcome stalls
 
 //Reads voltage average over acc milliseconds from pin, meant for use with current sense pins
@@ -54,6 +54,4 @@ void SetDrillDirection(const s_Controls &state);
 //
 void maintainCurrent(s_Telemetry& telemetry, const int current);
 
-//Switches output between drill and heating element
-void changeOutput(const bool driv_output);
 #endif

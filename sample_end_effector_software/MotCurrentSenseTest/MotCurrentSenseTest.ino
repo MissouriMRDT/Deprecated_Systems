@@ -4,6 +4,7 @@ const int MOT_PWM = 9;
 const int CURR_SENS = 3;
 const int STABILIZATION_TIME = 500; //time to allow drill to reach constant operation
 const int SPEED_STEP = 15;
+const int RELAY = 12;
 
 //Descript: Reads average current over acc milliseconds
 //Pre: Motor should be driving at desired speed to take measurements at
@@ -22,6 +23,13 @@ void setup()
   pinMode(INA, OUTPUT);
   pinMode(INB,OUTPUT);
   pinMode(MOT_PWM, OUTPUT);
+  pinMode(RELAY, OUTPUT);
+  
+  /*----Relay Test----*/
+  digitalWrite(RELAY, LOW);
+  delay(500);
+  digitalWrite(RELAY, HIGH);
+  delay(500);
   
   /*----Test in Forward Direction----*/
   digitalWrite(INA, HIGH);

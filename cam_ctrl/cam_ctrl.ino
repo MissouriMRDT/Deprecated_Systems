@@ -15,8 +15,8 @@ struct control_struct
 {
   uint8_t pitch;
   uint8_t yaw;
-//  uint8_t roll;
-//  uint8_t mode;
+  uint8_t roll;
+  uint8_t mode;
 };
 
 const int PITCH = 6; //Blue

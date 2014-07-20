@@ -1,0 +1,7 @@
+# Ignore emacs temp files
+*~
+/#*
+.#*
+
+# Ignore generated files
+_site/

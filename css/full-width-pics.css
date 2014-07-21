@@ -3,10 +3,10 @@ body {
 }
 
 .full-width-image-1 {
-	background: url('/img/utah1.jpg') no-repeat center center;
+	background: url('/img/utah1.jpg') no-repeat 100% 100%;
 	background-size: cover;
 	text-align: center;
-	padding: 100px 0;
+	padding: 75px 0;
 	height:450px;
 }
 

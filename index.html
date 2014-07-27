@@ -33,7 +33,7 @@ title: Missouri S&amp;T Mars Rover
         </div>
     </div>
 </div>
-x
+
 <div class="full-width-image-2"></div>
 
 <div class="container" id="teams">
@@ -50,7 +50,7 @@ x
             </h3>
             <div class="row">
               {% for leader in site.data.Leaders %}
-                <div class="col-lg-6">
+                <div class="col-xs-6">
                   {% include leader.html %}
                 </div>
               {% endfor %}
@@ -60,7 +60,10 @@ x
             </h3>
             <div class="row">
               {% for subteam in site.data.SubTeams %}
-                <div class="col-lg-4">
+                <div class="col-xs-4 hidden-xs">
+                  {% include subteam.html %}
+                </div>
+                <div class="col-xs-12 visible-xs">
                   {% include subteam.html %}
                 </div>
               {% endfor %}
@@ -93,7 +96,10 @@ x
             </p>
             <div class="row">
               {% for sponsor in site.data.Sponsors %}
-                <div class="col-lg-4">
+                <div class="col-xs-4 hidden-xs">
+                  {% include sponsor.html %}
+                </div>
+                <div class="col-xs-12 visible-xs">
                   {% include sponsor.html %}
                 </div>
               {% endfor %}
@@ -115,9 +121,11 @@ x
               The best way to do so is to contact the right person for your inquiry type via email.
             </p>
             <div class="row">
-              {% for contact in site.data.Contacts %}
+              {% for contact in site.data.Leaders %}
                 <div class="col-lg-6">
-                  {% include contact.html %}
+                  {% if contact.Inquiries %}
+                    {% include contact.html %}
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>

@@ -1,22 +1,46 @@
-<div class="media well">
-  {% if leader.Image %}
-    <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ leader.Image }}" alt="No Picture">
-  {% endif %}
-  {% if leader.Logo %}
-    <i class="fa {{ leader.Logo }} media-object pull-right visible-md visible-lg" style="font-size:5em; color:rgba(0, 0, 0, 0.8)"></i>
-  {% endif %}
-  <div class="media-body">
-    <h3 class="media-heading">
+<div class="hidden-xs">
+  <div class="media well">
+    {% if leader.Image %}
+      <img class="media-object pull-left img-rounded" width="120" height="120" alt="No Picture"
+           src="{{ site.baseurl }}{{ leader.Image }}">
+    {% endif %}
+    {% if leader.Logo %}
+      <i class="fa {{ leader.Logo }} media-object pull-right visible-md visible-lg"
+         style="font-size:5em; color:rgba(0, 0, 0, 0.8)"></i>
+    {% endif %}
+    <div class="media-body">
+      <h3 class="media-heading">
+        {{ leader.Name }}
+        {% if leader.Position %}
+          <br>
+          <small>{{ leader.Position }}</small>
+        {% endif %}
+      </h3>
+      <p>
+        {% if leader.SubTeams %}
+          Sub-teams: <strong>{{ leader.SubTeams }}</strong><br/>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="visible-xs">
+    {% if leader.Image %}
+      <img class="media-object img-thumbnail pull-left" width="50" height="50" alt="No Picture"
+           src="{{ site.baseurl }}{{ leader.Image }}" style="margin-right: 5px;">
+    {% endif %}
+    <h5>
       {{ leader.Name }}
       {% if leader.Position %}
         <br>
-        <small>{{ leader.Position }}</small>
+        <small>
+          {% if leader.Logo %}
+            <i class="fa {{ leader.Logo }} media-object"
+               style="font-size:1em; color:rgba(0, 0, 0, 0.8)"></i>
+          {% endif %}
+          <abbr title="{{ leader.Position }}" class="initialism">{{ leader.Abbreviation }}</abbr>
+        </small>
       {% endif %}
-    </h3>
-    <p>
-      {% if leader.SubTeams %}
-        Sub-teams: <strong>{{ leader.SubTeams }}</strong><br/>
-      {% endif %}
-    </p>
-  </div>
+    </h5>
 </div>

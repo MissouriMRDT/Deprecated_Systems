@@ -1,23 +1,31 @@
 - Name: Sarah Ward
-  Position: Chief Executive Officer (CEO)
+  Position: Chief Executive Officer
+  Abbreviation: CEO
   SubTeams: Public Relations
   Image: img/ceo.jpg
   Logo: fa-group
+  Inquiries: Sponsorships, Membership, General
+  Email: sewt33@mst.edu
 
 - Name: Josh Jetter
-  Position: Chief Technical Officer (CTO)
+  Position: Chief Technical Officer
+  Abbreviation: CTO
   SubTeams: Electrical, Mechanical, Science, Telemetry/Controls
   Image: img/cto.jpg
   Logo: fa-cogs
+  Inquiries: Technical
+  Email: jpjwxc@mst.edu
 
 - Name: Andrew Willard
-  Position: Chief Financial Officer (CFO)
+  Position: Chief Financial Officer
+  Abbreviation: CFO
   SubTeams: Procurement, Inventory
   Image: img/cfo.jpg
   Logo: fa-money
 
 - Name: Hailey Tipton
-  Position: Chief Administrative Officer (CAO)
+  Position: Chief Administrative Officer
+  Abbreviation: CAO
   SubTeams:
   Image: img/cao.jpg
   Logo: fa-file-o

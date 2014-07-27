@@ -1,18 +1,42 @@
-<div class="media well">
-  {% if sponsor.Logo %}
-    <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ sponsor.Logo }}" alt="No Logo">
-  {% endif %}
-  <div class="media-body">
-    <h3 class="media-heading">
-      {{ sponsor.Name }}
-    </h3>
-    <p>
-      {% if sponsor.Level %}
-        Level: <strong>{{ sponsor.Level }}</strong> <br/>
-      {% endif %}
-      {% if sponsor.Level %}
-        <a href="{{ sponsor.Website }}" target="_blank">Sponsor Website</a>
-      {% endif %}
-    </p>
+<div class="hidden-xs">
+  <div class="media well">
+    {% if sponsor.Logo %}
+      <img class="media-object pull-left img-rounded" width="120" height="120" alt="No Logo"
+           src="{{ site.baseurl }}{{ sponsor.Logo }}">
+    {% endif %}
+    <div class="media-body">
+      <h3 class="media-heading">
+        {{ sponsor.Name }}
+      </h3>
+      <p>
+        {% if sponsor.Level %}
+          Level: <strong>{{ sponsor.Level }}</strong> <br/>
+        {% endif %}
+        {% if sponsor.Level %}
+          <a href="{{ sponsor.Website }}" target="_blank">Sponsor Website</a>
+        {% endif %}
+      </p>
+    </div>
   </div>
+</div>
+
+<div class="visible-xs">
+  {% if sponsor.Logo %}
+    <img class="media-object pull-left img-rounded" width="50" height="50" alt="No Logo"
+         src="{{ site.baseurl }}{{ sponsor.Logo }}" style="margin-right: 5px;">
+  {% endif %}
+  <h4>
+    {{ sponsor.Name }}
+    {% if sponsor.Level %}
+      <small>
+        <strong>{{ sponsor.Level }}</strong>
+      </small>
+    {% endif %}
+  </h4>
+  <p>
+
+    {% if sponsor.Level %}
+      <a href="{{ sponsor.Website }}" target="_blank">Website</a>
+    {% endif %}
+  </p>
 </div>

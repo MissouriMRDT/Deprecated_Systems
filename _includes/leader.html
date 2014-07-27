@@ -1,18 +1,21 @@
 <div class="media well">
-  <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ contact.Image }}" alt="No Logo">
+  {% if leader.Image %}
+    <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ leader.Image }}" alt="No Picture">
+  {% endif %}
+  {% if leader.Logo %}
+    <i class="fa {{ leader.Logo }} media-object pull-right" style="font-size:5em; color:rgba(0, 0, 0, 0.8)"></i>
+  {% endif %}
   <div class="media-body">
     <h3 class="media-heading">
-      {{ contact.Name }}
-      {% if contact.Position %}
-        <small>{{ contact.Position }}</small>
+      {{ leader.Name }}
+      {% if leader.Position %}
+        <br>
+        <small>{{ leader.Position }}</small>
       {% endif %}
     </h3>
     <p>
-      {% if contact.Reasons %}
-        Inquiry Type(s): <strong>{{ contact.Reasons }}</strong> <br/>
-      {% endif %}
-      {% if contact.Email %}
-        Email: <strong> <a href="mailto:{{ contact.Email }}">{{ contact.Email }}</a></strong> <br/>
+      {% if leader.SubTeams %}
+        Sub-teams: <strong>{{ leader.SubTeams }}</strong><br/>
       {% endif %}
     </p>
   </div>

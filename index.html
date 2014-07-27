@@ -20,14 +20,20 @@ title: Missouri S&amp;T Mars Rover
             <p class="lead section-lead">
               We design and build the next generation of Mars rovers that will one day work alongside human explorers in the field.
              </p>
-            <p class="section-paragraph">
+            <p class="section-paragraph" style="margin-bottom: 15px;">
               The Missouri S&amp;T Mars Rover Design Team (MRDT) was established in 2012 to compete in the University Rover Challenge (URC) hosted by The Mars Society.  URC expects rovers to perform a number of tasks in the southern Utah desert in conditions analogous to those that would be expected in and around colonies on Mars.  In two short years we have become the leading Mars rover design team in the U.S., and second in the world.  This feat would not be possible without Missouri S&amp;T, the generosity of our sponsors, and the dedication of our members.<br><br>
-              In the time between competitions, MRDT commits a year-long design, fabrication, and integration process.  MRDT operates completely on donations from sponsors and our university in order to see our rovers realized.  Our current rover is <i>Phoenix</i> (shown below) and is the rover that competed in URC 2014.  It features a water-jetted aluminum chassis, 3D-printed differential gears for the robotic arm, 7 lithium-polymer battery cells, and custom PCBs for communication, battery management, and power distribution, all of which have been designed entirely by members of MRDT.
+              In the time between competitions, MRDT commits to a year-long design, fabrication, and integration process.  MRDT operates completely on donations from sponsors and our university in order to see our rovers realized.  Our current rover is <i>Phoenix</i> (shown below) and is the rover that competed in URC 2014.  It features components designed entirely by members of MRDT, such as:
+              <ul>
+                <li>A water-jetted aluminum chassis</li>
+                <li>3D-printed differential gears for the robotic arm</li>
+                <li>21 lithium-polymer battery cells</li>
+                <li>Custom PCBs for communication, battery management, and power distribution</li>
+              </ul>
             </p>
         </div>
     </div>
 </div>
-
+x
 <div class="full-width-image-2"></div>
 
 <div class="container" id="teams">
@@ -35,11 +41,25 @@ title: Missouri S&amp;T Mars Rover
         <div class="col-lg-12 section">
             <h1 class="section-heading">Where to get involved?</h1>
             <p class="lead section-lead">
-
+              Executive Board
             </p>
-            <p class="section-paragraph">
-
+            <div class="row">
+              {% for leader in site.data.Leaders %}
+                <div class="col-lg-6">
+                  {% include leader.html %}
+                </div>
+              {% endfor %}
+            </div>
+            <p class="lead section-lead">
+              Sub-teams
             </p>
+            <div class="row">
+              {% for subteam in site.data.SubTeams %}
+                <div class="col-lg-4">
+                  {% include subteam.html %}
+                </div>
+              {% endfor %}
+            </div>
         </div>
     </div>
 </div>
@@ -89,9 +109,13 @@ title: Missouri S&amp;T Mars Rover
             <p class="lead section-lead">
               The best way to do so is to contact the right person for your inquiry type via email.
             </p>
-            {% for contact in site.data.Contacts %}
-              {% include contact.html %}
-            {% endfor %}
+            <div class="row">
+              {% for contact in site.data.Contacts %}
+                <div class="col-lg-6">
+                  {% include contact.html %}
+                </div>
+              {% endfor %}
+            </div>
         </div>
     </div>
 </div>

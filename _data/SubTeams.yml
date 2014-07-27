@@ -1,0 +1,27 @@
+- Name: Public Relations
+  Description:
+  Logo: fa-group
+
+- Name: Electrical
+  Description:
+  Logo: fa-cogs
+
+- Name: Mechanical
+  Description:
+  Logo: fa-cogs
+
+- Name: Science
+  Description:
+  Logo: fa-cogs
+
+- Name: Telemetry/Controls
+  Description:
+  Logo: fa-cogs
+
+- Name: Procurement
+  Description:
+  Logo: fa-money
+
+- Name: Inventory
+  Description:
+  Logo: fa-money

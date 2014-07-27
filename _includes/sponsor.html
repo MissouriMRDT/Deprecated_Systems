@@ -1,12 +1,18 @@
-<div class="media">
-  <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ sponsor.Logo }}" alt="No Logo">
+<div class="media well">
+  {% if sponsor.Logo %}
+    <img class="media-object pull-left img-rounded" width="120" height="120" src="{{ site.baseurl }}{{ sponsor.Logo }}" alt="No Logo">
+  {% endif %}
   <div class="media-body">
     <h3 class="media-heading">
       {{ sponsor.Name }}
-      <small>{{ sponsor.Year }}</small>
     </h3>
     <p>
-      <strong>Level:</strong> {{ person.Level }} <br/>
+      {% if sponsor.Level %}
+        Level: <strong>{{ sponsor.Level }}</strong> <br/>
+      {% endif %}
+      {% if sponsor.Level %}
+        <a href="{{ sponsor.Website }}" target="_blank">{{ sponsor.Website }}</a>
+      {% endif %}
     </p>
   </div>
 </div>

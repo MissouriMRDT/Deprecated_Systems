@@ -27,7 +27,7 @@
 
 <div class="visible-xs">
     {% if leader.Image %}
-      <img class="media-object img-thumbnail pull-left" width="50" height="50" alt="No Picture"
+      <img class="img-rounded pull-left" width="45" height="45" alt="No Picture"
            src="{{ site.baseurl }}{{ leader.Image }}" style="margin-right: 5px;">
     {% endif %}
     <h5>
@@ -39,7 +39,9 @@
             <i class="fa {{ leader.Logo }} media-object"
                style="font-size:1em; color:rgba(0, 0, 0, 0.8)"></i>
           {% endif %}
-          <abbr title="{{ leader.Position }}" class="initialism">{{ leader.Abbreviation }}</abbr>
+          {% if leader.Abbreviation %}
+            {{ leader.Abbreviation }}
+          {% endif %}
         </small>
       {% endif %}
     </h5>

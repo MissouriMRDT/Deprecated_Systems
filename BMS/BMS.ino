@@ -1,7 +1,27 @@
-/*MRDT 2014 BPS Software v0.2
-Written by Lukas Müller
-E-mail:lkm8c3@mail.mst.edu
-*/
+#include <EasyTransfer.h>
+
+EasyTransfer ET;
+
+struct SEND_DATA
+{
+  int volt0;
+  int temp0;
+  int volt1;
+  int temp1;
+  int volt2;
+  int temp2;
+  int volt3;
+  int temp3;
+  int volt4;
+  int temp4;
+  int volt5;
+  int temp5;
+  int volt6;
+  int temp6;
+  int main_bat_cur;
+  int main_bat_volt;
+};
+SEND_DATA batteryData;
 
 //Setting up port names
 const uint8_t A = 2;//Multiplexer Selector A
@@ -18,7 +38,7 @@ const uint8_t MV_PIN = 0;//MAIN Bus Voltage ADC pin
 const uint8_t MC_PIN = 1;//MAIN Battery Current ADC pin
 const uint8_t CC_PIN = 2;//Charger Current Measurment pin
 const uint8_t VOLTS = 3;//Voltage measurment from multiplexer
-const uint8_t BUTTON = 4;//Charger Button PIN
+const uint8_t BUTTON = 4;//E-Stop Button
 const uint8_t TEMP = 5;//Temperature mesurment from multiplexer
 const uint8_t MAIN = 9;//Main Battery Control
 const uint8_t ChargerPWM = 10;//PWM pin for charger
@@ -39,6 +59,9 @@ int TB4 = 0; // Battery 5 Temp
 int TB5 = 0; // Battery 6 Temp
 int TB6 = 0; // Battery 7 Temp
 int MC = 0;//Battery Main Current
+int MV = 0;//Battery Main Voltage
+int CC = 0;//Chareger Current
+int CV = 0;//Charger Voltage
 const int AVG_NUM = 50;
 
 //Program variables:
@@ -64,17 +87,37 @@ boolean fault = false;
 int vmax = 430; //Max cell voltage 4.2V
 int vmin = 297; //Min cell voltage 2.85V
 int cmax = 1000 ; //Max current
-int tempmax = 82; // Max ambient temperature 40C
+int tempmax = 102; // Max ambient temperature 50C
 
 //Battery Constraints to restart
-int vmaxR = 430; //Max cell voltage 4.2V
+int vmaxR = 425; //Max cell voltage 4.2V
 int vminR = 350; //Min cell voltage 3.3V
-int tempmaxR = 62; // Max ambient temperature 30C
+int tempmaxR = 92; // Max ambient temperature 45C
+
+//Battery Charger Constants
+int vcharge = 363;
+int icharge = 600;
+int vkp=64;
+int vki=32;
+int ikp=64;
+int iki=32;
+int PWM_Min=0;
+int PWM_Max=200;
+//Battery Charger Program Variables
+int vset = 0;
+int verror = 0;
+unsigned int vintegral = 0;
+int iset=100;
+int ierror=0;
+unsigned int iintegral = 0;
+int pwm = 0;
+boolean CVchargin = false;
 
 int estop = 0;
 
 
 void setup(){
+
 pinMode(MAIN, OUTPUT);
 pinMode(ChargerPWM, OUTPUT);
 pinMode(A, OUTPUT);
@@ -101,28 +144,69 @@ digitalWrite(GB5, LOW);
 digitalWrite(GB6, LOW);
 digitalWrite(GB7, LOW);
 
-Serial.begin(9600);
+Serial.begin(115200);
+ET.begin(details(batteryData),&Serial);
 
+
+//Setup Timer 1 for Charging Algorithm
+TCCR1A=0;
+TCCR1B=0;
+ICR1 = 250;
+OCR1B = 0;
+TCCR1A |= (1 << WGM11);
+TCCR1B |= (1 << WGM12)|(1 << WGM13);
+//set Fast PWM mode using ICR1 as TOP
+TCCR1B |= (1 << CS10);
+TCCR1A |= (1 << COM1B1);
+//Start PWM with zero duty cycle
 }
 
 void loop(){
-  estop=analogRead(4); //If estop button is pressed, turn of battery and do nothing else
+  
+  ////////////////////
+  // EStop
+  ////////////////////
+  estop=analogRead(4);
   if(estop>512){
    PORTB = PORTB & B11111101; 
-   Serial.println("E-Stop");
+
+   
+   fault = false;
+
   }
+  
+  /////////////////////
+  // Charging
+  /////////////////////
   else{
-  if( fault == false){ //if battery is ok check if it is ok
+  switchport(7);
+  CV=analogRead(VOLTS);
+  if(CV > vcharge)
+  { 
+    Serial.println("Charging");
     PORTB = PORTB | B00000010;
-  batterydata();
-   if( B0F>10 || B1F>10 || B2F>10 || B3F>10 || B4F>10 || B5F>10 || B6F>10 || CF>10){// if fault is measured to often turn battery off
-     PORTB = PORTB & B11111101;
-     Serial.println("Sustained Battery Fault");
-     fault = true;
-     ctn = 0;
-   }
-   ctn++;
-   if(ctn>100){
+    batterydata();
+    senddata();
+    while(check() && CV > vcharge)
+    { 
+      CC=(508-analogRead(CC_PIN));
+      Serial.println(CC);
+      ierror=iset-CC;
+      iintegral+=ierror;
+      iintegral=constrain(iintegral,0,65000);
+      pwm = ierror/ikp+iintegral/iki;
+      pwm = constrain(pwm,PWM_Min, PWM_Max);
+      OCR1B = pwm;
+      
+      batterydata();
+      switchport(7);
+      CV=analogRead(VOLTS);
+      senddata();
+      Serial.println("Updating PWM");
+      Serial.println(pwm);    
+    }
+    iintegral = 0;
+    OCR1B = 0;
     B0F = 0;
     B1F = 0;
     B2F = 0;
@@ -132,87 +216,13 @@ void loop(){
     B6F = 0;
     CF = 0;
     ctn = 0;
-   }}
-   else{
-     if(ctn == 1){
-      //delay(10000); 
-     }
-     batteryretry();
-     ctn++;
-    if(ctn>=1000){ // if fault is cleared turn it back on
-    if( B0R>50 || B1R>50 || B2R>50 || B3R>50 || B4R>50 || B5R>50 || B6R>50){
-     Serial.println("Fault not cleared");
-    }
-    else{
-     Serial.println("Battery On");
-     fault = false;
-     PORTB = PORTB | B00000010;
-      B0F = 0;
-      B1F = 0;
-      B2F = 0;
-      B3F = 0;
-      B4F = 0;
-      B5F = 0;
-      B6F = 0;
-      CF = 0;
-    }  
- ctn=0;
- B0R=0;
- B1R=0;
- B2R=0;
- B3R=0;
- B4R=0;
- B5R=0;
- B6R=0;
-    }}
-  } //Print all the battery states as serial data
-Serial.print("{Vb0,T,"); 
-Serial.print(VB0);
-Serial.println("}");
-Serial.print("{Vb1,T,"); 
-Serial.print(VB1);
-Serial.println("}");
-Serial.print("{Vb2,T,"); 
-Serial.print(VB2);
-Serial.println("}");
-Serial.print("{Vb3,T,"); 
-Serial.print(VB3);
-Serial.println("}");
-Serial.print("{Vb4,T,"); 
-Serial.print(VB4);
-Serial.println("}");
-Serial.print("{Vb5,T,"); 
-Serial.print(VB5);
-Serial.println("}");
-Serial.print("{Vb6,T,"); 
-Serial.print(VB6);
-Serial.println("}");    
-Serial.print("{Tb0,T,"); 
-Serial.print(TB0);
-Serial.println("}");
-Serial.print("{Tb1,T,"); 
-Serial.print(TB1);
-Serial.println("}");
-Serial.print("{Tb2,T,"); 
-Serial.print(TB2);
-Serial.println("}");
-Serial.print("{Tb3,T,"); 
-Serial.print(TB3);
-Serial.println("}");
-Serial.print("{Tb4,T,"); 
-Serial.print(TB4);
-Serial.println("}");
-Serial.print("{Tb5,T,"); 
-Serial.print(TB5);
-Serial.println("}");
-Serial.print("{Tb6,T,"); 
-Serial.print(TB6);
-Serial.println("}");
-Serial.print("{MC,T,"); 
-Serial.print(MC);
-Serial.println("}");
-    
-    
+    Serial.println("Done Charging");
+  }
+  batterydata();
+  senddata();
+  fault = false;
+  PORTB = PORTB | B00000010; 
+ }
 }
 //This Function reads the average from a port
 int long_adc(int channel){ 
@@ -311,49 +321,60 @@ void batterydata(){
   if(MC > cmax){
    CF++; 
   }
+  MV=long_adc(MV_PIN);
 }
 
-void batteryretry(){// this checks the battery to see if they are in a safe state again
-  switchport(0);
-  VB0=long_adc(VOLTS);
-  TB0=long_adc(TEMP);
-  switchport(1);
-  if ( VB0 > vmaxR || TB0 > tempmaxR || VB0 < vminR){
-    B0R++;
+void updatecharger(){
+CC=long_adc(CC_PIN);
+MV=long_adc(MV_PIN);
+switch (CVchargin){
+    case(true):
+    verror=vset-MV;
+    vintegral+=verror;
+    vintegral=constrain(vintegral,0,7680);
+    iset = verror/vkp+vintegral/vki;
+    break;
+    case(false):
+    iset=icharge;
+    break;   
   }
-  VB1=long_adc(VOLTS);
-  TB1=long_adc(TEMP);
-  switchport(2);
-  if ( VB1 > vmaxR || TB1 > tempmaxR || VB1 < vminR){
-    B1R++;
+ierror=iset-CC;
+iintegral+=ierror;
+iintegral=constrain(iintegral,0,65000);
+pwm = ierror/ikp+iintegral/iki;
+pwm = constrain(pwm,PWM_Min, PWM_Max);
+OCR1B = pwm;  
+}
+
+bool check()
+{
+  if ( VB0 > vmaxR || TB0 > tempmaxR || VB1 > vmaxR || TB1 > tempmaxR ||VB2 > vmaxR || TB2 > tempmaxR ||VB3 > vmaxR || TB3 > tempmaxR ||VB4 > vmaxR || TB4 > 1024 ||VB5 > vmaxR || TB5 > tempmaxR ||VB6 > vmaxR || TB6 > tempmaxR)
+  {
+    return false;
   }
-  VB2=long_adc(VOLTS);
-  TB2=long_adc(TEMP);
-  switchport(3);
-  if ( VB2 > vmaxR || TB2 > tempmaxR || VB2 < vminR){
-    B2R++;
+  else{
+    return true;
   }
-  VB3=long_adc(VOLTS);
-  TB3=long_adc(TEMP);
-  switchport(4);
-  if ( VB3 > vmaxR || TB3 > tempmaxR || VB3 < vminR){
-    B3R++;
-  }
-  VB4=long_adc(VOLTS);
-  TB4=long_adc(TEMP);
-  switchport(5);
-  if ( VB4 > vmaxR || TB4 > 1024 || VB4 < vminR){
-    B4R++;
-  }
-  VB5=long_adc(VOLTS);
-  TB5=long_adc(TEMP);
-  switchport(6);
-  if ( VB5 > vmaxR || TB5 > tempmaxR || VB5 < vminR){
-    B5R++;
-  }
-  VB6=long_adc(VOLTS);
-  TB6=long_adc(TEMP);
-  if ( VB6 > vmaxR || TB6 > tempmaxR || VB6 < vminR){
-    B6R++;
-  }
- }
+}
+
+void senddata()
+{
+  batteryData.volt0 = VB0;
+  batteryData.temp0 = TB0;
+  batteryData.volt1 = VB1;
+  batteryData.temp1 = TB1;
+  batteryData.volt2 = VB2;
+  batteryData.temp2 = TB2;
+  batteryData.volt3 = VB3;
+  batteryData.temp3 = TB3;
+  batteryData.volt4 = VB4;
+  batteryData.temp4 = TB4;
+  batteryData.volt5 = VB5;
+  batteryData.temp5 = TB5;
+  batteryData.volt6 = VB6;
+  batteryData.temp6 = TB6;
+  batteryData.main_bat_cur = MC;
+  batteryData.main_bat_volt = MV;
+  
+  ET.sendData();
+}

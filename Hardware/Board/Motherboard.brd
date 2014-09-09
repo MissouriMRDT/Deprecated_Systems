@@ -5596,8 +5596,6 @@
 <text x="106.68" y="93.18625" size="1.778" layer="21">Mux 5</text>
 <text x="31.75" y="102.71125" size="1.778" layer="21">Mux 1</text>
 <text x="41.91" y="90.17" size="1.778" layer="21" rot="R180">STLR_POW</text>
-<text x="44.92625" y="76.35875" size="1.778" layer="21">Bus</text>
-<text x="44.92625" y="82.39125" size="1.778" layer="21">Off</text>
 </plain>
 <libraries>
 <library name="MAX3077">

@@ -45,3 +45,6 @@ Software/CCS/.config/
 
 # Ignore Windows .db files
 *.db
+
+# Office Temp Files
+~$*

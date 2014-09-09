@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6814,6 +6814,11 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="LCD" gate="G$1" pin="15"/>
 <wire x1="104.14" y1="-5.08" x2="132.08" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="VBUS"/>
+<wire x1="-15.24" y1="-38.1" x2="-22.86" y2="-38.1" width="0.1524" layer="91"/>
+<label x="-22.86" y="-38.1" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="U2_MUX_S1" class="0">
 <segment>
@@ -6906,6 +6911,13 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="U$2" gate="G$1" pin="S"/>
 <wire x1="132.08" y1="25.4" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="+3V3" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="3.3V"/>
+<wire x1="-15.24" y1="-35.56" x2="-22.86" y2="-35.56" width="0.1524" layer="91"/>
+<label x="-22.86" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

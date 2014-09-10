@@ -4,3 +4,4 @@ Are you a new Base Station member? Go the [Wiki](https://github.com/MST-MRDT/Lau
 
 ### Launch Configurations
 - add link to launch-prep repo here
+- [Lucas Wyland Forked Repo](https://github.com/lucaswalter/launch-prep-lucaswalter)

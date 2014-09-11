@@ -1,7 +1,7 @@
 motherboard-squad
 =================
 
-[The helm and captains log](https://github.com/MST-MRDT/Motherboard/wiki) 
+[The helm](https://github.com/MST-MRDT/Motherboard/wiki) 
 
 This is the repository containing both the software and hardware designs for Missouri S&T's Mars Rover Motherboard Squad.
 

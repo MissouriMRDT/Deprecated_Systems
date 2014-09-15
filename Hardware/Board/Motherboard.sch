@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -6390,6 +6390,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="FAN4" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
+<part name="MAG" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
+<part name="GND38" library="supply1" deviceset="GND" device=""/>
+<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9649,6 +9652,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="D3" gate="G$1" x="134.62" y="0" rot="R180"/>
 <instance part="+3V22" gate="G$1" x="114.3" y="0"/>
 <instance part="C27" gate="G$1" x="91.44" y="17.78"/>
+<instance part="MAG" gate="G$1" x="129.54" y="-53.34"/>
+<instance part="GND38" gate="1" x="157.48" y="-66.04"/>
+<instance part="+3V23" gate="G$1" x="157.48" y="-38.1"/>
 </instances>
 <busses>
 </busses>
@@ -9730,6 +9736,13 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="GND36" gate="1" pin="GND"/>
 <pinref part="GPS" gate="G$1" pin="GND@2"/>
 <wire x1="139.7" y1="10.16" x2="147.32" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="MAG" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="-55.88" x2="157.48" y2="-55.88" width="0.1524" layer="91"/>
+<label x="144.78" y="-54.102" size="1.778" layer="95" rot="R180"/>
+<pinref part="GND38" gate="1" pin="GND"/>
+<wire x1="157.48" y1="-55.88" x2="157.48" y2="-63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ATCLK3" class="0">
@@ -9897,6 +9910,13 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="R41" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="-2.54" x2="114.3" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="MAG" gate="G$1" pin="2"/>
+<wire x1="134.62" y1="-53.34" x2="157.48" y2="-53.34" width="0.1524" layer="91"/>
+<label x="146.304" y="-51.562" size="1.778" layer="95" rot="R180"/>
+<pinref part="+3V23" gate="G$1" pin="+3V3"/>
+<wire x1="157.48" y1="-53.34" x2="157.48" y2="-40.64" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="BLUETH_TXD" class="0">
 <segment>
@@ -9986,6 +10006,30 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="U2" gate="G$1" pin="PC0(ADC0)"/>
 <wire x1="25.4" y1="25.4" x2="48.26" y2="25.4" width="0.1524" layer="91"/>
 <label x="27.94" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDA" class="0">
+<segment>
+<pinref part="MAG" gate="G$1" pin="3"/>
+<wire x1="134.62" y1="-50.8" x2="149.86" y2="-50.8" width="0.1524" layer="91"/>
+<label x="144.78" y="-49.022" size="1.778" layer="95" rot="R180"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PC4(ADC4/SDA)"/>
+<wire x1="25.4" y1="15.24" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
+<label x="27.94" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCL" class="0">
+<segment>
+<pinref part="MAG" gate="G$1" pin="4"/>
+<wire x1="134.62" y1="-48.26" x2="149.86" y2="-48.26" width="0.1524" layer="91"/>
+<label x="144.78" y="-46.482" size="1.778" layer="95" rot="R180"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PC5(ADC5/SCL)"/>
+<wire x1="25.4" y1="12.7" x2="48.26" y2="12.7" width="0.1524" layer="91"/>
+<label x="27.94" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

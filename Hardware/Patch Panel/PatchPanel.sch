@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2780,9 +2780,9 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <label x="111.76" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="RS-485_OUT5" gate="G$1" pin="5-DC++"/>
-<wire x1="71.12" y1="15.24" x2="83.82" y2="15.24" width="0.1524" layer="91"/>
-<label x="76.2" y="15.24" size="1.778" layer="95"/>
+<pinref part="RS-485_OUT5" gate="G$1" pin="6-RECEIVE-"/>
+<wire x1="71.12" y1="12.7" x2="83.82" y2="12.7" width="0.1524" layer="91"/>
+<label x="76.2" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="5_RX+" class="0">

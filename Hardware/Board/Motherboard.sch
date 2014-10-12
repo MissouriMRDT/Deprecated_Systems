@@ -6213,13 +6213,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="20.32" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="+3V3" class="0">
-<segment>
-<pinref part="U$3" gate="G$1" pin="3.3V"/>
-<wire x1="-15.24" y1="-35.56" x2="-22.86" y2="-35.56" width="0.1524" layer="91"/>
-<label x="-22.86" y="-35.56" size="1.778" layer="95"/>
-</segment>
-</net>
 </nets>
 </sheet>
 <sheet>

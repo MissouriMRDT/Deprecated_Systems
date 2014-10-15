@@ -1,0 +1,1 @@
+"./utils/uartstdio.obj" "./startup_ccs.obj" "./hello.obj" -l"libc.a" -l"C:/ti/TivaWare_C_Series-1.1/examples/boards/ek-tm4c123gxl/hello/ccs/../../../../../driverlib/ccs/Debug/driverlib.lib" "../hello_ccs.cmd" 

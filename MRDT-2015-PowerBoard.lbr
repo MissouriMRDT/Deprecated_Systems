@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -123,13 +123,40 @@
 <pad name="3" x="-25.4" y="-7.62" drill="1.3"/>
 <pad name="8" x="25.4" y="7.62" drill="2"/>
 <pad name="4" x="25.4" y="-7.62" drill="2"/>
-<text x="-11.43" y="0" size="1.778" layer="21">UWQ-12/20-T48NBS</text>
+<text x="-11.43" y="0" size="1.778" layer="21">&gt;VALUE</text>
 <text x="-27.94" y="8.89" size="1.778" layer="21">+VIN</text>
 <text x="-22.86" y="-8.89" size="1.778" layer="21" rot="R180">-VIN</text>
 <text x="-23.622" y="2.54" size="1.016" layer="21" rot="R270">CNTRL</text>
 <text x="27.94" y="11.43" size="1.778" layer="21" rot="R180">+VOUT</text>
 <text x="20.32" y="-11.43" size="1.778" layer="21">-VOUT</text>
 <wire x1="-23.876" y1="-1.905" x2="-23.876" y2="1.905" width="0.127" layer="21"/>
+<text x="-22.86" y="19.05" size="1.778" layer="21">&gt;NAME</text>
+</package>
+<package name="SOIC8_ACS711">
+<description>&lt;b&gt;Small Outline IC&lt;/b&gt;</description>
+<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-1.27" y="-2.6" dx="1.92" dy="2.2" layer="1"/>
+<smd name="4" x="1.27" y="-2.6" dx="1.92" dy="2.2" layer="1"/>
+<smd name="8" x="-1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-2.667" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="3.937" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.15" y1="-3.1" x2="-1.66" y2="-2" layer="51"/>
+<rectangle x1="-0.88" y1="-3.1" x2="-0.39" y2="-2" layer="51"/>
+<rectangle x1="0.39" y1="-3.1" x2="0.88" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="-3.1" x2="2.15" y2="-2" layer="51"/>
+<rectangle x1="1.66" y1="2" x2="2.15" y2="3.1" layer="51"/>
+<rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
+<rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
+<rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -208,6 +235,22 @@
 <pin name="REMOTE" x="-22.86" y="0" visible="pin" length="middle" function="dot"/>
 <pin name="+VOUT" x="25.4" y="7.62" visible="pin" length="middle" rot="R180"/>
 <pin name="-VOUT" x="25.4" y="-7.62" visible="pin" length="middle" rot="R180"/>
+<text x="-5.08" y="10.668" size="2.54" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="ACS711">
+<wire x1="-7.62" y1="10.16" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-10.16" x2="7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-10.16" x2="7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<pin name="IP+" x="-12.7" y="5.08" visible="pin" length="middle"/>
+<pin name="IP-" x="-12.7" y="-5.08" visible="pin" length="middle"/>
+<pin name="VCC" x="12.7" y="7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="VIOUT" x="12.7" y="2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="FAULT" x="12.7" y="-2.54" visible="pin" length="middle" function="dot" rot="R180"/>
+<pin name="GND" x="12.7" y="-7.62" visible="pin" length="middle" rot="R180"/>
+<text x="-5.08" y="12.7" size="1.778" layer="95" align="top-left">&gt;NAME</text>
+<text x="-5.08" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -285,6 +328,27 @@
 <connect gate="G$1" pin="-VIN" pad="3"/>
 <connect gate="G$1" pin="-VOUT" pad="4"/>
 <connect gate="G$1" pin="REMOTE" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="Q_ACS711*LC" prefix="Q">
+<description>±12.5A or ±25A Hall-effect current transducer. SOIC-8 Package with fused pads.</description>
+<gates>
+<gate name="G$1" symbol="ACS711" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC8_ACS711">
+<connects>
+<connect gate="G$1" pin="FAULT" pad="6"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="IP+" pad="1"/>
+<connect gate="G$1" pin="IP-" pad="4"/>
+<connect gate="G$1" pin="VCC" pad="8"/>
+<connect gate="G$1" pin="VIOUT" pad="7"/>
 </connects>
 <technologies>
 <technology name=""/>

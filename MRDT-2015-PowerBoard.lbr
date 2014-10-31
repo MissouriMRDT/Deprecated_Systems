@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -46,6 +46,10 @@
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -55,15 +59,69 @@
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="99" name="SpiceOrder" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="100" name="Muster" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="101" name="Flex-Kleb" color="1" fill="7" visible="yes" active="yes"/>
+<layer number="102" name="Vscore" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="103" name="tMap" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="104" name="Name" color="16" fill="1" visible="yes" active="yes"/>
 <layer number="105" name="Beschreib" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="106" name="BGA-Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="107" name="BD-Top" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="tplace-old" color="10" fill="1" visible="yes" active="yes"/>
+<layer number="109" name="ref-old" color="11" fill="1" visible="yes" active="yes"/>
+<layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="111" name="LPC17xx" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="113" name="IDFDebug" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="124" name="bTestmark" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="140" name="Page" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="141" name="Fabrication" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill Legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="153" name="FabDoc1" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="154" name="FabDoc2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="155" name="FabDoc3" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="202" name="202bmp" color="3" fill="10" visible="yes" active="yes"/>
+<layer number="203" name="203bmp" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="204" name="204bmp" color="5" fill="10" visible="yes" active="yes"/>
+<layer number="205" name="205bmp" color="6" fill="10" visible="yes" active="yes"/>
+<layer number="206" name="206bmp" color="7" fill="10" visible="yes" active="yes"/>
+<layer number="207" name="207bmp" color="8" fill="10" visible="yes" active="yes"/>
+<layer number="208" name="208bmp" color="9" fill="10" visible="yes" active="yes"/>
+<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="217" name="217bmp" color="18" fill="1" visible="no" active="no"/>
+<layer number="218" name="218bmp" color="19" fill="1" visible="no" active="no"/>
+<layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
+<layer number="220" name="220bmp" color="21" fill="1" visible="no" active="no"/>
+<layer number="221" name="221bmp" color="22" fill="1" visible="no" active="no"/>
+<layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
+<layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
+<layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
@@ -158,6 +216,74 @@
 <rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
 </package>
+<package name="LARGE_TERMINAL_HOLE">
+<pad name="P$1" x="0" y="0" drill="12.7" diameter="25.4"/>
+</package>
+<package name="D2PACK">
+<description>3-Pin D&lt;sup&gt;2&lt;/sup&gt;PAK
+&lt;br&gt;
+2-pin w/ tab</description>
+<wire x1="-5.2" y1="-4.575" x2="-5.2" y2="4.575" width="0.2032" layer="51"/>
+<wire x1="5.2" y1="4.575" x2="5.2" y2="-4.575" width="0.2032" layer="51"/>
+<wire x1="5.2" y1="-4.575" x2="-5.2" y2="-4.575" width="0.2032" layer="21"/>
+<wire x1="-5.2" y1="-4.575" x2="-5.2" y2="-3.175" width="0.2032" layer="21"/>
+<wire x1="5.2" y1="-4.575" x2="5.2" y2="-3.175" width="0.2032" layer="21"/>
+<rectangle x1="2.015" y1="-9.775" x2="3.065" y2="-6.575" layer="51"/>
+<rectangle x1="-3.065" y1="-9.775" x2="-2.015" y2="-6.575" layer="51"/>
+<rectangle x1="-0.525" y1="-6.375" x2="0.525" y2="-4.475" layer="21"/>
+<rectangle x1="-3.065" y1="-6.375" x2="-2.015" y2="-4.475" layer="21"/>
+<rectangle x1="2.015" y1="-6.375" x2="3.065" y2="-4.475" layer="21"/>
+<smd name="1" x="-2.54" y="-8.275" dx="1.6" dy="3.5" layer="1"/>
+<smd name="2" x="2.54" y="-8.275" dx="1.6" dy="3.5" layer="1"/>
+<smd name="TAB" x="0" y="2" dx="12.2" dy="9.75" layer="1"/>
+<text x="-4.953" y="-3.556" size="0.4318" layer="25">&gt;Name</text>
+<text x="-4.953" y="-4.318" size="0.4318" layer="27">&gt;Value</text>
+<polygon width="0.2032" layer="51">
+<vertex x="-5.2" y="4.6"/>
+<vertex x="-5.2" y="5.7"/>
+<vertex x="-2.8" y="6.075"/>
+<vertex x="2.8" y="6.075"/>
+<vertex x="5.2" y="5.7"/>
+<vertex x="5.2" y="4.6"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="-4.25" y="-1.925"/>
+<vertex x="-4.25" y="0"/>
+<vertex x="-3.6" y="0"/>
+<vertex x="-3.6" y="3.4"/>
+<vertex x="-2.8" y="3.4"/>
+<vertex x="-2.8" y="6.075"/>
+<vertex x="2.8" y="6.075"/>
+<vertex x="2.8" y="3.4"/>
+<vertex x="3.6" y="3.4"/>
+<vertex x="3.6" y="0"/>
+<vertex x="4.25" y="0"/>
+<vertex x="4.25" y="-1.925"/>
+</polygon>
+</package>
+<package name="TO-220-531102B02500G">
+<wire x1="-5.334" y1="-0.9675" x2="5.334" y2="-0.9675" width="0.1778" layer="21"/>
+<wire x1="-5.2578" y1="-5.7935" x2="5.2578" y2="-5.7935" width="0.1778" layer="21"/>
+<wire x1="5.2578" y1="-5.7935" x2="5.334" y2="-0.9675" width="0.1778" layer="21"/>
+<wire x1="-5.2578" y1="-5.7935" x2="-5.334" y2="-0.9675" width="0.1778" layer="21"/>
+<wire x1="-5.334" y1="-1.9835" x2="5.334" y2="-1.9835" width="0.1778" layer="21"/>
+<pad name="1" x="-2.54" y="-3.5075" drill="1.397" shape="square"/>
+<pad name="2" x="0" y="-3.5075" drill="1.397"/>
+<pad name="3" x="2.54" y="-3.5075" drill="1.397"/>
+<text x="-5.08" y="-11.1275" size="1.27" layer="25">&gt;NAME</text>
+<text x="-5.08" y="-8.5875" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-5.334" y1="-1.9835" x2="5.334" y2="-0.9675" layer="21"/>
+<hole x="-12.7" y="0" drill="2.8"/>
+<hole x="12.7" y="0" drill="2.8"/>
+<wire x1="-17.46" y1="6.35" x2="-17.46" y2="-6.35" width="0.127" layer="21"/>
+<wire x1="-17.46" y1="6.35" x2="17.46" y2="6.35" width="0.127" layer="21"/>
+<wire x1="17.46" y1="6.35" x2="17.46" y2="-6.35" width="0.127" layer="21"/>
+<wire x1="17.46" y1="-6.35" x2="-17.46" y2="-6.35" width="0.127" layer="21"/>
+<wire x1="-18" y1="7" x2="-18" y2="-7" width="0.127" layer="39"/>
+<wire x1="-18" y1="-7" x2="18" y2="-7" width="0.127" layer="39"/>
+<wire x1="18" y1="-7" x2="18" y2="7" width="0.127" layer="39"/>
+<wire x1="18" y1="7" x2="-18" y2="7" width="0.127" layer="39"/>
+</package>
 </packages>
 <symbols>
 <symbol name="Q_DC/DC">
@@ -251,6 +377,66 @@
 <pin name="GND" x="12.7" y="-7.62" visible="pin" length="middle" rot="R180"/>
 <text x="-5.08" y="12.7" size="1.778" layer="95" align="top-left">&gt;NAME</text>
 <text x="-5.08" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="NEW-PIN">
+<pin name="P$1" x="0" y="0" visible="off" length="middle" rot="R90"/>
+<wire x1="-1.778" y1="5.08" x2="1.778" y2="5.08" width="0.127" layer="94"/>
+<wire x1="1.778" y1="5.08" x2="0" y2="8.128" width="0.127" layer="94"/>
+<circle x="0" y="7.493" radius="0.127" width="0.0508" layer="94"/>
+<wire x1="-1.778" y1="5.08" x2="0" y2="8.128" width="0.127" layer="94"/>
+<wire x1="0.508" y1="7.112" x2="-0.508" y2="7.112" width="0.127" layer="94"/>
+<circle x="0" y="7.493" radius="0.0254" width="0.0508" layer="94"/>
+<wire x1="-0.381" y1="7.493" x2="0" y2="7.366" width="0.0508" layer="94"/>
+<wire x1="-0.381" y1="7.493" x2="0" y2="7.62" width="0.0508" layer="94"/>
+<wire x1="0" y1="7.62" x2="0.381" y2="7.493" width="0.0508" layer="94"/>
+<wire x1="0" y1="7.366" x2="0.381" y2="7.493" width="0.0508" layer="94"/>
+<wire x1="-1.3335" y1="5.334" x2="1.3335" y2="5.334" width="0.0254" layer="94"/>
+<wire x1="1.27" y1="5.461" x2="-1.27" y2="5.461" width="0.0254" layer="94"/>
+<wire x1="-1.2065" y1="5.588" x2="1.2065" y2="5.588" width="0.0254" layer="94"/>
+<wire x1="1.143" y1="5.715" x2="-1.143" y2="5.715" width="0.0254" layer="94"/>
+<wire x1="-1.0795" y1="5.842" x2="1.0795" y2="5.842" width="0.0254" layer="94"/>
+<wire x1="1.016" y1="5.969" x2="-1.016" y2="5.969" width="0.0254" layer="94"/>
+<wire x1="-0.9525" y1="6.096" x2="0.9525" y2="6.096" width="0.0254" layer="94"/>
+<wire x1="0.889" y1="6.223" x2="-0.889" y2="6.223" width="0.0254" layer="94"/>
+<wire x1="-0.8255" y1="6.35" x2="0.8255" y2="6.35" width="0.0254" layer="94"/>
+<wire x1="0.762" y1="6.477" x2="-0.762" y2="6.477" width="0.0254" layer="94"/>
+<wire x1="-0.6985" y1="6.604" x2="0.6985" y2="6.604" width="0.0254" layer="94"/>
+<wire x1="-0.635" y1="6.731" x2="0.635" y2="6.731" width="0.0254" layer="94"/>
+<wire x1="-0.5715" y1="6.858" x2="0.5715" y2="6.858" width="0.0254" layer="94"/>
+<text x="-5.08" y="10.16" size="1.778" layer="95" align="top-left">&gt;NAME</text>
+</symbol>
+<symbol name="MOSFET">
+<pin name="D" x="2.54" y="7.62" visible="pin" length="short" rot="R270"/>
+<pin name="S" x="2.54" y="-7.62" visible="pin" length="short" rot="R90"/>
+<pin name="G" x="-7.62" y="2.54" visible="pin" length="short"/>
+<wire x1="2.54" y1="5.08" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="-3.175" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.905" y2="0.635" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.905" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="4.445" y2="0" width="0.254" layer="94"/>
+<wire x1="4.445" y1="0" x2="5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="5.715" y2="0" width="0.254" layer="94"/>
+<wire x1="5.715" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="4.445" y2="1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="5.715" y2="1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="5.08" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+<text x="5.08" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -349,6 +535,49 @@
 <connect gate="G$1" pin="IP-" pad="4"/>
 <connect gate="G$1" pin="VCC" pad="8"/>
 <connect gate="G$1" pin="VIOUT" pad="7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TERMINAL_HOLE">
+<gates>
+<gate name="G$1" symbol="NEW-PIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LARGE_TERMINAL_HOLE">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="Q_IRF*7437" prefix="Q">
+<description>40V 195A N-CH MOSFET switch with heatsink</description>
+<gates>
+<gate name="G$1" symbol="MOSFET" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="PTH_HS" package="TO-220-531102B02500G">
+<connects>
+<connect gate="G$1" pin="D" pad="2"/>
+<connect gate="G$1" pin="G" pad="1"/>
+<connect gate="G$1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SMD" package="D2PACK">
+<connects>
+<connect gate="G$1" pin="D" pad="TAB"/>
+<connect gate="G$1" pin="G" pad="1"/>
+<connect gate="G$1" pin="S" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -285,10 +285,10 @@
 <wire x1="18" y1="7" x2="-18" y2="7" width="0.127" layer="39"/>
 </package>
 <package name="20020618-M02">
-<pad name="P$1" x="-3.81" y="3.81" drill="1.6"/>
-<pad name="P$3" x="3.81" y="3.81" drill="1.6"/>
-<pad name="P$4" x="3.81" y="-3.81" drill="1.6"/>
-<pad name="P$2" x="-3.81" y="-3.81" drill="1.6"/>
+<pad name="L1" x="-3.81" y="3.81" drill="1.6"/>
+<pad name="R1" x="3.81" y="3.81" drill="1.6"/>
+<pad name="R2" x="3.81" y="-3.81" drill="1.6"/>
+<pad name="L2" x="-3.81" y="-3.81" drill="1.6"/>
 <wire x1="-7.62" y1="6.35" x2="7.62" y2="6.35" width="0.127" layer="21"/>
 <wire x1="7.62" y1="6.35" x2="7.62" y2="-22.86" width="0.127" layer="21"/>
 <wire x1="7.62" y1="-22.86" x2="-7.62" y2="-22.86" width="0.127" layer="21"/>
@@ -296,6 +296,8 @@
 <rectangle x1="-7.62" y1="-22.86" x2="7.62" y2="6.35" layer="39"/>
 <text x="0" y="7.62" size="1.778" layer="25" align="center">&gt;NAME</text>
 <text x="0" y="-17.78" size="1.27" layer="27" rot="R90" align="center-left">&gt;VALUE</text>
+<text x="-3.81" y="0" size="1.778" layer="21" align="center">L</text>
+<text x="3.81" y="0" size="1.778" layer="21" align="center">R</text>
 </package>
 </packages>
 <symbols>
@@ -453,14 +455,14 @@
 </symbol>
 <symbol name="2-PIN_HEADER">
 <description>Two Pin Header</description>
-<pin name="P$1" x="-7.62" y="12.7" visible="pin" length="middle"/>
-<pin name="P$2" x="-7.62" y="7.62" visible="pin" length="middle"/>
-<wire x1="-2.54" y1="15.24" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
-<wire x1="10.16" y1="5.08" x2="10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="15.24" x2="-2.54" y2="15.24" width="0.254" layer="94"/>
-<text x="-2.54" y="2.54" size="1.778" layer="94">&gt;VALUE</text>
-<text x="-2.54" y="17.78" size="1.778" layer="94" align="top-left">&gt;NAME</text>
+<pin name="L" x="-10.16" y="2.54" visible="pin" length="middle"/>
+<pin name="R" x="10.16" y="2.54" visible="pin" length="middle" rot="R180"/>
+<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<text x="0" y="7.62" size="1.778" layer="94" rot="R180" align="bottom-center">&gt;VALUE</text>
+<text x="0" y="-5.08" size="1.778" layer="94" rot="R180" align="bottom-center">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -609,7 +611,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="H_2-PIN_HI_AMP" prefix="H">
+<deviceset name="H_20020618-M02*" prefix="H">
 <description>20020618-M02* header pin from FCI. Rated up to 32A</description>
 <gates>
 <gate name="G$1" symbol="2-PIN_HEADER" x="-2.54" y="-10.16"/>
@@ -617,8 +619,8 @@
 <devices>
 <device name="" package="20020618-M02">
 <connects>
-<connect gate="G$1" pin="P$1" pad="P$1 P$2"/>
-<connect gate="G$1" pin="P$2" pad="P$3 P$4"/>
+<connect gate="G$1" pin="L" pad="L1 L2"/>
+<connect gate="G$1" pin="R" pad="R1 R2"/>
 </connects>
 <technologies>
 <technology name=""/>

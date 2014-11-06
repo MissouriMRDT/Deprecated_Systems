@@ -5526,6 +5526,282 @@ Source: Comchip CGRM4001-G.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="StellarisLaunchPadConnected">
+<packages>
+<package name="STELLARISLAUNCHPAD_CONNECTED">
+<wire x1="0" y1="0" x2="124.46" y2="0" width="0.127" layer="21"/>
+<wire x1="124.46" y1="0" x2="124.46" y2="55.88" width="0.127" layer="21"/>
+<wire x1="124.46" y1="55.88" x2="0" y2="55.88" width="0.127" layer="21"/>
+<wire x1="0" y1="55.88" x2="0" y2="0" width="0.127" layer="21"/>
+<pad name="P51" x="36.83" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P52" x="39.37" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P53" x="41.91" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P54" x="44.45" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P55" x="46.99" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P56" x="49.53" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P57" x="52.07" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P58" x="54.61" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P59" x="57.15" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P60" x="59.69" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P50" x="59.69" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P49" x="57.15" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P48" x="54.61" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P47" x="52.07" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P46" x="49.53" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P45" x="46.99" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P44" x="44.45" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P43" x="41.91" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P42" x="39.37" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P41" x="36.83" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P11" x="36.83" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P1" x="36.83" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P2" x="39.37" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P12" x="39.37" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P3" x="41.91" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P13" x="41.91" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P4" x="44.45" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P14" x="44.45" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P5" x="46.99" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P15" x="46.99" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P6" x="49.53" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P16" x="49.53" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P7" x="52.07" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P17" x="52.07" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P8" x="54.61" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P18" x="54.61" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P9" x="57.15" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P19" x="57.15" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P10" x="59.69" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P20" x="59.69" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P31" x="100.33" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P21" x="100.33" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P22" x="102.87" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P32" x="102.87" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P23" x="105.41" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P33" x="105.41" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P24" x="107.95" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P34" x="107.95" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P25" x="110.49" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P35" x="110.49" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P26" x="113.03" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P36" x="113.03" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P27" x="115.57" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P37" x="115.57" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P28" x="118.11" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P38" x="118.11" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P29" x="120.65" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P39" x="120.65" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P40" x="123.19" y="52.07" drill="0.8" shape="octagon"/>
+<pad name="P30" x="123.19" y="54.61" drill="0.8" shape="octagon"/>
+<pad name="P61" x="100.33" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P71" x="100.33" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P72" x="102.87" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P62" x="102.87" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P63" x="105.41" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P73" x="105.41" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P74" x="107.95" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P64" x="107.95" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P65" x="110.49" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P75" x="110.49" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P76" x="113.03" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P66" x="113.03" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P67" x="115.57" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P77" x="115.57" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P78" x="118.11" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P68" x="118.11" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P69" x="120.65" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P79" x="120.65" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P80" x="123.19" y="8.89" drill="0.8" shape="octagon"/>
+<pad name="P70" x="123.19" y="11.43" drill="0.8" shape="octagon"/>
+<wire x1="-2.54" y1="53.34" x2="13.97" y2="53.34" width="0.127" layer="21"/>
+<wire x1="13.97" y1="53.34" x2="13.97" y2="38.1" width="0.127" layer="21"/>
+<wire x1="13.97" y1="38.1" x2="-2.54" y2="38.1" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="38.1" x2="-2.54" y2="53.34" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="STELLARISLAUNCHPAD_CONNECTED">
+<wire x1="17.78" y1="43.18" x2="-17.78" y2="43.18" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-78.74" x2="17.78" y2="43.18" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="43.18" x2="-17.78" y2="-78.74" width="0.254" layer="94"/>
+<pin name="GND_1" x="-22.86" y="40.64" length="middle"/>
+<pin name="GND_2" x="-22.86" y="38.1" length="middle"/>
+<pin name="GND_3" x="-22.86" y="35.56" length="middle"/>
+<pin name="GND_4" x="-22.86" y="33.02" length="middle"/>
+<pin name="3V3_1" x="22.86" y="40.64" length="middle" rot="R180"/>
+<pin name="3V3_2" x="22.86" y="38.1" length="middle" rot="R180"/>
+<pin name="5V_1" x="22.86" y="33.02" length="middle" rot="R180"/>
+<pin name="5V_2" x="22.86" y="30.48" length="middle" rot="R180"/>
+<pin name="RST_1" x="-22.86" y="27.94" length="middle"/>
+<pin name="RST_2" x="-22.86" y="25.4" length="middle"/>
+<pin name="PA2/PQ3" x="22.86" y="25.4" length="middle" rot="R180"/>
+<pin name="PA3/PQ2" x="22.86" y="22.86" length="middle" rot="R180"/>
+<pin name="PA4" x="22.86" y="20.32" length="middle" rot="R180"/>
+<pin name="PA5" x="22.86" y="17.78" length="middle" rot="R180"/>
+<pin name="PA6" x="22.86" y="15.24" length="middle" rot="R180"/>
+<pin name="PA7" x="22.86" y="12.7" length="middle" rot="R180"/>
+<pin name="PB2" x="-22.86" y="20.32" length="middle"/>
+<pin name="PB3" x="-22.86" y="17.78" length="middle"/>
+<pin name="PB4" x="-22.86" y="15.24" length="middle"/>
+<pin name="PB5" x="-22.86" y="12.7" length="middle"/>
+<pin name="PC4" x="22.86" y="7.62" length="middle" rot="R180"/>
+<pin name="PC5" x="22.86" y="5.08" length="middle" rot="R180"/>
+<pin name="PC6" x="22.86" y="2.54" length="middle" rot="R180"/>
+<pin name="PC7" x="22.86" y="0" length="middle" rot="R180"/>
+<pin name="PD0" x="-22.86" y="7.62" length="middle"/>
+<pin name="PD1" x="-22.86" y="5.08" length="middle"/>
+<pin name="PD2" x="-22.86" y="2.54" length="middle"/>
+<pin name="PD3" x="-22.86" y="0" length="middle"/>
+<pin name="PD7" x="-22.86" y="-2.54" length="middle"/>
+<pin name="PE0" x="22.86" y="-5.08" length="middle" rot="R180"/>
+<pin name="PE1" x="22.86" y="-7.62" length="middle" rot="R180"/>
+<pin name="PE2" x="22.86" y="-10.16" length="middle" rot="R180"/>
+<pin name="PE3" x="22.86" y="-12.7" length="middle" rot="R180"/>
+<pin name="PE4" x="22.86" y="-15.24" length="middle" rot="R180"/>
+<pin name="PE5" x="22.86" y="-17.78" length="middle" rot="R180"/>
+<pin name="PF1" x="-22.86" y="-7.62" length="middle"/>
+<pin name="PF2" x="-22.86" y="-10.16" length="middle"/>
+<pin name="PF3" x="-22.86" y="-12.7" length="middle"/>
+<pin name="PG0" x="-22.86" y="-17.78" length="middle"/>
+<pin name="PG1" x="-22.86" y="-20.32" length="middle"/>
+<pin name="PH0" x="22.86" y="-22.86" length="middle" rot="R180"/>
+<pin name="PH1" x="22.86" y="-25.4" length="middle" rot="R180"/>
+<pin name="PH2" x="22.86" y="-27.94" length="middle" rot="R180"/>
+<pin name="PH3" x="22.86" y="-30.48" length="middle" rot="R180"/>
+<pin name="PK0" x="-22.86" y="-25.4" length="middle"/>
+<pin name="PK1" x="-22.86" y="-27.94" length="middle"/>
+<pin name="PK2" x="-22.86" y="-30.48" length="middle"/>
+<pin name="PK3" x="-22.86" y="-33.02" length="middle"/>
+<pin name="PK4" x="-22.86" y="-35.56" length="middle"/>
+<pin name="PK5" x="-22.86" y="-38.1" length="middle"/>
+<pin name="PK6" x="-22.86" y="-40.64" length="middle"/>
+<pin name="PK7" x="-22.86" y="-43.18" length="middle"/>
+<pin name="PL0" x="22.86" y="-35.56" length="middle" rot="R180"/>
+<pin name="PL1" x="22.86" y="-38.1" length="middle" rot="R180"/>
+<pin name="PL2" x="22.86" y="-40.64" length="middle" rot="R180"/>
+<pin name="PL3" x="22.86" y="-43.18" length="middle" rot="R180"/>
+<pin name="PL4" x="22.86" y="-45.72" length="middle" rot="R180"/>
+<pin name="PL5" x="22.86" y="-48.26" length="middle" rot="R180"/>
+<pin name="PM0" x="-22.86" y="-48.26" length="middle"/>
+<pin name="PM1" x="-22.86" y="-50.8" length="middle"/>
+<pin name="PM2" x="-22.86" y="-53.34" length="middle"/>
+<pin name="PM3" x="-22.86" y="-55.88" length="middle"/>
+<pin name="PM4" x="-22.86" y="-58.42" length="middle"/>
+<pin name="PM5" x="-22.86" y="-60.96" length="middle"/>
+<pin name="PM6" x="-22.86" y="-63.5" length="middle"/>
+<pin name="PM7" x="-22.86" y="-66.04" length="middle"/>
+<pin name="PN2" x="22.86" y="-53.34" length="middle" rot="R180"/>
+<pin name="PN3" x="22.86" y="-55.88" length="middle" rot="R180"/>
+<pin name="PN4" x="22.86" y="-58.42" length="middle" rot="R180"/>
+<pin name="PN5" x="22.86" y="-60.96" length="middle" rot="R180"/>
+<pin name="PP0" x="22.86" y="-66.04" length="middle" rot="R180"/>
+<pin name="PP1" x="22.86" y="-68.58" length="middle" rot="R180"/>
+<pin name="PP2" x="22.86" y="-71.12" length="middle" rot="R180"/>
+<pin name="PP3" x="22.86" y="-73.66" length="middle" rot="R180"/>
+<pin name="PP4" x="22.86" y="-76.2" length="middle" rot="R180"/>
+<pin name="PP5" x="22.86" y="-78.74" length="middle" rot="R180"/>
+<wire x1="-17.78" y1="-78.74" x2="-17.78" y2="-81.28" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-81.28" x2="17.78" y2="-81.28" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-81.28" x2="17.78" y2="-78.74" width="0.254" layer="94"/>
+<pin name="PQ0" x="-22.86" y="-71.12" length="middle"/>
+<pin name="PQ1" x="-22.86" y="-73.66" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="STELLARISLAUNCHPAD_CONNECTED">
+<gates>
+<gate name="G$1" symbol="STELLARISLAUNCHPAD_CONNECTED" x="0" y="20.32"/>
+</gates>
+<devices>
+<device name="" package="STELLARISLAUNCHPAD_CONNECTED">
+<connects>
+<connect gate="G$1" pin="3V3_1" pad="P30"/>
+<connect gate="G$1" pin="3V3_2" pad="P10"/>
+<connect gate="G$1" pin="5V_1" pad="P40"/>
+<connect gate="G$1" pin="5V_2" pad="P20"/>
+<connect gate="G$1" pin="GND_1" pad="P80"/>
+<connect gate="G$1" pin="GND_2" pad="P60"/>
+<connect gate="G$1" pin="GND_3" pad="P39"/>
+<connect gate="G$1" pin="GND_4" pad="P19"/>
+<connect gate="G$1" pin="PA2/PQ3" pad="P54"/>
+<connect gate="G$1" pin="PA3/PQ2" pad="P55"/>
+<connect gate="G$1" pin="PA4" pad="P12"/>
+<connect gate="G$1" pin="PA5" pad="P11"/>
+<connect gate="G$1" pin="PA6" pad="P33"/>
+<connect gate="G$1" pin="PA7" pad="P57"/>
+<connect gate="G$1" pin="PB2" pad="P22"/>
+<connect gate="G$1" pin="PB3" pad="P21"/>
+<connect gate="G$1" pin="PB4" pad="P18"/>
+<connect gate="G$1" pin="PB5" pad="P17"/>
+<connect gate="G$1" pin="PC4" pad="P28"/>
+<connect gate="G$1" pin="PC5" pad="P27"/>
+<connect gate="G$1" pin="PC6" pad="P26"/>
+<connect gate="G$1" pin="PC7" pad="P23"/>
+<connect gate="G$1" pin="PD0" pad="P74"/>
+<connect gate="G$1" pin="PD1" pad="P75"/>
+<connect gate="G$1" pin="PD2" pad="P9"/>
+<connect gate="G$1" pin="PD3" pad="P24"/>
+<connect gate="G$1" pin="PD7" pad="P34"/>
+<connect gate="G$1" pin="PE0" pad="P38"/>
+<connect gate="G$1" pin="PE1" pad="P37"/>
+<connect gate="G$1" pin="PE2" pad="P36"/>
+<connect gate="G$1" pin="PE3" pad="P35"/>
+<connect gate="G$1" pin="PE4" pad="P29"/>
+<connect gate="G$1" pin="PE5" pad="P25"/>
+<connect gate="G$1" pin="PF1" pad="P70"/>
+<connect gate="G$1" pin="PF2" pad="P69"/>
+<connect gate="G$1" pin="PF3" pad="P68"/>
+<connect gate="G$1" pin="PG0" pad="P67"/>
+<connect gate="G$1" pin="PG1" pad="P50"/>
+<connect gate="G$1" pin="PH0" pad="P44"/>
+<connect gate="G$1" pin="PH1" pad="P43"/>
+<connect gate="G$1" pin="PH2" pad="P78"/>
+<connect gate="G$1" pin="PH3" pad="P77"/>
+<connect gate="G$1" pin="PK0" pad="P16"/>
+<connect gate="G$1" pin="PK1" pad="P15"/>
+<connect gate="G$1" pin="PK2" pad="P14"/>
+<connect gate="G$1" pin="PK3" pad="P13"/>
+<connect gate="G$1" pin="PK4" pad="P49"/>
+<connect gate="G$1" pin="PK5" pad="P48"/>
+<connect gate="G$1" pin="PK6" pad="P42"/>
+<connect gate="G$1" pin="PK7" pad="P41"/>
+<connect gate="G$1" pin="PL0" pad="P64"/>
+<connect gate="G$1" pin="PL1" pad="P63"/>
+<connect gate="G$1" pin="PL2" pad="P62"/>
+<connect gate="G$1" pin="PL3" pad="P61"/>
+<connect gate="G$1" pin="PL4" pad="P66"/>
+<connect gate="G$1" pin="PL5" pad="P65"/>
+<connect gate="G$1" pin="PM0" pad="P47"/>
+<connect gate="G$1" pin="PM1" pad="P46"/>
+<connect gate="G$1" pin="PM2" pad="P45"/>
+<connect gate="G$1" pin="PM3" pad="P79"/>
+<connect gate="G$1" pin="PM4" pad="P32"/>
+<connect gate="G$1" pin="PM5" pad="P31"/>
+<connect gate="G$1" pin="PM6" pad="P51"/>
+<connect gate="G$1" pin="PM7" pad="P59"/>
+<connect gate="G$1" pin="PN2" pad="P73"/>
+<connect gate="G$1" pin="PN3" pad="P72"/>
+<connect gate="G$1" pin="PN4" pad="P1"/>
+<connect gate="G$1" pin="PN5" pad="P2"/>
+<connect gate="G$1" pin="PP0" pad="P8"/>
+<connect gate="G$1" pin="PP1" pad="P7"/>
+<connect gate="G$1" pin="PP2" pad="P71"/>
+<connect gate="G$1" pin="PP3" pad="P53"/>
+<connect gate="G$1" pin="PP4" pad="P3"/>
+<connect gate="G$1" pin="PP5" pad="P58"/>
+<connect gate="G$1" pin="PQ0" pad="P4"/>
+<connect gate="G$1" pin="PQ1" pad="P52"/>
+<connect gate="G$1" pin="RST_1" pad="P76"/>
+<connect gate="G$1" pin="RST_2" pad="P56"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5721,6 +5997,7 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="C7" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
+<part name="U$5" library="StellarisLaunchPadConnected" deviceset="STELLARISLAUNCHPAD_CONNECTED" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5886,6 +6163,7 @@ Source: Comchip CGRM4001-G.pdf</description>
 <instances>
 <instance part="GND1" gate="1" x="20.32" y="-43.18"/>
 <instance part="U$3" gate="G$1" x="0" y="0"/>
+<instance part="U$5" gate="G$1" x="78.74" y="10.16"/>
 </instances>
 <busses>
 </busses>

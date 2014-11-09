@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -128,14 +128,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="100" y2="0" width="0" layer="20"/>
-<wire x1="100" y1="0" x2="100" y2="80" width="0" layer="20"/>
-<wire x1="100" y1="80" x2="0" y2="80" width="0" layer="20"/>
-<wire x1="0" y1="80" x2="0" y2="0" width="0" layer="20"/>
-<hole x="3.81" y="34.29" drill="0.6"/>
-<hole x="53.34" y="34.29" drill="0.6"/>
-<hole x="53.34" y="77.47" drill="0.6"/>
-<hole x="20.32" y="77.47" drill="0.6"/>
+<wire x1="0" y1="80.01" x2="0" y2="33.02" width="0" layer="20"/>
+<wire x1="0" y1="33.02" x2="54.61" y2="33.02" width="0" layer="20"/>
+<wire x1="54.61" y1="33.02" x2="54.61" y2="80.01" width="0" layer="20"/>
+<wire x1="54.61" y1="80.01" x2="0" y2="80.01" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors">

@@ -1,4 +1,6 @@
 Controls
 ========
 
-Modeling the Rover and Control Schemes
+Mechanical = Peanut Butter.
+Software = Jelly.
+We make the sandwich... Deal with it B)

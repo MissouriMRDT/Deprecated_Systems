@@ -1,0 +1,10 @@
+
+**** Build of configuration Debug for project typical_TivaTM4C1294NCPDT ****
+
+"c:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `C:/Users/MST-MRDT TELECON/Documents/GitHub/Motherboard/Software/CCS/typical_TivaTM4C1294NCPDT/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `C:/Users/MST-MRDT TELECON/Documents/GitHub/Motherboard/Software/CCS/typical_TivaTM4C1294NCPDT/src/sysbios'
+
+**** Build Finished ****

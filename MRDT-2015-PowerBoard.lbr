@@ -357,6 +357,22 @@ OKI-78SR-5/1.5W36H</description>
 <text x="1.79" y="-2.6" size="1.27" layer="21" align="bottom-center">R</text>
 <text x="-1.79" y="-2.6" size="1.27" layer="21" align="bottom-center">L</text>
 </package>
+<package name="SOT-223">
+<smd name="4" x="0" y="3.1" dx="3.6" dy="2.2" layer="1"/>
+<smd name="2" x="0" y="-3.1" dx="1.2" dy="2.2" layer="1"/>
+<smd name="3" x="2.3" y="-3.1" dx="1.2" dy="2.2" layer="1"/>
+<smd name="1" x="-2.3" y="-3.1" dx="1.2" dy="2.2" layer="1"/>
+<wire x1="-3.35" y1="1.85" x2="-3.35" y2="-1.85" width="0.127" layer="21"/>
+<wire x1="-3.35" y1="1.85" x2="3.35" y2="1.85" width="0.127" layer="21"/>
+<wire x1="3.35" y1="1.85" x2="3.35" y2="-1.85" width="0.127" layer="21"/>
+<wire x1="3.35" y1="-1.85" x2="-3.35" y2="-1.85" width="0.127" layer="21"/>
+<wire x1="-4" y1="-5" x2="-4" y2="5" width="0.127" layer="39"/>
+<wire x1="-4" y1="5" x2="4" y2="5" width="0.127" layer="39"/>
+<wire x1="4" y1="5" x2="4" y2="-5" width="0.127" layer="39"/>
+<wire x1="4" y1="-5" x2="-4" y2="-5" width="0.127" layer="39"/>
+<text x="4" y="0" size="1.27" layer="25">&gt;NAME</text>
+<text x="4" y="-2" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="Q_DC/DC">
@@ -783,6 +799,23 @@ Part Numbers:&lt;Br&gt;
 <connect gate="G$1" pin="IP-" pad="4"/>
 <connect gate="G$1" pin="VCC" pad="8"/>
 <connect gate="G$1" pin="VIOUT" pad="7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="Q_FDT86102LZ">
+<gates>
+<gate name="G$1" symbol="MOSFET" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT-223">
+<connects>
+<connect gate="G$1" pin="D" pad="2 4"/>
+<connect gate="G$1" pin="G" pad="1"/>
+<connect gate="G$1" pin="S" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>

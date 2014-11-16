@@ -373,6 +373,35 @@ OKI-78SR-5/1.5W36H</description>
 <text x="4" y="0" size="1.27" layer="25">&gt;NAME</text>
 <text x="4" y="-2" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="SO8">
+<description>&lt;b&gt;8-Lead Small Outline IC&lt;/b&gt; (SO-8)&lt;p&gt;
+Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf</description>
+<wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="51"/>
+<smd name="2" x="-0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="-0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="0.635" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="1.905" y="-2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="-1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="0.635" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="1.905" y="2.6" dx="0.6" dy="2.2" layer="1"/>
+<text x="-3.175" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="4.445" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.1501" y1="-3.1001" x2="-1.6599" y2="-2" layer="51"/>
+<rectangle x1="-0.8801" y1="-3.1001" x2="-0.3899" y2="-2" layer="51"/>
+<rectangle x1="0.3899" y1="-3.1001" x2="0.8801" y2="-2" layer="51"/>
+<rectangle x1="1.6599" y1="-3.1001" x2="2.1501" y2="-2" layer="51"/>
+<rectangle x1="1.6599" y1="2" x2="2.1501" y2="3.1001" layer="51"/>
+<rectangle x1="0.3899" y1="2" x2="0.8801" y2="3.1001" layer="51"/>
+<rectangle x1="-0.8801" y1="2" x2="-0.3899" y2="3.1001" layer="51"/>
+<rectangle x1="-2.1501" y1="2" x2="-1.6599" y2="3.1001" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="Q_DC/DC">
@@ -561,6 +590,21 @@ OKI-78SR-5/1.5W36H</description>
 <pin name="GND" x="12.7" y="-7.62" visible="pin" length="middle" rot="R180"/>
 <text x="-5.08" y="12.7" size="1.778" layer="95" align="top-left">&gt;NAME</text>
 <text x="-5.08" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="LT1910">
+<wire x1="-12.7" y1="0" x2="-12.7" y2="15.24" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="15.24" x2="12.7" y2="15.24" width="0.254" layer="94"/>
+<wire x1="12.7" y1="15.24" x2="12.7" y2="0" width="0.254" layer="94"/>
+<wire x1="12.7" y1="0" x2="-12.7" y2="0" width="0.254" layer="94"/>
+<pin name="FAULT" x="-17.78" y="12.7" length="middle" function="dot"/>
+<pin name="IN" x="-17.78" y="7.62" length="middle"/>
+<pin name="TIMER" x="-17.78" y="2.54" length="middle"/>
+<pin name="GND" x="0" y="-5.08" length="middle" rot="R90"/>
+<pin name="GATE" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="SENSE" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="V+" x="17.78" y="12.7" length="middle" rot="R180"/>
+<text x="-10.16" y="20.32" size="1.778" layer="95" rot="MR180">&gt;NAME</text>
+<text x="-10.16" y="17.78" size="1.778" layer="95" rot="MR180">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -816,6 +860,27 @@ Part Numbers:&lt;Br&gt;
 <connect gate="G$1" pin="D" pad="2 4"/>
 <connect gate="G$1" pin="G" pad="1"/>
 <connect gate="G$1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LT1910">
+<gates>
+<gate name="G$1" symbol="LT1910" x="0" y="-7.62"/>
+</gates>
+<devices>
+<device name="" package="SO8">
+<connects>
+<connect gate="G$1" pin="FAULT" pad="3"/>
+<connect gate="G$1" pin="GATE" pad="5"/>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="IN" pad="4"/>
+<connect gate="G$1" pin="SENSE" pad="6"/>
+<connect gate="G$1" pin="TIMER" pad="2"/>
+<connect gate="G$1" pin="V+" pad="8"/>
 </connects>
 <technologies>
 <technology name=""/>

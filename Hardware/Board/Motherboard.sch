@@ -3293,53 +3293,6 @@ SDR0403-560KL - 56uH, 10%, 500mA RMS/740mA peak</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="LD1117">
-<packages>
-<package name="LD1117SOT-223">
-<wire x1="-3.25" y1="0" x2="-3.25" y2="0.25" width="0.127" layer="21"/>
-<wire x1="-3.25" y1="0.25" x2="-3.25" y2="1.75" width="0.127" layer="21"/>
-<wire x1="-3.25" y1="1.75" x2="3.25" y2="1.75" width="0.127" layer="21"/>
-<wire x1="3.25" y1="1.75" x2="3.25" y2="-1.75" width="0.127" layer="21"/>
-<wire x1="3.25" y1="-1.75" x2="-3.25" y2="-1.75" width="0.127" layer="21"/>
-<wire x1="-3.25" y1="-1.75" x2="-3.25" y2="0" width="0.127" layer="21"/>
-<smd name="VOUT" x="0" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
-<smd name="GND" x="-2.3" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
-<smd name="VIN" x="2.3" y="-3.2" dx="1.5" dy="1.2" layer="1" rot="R90"/>
-<smd name="(VOUT)" x="0" y="3.2" dx="2" dy="3.3" layer="1" rot="R90"/>
-</package>
-</packages>
-<symbols>
-<symbol name="LD1117">
-<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<pin name="VIN" x="-10.16" y="2.54" length="middle"/>
-<pin name="GND" x="-10.16" y="-2.54" length="middle"/>
-<pin name="VOUT" x="10.16" y="0" length="middle" rot="R180"/>
-<text x="-3.048" y="5.842" size="1.27" layer="94">3.3v Reg</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="LD1117">
-<gates>
-<gate name="G$1" symbol="LD1117" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="LD1117SOT-223">
-<connects>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="VIN" pad="VIN"/>
-<connect gate="G$1" pin="VOUT" pad="(VOUT) VOUT"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-LED">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find discrete LEDs for illumination or indication, but no displays.&lt;br&gt;&lt;br&gt;
@@ -5238,12 +5191,8 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="C20" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND81" library="supply1" deviceset="GND" device=""/>
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="U$1" library="LD1117" deviceset="LD1117" device=""/>
-<part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="5V" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100nF"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="10uF"/>
-<part name="GND58" library="supply1" deviceset="GND" device=""/>
 <part name="D1" library="SparkFun-LED" deviceset="LED-GREEN" device="LARGE" value="GREEN"/>
 <part name="GND94" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
@@ -5346,6 +5295,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="U$5" library="StellarisLaunchPadConnected" deviceset="STELLARISLAUNCHPAD_CONNECTED" device=""/>
+<part name="GND1" library="supply1" deviceset="GND" device=""/>
+<part name="P+1" library="supply1" deviceset="+5V" device=""/>
+<part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND2" library="supply1" deviceset="GND" device=""/>
+<part name="GND5" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5353,115 +5307,49 @@ Source: Comchip CGRM4001-G.pdf</description>
 <plain>
 </plain>
 <instances>
-<instance part="U$1" gate="G$1" x="2.54" y="20.32"/>
-<instance part="+3V2" gate="G$1" x="17.78" y="38.1"/>
 <instance part="5V" gate="G$1" x="-35.56" y="20.32"/>
 <instance part="C1" gate="G$1" x="-20.32" y="12.7"/>
-<instance part="C2" gate="G$1" x="17.78" y="12.7"/>
-<instance part="GND58" gate="1" x="-10.16" y="0"/>
-<instance part="D1" gate="G$1" x="7.62" y="-17.78" rot="R90"/>
-<instance part="GND94" gate="1" x="15.24" y="-22.86"/>
-<instance part="R1" gate="G$1" x="-2.54" y="-17.78"/>
+<instance part="D1" gate="G$1" x="22.86" y="15.24" rot="R90"/>
+<instance part="GND94" gate="1" x="30.48" y="10.16"/>
+<instance part="R1" gate="G$1" x="12.7" y="15.24"/>
 <instance part="P+5" gate="1" x="-20.32" y="38.1"/>
-<instance part="P+27" gate="1" x="-10.16" y="-12.7"/>
-<instance part="H1" gate="G$1" x="66.04" y="15.24"/>
-<instance part="H2" gate="G$1" x="78.74" y="15.24"/>
-<instance part="H3" gate="G$1" x="88.9" y="15.24"/>
-<instance part="H4" gate="G$1" x="99.06" y="15.24"/>
-<instance part="FAN1" gate="G$1" x="-40.64" y="-53.34" rot="R270"/>
-<instance part="12V" gate="G$1" x="-43.18" y="0"/>
-<instance part="P+9" gate="1" x="-30.48" y="7.62"/>
-<instance part="GND47" gate="1" x="-43.18" y="-68.58"/>
-<instance part="P+10" gate="1" x="-40.64" y="-63.5" rot="R180"/>
-<instance part="FAN2" gate="G$1" x="-20.32" y="-53.34" rot="R270"/>
-<instance part="GND48" gate="1" x="-22.86" y="-68.58"/>
-<instance part="P+11" gate="1" x="-20.32" y="-63.5" rot="R180"/>
-<instance part="FAN3" gate="G$1" x="0" y="-53.34" rot="R270"/>
-<instance part="GND49" gate="1" x="-2.54" y="-68.58"/>
-<instance part="P+12" gate="1" x="0" y="-63.5" rot="R180"/>
-<instance part="FAN4" gate="G$1" x="20.32" y="-53.34" rot="R270"/>
-<instance part="GND50" gate="1" x="17.78" y="-68.58"/>
-<instance part="P+13" gate="1" x="20.32" y="-63.5" rot="R180"/>
+<instance part="P+27" gate="1" x="5.08" y="20.32"/>
+<instance part="GND5" gate="1" x="-20.32" y="0"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="+3V3" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="VOUT"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="20.32" x2="12.7" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="17.78" x2="17.78" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<wire x1="17.78" y1="20.32" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
-<junction x="17.78" y="20.32"/>
-</segment>
-</net>
 <net name="GND" class="0">
+<segment>
+<pinref part="D1" gate="G$1" pin="C"/>
+<pinref part="GND94" gate="1" pin="GND"/>
+<wire x1="27.94" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="15.24" x2="30.48" y2="12.7" width="0.1524" layer="91"/>
+</segment>
 <segment>
 <pinref part="5V" gate="G$1" pin="1"/>
 <wire x1="-27.94" y1="20.32" x2="-25.4" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="-25.4" y1="20.32" x2="-25.4" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="GND58" gate="1" pin="GND"/>
 <wire x1="-25.4" y1="5.08" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="5.08" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="5.08" x2="-10.16" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="10.16" x2="17.78" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="5.08" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
-<junction x="-10.16" y="5.08"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="-20.32" y1="10.16" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+<wire x1="-20.32" y1="2.54" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
 <junction x="-20.32" y="5.08"/>
-<pinref part="U$1" gate="G$1" pin="GND"/>
-<wire x1="-7.62" y1="17.78" x2="-10.16" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="17.78" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
-<junction x="-10.16" y="5.08"/>
-<pinref part="12V" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="0" x2="-20.32" y2="0" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="0" x2="-20.32" y2="5.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="D1" gate="G$1" pin="C"/>
-<pinref part="GND94" gate="1" pin="GND"/>
-<wire x1="12.7" y1="-17.78" x2="15.24" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="-17.78" x2="15.24" y2="-20.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="FAN1" gate="G$1" pin="1"/>
-<wire x1="-43.18" y1="-58.42" x2="-43.18" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="GND47" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="FAN2" gate="G$1" pin="1"/>
-<wire x1="-22.86" y1="-58.42" x2="-22.86" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="GND48" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="FAN3" gate="G$1" pin="1"/>
-<wire x1="-2.54" y1="-58.42" x2="-2.54" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="GND49" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="FAN4" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="-58.42" x2="17.78" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="GND50" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$45" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="2.54" y1="-17.78" x2="5.08" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="15.24" x2="20.32" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="VIN"/>
 <pinref part="5V" gate="G$1" pin="2"/>
 <wire x1="-27.94" y1="22.86" x2="-20.32" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="-20.32" y1="22.86" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-20.32" y1="17.78" x2="-20.32" y2="22.86" width="0.1524" layer="91"/>
 <junction x="-20.32" y="22.86"/>
 <pinref part="P+5" gate="1" pin="+5V"/>
@@ -5469,37 +5357,91 @@ Source: Comchip CGRM4001-G.pdf</description>
 </segment>
 <segment>
 <pinref part="P+27" gate="1" pin="+5V"/>
-<wire x1="-10.16" y1="-15.24" x2="-10.16" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="17.78" x2="5.08" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="-17.78" x2="-7.62" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="15.24" x2="7.62" y2="15.24" width="0.1524" layer="91"/>
+</segment>
+</net>
+</nets>
+</sheet>
+<sheet>
+<description>Fans</description>
+<plain>
+</plain>
+<instances>
+<instance part="FAN1" gate="G$1" x="12.7" y="71.12" rot="R270"/>
+<instance part="GND47" gate="1" x="10.16" y="55.88"/>
+<instance part="P+10" gate="1" x="12.7" y="60.96" rot="R180"/>
+<instance part="FAN2" gate="G$1" x="33.02" y="71.12" rot="R270"/>
+<instance part="GND48" gate="1" x="30.48" y="55.88"/>
+<instance part="P+11" gate="1" x="33.02" y="60.96" rot="R180"/>
+<instance part="FAN3" gate="G$1" x="53.34" y="71.12" rot="R270"/>
+<instance part="GND49" gate="1" x="50.8" y="55.88"/>
+<instance part="P+12" gate="1" x="53.34" y="60.96" rot="R180"/>
+<instance part="FAN4" gate="G$1" x="73.66" y="71.12" rot="R270"/>
+<instance part="GND50" gate="1" x="71.12" y="55.88"/>
+<instance part="P+13" gate="1" x="73.66" y="60.96" rot="R180"/>
+<instance part="12V" gate="G$1" x="-20.32" y="63.5"/>
+<instance part="P+9" gate="1" x="-7.62" y="71.12"/>
+<instance part="GND1" gate="1" x="-7.62" y="58.42"/>
+</instances>
+<busses>
+</busses>
+<nets>
+<net name="GND" class="0">
+<segment>
+<pinref part="FAN1" gate="G$1" pin="1"/>
+<wire x1="10.16" y1="66.04" x2="10.16" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="GND47" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN2" gate="G$1" pin="1"/>
+<wire x1="30.48" y1="66.04" x2="30.48" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="GND48" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN3" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="66.04" x2="50.8" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="GND49" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN4" gate="G$1" pin="1"/>
+<wire x1="71.12" y1="66.04" x2="71.12" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="GND50" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="12V" gate="G$1" pin="1"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+<wire x1="-12.7" y1="63.5" x2="-7.62" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="63.5" x2="-7.62" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
 <segment>
-<pinref part="12V" gate="G$1" pin="2"/>
-<wire x1="-35.56" y1="2.54" x2="-30.48" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="2.54" x2="-30.48" y2="5.08" width="0.1524" layer="91"/>
-<pinref part="P+9" gate="1" pin="+12V"/>
-</segment>
-<segment>
 <pinref part="FAN1" gate="G$1" pin="2"/>
-<wire x1="-40.64" y1="-58.42" x2="-40.64" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="66.04" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="P+10" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN2" gate="G$1" pin="2"/>
-<wire x1="-20.32" y1="-58.42" x2="-20.32" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="66.04" x2="33.02" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="P+11" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN3" gate="G$1" pin="2"/>
-<wire x1="0" y1="-58.42" x2="0" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="66.04" x2="53.34" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="P+12" gate="1" pin="+12V"/>
 </segment>
 <segment>
 <pinref part="FAN4" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="-58.42" x2="20.32" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="66.04" x2="73.66" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="P+13" gate="1" pin="+12V"/>
+</segment>
+<segment>
+<pinref part="12V" gate="G$1" pin="2"/>
+<wire x1="-12.7" y1="66.04" x2="-7.62" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="66.04" x2="-7.62" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="1" pin="+12V"/>
 </segment>
 </net>
 </nets>
@@ -5510,6 +5452,9 @@ Source: Comchip CGRM4001-G.pdf</description>
 </plain>
 <instances>
 <instance part="U$5" gate="G$1" x="78.74" y="10.16"/>
+<instance part="P+1" gate="1" x="121.92" y="45.72"/>
+<instance part="+3V3" gate="G$1" x="121.92" y="55.88"/>
+<instance part="GND2" gate="1" x="40.64" y="38.1"/>
 </instances>
 <busses>
 </busses>
@@ -5556,26 +5501,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="111.76" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GND" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="GND_4"/>
-<wire x1="55.88" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
-<label x="45.72" y="43.18" size="1.778" layer="95"/>
-<pinref part="U$5" gate="G$1" pin="GND_3"/>
-<wire x1="53.34" y1="43.18" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="45.72" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="45.72" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
-<junction x="53.34" y="43.18"/>
-<pinref part="U$5" gate="G$1" pin="GND_2"/>
-<wire x1="55.88" y1="48.26" x2="53.34" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="48.26" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
-<junction x="53.34" y="45.72"/>
-<pinref part="U$5" gate="G$1" pin="GND_1"/>
-<wire x1="55.88" y1="50.8" x2="53.34" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="50.8" x2="53.34" y2="48.26" width="0.1524" layer="91"/>
-<junction x="53.34" y="48.26"/>
-</segment>
-</net>
 <net name="U1_MUX_S0" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PE0"/>
@@ -5618,35 +5543,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="109.22" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="+5V" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="5V_2"/>
-<wire x1="101.6" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
-<label x="109.22" y="40.64" size="1.778" layer="95"/>
-<pinref part="U$5" gate="G$1" pin="5V_1"/>
-<wire x1="104.14" y1="40.64" x2="114.3" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="43.18" x2="104.14" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="43.18" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
-<junction x="104.14" y="40.64"/>
-</segment>
-</net>
 <net name="U2_MUX_S1" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PC4"/>
 <wire x1="101.6" y1="17.78" x2="114.3" y2="17.78" width="0.1524" layer="91"/>
 <label x="109.22" y="17.78" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="3.3V" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="3V3_2"/>
-<wire x1="101.6" y1="48.26" x2="104.14" y2="48.26" width="0.1524" layer="91"/>
-<label x="109.22" y="48.26" size="1.778" layer="95"/>
-<pinref part="U$5" gate="G$1" pin="3V3_1"/>
-<wire x1="104.14" y1="48.26" x2="114.3" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="50.8" x2="104.14" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="50.8" x2="104.14" y2="48.26" width="0.1524" layer="91"/>
-<junction x="104.14" y="48.26"/>
 </segment>
 </net>
 <net name="U1RX" class="0">
@@ -5682,6 +5583,51 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="U$5" gate="G$1" pin="PD1"/>
 <wire x1="55.88" y1="15.24" x2="40.64" y2="15.24" width="0.1524" layer="91"/>
 <label x="40.64" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="+5V" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="5V_2"/>
+<pinref part="P+1" gate="1" pin="+5V"/>
+<wire x1="101.6" y1="40.64" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="40.64" x2="121.92" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="40.64" x2="121.92" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="5V_1"/>
+<wire x1="101.6" y1="43.18" x2="106.68" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="43.18" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
+<junction x="106.68" y="40.64"/>
+</segment>
+</net>
+<net name="+3V3" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="3V3_2"/>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+<wire x1="101.6" y1="48.26" x2="121.92" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="48.26" x2="121.92" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="3V3_1"/>
+<wire x1="121.92" y1="50.8" x2="121.92" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="50.8" x2="121.92" y2="50.8" width="0.1524" layer="91"/>
+<junction x="121.92" y="50.8"/>
+</segment>
+</net>
+<net name="GND" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="GND_1"/>
+<wire x1="55.88" y1="50.8" x2="40.64" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="50.8" x2="40.64" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="GND_4"/>
+<wire x1="40.64" y1="48.26" x2="40.64" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="45.72" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="43.18" x2="40.64" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="43.18" x2="40.64" y2="43.18" width="0.1524" layer="91"/>
+<junction x="40.64" y="43.18"/>
+<pinref part="U$5" gate="G$1" pin="GND_3"/>
+<wire x1="55.88" y1="45.72" x2="40.64" y2="45.72" width="0.1524" layer="91"/>
+<junction x="40.64" y="45.72"/>
+<pinref part="U$5" gate="G$1" pin="GND_2"/>
+<wire x1="55.88" y1="48.26" x2="40.64" y2="48.26" width="0.1524" layer="91"/>
+<junction x="40.64" y="48.26"/>
+<pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 </net>
 </nets>
@@ -7955,6 +7901,21 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="27.94" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
+</nets>
+</sheet>
+<sheet>
+<description>Holes</description>
+<plain>
+</plain>
+<instances>
+<instance part="H1" gate="G$1" x="0" y="60.96"/>
+<instance part="H2" gate="G$1" x="12.7" y="60.96"/>
+<instance part="H3" gate="G$1" x="22.86" y="60.96"/>
+<instance part="H4" gate="G$1" x="33.02" y="60.96"/>
+</instances>
+<busses>
+</busses>
+<nets>
 </nets>
 </sheet>
 </sheets>

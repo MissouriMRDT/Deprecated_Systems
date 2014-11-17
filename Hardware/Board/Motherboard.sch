@@ -5478,6 +5478,28 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="P+9" gate="1" pin="+12V"/>
 </segment>
 </net>
+<net name="FAN_CTRL" class="0">
+<segment>
+<pinref part="FAN1" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="66.04" x2="17.78" y2="55.88" width="0.1524" layer="91"/>
+<label x="20.32" y="55.88" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="FAN2" gate="G$1" pin="4"/>
+<wire x1="38.1" y1="66.04" x2="38.1" y2="55.88" width="0.1524" layer="91"/>
+<label x="40.64" y="55.88" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="FAN3" gate="G$1" pin="4"/>
+<wire x1="58.42" y1="66.04" x2="58.42" y2="55.88" width="0.1524" layer="91"/>
+<label x="60.96" y="55.88" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="FAN4" gate="G$1" pin="4"/>
+<wire x1="78.74" y1="66.04" x2="78.74" y2="55.88" width="0.1524" layer="91"/>
+<label x="81.28" y="55.88" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -5521,14 +5543,14 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="43.18" y="-45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PBRX" class="0">
+<net name="U6RX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PN4"/>
 <wire x1="101.6" y1="-48.26" x2="114.3" y2="-48.26" width="0.1524" layer="91"/>
 <label x="111.76" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PBTX" class="0">
+<net name="U6TX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PN5"/>
 <wire x1="101.6" y1="-50.8" x2="114.3" y2="-50.8" width="0.1524" layer="91"/>
@@ -5690,6 +5712,27 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="U$5" gate="G$1" pin="PK3"/>
 <wire x1="55.88" y1="-22.86" x2="38.1" y2="-22.86" width="0.1524" layer="91"/>
 <label x="38.1" y="-22.86" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FAN_CTRL" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="PK4"/>
+<wire x1="55.88" y1="-25.4" x2="38.1" y2="-25.4" width="0.1524" layer="91"/>
+<label x="38.1" y="-25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7RX" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="PL0"/>
+<wire x1="101.6" y1="-25.4" x2="114.3" y2="-25.4" width="0.1524" layer="91"/>
+<label x="109.22" y="-25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="U7TX" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="PL1"/>
+<wire x1="101.6" y1="-27.94" x2="114.3" y2="-27.94" width="0.1524" layer="91"/>
+<label x="109.22" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -7786,14 +7829,14 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="165.1" y1="-96.52" x2="185.42" y2="-96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PBRX" class="0">
+<net name="U6RX" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="R0"/>
 <wire x1="132.08" y1="-81.28" x2="106.68" y2="-81.28" width="0.1524" layer="91"/>
 <label x="109.22" y="-81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PBTX" class="0">
+<net name="U6TX" class="0">
 <segment>
 <pinref part="RS-485-2" gate="G$1" pin="DI"/>
 <wire x1="132.08" y1="-86.36" x2="106.68" y2="-86.36" width="0.1524" layer="91"/>

@@ -5108,6 +5108,82 @@ Source: Comchip CGRM4001-G.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="imu">
+<packages>
+<package name="RAZOR_IMU">
+<wire x1="0" y1="0" x2="0" y2="27.94" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="40.64" y2="0" width="0.127" layer="21"/>
+<wire x1="40.64" y1="0" x2="40.64" y2="27.94" width="0.127" layer="21"/>
+<wire x1="40.64" y1="27.94" x2="0" y2="27.94" width="0.127" layer="21"/>
+<pad name="DTR" x="1.27" y="20.32" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="TXO" x="1.27" y="17.78" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="RXI" x="1.27" y="15.24" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="3.3V_1" x="1.27" y="12.7" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="CTS" x="1.27" y="10.16" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="GND_1" x="1.27" y="7.62" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="3.3V_2" x="10.16" y="26.67" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="MOSI" x="12.7" y="26.67" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="GND_2" x="15.24" y="26.67" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="MISO" x="10.16" y="24.13" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="SCK" x="12.7" y="24.13" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="RESET" x="15.24" y="24.13" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="GND_3" x="29.21" y="11.43" drill="1" diameter="1.9304" shape="octagon"/>
+<pad name="VCC" x="29.21" y="8.89" drill="1" diameter="1.9304" shape="octagon"/>
+</package>
+</packages>
+<symbols>
+<symbol name="RAZOR_IMU">
+<wire x1="-12.7" y1="12.7" x2="12.7" y2="12.7" width="0.254" layer="94"/>
+<wire x1="12.7" y1="12.7" x2="12.7" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="12.7" x2="-12.7" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-12.7" x2="12.7" y2="-12.7" width="0.254" layer="94"/>
+<pin name="4" x="-12.7" y="0" length="middle" rot="R180"/>
+<pin name="5" x="-12.7" y="-2.54" length="middle" rot="R180"/>
+<pin name="6" x="-12.7" y="-5.08" length="middle" rot="R180"/>
+<pin name="2" x="-12.7" y="5.08" length="middle" rot="R180"/>
+<pin name="7" x="-12.7" y="-7.62" length="middle" rot="R180"/>
+<pin name="8" x="12.7" y="7.62" length="middle"/>
+<pin name="3" x="-12.7" y="2.54" length="middle" rot="R180"/>
+<pin name="12" x="12.7" y="-2.54" length="middle"/>
+<pin name="9" x="12.7" y="5.08" length="middle"/>
+<pin name="13" x="12.7" y="-5.08" length="middle"/>
+<pin name="11" x="12.7" y="0" length="middle"/>
+<pin name="14" x="12.7" y="-7.62" length="middle"/>
+<pin name="10" x="12.7" y="2.54" length="middle"/>
+<pin name="1" x="-12.7" y="7.62" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="RAZOR_IMU">
+<gates>
+<gate name="G$1" symbol="RAZOR_IMU" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RAZOR_IMU">
+<connects>
+<connect gate="G$1" pin="1" pad="VCC"/>
+<connect gate="G$1" pin="10" pad="GND_3"/>
+<connect gate="G$1" pin="11" pad="SCK"/>
+<connect gate="G$1" pin="12" pad="MOSI"/>
+<connect gate="G$1" pin="13" pad="MISO"/>
+<connect gate="G$1" pin="14" pad="RESET"/>
+<connect gate="G$1" pin="2" pad="3.3V_1"/>
+<connect gate="G$1" pin="3" pad="3.3V_2"/>
+<connect gate="G$1" pin="4" pad="DTR"/>
+<connect gate="G$1" pin="5" pad="TXO"/>
+<connect gate="G$1" pin="6" pad="RXI"/>
+<connect gate="G$1" pin="7" pad="CTS"/>
+<connect gate="G$1" pin="8" pad="GND_1"/>
+<connect gate="G$1" pin="9" pad="GND_2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5283,9 +5359,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="FAN4" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
 <part name="GND50" library="supply1" deviceset="GND" device=""/>
 <part name="P+13" library="supply1" deviceset="+12V" device=""/>
-<part name="MAG" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
-<part name="GND38" library="supply1" deviceset="GND" device=""/>
-<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="RS-485-2" library="MAX3077" deviceset="MAX3077" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="U$2" library="SparkFun-Connectors" deviceset="RJ45-8" device="PTH"/>
@@ -5334,6 +5407,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
+<part name="U$1" library="imu" deviceset="RAZOR_IMU" device=""/>
+<part name="GND46" library="supply1" deviceset="GND" device=""/>
+<part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
+<part name="P+7" library="supply1" deviceset="+5V" device=""/>
+<part name="GND51" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8218,9 +8296,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 </instance>
 <instance part="+3V22" gate="G$1" x="114.3" y="0"/>
 <instance part="C27" gate="G$1" x="91.44" y="17.78"/>
-<instance part="MAG" gate="G$1" x="129.54" y="-53.34"/>
-<instance part="GND38" gate="1" x="157.48" y="-66.04"/>
-<instance part="+3V23" gate="G$1" x="157.48" y="-38.1"/>
+<instance part="U$1" gate="G$1" x="73.66" y="-53.34"/>
+<instance part="GND46" gate="1" x="99.06" y="-38.1" rot="R180"/>
+<instance part="+3V19" gate="G$1" x="45.72" y="-38.1"/>
+<instance part="P+7" gate="1" x="50.8" y="-38.1"/>
+<instance part="GND51" gate="1" x="45.72" y="-68.58"/>
 </instances>
 <busses>
 </busses>
@@ -8304,11 +8384,20 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="139.7" y1="10.16" x2="147.32" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MAG" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="-55.88" x2="157.48" y2="-55.88" width="0.1524" layer="91"/>
-<label x="144.78" y="-54.102" size="1.778" layer="95" rot="R180"/>
-<pinref part="GND38" gate="1" pin="GND"/>
-<wire x1="157.48" y1="-55.88" x2="157.48" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-50.8" x2="99.06" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="-50.8" x2="99.06" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="-48.26" x2="99.06" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="-45.72" x2="99.06" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-45.72" x2="99.06" y2="-45.72" width="0.1524" layer="91"/>
+<junction x="99.06" y="-45.72"/>
+<wire x1="91.44" y1="-48.26" x2="99.06" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="99.06" y="-48.26"/>
+<pinref part="GND46" gate="1" pin="GND"/>
+</segment>
+<segment>
+<wire x1="55.88" y1="-60.96" x2="45.72" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-60.96" x2="45.72" y2="-66.04" width="0.1524" layer="91"/>
+<pinref part="GND51" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="ATCLK3" class="0">
@@ -8371,6 +8460,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="7.62" y1="-58.42" x2="25.4" y2="-58.42" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="-58.42" x2="25.4" y2="-53.34" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="58.42" y1="-45.72" x2="50.8" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="-45.72" x2="50.8" y2="-40.64" width="0.1524" layer="91"/>
+<pinref part="P+7" gate="1" pin="+5V"/>
+</segment>
 </net>
 <net name="AT_SCK" class="0">
 <segment>
@@ -8423,6 +8517,10 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="-10.16" y1="-63.5" x2="-33.02" y2="-63.5" width="0.1524" layer="91"/>
 <label x="-30.48" y="-63.5" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="91.44" y1="-60.96" x2="109.22" y2="-60.96" width="0.1524" layer="91"/>
+<label x="99.06" y="-60.96" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="GPS_RX" class="0">
 <segment>
@@ -8462,11 +8560,12 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="114.3" y1="-2.54" x2="114.3" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MAG" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="-53.34" x2="157.48" y2="-53.34" width="0.1524" layer="91"/>
-<label x="146.304" y="-51.562" size="1.778" layer="95" rot="R180"/>
-<pinref part="+3V23" gate="G$1" pin="+3V3"/>
-<wire x1="157.48" y1="-53.34" x2="157.48" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="-48.26" x2="45.72" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-48.26" x2="45.72" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="-50.8" x2="45.72" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-50.8" x2="45.72" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="45.72" y="-48.26"/>
+<pinref part="+3V19" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -8531,30 +8630,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="27.94" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SDA" class="0">
-<segment>
-<pinref part="MAG" gate="G$1" pin="3"/>
-<wire x1="134.62" y1="-50.8" x2="149.86" y2="-50.8" width="0.1524" layer="91"/>
-<label x="144.78" y="-49.022" size="1.778" layer="95" rot="R180"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="PC4(ADC4/SDA)"/>
-<wire x1="25.4" y1="15.24" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
-<label x="27.94" y="15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SCL" class="0">
-<segment>
-<pinref part="MAG" gate="G$1" pin="4"/>
-<wire x1="134.62" y1="-48.26" x2="149.86" y2="-48.26" width="0.1524" layer="91"/>
-<label x="144.78" y="-46.482" size="1.778" layer="95" rot="R180"/>
-</segment>
-<segment>
-<pinref part="U2" gate="G$1" pin="PC5(ADC5/SCL)"/>
-<wire x1="25.4" y1="12.7" x2="48.26" y2="12.7" width="0.1524" layer="91"/>
-<label x="27.94" y="12.7" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="U7TX" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="PD0(RXD)"/>
@@ -8567,6 +8642,28 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="U2" gate="G$1" pin="PD1(TXD)"/>
 <wire x1="25.4" y1="0" x2="48.26" y2="0" width="0.1524" layer="91"/>
 <label x="27.94" y="0" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IMU_TX" class="0">
+<segment>
+<wire x1="55.88" y1="-55.88" x2="45.72" y2="-55.88" width="0.1524" layer="91"/>
+<label x="45.72" y="-55.88" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PC4(ADC4/SDA)"/>
+<wire x1="25.4" y1="15.24" x2="48.26" y2="15.24" width="0.1524" layer="91"/>
+<label x="27.94" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="IMU_RX" class="0">
+<segment>
+<wire x1="55.88" y1="-58.42" x2="45.72" y2="-58.42" width="0.1524" layer="91"/>
+<label x="45.72" y="-58.42" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PC5(ADC5/SCL)"/>
+<wire x1="25.4" y1="12.7" x2="48.26" y2="12.7" width="0.1524" layer="91"/>
+<label x="27.94" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -6579,6 +6579,30 @@ design rules under a new name.</description>
 <element name="R29" library="SparkFun-Passives" package="1206" value="120" x="100.33" y="20.32"/>
 <element name="C7" library="SparkFun-Passives" package="1206" value="0.1uF" x="105.41" y="35.56" rot="R180"/>
 <element name="U$5" library="StellarisLaunchPadConnected" package="STELLARISLAUNCHPAD_CONNECTED" value="STELLARISLAUNCHPAD_CONNECTED" x="124.46" y="73.66" rot="R180"/>
+<element name="U5_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="-10.16" y="8.89">
+<attribute name="PACKAGE" value="SO-16" x="-10.16" y="8.89" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="78R7402" x="-10.16" y="8.89" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="74HC4052D,653" x="-10.16" y="8.89" size="1.778" layer="27" display="off"/>
+<attribute name="SUPPLIER" value="NXP" x="-10.16" y="8.89" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="1826642" x="-10.16" y="8.89" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C2" library="SparkFun-Passives" package="1206" value="0.1uF" x="-11.43" y="-2.54"/>
+<element name="RS_TRANS_13" library="MAX3077" package="MAX3070E" value="MAX3077" x="-11.43" y="-8.89"/>
+<element name="R26" library="SparkFun-Passives" package="1206" value="120" x="-6.35" y="-22.86"/>
+<element name="C8" library="SparkFun-Passives" package="1206" value="0.1uF" x="-6.35" y="-15.24"/>
+<element name="R28" library="SparkFun-Passives" package="1206" value="120" x="-1.27" y="-22.86"/>
+<element name="RS_TRANS_14" library="MAX3077" package="MAX3070E" value="MAX3077" x="-5.08" y="-8.89"/>
+<element name="R30" library="SparkFun-Passives" package="1206" value="120" x="3.81" y="-22.86"/>
+<element name="C21" library="SparkFun-Passives" package="1206" value="0.1uF" x="-1.27" y="-15.24"/>
+<element name="R31" library="SparkFun-Passives" package="1206" value="120" x="-11.43" y="-26.67"/>
+<element name="RS_TRANS_15" library="MAX3077" package="MAX3070E" value="MAX3077" x="1.27" y="-8.89"/>
+<element name="R32" library="SparkFun-Passives" package="1206" value="120" x="-6.35" y="-26.67"/>
+<element name="C22" library="SparkFun-Passives" package="1206" value="0.1uF" x="3.81" y="-15.24"/>
+<element name="R33" library="SparkFun-Passives" package="1206" value="120" x="-1.27" y="-26.67"/>
+<element name="RS_TRANS_16" library="MAX3077" package="MAX3070E" value="MAX3077" x="-11.43" y="-16.51"/>
+<element name="R34" library="SparkFun-Passives" package="1206" value="120" x="3.81" y="-26.67"/>
+<element name="C23" library="SparkFun-Passives" package="1206" value="0.1uF" x="-11.43" y="-22.86"/>
+<element name="R35" library="SparkFun-Passives" package="1206" value="120" x="-11.43" y="-30.48"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -6799,6 +6823,18 @@ design rules under a new name.</description>
 <contactref element="5V" pad="1"/>
 <contactref element="C1" pad="2"/>
 <wire x1="101.095" y1="35.56" x2="101.6" y2="35.56" width="0.254" layer="1"/>
+<contactref element="U5_MUX" pad="7"/>
+<contactref element="U5_MUX" pad="8"/>
+<contactref element="C2" pad="2"/>
+<contactref element="U5_MUX" pad="6"/>
+<contactref element="RS_TRANS_13" pad="GND"/>
+<contactref element="C8" pad="2"/>
+<contactref element="RS_TRANS_14" pad="GND"/>
+<contactref element="C21" pad="2"/>
+<contactref element="RS_TRANS_15" pad="GND"/>
+<contactref element="C22" pad="2"/>
+<contactref element="RS_TRANS_16" pad="GND"/>
+<contactref element="C23" pad="2"/>
 <wire x1="101.6" y1="67.4975" x2="134.62" y2="88.9" width="0" layer="19" extent="1-1"/>
 <wire x1="92.71" y1="88.9" x2="95.25" y2="81.28" width="0" layer="19" extent="1-1"/>
 <wire x1="84.87075" y1="57.18175" x2="86.49" y2="69.05625" width="0" layer="19" extent="1-1"/>
@@ -6827,6 +6863,18 @@ design rules under a new name.</description>
 <wire x1="3.65125" y1="25.11125" x2="3.553" y2="34.57575" width="0" layer="19" extent="1-1"/>
 <wire x1="3.81" y1="21.59" x2="3.8705" y2="24.892" width="0" layer="19" extent="1-1"/>
 <wire x1="1.27" y1="64.77" x2="2.06375" y2="54.63875" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.7508" y1="6.985" x2="3.81" y2="21.59" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.7508" y1="5.715" x2="-12.7508" y2="6.985" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.7508" y1="4.445" x2="-12.7508" y2="5.715" width="0" layer="19" extent="1-1"/>
+<wire x1="-10.03" y1="-2.54" x2="-12.7508" y2="4.445" width="0" layer="19" extent="1-1"/>
+<wire x1="-9.525" y1="-11.7475" x2="-10.03" y2="-2.54" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.95" y1="-15.24" x2="-9.525" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="-3.175" y1="-11.7475" x2="-4.95" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="0.13" y1="-15.24" x2="-3.175" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="3.175" y1="-11.7475" x2="0.13" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="5.21" y1="-15.24" x2="3.175" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="-9.525" y1="-19.3675" x2="-4.95" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="-10.03" y1="-22.86" x2="-9.525" y2="-19.3675" width="0" layer="19" extent="1-1"/>
 <wire x1="134.24" y1="10.795" x2="104.01" y2="35.56" width="0" layer="19" extent="1-1"/>
 <wire x1="144.6225" y1="10.795" x2="134.24" y2="10.795" width="0" layer="19" extent="1-1"/>
 <wire x1="153.86125" y1="10.795" x2="144.6225" y2="10.795" width="0" layer="19" extent="1-1"/>
@@ -6981,10 +7029,26 @@ design rules under a new name.</description>
 <via x="43.815" y="59.84875" extent="1-16" drill="0.6" shape="square"/>
 <contactref element="U$5" pad="P10"/>
 <contactref element="U$5" pad="P30"/>
+<contactref element="RS_TRANS_13" pad="VCC"/>
+<contactref element="C8" pad="1"/>
+<contactref element="RS_TRANS_14" pad="VCC"/>
+<contactref element="C21" pad="1"/>
+<contactref element="RS_TRANS_15" pad="VCC"/>
+<contactref element="C22" pad="1"/>
+<contactref element="RS_TRANS_16" pad="VCC"/>
+<contactref element="C23" pad="1"/>
 <wire x1="94.2725" y1="60.6675" x2="134.62" y2="86.36" width="0" layer="19" extent="1-1"/>
 <wire x1="88.9" y1="58.42" x2="94.2725" y2="60.6675" width="0" layer="19" extent="1-1"/>
 <wire x1="1.27" y1="19.05" x2="2.88625" y2="27.91125" width="0" layer="19" extent="1-1"/>
 <wire x1="64.77" y1="19.05" x2="80.3275" y2="24.79675" width="0" layer="19" extent="1-1"/>
+<wire x1="-0.635" y1="-11.7475" x2="1.27" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.67" y1="-15.24" x2="-0.635" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="2.41" y1="-15.24" x2="-0.635" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="-7.75" y1="-15.24" x2="-2.67" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.985" y1="-11.7475" x2="-7.75" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.335" y1="-11.7475" x2="-6.985" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.335" y1="-19.3675" x2="-7.75" y2="-15.24" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.83" y1="-22.86" x2="-13.335" y2="-19.3675" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RS485_1_RX">
 <contactref element="RS_TRANS_1" pad="RO"/>
@@ -8368,9 +8432,13 @@ design rules under a new name.</description>
 <wire x1="70.1675" y1="16.51" x2="80.01" y2="16.51" width="0.254" layer="1"/>
 <contactref element="U$5" pad="P20"/>
 <contactref element="U$5" pad="P40"/>
+<contactref element="C2" pad="1"/>
+<contactref element="U5_MUX" pad="16"/>
 <wire x1="66.04" y1="20.32" x2="64.77" y2="21.59" width="0" layer="19" extent="1-1"/>
 <wire x1="94.0825" y1="67.31" x2="102.1825" y2="62.23" width="0" layer="19" extent="1-1"/>
 <wire x1="1.27" y1="21.59" x2="1.27" y2="26.67" width="0" layer="19" extent="16-16"/>
+<wire x1="-7.5692" y1="13.335" x2="1.27" y2="21.59" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.83" y1="-2.54" x2="-7.5692" y2="13.335" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="U1RX">
 <contactref element="U1_MUX" pad="13"/>
@@ -8475,7 +8543,7 @@ design rules under a new name.</description>
 <signal name="U7TX">
 <contactref element="U2" pad="2"/>
 </signal>
-<signal name="U5RX">
+<signal name="PBRX">
 <contactref element="RS-485-2" pad="RO"/>
 <contactref element="U$5" pad="P1"/>
 <wire x1="87.63" y1="19.05" x2="96.52" y2="27.94" width="0.254" layer="1"/>
@@ -8487,7 +8555,7 @@ design rules under a new name.</description>
 <wire x1="104.14" y1="33.655" x2="103.505" y2="33.02" width="0.254" layer="1"/>
 <wire x1="103.505" y1="33.02" x2="103.505" y2="32.0675" width="0.254" layer="1"/>
 </signal>
-<signal name="U5TX">
+<signal name="PBTX">
 <contactref element="RS-485-2" pad="DI"/>
 <contactref element="U$5" pad="P2"/>
 <wire x1="102.235" y1="32.0675" x2="102.235" y2="33.49625" width="0.254" layer="1"/>
@@ -8844,6 +8912,178 @@ design rules under a new name.</description>
 <signal name="N$13">
 </signal>
 <signal name="N$14">
+</signal>
+<signal name="RS485_13_RX">
+<contactref element="RS_TRANS_13" pad="RO"/>
+<contactref element="U5_MUX" pad="12"/>
+<wire x1="-7.5692" y1="8.255" x2="-12.065" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_13_TX">
+<contactref element="RS_TRANS_13" pad="DI"/>
+<contactref element="U5_MUX" pad="1"/>
+<wire x1="-12.7508" y1="13.335" x2="-10.795" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="13_TX+">
+<contactref element="U$4" pad="49"/>
+<contactref element="RS_TRANS_13" pad="Y"/>
+<contactref element="R28" pad="1"/>
+<wire x1="-9.525" y1="-6.0325" x2="43.999" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.67" y1="-22.86" x2="-9.525" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="13_TX-">
+<contactref element="U$4" pad="50"/>
+<contactref element="RS_TRANS_13" pad="Z"/>
+<contactref element="R28" pad="2"/>
+<wire x1="0.13" y1="-22.86" x2="42.729" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="-10.795" y1="-6.0325" x2="0.13" y2="-22.86" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="13_RX+">
+<contactref element="U$4" pad="51"/>
+<contactref element="R26" pad="2"/>
+<contactref element="RS_TRANS_13" pad="A"/>
+<wire x1="-4.95" y1="-22.86" x2="41.459" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.335" y1="-6.0325" x2="-4.95" y2="-22.86" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="14_TX+">
+<contactref element="U$4" pad="53"/>
+<contactref element="RS_TRANS_14" pad="Y"/>
+<contactref element="R31" pad="1"/>
+<wire x1="-3.175" y1="-6.0325" x2="38.919" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.83" y1="-26.67" x2="-3.175" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="14_RX+">
+<contactref element="U$4" pad="55"/>
+<contactref element="R30" pad="2"/>
+<contactref element="RS_TRANS_14" pad="A"/>
+<wire x1="5.21" y1="-22.86" x2="36.379" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.985" y1="-6.0325" x2="5.21" y2="-22.86" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="13_RX-">
+<contactref element="U$4" pad="52"/>
+<contactref element="RS_TRANS_13" pad="B"/>
+<contactref element="R26" pad="1"/>
+<wire x1="-12.065" y1="-6.0325" x2="40.189" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="-7.75" y1="-22.86" x2="-12.065" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="14_TX-">
+<contactref element="U$4" pad="54"/>
+<contactref element="RS_TRANS_14" pad="Z"/>
+<contactref element="R31" pad="2"/>
+<wire x1="-4.445" y1="-6.0325" x2="37.649" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="-10.03" y1="-26.67" x2="-4.445" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="14_RX-">
+<contactref element="U$4" pad="56"/>
+<contactref element="RS_TRANS_14" pad="B"/>
+<contactref element="R30" pad="1"/>
+<wire x1="-5.715" y1="-6.0325" x2="35.109" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="2.41" y1="-22.86" x2="-5.715" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="15_TX+">
+<contactref element="U$4" pad="57"/>
+<contactref element="RS_TRANS_15" pad="Y"/>
+<contactref element="R33" pad="1"/>
+<wire x1="3.175" y1="-6.0325" x2="33.839" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-2.67" y1="-26.67" x2="3.175" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="15_RX+">
+<contactref element="U$4" pad="59"/>
+<contactref element="R32" pad="2"/>
+<contactref element="RS_TRANS_15" pad="A"/>
+<wire x1="-0.635" y1="-6.0325" x2="31.299" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.95" y1="-26.67" x2="-0.635" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="16_TX+">
+<contactref element="U$4" pad="61"/>
+<contactref element="RS_TRANS_16" pad="Y"/>
+<contactref element="R35" pad="1"/>
+<wire x1="-9.525" y1="-13.6525" x2="-12.83" y2="-30.48" width="0" layer="19" extent="1-1"/>
+<wire x1="28.759" y1="9.6475" x2="-9.525" y2="-13.6525" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="16_RX+">
+<contactref element="U$4" pad="63"/>
+<contactref element="R34" pad="2"/>
+<contactref element="RS_TRANS_16" pad="A"/>
+<wire x1="5.21" y1="-26.67" x2="26.219" y2="9.6475" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.335" y1="-13.6525" x2="5.21" y2="-26.67" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="16_RX-">
+<contactref element="U$4" pad="64"/>
+<contactref element="RS_TRANS_16" pad="B"/>
+<contactref element="R34" pad="1"/>
+<wire x1="2.41" y1="-26.67" x2="24.949" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.065" y1="-13.6525" x2="2.41" y2="-26.67" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="16_TX-">
+<contactref element="U$4" pad="62"/>
+<contactref element="RS_TRANS_16" pad="Z"/>
+<contactref element="R35" pad="2"/>
+<wire x1="-10.795" y1="-13.6525" x2="-10.03" y2="-30.48" width="0" layer="19" extent="1-1"/>
+<wire x1="27.489" y1="7.7425" x2="-10.795" y2="-13.6525" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="15_RX-">
+<contactref element="U$4" pad="60"/>
+<contactref element="RS_TRANS_15" pad="B"/>
+<contactref element="R32" pad="1"/>
+<wire x1="0.635" y1="-6.0325" x2="30.029" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="-7.75" y1="-26.67" x2="0.635" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="15_TX-">
+<contactref element="U$4" pad="58"/>
+<contactref element="RS_TRANS_15" pad="Z"/>
+<contactref element="R33" pad="2"/>
+<wire x1="1.905" y1="-6.0325" x2="32.569" y2="7.7425" width="0" layer="19" extent="1-1"/>
+<wire x1="0.13" y1="-26.67" x2="1.905" y2="-6.0325" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_14_RX">
+<contactref element="RS_TRANS_14" pad="RO"/>
+<contactref element="U5_MUX" pad="14"/>
+<wire x1="-7.5692" y1="10.795" x2="-5.715" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_14_TX">
+<contactref element="RS_TRANS_14" pad="DI"/>
+<contactref element="U5_MUX" pad="5"/>
+<wire x1="-12.7508" y1="8.255" x2="-4.445" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_15_RX">
+<contactref element="RS_TRANS_15" pad="RO"/>
+<contactref element="U5_MUX" pad="15"/>
+<wire x1="-7.5692" y1="12.065" x2="0.635" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_15_TX">
+<contactref element="RS_TRANS_15" pad="DI"/>
+<contactref element="U5_MUX" pad="2"/>
+<wire x1="-12.7508" y1="12.065" x2="1.905" y2="-11.7475" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_16_RX">
+<contactref element="RS_TRANS_16" pad="RO"/>
+<contactref element="U5_MUX" pad="11"/>
+<wire x1="-7.5692" y1="6.985" x2="-12.065" y2="-19.3675" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RS485_16_TX">
+<contactref element="RS_TRANS_16" pad="DI"/>
+<contactref element="U5_MUX" pad="4"/>
+<wire x1="-12.7508" y1="9.525" x2="-10.795" y2="-19.3675" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="U5RX">
+<contactref element="U5_MUX" pad="13"/>
+<contactref element="U$5" pad="P16"/>
+<wire x1="-7.5692" y1="9.525" x2="74.93" y2="21.59" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="U5TX">
+<contactref element="U5_MUX" pad="3"/>
+<contactref element="U$5" pad="P15"/>
+<wire x1="-12.7508" y1="10.795" x2="77.47" y2="21.59" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="U5_MUX_S0">
+<contactref element="U5_MUX" pad="10"/>
+<contactref element="U$5" pad="P14"/>
+<wire x1="-7.5692" y1="5.715" x2="80.01" y2="21.59" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="U5_MUX_S1">
+<contactref element="U5_MUX" pad="9"/>
+<contactref element="U$5" pad="P13"/>
+<wire x1="-7.5692" y1="4.445" x2="82.55" y2="21.59" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

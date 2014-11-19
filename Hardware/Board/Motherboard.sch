@@ -8792,6 +8792,31 @@ Source: Comchip CGRM4001-G.pdf</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="101,7,0,60.96,H1,1,,,,"/>
+<approved hash="101,7,10.16,60.96,H2,1,,,,"/>
+<approved hash="101,7,20.32,60.96,H3,1,,,,"/>
+<approved hash="101,7,30.48,60.96,H4,1,,,,"/>
+<approved hash="104,4,-132.08,43.18,U1_MUX,VCC,+5V,,,"/>
+<approved hash="104,4,-132.08,25.4,U1_MUX,VEE,GND,,,"/>
+<approved hash="104,4,-17.78,43.18,U2_MUX,VCC,+5V,,,"/>
+<approved hash="104,4,-17.78,25.4,U2_MUX,VEE,GND,,,"/>
+<approved hash="104,4,-132.08,-10.16,U3_MUX,VCC,+5V,,,"/>
+<approved hash="104,4,-132.08,-27.94,U3_MUX,VEE,GND,,,"/>
+<approved hash="104,4,-17.78,-10.16,U4_MUX,VCC,+5V,,,"/>
+<approved hash="104,4,-17.78,-27.94,U4_MUX,VEE,GND,,,"/>
+<approved hash="104,4,-132.08,-63.5,U5_MUX,VCC,+5V,,,"/>
+<approved hash="104,4,-132.08,-81.28,U5_MUX,VEE,GND,,,"/>
+<approved hash="113,7,-0.931331,62.7803,H1,,,,,"/>
+<approved hash="113,7,9.22867,62.7803,H2,,,,,"/>
+<approved hash="113,7,19.3887,62.7803,H3,,,,,"/>
+<approved hash="113,7,29.5487,62.7803,H4,,,,,"/>
+<approved hash="113,6,144.78,5.86317,GPS,,,,,"/>
+<approved hash="113,2,15.4347,69.2573,FAN1,,,,,"/>
+<approved hash="113,2,35.7547,69.2573,FAN2,,,,,"/>
+<approved hash="113,2,56.0747,69.2573,FAN3,,,,,"/>
+<approved hash="113,2,76.3947,69.2573,FAN4,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>

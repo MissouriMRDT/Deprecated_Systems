@@ -6358,6 +6358,20 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="20.32" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="RS485_17_RX" class="0">
+<segment>
+<pinref part="U1_MUX" gate="A" pin="1Y3"/>
+<wire x1="-96.52" y1="27.94" x2="-76.2" y2="27.94" width="0.1524" layer="91"/>
+<label x="-93.98" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_17_TX" class="0">
+<segment>
+<pinref part="U1_MUX" gate="A" pin="2Y3"/>
+<wire x1="-96.52" y1="15.24" x2="-76.2" y2="15.24" width="0.1524" layer="91"/>
+<label x="-93.98" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>

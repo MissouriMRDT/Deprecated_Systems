@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -283,7 +283,55 @@
 <wire x1="10.6045" y1="-20.3835" x2="10.6045" y2="20.3835" width="0.127" layer="21"/>
 <wire x1="10.6045" y1="20.3835" x2="-10.6045" y2="20.3835" width="0.127" layer="21"/>
 <wire x1="3.81" y1="19.05" x2="-3.81" y2="19.05" width="1.27" layer="21"/>
-<text x="-4.445" y="16.51" size="1.27" layer="21">MRDT 32u4</text>
+<text x="0" y="17.145" size="1.27" layer="21" align="center">MRDT 32u4</text>
+</package>
+<package name="32U3_MCU_DIP_SMD">
+<smd name="P$1" x="-10.541" y="-19.05" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$2" x="-7.239" y="-16.51" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$3" x="-10.541" y="-13.97" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$4" x="-7.239" y="-11.43" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$5" x="-10.541" y="-8.89" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$6" x="-7.239" y="-6.35" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$7" x="-10.541" y="-3.81" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$8" x="-7.239" y="-1.27" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$9" x="-10.541" y="1.27" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$10" x="-7.239" y="3.81" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$11" x="-10.541" y="6.35" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$12" x="-7.239" y="8.89" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$13" x="-10.541" y="11.43" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$14" x="-7.239" y="13.97" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$15" x="-10.541" y="16.51" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$16" x="-7.239" y="19.05" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$17" x="7.239" y="-19.05" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$18" x="10.541" y="-16.51" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$19" x="7.239" y="-13.97" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$20" x="10.541" y="-11.43" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$21" x="7.239" y="-8.89" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$22" x="10.541" y="-6.35" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$23" x="7.239" y="-3.81" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$24" x="10.541" y="-1.27" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$25" x="7.239" y="1.27" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$26" x="10.541" y="3.81" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$27" x="7.239" y="6.35" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$28" x="10.541" y="8.89" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$29" x="7.239" y="11.43" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$30" x="10.541" y="13.97" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$31" x="7.239" y="16.51" dx="1.778" dy="1.016" layer="1"/>
+<smd name="P$32" x="10.541" y="19.05" dx="1.778" dy="1.016" layer="1"/>
+<wire x1="-10.16" y1="20.32" x2="-10.16" y2="-20.32" width="0.127" layer="48"/>
+<wire x1="-10.16" y1="-20.32" x2="-7.62" y2="-20.32" width="0.127" layer="48"/>
+<wire x1="-7.62" y1="-20.32" x2="-7.62" y2="20.32" width="0.127" layer="48"/>
+<wire x1="-7.62" y1="20.32" x2="-10.16" y2="20.32" width="0.127" layer="48"/>
+<wire x1="7.62" y1="20.32" x2="7.62" y2="-20.32" width="0.127" layer="48"/>
+<wire x1="7.62" y1="-20.32" x2="10.16" y2="-20.32" width="0.127" layer="48"/>
+<wire x1="10.16" y1="-20.32" x2="10.16" y2="20.32" width="0.127" layer="48"/>
+<wire x1="10.16" y1="20.32" x2="7.62" y2="20.32" width="0.127" layer="48"/>
+<wire x1="-11.8745" y1="20.701" x2="-11.8745" y2="-20.701" width="0.127" layer="21"/>
+<wire x1="-11.8745" y1="-20.701" x2="11.8745" y2="-20.701" width="0.127" layer="21"/>
+<wire x1="11.8745" y1="20.701" x2="-11.8745" y2="20.701" width="0.127" layer="21"/>
+<wire x1="11.8745" y1="-20.701" x2="11.8745" y2="20.701" width="0.127" layer="21"/>
+<wire x1="3.81" y1="19.05" x2="-3.81" y2="19.05" width="1.27" layer="21"/>
+<text x="0" y="17.145" size="1.27" layer="21" align="center">MRDT 32u4</text>
 </package>
 </packages>
 <symbols>
@@ -635,6 +683,52 @@ Breakout</text>
 <connect gate="G$1" pin="SCK" pad="11"/>
 <connect gate="G$1" pin="VBUS" pad="16"/>
 <connect gate="G$1" pin="VCC" pad="14"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="32U4_BREAKOU_SMD">
+<gates>
+<gate name="G$1" symbol="32U4" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="32U3_MCU_DIP_SMD">
+<connects>
+<connect gate="G$1" pin="A0" pad="P$24"/>
+<connect gate="G$1" pin="A1" pad="P$23"/>
+<connect gate="G$1" pin="A2" pad="P$22"/>
+<connect gate="G$1" pin="A3" pad="P$21"/>
+<connect gate="G$1" pin="A4" pad="P$20"/>
+<connect gate="G$1" pin="A5" pad="P$19"/>
+<connect gate="G$1" pin="AREF" pad="P$18"/>
+<connect gate="G$1" pin="D0/RX" pad="P$13"/>
+<connect gate="G$1" pin="D1/TX" pad="P$14"/>
+<connect gate="G$1" pin="D10~/A10" pad="P$28"/>
+<connect gate="G$1" pin="D11~" pad="P$9"/>
+<connect gate="G$1" pin="D12/A11" pad="P$32"/>
+<connect gate="G$1" pin="D13~" pad="P$26"/>
+<connect gate="G$1" pin="D2" pad="P$12"/>
+<connect gate="G$1" pin="D3~" pad="P$11"/>
+<connect gate="G$1" pin="D4/A6" pad="P$16"/>
+<connect gate="G$1" pin="D5~" pad="P$27"/>
+<connect gate="G$1" pin="D6~/A7" pad="P$31"/>
+<connect gate="G$1" pin="D7" pad="P$4"/>
+<connect gate="G$1" pin="D8/A8" pad="P$30"/>
+<connect gate="G$1" pin="D9~/A9" pad="P$29"/>
+<connect gate="G$1" pin="GND@1" pad="P$2"/>
+<connect gate="G$1" pin="GND@2" pad="P$17"/>
+<connect gate="G$1" pin="MISO" pad="P$8"/>
+<connect gate="G$1" pin="MOSI" pad="P$7"/>
+<connect gate="G$1" pin="PB0" pad="P$5"/>
+<connect gate="G$1" pin="PD5" pad="P$15"/>
+<connect gate="G$1" pin="PE2" pad="P$25"/>
+<connect gate="G$1" pin="RST" pad="P$10"/>
+<connect gate="G$1" pin="SCK" pad="P$6"/>
+<connect gate="G$1" pin="VBUS" pad="P$1"/>
+<connect gate="G$1" pin="VCC" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>

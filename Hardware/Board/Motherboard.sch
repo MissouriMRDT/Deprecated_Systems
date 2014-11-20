@@ -4759,79 +4759,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="diode">
-<description>&lt;b&gt;Diodes&lt;/b&gt;&lt;p&gt;
-Based on the following sources:
-&lt;ul&gt;
-&lt;li&gt;Motorola : www.onsemi.com
-&lt;li&gt;Fairchild : www.fairchildsemi.com
-&lt;li&gt;Philips : www.semiconductors.com
-&lt;li&gt;Vishay : www.vishay.de
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="SOD-123_MINI-SMA">
-<description>&lt;b&gt;Molded plasitc,JEDEC SOD-123/Mini SMA&lt;/b&gt;&lt;p&gt;
-Source: Comchip CGRM4001-G.pdf</description>
-<wire x1="-1.8725" y1="0.835" x2="1.8725" y2="0.835" width="0.127" layer="51"/>
-<wire x1="-1.8725" y1="-0.835" x2="1.8725" y2="-0.835" width="0.127" layer="51"/>
-<wire x1="-0.3175" y1="0" x2="0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="-0.4763" x2="0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0.4763" x2="-0.3175" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="-0.4763" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.3175" y2="0.4763" width="0.127" layer="21"/>
-<wire x1="0.3175" y1="0" x2="0.5613" y2="0" width="0.127" layer="21"/>
-<wire x1="-0.3175" y1="0" x2="-0.5613" y2="0" width="0.127" layer="21"/>
-<smd name="A" x="1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<smd name="C" x="-1.8" y="0" dx="1.5" dy="2.1" layer="1" rot="R180"/>
-<text x="-3.048" y="1.143" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.048" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.95" y1="-0.9" x2="-1.5875" y2="0.9" layer="51"/>
-<rectangle x1="1.5875" y1="-0.9" x2="1.95" y2="0.9" layer="51"/>
-<rectangle x1="-1.0249" y1="-0.9" x2="-0.6625" y2="0.9" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="D">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="CGRM400*-G" prefix="D">
-<description>&lt;b&gt;Molded plasitc,JEDEC SOD-123/Mini SMA&lt;/b&gt;&lt;p&gt;
-Source: Comchip CGRM4001-G.pdf</description>
-<gates>
-<gate name="G$1" symbol="D" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOD-123_MINI-SMA">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="1"/>
-<technology name="2"/>
-<technology name="3"/>
-<technology name="4"/>
-<technology name="5"/>
-<technology name="6"/>
-<technology name="7"/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="StellarisLaunchPadConnected">
 <packages>
 <package name="STELLARISLAUNCHPAD_CONNECTED">
@@ -5285,14 +5212,13 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
 <part name="P+27" library="supply1" deviceset="+5V" device=""/>
 <part name="U2" library="SparkFun-DigitalIC" deviceset="ATMEGA328P_PDIP" device=""/>
-<part name="Y1" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="HC49US" value="16MHz"/>
+<part name="Y1" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="HC49US" value="8MHz"/>
 <part name="GND53" library="supply1" deviceset="GND" device=""/>
 <part name="C32" library="SparkFun-Passives" deviceset="CAP" device="1206" value="22pF"/>
 <part name="C31" library="SparkFun-Passives" deviceset="CAP" device="1206" value="22pF"/>
 <part name="R39" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="C30" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C29" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="P+28" library="supply1" deviceset="+5V" device=""/>
 <part name="P+29" library="supply1" deviceset="+5V" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="J2" library="SparkFun-Connectors" deviceset="AVR_SPI_PRG_6" device="PTH"/>
@@ -5327,9 +5253,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
 <part name="D2" library="SparkFun-LED" deviceset="LED-RED" device="1206" value="RED"/>
 <part name="R40" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="1K"/>
-<part name="R41" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="1K"/>
-<part name="D3" library="diode" deviceset="CGRM400*-G" device="" technology="7" value="CGRM4007-G"/>
-<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 <part name="C27" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".01uF"/>
 <part name="FAN1" library="SparkFun-Connectors" deviceset="M04" device="LONGPADS"/>
 <part name="12V" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
@@ -5403,6 +5326,7 @@ Source: Comchip CGRM4001-G.pdf</description>
 <part name="GND51" library="supply1" deviceset="GND" device=""/>
 <part name="R37" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8389,7 +8313,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <instance part="R39" gate="G$1" x="-27.94" y="35.56" rot="R90"/>
 <instance part="C30" gate="G$1" x="-53.34" y="7.62"/>
 <instance part="C29" gate="G$1" x="-63.5" y="7.62"/>
-<instance part="P+28" gate="1" x="-63.5" y="22.86"/>
 <instance part="P+29" gate="1" x="-27.94" y="45.72"/>
 <instance part="GND34" gate="1" x="-25.4" y="-35.56"/>
 <instance part="J2" gate="G$1" x="-2.54" y="-60.96"/>
@@ -8397,7 +8320,7 @@ Source: Comchip CGRM4001-G.pdf</description>
 <instance part="GND35" gate="1" x="25.4" y="-73.66"/>
 <instance part="GPS" gate="G$1" x="144.78" y="5.08"/>
 <instance part="J1" gate="G$1" x="175.26" y="-12.7" rot="MR0"/>
-<instance part="GND36" gate="1" x="119.38" y="-2.54" rot="R270"/>
+<instance part="GND36" gate="1" x="119.38" y="2.54" rot="R180"/>
 <instance part="GND37" gate="1" x="182.88" y="-25.4"/>
 <instance part="+3V21" gate="G$1" x="73.66" y="43.18"/>
 <instance part="FER_BEAD" gate="G$1" x="73.66" y="27.94"/>
@@ -8406,15 +8329,11 @@ Source: Comchip CGRM4001-G.pdf</description>
 <instance part="GND57" gate="1" x="104.14" y="10.16" rot="R270"/>
 <instance part="D2" gate="G$1" x="114.3" y="5.08" rot="R270"/>
 <instance part="R40" gate="G$1" x="99.06" y="0"/>
-<instance part="R41" gate="G$1" x="96.52" y="-22.86" rot="R90"/>
-<instance part="D3" gate="G$1" x="116.84" y="-12.7" smashed="yes" rot="R180">
-<attribute name="NAME" x="114.3" y="-13.1826" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="+3V22" gate="G$1" x="96.52" y="-12.7"/>
 <instance part="C27" gate="G$1" x="73.66" y="5.08"/>
 <instance part="U$1" gate="G$1" x="124.46" y="-66.04"/>
 <instance part="GND38" gate="1" x="149.86" y="-81.28"/>
 <instance part="P+7" gate="1" x="99.06" y="-48.26"/>
+<instance part="+3V20" gate="G$1" x="-63.5" y="22.86"/>
 </instances>
 <busses>
 </busses>
@@ -8493,11 +8412,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="106.68" y1="10.16" x2="129.54" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND36" gate="1" pin="GND"/>
-<pinref part="GPS" gate="G$1" pin="GND@2"/>
-<wire x1="121.92" y1="-2.54" x2="129.54" y2="-2.54" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="GND38" gate="1" pin="GND"/>
 <wire x1="149.86" y1="-78.74" x2="149.86" y2="-76.2" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="7"/>
@@ -8510,6 +8424,12 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="142.24" y1="-68.58" x2="149.86" y2="-68.58" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="-68.58" x2="149.86" y2="-73.66" width="0.1524" layer="91"/>
 <junction x="149.86" y="-73.66"/>
+</segment>
+<segment>
+<pinref part="GND36" gate="1" pin="GND"/>
+<wire x1="119.38" y1="0" x2="119.38" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="GPS" gate="G$1" pin="GND@2"/>
+<wire x1="119.38" y1="-2.54" x2="129.54" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ATCLK3" class="0">
@@ -8541,30 +8461,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <wire x1="-27.94" y1="43.18" x2="-27.94" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R39" gate="G$1" pin="2"/>
 <pinref part="P+29" gate="1" pin="+5V"/>
-</segment>
-<segment>
-<junction x="-53.34" y="15.24"/>
-<pinref part="C30" gate="G$1" pin="1"/>
-<pinref part="C29" gate="G$1" pin="1"/>
-<wire x1="-27.94" y1="15.24" x2="-53.34" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="15.24" x2="-53.34" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="15.24" x2="-63.5" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="15.24" x2="-63.5" y2="12.7" width="0.1524" layer="91"/>
-<junction x="-53.34" y="15.24"/>
-<wire x1="-27.94" y1="17.78" x2="-27.94" y2="15.24" width="0.1524" layer="91"/>
-<junction x="-27.94" y="15.24"/>
-<wire x1="-27.94" y1="20.32" x2="-27.94" y2="17.78" width="0.1524" layer="91"/>
-<junction x="-27.94" y="17.78"/>
-<wire x1="-63.5" y1="15.24" x2="-63.5" y2="20.32" width="0.1524" layer="91"/>
-<junction x="-63.5" y="15.24"/>
-<wire x1="-27.94" y1="15.24" x2="-27.94" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="AREF"/>
-<wire x1="-27.94" y1="10.16" x2="-22.86" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="VCC"/>
-<wire x1="-27.94" y1="17.78" x2="-22.86" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="AVCC"/>
-<wire x1="-27.94" y1="20.32" x2="-22.86" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="P+28" gate="1" pin="+5V"/>
 </segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="2"/>
@@ -8638,9 +8534,9 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="27.94" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="D3" gate="G$1" pin="C"/>
-<wire x1="114.3" y1="-12.7" x2="101.6" y2="-12.7" width="0.1524" layer="91"/>
-<label x="104.14" y="-12.7" size="1.778" layer="95"/>
+<pinref part="GPS" gate="G$1" pin="RX"/>
+<wire x1="129.54" y1="-7.62" x2="109.22" y2="-7.62" width="0.1524" layer="91"/>
+<label x="109.22" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GPS_TX" class="0">
@@ -8650,11 +8546,9 @@ Source: Comchip CGRM4001-G.pdf</description>
 <label x="27.94" y="-5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="121.92" y1="-7.62" x2="106.68" y2="-7.62" width="0.1524" layer="91"/>
-<label x="109.22" y="-7.62" size="1.778" layer="95"/>
 <pinref part="GPS" gate="G$1" pin="TX"/>
-<wire x1="129.54" y1="-5.08" x2="121.92" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="-5.08" x2="121.92" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="-5.08" x2="109.22" y2="-5.08" width="0.1524" layer="91"/>
+<label x="109.22" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -8664,9 +8558,28 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="FER_BEAD" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="+3V22" gate="G$1" pin="+3V3"/>
-<pinref part="R41" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="-15.24" x2="96.52" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="-53.34" y="15.24"/>
+<pinref part="C30" gate="G$1" pin="1"/>
+<pinref part="C29" gate="G$1" pin="1"/>
+<wire x1="-27.94" y1="15.24" x2="-53.34" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="15.24" x2="-53.34" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="15.24" x2="-63.5" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="15.24" x2="-63.5" y2="12.7" width="0.1524" layer="91"/>
+<junction x="-53.34" y="15.24"/>
+<wire x1="-27.94" y1="17.78" x2="-27.94" y2="15.24" width="0.1524" layer="91"/>
+<junction x="-27.94" y="15.24"/>
+<wire x1="-27.94" y1="20.32" x2="-27.94" y2="17.78" width="0.1524" layer="91"/>
+<junction x="-27.94" y="17.78"/>
+<wire x1="-63.5" y1="15.24" x2="-63.5" y2="20.32" width="0.1524" layer="91"/>
+<junction x="-63.5" y="15.24"/>
+<wire x1="-27.94" y1="15.24" x2="-27.94" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="AREF"/>
+<wire x1="-27.94" y1="10.16" x2="-22.86" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="VCC"/>
+<wire x1="-27.94" y1="17.78" x2="-22.86" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="AVCC"/>
+<wire x1="-27.94" y1="20.32" x2="-22.86" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="+3V20" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -8707,21 +8620,6 @@ Source: Comchip CGRM4001-G.pdf</description>
 <pinref part="D2" gate="G$1" pin="A"/>
 <pinref part="GPS" gate="G$1" pin="3D-FIX"/>
 <wire x1="116.84" y1="5.08" x2="129.54" y2="5.08" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="GPS" gate="G$1" pin="RX"/>
-<wire x1="129.54" y1="-7.62" x2="124.46" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="-7.62" x2="124.46" y2="-12.7" width="0.1524" layer="91"/>
-<pinref part="D3" gate="G$1" pin="A"/>
-<wire x1="124.46" y1="-12.7" x2="121.92" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="-12.7" x2="119.38" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="-12.7" x2="121.92" y2="-30.48" width="0.1524" layer="91"/>
-<junction x="121.92" y="-12.7"/>
-<pinref part="R41" gate="G$1" pin="1"/>
-<wire x1="121.92" y1="-30.48" x2="96.52" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="-30.48" x2="96.52" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="U6TX" class="0">

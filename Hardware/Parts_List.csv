@@ -13,16 +13,17 @@ IMU,1,$74.95,$74.95,0.005,0.005,Sparkfun,https://www.sparkfun.com/products/10736
 120 Ohm 1206,36,,,,,Newark,http://www.newark.com/multicomp/mchp06w2f1200t5e/resistor-high-power-120-ohm-500mw/dp/01N7140
 1 Kohm 1206,2,,,,,Newark,http://www.newark.com/vishay-dale/crcw12061k00fkea/resistor-thick-film-1kohm-250mw/dp/53K1779?MER=PPSO_N_P_EverywhereElse_None
 10 Kohm 1206,3,,,,,Newark,http://www.newark.com/vishay-dale/crcw120610k0fkea/resistor-thick-film-10kohm-250mw/dp/53K1907?MER=PPSO_N_P_EverywhereElse_None
-16 mhZ Crystal,1,,,,,,https://www.sparkfun.com/products/536
-Ferrite Bead,1,,,,,,http://www.newark.com/vishay-dale/ilbb0603er100v/ferrite-bead-0-05ohm-500ma-0603/dp/53K5027
+8 mHz Crystal,1,$0.95,$0.95,N/A,N/A,Sparkfun,https://www.sparkfun.com/products/538
+16 mHz Crystal,1,$0.95,$0.95,N/A,N/A,Sparkfun,https://www.sparkfun.com/products/536
+Ferrite Bead,1,$0.10,$0.10,N/A,N/A,Digikey,http://www.digikey.com/product-detail/en/CIB10P100NC/1276-6388-1-ND/3973917
 Red 1206 LED,1,,,,,,http://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/LH-N974-KN-1/?qs=sGAEpiMZZMt82OzCyDsLFAV097Vn80XJzM0DIFS2How%3d
 Green 1206 LED,1,,,,,,http://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/LG-N971-KN-1/?qs=sGAEpiMZZMseGfSY3csMkRFGmqWc9Zh4pe067IXnwes%3d
-RJ-45 Jacks,6,,,,,,https://www.sparkfun.com/products/643
+RJ-45 Jacks,1,,,,,,https://www.sparkfun.com/products/643
 Fan Connectors,4,,,,,,
-u.Fl Connector,1,,,,,,https://www.sparkfun.com/products/9144
-Power 2x1 5mm Screw terminals,2,,,,,,https://www.sparkfun.com/products/8432
-ATMega Programming Male Headers,1,,,,,,
-Ribbon Cable Male Connector,1,,,,,,http://www.newark.com/harting/60-05-068-5100/socket-scsi-pcb-straight-68w/dp/21M4933?ost=Harting+60+05+068+5100
+u.Fl Connector,1,$1.03,$1.03,N/A,N/A,Newark,http://www.newark.com/hrs-hirose/u-fl-r-smt-1-10/connector-u-fl-str-jack-smt-50/dp/50P8856
+Power 2x1 5mm Screw terminals,2,$0.95,$1.90,N/A,N/A,Sparkfun,https://www.sparkfun.com/products/8432
+Male Headers 0.1 Inch Headers,1,,,,,,
+Ribbon Cable Male Connector,1,$15.22,$15.22,N/A,N/A,Newark,http://www.newark.com/harting/60-05-068-5100/socket-scsi-pcb-straight-68w/dp/21M4933?ost=Harting+60+05+068+5100
 ,,,,,,,
 Total Price,,,,,,,
 Total Current Estimate,,,,,0.5072,,

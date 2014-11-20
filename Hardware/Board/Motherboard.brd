@@ -150,7 +150,6 @@
 <vertex x="161.036" y="29.21"/>
 <vertex x="168.402" y="29.21"/>
 </polygon>
-<text x="9.652" y="43.561" size="1.27" layer="21" rot="R180">1</text>
 <text x="40.67175" y="54.102" size="1.27" layer="21" rot="R180">2</text>
 <text x="41.24325" y="62.1665" size="1.27" layer="21" rot="R90">7</text>
 <rectangle x1="73.336153125" y1="15.858490625" x2="73.351390625" y2="15.863571875" layer="21"/>
@@ -5564,6 +5563,24 @@
 <text x="46.6725" y="62.07125" size="1.778" layer="21" rot="R90">Mux 3</text>
 <text x="6.35" y="64.61125" size="1.778" layer="21">Mux 1</text>
 <text x="80.393540625" y="19.87676875" size="0.8128" layer="21" font="vector">Nov. 2014</text>
+<text x="23.495" y="1.5875" size="1.778" layer="25">16</text>
+<text x="29.5275" y="1.5875" size="1.778" layer="25">15</text>
+<text x="35.56" y="1.5875" size="1.778" layer="25">14</text>
+<text x="40.64" y="1.5875" size="1.778" layer="25">13</text>
+<text x="2.54" y="16.51" size="1.778" layer="25">17</text>
+<text x="10.795" y="43.97375" size="1.778" layer="25">4</text>
+<text x="8.89" y="53.34" size="1.778" layer="25">7</text>
+<text x="7.14375" y="73.025" size="1.778" layer="25">1</text>
+<text x="38.1" y="82.55" size="1.778" layer="25">8</text>
+<text x="52.705" y="81.43875" size="1.778" layer="25">10</text>
+<text x="37.62375" y="61.9125" size="1.778" layer="25">2</text>
+<text x="54.9275" y="58.57875" size="1.778" layer="25">5</text>
+<text x="35.56" y="53.18125" size="1.778" layer="25">3</text>
+<text x="50.165" y="53.34" size="1.778" layer="25">6</text>
+<text x="79.53375" y="72.54875" size="1.778" layer="25">9</text>
+<text x="76.2" y="49.53" size="1.778" layer="25">7</text>
+<text x="75.8825" y="43.65625" size="1.778" layer="25">12</text>
+<text x="98.26625" y="45.72" size="1.778" layer="25">2</text>
 </plain>
 <libraries>
 <library name="MAX3077">

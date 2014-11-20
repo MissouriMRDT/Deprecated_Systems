@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -75,86 +75,86 @@
 <wire x1="124.46" y1="0" x2="124.46" y2="55.88" width="0.127" layer="21"/>
 <wire x1="124.46" y1="55.88" x2="0" y2="55.88" width="0.127" layer="21"/>
 <wire x1="0" y1="55.88" x2="0" y2="0" width="0.127" layer="21"/>
-<pad name="P51" x="36.83" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P52" x="39.37" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P53" x="41.91" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P54" x="44.45" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P55" x="46.99" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P56" x="49.53" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P57" x="52.07" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P58" x="54.61" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P59" x="57.15" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P60" x="59.69" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P50" x="59.69" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P49" x="57.15" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P48" x="54.61" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P47" x="52.07" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P46" x="49.53" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P45" x="46.99" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P44" x="44.45" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P43" x="41.91" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P42" x="39.37" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P41" x="36.83" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P11" x="36.83" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P1" x="36.83" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P2" x="39.37" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P12" x="39.37" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P3" x="41.91" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P13" x="41.91" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P4" x="44.45" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P14" x="44.45" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P5" x="46.99" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P15" x="46.99" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P6" x="49.53" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P16" x="49.53" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P7" x="52.07" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P17" x="52.07" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P8" x="54.61" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P18" x="54.61" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P9" x="57.15" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P19" x="57.15" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P10" x="59.69" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P20" x="59.69" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P31" x="100.33" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P21" x="100.33" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P22" x="102.87" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P32" x="102.87" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P23" x="105.41" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P33" x="105.41" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P24" x="107.95" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P34" x="107.95" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P25" x="110.49" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P35" x="110.49" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P26" x="113.03" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P36" x="113.03" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P27" x="115.57" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P37" x="115.57" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P28" x="118.11" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P38" x="118.11" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P29" x="120.65" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P39" x="120.65" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P40" x="123.19" y="52.07" drill="0.8" shape="octagon"/>
-<pad name="P30" x="123.19" y="54.61" drill="0.8" shape="octagon"/>
-<pad name="P61" x="100.33" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P71" x="100.33" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P72" x="102.87" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P62" x="102.87" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P63" x="105.41" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P73" x="105.41" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P74" x="107.95" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P64" x="107.95" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P65" x="110.49" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P75" x="110.49" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P76" x="113.03" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P66" x="113.03" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P67" x="115.57" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P77" x="115.57" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P78" x="118.11" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P68" x="118.11" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P69" x="120.65" y="11.43" drill="0.8" shape="octagon"/>
-<pad name="P79" x="120.65" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P80" x="123.19" y="8.89" drill="0.8" shape="octagon"/>
-<pad name="P70" x="123.19" y="11.43" drill="0.8" shape="octagon"/>
+<pad name="P51" x="36.83" y="8.89" drill="1"/>
+<pad name="P52" x="39.37" y="8.89" drill="1"/>
+<pad name="P53" x="41.91" y="8.89" drill="1"/>
+<pad name="P54" x="44.45" y="8.89" drill="1"/>
+<pad name="P55" x="46.99" y="8.89" drill="1"/>
+<pad name="P56" x="49.53" y="8.89" drill="1"/>
+<pad name="P57" x="52.07" y="8.89" drill="1"/>
+<pad name="P58" x="54.61" y="8.89" drill="1"/>
+<pad name="P59" x="57.15" y="8.89" drill="1"/>
+<pad name="P60" x="59.69" y="8.89" drill="1"/>
+<pad name="P50" x="59.69" y="11.43" drill="1"/>
+<pad name="P49" x="57.15" y="11.43" drill="1"/>
+<pad name="P48" x="54.61" y="11.43" drill="1"/>
+<pad name="P47" x="52.07" y="11.43" drill="1"/>
+<pad name="P46" x="49.53" y="11.43" drill="1"/>
+<pad name="P45" x="46.99" y="11.43" drill="1"/>
+<pad name="P44" x="44.45" y="11.43" drill="1"/>
+<pad name="P43" x="41.91" y="11.43" drill="1"/>
+<pad name="P42" x="39.37" y="11.43" drill="1"/>
+<pad name="P41" x="36.83" y="11.43" drill="1"/>
+<pad name="P11" x="36.83" y="52.07" drill="1"/>
+<pad name="P1" x="36.83" y="54.61" drill="1"/>
+<pad name="P2" x="39.37" y="54.61" drill="1"/>
+<pad name="P12" x="39.37" y="52.07" drill="1"/>
+<pad name="P3" x="41.91" y="54.61" drill="1"/>
+<pad name="P13" x="41.91" y="52.07" drill="1"/>
+<pad name="P4" x="44.45" y="54.61" drill="1"/>
+<pad name="P14" x="44.45" y="52.07" drill="1"/>
+<pad name="P5" x="46.99" y="54.61" drill="1"/>
+<pad name="P15" x="46.99" y="52.07" drill="1"/>
+<pad name="P6" x="49.53" y="54.61" drill="1"/>
+<pad name="P16" x="49.53" y="52.07" drill="1"/>
+<pad name="P7" x="52.07" y="54.61" drill="1"/>
+<pad name="P17" x="52.07" y="52.07" drill="1"/>
+<pad name="P8" x="54.61" y="54.61" drill="1"/>
+<pad name="P18" x="54.61" y="52.07" drill="1"/>
+<pad name="P9" x="57.15" y="54.61" drill="1"/>
+<pad name="P19" x="57.15" y="52.07" drill="1"/>
+<pad name="P10" x="59.69" y="54.61" drill="1"/>
+<pad name="P20" x="59.69" y="52.07" drill="1"/>
+<pad name="P31" x="100.33" y="52.07" drill="1"/>
+<pad name="P21" x="100.33" y="54.61" drill="1"/>
+<pad name="P22" x="102.87" y="54.61" drill="1"/>
+<pad name="P32" x="102.87" y="52.07" drill="1"/>
+<pad name="P23" x="105.41" y="54.61" drill="1"/>
+<pad name="P33" x="105.41" y="52.07" drill="1"/>
+<pad name="P24" x="107.95" y="54.61" drill="1"/>
+<pad name="P34" x="107.95" y="52.07" drill="1"/>
+<pad name="P25" x="110.49" y="54.61" drill="1"/>
+<pad name="P35" x="110.49" y="52.07" drill="1"/>
+<pad name="P26" x="113.03" y="54.61" drill="1"/>
+<pad name="P36" x="113.03" y="52.07" drill="1"/>
+<pad name="P27" x="115.57" y="54.61" drill="1"/>
+<pad name="P37" x="115.57" y="52.07" drill="1"/>
+<pad name="P28" x="118.11" y="54.61" drill="1"/>
+<pad name="P38" x="118.11" y="52.07" drill="1"/>
+<pad name="P29" x="120.65" y="54.61" drill="1"/>
+<pad name="P39" x="120.65" y="52.07" drill="1"/>
+<pad name="P40" x="123.19" y="52.07" drill="1"/>
+<pad name="P30" x="123.19" y="54.61" drill="1"/>
+<pad name="P61" x="100.33" y="11.43" drill="1"/>
+<pad name="P71" x="100.33" y="8.89" drill="1"/>
+<pad name="P72" x="102.87" y="8.89" drill="1"/>
+<pad name="P62" x="102.87" y="11.43" drill="1"/>
+<pad name="P63" x="105.41" y="11.43" drill="1"/>
+<pad name="P73" x="105.41" y="8.89" drill="1"/>
+<pad name="P74" x="107.95" y="8.89" drill="1"/>
+<pad name="P64" x="107.95" y="11.43" drill="1"/>
+<pad name="P65" x="110.49" y="11.43" drill="1"/>
+<pad name="P75" x="110.49" y="8.89" drill="1"/>
+<pad name="P76" x="113.03" y="8.89" drill="1"/>
+<pad name="P66" x="113.03" y="11.43" drill="1"/>
+<pad name="P67" x="115.57" y="11.43" drill="1"/>
+<pad name="P77" x="115.57" y="8.89" drill="1"/>
+<pad name="P78" x="118.11" y="8.89" drill="1"/>
+<pad name="P68" x="118.11" y="11.43" drill="1"/>
+<pad name="P69" x="120.65" y="11.43" drill="1"/>
+<pad name="P79" x="120.65" y="8.89" drill="1"/>
+<pad name="P80" x="123.19" y="8.89" drill="1"/>
+<pad name="P70" x="123.19" y="11.43" drill="1"/>
 <wire x1="-2.54" y1="53.34" x2="13.97" y2="53.34" width="0.127" layer="21"/>
 <wire x1="13.97" y1="53.34" x2="13.97" y2="38.1" width="0.127" layer="21"/>
 <wire x1="13.97" y1="38.1" x2="-2.54" y2="38.1" width="0.127" layer="21"/>

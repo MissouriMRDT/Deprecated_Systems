@@ -36,6 +36,7 @@
 
 # Ignore eagle project files
 *.epf
+*.pro
 
 # Ignore build files
 Software/CCS/Debug/

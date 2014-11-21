@@ -5219,7 +5219,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R39" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="C30" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C29" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="P+29" library="supply1" deviceset="+5V" device=""/>
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="J2" library="SparkFun-Connectors" deviceset="AVR_SPI_PRG_6" device="PTH"/>
 <part name="P+30" library="supply1" deviceset="+5V" device=""/>
@@ -5330,6 +5329,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="C25" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C26" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="C33" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8341,7 +8341,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R39" gate="G$1" x="-27.94" y="35.56" rot="R90"/>
 <instance part="C30" gate="G$1" x="-53.34" y="7.62"/>
 <instance part="C29" gate="G$1" x="-63.5" y="7.62"/>
-<instance part="P+29" gate="1" x="-27.94" y="45.72"/>
 <instance part="GND34" gate="1" x="-25.4" y="-35.56"/>
 <instance part="J2" gate="G$1" x="-2.54" y="-60.96"/>
 <instance part="P+30" gate="1" x="25.4" y="-50.8"/>
@@ -8362,6 +8361,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND38" gate="1" x="149.86" y="-81.28"/>
 <instance part="P+7" gate="1" x="99.06" y="-48.26"/>
 <instance part="+3V20" gate="G$1" x="-63.5" y="22.86"/>
+<instance part="+3V22" gate="G$1" x="-27.94" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -8486,11 +8486,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </net>
 <net name="+5V" class="0">
 <segment>
-<wire x1="-27.94" y1="43.18" x2="-27.94" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="R39" gate="G$1" pin="2"/>
-<pinref part="P+29" gate="1" pin="+5V"/>
-</segment>
-<segment>
 <pinref part="J2" gate="G$1" pin="2"/>
 <pinref part="P+30" gate="1" pin="+5V"/>
 <wire x1="7.62" y1="-58.42" x2="25.4" y2="-58.42" width="0.1524" layer="91"/>
@@ -8608,6 +8603,11 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U2" gate="G$1" pin="AVCC"/>
 <wire x1="-27.94" y1="20.32" x2="-22.86" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="+3V20" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="+3V22" gate="G$1" pin="+3V3"/>
+<pinref part="R39" gate="G$1" pin="2"/>
+<wire x1="-27.94" y1="43.18" x2="-27.94" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">

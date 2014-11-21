@@ -5,6 +5,6 @@ motherboard-squad
 
 This is the repository containing both the software and hardware designs for Missouri S&T's Mars Rover Motherboard Squad.
 
-Contact Keenan Johnson (keenan.johnson@gmail.com) or (kljf3f@mst.edu) for more information.
+Contact the Motherboard Squad (mars-rover-motherboard-squad-grp@mst.edu) for more information.
 
 

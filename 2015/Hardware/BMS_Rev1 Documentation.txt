@@ -12,7 +12,7 @@ Physical Inputs:
 	
 
 
-Outputs:4
+Outputs:
 	
 	
 ICs:
@@ -22,6 +22,9 @@ ICs:
 
 
 Notes:
+
+	5V power is currently supplied by a Murata OKI-78SR buck converter with a Pi filter. This should probably be changed, as the OKI is extremely inefficient at low (<200mA) current levels.
+
 	A large, high-current diode at the charger input prevents shorting the battery.
 
 	The logic power switch removes power to the regulator. When switched "off", the only waste power is leakage current is through the main MOSFET, which is very very low. When switched "off", the switch connects to the charger input. (Even when switched off, the 5V logic will be powered up if the charger is connected.)

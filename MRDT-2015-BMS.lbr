@@ -468,43 +468,43 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <text x="2.54" y="1.27" size="1.27" layer="97">NC</text>
 </symbol>
 <symbol name="ATTINY_828">
-<wire x1="-12.7" y1="19.05" x2="12.7" y2="19.05" width="0.127" layer="94"/>
-<wire x1="12.7" y1="19.05" x2="12.7" y2="-22.86" width="0.127" layer="94"/>
+<wire x1="-12.7" y1="20.32" x2="12.7" y2="20.32" width="0.127" layer="94"/>
+<wire x1="12.7" y1="20.32" x2="12.7" y2="-22.86" width="0.127" layer="94"/>
 <wire x1="12.7" y1="-22.86" x2="-12.7" y2="-22.86" width="0.127" layer="94"/>
-<wire x1="-12.7" y1="-22.86" x2="-12.7" y2="19.05" width="0.127" layer="94"/>
-<pin name="PC2_RXD" x="-17.78" y="11.43" visible="pin" length="middle"/>
-<pin name="PC3_TXD" x="-17.78" y="8.89" visible="pin" length="middle"/>
-<pin name="PC4" x="-17.78" y="6.35" visible="pin" length="middle"/>
-<pin name="VCC" x="17.78" y="16.51" visible="pin" length="middle" rot="R180"/>
-<pin name="GND" x="17.78" y="-19.05" visible="pin" length="middle" rot="R180"/>
-<pin name="PC5" x="-17.78" y="3.81" visible="pin" length="middle"/>
-<pin name="PC6" x="-17.78" y="1.27" visible="pin" length="middle"/>
-<pin name="PC7" x="-17.78" y="-1.27" visible="pin" length="middle"/>
-<pin name="PA0" x="-17.78" y="-3.81" visible="pin" length="middle"/>
-<pin name="PA1" x="-17.78" y="-6.35" visible="pin" length="middle"/>
-<pin name="PA2" x="-17.78" y="-8.89" visible="pin" length="middle"/>
-<pin name="PA3" x="-17.78" y="-11.43" visible="pin" length="middle"/>
-<pin name="PA4" x="-17.78" y="-13.97" visible="pin" length="middle"/>
-<pin name="PA5" x="-17.78" y="-16.51" visible="pin" length="middle"/>
-<pin name="PA6" x="-17.78" y="-19.05" visible="pin" length="middle"/>
-<pin name="PA7" x="-17.78" y="-21.59" visible="pin" length="middle"/>
-<pin name="PB0" x="17.78" y="11.43" visible="pin" length="middle" rot="R180"/>
-<pin name="AVCC" x="17.78" y="13.97" visible="pin" length="middle" rot="R180"/>
-<pin name="PB1" x="17.78" y="8.89" visible="pin" length="middle" rot="R180"/>
-<pin name="PB2" x="17.78" y="6.35" visible="pin" length="middle" rot="R180"/>
-<pin name="PB3" x="17.78" y="3.81" visible="pin" length="middle" rot="R180"/>
-<pin name="PB4" x="17.78" y="1.27" visible="pin" length="middle" rot="R180"/>
-<pin name="PB5" x="17.78" y="-1.27" visible="pin" length="middle" rot="R180"/>
-<pin name="PB6" x="17.78" y="-3.81" visible="pin" length="middle" rot="R180"/>
-<pin name="PB7" x="17.78" y="-6.35" visible="pin" length="middle" rot="R180"/>
-<pin name="PD0_SDA/MOSI" x="17.78" y="-8.89" visible="pin" length="middle" rot="R180"/>
-<pin name="PD1_MISO" x="17.78" y="-11.43" visible="pin" length="middle" rot="R180"/>
-<pin name="PD2_RESET" x="17.78" y="-13.97" visible="pin" length="middle" rot="R180"/>
-<pin name="PD3_SCL/SCK" x="17.78" y="-16.51" visible="pin" length="middle" rot="R180"/>
-<pin name="PC0_SS" x="-17.78" y="16.51" visible="pin" length="middle"/>
-<pin name="PC1" x="-17.78" y="13.97" visible="pin" length="middle"/>
-<text x="-12.7" y="20.32" size="1.778" layer="95">&gt;NAME</text>
-<text x="0" y="20.32" size="1.778" layer="95">ATTINY828</text>
+<wire x1="-12.7" y1="-22.86" x2="-12.7" y2="20.32" width="0.127" layer="94"/>
+<pin name="PC2_RXD" x="-17.78" y="12.7" visible="pin" length="middle"/>
+<pin name="PC3_TXD" x="-17.78" y="10.16" visible="pin" length="middle"/>
+<pin name="PC4" x="-17.78" y="7.62" visible="pin" length="middle"/>
+<pin name="VCC" x="17.78" y="17.78" visible="pin" length="middle" rot="R180"/>
+<pin name="GND" x="17.78" y="-17.78" visible="pin" length="middle" rot="R180"/>
+<pin name="PC5" x="-17.78" y="5.08" visible="pin" length="middle"/>
+<pin name="PC6" x="-17.78" y="2.54" visible="pin" length="middle"/>
+<pin name="PC7" x="-17.78" y="0" visible="pin" length="middle"/>
+<pin name="PA0" x="-17.78" y="-2.54" visible="pin" length="middle"/>
+<pin name="PA1" x="-17.78" y="-5.08" visible="pin" length="middle"/>
+<pin name="PA2" x="-17.78" y="-7.62" visible="pin" length="middle"/>
+<pin name="PA3" x="-17.78" y="-10.16" visible="pin" length="middle"/>
+<pin name="PA4" x="-17.78" y="-12.7" visible="pin" length="middle"/>
+<pin name="PA5" x="-17.78" y="-15.24" visible="pin" length="middle"/>
+<pin name="PA6" x="-17.78" y="-17.78" visible="pin" length="middle"/>
+<pin name="PA7" x="-17.78" y="-20.32" visible="pin" length="middle"/>
+<pin name="PB0" x="17.78" y="12.7" visible="pin" length="middle" rot="R180"/>
+<pin name="AVCC" x="17.78" y="15.24" visible="pin" length="middle" rot="R180"/>
+<pin name="PB1" x="17.78" y="10.16" visible="pin" length="middle" rot="R180"/>
+<pin name="PB2" x="17.78" y="7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="PB3" x="17.78" y="5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="PB4" x="17.78" y="2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="PB5" x="17.78" y="0" visible="pin" length="middle" rot="R180"/>
+<pin name="PB6" x="17.78" y="-2.54" visible="pin" length="middle" rot="R180"/>
+<pin name="PB7" x="17.78" y="-5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="PD0_SDA/MOSI" x="17.78" y="-7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="PD1_MISO" x="17.78" y="-10.16" visible="pin" length="middle" rot="R180"/>
+<pin name="PD2_RESET" x="17.78" y="-12.7" visible="pin" length="middle" rot="R180"/>
+<pin name="PD3_SCL/SCK" x="17.78" y="-15.24" visible="pin" length="middle" rot="R180"/>
+<pin name="PC0_SS" x="-17.78" y="17.78" visible="pin" length="middle"/>
+<pin name="PC1" x="-17.78" y="15.24" visible="pin" length="middle"/>
+<text x="-12.7" y="22.86" size="1.778" layer="95" align="top-left">&gt;NAME</text>
+<text x="-12.7" y="-25.4" size="1.778" layer="95">ATTINY828</text>
 </symbol>
 <symbol name="HEXFET">
 <wire x1="-5.08" y1="2.54" x2="-5.08" y2="-5.08" width="0.127" layer="94"/>

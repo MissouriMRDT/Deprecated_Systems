@@ -38,3 +38,7 @@ Notes:
 	The ATTiny 828 uses ICSP pogo pads for programming. A solder jumper connects the ATTiny to the 5V supply, so it a pogo programmer can be used without affecting everything else connected to the 5V line.
 
 	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 resistor dividers to check the voltage of each cell.
+
+	The LCD will be connected as explained on this comment on spark fun. [unfinished]
+	https://www.sparkfun.com/products/709#comment-50c4c1a4ce395fc170000000
+	(I AM NOT SURE IF THIS IS 100% RELIABLE, BUT I HAVE NOT FOUND A BETTER IMPLEMENTATION)

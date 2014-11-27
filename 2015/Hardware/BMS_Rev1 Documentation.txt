@@ -37,4 +37,4 @@ Notes:
 
 	The ATTiny 828 uses ICSP pogo pads for programming. A solder jumper connects the ATTiny to the 5V supply, so it a pogo programmer can be used without affecting everything else connected to the 5V line.
 
-	The Balance charger connects to a 9-pin balance lead that passes through the BMS. An 8x2 Jumper line allows the ADC to be fully disconnected from the cell array for storage if desired.
+	The Balance charger connects to a 9-pin balance lead that passes through the BMS. 

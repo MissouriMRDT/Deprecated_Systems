@@ -1,5 +1,18 @@
 BMS_Rev1 Documentation
 
+TO DO (not full list):
+	Proper connections (decoupling caps, etc) for ATTiny
+	Proper caps for LT1910
+	Check LT1910 circuit with someone (i.e. will it actually work?)
+	Connect cell voltage measurements to ATTiny
+	Add LEDs?
+	Add connection for ground.(does not need to be high-current)
+	Add provisions for temperature measurement
+	Replace OKI with higher-efficiency buck converter solution
+		
+
+
+
 Analog measurements:
 	Charge V Meas		Voltage measurement at charger input
 	5V Input V Meas		Voltage measurement at 5V regulator

@@ -1,8 +1,6 @@
 BMS_Rev1 Documentation
 
 TO DO (not full list):
-	Proper connections (decoupling caps, etc) for ATTiny
-	Proper caps for LT1910
 	Check LT1910 circuit with someone (i.e. will it actually work?)
 	Connect cell voltage measurements to ATTiny
 	Add LEDs?

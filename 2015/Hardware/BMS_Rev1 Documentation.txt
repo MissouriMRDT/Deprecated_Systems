@@ -45,6 +45,7 @@ MCU IO:
 	SW_LCDWAKE	Input	PD5	Active Low to wake LCD
 	SW_POWER	Input	PB0	Active high to power on rover 
 	SW_INSTALLED	Input	PE6	Active Low to indicate battery installed
+	OC_TRIP		Input	PB3	Active low it indicate overcurrent at FET
 
 	
 ICs:
@@ -76,3 +77,5 @@ Notes:
 	https://www.sparkfun.com/products/709#comment-50c4c1a4ce395fc170000000
 	(I AM NOT SURE IF THIS IS 100% RELIABLE, BUT I HAVE NOT FOUND A BETTER IMPLEMENTATION)
 	The LCD connections do not totally match the sparkfun connections, as certain pins were required for i2c comms. This is apparently changeable in software though. LCD power is controlled with LCD_ON. 
+
+	The LT1910 uses a set resistor and acts as a solid-state breaker. As currently designed, it trips at 216A with a .3mΩ Resistor, and has approximately a .5 second delay to reset with a 3.3µF cap

@@ -5,19 +5,41 @@ Analog measurements:
 	5V Input V Meas		Voltage measurement at 5V regulator
 	Output V Meas		Voltage Measurement at output
 	Array I Meas		Current measurement at pack high side
+	Cell V Meas (x8)	Voltage measurement at each cell; 0-5V Isolated
 
 
-Physical Inputs:
-	Logic Power Switch		Disconnects 5V regulator
-	
+Electromechanical Inputs:
+	Logic Power Switch	Disconnects 5V regulator
+	Installed Switch	Intended to detect if battery is installed in rover
+	Power Switch		Intended to power on Gate; should be Normally open Estop type
+	LCD Wake		Intended to wake LCD; should be momentary pushbutton
 
 
-Outputs:
-	
+
+Board physical IO:
+	JP Inputs (x3)		Used for software switches
+	Charger_In		High-amp connector for charger
+	V_ARRAY			Extreme-amp bolt-on connector to high side of battery array OR fuse
+	V_OUT			Extreme-amp bolt-on connector to Rover
+	RoveCom			Standardized RoveCom (PoRC not supported)
+	V_CELL_IN		9-pin input from battery cells for voltage measurement
+	V_CELL_OUT		9-pin output passing cell voltages through for external measurement
+
+MCU IO:
+	I_ARRAY		Input	PF7	Analog voltage for array current measurement
+	GATE		Output	PE2	Digital active high output to FET	
+	LCD_ON		Output	PC7	Digital active high output to turn on external LCD
+	BUZZ_1		Output	PB5	Digital PWM-driven buzzer #1
+	BUZZ_2		Output	PB6	Digital PWM-driven buzzer #2
+	SW_LCDWAKE	Input	PD5	Active Low to wake LCD
+	SW_POWER	Input	PB0	Active high to power on rover 
+	SW_INSTALLED	Input	PE6	Active Low to indicate battery installed
+
 	
 ICs:
+	ATMega32u4		Primary MCU
 	ATTiny828		Used for analog measurements from array
-
+	INA146 (x8)		Differential Op Amp; used to isolate cell voltages
 	
 
 
@@ -37,10 +59,9 @@ Notes:
 
 	The ATTiny 828 uses ICSP pogo pads for programming. A solder jumper connects the ATTiny to the 5V supply, so it a pogo programmer can be used without affecting everything else connected to the 5V line.
 
-	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 resistor dividers to check the voltage of each cell.
+	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 differential voltage amplifiers used at each battery, to detect voltage levels. These are costly and may not be used in the final implementation.
 
-	The LCD will be connected as explained on this comment on spark fun. [unfinished]
+	The LCD is connected as close as possible to as explained on this comment on spark fun.
 	https://www.sparkfun.com/products/709#comment-50c4c1a4ce395fc170000000
 	(I AM NOT SURE IF THIS IS 100% RELIABLE, BUT I HAVE NOT FOUND A BETTER IMPLEMENTATION)
-
-	A differential voltage amplifier is currently on the board for cell voltage checking. It is not fully implemented yet. This may be shelved for a second revision. Implementing this solution will significantly increase the cost of the system.
+	The LCD connections do not totally match the sparkfun connections, as certain pins were required for i2c comms. This is apparently changeable in software though. LCD power is controlled with LCD_ON. 

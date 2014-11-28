@@ -42,3 +42,5 @@ Notes:
 	The LCD will be connected as explained on this comment on spark fun. [unfinished]
 	https://www.sparkfun.com/products/709#comment-50c4c1a4ce395fc170000000
 	(I AM NOT SURE IF THIS IS 100% RELIABLE, BUT I HAVE NOT FOUND A BETTER IMPLEMENTATION)
+
+	A differential voltage amplifier is currently on the board for cell voltage checking. It is not fully implemented yet. This may be shelved for a second revision. Implementing this solution will significantly increase the cost of the system.

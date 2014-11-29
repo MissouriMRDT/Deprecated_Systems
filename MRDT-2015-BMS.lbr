@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -132,7 +132,7 @@
 <pad name="2" x="0" y="0" drill="0.8" diameter="1.5"/>
 <pad name="1" x="-1.91" y="0" drill="0.8" diameter="1.5"/>
 <pad name="3" x="1.91" y="0" drill="0.8" diameter="1.5"/>
-<polygon width="0" layer="45">
+<polygon width="0" layer="46">
 <vertex x="-8" y="21.4" curve="-90"/>
 <vertex x="-7" y="22.4"/>
 <vertex x="-3" y="22.4" curve="-90"/>
@@ -140,7 +140,7 @@
 <vertex x="-3" y="20.4"/>
 <vertex x="-7" y="20.4" curve="-90"/>
 </polygon>
-<polygon width="0" layer="45">
+<polygon width="0" layer="46">
 <vertex x="2" y="21.4" curve="-90"/>
 <vertex x="3" y="22.4"/>
 <vertex x="7" y="22.4" curve="-90"/>
@@ -376,6 +376,48 @@
 <rectangle x1="-2.2286" y1="3.556" x2="-1.7714" y2="4.5466" layer="51"/>
 <rectangle x1="-3.0286" y1="3.556" x2="-2.5714" y2="4.5466" layer="51"/>
 </package>
+<package name="D2PACK">
+<description>3-Pin D&lt;sup&gt;2&lt;/sup&gt;PAK
+&lt;br&gt;
+2-pin w/ tab</description>
+<wire x1="-5.2" y1="-4.575" x2="-5.2" y2="4.575" width="0.2032" layer="51"/>
+<wire x1="5.2" y1="4.575" x2="5.2" y2="-4.575" width="0.2032" layer="51"/>
+<wire x1="5.2" y1="-4.575" x2="-5.2" y2="-4.575" width="0.2032" layer="21"/>
+<wire x1="-5.2" y1="-4.575" x2="-5.2" y2="-3.175" width="0.2032" layer="21"/>
+<wire x1="5.2" y1="-4.575" x2="5.2" y2="-3.175" width="0.2032" layer="21"/>
+<rectangle x1="2.015" y1="-9.775" x2="3.065" y2="-6.575" layer="51"/>
+<rectangle x1="-3.065" y1="-9.775" x2="-2.015" y2="-6.575" layer="51"/>
+<rectangle x1="-0.525" y1="-6.375" x2="0.525" y2="-4.475" layer="21"/>
+<rectangle x1="-3.065" y1="-6.375" x2="-2.015" y2="-4.475" layer="21"/>
+<rectangle x1="2.015" y1="-6.375" x2="3.065" y2="-4.475" layer="21"/>
+<smd name="1" x="-2.54" y="-8.275" dx="1.6" dy="3.5" layer="1"/>
+<smd name="2" x="2.54" y="-8.275" dx="1.6" dy="3.5" layer="1"/>
+<smd name="TAB" x="0" y="2" dx="12.2" dy="9.75" layer="1"/>
+<text x="-4.953" y="-3.556" size="0.4318" layer="25">&gt;Name</text>
+<text x="-4.953" y="-4.318" size="0.4318" layer="27">&gt;Value</text>
+<polygon width="0.2032" layer="51">
+<vertex x="-5.2" y="4.6"/>
+<vertex x="-5.2" y="5.7"/>
+<vertex x="-2.8" y="6.075"/>
+<vertex x="2.8" y="6.075"/>
+<vertex x="5.2" y="5.7"/>
+<vertex x="5.2" y="4.6"/>
+</polygon>
+<polygon width="0.127" layer="51">
+<vertex x="-4.25" y="-1.925"/>
+<vertex x="-4.25" y="0"/>
+<vertex x="-3.6" y="0"/>
+<vertex x="-3.6" y="3.4"/>
+<vertex x="-2.8" y="3.4"/>
+<vertex x="-2.8" y="6.075"/>
+<vertex x="2.8" y="6.075"/>
+<vertex x="2.8" y="3.4"/>
+<vertex x="3.6" y="3.4"/>
+<vertex x="3.6" y="0"/>
+<vertex x="4.25" y="0"/>
+<vertex x="4.25" y="-1.925"/>
+</polygon>
+</package>
 <package name="D2PAK-7">
 <description>&lt;b&gt;Plastic Transistor Single Outline Package&lt;/b&gt; P-TO263-7-1 Option E3180&lt;p&gt;
 
@@ -443,6 +485,12 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <wire x1="4" y1="-3" x2="4" y2="3" width="0.127" layer="39"/>
 <wire x1="4" y1="3" x2="-4" y2="3" width="0.127" layer="39"/>
 </package>
+<package name="R_5931">
+<smd name="2" x="-5.4" y="0" dx="8.75" dy="5.2" layer="1" rot="R90"/>
+<smd name="1" x="5.4" y="0" dx="8.75" dy="5.2" layer="1" rot="R90"/>
+<text x="-1.1" y="-4" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="2" y="-4" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="ACS770">
@@ -489,6 +537,18 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <wire x1="1.27" y1="6.35" x2="1.27" y2="-3.81" width="0.254" layer="97"/>
 <wire x1="1.27" y1="-3.81" x2="-1.27" y2="-3.81" width="0.254" layer="97"/>
 <text x="2.54" y="1.27" size="1.27" layer="97">NC</text>
+</symbol>
+<symbol name="DIODE">
+<wire x1="0" y1="1.524" x2="0" y2="-1.524" width="0.127" layer="94"/>
+<pin name="A" x="-7.62" y="0" visible="off" length="middle"/>
+<pin name="K" x="5.08" y="0" visible="off" length="middle" rot="R180"/>
+<polygon width="0.127" layer="94">
+<vertex x="-2.54" y="1.524"/>
+<vertex x="-2.54" y="-1.524"/>
+<vertex x="0" y="0"/>
+</polygon>
+<text x="-6.858" y="3.048" size="1.27" layer="95" align="top-left">&gt;NAME</text>
+<text x="-7.112" y="-3.048" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="ATTINY_828">
 <wire x1="-12.7" y1="20.32" x2="12.7" y2="20.32" width="0.127" layer="94"/>
@@ -613,6 +673,21 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <text x="0" y="17.78" size="1.778" layer="95">&gt;NAME</text>
 <text x="0" y="-7.62" size="1.778" layer="95">&gt;VALUE</text>
 </symbol>
+<symbol name="R_RESSENSE">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="2.286" width="0.2032" layer="94"/>
+<wire x1="-2.159" y1="2.286" x2="-1.524" y2="-2.286" width="0.2032" layer="94"/>
+<wire x1="-1.524" y1="-2.286" x2="-0.889" y2="2.286" width="0.2032" layer="94"/>
+<wire x1="-0.889" y1="2.286" x2="-0.254" y2="-2.286" width="0.2032" layer="94"/>
+<wire x1="-0.254" y1="-2.286" x2="0.381" y2="2.286" width="0.2032" layer="94"/>
+<wire x1="0.381" y1="2.286" x2="1.016" y2="-2.286" width="0.2032" layer="94"/>
+<wire x1="1.016" y1="-2.286" x2="1.651" y2="2.286" width="0.2032" layer="94"/>
+<wire x1="1.651" y1="2.286" x2="2.286" y2="-2.286" width="0.2032" layer="94"/>
+<wire x1="2.286" y1="-2.286" x2="2.54" y2="0" width="0.2032" layer="94"/>
+<text x="-3.81" y="2.7686" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-4.572" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="ACS770">
@@ -713,6 +788,22 @@ https://www.sparkfun.com/products/709</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="D_STPS5045S" prefix="D">
+<gates>
+<gate name="G$1" symbol="DIODE" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="D2PACK">
+<connects>
+<connect gate="G$1" pin="A" pad="1 2"/>
+<connect gate="G$1" pin="K" pad="TAB"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="IRLS3034-7P" uservalue="yes">
 <description>High-current SMD MOSFET</description>
 <gates>
@@ -747,6 +838,22 @@ https://www.sparkfun.com/products/709</description>
 <connect gate="G$1" pin="VIN-" pad="2"/>
 <connect gate="G$1" pin="VO" pad="6"/>
 <connect gate="G$1" pin="VO1" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="R_WSLP5931" prefix="R" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="R_RESSENSE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="R_5931">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>

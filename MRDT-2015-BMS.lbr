@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -148,38 +148,6 @@
 <vertex x="7" y="20.4"/>
 <vertex x="3" y="20.4" curve="-90"/>
 </polygon>
-<hole x="-7" y="19.4" drill="0.5"/>
-<hole x="-7" y="23.4" drill="0.5"/>
-<hole x="-3" y="23.4" drill="0.5"/>
-<hole x="-3" y="19.4" drill="0.5"/>
-<hole x="-5.67" y="19.4" drill="0.5"/>
-<hole x="-4.33" y="19.4" drill="0.5"/>
-<hole x="-5.67" y="23.4" drill="0.5"/>
-<hole x="-4.33" y="23.4" drill="0.5"/>
-<hole x="-1.8" y="23" drill="0.5"/>
-<hole x="-1.8" y="19.8" drill="0.5"/>
-<hole x="-1.1" y="20.7" drill="0.5"/>
-<hole x="-1.1" y="22.1" drill="0.5"/>
-<hole x="-8.2" y="19.8" drill="0.5"/>
-<hole x="-8.2" y="23" drill="0.5"/>
-<hole x="-8.9" y="22.1" drill="0.5"/>
-<hole x="-8.9" y="20.7" drill="0.5"/>
-<hole x="7" y="23.4" drill="0.5"/>
-<hole x="7" y="19.4" drill="0.5"/>
-<hole x="3" y="19.4" drill="0.5"/>
-<hole x="3" y="23.4" drill="0.5"/>
-<hole x="5.67" y="23.4" drill="0.5"/>
-<hole x="4.33" y="23.4" drill="0.5"/>
-<hole x="5.67" y="19.4" drill="0.5"/>
-<hole x="4.33" y="19.4" drill="0.5"/>
-<hole x="1.8" y="19.8" drill="0.5"/>
-<hole x="1.8" y="23" drill="0.5"/>
-<hole x="1.1" y="22.1" drill="0.5"/>
-<hole x="1.1" y="20.7" drill="0.5"/>
-<hole x="8.2" y="23" drill="0.5"/>
-<hole x="8.2" y="19.8" drill="0.5"/>
-<hole x="8.9" y="20.7" drill="0.5"/>
-<hole x="8.9" y="22.1" drill="0.5"/>
 <wire x1="-4.5" y1="8.7" x2="-3.5" y2="9.7" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="8.7" x2="-3.5" y2="7.7" width="0.127" layer="21"/>
 <wire x1="-5" y1="3.2" x2="-5" y2="16.2" width="0.127" layer="21"/>
@@ -223,10 +191,42 @@
 <wire x1="-2.8" y1="9.2" x2="-2.5" y2="9.2" width="0.127" layer="21"/>
 <wire x1="-4.5" y1="8.7" x2="-1.6" y2="8.7" width="0.127" layer="21"/>
 <wire x1="-1.2" y1="8.7" x2="3.9" y2="8.7" width="0.127" layer="21"/>
-<smd name="5_T" x="-5.5" y="21.4" dx="10" dy="6" layer="1" roundness="100"/>
-<smd name="5_B" x="-5.5" y="21.4" dx="10" dy="6" layer="16" roundness="100"/>
-<smd name="4_T" x="5.5" y="21.5" dx="10" dy="6" layer="1" roundness="100"/>
-<smd name="4_B" x="5.5" y="21.5" dx="10" dy="6" layer="16" roundness="100"/>
+<smd name="5_T" x="-5" y="21.4" dx="9" dy="6" layer="1"/>
+<smd name="5_B" x="-5" y="21.4" dx="9" dy="6" layer="16"/>
+<smd name="4_T" x="5" y="21.4" dx="9" dy="6" layer="1"/>
+<smd name="4_B" x="5" y="21.4" dx="9" dy="6" layer="16"/>
+<pad name="5_1" x="-7" y="23.4" drill="0.5"/>
+<pad name="5_2" x="-5.67" y="23.4" drill="0.5"/>
+<pad name="5_3" x="-4.33" y="23.4" drill="0.5"/>
+<pad name="5_4" x="-3" y="23.4" drill="0.5"/>
+<pad name="5_5" x="-1.8" y="23" drill="0.5"/>
+<pad name="5_6" x="-1.1" y="22.1" drill="0.5"/>
+<pad name="5_7" x="-1.1" y="20.7" drill="0.5"/>
+<pad name="5_8" x="-1.8" y="19.8" drill="0.5"/>
+<pad name="5_9" x="-3" y="19.4" drill="0.5"/>
+<pad name="5_10" x="-4.33" y="19.4" drill="0.5"/>
+<pad name="5_11" x="-5.67" y="19.4" drill="0.5"/>
+<pad name="5_12" x="-7" y="19.4" drill="0.5"/>
+<pad name="5_13" x="-8.2" y="19.8" drill="0.5"/>
+<pad name="5_14" x="-8.9" y="20.7" drill="0.5"/>
+<pad name="5_15" x="-8.9" y="22.1" drill="0.5"/>
+<pad name="5_16" x="-8.2" y="23" drill="0.5"/>
+<pad name="4_1" x="3" y="23.4" drill="0.5"/>
+<pad name="4_2" x="4.33" y="23.4" drill="0.5"/>
+<pad name="4_3" x="5.67" y="23.4" drill="0.5"/>
+<pad name="4_4" x="7" y="23.4" drill="0.5"/>
+<pad name="4_5" x="8.2" y="23" drill="0.5"/>
+<pad name="4_6" x="8.9" y="22.1" drill="0.5"/>
+<pad name="4_7" x="8.9" y="20.7" drill="0.5"/>
+<pad name="4_8" x="8.2" y="19.8" drill="0.5"/>
+<pad name="4_9" x="7" y="19.4" drill="0.5"/>
+<pad name="4_10" x="5.67" y="19.4" drill="0.5"/>
+<pad name="4_11" x="4.33" y="19.4" drill="0.5"/>
+<pad name="4_12" x="3" y="19.4" drill="0.5"/>
+<pad name="4_13" x="1.8" y="19.8" drill="0.5"/>
+<pad name="4_14" x="1.1" y="20.7" drill="0.5"/>
+<pad name="4_15" x="1.1" y="22.1" drill="0.5"/>
+<pad name="4_16" x="1.8" y="23" drill="0.5"/>
 </package>
 <package name="LCD-SIMPLIFIED">
 <pad name="1" x="-12.95" y="0.26" drill="1.016" diameter="1.8796" shape="square"/>
@@ -454,6 +454,10 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <smd name="1" x="5.4" y="0" dx="8.75" dy="5.2" layer="1" rot="R90"/>
 <text x="-1.1" y="-4" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="2" y="-4" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<wire x1="-8.5" y1="-5" x2="-8.5" y2="5" width="0.127" layer="21"/>
+<wire x1="-8.5" y1="5" x2="8.5" y2="5" width="0.127" layer="21"/>
+<wire x1="8.5" y1="5" x2="8.5" y2="-5" width="0.127" layer="21"/>
+<wire x1="8.5" y1="-5" x2="-8.5" y2="-5" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -662,8 +666,8 @@ Source: http://www.infineon.com .. tle5205-2.pdf</description>
 <device name="" package="PFF_LEADFORM">
 <connects>
 <connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="IP+" pad="4_B 4_T"/>
-<connect gate="G$1" pin="IP-" pad="5_B 5_T"/>
+<connect gate="G$1" pin="IP+" pad="4_1 4_2 4_3 4_4 4_5 4_6 4_7 4_8 4_9 4_10 4_11 4_12 4_13 4_14 4_15 4_16 4_B 4_T" route="any"/>
+<connect gate="G$1" pin="IP-" pad="5_1 5_2 5_3 5_4 5_5 5_6 5_7 5_8 5_9 5_10 5_11 5_12 5_13 5_14 5_15 5_16 5_B 5_T" route="any"/>
 <connect gate="G$1" pin="VCC" pad="1"/>
 <connect gate="G$1" pin="VIOUT" pad="3"/>
 </connects>

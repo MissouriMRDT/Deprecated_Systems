@@ -1,5 +1,14 @@
-#inc#include <avr/pgmspace.h>
+//MRDT Brushless Sine-Triangle drive control
+//Updated 12/02/14
+//Communications and main program flow missing
+//the remaining basics are setup
 
+#include <avr/pgmspace.h>
+
+
+volatile unsigned int vbus=0;
+volatile unsigned int Ibus=0;
+volatile unsigned int Temp_Bus =0;
 volatile int LongPWM = 0; //The effective duty cycle
 volatile unsigned int Motor_pos=0;//current motor position
 volatile unsigned int last_pos=0;//position of the motor at last sampling
@@ -23,50 +32,51 @@ byte PWM_A=0;
 byte PWM_B=0;
 byte PWM_C=0;
 byte PWM_D =0;
+
+
 //Look-up table for the PWM signals to generate a sine wave
 //based on the motor position
-const byte angle[] PROGMEM={//Sorry that this part is so long
+const prog_uchar angle[] PROGMEM={//Sorry that this part is so long
 255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,238,
 237,235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,190,
 188,185,182,179,176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,128,124,
 121,118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,49,47,
 44,42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,1,0,0,
 0,0,0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,37,40,
-42,44,47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,
-118,121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,
-185,188,190,193,196,198,201,203,206,208,211,213,215,218,220,222,22,226,228,230,232,234,
-235,237,238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,
-255,255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,
-238,237,235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,
-190,188,185,182,179,176,173,170,167,165,162,15,155,152,149,146,143,140,137,134,131,128,
-124,121,118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,
-49,47,44,42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,
-1,0,0,0,0,0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,
-37,40,42,44,47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,
-115,118,121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,
-182,185,188,190,193,196,198,201,203,206,208,211,213,215,218,220,222,24,226,228,230,232,
-234,235,237,238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,
-255,255,255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,
-240,238,237,235,234,232,23,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,
-193,190,188,185,182,179,176,173,170,167,165,162,18,155,152,149,146,143,140,137,134,131,
-128,124,121,118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,
-52,49,47,44,42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,
-1,1,1,0,0,0,0,0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,
-35,37,40,42,44,47,49,52,54,5,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,
-115,118,121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,
-182,185,188,190,193,196,198,201,203,206,208,211,213,215,218,220,222,24,226,228,230,232,
-234,235,237,238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,
-255,255,255,255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,
-240,238,237,235,234,232,23,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,
-193,190,188,185,182,179,176,173,170,167,165,162,18,155,152,149,146,143,140,137,134,131,
-128,124,121,118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,
-54,52,49,47,44,42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,
-2,1,1,1,0,0,0,0,0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,
-33,35,37,40,42,44,47,49,52,54,5,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,
-109,112,115,118,121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,
-176,179,182,185,188,190,193,196,198,201,203,206,208,211,213,215,218,220,222,24,226,228,
-230,232,234,235,237,238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,
-254,255,255,255};
+42,44,47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,118,
+121,124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,185,188,
+190,193,196,198,201,203,206,208,211,213,215,218,220,222,224,226,228,230,232,234,235,237,
+238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255,255,
+255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,238,237,
+235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,190,188,
+185,182,179,176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,128,124,121,
+118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,49,47,44,
+42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,1,0,0,0,0,
+0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,37,40,42,44,
+47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,118,121,
+124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,185,188,
+190,193,196,198,201,203,206,208,211,213,215,218,220,222,224,226,228,230,232,234,235,237,
+238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255,255,
+255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,238,237,
+235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,190,188,
+185,182,179,176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,128,124,121,
+118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,49,47,44,
+42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,1,0,0,0,0,
+0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,37,40,42,44,
+47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,118,121,
+124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,185,188,
+190,193,196,198,201,203,206,208,211,213,215,218,220,222,224,226,228,230,232,234,235,237,
+238,240,241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255,255,
+255,255,255,254,254,254,253,253,252,251,250,250,249,248,246,245,244,243,241,240,238,237,
+235,234,232,230,228,226,224,222,220,218,215,213,211,208,206,203,201,198,196,193,190,188,
+185,182,179,176,173,170,167,165,162,158,155,152,149,146,143,140,137,134,131,128,124,121,
+118,115,112,109,106,103,100,97,93,90,88,85,82,79,76,73,70,67,65,62,59,57,54,52,49,47,44,
+42,40,37,35,33,31,29,27,25,23,21,20,18,17,15,14,12,11,10,9,7,6,5,5,4,3,2,2,1,1,1,0,0,0,0,
+0,0,0,1,1,1,2,2,3,4,5,5,6,7,9,10,11,12,14,15,17,18,20,21,23,25,27,29,31,33,35,37,40,42,44,
+47,49,52,54,57,59,62,65,67,70,73,76,79,82,85,88,90,93,97,100,103,106,109,112,115,118,121,
+124,128,131,134,137,140,143,146,149,152,155,158,162,165,167,170,173,176,179,182,185,188,190,
+193,196,198,201,203,206,208,211,213,215,218,220,222,224,226,228,230,232,234,235,237,238,240,
+241,243,244,245,246,248,249,250,250,251,252,253,253,254,254,254,255,255,255};
 
 void setup(){
   
@@ -104,9 +114,30 @@ void setup(){
   sei(); //enable global interrupts
   Serial.begin(9600);//Serial communication
   
- //The ADC isn't set up yet. The single sample mode would eat up a lot of processor time
- //so the free running mode needs to be used. This is interrupt driven.
-  
+
+//ADC Setup
+ADMUX = 0;
+ADCSRA = 0;
+ADCSRB = 0;
+//Reset ADC control registers
+ADMUX = B01000011;
+ADCSRA|=
+(1 << ADEN) |
+//ADC: Enabled
+(1 << ADATE) |
+//ADC External Trigger:
+//Enabled
+(1 << ADIE) |
+//ADC Interrupt: Enabled
+(1 << ADPS2) | (1 << ADPS1);
+ADCSRB|=(1 << ACME);
+
+sei();
+bitWrite(ADCSRA, 6, 1);
+//Maybe need to trow something else in here to make sure
+//the ADC had a proper start up before going into cycling
+ADMUX=B01000101;
+ 
 }
 
 
@@ -115,6 +146,14 @@ void loop(){
   
   //Do all the fun communications things here, the code needs to be efficient to insure that the
   //Switching function is executed freqeuntly enough to insure the motor doesn't get out of synchronous
+  
+  //Program flow is needed. Motor can be disabled easily by writing a 0 to the PWM
+  //the Timer 0 interrupt can also be disabled if motor isn't spinnging
+  //With the proper lead angle and PWM the motor will spin in proper
+  //direction as long as timer 0 interrupt is enabled
+  
+  //Don't turn the ADC off, or you loose synchronization and 
+  //the readings get messed up
   
   
   //This is what is needed to manage the switching action, this action does not require
@@ -175,39 +214,45 @@ byte getdutycycle(byte pos, int pwm){
  //the counter registers can't use more than 8-bits anyway (at least Timer 2)
 }
 
-unsigned int getposition(){//FIX ME
+unsigned int getposition(){
   //Function to pull position data from the encoder
   //this is written badly in software. The SPI module 
   //would be better to use, but this way it is easier
   //to see what needs to happen in order to get data
   //somebody who is better at programming should
   //implement the SPI to speed this up a lot.
-  byte partone;
-  byte parttwo;
-  int temp;
-  //Temporary variables
-  PORTB= PORTB | B00001000;
-  //Pull chip select pin high to request position data from encoder
-  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
-  //Wait 500ns for the encoder to realze a request is pending (not sure how to better spent this time)
-  PORTB= PORTB & B11110111;
-  //Pull select low to start transmission requst
-  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
-  //Wait some more for encoder to ready the data
-  PORTB= PORTB & B11011111;
-  //Pull clock pin low to insure propery edge triggering
-  partone = shiftIn(12,13,MSBFIRST);
-  parttwo = shiftIn(12,13,MSBFIRST);
-  //Get Data from the encoder
-  temp=partone;
-  temp =temp<<2;
-  //10 bit data so shift the most siginificant bits 2 over
-  temp+=parttwo>>6;
-  //2 least significant bits, dumb the remaining 6 bits as we don't
-  //care about them
-  return temp;
-  //retun partone<<2+parttwo>>6 might work as well and be quicker  
+PORTB= PORTB & B11110111;
+//Pull select low to start transmission request
+
+byte data=0;//variable to hold last read encoder byte
+byte count = 10; //keep track of reading stuff in
+unsigned int position = 0; //variable to hold position data
+//Define temporary variables
+
+__asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+//Wait some more for encoder to ready the data
+do{
+PORTB= PORTB & B11011111;
+//Pull clock pin low to insure proper edge triggering
+
+//while we have to wait we can do some math and format the data
+data=data>>4; //Shift the read in encoder data so that the read in bit is the least siginificant
+count=count<1;//shift all the previously bits one up to make room for the next one
+count+=data; //add the next bit the previously read bits
+//took long enough to allow pin to be pulled high again
+PORTB= PORTB | B0010000;
+//pull  CLK pin back high
+__asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+count--;//this takes time too and has to be done
+//waited long enough for data to be ready
+data=PORTB & B00010000;
+//read in the bit we care about
+}while(count);
+//after doing this 10 times we have out 10 position bits and can stop. The CLK pin stays high and
+//CS pin low to insure that everything is set up next time the function is called.
+return data;
 }
+
 
 //The next two function simply shift the b and c phase 120 degrees ahead or behin the a phase
 unsigned int Bphaseangle(unsigned int b){
@@ -271,3 +316,38 @@ int getchangeinposition(unsigned int a, unsigned int b){
    else{
    return 0; 
   } 
+}
+
+ISR(ADC_vect, ISR_NOBLOCK){
+//Assume ADC Mux is initially set to read from PC2(voltage measurement)
+//ADCMUX has to initialized as B01000010 or the wrong readings will be reported
+switch(ADMUX){
+//Check what the ADC is reading out
+case B01000011:
+vbus = ADCL; 
+vbus +=ADCH << 8;
+//global variable holding bus voltage as unsigned int (or int) (needs to be volatile)
+ADMUX=B01000101;
+//Switch ADC to next port
+break;
+case B01000101:
+Ibus = ADCL;
+Ibus +=ADCH << 8;
+//global variable holding bus current as unsigned int (or int) (needs to be volatile)
+ADMUX=B01000010;
+//Switch ADC to next port
+//One can implement the input current control here
+break;
+case B01000010:
+Temp_Bus = ADCL;
+Temp_Bus +=ADCH << 8;
+
+//global variable holding drive temperature as unsigned int (or int) (needs to be volatile)
+//please use the conversion chart at the beginning of the document to convert the int to an actual //temperature
+ADMUX=B01000011;
+//Switch ADC to next port
+break; 
+}
+}
+
+

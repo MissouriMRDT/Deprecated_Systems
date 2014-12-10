@@ -73,9 +73,6 @@ Notes:
 
 	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 differential voltage amplifiers used at each battery, to detect voltage levels. These are costly and may not be used in the final implementation.
 
-	The LCD is connected as close as possible to as explained on this comment on spark fun.
-	https://www.sparkfun.com/products/709#comment-50c4c1a4ce395fc170000000
-	(I AM NOT SURE IF THIS IS 100% RELIABLE, BUT I HAVE NOT FOUND A BETTER IMPLEMENTATION)
-	The LCD connections do not totally match the sparkfun connections, as certain pins were required for i2c comms. This is apparently changeable in software though. LCD power is controlled with LCD_ON. 
+	The LCD should be sourced from here: https://www.sparkfun.com/products/9395
 
 	The LT1910 uses a set resistor and acts as a solid-state breaker. As currently designed, it trips at 216A with a .3mΩ Resistor, and has approximately a .5 second delay to reset with a 3.3µF cap

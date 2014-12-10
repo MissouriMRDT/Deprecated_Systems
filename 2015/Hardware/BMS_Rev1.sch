@@ -10032,6 +10032,22 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <text x="88.9" y="86.36" size="1.778" layer="97" rot="R90">Charge V Meas</text>
 <text x="116.84" y="83.82" size="1.778" layer="97" rot="R90">5V Input V Meas</text>
 <text x="106.68" y="83.82" size="1.778" layer="97" rot="R90">Main disconnect switch</text>
+<text x="-50.8" y="109.22" size="1.778" layer="91">The illuminati is real.</text>
+<text x="-58.42" y="58.42" size="1.778" layer="91">The illuminati is real.</text>
+<text x="7.62" y="-12.7" size="1.778" layer="91">The illuminati is real.</text>
+<text x="63.5" y="-58.42" size="1.778" layer="91">The illuminati is real.</text>
+<text x="104.14" y="-99.06" size="1.778" layer="91">The illuminati is real.</text>
+<text x="182.88" y="33.02" size="1.778" layer="91">The illuminati is real.</text>
+<text x="297.18" y="15.24" size="1.778" layer="91">The illuminati is real.</text>
+<text x="231.14" y="-96.52" size="1.778" layer="91">The illuminati is real.</text>
+<text x="96.52" y="-63.5" size="1.778" layer="91">The illuminati is real.</text>
+<text x="187.96" y="68.58" size="1.778" layer="91">The illuminati is real.</text>
+<text x="264.16" y="76.2" size="1.778" layer="91">The illuminati is real.</text>
+<text x="-99.06" y="-73.66" size="1.778" layer="91">The illuminati is real.</text>
+<text x="78.74" y="-114.3" size="1.778" layer="91">The illuminati is real.</text>
+<text x="177.8" y="25.4" size="1.778" layer="91">The illuminati is real.</text>
+<text x="177.8" y="-22.86" size="1.778" layer="91">The illuminati is real.</text>
+<text x="345.44" y="-104.14" size="1.778" layer="91">The illuminati is real.</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="17.78" y="53.34" rot="R90"/>

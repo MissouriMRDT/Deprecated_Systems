@@ -136,7 +136,7 @@
 <pad name="2" x="0" y="0" drill="0.8" diameter="1.5"/>
 <pad name="1" x="-1.91" y="0" drill="0.8" diameter="1.5"/>
 <pad name="3" x="1.91" y="0" drill="0.8" diameter="1.5"/>
-<polygon width="0" layer="44">
+<polygon width="0" layer="46">
 <vertex x="-8" y="21.4" curve="-90"/>
 <vertex x="-7" y="22.4"/>
 <vertex x="-3" y="22.4" curve="-90"/>
@@ -144,7 +144,7 @@
 <vertex x="-3" y="20.4"/>
 <vertex x="-7" y="20.4" curve="-90"/>
 </polygon>
-<polygon width="0" layer="44">
+<polygon width="0" layer="46">
 <vertex x="2" y="21.4" curve="-90"/>
 <vertex x="3" y="22.4"/>
 <vertex x="7" y="22.4" curve="-90"/>
@@ -909,7 +909,7 @@ Breakout</text>
 <library name="MRDT-2015-PowerBoard">
 <packages>
 <package name="LARGE_TERMINAL_HOLE">
-<pad name="P$1" x="0" y="0" drill="12.7" diameter="25.4"/>
+<pad name="P$1" x="0" y="0" drill="9.144" diameter="18.288"/>
 </package>
 <package name="SO8">
 <description>&lt;b&gt;8-Lead Small Outline IC&lt;/b&gt; (SO-8)&lt;p&gt;

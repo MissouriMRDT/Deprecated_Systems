@@ -129,9 +129,9 @@
 <board>
 <plain>
 <wire x1="0" y1="0" x2="50.47" y2="0" width="0" layer="20"/>
-<wire x1="50.47" y1="0" x2="50.47" y2="29.2" width="0" layer="20"/>
-<wire x1="50.47" y1="29.2" x2="0" y2="29.2" width="0" layer="20"/>
-<wire x1="0" y1="29.2" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="50.47" y1="0" x2="50.47" y2="22.85" width="0" layer="20"/>
+<wire x1="50.47" y1="22.85" x2="0" y2="22.85" width="0" layer="20"/>
+<wire x1="0" y1="22.85" x2="0" y2="0" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="MRDT-2015-BMS">
@@ -140,7 +140,7 @@
 <pad name="2" x="0" y="0" drill="0.8" diameter="1.5"/>
 <pad name="1" x="-1.91" y="0" drill="0.8" diameter="1.5"/>
 <pad name="3" x="1.91" y="0" drill="0.8" diameter="1.5"/>
-<polygon width="0" layer="44">
+<polygon width="0" layer="46">
 <vertex x="-8" y="21.4" curve="-90"/>
 <vertex x="-7" y="22.4"/>
 <vertex x="-3" y="22.4" curve="-90"/>
@@ -148,7 +148,7 @@
 <vertex x="-3" y="20.4"/>
 <vertex x="-7" y="20.4" curve="-90"/>
 </polygon>
-<polygon width="0" layer="44">
+<polygon width="0" layer="46">
 <vertex x="2" y="21.4" curve="-90"/>
 <vertex x="3" y="22.4"/>
 <vertex x="7" y="22.4" curve="-90"/>
@@ -241,7 +241,7 @@
 <library name="MRDT-2015-PowerBoard">
 <packages>
 <package name="LARGE_TERMINAL_HOLE">
-<pad name="P$1" x="0" y="0" drill="12.7" diameter="25.4"/>
+<pad name="P$1" x="0" y="0" drill="9.144" diameter="18.288"/>
 </package>
 </packages>
 </library>
@@ -430,8 +430,8 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="U$1" library="MRDT-2015-BMS" package="PFF_LEADFORM" value="ACS770" x="36.83" y="2.54"/>
-<element name="U$2" library="MRDT-2015-PowerBoard" package="LARGE_TERMINAL_HOLE" value="TERMINAL_HOLE" x="13.97" y="13.97"/>
+<element name="U$1" library="MRDT-2015-BMS" package="PFF_LEADFORM" value="ACS770" x="46.99" y="11.43" rot="R90"/>
+<element name="U$2" library="MRDT-2015-PowerBoard" package="LARGE_TERMINAL_HOLE" value="TERMINAL_HOLE" x="11.43" y="11.43"/>
 </elements>
 <signals>
 <signal name="N$1">

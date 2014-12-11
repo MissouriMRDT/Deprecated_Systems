@@ -9699,7 +9699,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="SUPPLY5" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="V_CELL_OUT" library="con-molex" deviceset="22-23-2091" device=""/>
 <part name="V_CELL_IN" library="con-molex" deviceset="22-23-2091" device=""/>
 <part name="Q9" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="2N7002PW" value="MOSFET-NCHANNEL2N7002PW"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -9784,15 +9783,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="SUPPLY5" gate="G$1" x="-73.66" y="-33.02"/>
 <instance part="SUPPLY6" gate="G$1" x="-101.6" y="-38.1"/>
 <instance part="GND14" gate="1" x="-7.62" y="-91.44"/>
-<instance part="V_CELL_OUT" gate="-1" x="132.08" y="-33.02"/>
-<instance part="V_CELL_OUT" gate="-2" x="132.08" y="-35.56"/>
-<instance part="V_CELL_OUT" gate="-3" x="132.08" y="-38.1"/>
-<instance part="V_CELL_OUT" gate="-4" x="132.08" y="-40.64"/>
-<instance part="V_CELL_OUT" gate="-5" x="132.08" y="-43.18"/>
-<instance part="V_CELL_OUT" gate="-6" x="132.08" y="-45.72"/>
-<instance part="V_CELL_OUT" gate="-7" x="132.08" y="-48.26"/>
-<instance part="V_CELL_OUT" gate="-8" x="132.08" y="-50.8"/>
-<instance part="V_CELL_OUT" gate="-9" x="132.08" y="-53.34"/>
 <instance part="V_CELL_IN" gate="-1" x="88.9" y="-33.02" smashed="yes" rot="R180">
 <attribute name="NAME" x="86.36" y="-32.258" size="1.524" layer="95" rot="R180"/>
 <attribute name="VALUE" x="89.662" y="-29.337" size="1.778" layer="96" rot="R180"/>
@@ -10042,7 +10032,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <pinref part="GND9" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="V_CELL_OUT" gate="-9" pin="S"/>
 <pinref part="V_CELL_IN" gate="-9" pin="S"/>
 <wire x1="129.54" y1="-53.34" x2="93.98" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="-53.34" x2="91.44" y2="-53.34" width="0.1524" layer="91"/>
@@ -10230,7 +10219,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="N$41" class="0">
 <segment>
 <pinref part="V_CELL_IN" gate="-1" pin="S"/>
-<pinref part="V_CELL_OUT" gate="-1" pin="S"/>
 <wire x1="91.44" y1="-33.02" x2="114.3" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="-33.02" x2="129.54" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="-33.02" x2="114.3" y2="-73.66" width="0.1524" layer="91"/>
@@ -10255,7 +10243,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </net>
 <net name="N$42" class="0">
 <segment>
-<pinref part="V_CELL_OUT" gate="-2" pin="S"/>
 <pinref part="V_CELL_IN" gate="-2" pin="S"/>
 <wire x1="129.54" y1="-35.56" x2="111.76" y2="-35.56" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="-35.56" x2="91.44" y2="-35.56" width="0.1524" layer="91"/>
@@ -10267,7 +10254,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="N$43" class="0">
 <segment>
 <pinref part="V_CELL_IN" gate="-3" pin="S"/>
-<pinref part="V_CELL_OUT" gate="-3" pin="S"/>
 <wire x1="91.44" y1="-38.1" x2="109.22" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="-38.1" x2="129.54" y2="-38.1" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="-38.1" x2="109.22" y2="-106.68" width="0.1524" layer="91"/>
@@ -10277,7 +10263,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </net>
 <net name="N$46" class="0">
 <segment>
-<pinref part="V_CELL_OUT" gate="-6" pin="S"/>
 <pinref part="V_CELL_IN" gate="-6" pin="S"/>
 <wire x1="129.54" y1="-45.72" x2="101.6" y2="-45.72" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="-45.72" x2="91.44" y2="-45.72" width="0.1524" layer="91"/>
@@ -10289,7 +10274,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="N$47" class="0">
 <segment>
 <pinref part="V_CELL_IN" gate="-7" pin="S"/>
-<pinref part="V_CELL_OUT" gate="-7" pin="S"/>
 <wire x1="91.44" y1="-48.26" x2="99.06" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="-48.26" x2="129.54" y2="-48.26" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="-48.26" x2="99.06" y2="-127" width="0.1524" layer="91"/>
@@ -10299,7 +10283,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </net>
 <net name="N$48" class="0">
 <segment>
-<pinref part="V_CELL_OUT" gate="-8" pin="S"/>
 <pinref part="V_CELL_IN" gate="-8" pin="S"/>
 <wire x1="129.54" y1="-50.8" x2="96.52" y2="-50.8" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="-50.8" x2="91.44" y2="-50.8" width="0.1524" layer="91"/>
@@ -10511,7 +10494,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="N$89" class="0">
 <segment>
 <pinref part="V_CELL_IN" gate="-4" pin="S"/>
-<pinref part="V_CELL_OUT" gate="-4" pin="S"/>
 <wire x1="129.54" y1="-40.64" x2="106.68" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="-40.64" x2="91.44" y2="-40.64" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="-40.64" x2="106.68" y2="-111.76" width="0.1524" layer="91"/>
@@ -10521,7 +10503,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </net>
 <net name="N$91" class="0">
 <segment>
-<pinref part="V_CELL_OUT" gate="-5" pin="S"/>
 <pinref part="V_CELL_IN" gate="-5" pin="S"/>
 <wire x1="91.44" y1="-43.18" x2="104.14" y2="-43.18" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="-43.18" x2="129.54" y2="-43.18" width="0.1524" layer="91"/>

@@ -1,23 +1,66 @@
-BMS_Rev1 Documentation
+BMS_Rev2 Documentation
 
 
-***OUTDATED AND NOT LIKELY TO BE UPDATED****
+The primary difference between Rev 1 and Rev 2 is splitting the physical board into two different boards. The high power components are isolated to one board, which reduces difficulties in manufacturing.  The 'logic' file can be manufactured with 1 oz standard.
 
-Sweeping changes were made to this revision, which is not considered complete. Rev 1 is deprecated as design changed to Rev 2.
-Rev 1 can still be used, but needs to be completed beforehand.
-
-
-***REFER TO REV 2 FOR A MORE COMPLETE DOCUMENT****
+TO DO:
+	Finalize interconnect stuff
+	Probably more stuff
 
 
 
-TO DO (not full list):
-	Check LT1910 circuit with someone (i.e. will it actually work?)
-	Add LEDs?
-	Add connection for ground.(does not need to be high-current)
-	Add provisions for temperature measurement
-	Replace OKI with higher-efficiency buck converter solution
+_power Documentation:
+
+The '_power' board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this, but DRC rules have NOT been adjusted for it yet.
+
+TO DO:
+
+	Add connection for ground
+	Finish Layout
+	Run DRC for 3-4 ozCU/ft^2
 		
+
+
+
+Board physical IO:
+	Charger_In		High-amp connector for charger
+	V_ARRAY			Extreme-amp bolt-on connector to high side of battery array OR fuse
+	V_OUT			Extreme-amp bolt-on connector power output to distribution
+	Logic			Interconnect between power and logic board.	
+
+	
+ICs:
+	IRLS3034-7PPbF x2	240A rated surface mount power MOSFET
+	LT1910			High-side MOSFET driver
+	ACS770ECB-200B-PFF	±200A rated bidirectional hall-effect current sensor.
+	STPS5045S		50A rated surface mount Schottky diode
+
+
+Notes:
+	This specific board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this, but DRC rules have NOT been adjusted for it yet.
+
+	Due to the high copper content of the board, and the nearly comprehensive use of SMT, hotplate soldering is strongly encouraged. If hotplate soldering is used, the ACS770 and the charger connection should be mounted separately, as they are PTH components.
+
+	Dual power MOSFETs switch the power on and off. A dual FET design is used to reduce power losses, and more importantly heat generated, at the switch. 
+
+	A Schottky diode prevents power from being drawn from the charging port. Do not omit this diode.
+
+	The physical board is shaped roughly like a feminine hygiene product. This was unintentional and not worth changing. The board is not intended to be used as a feminine hygiene product. Make no attempt to do so.
+
+
+
+
+_logic		 
+
+TO DO:
+	Implement new LCD
+	Add connection for ground
+	Properly layout
+	Implement interconnect
+		
+
+
+
 
 
 
@@ -39,9 +82,6 @@ Electromechanical Inputs:
 
 Board physical IO:
 	JP Inputs (x3)		Used for software switches
-	Charger_In		High-amp connector for charger
-	V_ARRAY			Extreme-amp bolt-on connector to high side of battery array OR fuse
-	V_OUT			Extreme-amp bolt-on connector to Rover
 	RoveCom			Standardized RoveCom (PoRC not supported)
 	V_CELL_IN		9-pin input from battery cells for voltage measurement
 	V_CELL_OUT		9-pin output passing cell voltages through for external measurement
@@ -68,8 +108,6 @@ Notes:
 
 	5V power is currently supplied by a Murata OKI-78SR buck converter with a Pi filter. This should probably be changed, as the OKI is extremely inefficient at low (<200mA) current levels.
 
-	A large, high-current diode at the charger input prevents shorting the battery.
-
 	The logic power switch removes power to the regulator. When switched "off", the only waste power is leakage current is through the main MOSFET, which is very very low. When switched "off", the switch connects to the charger input. (Even when switched off, the 5V logic will be powered up if the charger is connected.)
 	
 	The 5V Input V Meas is used as pack voltage measurement when the system is switched on. When switched off, it is disconnected from the battery, and connected to the charger input. 
@@ -79,7 +117,3 @@ Notes:
 	With the Logic switch on, the system may be simultaneously run and charged. This is not necessarily recommended, as it may (or may not) cause odd charger behavior, depending on the external charger. 
 
 	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 differential voltage amplifiers used at each battery, to detect voltage levels. These are costly and may not be used in the final implementation.
-
-	The LCD should be sourced from here: https://www.sparkfun.com/products/9395
-
-	The LT1910 uses a set resistor and acts as a solid-state breaker. As currently designed, it trips at 216A with a .3mΩ Resistor, and has approximately a .5 second delay to reset with a 3.3µF cap

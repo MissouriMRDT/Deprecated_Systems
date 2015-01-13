@@ -1840,8 +1840,8 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="BUZZER_1" library="SparkFun-Electromechanical" package="BUZZER-CCV" value="BUZZERSMD2" x="48.768" y="39.37" rot="R270"/>
-<element name="BUZZER_2" library="SparkFun-Electromechanical" package="BUZZER-CCV" value="BUZZERSMD2" x="45.974" y="52.832" rot="R270"/>
+<element name="BUZZER_1" library="SparkFun-Electromechanical" package="BUZZER-CCV" value="BUZZERSMD2" x="42.672" y="41.148" rot="R270"/>
+<element name="BUZZER_2" library="SparkFun-Electromechanical" package="BUZZER-CCV" value="BUZZERSMD2" x="42.672" y="53.086" rot="R270"/>
 <element name="C17" library="resistor" package="C1206" value="47µF" x="44.704" y="21.59" rot="R90"/>
 <element name="C18" library="resistor" package="C1206" value="47µF" x="50.8" y="21.59" rot="R270"/>
 <element name="C7" library="resistor" package="C1206" value="1uF" x="67.31" y="29.718" rot="R180"/>
@@ -1872,8 +1872,8 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="MF" value="MOLEX" x="83.566" y="26.162" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1756827" x="83.566" y="26.162" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R13" library="resistor" package="R1206" value="1kΩ" x="43.688" y="33.528" rot="R180"/>
-<element name="LED1" library="SparkFun-LED" package="LED-1206" value="" x="43.688" y="29.718"/>
+<element name="R13" library="resistor" package="R1206" value="1kΩ" x="52.07" y="32.004" rot="R180"/>
+<element name="LED1" library="SparkFun-LED" package="LED-1206" value="" x="50.292" y="28.702"/>
 <element name="U$10" library="MRDT-2015-BMS" package="SSOP44" value="Q_LTC6802-2" x="84.582" y="44.196" rot="R90"/>
 <element name="C1" library="resistor" package="C1206" value="1µF" x="89.408" y="53.086" rot="R270"/>
 <element name="C2" library="resistor" package="C1206" value="1µF" x="78.994" y="46.482" rot="R90"/>
@@ -1926,14 +1926,36 @@ Please make sure your boards conform to these design rules.</description>
 <vertex x="102.87" y="83.82"/>
 <vertex x="102.87" y="-3.81"/>
 </polygon>
-<wire x1="45.188" y1="29.718" x2="36.068" y2="17.018" width="0.4064" layer="1"/>
 <polygon width="0.4064" layer="1">
 <vertex x="31.75" y="-5.588"/>
 <vertex x="31.75" y="86.36"/>
 <vertex x="106.426" y="86.36"/>
 <vertex x="106.426" y="-5.588"/>
 </polygon>
-<wire x1="78.994" y1="47.882" x2="81.282" y2="47.946" width="0" layer="19" extent="1-1"/>
+<wire x1="83.566" y1="56.134" x2="89.408" y2="51.686" width="0" layer="19" extent="1-1"/>
+<wire x1="75.946" y1="53.594" x2="83.566" y2="56.134" width="0" layer="19" extent="1-1"/>
+<wire x1="78.994" y1="47.882" x2="75.946" y2="53.594" width="0" layer="19" extent="1-1"/>
+<wire x1="81.282" y1="47.946" x2="78.994" y2="47.882" width="0" layer="19" extent="1-1"/>
+<wire x1="68.174" y1="47.752" x2="75.946" y2="53.594" width="0" layer="19" extent="1-1"/>
+<wire x1="58.166" y1="56.134" x2="68.174" y2="47.752" width="0" layer="19" extent="1-1"/>
+<wire x1="42.672" y1="57.086" x2="58.166" y2="56.134" width="0" layer="19" extent="1-1"/>
+<wire x1="62.321" y1="34.402" x2="68.174" y2="47.752" width="0" layer="19" extent="1-1"/>
+<wire x1="65.91" y1="29.718" x2="62.321" y2="34.402" width="0" layer="19" extent="1-1"/>
+<wire x1="65.405" y1="26.9875" x2="65.91" y2="29.718" width="0" layer="19" extent="1-1"/>
+<wire x1="42.672" y1="37.148" x2="62.321" y2="34.402" width="0" layer="19" extent="1-1"/>
+<wire x1="51.792" y1="28.702" x2="42.672" y2="37.148" width="0" layer="19" extent="1-1"/>
+<wire x1="44.704" y1="22.99" x2="51.792" y2="28.702" width="0" layer="19" extent="1-1"/>
+<wire x1="50.8" y1="20.19" x2="44.704" y2="22.99" width="0" layer="19" extent="1-1"/>
+<wire x1="51.664" y1="12.446" x2="50.8" y2="20.19" width="0" layer="19" extent="1-1"/>
+<wire x1="45.212" y1="14.478" x2="51.664" y2="12.446" width="0" layer="19" extent="1-1"/>
+<wire x1="51.664" y1="5.588" x2="51.664" y2="12.446" width="0" layer="19" extent="1-1"/>
+<wire x1="72.009" y1="12.954" x2="65.405" y2="26.9875" width="0" layer="19" extent="1-1"/>
+<wire x1="70.739" y1="10.414" x2="72.009" y2="12.954" width="0" layer="19" extent="1-1"/>
+<wire x1="80.518" y1="10.668" x2="72.009" y2="12.954" width="0" layer="19" extent="1-1"/>
+<wire x1="85.598" y1="10.82" x2="80.518" y2="10.668" width="0" layer="19" extent="1-1"/>
+<wire x1="83.566" y1="16.002" x2="85.598" y2="10.82" width="0" layer="19" extent="1-1"/>
+<wire x1="80.518" y1="4.826" x2="80.518" y2="10.668" width="0" layer="19" extent="1-1"/>
+<wire x1="85.09" y1="4.978" x2="80.518" y2="4.826" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GATE">
 <contactref element="U$3" pad="25"/>
@@ -1945,15 +1967,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="S1" pad="3"/>
 <contactref element="R1" pad="1"/>
 <contactref element="R13" pad="2"/>
-<wire x1="39.37" y1="19.05" x2="33.02" y2="19.05" width="0.8128" layer="1"/>
-<wire x1="48.26" y1="2.286" x2="28.702" y2="2.286" width="0.4064" layer="1"/>
-<wire x1="51.664" y1="7.874" x2="49.784" y2="7.874" width="0.4064" layer="1"/>
-<wire x1="49.784" y1="7.874" x2="49.022" y2="7.112" width="0.4064" layer="1"/>
-<wire x1="49.022" y1="7.112" x2="49.022" y2="3.048" width="0.4064" layer="1"/>
-<wire x1="49.022" y1="3.048" x2="48.26" y2="2.286" width="0.4064" layer="1"/>
-<wire x1="28.702" y1="2.286" x2="27.94" y2="3.048" width="0.4064" layer="1"/>
-<wire x1="39.37" y1="19.05" x2="42.266" y2="33.528" width="0" layer="19" extent="1-1"/>
-<wire x1="49.784" y1="7.874" x2="39.37" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="19.05" x2="50.648" y2="32.004" width="0" layer="19" extent="1-1"/>
+<wire x1="51.664" y1="7.874" x2="39.37" y2="19.05" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="V_ARRAY">
 <contactref element="R3" pad="1"/>
@@ -2116,12 +2131,12 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="BUZZ_1">
 <contactref element="BUZZER_1" pad="-"/>
 <contactref element="U$3" pad="29"/>
-<wire x1="58.166" y1="25.654" x2="48.768" y2="43.37" width="0" layer="19" extent="1-1"/>
+<wire x1="58.166" y1="25.654" x2="42.672" y2="45.148" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BUZZ_2">
 <contactref element="U$3" pad="28"/>
 <contactref element="BUZZER_2" pad="+"/>
-<wire x1="58.166" y1="28.194" x2="45.974" y2="48.832" width="0" layer="19" extent="1-1"/>
+<wire x1="58.166" y1="28.194" x2="42.672" y2="49.086" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$35">
 <contactref element="U$3" pad="23"/>
@@ -2154,8 +2169,7 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="N$34">
 <contactref element="R13" pad="1"/>
 <contactref element="LED1" pad="A"/>
-<wire x1="45.11" y1="33.528" x2="31.14" y2="17.144" width="0.4064" layer="1"/>
-<wire x1="31.14" y1="17.144" x2="42.188" y2="29.718" width="0.4064" layer="1"/>
+<wire x1="48.792" y1="28.702" x2="53.492" y2="32.004" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$89">
 <contactref element="V_CELL_IN" pad="4"/>

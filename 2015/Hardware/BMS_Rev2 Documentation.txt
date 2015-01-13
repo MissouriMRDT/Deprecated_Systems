@@ -135,4 +135,4 @@ Notes:
 
 	With the Logic switch on, the system may be simultaneously run and charged. This is not necessarily recommended, as it may (or may not) cause odd charger behavior depending on the external charger. 
 
-	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 differential voltage amplifiers used at each battery, to detect voltage levels. These are costly and may not be used in the final implementation.
+	The Balance charger connects to a 9-pin balance lead that passes through PTCs on the BMS. These PTCs should be selected in accordance with the balance current. 

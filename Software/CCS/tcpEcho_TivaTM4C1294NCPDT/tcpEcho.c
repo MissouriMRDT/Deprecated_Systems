@@ -56,16 +56,16 @@
 /* Example/Board Header files */
 #include "Board.h"
 
-#define TCPPACKETSIZE 1024
-#define TCPPORT 1000
-#define NUMTCPWORKERS 3
+//#define TCPPACKETSIZE 1024
+//#define TCPPORT 1000
+//#define NUMTCPWORKERS 3
 
 /*
  *  ======== tcpWorker ========
  *  Task to handle TCP connection. Can be multiple Tasks running
  *  this function.
  */
-Void tcpWorker(UArg arg0, UArg arg1)
+/*Void tcpWorker(UArg arg0, UArg arg1)
 {
     SOCKET clientfd = (SOCKET)arg0;
     int nbytes;
@@ -80,18 +80,18 @@ Void tcpWorker(UArg arg0, UArg arg1)
     /* Make sure Error_Block is initialized */
     Error_init(&eb);
 
-    /* Get a buffer to receive incoming packets. Use the default heap. */
+    /* Get a buffer to receive incoming packets. Use the default heap.
     buffer = Memory_alloc(NULL, TCPPACKETSIZE, 0, &eb);
     if (buffer == NULL) {
         System_printf("tcpWorker: failed to alloc memory\n");
         Task_exit();
     }
 
-    /* Loop while we receive data */
+    /* Loop while we receive data
     while (flag) {
         nbytes = recv(clientfd, (char *)buffer, TCPPACKETSIZE, 0);
         if (nbytes > 0) {
-            /* Echo the data back */
+            /* Echo the data back
             send(clientfd, (char *)buffer, nbytes, 0 );
         }
         else {
@@ -101,7 +101,7 @@ Void tcpWorker(UArg arg0, UArg arg1)
     }
     System_printf("tcpWorker stop clientfd = 0x%x\n", clientfd);
 
-    /* Free the buffer back to the heap */
+    /* Free the buffer back to the heap
     Memory_free(NULL, buffer, TCPPACKETSIZE);
 
     fdCloseSession(TaskSelf());
@@ -109,14 +109,14 @@ Void tcpWorker(UArg arg0, UArg arg1)
      *  Since deleteTerminatedTasks is set in the cfg file,
      *  the Task will be deleted when the idle task runs.
      */
-    Task_exit();
-}
+  //  Task_exit();
+//}
 
 /*
  *  ======== tcpHandler ========
  *  Creates new Task to handle new TCP connections.
  */
-Void tcpHandler(UArg arg0, UArg arg1)
+/*Void tcpHandler(UArg arg0, UArg arg1)
 {
     SOCKET lSocket;
     struct sockaddr_in sLocalAddr;
@@ -168,14 +168,14 @@ Void tcpHandler(UArg arg0, UArg arg1)
     }
 
     while (true) {
-        /* Wait for incoming request */
+        /* Wait for incoming request
         clientfd = accept(lSocket, (struct sockaddr*)&client_addr, &addrlen);
         System_printf("tcpHandler: Creating thread clientfd = %d\n", clientfd);
 
         /* Init the Error_Block */
         Error_init(&eb);
 
-        /* Initialize the defaults and set the parameters. */
+        /* Initialize the defaults and set the parameters.
         Task_Params_init(&taskParams);
         taskParams.arg0 = (UArg)clientfd;
         taskParams.stackSize = 1024;
@@ -191,9 +191,9 @@ Void tcpHandler(UArg arg0, UArg arg1)
  */
 int main(void)
 {
-    Task_Handle taskHandle;
-    Task_Params taskParams;
-    Error_Block eb;
+  //  Task_Handle taskHandle;
+  //  Task_Params taskParams;
+  //  Error_Block eb;
 
     /* Call board init functions */
     Board_initGeneral();
@@ -210,7 +210,7 @@ int main(void)
      *  Create the Task that farms out incoming TCP connections.
      *  arg0 will be the port that this task listens to.
      */
-    Task_Params_init(&taskParams);
+   /* Task_Params_init(&taskParams);
     Error_init(&eb);
 
     taskParams.stackSize = 1024;

@@ -12,5 +12,9 @@
 const short ROVE_LISTEN_PORT = 4500;
 const int MAX_PACKET_SIZE = 1024;
 const int RECV_BUFFER_SIZE = 1024;
+//max size of connection request queue to hold pending conn rqst
+const int MAXCONN = 3;
 
 Void networkFncRove(UArg arg0, UArg arg1);
+
+#endif /* NETWORKROVE_H_ */

@@ -143,7 +143,7 @@ ti_sysbios_family_arm_m3_Hwi_nvic = 0xe000e000;
  */
 xdc_runtime_Startup__EXECFXN__C = 1;
 xdc_runtime_Startup__RESETFXN__C = 1;
-TSK_idle = ti_sysbios_knl_Task_Object__table__V + 76;
+TSK_idle = ti_sysbios_knl_Task_Object__table__V + 152;
 
 
 SECTIONS

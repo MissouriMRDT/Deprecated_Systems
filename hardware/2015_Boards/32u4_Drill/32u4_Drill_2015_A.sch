@@ -6,10 +6,22 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
@@ -1868,6 +1880,50 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 </deviceset>
 </devicesets>
 </library>
+<library name="New">
+<packages>
+<package name="ELECTRO-CAP">
+<wire x1="2.6" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="2.6" x2="-3.3" y2="-3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="-3.3" x2="2.4" y2="-3.3" width="0.127" layer="21"/>
+<smd name="POS" x="2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
+<smd name="NEG" x="-2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
+<circle x="0" y="0" radius="3.10644375" width="0.127" layer="21"/>
+<wire x1="3.3" y1="2.6" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
+<wire x1="2.6" y1="3.3" x2="3.3" y2="2.6" width="0.127" layer="21"/>
+<wire x1="-2.1" y1="2.3" x2="-2.1" y2="-2.3" width="0.127" layer="21"/>
+<wire x1="2.4" y1="-3.3" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="2.6" x2="-3.3" y2="3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ELECTRO-CAP">
+<pin name="POS" x="-27.94" y="12.7" visible="off" length="middle"/>
+<pin name="NEG" x="-16.9291" y="12.7" visible="off" length="middle" rot="R180"/>
+<wire x1="-23.67788125" y1="15.935959375" x2="-23.57881875" y2="9.72058125" width="0.254" layer="94" curve="-68.276529" cap="flat"/>
+<wire x1="-22.03958125" y1="16.062959375" x2="-22.03958125" y2="9.5123" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="100UF-ELECTRO-CAP">
+<gates>
+<gate name="G$1" symbol="ELECTRO-CAP" x="22.86" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="ELECTRO-CAP">
+<connects>
+<connect gate="G$1" pin="NEG" pad="NEG"/>
+<connect gate="G$1" pin="POS" pad="POS"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1911,8 +1967,8 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="U$2" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="H_WR-TBL_321*0002VERT"/>
 <part name="U$4" library="MRDT-2015-General" deviceset="BTM7752G" device=""/>
 <part name="GND10" library="SparkFun" deviceset="GND" device=""/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND11" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND12" library="SparkFun" deviceset="GND" device=""/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="4.7k"/>
@@ -1921,10 +1977,10 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="1k"/>
 <part name="GND13" library="SparkFun" deviceset="GND" device=""/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="1206"/>
-<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
-<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND15" library="SparkFun" deviceset="GND" device=""/>
+<part name="U$6" library="New" deviceset="100UF-ELECTRO-CAP" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1973,9 +2029,9 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <instance part="GND13" gate="1" x="170.18" y="33.02"/>
 <instance part="R7" gate="G$1" x="165.1" y="45.72"/>
 <instance part="C3" gate="G$1" x="190.5" y="71.12" rot="R90"/>
-<instance part="C4" gate="G$1" x="190.5" y="78.74" rot="R90"/>
-<instance part="GND14" gate="1" x="195.58" y="78.74" rot="R90"/>
+<instance part="GND14" gate="1" x="208.28" y="78.74" rot="R90"/>
 <instance part="GND15" gate="1" x="195.58" y="71.12" rot="R90"/>
+<instance part="U$6" gate="G$1" x="220.98" y="66.04"/>
 </instances>
 <busses>
 </busses>
@@ -2044,12 +2100,12 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="GND13" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C4" gate="G$1" pin="2"/>
-<pinref part="GND14" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="GND15" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="205.74" y1="78.74" x2="203.962" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -2245,8 +2301,9 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="185.42" y1="71.12" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <junction x="185.42" y="71.12"/>
-<pinref part="C4" gate="G$1" pin="1"/>
+<pinref part="U$6" gate="G$1" pin="POS"/>
 <wire x1="185.42" y1="78.74" x2="185.42" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <junction x="185.42" y="78.74"/>
 </segment>
 </net>

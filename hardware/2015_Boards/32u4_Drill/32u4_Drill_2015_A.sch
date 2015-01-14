@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1911,8 +1911,8 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="U$2" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="H_WR-TBL_321*0002VERT"/>
 <part name="U$4" library="MRDT-2015-General" deviceset="BTM7752G" device=""/>
 <part name="GND10" library="SparkFun" deviceset="GND" device=""/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
 <part name="GND11" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND12" library="SparkFun" deviceset="GND" device=""/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="4.7k"/>
@@ -1921,8 +1921,8 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="1k"/>
 <part name="GND13" library="SparkFun" deviceset="GND" device=""/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="1206"/>
-<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
-<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.01uF"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND15" library="SparkFun" deviceset="GND" device=""/>
 </parts>
@@ -2108,6 +2108,7 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <segment>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
 <wire x1="0" y1="15.24" x2="5.08" y2="15.24" width="0.1524" layer="91"/>
+<label x="0" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$5" gate="G$1" pin="OUT"/>

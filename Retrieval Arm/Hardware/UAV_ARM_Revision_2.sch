@@ -3237,6 +3237,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-0.7" y1="-2.1" x2="-0.7" y2="-1.5" width="0.127" layer="21"/>
 <text x="-2" y="1.7" size="0.8128" layer="25" ratio="15">&gt;NAME</text>
 </package>
+<package name="STANDOFF-ELECTRICAL">
+<pad name="P1" x="0" y="0" drill="3.2" diameter="6.35"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SWITCH-MOMENTARY-2">
@@ -3248,6 +3251,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="2"/>
 <pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="STANDOFF_ELECTRICAL">
+<pin name="P$1" x="7.62" y="0" visible="off" length="short" rot="R180"/>
+<circle x="0" y="0" radius="5.08" width="0.254" layer="94"/>
+<text x="-2.54" y="5.842" size="1.27" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -3389,6 +3397,23 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <technology name="">
 <attribute name="PROD_ID" value="COMP-12265" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="STANDOFF_ELECTRICAL" prefix="S">
+<description>A standoff intended to be an electrically connected point.&lt;br&gt;
+Pad size and stop size allow for a #4 Phillips pan screw head to make a solid connection to the board.</description>
+<gates>
+<gate name="G$1" symbol="STANDOFF_ELECTRICAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="STANDOFF-ELECTRICAL">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P1"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -5332,6 +5357,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="S2" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="S3" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="S4" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="S5" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND10" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5375,6 +5408,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="GND7" gate="1" x="137.16" y="10.16"/>
 <instance part="GND8" gate="1" x="111.76" y="33.02"/>
 <instance part="GND9" gate="1" x="137.16" y="48.26"/>
+<instance part="S2" gate="G$1" x="127" y="114.3"/>
+<instance part="S3" gate="G$1" x="127" y="101.6"/>
+<instance part="S4" gate="G$1" x="106.68" y="114.3"/>
+<instance part="S5" gate="G$1" x="106.68" y="101.6"/>
+<instance part="GND5" gate="1" x="116.84" y="114.3" rot="R90"/>
+<instance part="GND10" gate="1" x="116.84" y="101.6" rot="R90"/>
+<instance part="GND11" gate="1" x="137.16" y="114.3" rot="R90"/>
+<instance part="GND12" gate="1" x="137.16" y="101.6" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -5515,6 +5556,22 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="142.24" y1="15.24" x2="137.16" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="15.24" x2="137.16" y2="12.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="S4" gate="G$1" pin="P$1"/>
+<pinref part="GND5" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S5" gate="G$1" pin="P$1"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="P$1"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S3" gate="G$1" pin="P$1"/>
+<pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="N$9" class="0">

@@ -34,26 +34,26 @@
  *    ======== tcpEcho.c ========
  */
 
-/* XDCtools Header files */
+// XDCtools Header files
 #include <xdc/std.h>
 #include <xdc/cfg/global.h>
 #include <xdc/runtime/Error.h>
 #include <xdc/runtime/Memory.h>
 #include <xdc/runtime/System.h>
 
-/* BIOS Header files */
+// BIOS Header files
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
 
- /* NDK Header files */
+// NDK Header files
 #include <ti/ndk/inc/netmain.h>
 #include <ti/ndk/inc/_stack.h>
 
-/* TI-RTOS Header files */
+// TI-RTOS Header files
 #include <ti/drivers/GPIO.h>
 
-/* Example/Board Header files */
+// Example/Board Header files
 #include "Board.h"
 
 /*

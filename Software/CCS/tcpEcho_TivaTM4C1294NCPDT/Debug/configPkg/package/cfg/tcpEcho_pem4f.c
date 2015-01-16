@@ -1353,8 +1353,8 @@ __T1_ti_sysbios_knl_Task_Instance_State__stack ti_sysbios_knl_Task_Instance_Stat
 #endif
 #endif
 
-/* --> rove_tcp_handler */
-extern xdc_Void rove_tcp_handler(xdc_UArg,xdc_UArg);
+/* --> rove_so_tcp_handler */
+extern xdc_Void rove_so_tcp_handler(xdc_UArg,xdc_UArg);
 
 /* --> ti_sysbios_knl_Task_Instance_State_0_hookEnv__A */
 __T1_ti_sysbios_knl_Task_Instance_State__hookEnv ti_sysbios_knl_Task_Instance_State_0_hookEnv__A[1];
@@ -5533,7 +5533,7 @@ ti_sysbios_knl_Task_Object__ ti_sysbios_knl_Task_Object__table__V[3] = {
         (xdc_SizeT)0x800,  /* stackSize */
         ((void*)ti_sysbios_knl_Task_Instance_State_0_stack__A),  /* stack */
         0,  /* stackHeap */
-        ((xdc_Void(*)(xdc_UArg,xdc_UArg))((xdc_Fxn)rove_tcp_handler)),  /* fxn */
+        ((xdc_Void(*)(xdc_UArg,xdc_UArg))((xdc_Fxn)rove_so_tcp_handler)),  /* fxn */
         ((xdc_UArg)(0x0)),  /* arg0 */
         ((xdc_UArg)(0x0)),  /* arg1 */
         ((xdc_Ptr)0),  /* env */

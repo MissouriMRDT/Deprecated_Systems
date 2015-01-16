@@ -56,16 +56,17 @@
 /* Example/Board Header files */
 #include "Board.h"
 
-//#define TCPPACKETSIZE 1024
-//#define TCPPORT 1000
-//#define NUMTCPWORKERS 3
+/*
+#define TCPPACKETSIZE 1024
+#define TCPPORT 1000
+#define NUMTCPWORKERS 3
 
 /*
  *  ======== tcpWorker ========
  *  Task to handle TCP connection. Can be multiple Tasks running
  *  this function.
- */
-/*Void tcpWorker(UArg arg0, UArg arg1)
+
+Void tcpWorker(UArg arg0, UArg arg1)
 {
     SOCKET clientfd = (SOCKET)arg0;
     int nbytes;
@@ -77,7 +78,7 @@
 
     System_printf("tcpWorker: start clientfd = 0x%x\n", clientfd);
 
-    /* Make sure Error_Block is initialized */
+    /* Make sure Error_Block is initialized
     Error_init(&eb);
 
     /* Get a buffer to receive incoming packets. Use the default heap.
@@ -108,15 +109,15 @@
     /*
      *  Since deleteTerminatedTasks is set in the cfg file,
      *  the Task will be deleted when the idle task runs.
-     */
-  //  Task_exit();
-//}
+
+    Task_exit();
+}
 
 /*
  *  ======== tcpHandler ========
  *  Creates new Task to handle new TCP connections.
- */
-/*Void tcpHandler(UArg arg0, UArg arg1)
+
+Void tcpHandler(UArg arg0, UArg arg1)
 {
     SOCKET lSocket;
     struct sockaddr_in sLocalAddr;
@@ -172,7 +173,7 @@
         clientfd = accept(lSocket, (struct sockaddr*)&client_addr, &addrlen);
         System_printf("tcpHandler: Creating thread clientfd = %d\n", clientfd);
 
-        /* Init the Error_Block */
+        /* Init the Error_Block
         Error_init(&eb);
 
         /* Initialize the defaults and set the parameters.
@@ -191,9 +192,9 @@
  */
 int main(void)
 {
-  //  Task_Handle taskHandle;
-  //  Task_Params taskParams;
-  //  Error_Block eb;
+    //Task_Handle taskHandle;
+    //Task_Params taskParams;
+    //Error_Block eb;
 
     /* Call board init functions */
     Board_initGeneral();

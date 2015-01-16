@@ -8,7 +8,7 @@
 #include <xdc/std.h>
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle networkTaskRove;
+extern const ti_sysbios_knl_Task_Handle rove_tcp_handler_HANDLE;
 
 #define TI_DRIVERS_EMAC_INCLUDED 1
 

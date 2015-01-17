@@ -738,6 +738,19 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <technology name=""/>
 </technologies>
 </device>
+<device name="_SKETCH" package="SOIC8_ACS711_SKETCH">
+<connects>
+<connect gate="G$1" pin="FAULT" pad="6"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="IP+" pad="1"/>
+<connect gate="G$1" pin="IP-" pad="4"/>
+<connect gate="G$1" pin="VCC" pad="8"/>
+<connect gate="G$1" pin="VIOUT" pad="7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="TERMINAL_HOLE">

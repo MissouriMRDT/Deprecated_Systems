@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'C:/Users/me/Documents/TRYCODE/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
+        cfgScript: 'C:/Users/me/Documents/GitHub/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
         profile: 'release',
         cfgHome: 'configPkg',
 });
@@ -41,7 +41,7 @@ else {
 
 var thisObj = {
     cfg:        '../tcpEcho.cfg',
-    outputPath: 'C:/Users/me/Documents/TRYCODE/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg',
+    outputPath: 'C:/Users/me/Documents/GitHub/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg',
     exeName:    'tcpEcho' + suffix,
     exeIntName: 'tcpEcho' + suffix.replace('.', '_'),
     targ:       targ,

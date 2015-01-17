@@ -9,7 +9,7 @@
  */
 
 
--l"C:\Users\me\Documents\TRYCODE\tcpEcho_TivaTM4C1294NCPDT\Debug\configPkg\package\cfg\tcpEcho_pem4f.oem4f"
+-l"C:\Users\me\Documents\GitHub\Motherboard\Software\CCS\tcpEcho_TivaTM4C1294NCPDT\Debug\configPkg\package\cfg\tcpEcho_pem4f.oem4f"
 -l"C:\ti\tirtos_tivac_2_01_00_03\packages\ti\drivers\lib\nonInstrumented\emac_tivaware.aem4f"
 -l"C:\ti\tirtos_tivac_2_01_00_03\packages\ti\drivers\lib\nonInstrumented\gpio_tivaware.aem4f"
 -l"C:\ti\tirtos_tivac_2_01_00_03\products\ndk_2_23_01_01\packages\ti\ndk\hal\timer_bios\lib\hal_timer_bios.aem4f"

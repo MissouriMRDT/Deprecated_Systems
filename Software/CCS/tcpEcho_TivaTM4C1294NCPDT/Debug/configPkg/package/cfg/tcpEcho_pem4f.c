@@ -1708,7 +1708,7 @@ __FAR__ const xdc_SizeT ti_sysbios_knl_Task_Module_State_terminatedQ__O = offset
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/me/Documents/TRYCODE/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f");
+xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/me/Documents/GitHub/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f");
 
 /*
  *  ======== __ISA__ ========

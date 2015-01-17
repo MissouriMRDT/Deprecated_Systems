@@ -25,7 +25,7 @@ EK_TM4C1294XL.obj: C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packag
 EK_TM4C1294XL.obj: C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/targets/arm/elf/M4F.h
 EK_TM4C1294XL.obj: C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/targets/std.h
 EK_TM4C1294XL.obj: c:/ti/xdctools_3_30_03_47_core/packages/xdc/cfg/global.h
-EK_TM4C1294XL.obj: C:/Users/me/Documents/TRYCODE/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f.h
+EK_TM4C1294XL.obj: C:/Users/me/Documents/GitHub/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f.h
 EK_TM4C1294XL.obj: C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/sysbios/knl/Task.h
 EK_TM4C1294XL.obj: c:/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/xdc.h
 EK_TM4C1294XL.obj: c:/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h
@@ -265,7 +265,7 @@ C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/targets/arm/e
 C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/targets/arm/elf/M4F.h: 
 C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/targets/std.h: 
 c:/ti/xdctools_3_30_03_47_core/packages/xdc/cfg/global.h: 
-C:/Users/me/Documents/TRYCODE/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f.h: 
+C:/Users/me/Documents/GitHub/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/Debug/configPkg/package/cfg/tcpEcho_pem4f.h: 
 C:/ti/tirtos_tivac_2_01_00_03/products/bios_6_40_03_39/packages/ti/sysbios/knl/Task.h: 
 c:/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/xdc.h: 
 c:/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h: 

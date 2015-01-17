@@ -408,111 +408,136 @@ Void rove_so_tcp_handler(UArg arg0, UArg arg1){
 
                  fd_listen_handshake_socket_status = 111;
 
-/*    fdClose(accept_recv_socket);
+   fdClose(accept_recv_socket);
 
             System_printf("\n");
             System_printf("Closed FIRST accept_recv_socket");
             System_printf("\n");
             System_flush();
 
-    accept_recv_socket = accept(listen_handshake_socket, (struct sockaddr*)&accept_recv_socket_addr, &accept_recv_socket_addr_len);
-    if (accept_recv_socket < 0) {
-                System_printf("accept() failed\n");
-                fdClose(accept_recv_socket);
-                fdClose(listen_handshake_socket);
-                Task_exit();
-            return;
-            }//endif
 
-				System_printf("\n");
-				System_printf("This for listen_handshake_socket after SECOND accept() = %d", listen_handshake_socket);
-				System_printf("\n");
-				System_flush();
+// Testing Forever Loop Logic
 
-				System_printf("\n");
-				System_printf("This for accept_recv_socket after SECOND accept() = %d", accept_recv_socket);
-				System_printf("\n");
-				System_flush();
+    int while_accept_count = 1;
+    int while_recv_count = 1;
+    bool connected_flag = true;
 
-    // lets see what fdstatus has to see about our socket now
+    while(true){
 
-                fdStatus(listen_handshake_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
+        accept_recv_socket = accept(listen_handshake_socket, (struct sockaddr*)&accept_recv_socket_addr, &accept_recv_socket_addr_len);
 
-                System_printf("\n");
-                System_printf("fdStatus() for listen_handshake_socket after SECOND accept() = %d", fd_listen_handshake_socket_status);
-                System_printf("\n");
-                System_flush();
+        if (accept_recv_socket < 0) {
 
-        //reset our custom fd error flags memspace
+                connected_flag = false;
+                    System_printf("\n");
+                    System_printf("accept() failed");
+                    System_printf("\n");
+        }else{
 
-                fd_listen_handshake_socket_status = 111;
+                connected_flag = true;
+                    System_printf("\n");
+                    System_printf("accept() success");
+                    System_printf("\n");
 
-                fdStatus(accept_recv_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
+        }//endif
 
-                System_printf("\n");
-                System_printf("fdStatus() for accept_recv_socket after SECOND accept() = %d", fd_listen_handshake_socket_status);
-                System_printf("\n");
-                System_flush();
+        // lets see what fdstatus has to see about our socket now
 
-        //reset our custom fd error flags memspace
+                    fdStatus(listen_handshake_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
 
-                fd_listen_handshake_socket_status = 111;
+                    System_printf("\n");
+                    System_printf("fdStatus() for listen_handshake_socket after %d accept() = %d",while_accept_count, fd_listen_handshake_socket_status);
+                    System_printf("\n");
+                    System_flush();
 
-        // recieve the data*/
+            // reset our custom fd error flags memspace
 
-        num_bytes_recieved = recv(accept_recv_socket, (char *)buffer, TCPPACKETSIZE, 0);
+                    fd_listen_handshake_socket_status = 111;
 
-                 System_printf("\n");
-                 System_printf("Before SECOND send() num_bytes_recieved = ");
-                 System_printf("%d", num_bytes_recieved);
-                 System_printf(" and the contents of the buffer = ");
-                 System_printf("%s", buffer);
-                 System_printf("\n");
-                 System_flush();
+            // recieve the data
 
-         // lets see what fdstatus has to see about our socket now
+            while(connected_flag == true){
 
-                 fdStatus(accept_recv_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
+                num_bytes_recieved = recv(accept_recv_socket, (char *)buffer, TCPPACKETSIZE, 0);
 
-                 System_printf("\n");
-                 System_printf("fdStatus() for accept_recv_socket after SECOND recv() = %d", fd_listen_handshake_socket_status);
-                 System_printf("\n");
-                 System_flush();
+                         System_printf("\n");
+                         System_printf("After %d recv() num_bytes_recieved = ", while_recv_count);
+                         System_printf("%d", num_bytes_recieved);
+                         System_printf(" and the contents of the buffer = ");
+                         System_printf("%s", buffer);
+                         System_printf("\n");
+                         System_flush();
 
-         //reset our custom fd error flags memspace
+                         fdStatus(accept_recv_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
 
-                 fd_listen_handshake_socket_status = 111;
+                           System_printf("\n");
+                           System_printf("fdStatus() for accept_recv_socket %d after recv() loop number %d",fd_listen_handshake_socket_status, while_recv_count);
+                           System_printf("\n");
+                           System_flush();
 
-        // Echo the data back
+                   //reset our custom fd error flags memspace
 
-         send(accept_recv_socket, (char *)buffer, num_bytes_recieved, 0 );
+                           fd_listen_handshake_socket_status = 111;
 
+                   if(num_bytes_recieved < 0){
 
-                System_printf("\n");
-                System_printf("After SECOND send(), we now have num_bytes_recieved = ");
-                System_printf("%d", num_bytes_recieved);
-                System_printf(" and the contents of the buffer = ");
-                System_printf("%s", buffer);
-                System_printf("\n");
-                System_flush();
+                       // TODO if we reach this point the connection has failed
 
+                       connected_flag = false;
+                           System_printf("\n");
+                           System_printf("recv() says unconnected");
+                           System_printf("\n");
+                   }else{
 
-                // lets see what fdstatus has to see about our socket now
+                       // TODO if we reach this point we have valid data
+                       // Echo the data back
 
-                        fdStatus(accept_recv_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
+                       send(accept_recv_socket, (char *)buffer, num_bytes_recieved, 0); System_printf("\n");
+                       System_printf("After %d send(), we now have num_bytes_recieved = ", while_recv_count);
+                       System_printf("%d", num_bytes_recieved);
+                       System_printf(" and the contents of the buffer = ");
+                       System_printf("%s", buffer);
+                       System_printf("\n");
+                       System_flush();
+                       System_printf("\n");
+                       System_printf("recv() still connected");
+                       System_printf("\n");
+
+                   }//endif}
+
+                        while_recv_count = while_recv_count + 1;
 
                         System_printf("\n");
-                        System_printf("fdStatus() for accept_recv_socket after SECOND send() = %d", fd_listen_handshake_socket_status);
+                        System_printf("Send/Recieve While Count = %d", while_recv_count);
                         System_printf("\n");
                         System_flush();
 
-                //reset our custom fd error flags memspace
 
-                        fd_listen_handshake_socket_status = 111;
+                        fdStatus(accept_recv_socket, FDSTATUS_RECV, &fd_listen_handshake_socket_status);
 
-	fdClose(accept_recv_socket);
+                         System_printf("\n");
+                         System_printf("fdStatus() for accept_recv_socket %d after Accept While number %d",fd_listen_handshake_socket_status, while_recv_count);
+                         System_printf("\n");
+                         System_flush();
 
-	fdClose(listen_handshake_socket);
+                     //reset our custom fd error flags memspace
+
+                         fd_listen_handshake_socket_status = 111;
+
+            }//end recv() send() while
+
+            fdClose(accept_recv_socket);
+
+            while_accept_count = while_accept_count + 1;
+
+                        System_printf("\n");
+                        System_printf("Forever Accept While Count = %d", while_accept_count);
+                        System_printf("\n");
+                        System_flush();
+
+    }//end accept() while
+
+    fdClose(listen_handshake_socket);
 
     Task_exit();
 

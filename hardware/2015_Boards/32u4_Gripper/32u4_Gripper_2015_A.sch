@@ -339,12 +339,31 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="3.3V">
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="3.3V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="DGND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="3.3V" prefix="SUPPLY">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="3.3V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -3272,7 +3291,7 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="U1" library="74LS241" deviceset="SN74LS241DW" device=""/>
 <part name="GND18" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SERVO" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
-<part name="U$3" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="H_WR-TBL_321*0002VERT"/>
+<part name="U$3" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="PLUGABLE SCREW TERMINALS"/>
 <part name="U$5" library="SparkFun-PowerIC" deviceset="V_REG_MIC2920" device=""/>
 <part name="GND4" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun" deviceset="GND" device=""/>
@@ -3290,6 +3309,8 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="GND11" library="SparkFun" deviceset="GND" device=""/>
 <part name="SEN1" library="SparkFun-Connectors" deviceset="M08" device="1X08"/>
 <part name="SEN2" library="SparkFun-Connectors" deviceset="M08" device="1X08"/>
+<part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
+<part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3333,6 +3354,8 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <instance part="GND11" gate="1" x="172.72" y="132.08"/>
 <instance part="SEN1" gate="G$1" x="-30.48" y="33.02"/>
 <instance part="SEN2" gate="G$1" x="76.2" y="27.94" rot="R180"/>
+<instance part="SUPPLY1" gate="G$1" x="-22.86" y="55.88"/>
+<instance part="GND12" gate="1" x="-15.24" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -3400,6 +3423,14 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="GND11" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="SEN1" gate="G$1" pin="7"/>
+<wire x1="-25.4" y1="40.64" x2="-20.32" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="40.64" x2="-20.32" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="50.8" x2="-15.24" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="50.8" x2="-15.24" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="GND12" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -3472,6 +3503,12 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="142.24" x2="182.88" y2="142.24" width="0.1524" layer="91"/>
 <junction x="172.72" y="142.24"/>
+</segment>
+<segment>
+<pinref part="SEN1" gate="G$1" pin="8"/>
+<wire x1="-25.4" y1="43.18" x2="-22.86" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="43.18" x2="-22.86" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
 <net name="DIO4" class="0">
@@ -3742,23 +3779,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="SEN1" gate="G$1" pin="6"/>
 <wire x1="-10.16" y1="45.72" x2="-10.16" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="38.1" x2="-25.4" y2="38.1" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="RST"/>
-<wire x1="5.08" y1="50.8" x2="-12.7" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="SEN1" gate="G$1" pin="7"/>
-<wire x1="-12.7" y1="50.8" x2="-12.7" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="40.64" x2="-25.4" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="SEN1" gate="G$1" pin="8"/>
-<pinref part="U$1" gate="G$1" pin="D3~"/>
-<wire x1="-25.4" y1="43.18" x2="-25.4" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="55.88" x2="5.08" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">

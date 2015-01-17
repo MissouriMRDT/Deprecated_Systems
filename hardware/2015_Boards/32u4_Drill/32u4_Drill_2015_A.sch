@@ -418,12 +418,31 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="3.3V">
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="3.3V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="GND" prefix="GND">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="DGND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="3.3V" prefix="SUPPLY">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="3.3V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -1880,50 +1899,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 </deviceset>
 </devicesets>
 </library>
-<library name="New">
-<packages>
-<package name="ELECTRO-CAP">
-<wire x1="2.6" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="2.6" x2="-3.3" y2="-3.3" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="-3.3" x2="2.4" y2="-3.3" width="0.127" layer="21"/>
-<smd name="POS" x="2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
-<smd name="NEG" x="-2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
-<circle x="0" y="0" radius="3.10644375" width="0.127" layer="21"/>
-<wire x1="3.3" y1="2.6" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
-<wire x1="2.6" y1="3.3" x2="3.3" y2="2.6" width="0.127" layer="21"/>
-<wire x1="-2.1" y1="2.3" x2="-2.1" y2="-2.3" width="0.127" layer="21"/>
-<wire x1="2.4" y1="-3.3" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="2.6" x2="-3.3" y2="3.3" width="0.127" layer="21"/>
-<wire x1="-3.3" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="ELECTRO-CAP">
-<pin name="POS" x="-27.94" y="12.7" visible="off" length="middle"/>
-<pin name="NEG" x="-16.9291" y="12.7" visible="off" length="middle" rot="R180"/>
-<wire x1="-23.67788125" y1="15.935959375" x2="-23.57881875" y2="9.72058125" width="0.254" layer="94" curve="-68.276529" cap="flat"/>
-<wire x1="-22.03958125" y1="16.062959375" x2="-22.03958125" y2="9.5123" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="100UF-ELECTRO-CAP">
-<gates>
-<gate name="G$1" symbol="ELECTRO-CAP" x="22.86" y="7.62"/>
-</gates>
-<devices>
-<device name="" package="ELECTRO-CAP">
-<connects>
-<connect gate="G$1" pin="NEG" pad="NEG"/>
-<connect gate="G$1" pin="POS" pad="POS"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find connectors and sockets- basically anything that can be plugged into or onto.&lt;br&gt;&lt;br&gt;
@@ -2527,6 +2502,50 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </deviceset>
 </devicesets>
 </library>
+<library name="New">
+<packages>
+<package name="ELECTRO-CAP">
+<wire x1="2.6" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="2.6" x2="-3.3" y2="-3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="-3.3" x2="2.4" y2="-3.3" width="0.127" layer="21"/>
+<smd name="POS" x="2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
+<smd name="NEG" x="-2.3" y="0" dx="2.7" dy="0.8" layer="1"/>
+<circle x="0" y="0" radius="3.10644375" width="0.127" layer="21"/>
+<wire x1="3.3" y1="2.6" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
+<wire x1="2.6" y1="3.3" x2="3.3" y2="2.6" width="0.127" layer="21"/>
+<wire x1="-2.1" y1="2.3" x2="-2.1" y2="-2.3" width="0.127" layer="21"/>
+<wire x1="2.4" y1="-3.3" x2="3.3" y2="-2.4" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="2.6" x2="-3.3" y2="3.3" width="0.127" layer="21"/>
+<wire x1="-3.3" y1="3.3" x2="-2.6" y2="3.3" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ELECTRO-CAP">
+<pin name="POS" x="-5.08" y="0" visible="off" length="middle"/>
+<wire x1="-0.81788125" y1="3.235959375" x2="-0.71881875" y2="-2.97941875" width="0.254" layer="94" curve="-68.276529" cap="flat"/>
+<pin name="NEG" x="7.62" y="0" visible="off" length="middle" rot="R180"/>
+<wire x1="2.54" y1="3.302" x2="2.54" y2="-3.048" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="100UF-ELECTRO-CAP">
+<gates>
+<gate name="G$1" symbol="ELECTRO-CAP" x="22.86" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="ELECTRO-CAP">
+<connects>
+<connect gate="G$1" pin="NEG" pad="NEG"/>
+<connect gate="G$1" pin="POS" pad="POS"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2581,10 +2600,11 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND13" library="SparkFun" deviceset="GND" device=""/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="1206"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="GND14" library="SparkFun" deviceset="GND" device=""/>
-<part name="GND15" library="SparkFun" deviceset="GND" device=""/>
-<part name="U$6" library="New" deviceset="100UF-ELECTRO-CAP" device=""/>
 <part name="SEN1" library="SparkFun-Connectors" deviceset="M08" device="1X08"/>
+<part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
+<part name="GND16" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="U$6" library="New" deviceset="100UF-ELECTRO-CAP" device=""/>
+<part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2633,10 +2653,11 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="GND13" gate="1" x="170.18" y="33.02"/>
 <instance part="R7" gate="G$1" x="165.1" y="45.72"/>
 <instance part="C3" gate="G$1" x="190.5" y="71.12" rot="R90"/>
-<instance part="GND14" gate="1" x="208.28" y="78.74" rot="R90"/>
-<instance part="GND15" gate="1" x="195.58" y="71.12" rot="R90"/>
-<instance part="U$6" gate="G$1" x="220.98" y="66.04"/>
 <instance part="SEN1" gate="G$1" x="-33.02" y="30.48"/>
+<instance part="SUPPLY1" gate="G$1" x="-25.4" y="58.42"/>
+<instance part="GND16" gate="1" x="-12.7" y="43.18"/>
+<instance part="U$6" gate="G$1" x="198.12" y="78.74"/>
+<instance part="GND14" gate="1" x="213.36" y="68.58"/>
 </instances>
 <busses>
 </busses>
@@ -2706,11 +2727,14 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </segment>
 <segment>
 <pinref part="C3" gate="G$1" pin="2"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-</segment>
-<segment>
+<wire x1="213.36" y1="73.66" x2="205.74" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="73.66" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="73.66" x2="193.04" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="73.66" x2="213.36" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="NEG"/>
+<wire x1="205.74" y1="78.74" x2="205.74" y2="73.66" width="0.1524" layer="91"/>
+<junction x="205.74" y="73.66"/>
 <pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="205.74" y1="78.74" x2="203.962" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -2778,6 +2802,12 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="142.24" x2="182.88" y2="142.24" width="0.1524" layer="91"/>
 <junction x="172.72" y="142.24"/>
+</segment>
+<segment>
+<pinref part="SEN1" gate="G$1" pin="8"/>
+<wire x1="-27.94" y1="40.64" x2="-25.4" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-25.4" y1="40.64" x2="-25.4" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="SUPPLY1" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
 <net name="DIO4" class="0">
@@ -2906,10 +2936,10 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="185.42" y1="71.12" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <junction x="185.42" y="71.12"/>
-<pinref part="U$6" gate="G$1" pin="POS"/>
 <wire x1="185.42" y1="78.74" x2="185.42" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 <junction x="185.42" y="78.74"/>
+<pinref part="U$6" gate="G$1" pin="POS"/>
 </segment>
 </net>
 <net name="TX_0" class="0">
@@ -3099,22 +3129,14 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="-5.08" y1="35.56" x2="-27.94" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="D3~"/>
-<wire x1="5.08" y1="55.88" x2="-7.62" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="SEN1" gate="G$1" pin="7"/>
-<wire x1="-7.62" y1="55.88" x2="-7.62" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="38.1" x2="-27.94" y2="38.1" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="D2"/>
-<wire x1="5.08" y1="60.96" x2="-10.16" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="SEN1" gate="G$1" pin="8"/>
-<wire x1="-10.16" y1="60.96" x2="-10.16" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="40.64" x2="-27.94" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="SEN1" gate="G$1" pin="7"/>
+<wire x1="-27.94" y1="38.1" x2="-22.86" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="38.1" x2="-22.86" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="48.26" x2="-12.7" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="48.26" x2="-12.7" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 </net>
 </nets>

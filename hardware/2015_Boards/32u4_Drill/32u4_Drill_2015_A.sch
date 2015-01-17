@@ -2555,8 +2555,8 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="P+2" library="SparkFun" deviceset="3.3V" device=""/>
 <part name="P+3" library="SparkFun" deviceset="3.3V" device=""/>
 <part name="P+4" library="SparkFun" deviceset="3.3V" device=""/>
-<part name="U$3" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="H_WR-TBL_321*0002VERT"/>
-<part name="U$5" library="SparkFun-PowerIC" deviceset="V_REG_MIC2920" device=""/>
+<part name="U$3" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="PLUGABLE SCREW TERMINALS"/>
+<part name="U$5" library="SparkFun-PowerIC" deviceset="V_REG_MIC2920" device="" value="12 TO 3.3 VOLT REG"/>
 <part name="GND4" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun" deviceset="GND" device=""/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
@@ -2567,7 +2567,7 @@ Standard 8-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="GND6" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND7" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun" deviceset="GND" device=""/>
-<part name="U$2" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="H_WR-TBL_321*0002VERT"/>
+<part name="U$2" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT" value="PLUGABLE SCREW TERMINALS"/>
 <part name="U$4" library="MRDT-2015-General" deviceset="BTM7752G" device=""/>
 <part name="GND10" library="SparkFun" deviceset="GND" device=""/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>

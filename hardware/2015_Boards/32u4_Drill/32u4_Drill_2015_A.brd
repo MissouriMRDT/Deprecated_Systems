@@ -696,16 +696,16 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R11" library="SparkFun-Passives" package="1206" value="1k" x="18.415" y="47.625" rot="R270"/>
 <element name="R3" library="SparkFun-Passives" package="1206" value="1k" x="15.875" y="47.625" rot="R90"/>
 <element name="U$1" library="MRDT-2015-General" package="32U3_MCU_DIP_SMD" value="32U4_BREAKOU_SMD" x="15.875" y="27.94" rot="MR0"/>
-<element name="U$3" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="11.1125" y="3.81" rot="MR180">
+<element name="U$3" library="MRDT-2015-PowerBoard" package="691321100002" value="PLUGABLE SCREW TERMINALS" x="11.1125" y="3.81" rot="MR180">
 <attribute name="DIGIKEY_PN" value="732-2763-ND" x="11.1125" y="3.81" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="U$5" library="SparkFun-PowerIC" package="SOT223" value="V_REG_MIC2920" x="15.875" y="29.36875"/>
+<element name="U$5" library="SparkFun-PowerIC" package="SOT223" value="12 TO 3.3 VOLT REG" x="15.875" y="29.36875"/>
 <element name="U2" library="SparkFun" package="XBEE-SMD" value="XBEE-1B3" x="15.875" y="26.67"/>
 <element name="S1" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="3.81" y="52.07"/>
 <element name="S2" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="27.94" y="52.07"/>
 <element name="S3" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="3.81" y="3.81"/>
 <element name="S4" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="27.94" y="3.81"/>
-<element name="U$2" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="20.6375" y="3.81" rot="MR180">
+<element name="U$2" library="MRDT-2015-PowerBoard" package="691321100002" value="PLUGABLE SCREW TERMINALS" x="20.6375" y="3.81" rot="MR180">
 <attribute name="DIGIKEY_PN" value="732-2763-ND" x="20.6375" y="3.81" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
 <element name="U$4" library="MRDT-2015-General" package="BTM7752G" value="BTM7752G" x="15.875" y="15.5575"/>

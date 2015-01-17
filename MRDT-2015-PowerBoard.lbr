@@ -675,8 +675,8 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 </device>
 </devices>
 </deviceset>
-<deviceset name="L_29F0429" prefix="L">
-<description>Through-Hole Ferrite Bead 285 Ohm @ 100MHz</description>
+<deviceset name="L_29F0528" prefix="L">
+<description>Through-Hole Ferrite Bead rated for 10 Amps</description>
 <gates>
 <gate name="G$1" symbol="L_FERRITE5" x="0" y="0"/>
 </gates>

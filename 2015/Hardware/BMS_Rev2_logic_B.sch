@@ -814,6 +814,9 @@ SMD Buzzer&lt;br&gt;
 <vertex x="-2.8093" y="-0.0101" curve="-90.012967"/>
 </polygon>
 </package>
+<package name="STANDOFF-ELECTRICAL">
+<pad name="P1" x="0" y="0" drill="3.2" diameter="6.35"/>
+</package>
 </packages>
 <symbols>
 <symbol name="BUZZER">
@@ -840,6 +843,11 @@ SMD Buzzer&lt;br&gt;
 <text x="6.35" y="0" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="2.54" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
 <pin name="1" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
+<symbol name="STANDOFF_ELECTRICAL">
+<pin name="P$1" x="7.62" y="0" visible="off" length="short" rot="R180"/>
+<circle x="0" y="0" radius="5.08" width="0.254" layer="94"/>
+<text x="-2.54" y="5.842" size="1.27" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -924,6 +932,23 @@ Spark Fun Electronics SKU : Comp-Buzzer</description>
 <technology name="">
 <attribute name="PROD_ID" value="COMP-08253" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="STANDOFF_ELECTRICAL" prefix="S">
+<description>A standoff intended to be an electrically connected point.&lt;br&gt;
+Pad size and stop size allow for a #4 Phillips pan screw head to make a solid connection to the board.</description>
+<gates>
+<gate name="G$1" symbol="STANDOFF_ELECTRICAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="STANDOFF-ELECTRICAL">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P1"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -10091,6 +10116,12 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <part name="F9" library="SparkFun-PowerIC" deviceset="PTC" device="SMD"/>
 <part name="LCD" library="SparkFun-Connectors" deviceset="M03" device="POLAR"/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
+<part name="S1" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="S2" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="S3" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
+<part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10173,6 +10204,12 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <instance part="F9" gate="G$1" x="134.62" y="-58.42"/>
 <instance part="LCD" gate="G$1" x="-30.48" y="15.24"/>
 <instance part="SUPPLY3" gate="G$1" x="-5.08" y="7.62"/>
+<instance part="S1" gate="G$1" x="43.18" y="-53.34"/>
+<instance part="S2" gate="G$1" x="43.18" y="-66.04"/>
+<instance part="S3" gate="G$1" x="43.18" y="-78.74"/>
+<instance part="GND3" gate="1" x="60.96" y="-60.96"/>
+<instance part="GND4" gate="1" x="60.96" y="-73.66"/>
+<instance part="GND5" gate="1" x="60.96" y="-86.36"/>
 </instances>
 <busses>
 </busses>
@@ -10336,6 +10373,24 @@ Resettable Fuse. Spark Fun Electronics SKU : COM-08357</description>
 <wire x1="-15.24" y1="88.9" x2="-27.94" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="88.9" x2="-27.94" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S1" gate="G$1" pin="P$1"/>
+<wire x1="50.8" y1="-53.34" x2="60.96" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="-53.34" x2="60.96" y2="-58.42" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S2" gate="G$1" pin="P$1"/>
+<wire x1="50.8" y1="-66.04" x2="60.96" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="-66.04" x2="60.96" y2="-71.12" width="0.1524" layer="91"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="S3" gate="G$1" pin="P$1"/>
+<wire x1="50.8" y1="-78.74" x2="60.96" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="-78.74" x2="60.96" y2="-83.82" width="0.1524" layer="91"/>
+<pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="GATE" class="0">

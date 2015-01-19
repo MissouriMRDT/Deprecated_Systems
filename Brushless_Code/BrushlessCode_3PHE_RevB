@@ -23,8 +23,8 @@ void setup(){
  pinMode(7,INPUT_PULLUP);//Could be done without Arduino Function but
  //this is not time important
  //Most Encoders require this, also it provides some noise immunity
- PCICR |= (1 << PCIE0); //Enable pin change interrupt on port B
- PCMSK0 |= (1 << PCINT3) | (1 << PCINT4) | (1 << PCINT5);
+ PCICR |= (1 << PCIE2); //Enable pin change interrupt on port B
+ PCMSK2 |= (1 << PCINT23) | (1 << PCINT22) | (1 << PCINT21);
  //Generate Interrupts if pins that the encoder is connected to 
  //change states
  
@@ -140,10 +140,10 @@ ISR (PCINT2_vect)//This function handles the switch commutation
 {
  byte sensor;
  static byte l_sensor;
- sensor = PINB;//Read encoder state
- sensor = sensor & B00111000;
+ sensor = PIND;//Read encoder state
+ sensor = sensor & B11100000;
  //Dump the readings from pins not connected to encoder
-  switch(scheme){//If the scheme is 0 120degree VSI is used, if it is true 180 degree is used
+  switch(scheme){//If the scheme is 0 120 degree VSI is used, if it is true 180 degree is used
   case false:
  switch(d_direction){// The 120 degree forces a certain rotation direction, the algorithm below
  //realizes the proper switching action based on the desired direction
@@ -153,35 +153,47 @@ case true:
 switch(sensor){//Determine the encoder state FIX ME: Commutation Order
 case B00000000://Illegal state turn all outputs off
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
-  case B00001000://Turn OCR1A & OCR1B
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00010000://Turn OCR1B & OCR2B
+  case B00100000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-   break;
-  case B00011000://Turn OCR1A & OCR1B
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
   break;
-  case B00100000://Turn OCR2B & OCR1A
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00101000://Turn OCR1A & OCR2B
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
- break;
-  case B00110000://Turn OCR2B & OCR1B
-  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-   break;
-  case B00111000: //Illegal state turn all outputs off
+  case B01000000://Turn on OCR2A, Turn off OCR1B, Float OCR1A
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+   break;
+  case B01100000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B10000000://Turn on OCR1A, turn off OCR2A, float OCR1B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11111110;
+  PORTB |= PORTB || B00110000;
+  break;
+  case B10100000://Turn on OCR1B, Turn off OCR2A, float OCR1A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+ break;
+  case B11000000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+   break;
+  case B11100000: //Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
  }  
 break;
@@ -190,35 +202,47 @@ case false:
 switch(sensor){//Determine the encoder state
   case B00000000://Illegal state turn all outputs off
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
-  case B00001000://Turn OCR1A & OCR2B
+  case B00100000://Turn on OCR1A, turn off OCR1B, float OCR2A
   TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
   break;
-  case B00010000://Turn OCR1B & OCR1A
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00011000://Turn OCR1A & OCR1B
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00100000://Turn OCR2B & OCR1B
-   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00101000://Turn OCR1A & OCR2B
-  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-  break;
-  case B00110000://Turn OCR2B & OCR1B
+  case B01000000://Turn on OCR1B, Turn off OCR2A, float OCR1A
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
-   break;
-  case B00111000: //Illegal state turn all outputs off
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+  break;
+  case B01100000://Turn on OCR1A, turn off OCR2A, float OCR1B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11111110;
+  PORTB |= PORTB || B00110000;
+  break;
+  case B10000000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B10100000://Turn on OCR2A, Turn off OCR1B, Float OCR1A
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+  break;
+  case B11000000://Turn OCR2B & OCR1B
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+   break;
+  case B11100000: //Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
  }  
 break;
@@ -229,83 +253,83 @@ break;
   switch(sensor){//Determine the encoder state
   case B00000000://Illegal state turn all outputs off
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
-  case B00001000://Turn OCR1A
+  case B00100000://Turn OCR1A
   TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00101000:
+  case B10100000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00011000:
+  case B01100000:
   Forward = false;
   break;
   }
   break;
-  case B00010000://Turn OCR1B
+  case B01000000://Turn OCR1B
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00011000:
+  case B01100000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00110000:
+  case B11000000:
   Forward = false;
   break;
   }
   break;
-  case B00011000://Turn OCR1A & OCR1B
+  case B01100000://Turn OCR1A & OCR1B
   TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00001000:
+  case B00100000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00010000:
+  case B01000000:
   Forward = false;
   break;
   }
   break;
-  case B00100000://Turn OCR2B
+  case B10000000://Turn OCR2B
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00110000:
+  case B11000000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00101000:
+  case B10100000:
   Forward = false;
   break;
   }
   break;
-  case B00101000://Turn OCR1A & OCR2B
+  case B10100000://Turn OCR1A & OCR2B
   TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
   TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00001000:
+  case B00100000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00100000:
+  case B10000000:
   Forward = false;
   break;
   }
   break;
-  case B00110000://Turn OCR2B & OCR1B
+  case B11000000://Turn OCR2B & OCR1B
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= (COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
   switch(l_sensor){
-  case B00010000:
+  case B01000000:
   Forward = true; //global variable keeping track of direction, must be volatile
   break;
-  case B00100000:
+  case B10000000:
   Forward = false;
   break;
   }
   break;
-  case B00111000: //Illegal state turn all outputs off
+  case B11100000: //Illegal state turn all outputs off
   TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
-  TCCR2A |= ~(COM2B1 << 1) | ~(COM2B0 << 1) ;
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
   break;
  }break;}
   count++;
@@ -342,6 +366,3 @@ ADMUX=B01000011;
 break; 
 }
 }
-
- 
- 

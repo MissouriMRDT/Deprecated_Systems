@@ -43,6 +43,7 @@ extern "C" {
 #define Board_initGeneral           EK_TM4C1294XL_initGeneral
 #define Board_initGPIO              EK_TM4C1294XL_initGPIO
 #define Board_initI2C               EK_TM4C1294XL_initI2C
+#define Board_initPWM               EK_TM4C1294XL_initPWM
 #define Board_initSDSPI             EK_TM4C1294XL_initSDSPI
 #define Board_initSPI               EK_TM4C1294XL_initSPI
 #define Board_initUART              EK_TM4C1294XL_initUART
@@ -61,11 +62,12 @@ extern "C" {
 
 #define Board_I2C0                  EK_TM4C1294XL_I2C7
 #define Board_I2C1                  EK_TM4C1294XL_I2C8
-#define Board_I2C2                  EK_TM4C1294XL_I2C0
-#define Board_I2C3                  EK_TM4C1294XL_I2C2
 #define Board_I2C_TMP               EK_TM4C1294XL_I2C7
 #define Board_I2C_NFC               EK_TM4C1294XL_I2C7
 #define Board_I2C_TPL0401           EK_TM4C1294XL_I2C7
+
+#define Board_PWM0                  EK_TM4C1294XL_PWM0
+#define Board_PWM1                  EK_TM4C1294XL_PWM0
 
 #define Board_SDSPI0                EK_TM4C1294XL_SDSPI0
 #define Board_SDSPI1                EK_TM4C1294XL_SDSPI1
@@ -80,9 +82,6 @@ extern "C" {
 #define Board_USBDEVICE             EK_TM4C1294XL_USBDEVICE
 
 #define Board_UART0                 EK_TM4C1294XL_UART0
-#define Board_UART1                 EK_TM4C1294XL_UART2
-#define Board_UART2                 EK_TM4C1294XL_UART6
-#define Board_UART3                 EK_TM4C1294XL_UART7
 
 #define Board_WATCHDOG0             EK_TM4C1294XL_WATCHDOG0
 

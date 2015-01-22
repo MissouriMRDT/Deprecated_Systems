@@ -73,10 +73,10 @@ typedef enum EK_TM4C1294XL_EMACName {
  *  @brief  Enum of LED names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_GPIOName {
-	EK_TM4C1294XL_D1 = 0,
-	EK_TM4C1294XL_D2,
-	EK_TM4C1294XL_USR_SW1,
-	EK_TM4C1294XL_USR_SW2,
+    EK_TM4C1294XL_D1 = 0,
+    EK_TM4C1294XL_D2,
+    EK_TM4C1294XL_USR_SW1,
+    EK_TM4C1294XL_USR_SW2,
 
     EK_TM4C1294XL_GPIOCOUNT
 } EK_TM4C1294XL_GPIOName;
@@ -86,13 +86,21 @@ typedef enum EK_TM4C1294XL_GPIOName {
  *  @brief  Enum of I2C names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_I2CName {
-	EK_TM4C1294XL_I2C0 = 0,
-	EK_TM4C1294XL_I2C2,
-    EK_TM4C1294XL_I2C7,
+    EK_TM4C1294XL_I2C7 = 0,
     EK_TM4C1294XL_I2C8,
 
     EK_TM4C1294XL_I2CCOUNT
-} EEK_TM4C1294XL_I2CName;
+} EK_TM4C1294XL_I2CName;
+
+/*!
+ *  @def    EK_TM4C1294XL_PWMName
+ *  @brief  Enum of PWM names on the EK_TM4C1294XL dev board
+ */
+typedef enum EK_TM4C1294XL_PWMName {
+    EK_TM4C1294XL_PWM0 = 0,
+
+    EK_TM4C1294XL_PWMCOUNT
+} EK_TM4C1294XL_PWMName;
 
 /*!
  *  @def    EK_TM4C1294XL_SDSPIName
@@ -122,9 +130,6 @@ typedef enum EK_TM4C1294XL_SPIName {
  */
 typedef enum EK_TM4C1294XL_UARTName {
     EK_TM4C1294XL_UART0 = 0,
-    EK_TM4C1294XL_UART2,
-    EK_TM4C1294XL_UART6,
-    EK_TM4C1294XL_UART7,
 
     EK_TM4C1294XL_UARTCOUNT
 } EK_TM4C1294XL_UARTName;
@@ -208,6 +213,17 @@ extern void EK_TM4C1294XL_initGPIO(void);
  *  I2C_config variable.
  */
 extern void EK_TM4C1294XL_initI2C(void);
+
+/*!
+ *  @brief  Initialize board specific PWM settings
+ *
+ *  This function initializes the board specific PWM settings and then calls
+ *  the PWM_init API to initialize the PWM module.
+ *
+ *  The PWM peripherals controlled by the PWM module are determined by the
+ *  PWM_config variable.
+ */
+extern void EK_TM4C1294XL_initPWM(void);
 
 /*!
  *  @brief  Initialize board specific SDSPI settings

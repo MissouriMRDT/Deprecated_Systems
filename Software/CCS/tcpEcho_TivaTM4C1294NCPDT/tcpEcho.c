@@ -32,173 +32,34 @@
 
 /*
  *    ======== tcpEcho.c ========
+ *    Contains BSD sockets code.
  */
 
-// XDCtools Header files
+#include <string.h>
+
 #include <xdc/std.h>
 #include <xdc/cfg/global.h>
 #include <xdc/runtime/Error.h>
-#include <xdc/runtime/Memory.h>
 #include <xdc/runtime/System.h>
 
-// BIOS Header files
 #include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
-
-// NDK Header files
-#include <ti/ndk/inc/netmain.h>
-#include <ti/ndk/inc/_stack.h>
-
-// TI-RTOS Header files
 #include <ti/drivers/GPIO.h>
 
-// Example/Board Header files
+/* NDK BSD support */
+#include <sys/socket.h>
+
+/* Example/Board Header file */
 #include "Board.h"
-
-/*
-#define TCPPACKETSIZE 1024
-#define TCPPORT 1000
-#define NUMTCPWORKERS 3
-
-/*
- *  ======== tcpWorker ========
- *  Task to handle TCP connection. Can be multiple Tasks running
- *  this function.
-
-Void tcpWorker(UArg arg0, UArg arg1)
-{
-    SOCKET clientfd = (SOCKET)arg0;
-    int nbytes;
-    bool flag = true;
-    char *buffer;
-    Error_Block eb;
-
-    fdOpenSession(TaskSelf());
-
-    System_printf("tcpWorker: start clientfd = 0x%x\n", clientfd);
-
-    /* Make sure Error_Block is initialized
-    Error_init(&eb);
-
-    /* Get a buffer to receive incoming packets. Use the default heap.
-    buffer = Memory_alloc(NULL, TCPPACKETSIZE, 0, &eb);
-    if (buffer == NULL) {
-        System_printf("tcpWorker: failed to alloc memory\n");
-        Task_exit();
-    }
-
-    /* Loop while we receive data
-    while (flag) {
-        nbytes = recv(clientfd, (char *)buffer, TCPPACKETSIZE, 0);
-        if (nbytes > 0) {
-            /* Echo the data back
-            send(clientfd, (char *)buffer, nbytes, 0 );
-        }
-        else {
-            fdClose(clientfd);
-            flag = false;
-        }
-    }
-    System_printf("tcpWorker stop clientfd = 0x%x\n", clientfd);
-
-    /* Free the buffer back to the heap
-    Memory_free(NULL, buffer, TCPPACKETSIZE);
-
-    fdCloseSession(TaskSelf());
-    /*
-     *  Since deleteTerminatedTasks is set in the cfg file,
-     *  the Task will be deleted when the idle task runs.
-
-    Task_exit();
-}
-
-/*
- *  ======== tcpHandler ========
- *  Creates new Task to handle new TCP connections.
-
-Void tcpHandler(UArg arg0, UArg arg1)
-{
-    SOCKET lSocket;
-    struct sockaddr_in sLocalAddr;
-    SOCKET clientfd;
-    struct sockaddr_in client_addr;
-    int addrlen=sizeof(client_addr);
-    int optval;
-    int optlen = sizeof(optval);
-    int status;
-    Task_Handle taskHandle;
-    Task_Params taskParams;
-    Error_Block eb;
-
-    fdOpenSession(TaskSelf());
-
-    lSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (lSocket < 0) {
-        System_printf("tcpHandler: socket failed\n");
-        Task_exit();
-        return;
-    }
-
-    memset((char *)&sLocalAddr, 0, sizeof(sLocalAddr));
-    sLocalAddr.sin_family = AF_INET;
-    sLocalAddr.sin_len = sizeof(sLocalAddr);
-    sLocalAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    sLocalAddr.sin_port = htons(arg0);
-
-    status = bind(lSocket, (struct sockaddr *)&sLocalAddr, sizeof(sLocalAddr));
-    if (status < 0) {
-        System_printf("tcpHandler: bind failed\n");
-        fdClose(lSocket);
-        Task_exit();
-        return;
-    }
-
-    if (listen(lSocket, NUMTCPWORKERS) != 0){
-        System_printf("tcpHandler: listen failed\n");
-        fdClose(lSocket);
-        Task_exit();
-        return;
-    }
-
-    if (setsockopt(lSocket, SOL_SOCKET, SO_KEEPALIVE, &optval, optlen) < 0) {
-        System_printf("tcpHandler: setsockopt failed\n");
-        fdClose(lSocket);
-        Task_exit();
-        return;
-    }
-
-    while (true) {
-        /* Wait for incoming request
-        clientfd = accept(lSocket, (struct sockaddr*)&client_addr, &addrlen);
-        System_printf("tcpHandler: Creating thread clientfd = %d\n", clientfd);
-
-        /* Init the Error_Block
-        Error_init(&eb);
-
-        /* Initialize the defaults and set the parameters.
-        Task_Params_init(&taskParams);
-        taskParams.arg0 = (UArg)clientfd;
-        taskParams.stackSize = 1024;
-        taskHandle = Task_create((Task_FuncPtr)tcpWorker, &taskParams, &eb);
-        if (taskHandle == NULL) {
-            System_printf("tcpHandler: Failed to create new Task\n");
-        }
-    }
-}
 
 /*
  *  ======== main ========
  */
 int main(void)
 {
-    //Task_Handle taskHandle;
-    //Task_Params taskParams;
-    //Error_Block eb;
-
     /* Call board init functions */
     Board_initGeneral();
-	Board_initGPIO();
+    Board_initGPIO();
     Board_initEMAC();
 
     System_printf("Starting the TCP Echo example\nSystem provider is set to "
@@ -206,21 +67,6 @@ int main(void)
                   " ROV.\n");
     /* SysMin will only print to the console when you call flush or exit */
     System_flush();
-
-    /*
-     *  Create the Task that farms out incoming TCP connections.
-     *  arg0 will be the port that this task listens to.
-     */
-   /* Task_Params_init(&taskParams);
-    Error_init(&eb);
-
-    taskParams.stackSize = 1024;
-    taskParams.priority = 1;
-    taskParams.arg0 = TCPPORT;
-    taskHandle = Task_create((Task_FuncPtr)tcpHandler, &taskParams, &eb);
-    if (taskHandle == NULL) {
-        System_printf("main: Failed to create tcpHandler Task\n");
-    }
 
     /* Start BIOS */
     BIOS_start();

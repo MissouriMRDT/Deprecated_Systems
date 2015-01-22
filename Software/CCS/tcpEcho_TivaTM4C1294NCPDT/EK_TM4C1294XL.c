@@ -34,30 +34,6 @@
  *  ======== EK_TM4C1294XL.c ========
  *  This file is responsible for setting up the board specific items for the
  *  EK_TM4C1294XL board.
- *
- *  The following defines are used to determine which TI-RTOS peripheral drivers
- *  to include:
- *     TI_DRIVERS_EMAC_INCLUDED
- *     TI_DRIVERS_GPIO_INCLUDED
- *     TI_DRIVERS_I2C_INCLUDED
- *     TI_DRIVERS_SDSPI_INCLUDED
- *     TI_DRIVERS_SPI_INCLUDED
- *     TI_DRIVERS_UART_INCLUDED
- *     TI_DRIVERS_USBMSCHFATFS_INCLUDED
- *     TI_DRIVERS_WATCHDOG_INCLUDED
- *     TI_DRIVERS_WIFI_INCLUDED
- *  These defines are created when a useModule is done on the driver in the
- *  application's .cfg file. The actual #define is in the application
- *  generated header file that is brought in via the xdc/cfg/global.h.
- *  For example the following in the .cfg file
- *     var GPIO = xdc.useModule('ti.drivers.GPIO');
- *  Generates the following
- *     #define TI_DRIVERS_GPIO_INCLUDED 1
- *  If there is no useModule of ti.drivers.GPIO, the constant is set to 0.
- *
- *  Note: a useModule is generated in the .cfg file via the graphical
- *  configuration tool when the "Add xxx to my configuration" is checked
- *  or "Use xxx" is selected.
  */
 
 #include <stdint.h>
@@ -83,11 +59,19 @@
 
 #include "EK_TM4C1294XL.h"
 
-#if defined(ccs)
+
+#ifndef TI_DRIVERS_UART_DMA
+#define TI_DRIVERS_UART_DMA 0
+#endif
+
+/*
+ *  =============================== DMA ===============================
+ */
+#if defined(__TI_COMPILER_VERSION__)
 #pragma DATA_ALIGN(EK_TM4C1294XL_DMAControlTable, 1024)
-#elif defined(ewarm)
+#elif defined(__IAR_SYSTEMS_ICC__)
 #pragma data_alignment=1024
-#elif defined(gcc)
+#elif defined(__GNUC__)
 __attribute__ ((aligned (1024)))
 #endif
 static tDMAControlTable EK_TM4C1294XL_DMAControlTable[32];
@@ -131,7 +115,7 @@ void EK_TM4C1294XL_initDMA(void)
     Error_Block eb;
     Hwi_Params  hwiParams;
 
-    if(!DMA_initialized){
+    if (!DMA_initialized) {
 
         Error_init(&eb);
 
@@ -150,6 +134,9 @@ void EK_TM4C1294XL_initDMA(void)
     }
 }
 
+/*
+ *  =============================== General ===============================
+ */
 /*
  *  ======== EK_TM4C1294XL_initGeneral ========
  */
@@ -175,7 +162,16 @@ void EK_TM4C1294XL_initGeneral(void)
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOT);
 }
 
-#if TI_DRIVERS_EMAC_INCLUDED
+/*
+ *  =============================== EMAC ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(EMAC_config, ".const:EMAC_config")
+#pragma DATA_SECTION(emacHWAttrs, ".const:emacHWAttrs")
+#pragma DATA_SECTION(NIMUDeviceTable, ".data:NIMUDeviceTable")
+#endif
+
 #include <ti/drivers/EMAC.h>
 #include <ti/drivers/emac/EMACSnow.h>
 
@@ -248,9 +244,16 @@ void EK_TM4C1294XL_initEMAC(void)
     /* Once EMAC_init is called, EMAC_config cannot be changed */
     EMAC_init();
 }
-#endif /* TI_DRIVERS_EMAC_INCLUDED */
 
-#if TI_DRIVERS_GPIO_INCLUDED
+/*
+ *  =============================== GPIO ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(GPIO_config, ".const:GPIO_config")
+#pragma DATA_SECTION(gpioHWAttrs, ".const:gpioHWAttrs")
+#endif
+
 #include <ti/drivers/GPIO.h>
 
 /* Callback functions for the GPIO interrupt example. */
@@ -297,9 +300,16 @@ void EK_TM4C1294XL_initGPIO(void)
     /* Once GPIO_init is called, GPIO_config cannot be changed */
     GPIO_init();
 }
-#endif /* TI_DRIVERS_GPIO_INCLUDED */
 
-#if TI_DRIVERS_I2C_INCLUDED
+/*
+ *  =============================== I2C ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(I2C_config, ".const:I2C_config")
+#pragma DATA_SECTION(i2cTivaHWAttrs, ".const:i2cTivaHWAttrs")
+#endif
+
 #include <ti/drivers/I2C.h>
 #include <ti/drivers/i2c/I2CTiva.h>
 
@@ -308,8 +318,6 @@ I2CTiva_Object i2cTivaObjects[EK_TM4C1294XL_I2CCOUNT];
 
 /* I2C configuration structure, describing which pins are to be used */
 const I2CTiva_HWAttrs i2cTivaHWAttrs[EK_TM4C1294XL_I2CCOUNT] = {
-    {I2C0_BASE, INT_I2C0},
-    {I2C2_BASE, INT_I2C2},
     {I2C7_BASE, INT_I2C7},
     {I2C8_BASE, INT_I2C8}
 };
@@ -317,8 +325,6 @@ const I2CTiva_HWAttrs i2cTivaHWAttrs[EK_TM4C1294XL_I2CCOUNT] = {
 const I2C_Config I2C_config[] = {
     {&I2CTiva_fxnTable, &i2cTivaObjects[0], &i2cTivaHWAttrs[0]},
     {&I2CTiva_fxnTable, &i2cTivaObjects[1], &i2cTivaHWAttrs[1]},
-    {&I2CTiva_fxnTable, &i2cTivaObjects[2], &i2cTivaHWAttrs[2]},
-    {&I2CTiva_fxnTable, &i2cTivaObjects[2], &i2cTivaHWAttrs[3]},
     {NULL, NULL, NULL}
 };
 
@@ -327,26 +333,6 @@ const I2C_Config I2C_config[] = {
  */
 void EK_TM4C1294XL_initI2C(void)
 {
-    /* I2C0 Init */
-    /* Enable the peripheral */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0);
-
-    /* Configure the appropriate pins to be I2C instead of GPIO. */
-    GPIOPinConfigure(GPIO_PB2_I2C0SCL);
-    GPIOPinConfigure(GPIO_PB3_I2C0SDA);
-    GPIOPinTypeI2CSCL(GPIO_PORTB_BASE, GPIO_PIN_2);
-    GPIOPinTypeI2C(GPIO_PORTB_BASE, GPIO_PIN_3);
-
-    /* I2C2 Init */
-    /* Enable the peripheral */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C2);
-
-    /* Configure the appropriate pins to be I2C instead of GPIO. */
-    GPIOPinConfigure(GPIO_PN5_I2C2SCL);
-    GPIOPinConfigure(GPIO_PN4_I2C2SDA);
-    GPIOPinTypeI2CSCL(GPIO_PORTN_BASE, GPIO_PIN_5);
-    GPIOPinTypeI2C(GPIO_PORTN_BASE, GPIO_PIN_4);
-
     /* I2C7 Init */
     /* Enable the peripheral */
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C7);
@@ -369,50 +355,101 @@ void EK_TM4C1294XL_initI2C(void)
 
     I2C_init();
 }
-#endif /* TI_DRIVERS_I2C_INCLUDED */
 
-#if TI_DRIVERS_SDSPI_INCLUDED
+/*
+ *  =============================== PWM ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(PWM_config, ".const:PWM_config")
+#pragma DATA_SECTION(pwmTivaHWAttrs, ".const:pwmTivaHWAttrs")
+#endif
+
+#include <ti/drivers/PWM.h>
+#include <ti/drivers/pwm/PWMTiva.h>
+#include <driverlib/pwm.h>
+
+PWMTiva_Object pwmTivaObjects[EK_TM4C1294XL_PWMCOUNT];
+
+/* PWM configuration structure */
+const PWMTiva_HWAttrs pwmTivaHWAttrs[EK_TM4C1294XL_PWMCOUNT] = {
+    {
+        PWM0_BASE,
+        PWM_OUT_0,
+        PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN
+    }
+};
+
+const PWM_Config PWM_config[] = {
+    {&PWMTiva_fxnTable, &pwmTivaObjects[0], &pwmTivaHWAttrs[0]},
+    {NULL, NULL, NULL}
+};
+
+/*
+ *  ======== EK_TM4C1294XL_initPWM ========
+ */
+void EK_TM4C1294XL_initPWM(void)
+{
+    /* Enable PWM peripherals */
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);
+
+    /*
+     * Enable PWM output on GPIO pins.  PWM output is connected to an Ethernet
+     * LED on the development board (D4).  The PWM configuration
+     * below will disable Ethernet functionality.
+     */
+    GPIOPinConfigure(GPIO_PF0_M0PWM0);
+    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_0);
+
+    PWM_init();
+}
+
+/*
+ *  =============================== SDSPI ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(SDSPI_config, ".const:SDSPI_config")
+#pragma DATA_SECTION(sdspiTivaHWattrs, ".const:sdspiTivaHWattrs")
+#endif
+
 #include <ti/drivers/SDSPI.h>
 #include <ti/drivers/sdspi/SDSPITiva.h>
 
 /* SDSPI objects */
-SDSPITiva_Object sdspiTivaobjects[EK_TM4C1294XL_SDSPICOUNT];
+SDSPITiva_Object sdspiTivaObjects[EK_TM4C1294XL_SDSPICOUNT];
 
 /* SDSPI configuration structure, describing which pins are to be used */
 const SDSPITiva_HWAttrs sdspiTivaHWattrs[EK_TM4C1294XL_SDSPICOUNT] = {
     {
         SSI2_BASE,          /* SPI base address */
 
-        GPIO_PORTD_BASE,    /* The GPIO port used for the SPI pins */
-        GPIO_PIN_3,         /* SCK */
-        GPIO_PIN_0,         /* MISO */
-        GPIO_PIN_1,         /* MOSI */
-
-        GPIO_PORTC_BASE,    /* Chip select port */
-        GPIO_PIN_7,         /* Chip select pin */
-
-        GPIO_PORTB_BASE,    /* GPIO TX port */
-        GPIO_PIN_1,         /* GPIO TX pin */
+        GPIO_PORTD_BASE,    /* SPI SCK PORT */
+        GPIO_PIN_3,         /* SCK PIN */
+        GPIO_PORTD_BASE,    /* SPI MISO PORT*/
+        GPIO_PIN_0,         /* MISO PIN */
+        GPIO_PORTD_BASE,    /* SPI MOSI PORT */
+        GPIO_PIN_1,         /* MOSI PIN */
+        GPIO_PORTC_BASE,    /* GPIO CS PORT */
+        GPIO_PIN_7,         /* CS PIN */
     },
     {
         SSI3_BASE,          /* SPI base address */
 
-        GPIO_PORTQ_BASE,    /* The GPIO port used for the SPI pins */
-        GPIO_PIN_0,         /* SCK */
-        GPIO_PIN_3,         /* MISO */
-        GPIO_PIN_2,         /* MOSI */
-
-        GPIO_PORTP_BASE,    /* Chip select port */
-        GPIO_PIN_4,         /* Chip select pin */
-
-        GPIO_PORTQ_BASE,    /* GPIO TX port */
-        GPIO_PIN_2,         /* GPIO TX pin */
+        GPIO_PORTQ_BASE,    /* SPI SCK PORT */
+        GPIO_PIN_0,         /* SCK PIN */
+        GPIO_PORTQ_BASE,    /* SPI MISO PORT*/
+        GPIO_PIN_3,         /* MISO PIN */
+        GPIO_PORTQ_BASE,    /* SPI MOSI PORT */
+        GPIO_PIN_2,         /* MOSI PIN */
+        GPIO_PORTP_BASE,    /* GPIO CS PORT */
+        GPIO_PIN_4,         /* CS PIN */
     }
 };
 
 const SDSPI_Config SDSPI_config[] = {
-    {&SDSPITiva_fxnTable, &sdspiTivaobjects[0], &sdspiTivaHWattrs[0]},
-    {&SDSPITiva_fxnTable, &sdspiTivaobjects[1], &sdspiTivaHWattrs[1]},
+    {&SDSPITiva_fxnTable, &sdspiTivaObjects[0], &sdspiTivaHWattrs[0]},
+    {&SDSPITiva_fxnTable, &sdspiTivaObjects[1], &sdspiTivaHWattrs[1]},
     {NULL, NULL, NULL}
 };
 
@@ -472,19 +509,26 @@ void EK_TM4C1294XL_initSDSPI(void)
 
     SDSPI_init();
 }
-#endif /* TI_DRIVERS_SDSPI_INCLUDED */
 
-#if TI_DRIVERS_SPI_INCLUDED
+/*
+ *  =============================== SPI ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(SPI_config, ".const:SPI_config")
+#pragma DATA_SECTION(spiTivaDMAHWAttrs, ".const:spiTivaDMAHWAttrs")
+#endif
+
 #include <ti/drivers/SPI.h>
 #include <ti/drivers/spi/SPITivaDMA.h>
 
 /* SPI objects */
-SPITivaDMA_Object spiTivaDMAobjects[EK_TM4C1294XL_SPICOUNT];
-#if defined(ccs)
+SPITivaDMA_Object spiTivaDMAObjects[EK_TM4C1294XL_SPICOUNT];
+#if defined(__TI_COMPILER_VERSION__)
 #pragma DATA_ALIGN(spiTivaDMAscratchBuf, 32)
-#elif defined(ewarm)
+#elif defined(__IAR_SYSTEMS_ICC__)
 #pragma data_alignment=32
-#elif defined(gcc)
+#elif defined(__GNUC__)
 __attribute__ ((aligned (32)))
 #endif
 uint32_t spiTivaDMAscratchBuf[EK_TM4C1294XL_SPICOUNT];
@@ -516,8 +560,8 @@ const SPITivaDMA_HWAttrs spiTivaDMAHWAttrs[EK_TM4C1294XL_SPICOUNT] = {
 };
 
 const SPI_Config SPI_config[] = {
-    {&SPITivaDMA_fxnTable, &spiTivaDMAobjects[0], &spiTivaDMAHWAttrs[0]},
-    {&SPITivaDMA_fxnTable, &spiTivaDMAobjects[1], &spiTivaDMAHWAttrs[1]},
+    {&SPITivaDMA_fxnTable, &spiTivaDMAObjects[0], &spiTivaDMAHWAttrs[0]},
+    {&SPITivaDMA_fxnTable, &spiTivaDMAObjects[1], &spiTivaDMAHWAttrs[1]},
     {NULL, NULL, NULL}
 };
 
@@ -551,10 +595,43 @@ void EK_TM4C1294XL_initSPI(void)
     EK_TM4C1294XL_initDMA();
     SPI_init();
 }
-#endif /* TI_DRIVERS_SPI_INCLUDED */
 
-#if TI_DRIVERS_UART_INCLUDED
+/*
+ *  =============================== UART ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(UART_config, ".const:UART_config")
+#pragma DATA_SECTION(uartTivaHWAttrs, ".const:uartTivaHWAttrs")
+#endif
+
 #include <ti/drivers/UART.h>
+#if TI_DRIVERS_UART_DMA
+#include <ti/drivers/uart/UARTTivaDMA.h>
+
+/* UART objects using DMA */
+UARTTivaDMA_Object uartTivaObjects[EK_TM4C1294XL_UARTCOUNT];
+
+/* UART DMA configuration structure */
+const UARTTivaDMA_HWAttrs uartTivaHWAttrs[EK_TM4C1294XL_UARTCOUNT] = {
+    {
+        UART0_BASE,    /* EK_LM4F120XL_UART0 */
+        INT_UART0,
+        UDMA_CH8_UART0RX,
+        UDMA_CH9_UART0TX,
+    }
+};
+
+const UART_Config UART_config[] = {
+    {
+        &UARTTivaDMA_fxnTable,
+        &uartTivaObjects[0],
+        &uartTivaHWAttrs[0]
+    },
+    {NULL, NULL, NULL}
+};
+
+#else
 #include <ti/drivers/uart/UARTTiva.h>
 
 /* UART objects */
@@ -562,19 +639,14 @@ UARTTiva_Object uartTivaObjects[EK_TM4C1294XL_UARTCOUNT];
 
 /* UART configuration structure */
 const UARTTiva_HWAttrs uartTivaHWAttrs[EK_TM4C1294XL_UARTCOUNT] = {
-    {UART0_BASE, INT_UART0}, /* EK_TM4C1294XL_UART0 */
-    {UART2_BASE, INT_UART2}, /* EK_TM4C1294XL_UART2 */
-    {UART6_BASE, INT_UART6}, /* EK_TM4C1294XL_UART6 */
-    {UART7_BASE, INT_UART7}  /* EK_TM4C1294XL_UART7 */
+    {UART0_BASE, INT_UART0}  /* EK_TM4C1294XL_UART0 */
 };
 
 const UART_Config UART_config[] = {
     {&UARTTiva_fxnTable, &uartTivaObjects[0], &uartTivaHWAttrs[0]},
-    {&UARTTiva_fxnTable, &uartTivaObjects[1], &uartTivaHWAttrs[1]},
-    {&UARTTiva_fxnTable, &uartTivaObjects[2], &uartTivaHWAttrs[2]},
-    {&UARTTiva_fxnTable, &uartTivaObjects[3], &uartTivaHWAttrs[3]},
     {NULL, NULL, NULL}
 };
+#endif /* TI_DRIVERS_UART_DMA */
 
 /*
  *  ======== EK_TM4C1294XL_initUART ========
@@ -587,29 +659,16 @@ void EK_TM4C1294XL_initUART(void)
     GPIOPinConfigure(GPIO_PA1_U0TX);
     GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 
-    /* Enable and configure the peripherals used by the UART2 */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_UART2);
-    GPIOPinConfigure(GPIO_PD4_U2RX);
-    GPIOPinConfigure(GPIO_PD5_U2TX);
-    GPIOPinTypeUART(GPIO_PORTD_BASE, GPIO_PIN_4 | GPIO_PIN_5);
-
-    /* Enable and configure the peripherals used by the UART6 */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_UART6);
-    GPIOPinConfigure(GPIO_PP0_U6RX);
-    GPIOPinConfigure(GPIO_PP1_U6TX);
-    GPIOPinTypeUART(GPIO_PORTP_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-
-    /* Enable and configure the peripherals used by the UART7 */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7);
-    GPIOPinConfigure(GPIO_PC4_U7RX);
-    GPIOPinConfigure(GPIO_PC5_U7TX);
-    GPIOPinTypeUART(GPIO_PORTC_BASE, GPIO_PIN_4 | GPIO_PIN_5);
-
     /* Initialize the UART driver */
+#if TI_DRIVERS_UART_DMA
+    EK_TM4C1294XL_initDMA();
+#endif
     UART_init();
 }
-#endif /* TI_DRIVERS_UART_INCLUDED */
 
+/*
+ *  =============================== USB ===============================
+ */
 /*
  *  ======== EK_TM4C1294XL_initUSB ========
  *  This function just turns on the USB
@@ -657,7 +716,15 @@ void EK_TM4C1294XL_initUSB(EK_TM4C1294XL_USBMode usbMode)
     }
 }
 
-#if TI_DRIVERS_USBMSCHFATFS_INCLUDED
+/*
+ *  =============================== USBMSCHFatFs ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(USBMSCHFatFs_config, ".const:USBMSCHFatFs_config")
+#pragma DATA_SECTION(usbmschfatfstivaHWAttrs, ".const:usbmschfatfstivaHWAttrs")
+#endif
+
 #include <ti/drivers/USBMSCHFatFs.h>
 #include <ti/drivers/usbmschfatfs/USBMSCHFatFsTiva.h>
 
@@ -690,9 +757,16 @@ void EK_TM4C1294XL_initUSBMSCHFatFs(void)
     EK_TM4C1294XL_initUSB(EK_TM4C1294XL_USBHOST);
     USBMSCHFatFs_init();
 }
-#endif /* TI_DRIVERS_USBMSCHFATFS_INCLUDED */
 
-#if TI_DRIVERS_WATCHDOG_INCLUDED
+/*
+ *  =============================== Watchdog ===============================
+ */
+/* Place into subsections to allow the TI linker to remove items properly */
+#if defined(__TI_COMPILER_VERSION__)
+#pragma DATA_SECTION(Watchdog_config, ".const:Watchdog_config")
+#pragma DATA_SECTION(watchdogTivaHWAttrs, ".const:watchdogTivaHWAttrs")
+#endif
+
 #include <ti/drivers/Watchdog.h>
 #include <ti/drivers/watchdog/WatchdogTiva.h>
 
@@ -732,8 +806,10 @@ void EK_TM4C1294XL_initWatchdog(void)
     /* Initialize the Watchdog driver */
     Watchdog_init();
 }
-#endif /* TI_DRIVERS_WATCHDOG_INCLUDED */
 
+/*
+ *  =============================== WiFi ===============================
+ */
 #if TI_DRIVERS_WIFI_INCLUDED
 #include <ti/drivers/WiFi.h>
 

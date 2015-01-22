@@ -76,3 +76,6 @@ tcpWorker   Echoes TCP packages back to the client.
 
       When client closes the socket, close server socket, free TCP buffer memory
       and exit the task.
+
+For GNU and IAR users, please read the following website for details about semi-hosting
+http://processors.wiki.ti.com/index.php/TI-RTOS_Examples_SemiHosting.

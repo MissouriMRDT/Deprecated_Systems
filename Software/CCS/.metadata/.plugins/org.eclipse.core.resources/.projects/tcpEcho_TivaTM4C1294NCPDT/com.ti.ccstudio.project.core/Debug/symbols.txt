@@ -1,6 +1,6 @@
 #define __unsigned_chars__ 1	/* Predefined */
-#define __DATE__ "Jan 16 2015"	/* Predefined */
-#define __TIME__ "18:20:35"	/* Predefined */
+#define __DATE__ "Jan 22 2015"	/* Predefined */
+#define __TIME__ "15:33:13"	/* Predefined */
 #define __STDC__ 1	/* Predefined */
 #define __edg_front_end__ 1	/* Predefined */
 #define __EDG_VERSION__ 404	/* Predefined */
@@ -33,9 +33,8 @@
 #define __TI_WCHAR_T_BITS__ 16	/* Predefined */
 #define __TI_GNU_ATTRIBUTE_SUPPORT__ 0	/* Predefined */
 #define __TI_STRICT_FP_MODE__ 1	/* Predefined */
-#define ccs ccs
+#define ccs "ccs"
 #define PART_TM4C1294NCPDT 1
 #define ccs 1
 #define TIVAWARE 1
-#define _INCLUDE_NIMU_CODE 1
 #define _OPTIMIZE_FOR_SPACE 1

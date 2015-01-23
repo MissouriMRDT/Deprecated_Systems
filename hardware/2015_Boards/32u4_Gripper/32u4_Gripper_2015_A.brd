@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -156,6 +156,7 @@
 <wire x1="31.75" y1="55.88" x2="0" y2="55.88" width="0" layer="20"/>
 <wire x1="0" y1="55.88" x2="0" y2="0" width="0" layer="20"/>
 <text x="30.5054" y="28.321" size="0.8128" layer="21" rot="R90">3.3V</text>
+<text x="31.0896" y="31.623" size="1.27" layer="21" rot="R90">MRDT Gripper Board</text>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">

@@ -5,8 +5,8 @@
 cleaning ../src/sysbios ...
 rm -rf  "tcpEcho_TivaTM4C1294NCPDT.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "tcpEcho_TivaTM4C1294NCPDT.hex" 
 rm -rf  "configPkg/" 
-rm -rf "EK_TM4C1294XL.pp" "roveTcpHandler.pp" "tcpEcho.pp" 
-rm -rf "EK_TM4C1294XL.obj" "roveTcpHandler.obj" "tcpEcho.obj" 
+rm -rf "EK_TM4C1294XL.pp" "roveCommandParser.pp" "roveTcpHandler.pp" "tcpEcho.pp" 
+rm -rf "EK_TM4C1294XL.obj" "roveCommandParser.obj" "roveTcpHandler.obj" "tcpEcho.obj" 
 Finished clean
  
 

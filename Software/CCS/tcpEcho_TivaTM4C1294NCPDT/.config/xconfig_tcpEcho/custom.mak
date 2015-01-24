@@ -7,5 +7,5 @@
 #       or equal to the generated config header
 #
 linker.cmd: package/cfg/tcpEcho_pem4f.xdl
-	$(SED) 's"^\"\(package/cfg/tcpEcho_pem4fcfg.cmd\)\"$""\"/home/owen/workspace_v6_0/tcpEcho_TivaTM4C1294NCPDT/.config/xconfig_tcpEcho/\1\""' package/cfg/tcpEcho_pem4f.xdl > $@
+	$(SED) 's"^\"\(package/cfg/tcpEcho_pem4fcfg.cmd\)\"$""\"/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/.config/xconfig_tcpEcho/\1\""' package/cfg/tcpEcho_pem4f.xdl > $@
 	-$(SETDATE) -r:max package/cfg/tcpEcho_pem4f.h compiler.opt compiler.opt.defs

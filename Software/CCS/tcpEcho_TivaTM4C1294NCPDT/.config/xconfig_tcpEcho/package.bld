@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: '/home/owen/workspace_v6_0/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
+        cfgScript: '/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
         profile: 'release',
         cfgHome: 'xconfig_tcpEcho',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        '/home/owen/workspace_v6_0/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
-    outputPath: '/home/owen/workspace_v6_0/tcpEcho_TivaTM4C1294NCPDT/.config/xconfig_tcpEcho',
+    cfg:        '/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg',
+    outputPath: '/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/.config/xconfig_tcpEcho',
     exeName:    'tcpEcho' + suffix,
     exeIntName: 'tcpEcho' + suffix.replace('.', '_'),
     targ:       targ,

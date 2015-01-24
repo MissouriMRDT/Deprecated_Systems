@@ -26,11 +26,18 @@
 /* Example/Board Header file */
 #include "Board.h"
 
+/* Mailbox Support */
+#include <ti/sysbios/knl/Mailbox.h>
+
 #define TCPPACKETSIZE 1024
 #define NUMTCPWORKERS 3
 #define TCPPORT 4500
 #define NOT_CONNECTED 0
 #define CONNECTED 1
+
+typedef struct MsgObj {
+	char message_body[TCPPACKETSIZE];
+} MsgObj, *Msg;
 
 Void roveTcpHandler(UArg arg0, UArg arg1);
 

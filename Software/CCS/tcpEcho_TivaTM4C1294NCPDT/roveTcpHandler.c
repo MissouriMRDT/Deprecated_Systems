@@ -29,19 +29,12 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 	fdOpenSession(TaskSelf());
 
 	//----Allocate variables
-    int                status;
 
-    //These are going to be references to sockets
+    //A reference to the file descriptor of the socket object
+	//Note that references to file descriptors are NOT pointers
     int                clientfd;
-    int                listen_socket;
 
-    //These will be used to configure the sockets.
-    //This configuration is very similar to BSD sockets.
-    struct sockaddr_in localAddr;
-    struct sockaddr_in clientAddr;
-    int                optval;
-    int                optlen = sizeof(optval);
-    socklen_t          addrlen = sizeof(clientAddr);
+    int                connect_success;
     int                connectedFlag = NOT_CONNECTED; //Used to indicate if the system is connected to RED
     int                bytesReceived = 0; //Used for detecting errors in receiving
     int                bytesSent; //Used for echoing data
@@ -49,40 +42,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
     //char fromBaseMsg.message_body[TCPPACKETSIZE]; //Where we hold incoming data
 
-    //----Create socket that will be used to listen
-    listen_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-        if (listen_socket == -1) {
-            System_printf("Error: socket not created.\n");
-        }
-
-    //----Define Socket options
-	memset(&localAddr, 0, sizeof(localAddr));
-	//Use IPv4
-	localAddr.sin_family = AF_INET;
-	//Allow any IP to connect
-	localAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	//Connect on port TCPPORT
-	localAddr.sin_port = htons(TCPPORT);
-
-	//---- Bind and Listen on listen_socket. This will allow the socket to
-	//     see when something tries to connect
-    status = bind(listen_socket, (struct sockaddr *)&localAddr, sizeof(localAddr));
-    if (status == -1) {
-        System_printf("Error: bind failed.\n");
-    }
-
-    status = listen(listen_socket, NUMTCPWORKERS);
-    if (status == -1) {
-        System_printf("Error: listen failed.\n");
-    }
-
-    //---- Apply the socket options set up above to the listening socket
-    if (setsockopt(listen_socket, SOL_SOCKET, SO_KEEPALIVE, &optval, optlen) < 0) {
-        System_printf("Error: setsockopt failed\n");
-    }
-
-    //Preset the connection status for the first time through the loop
-    connectedFlag = CONNECTED;
+    connectedFlag = NOT_CONNECTED;
 
     System_printf("Network Setup Completed\n\n");
     System_flush();
@@ -94,8 +54,11 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     	//When it is, pass it off to the socket clientfd
     	System_printf("Waiting to Accept() new connection\n");
     	System_flush();
-    	clientfd = accept(listen_socket, (struct sockaddr *)&clientAddr, &addrlen);
-    	if(clientfd < 0)
+
+    	//---- Attempt to connect to base station
+    	connect_success =  attemptToConnect(&clientfd);
+
+    	if(connect_success < 0)
     	{
     		connectedFlag = NOT_CONNECTED;
     		System_printf("Error: accept() failed\n");
@@ -153,6 +116,48 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
 	System_printf("Tcp Handler Task Exit\n");
 	System_flush();
+	return;
 }
 
+int attemptToConnect(int *the_socket)
+{
+	int connect_success;
+    struct sockaddr_in localAddr;
+    struct sockaddr_in clientAddr;
+    int                optval;
+    //int                optlen = sizeof(optval);
+    //socklen_t          addrlen = sizeof(clientAddr);
+    struct timeval     timeout; //Timeout settings for client
 
+	System_printf("Creating socket instance\n");
+	System_flush();
+	*the_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if( (*the_socket) == INVALID_SOCKET )
+	{
+		System_printf("failed socket create (%d)\n",fdError());
+		System_flush();
+	}
+
+	System_printf("Defining Socket Options\n");
+	System_flush();
+	//----Define Socket options
+	memset(&localAddr, 0, sizeof(localAddr));
+	//Use IPv4
+	localAddr.sin_family = AF_INET;
+	localAddr.sin_port = htons(TCPPORT);
+	System_printf("Assigning Target IP Address\n");
+	inet_pton(AF_INET, RED_IP, &localAddr.sin_addr);
+
+	System_printf("Socket Options Set\n");
+	System_flush();
+	// Configure our Tx and Rx timeout to be 5 seconds
+	timeout.tv_sec = 5;
+	timeout.tv_usec = 0;
+	setsockopt( *the_socket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof( timeout ) );
+	setsockopt( *the_socket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof( timeout ) );
+
+	//---- Attempt to make the connection
+	connect_success =  connect( *the_socket, (PSA) &localAddr, sizeof(localAddr) );
+
+	return connect_success;
+}

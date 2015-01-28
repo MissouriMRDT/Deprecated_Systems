@@ -34,6 +34,7 @@
 #define TCPPORT 4500
 #define NOT_CONNECTED 0
 #define CONNECTED 1
+#define RED_IP "192.168.1.20"
 
 typedef struct MsgObj {
 	char message_body[TCPPACKETSIZE];
@@ -41,6 +42,12 @@ typedef struct MsgObj {
 
 Void roveTcpHandler(UArg arg0, UArg arg1);
 
-
+//ConnectToRed attempts to connect to RED
+//Pre: File descriptor environment has been initialized in the thread
+//Post: A socket with a connection to the base station is allocated in the
+//      File descriptor environment. A reference to this is stored in the
+//      socket variable.
+//      Returns 0 if success, -1 if fail
+int attemptToConnect(int *the_socket);
 
 #endif /* ROVETCPHANDLER_H_ */

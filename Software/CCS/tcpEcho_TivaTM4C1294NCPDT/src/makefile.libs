@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     /media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg
+#     /home/mrdtdev/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    /media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/src
+#    /home/mrdtdev/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/src
 #
 GEN_SRC_DIR ?= ../src
 

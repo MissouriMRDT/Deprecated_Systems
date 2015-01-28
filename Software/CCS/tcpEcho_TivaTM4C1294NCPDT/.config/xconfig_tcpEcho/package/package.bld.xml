@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/tcpEcho_pem4f.c"/>
     </sources>
     <configscripts>
-        <srcFile name="/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"/>
+        <srcFile name="/home/mrdtdev/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -44,7 +44,7 @@
         isPartial="false"
         xCfgScript="package/cfg/tcpEcho_pem4f.cfg"
         xCfgPrefix="package/cfg/tcpEcho_pem4f"
-        cfgScript="/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"
+        cfgScript="/home/mrdtdev/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -56,7 +56,7 @@
         profile="release"
         xCfgScript="package/cfg/tcpEcho_pem4f.cfg"
         xCfgPrefix="package/cfg/tcpEcho_pem4f"
-        cfgScript="/media/owen/7E46880B4687C1FF/Dev/MRDT/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"
+        cfgScript="/home/mrdtdev/Motherboard/Software/CCS/tcpEcho_TivaTM4C1294NCPDT/tcpEcho.cfg"
         cfgArgs="null"
         />
     </executables>

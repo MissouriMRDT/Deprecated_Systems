@@ -29,12 +29,14 @@
 /* Mailbox Support */
 #include <ti/sysbios/knl/Mailbox.h>
 
+#define RED_IP "192.168.1.20"
+#define TCPPORT 11000
+
 #define TCPPACKETSIZE 1024
 #define NUMTCPWORKERS 3
-#define TCPPORT 4500
 #define NOT_CONNECTED 0
 #define CONNECTED 1
-#define RED_IP "192.168.1.20"
+
 
 typedef struct MsgObj {
 	char message_body[TCPPACKETSIZE];

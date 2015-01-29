@@ -88,6 +88,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     		{
     			//At this point, we know that the connection is valid and we have data waiting
 
+    			//Add a null character
+    			fromBaseMsg.message_body[bytesReceived] = '\0';
+
     			//Dump data to debugging console
     			System_printf("Received data: %s\n", fromBaseMsg.message_body);
     			System_flush();
@@ -96,6 +99,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     			Mailbox_post(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
     			//Echo the data back
+
+
     	        bytesSent = send(clientfd, fromBaseMsg.message_body, bytesReceived, 0);
     	        if (bytesSent < 0 || bytesSent != bytesReceived) {
     	            System_printf("Connection lost. Reconnecting (src = send)\n");
@@ -151,7 +156,7 @@ int attemptToConnect(int *the_socket)
 	System_printf("Socket Options Set\n");
 	System_flush();
 	// Configure our Tx and Rx timeout to be 5 seconds
-	timeout.tv_sec = 5;
+	timeout.tv_sec = 3600;
 	timeout.tv_usec = 0;
 	setsockopt( *the_socket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof( timeout ) );
 	setsockopt( *the_socket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof( timeout ) );

@@ -44,13 +44,26 @@
 
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
-#include <ti/drivers/GPIO.h>
 
 /* NDK BSD support */
 #include <sys/socket.h>
 
 /* Example/Board Header file */
 #include "Board.h"
+
+//added keenans includes to project for toubleshooting Stellaris to Tiva defines
+//Todo add the includes to main here:
+
+// Driver Files
+#include "uarts.h"
+
+/* TI-RTOS Header files */
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
+
+//Task Files
+#include "cmd_task.h"
+
 
 /*
  *  ======== main ========

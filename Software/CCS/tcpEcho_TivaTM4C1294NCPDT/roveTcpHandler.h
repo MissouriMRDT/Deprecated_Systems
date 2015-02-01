@@ -42,7 +42,16 @@ typedef struct MsgObj {
 	char message_body[TCPPACKETSIZE];
 } MsgObj, *Msg;
 
+//Thread that creates connection and receives data
+//When data is recieved it goes into the red_incoming mailbox
+//Spawns the roveTcpSender thread when a connection is made
 Void roveTcpHandler(UArg arg0, UArg arg1);
+
+
+//Thread that is spawned when a connection is made
+//It pends on mailbox red_outgoing and will send a
+//keepalive periodically
+Void roveTcpSender(UArg arg0, UArg arg1);
 
 //ConnectToRed attempts to connect to RED
 //Pre: File descriptor environment has been initialized in the thread
@@ -50,6 +59,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1);
 //      File descriptor environment. A reference to this is stored in the
 //      socket variable.
 //      Returns 0 if success, -1 if fail
+
 int attemptToConnect(int *the_socket);
 
 #endif /* ROVETCPHANDLER_H_ */

@@ -29,18 +29,29 @@
 /* Mailbox Support */
 #include <ti/sysbios/knl/Mailbox.h>
 
+/* Json Parsing Utility */
+#include "json.h"
+
+/* Source for base_station_command_struct */
+#include "structs.h"
+
 #define RED_IP "192.168.1.20"
 #define TCPPORT 11000
 
-#define TCPPACKETSIZE 1024
+#define TCPPACKETSIZE 1
+#define JSON_BUFFER_SIZE 100
 #define NUMTCPWORKERS 3
 #define NOT_CONNECTED 0
 #define CONNECTED 1
 
-
+/*
 typedef struct MsgObj {
 	char message_body[TCPPACKETSIZE];
 } MsgObj, *Msg;
+*/
+
+
+
 
 //Thread that creates connection and receives data
 //When data is recieved it goes into the red_incoming mailbox
@@ -61,5 +72,10 @@ Void roveTcpSender(UArg arg0, UArg arg1);
 //      Returns 0 if success, -1 if fail
 
 int attemptToConnect(int *the_socket);
+
+//Parses data in the buffer. Output is placed in output_struct
+//Returns
+// 1 - Success
+int parseJson(base_station_cmd_struct *output_struct, char *JSON_string_buf, int buf_length);
 
 #endif /* ROVETCPHANDLER_H_ */

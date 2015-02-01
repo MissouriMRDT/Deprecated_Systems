@@ -10,11 +10,11 @@
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
-struct base_station_cmd_struct
+typedef struct base_station_cmd_struct
 {
 	uint16_t  id;
-    uint8_t value;
-}__attribute__((packed));
+	uint8_t value;
+} base_station_cmd_struct, *Msg;
 
 struct motor_struct
 {

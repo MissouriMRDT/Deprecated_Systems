@@ -37,8 +37,12 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     int                connect_success;
     int                connectedFlag = NOT_CONNECTED; //Used to indicate if the system is connected to RED
     int                bytesReceived = 0; //Used for detecting errors in receiving
+    int                JsonBytesRecvd = 0;
     int                bytesSent; //Used for echoing data
-    MsgObj             fromBaseMsg;
+    //MsgObj             fromBaseMsg;
+    base_station_cmd_struct  fromBaseCmd;
+    char incomingBuffer[TCPPACKETSIZE];
+    char JsonBuffer[JSON_BUFFER_SIZE];
 
     //Parameters for the Sending Task
     Task_Handle        taskHandle;
@@ -96,9 +100,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     	while(connectedFlag == CONNECTED)
     	{
     		//Pend on a new event being available on the socket
-    		System_printf("Connected. Waiting for data\n");
-    		System_flush();
-    		bytesReceived = recv(clientfd, fromBaseMsg.message_body, TCPPACKETSIZE, 0);
+    		//System_printf("Connected. Waiting for data\n");
+    		//System_flush();
+    		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
 
     		//Check if the connection broke
     		if(bytesReceived<0)
@@ -110,24 +114,36 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     		{
     			//At this point, we know that the connection is valid and we have data waiting
 
-    			//Add a null character
-    			fromBaseMsg.message_body[bytesReceived] = '\0';
+    			//Check for start of JSON string
+    			if(incomingBuffer[0] == '{')
+    			{
+    				System_printf("\nJson Detected\n");
+    				System_flush();
+    				//JSON string started
+    				int JsonBytesRecvd = 0;
+
+    				JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
+    				JsonBuffer[JsonBytesRecvd+1] = '\0';
+    				//Keep adding bytes to the JsonBuffer
+    				//until an end bracket is reached or the connection breaks
+    				while( (incomingBuffer[0] != '}') && !(bytesReceived < 0))
+    				{
+    		    		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
+    		    		JsonBytesRecvd++;
+    		    		JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
+    		    		JsonBuffer[JsonBytesRecvd+1] = '\0';
+    				}
+    				System_printf("Finished Recving Json\n");
+    			}
+
+    			parseJson(&fromBaseCmd, JsonBuffer, JsonBytesRecvd);
 
     			//Dump data to debugging console
-    			System_printf("Received data: %s\n", fromBaseMsg.message_body);
+    			System_printf("Received data: %c\n", incomingBuffer[0]);
     			System_flush();
 
     			//Put the data in a mailbox
-    			Mailbox_post(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
-
-    			//Echo the data back
-
-
-    	        bytesSent = send(clientfd, fromBaseMsg.message_body, bytesReceived, 0);
-    	        if (bytesSent < 0 || bytesSent != bytesReceived) {
-    	            System_printf("Connection lost. (src = send)\n");
-    	            connectedFlag = NOT_CONNECTED;
-    	        } // endif
+    			Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
 
     		} // endelse
 
@@ -215,4 +231,62 @@ int attemptToConnect(int *the_socket)
 	connect_success =  connect( *the_socket, (PSA) &localAddr, sizeof(localAddr) );
 
 	return connect_success;
+}
+
+int parseJson(base_station_cmd_struct *command, char *JSON_string_buf, int buf_length)
+{
+	int index = 0;
+
+	///////////////
+	// JSON Parse
+	// Author: Keenan Johnson
+	//
+	// Handwritten for now
+	//
+	// TODO: fix this and make it less brittle
+	///////////////
+
+	char Id[5];
+	char Value[10];
+
+	// Get Id
+	Id[0] = JSON_string_buf[6];
+	Id[1] = JSON_string_buf[7];
+	Id[2] = JSON_string_buf[8];
+	Id[3] = JSON_string_buf[9];
+	Id[4] = '\0';
+
+		// Convert cmd value
+	int cmd_value = atoi( Id);
+
+	// Get Value starting at 19
+	Value[0] = '\0';
+	char is_end_of_value = 0;
+	int value_index = 0;
+	int json_value_string_index = 19;
+
+	while(is_end_of_value == 0)
+	{
+		//Check for ending } which denotes end of value
+		if( JSON_string_buf[json_value_string_index] == '}' )
+		{
+			is_end_of_value = 1;
+			Value[value_index] = '\0';
+		}
+		// this char is a digit of a value
+		else
+		{
+			Value[value_index] = JSON_string_buf[json_value_string_index];
+			value_index++;
+			json_value_string_index++;
+		}
+	}
+
+	// Convert string value to real value
+	uint8_t value_byte = atoi( Value );
+
+	// Send data
+	(*command).id = cmd_value;
+	(*command).value = value_byte;
+	return 1;
 }

@@ -160,12 +160,12 @@ Void roveTcpSender(UArg arg0, UArg arg1)
     	Task_sleep(2000);
 
         bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
-        /*
+
         if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
             System_printf("Error: send failed.\n");
             isConnected = NOT_CONNECTED;
         }
-        */
+
 
     }
 

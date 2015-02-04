@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;tcpEcho_TivaTM4C1294NCPDT/JSON.h&apos; to &apos;json.h&apos;" description="Rename resource &apos;JSON.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="JSON.h" name="json.h" stamp="1422491195961" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;tcpEcho_TivaTM4C1294NCPDT/JSON.c&apos; to &apos;json.c&apos;" description="Rename resource &apos;JSON.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="JSON.c" name="json.c" stamp="1422491212944" updateReferences="true"/>
-</session>

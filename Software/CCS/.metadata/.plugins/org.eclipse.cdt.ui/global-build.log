@@ -1,13 +1,60 @@
 
-**** Clean-only build of configuration Debug for project RoverMotherboard ****
+**** Build of configuration Debug for project RoverMotherboard ****
 
-/opt/ti/ccsv6/utils/bin/gmake -k clean 
-cleaning ../src/sysbios ...
-rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
-rm -rf  "configPkg/" 
-rm -rf "EK_TM4C1294XL.pp" "RoverMotherboardMain.pp" "json.pp" "roveCommand.pp" "roveTcpHandler.pp" "struct_xfer.pp" "timing.pp" 
-rm -rf "EK_TM4C1294XL.obj" "RoverMotherboardMain.obj" "json.obj" "roveCommand.obj" "roveTcpHandler.obj" "struct_xfer.obj" "timing.obj" 
-Finished clean
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+Building file: ../EK_TM4C1294XL.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="EK_TM4C1294XL.pp" --cmd_file="./configPkg/compiler.opt"  "../EK_TM4C1294XL.c"
+Finished building: ../EK_TM4C1294XL.c
  
+Building file: ../RoverMotherboardMain.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="RoverMotherboardMain.pp" --cmd_file="./configPkg/compiler.opt"  "../RoverMotherboardMain.c"
+"../cmd_task.h", line 106: warning #225-D: function "mux_1" declared implicitly
+"../cmd_task.h", line 107: warning #225-D: function "mux_2" declared implicitly
+"../cmd_task.h", line 108: warning #225-D: function "mux_3" declared implicitly
+"../cmd_task.h", line 500: warning #225-D: function "mux_4" declared implicitly
+Finished building: ../RoverMotherboardMain.c
+ 
+Building file: ../roveCommand.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveCommand.pp" --cmd_file="./configPkg/compiler.opt"  "../roveCommand.c"
+Finished building: ../roveCommand.c
+ 
+Building file: ../roveTcpHandler.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTcpHandler.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTcpHandler.c"
+"../roveTcpHandler.c", line 29: warning #225-D: function "TaskSelf" declared implicitly
+"../roveTcpHandler.c", line 29: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
+"../roveTcpHandler.c", line 158: warning #112-D: statement is unreachable
+"../roveTcpHandler.c", line 158: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
+"../roveTcpHandler.c", line 41: warning #179-D: variable "bytesSent" was declared but never referenced
+"../roveTcpHandler.c", line 206: warning #43-D: operand types are incompatible ("int" and "void *")
+"../roveTcpHandler.c", line 220: warning #225-D: function "inet_pton" declared implicitly
+"../roveTcpHandler.c", line 197: warning #179-D: variable "clientAddr" was declared but never referenced
+"../roveTcpHandler.c", line 198: warning #179-D: variable "optval" was declared but never referenced
+"../roveTcpHandler.c", line 238: warning #179-D: variable "index" was declared but never referenced
+Finished building: ../roveTcpHandler.c
+ 
+Building target: RoverMotherboard.out
+Invoking: ARM Linker
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./EK_TM4C1294XL.obj" "./RoverMotherboardMain.obj" "./json.obj" "./roveCommand.obj" "./roveTcpHandler.obj" "./struct_xfer.obj" "./timing.obj" "../EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
+<Linking>
+Finished building target: RoverMotherboard.out
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 
 **** Build Finished ****

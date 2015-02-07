@@ -1,13 +1,10 @@
 
-**** Clean-only build of configuration Debug for project RoverMotherboard ****
+**** Build of configuration Debug for project RoverMotherboard ****
 
-/opt/ti/ccsv6/utils/bin/gmake -k clean 
-cleaning ../src/sysbios ...
-rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
-rm -rf  "configPkg/" 
-rm -rf "EK_TM4C1294XL.pp" "RoverMotherboardMain.pp" "json.pp" "roveCommand.pp" "roveTcpHandler.pp" "struct_xfer.pp" "timing.pp" 
-rm -rf "EK_TM4C1294XL.obj" "RoverMotherboardMain.obj" "json.obj" "roveCommand.obj" "roveTcpHandler.obj" "struct_xfer.obj" "timing.obj" 
-Finished clean
- 
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 
 **** Build Finished ****

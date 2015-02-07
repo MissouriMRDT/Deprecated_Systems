@@ -74,6 +74,7 @@ int main(void)
     Board_initGeneral();
     Board_initGPIO();
     Board_initEMAC();
+    Board_initUART();
 
     System_printf("Starting the TCP Echo example\nSystem provider is set to "
                   "SysMin. Halt the target to view any SysMin contents in"

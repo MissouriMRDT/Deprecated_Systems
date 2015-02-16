@@ -1,0 +1,41 @@
+/*
+ * telemHwiUart1.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include <string.h>
+#include <stdbool.h>
+#include "struct_xfer.h"
+#include "structs.h"
+#include "json.h"
+#include "timing.h"
+#include "telemHWIUart1.h"
+
+// Driver Files
+#include "uarts.h"
+
+#include "roveCommand.h"
+#include "muxes.h"
+///HACKS
+//#include <stdint.h>
+#include <stdbool.h>
+//#include "inc/hw_gpio.h"
+//#include "driverlib/pin_map.h"
+//#include "driverlib/sysctl.c"
+//#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+//#include "driverlib/gpio.c"
+//#include "inc/hw_types.h"
+#include "inc/hw_memmap.h"
+
+Void telemHwiUart1(UArg arg0, UArg arg1)
+{
+		System_printf("telemHwiUart1 has started\n");
+		System_flush();
+		//READ_HW_PORT;
+		System_printf("telemHwiUart1 has finished\n");
+		System_flush();
+
+}//endfnctn

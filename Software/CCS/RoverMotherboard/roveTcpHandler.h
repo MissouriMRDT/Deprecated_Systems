@@ -35,7 +35,7 @@
 /* Source for base_station_command_struct */
 #include "structs.h"
 
-#define RED_IP "192.168.1.20"
+#define RED_IP "192.168.1.2"
 #define TCPPORT 11000
 
 #define TCPPACKETSIZE 1
@@ -76,6 +76,6 @@ int attemptToConnect(int *the_socket);
 //Parses data in the buffer. Output is placed in output_struct
 //Returns
 // 1 - Success
-int parseJson(base_station_cmd_struct *output_struct, char *JSON_string_buf, int buf_length);
+int parseJson(base_station_msg_struct *output_struct, char *JSON_string_buf, int buf_length);
 
 #endif /* ROVETCPHANDLER_H_ */

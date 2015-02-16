@@ -40,7 +40,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     int                JsonBytesRecvd = 0;
     int                bytesSent; //Used for echoing data
     //MsgObj             fromBaseMsg;
-    base_station_cmd_struct  fromBaseCmd;
+    base_station_msg_struct  fromBaseCmd;
     char incomingBuffer[TCPPACKETSIZE];
     char JsonBuffer[JSON_BUFFER_SIZE];
 
@@ -169,17 +169,30 @@ Void roveTcpSender(UArg arg0, UArg arg1)
     int  bytesSent;
     int  KEEPALIVE_SIZE = 9;
     int  isConnected = CONNECTED;
+
+    //MsgObj             toBaseTelem;
+    base_station_msg_struct  toBaseTelem;
+
+   // char outgoinggBuffer[TCPPACKETSIZE];
+   // char JsonBuffer[JSON_BUFFER_SIZE];
+
+
     System_printf("roveTcpSender: start thread for = 0x%x\n", clientfd);
     while(isConnected == CONNECTED)
     {
     	//Mailbox pend will go here. For now it will just send a keepalive after 2
+    	//Mailbox_pend(toBaseStationMailbox, &toBaseTelem, BIOS_WAIT_FOREVER);
+    	//generate_json_strings(&outgoinggBuffer, &toBaseTelem.id, &toBaseTelem.value);
+    	//bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
+    	//if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
+    	//System_printf("Error: send failed.\n");
+    	//isConnected = NOT_CONNECTED;
+
     	Task_sleep(2000);
-
         bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
-
         if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
-            System_printf("Error: send failed.\n");
-            isConnected = NOT_CONNECTED;
+        System_printf("Error: send failed.\n");
+        isConnected = NOT_CONNECTED;
         }
 
 
@@ -233,7 +246,7 @@ int attemptToConnect(int *the_socket)
 	return connect_success;
 }
 
-int parseJson(base_station_cmd_struct *command, char *JSON_string_buf, int buf_length)
+int parseJson(base_station_msg_struct *command, char *JSON_string_buf, int buf_length)
 {
 	int index = 0;
 

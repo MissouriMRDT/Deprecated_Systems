@@ -1,0 +1,41 @@
+/*
+ * roveTcpReciever.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include "roveTcpReciever.h"
+
+Void roveTcpReciever(UArg arg0, UArg arg1)
+{
+	/*Void roveTcpSender(UArg arg0, UArg arg1)
+			{
+
+			    int  clientfd = (int)arg0;
+			    int  bytesSent;
+			    int  KEEPALIVE_SIZE = 9;
+			    int  isConnected = CONNECTED;
+			    System_printf("roveTcpSender: start thread for = 0x%x\n", clientfd);
+			    while(isConnected == CONNECTED)
+			    {
+			    	//Mailbox pend will go here. For now it will just send a keepalive after 2
+			    	Task_sleep(2000);
+
+			        bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
+
+			        if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
+			            System_printf("Error: send failed.\n");
+			            isConnected = NOT_CONNECTED;
+			        }
+
+
+			    }
+
+			    System_printf("roveTcpSender: stop thread for = 0x%x\n", clientfd);
+			    Task_exit();
+			}*/
+
+}//endfnct roveTcpReciever
+
+

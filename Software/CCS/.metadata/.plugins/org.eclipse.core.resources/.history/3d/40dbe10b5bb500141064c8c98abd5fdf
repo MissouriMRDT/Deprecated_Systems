@@ -1,0 +1,87 @@
+/*
+ * Keenan Johnson
+ *
+ * Library for controller
+ * Motherboard Muxes
+ */
+
+#ifndef MUXES_H_
+#define MUXES_H_
+
+///HACKS
+//#include <stdint.h>
+#include <stdbool.h>
+//#include "inc/hw_gpio.h"
+//#include "driverlib/pin_map.h"
+//#include "driverlib/sysctl.c"
+//#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+//#include "driverlib/gpio.c"
+//#include "inc/hw_types.h"
+#include "inc/hw_memmap.h"
+
+	//////////////////////
+	// Mux # - S0, S1
+	//////////////////////
+
+// Function to change mux 1 to
+// RS-485 transceivers below
+//
+// 1 = Mux1_H0_H1_LeftFront_Motor???????
+// 8 =
+// 9 =
+//
+void mux_1( int rs_485_transceiver)
+{
+
+	switch(rs_485_transceiver){
+		case 1 :
+			// 1 = Mux1_H0_H1_LeftFront_Motor???????
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (0));
+		break;
+	//	case 8 :
+	//		GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_6), (0));
+	//		GPIOPinWrite(GPIO_PORTA_BASE, (GPIO_PIN_7), (~0));
+	//	break;
+	default :
+		// Not a valid input
+		System_printf("Not a valid MUX_1 Transceiver");
+		System_flush();
+
+	break;
+	}//endswitch
+}//endfnct mux_1
+
+// Function to change mux 2 to
+// RS-485 transceivers below
+//
+// 2, 7, 10
+//
+
+// Function to change mux 3 to
+// RS-485 transceivers below
+//
+// 3, 6, 11
+//
+
+// Function to change mux 4 to
+// RS-485 transceivers below
+//
+// 4, 5, 12
+//
+
+
+// Function to change mux 5 to
+// RS-485 transceivers below
+//
+// 13, 14, 15, AT328
+//
+
+
+// Function to change mux 7 to
+// RS-485 transceivers below
+//
+// 16, 17, 18
+//
+
+#endif /* MUXES_H_ */

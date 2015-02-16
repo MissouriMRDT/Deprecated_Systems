@@ -1,0 +1,38 @@
+/*
+ * telemHwiUart1.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include "telemHwiUart1.h"
+
+
+Void telemHwiUart1(UArg arg0, UArg arg1)
+{
+		System_printf("telemHwiUart1 has started\n");
+		System_flush();
+
+		// define extern UARTs
+		//extern UART_Handle uart1;
+
+		 // Init UARTs
+		//UART_Handle uart1;
+
+		// Init UARTS
+		//uart1 = init_uart( 1, 115200 );
+
+		char json[50];
+
+		//recv_struct( uart1, &gps_data, gps );
+		//generate_json_strings(json, "0000", "GPS Data Not Valid");
+		//write_json(uart7, json);
+
+		//Put the data in a mailbox
+		//Mailbox_post(fromUartsMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+
+
+		System_printf("telemHwiUart1 has finished\n");
+		System_flush();
+
+}//endfnctn

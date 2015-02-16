@@ -7,16 +7,31 @@
 
 //Jan 31 2015 included Keenans 2014 struct implementation
 
+//TODO what is attribute packed?
+
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
-typedef struct base_station_cmd_struct
+typedef struct base_station_msg_struct
 {
 	uint16_t  id;
 	uint8_t value;
-} base_station_cmd_struct, *Msg;
+} base_station_msg_struct, *base_msg;
 
-struct motor_struct
+
+typedef struct package_telem_struct
+{
+	uint16_t  id;
+	uint8_t value;
+} package_telem_struct, *telem_msg;
+
+typedef struct test_device_data_struct
+{
+	uint16_t  id;
+	uint8_t value;
+} test_device_data_struct, *test_msg;
+
+struct motor_control_struct
 {
 	uint8_t value; // 0 for open loop control, non-zero for closed-loop
 }__attribute__((packed));

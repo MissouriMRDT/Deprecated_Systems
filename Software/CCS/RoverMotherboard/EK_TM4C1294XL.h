@@ -73,10 +73,33 @@ typedef enum EK_TM4C1294XL_EMACName {
  *  @brief  Enum of LED names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_GPIOName {
-    EK_TM4C1294XL_D1 = 0,
-    EK_TM4C1294XL_D2,
-    EK_TM4C1294XL_USR_SW1,
-    EK_TM4C1294XL_USR_SW2,
+	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
+	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
+
+	//U3_MUX_S0
+	EK_TM4C1294XL_PH0 = 0,
+	//U3_MUX_S1
+	EK_TM4C1294XL_PH1,
+
+	//U4_MUX_S0
+	EK_TM4C1294XL_PM6,
+	//U4_MUX_S1
+	EK_TM4C1294XL_PM7,
+
+	//U5_MUX_S0
+	EK_TM4C1294XL_PL0,
+	//U5_MUX_S1
+	EK_TM4C1294XL_PL1,
+
+	//U6_MUX_S0
+	EK_TM4C1294XL_PK2,
+	//U6_MUX_S1
+	EK_TM4C1294XL_PK3,
+
+	//U7_MUX_S0
+	EK_TM4C1294XL_PE0,
+	//U7_MUX_S1
+	EK_TM4C1294XL_PE1,
 
     EK_TM4C1294XL_GPIOCOUNT
 } EK_TM4C1294XL_GPIOName;

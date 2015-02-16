@@ -1,0 +1,89 @@
+//
+// roveCommandParser.c
+//
+//  Created on: Jan 24, 2015
+//      Author: owen
+//
+
+
+//std libs
+#include <string.h>
+#include <stdbool.h>
+
+//ti drivers
+#include "driverlib/gpio.h"
+#include "inc/hw_memmap.h"
+
+// rove drivers
+#include "uarts.h"
+#include "roveCommand.h"
+#include "muxes.h"
+#include "struct_xfer.h"
+#include "structs.h"
+#include "json.h"
+#include "timing.h"
+
+Void roveCommand(UArg arg0, UArg arg1)
+{
+
+	//extern bool drill_telem_active;
+	//extern bool gps_telem_active;
+	//extern bool power_telem_active;
+
+	bool cmd_valid = false;
+
+	base_station_cmd_struct fromBaseMsg;
+
+	// Motor Controller Struct
+	struct motor_struct motor_struct;
+
+	// define extern UARTs
+	//extern UART_Handle uart1;
+
+	// Init UARTs
+	//UART_Handle uart1;
+
+	// Init UARTS
+	//uart1 = init_uart( 1, 115200 );
+
+
+	System_printf("roveCommandParser has started\n");
+	System_flush();
+	while(1)
+	{
+		System_printf("roveCommandParser is waiting for a message\n");
+		System_flush();
+
+				// Read cmd from TCP
+				Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
+
+				//if ( cmd_valid == true )
+				//{
+					switch ( fromBaseMsg.id )
+					{
+						//*************
+						// Drive Left
+						//*************
+						case 4001:
+							motor_struct.value = fromBaseMsg.value;
+
+							//mux_1( 1 );
+
+							//send_struct(uart1, &motor_struct, motor_controller);
+
+							break;
+
+					}//endswitch
+
+				//}//endif
+		System_printf("\nCommand Parser Thread has received a command!:");
+		System_printf("id - %d, value - %d\n", fromBaseMsg.id, fromBaseMsg.value);
+		System_flush();
+		//Wait to get data from base station
+
+		//Dump data back to base station
+	}//endwhile
+
+}//endfnct roveCommand
+
+

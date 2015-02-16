@@ -262,10 +262,33 @@ void gpioButtonFxn1(void);
 
 /* GPIO configuration structure */
 const GPIO_HWAttrs gpioHWAttrs[EK_TM4C1294XL_GPIOCOUNT] = {
-    {GPIO_PORTN_BASE, GPIO_PIN_1, GPIO_OUTPUT}, /* EK_TM4C1294XL_USR_D1 */
-    {GPIO_PORTN_BASE, GPIO_PIN_0, GPIO_OUTPUT}, /* EK_TM4C1294XL_USR_D2 */
-    {GPIO_PORTJ_BASE, GPIO_PIN_0, GPIO_INPUT},  /* EK_TM4C1294XL_USR_SW1 */
-    {GPIO_PORTJ_BASE, GPIO_PIN_1, GPIO_INPUT}   /* EK_TM4C1294XL_USR_SW2 */
+	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
+	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
+
+	// EK_TM4C1294XL_PH0 : U3_MUX_S0
+	{GPIO_PORTH_BASE, GPIO_PIN_0, GPIO_OUTPUT},
+	// EK_TM4C1294XL_PH1 : U3_MUX_S1
+	{GPIO_PORTH_BASE, GPIO_PIN_1, GPIO_OUTPUT},
+
+	// EK_TM4C1294XL_PM6 : U4_MUX_S0
+	{GPIO_PORTM_BASE, GPIO_PIN_6, GPIO_OUTPUT},
+	// EK_TM4C1294XL_PM7 : U4_MUX_S1
+	{GPIO_PORTM_BASE, GPIO_PIN_7, GPIO_OUTPUT},
+
+	// EK_TM4C1294XL_PL0 : U5_MUX_S0
+	{GPIO_PORTL_BASE, GPIO_PIN_0, GPIO_OUTPUT},
+	// EK_TM4C1294XL_PL1 : U5_MUX_S1
+	{GPIO_PORTL_BASE, GPIO_PIN_1, GPIO_OUTPUT},
+
+	// EK_TM4C1294XL_PK2 : U6_MUX_S0
+	{GPIO_PORTK_BASE, GPIO_PIN_2, GPIO_OUTPUT},
+	// EK_TM4C1294XL_PK3 : U6_MUX_S1
+	{GPIO_PORTK_BASE, GPIO_PIN_3, GPIO_OUTPUT},
+
+	// EK_TM4C1294XL_PE0 : U7_MUX_S0
+	{GPIO_PORTE_BASE, GPIO_PIN_0, GPIO_OUTPUT},
+	// EK_TM4C1294XL_PE1 : U7_MUX_S1
+	{GPIO_PORTE_BASE, GPIO_PIN_1, GPIO_OUTPUT},
 };
 
 /* Memory for the GPIO module to construct a Hwi */
@@ -279,8 +302,14 @@ const GPIO_Callbacks EK_TM4C1294XL_gpioPortJCallbacks = {
 const GPIO_Config GPIO_config[] = {
     {&gpioHWAttrs[0]},
     {&gpioHWAttrs[1]},
-    {&gpioHWAttrs[2]},
-    {&gpioHWAttrs[3]},
+	{&gpioHWAttrs[2]},
+	{&gpioHWAttrs[3]},
+	{&gpioHWAttrs[4]},
+	{&gpioHWAttrs[5]},
+	{&gpioHWAttrs[6]},
+	{&gpioHWAttrs[7]},
+	{&gpioHWAttrs[8]},
+	{&gpioHWAttrs[9]},
     {NULL},
 };
 
@@ -289,13 +318,24 @@ const GPIO_Config GPIO_config[] = {
  */
 void EK_TM4C1294XL_initGPIO(void)
 {
-    /* Setup the LED GPIO pins used */
-    GPIOPinTypeGPIOOutput(GPIO_PORTN_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
+	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
 
-    /* Setup the button GPIO pins used */
-    GPIOPinTypeGPIOInput(GPIO_PORTJ_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-    GPIOPadConfigSet(GPIO_PORTJ_BASE, GPIO_PIN_0 | GPIO_PIN_1, GPIO_STRENGTH_2MA,
-                     GPIO_PIN_TYPE_STD_WPU);
+	// EK_TM4C1294XL_PH0 : U3_MUX_S0
+	// EK_TM4C1294XL_PH1 : U3_MUX_S1
+	GPIOPinTypeGPIOOutput(GPIO_PORTH_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+	// EK_TM4C1294XL_PM6 : U4_MUX_S0
+	// EK_TM4C1294XL_PM7 : U4_MUX_S1
+	GPIOPinTypeGPIOOutput(GPIO_PORTM_BASE, GPIO_PIN_6 | GPIO_PIN_7);
+	// EK_TM4C1294XL_PL0 : U5_MUX_S0
+	// EK_TM4C1294XL_PL1 : U5_MUX_S1
+	GPIOPinTypeGPIOOutput(GPIO_PORTL_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+	// EK_TM4C1294XL_PK2 : U6_MUX_S0
+	// EK_TM4C1294XL_PK3 : U6_MUX_S1
+	GPIOPinTypeGPIOOutput(GPIO_PORTK_BASE, GPIO_PIN_2 | GPIO_PIN_3);
+	// EK_TM4C1294XL_PE0 : U7_MUX_S0
+	// EK_TM4C1294XL_PE1 : U7_MUX_S1
+	GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 
     /* Once GPIO_init is called, GPIO_config cannot be changed */
     GPIO_init();

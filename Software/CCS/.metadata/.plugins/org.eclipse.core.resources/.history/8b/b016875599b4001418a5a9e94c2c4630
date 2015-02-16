@@ -1,0 +1,15 @@
+/*
+ * roveTcpSender.h
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#ifndef ROVETCPSENDER_H_
+#define ROVETCPSENDER_H_
+
+
+Void roveTcpSender(UArg arg0, UArg arg1);
+
+
+#endif /* ROVETCPSENDER_H_ */

@@ -54,20 +54,27 @@
 //added keenans includes to project for toubleshooting Stellaris to Tiva defines
 //Todo add the includes to main here:
 
-// Driver Files
-#include "uarts.h"
-
 /* TI-RTOS Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 
 //Task Files
-#include "cmd_task.h"
+//#include "roveCommand.h"
+//#include "telemHwiUart1.h"
 
+    // Init UARTs
+	UART_Handle uart0;
+    UART_Handle uart1;
+    UART_Handle uart2;
+    UART_Handle uart3;
+    UART_Handle uart4;
+    UART_Handle uart5;
+    UART_Handle uart6;
+    UART_Handle uart7;
 
-/*
- *  ======== main ========
- */
+//
+//  ======== main ========
+//
 int main(void)
 {
     /* Call board init functions */
@@ -76,7 +83,16 @@ int main(void)
     Board_initEMAC();
     Board_initUART();
 
-    System_printf("Starting the TCP Echo example\nSystem provider is set to "
+    // Init UARTS
+	uart0 = init_uart( 0, 115200 );
+    uart1 = init_uart( 1, 115200 );
+	uart2 = init_uart( 2, 115200 );
+	uart3 = init_uart( 3, 115200 );
+	uart4 = init_uart( 4, 115200 );
+	uart5 = init_uart( 5, 115200 );
+	uart7 = init_uart( 7, 115200 );
+
+    System_printf("Starting Main nSystem provider is set to "
                   "SysMin. Halt the target to view any SysMin contents in"
                   " ROV.\n");
     /* SysMin will only print to the console when you call flush or exit */

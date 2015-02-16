@@ -1,0 +1,50 @@
+/*
+ * roveCommandParser.c
+ *
+ *  Created on: Jan 24, 2015
+ *      Author: owen
+ */
+
+#include "roveCommand.h"
+
+///HACKS
+//#include <stdint.h>
+#include <stdbool.h>
+//#include "inc/hw_gpio.h"
+//#include "driverlib/pin_map.h"
+//#include "driverlib/sysctl.c"
+//#include "driverlib/sysctl.h"
+#include "driverlib/gpio.h"
+//#include "driverlib/gpio.c"
+//#include "inc/hw_types.h"
+#include "inc/hw_memmap.h"
+
+Void roveCommand(UArg arg0, UArg arg1)
+{
+	base_station_cmd_struct            fromBaseMsg;
+
+	System_printf("roveCommandParser has started\n");
+	System_flush();
+	while(1)
+	{
+		System_printf("roveCommandParser is waiting for a message\n");
+		System_flush();
+
+
+		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
+
+		// //Test Judah
+	    //GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, (0));
+
+
+		System_printf("\nCommand Parser Thread has received a command!:");
+		System_printf("id - %d, value - %d\n", fromBaseMsg.id, fromBaseMsg.value);
+		System_flush();
+		//Wait to get data from base station
+
+		//Dump data back to base station
+	}
+
+}
+
+

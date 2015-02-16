@@ -1,0 +1,19 @@
+/*
+ * telemHwiUart1.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include "telemHwiUart1.h"
+
+
+Void telemHwiUart1(UArg arg0, UArg arg1)
+{
+		System_printf("telemHwiUart1 has started\n");
+		System_flush();
+		READ_HW_PORT;
+		System_printf("telemHwiUart1 has finished\n");
+		System_flush();
+
+}//endfnctn

@@ -1,0 +1,17 @@
+/*
+ * roveTelemController.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include "roveTelemController.h"
+
+Void roveTelemContoller(UArg arg0, UArg arg1)
+{
+	System_printf("roveTelemController has started\n");
+	System_flush();
+}
+
+
+

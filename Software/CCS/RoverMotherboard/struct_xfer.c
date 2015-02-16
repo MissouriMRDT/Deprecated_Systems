@@ -20,7 +20,7 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
     switch(device)
     {
         case motor_controller:
-            size = sizeof(*((struct motor_struct*)my_struct));
+            size = sizeof(*((struct motor_control_struct*)my_struct));
             break;
         case robotic_arm:
         	size = sizeof(*((struct arm_control_struct*)my_struct));
@@ -40,6 +40,9 @@ void send_struct(UART_Handle uart, void* my_struct, enum peripheral_devices devi
         case camera:
         	size =  sizeof(*((struct camera_control_struct*)my_struct));
 			break;
+        case test:
+                	size =  sizeof(*((struct test_device_data_struct*)my_struct));
+        			break;
 
     }
 
@@ -80,7 +83,7 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 			size = sizeof(*((struct bms_data_struct*)my_struct));
 			break;
 		case tcp_cmd:
-			size = sizeof(*((struct base_station_cmd_struct*)my_struct));
+			size = sizeof(*((struct base_station_msg_struct*)my_struct));
 			break;
 		case drill:
 			size = sizeof(*((struct drill_Telemetry*)my_struct));
@@ -91,6 +94,9 @@ bool recv_struct( UART_Handle uart, void* my_struct, enum peripheral_devices dev
 		case power_board:
 			size = sizeof(*((struct power_board_telem*)my_struct));
 			break;
+		case test:
+					size = sizeof(*((struct test_device_data_struct*)my_struct));
+					break;
 	}
 
 	char rx_buffer[150];

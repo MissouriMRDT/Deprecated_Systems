@@ -1,0 +1,34 @@
+/*
+ * roveTelemController.c
+ *
+ *  Created on: Feb 14, 2015
+ *      Author: mrdtdev
+ */
+
+#include "roveTelemController.h"
+
+Void roveTelemController(UArg arg0, UArg arg1)
+{
+
+	package_telem_struct
+
+	// Package Telem Struct
+	struct package_telem_struct package_telem_struct;
+
+	// Motor Data Struct
+	struct motor_data_struct motor_data_struct;
+
+	while(1)
+	{
+		System_printf("roveTelemController is waiting for a message\n");
+		System_flush();
+
+		// Read Uart Mailbox
+		Mailbox_pend(fromUartsMailbox, &motor_data_struct, BIOS_WAIT_FOREVER);
+
+	}//endwhile
+
+}//endfnct roveTelemContoller
+
+
+

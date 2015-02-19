@@ -9,7 +9,7 @@
 #define ROVETELEMCONTROLLER_H_
 
 #include <string.h>
-
+#include <stdbool.h>
 #include <xdc/std.h>
 #include <xdc/cfg/global.h>
 #include <xdc/runtime/Error.h>
@@ -31,6 +31,7 @@
 /* Defines communication interface with Network Task */
 #include "roveTcpHandler.h"
 #include "structs.h"
+#include "struct_xfer.h"
 
 Void roveTelemController(UArg arg0, UArg arg1);
 

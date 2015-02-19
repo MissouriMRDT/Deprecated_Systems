@@ -30,10 +30,6 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/*
- *    ======== tcpEcho.c ========
- *    Contains BSD sockets code.
- */
 
 #include <string.h>
 
@@ -62,7 +58,8 @@
 //#include "roveCommand.h"
 //#include "telemHwiUart1.h"
 
-    // Init UARTs
+    //init UART handles
+
 	UART_Handle uart0;
     UART_Handle uart1;
     UART_Handle uart2;
@@ -73,17 +70,19 @@
     UART_Handle uart7;
 
 //
-//  ======== main ========
+//  ======== init main  ========
 //
 int main(void)
 {
-    /* Call board init functions */
+    // init board drivers
+
     Board_initGeneral();
     Board_initGPIO();
     Board_initEMAC();
     Board_initUART();
 
-    // Init UARTS
+    //init UARTS
+
 	uart0 = init_uart( 0, 115200 );
     uart1 = init_uart( 1, 115200 );
 	uart2 = init_uart( 2, 115200 );
@@ -95,11 +94,17 @@ int main(void)
     System_printf("Starting Main nSystem provider is set to "
                   "SysMin. Halt the target to view any SysMin contents in"
                   " ROV.\n");
-    /* SysMin will only print to the console when you call flush or exit */
+
+    //SysMin will only print to the console when you call flush or exit
+
     System_flush();
 
-    /* Start BIOS */
+    //start BIOS
+
     BIOS_start();
 
+    //exit
+
     return (0);
-}
+
+}//endmain program RoverMotherboardMain

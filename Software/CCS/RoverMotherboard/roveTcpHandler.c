@@ -13,293 +13,282 @@
 Void roveTcpHandler(UArg arg0, UArg arg1)
 {
 
-	System_printf("Tcp Handler Task Created\n");
+	System_printf("Function roveTcpHandler() Task Created\n");
 	System_flush();
 
-	//---- This command creates
-	//     a file descriptor environment
-	//     This is required to have a place to put the sockets
-	//     The socket descriptors are integers that reference objects
-	//     In this file descriptor environment
-	//
-	//     By default, this environment has space to hold up to 16 file
-	//     descriptors concurrently. Calls to socket() and accept() will
-	//     allocate one of these spaces to a socket object.
-	//     Close(int socket) can be used to free one of these spaces
+	//init socket file env, json parser, msg structs
+
 	fdOpenSession(TaskSelf());
 
-	//----Allocate variables
+	int                optval = 0;
+    int                clientfd = 0;
+    int                connect_success = 0;
+    int                connectedFlag = NOT_CONNECTED;
+    int  			   isConnected = CONNECTED;
 
-    //A reference to the file descriptor of the socket object
-	//Note that references to file descriptors are NOT pointers
-    int                clientfd;
+    struct sockaddr_in localAddr;
+    struct sockaddr_in clientAddr;
 
-    int                connect_success;
-    int                connectedFlag = NOT_CONNECTED; //Used to indicate if the system is connected to RED
-    int                bytesReceived = 0; //Used for detecting errors in receiving
-    int                JsonBytesRecvd = 0;
-    int                bytesSent; //Used for echoing data
-    //MsgObj             fromBaseMsg;
-    base_station_msg_struct  fromBaseCmd;
     char incomingBuffer[TCPPACKETSIZE];
+    char outgoinggBuffer[TCPPACKETSIZE];
+
+    int                bytesSent = 0;
+    int                bytesReceived = 0;
+
+    int    			   KEEPALIVE_SIZE = 9;
+    struct timeval     timeout;
+
     char JsonBuffer[JSON_BUFFER_SIZE];
 
-    //Parameters for the Sending Task
-    Task_Handle        taskHandle;
-    Task_Params        taskParams;
-    Error_Block        eb;
+    int                 JsonBytesRecvd = 0;
 
-    //char fromBaseMsg.message_body[TCPPACKETSIZE]; //Where we hold incoming data
+   	int 				json_value_string_index = 19;
+   	char 				is_end_of_value = 0;
+   	int 				value_index = 0;
 
-    connectedFlag = NOT_CONNECTED;
+	uint8_t 			value_byte
 
-    //System_printf("Network Setup Completed\n\n");
-    //System_flush();
-    //---- The main loop
-    //---- precondition: listen_socket is configured and listening on port TCPPORT
-    while(1)
-    {
-    	//Block until a connection is available
-    	//When it is, pass it off to the socket clientfd
+    base_station_msg_struct  fromBaseCmd;
+
+    base_station_msg_struct  toBaseTelem;
+
+    System_printf("Environment Instantiated\n");
+    System_flush();
+
+    //Task loops for ever
+
+    //It sleeps on full Mailbox_post to roveCommandController Task
+
+    //It awakes on full Mailbox_pend frome roveTelemController Task
+
+    //It only exits on error
+
+    while(1){
+
+    	//init socket
+
+    	System_printf("Attempting to create a Socket()\n");
+    	System_flush();
+
+    	*the_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    	//flag bad socket
+
+		if( (*the_socket) == INVALID_SOCKET){
+
+			System_printf("Failed Socket() create (src = socket()) (%d)\n",fdError());
+			System_flush();
+
+    	}//endif( (*the_socket) == INVALID_SOCKET )
+
+		//init socket config struct
+
+		memset(&localAddr, 0, sizeof(localAddr) );
+
+		//config socket
+
+		localAddr.sin_family = AF_INET;
+		localAddr.sin_port = htons(TCPPORT);
+
+		System_printf("Assigning Target IP Address\n");
+
+		inet_pton(AF_INET, RED_IP, &localAddr.sin_addr);
+
+		timeout.tv_sec = 3600;
+		timeout.tv_usec = 0;
+
+		setsockopt(*the_socket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
+		setsockopt(*the_socket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
+
+		//connect socket
+
     	System_printf("Attempting to Connect() new connection\n");
     	System_flush();
 
-    	//---- Attempt to connect to base station
-    	connect_success =  attemptToConnect(&clientfd);
+		connect_success = connect(*the_socket, (PSA)&localAddr, sizeof(localAddr) );
 
-    	if(connect_success < 0)
-    	{
+		//flag failed connection
+
+    	if(connect_success < 0){
+
     		connectedFlag = NOT_CONNECTED;
-    		System_printf("Error: accept() failed\n");
+    		System_printf("Error: socket Accept() failed (src = connect())\n");
     		System_flush();
-    	} else
-    	{
+
+    	}else{
+
     		connectedFlag = CONNECTED;
     		System_printf("Connected to RED\n");
     		System_flush();
 
-    		//Spawn a send task
+    	}//endif(connect_success < 0)
 
-            /* Init the Error_Block */
-            Error_init(&eb);
+    	//loop to recieve, break to attempt reconnect
 
-            /* Initialize the defaults and set the parameters. */
-            System_printf("Spawning Task");
-            Task_Params_init(&taskParams);
-            taskParams.arg0 = (UArg)clientfd;
-            taskParams.stackSize = 1280;
-            taskHandle = Task_create((Task_FuncPtr)roveTcpSender, &taskParams, &eb);
-            if (taskHandle == NULL) {
-                System_printf("Error: Failed to create new Task\n");
-                close(clientfd);
-            }
+    	while(connectedFlag == CONNECTED){
 
-    	}
+    		System_printf("Connected. Waiting for data\n");
+    	    System_flush();
 
-    	//At this point, we know we have a valid connection
-    	while(connectedFlag == CONNECTED)
-    	{
-    		//Pend on a new event being available on the socket
-    		//System_printf("Connected. Waiting for data\n");
-    		//System_flush();
     		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
 
-    		//Check if the connection broke
-    		if(bytesReceived<0)
-    		{
+			//flag lost connection
+
+    		if(bytesReceived < 0){
+
     			connectedFlag = NOT_CONNECTED;
+
     			System_printf("Connection lost. (src = recv)\n");
     			System_flush();
-    		} else
-    		{
-    			//At this point, we know that the connection is valid and we have data waiting
 
-    			//Check for start of JSON string
-    			if(incomingBuffer[0] == '{')
-    			{
-    				System_printf("\nJson Detected\n");
+    		}else{
+
+    			//connected
+
+    			//detect Json by beginning { in buffer
+
+    			if(incomingBuffer[0] == '{'){
+
+    				System_printf("Json Detected\n");
     				System_flush();
-    				//JSON string started
-    				int JsonBytesRecvd = 0;
+
+    				//Store { and null termination in json buffer
 
     				JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
     				JsonBuffer[JsonBytesRecvd+1] = '\0';
-    				//Keep adding bytes to the JsonBuffer
-    				//until an end bracket is reached or the connection breaks
-    				while( (incomingBuffer[0] != '}') && !(bytesReceived < 0))
-    				{
+
+    				//break for Json by ending {
+
+    				//break for lost connection again
+
+    				while( (incomingBuffer[0] != '}') && !(bytesReceived < 0) ){
+
     		    		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
+
+    		    		//one char incoming, fill Json Buff by each char
+
     		    		JsonBytesRecvd++;
+
     		    		JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
     		    		JsonBuffer[JsonBytesRecvd+1] = '\0';
-    				}
+
+    				}//endwhile( (incomingBuffer[0] != '}') && !(bytesReceived < 0) )
+
     				System_printf("Finished Recving Json\n");
-    			}
 
-    			parseJson(&fromBaseCmd, JsonBuffer, JsonBytesRecvd);
+    			}//endif(incomingBuffer[0] == '{')
 
-    			//Dump data to debugging console
-    			System_printf("Received data: %c\n", incomingBuffer[0]);
-    			System_flush();
+    			//prime Json Parser
 
-    			//Put the data in a mailbox
-    			Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+    			index = 0;
+    			cmd_value = 0;
+				is_end_of_value = 0;
+				value_index = 0;
+				json_value_string_index = 19;
 
-    		} // endelse
+				//peel off ID
 
-    	} // end while(connectedFlag == CONNECTED)
+    			Id[0] = JSON_string_buf[6];
+    			Id[1] = JSON_string_buf[7];
+    			Id[2] = JSON_string_buf[8];
+    			Id[3] = JSON_string_buf[9];
+    			Id[4] = '\0';
 
-    	//If execution reaches this point, then the connection has broken
-    	close(clientfd);
-    } //end while(1)
-    //---- postcondition: Execution will not reach this state unless a serious error occurs
+    			//convert ID
 
-    //Close the file descriptor environment opened at the start of the task
-    fdCloseSession(TaskSelf());
+    			cmd_value = atoi(Id);
 
-	System_printf("Tcp Handler Task Exit\n");
-	System_flush();
-	return;
-}
+    			Value[0] = '\0';
+    			is_end_of_value = 0;
+    			value_index = 0;
+    			json_value_string_index = 19;
 
-Void roveTcpSender(UArg arg0, UArg arg1)
-{
+    			//convert the rest of the values
 
-    int  clientfd = (int)arg0;
-    int  bytesSent;
-    int  KEEPALIVE_SIZE = 9;
-    int  isConnected = CONNECTED;
+    			while(is_end_of_value == 0){
 
-    //MsgObj             toBaseTelem;
-    base_station_msg_struct  toBaseTelem;
+    				if(JSON_string_buf[json_value_string_index] == '}'){
 
-   // char outgoinggBuffer[TCPPACKETSIZE];
-   // char JsonBuffer[JSON_BUFFER_SIZE];
+    					is_end_of_value = 1;
+    					Value[value_index] = '\0';
+
+    				}else{
+
+    					Value[value_index] = JSON_string_buf[json_value_string_index];
+
+    					json_value_string_index++;
+
+    					value_index++;
+
+    				}//endif(JSON_string_buf[json_value_string_index] == '}')
+
+    			}//endwhile(is_end_of_value == 0)
+
+    			//convert full Value
+
+    			value_byte = atoi(Value);
+
+    			//pass to ID and Value to Command struct
+
+    			(*command).id = cmd_value;
+    			(*command).value = value_byte;
+
+			System_printf("Received data: %c\n", incomingBuffer[0]);
+			System_flush();
+
+			//pass struct through to commandThread
+
+			//implicitly sleeps to allow the next Task to awake while Mailbox is full
+
+			Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+
+			//TODO Event handler for Telem Send
+
+			bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
+
+			if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
+
+				System_printf("Error: send failed.\n");
+
+				isConnected = NOT_CONNECTED;
+
+				//Task_sleep(2000);	-> i++
+
+				bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
+
+				if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
+
+					System_printf("Error: send failed.\n");
+					isConnected = NOT_CONNECTED;
+
+				Mailbox_pend(toBaseStationMailbox, &toBaseTelem, BIOS_WAIT_FOREVER);
+
+				}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
+
+			}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
+
+    	}//endif(bytesReceived < 0)
+
+    } //endwhile(connectedFlag == CONNECTED)
+
+    //If execution reaches this point, then the connection has broken
+
+    close(clientfd);
+
+} //end while(1)
 
 
-    System_printf("roveTcpSender: start thread for = 0x%x\n", clientfd);
-    while(isConnected == CONNECTED)
-    {
-    	//Mailbox pend will go here. For now it will just send a keepalive after 2
-    	//Mailbox_pend(toBaseStationMailbox, &toBaseTelem, BIOS_WAIT_FOREVER);
-    	//generate_json_strings(&outgoinggBuffer, &toBaseTelem.id, &toBaseTelem.value);
-    	//bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
-    	//if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
-    	//System_printf("Error: send failed.\n");
-    	//isConnected = NOT_CONNECTED;
+//---- postcondition: Execution will not reach this state unless a serious error occurs
 
-    	Task_sleep(2000);
-        bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
-        if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
-        System_printf("Error: send failed.\n");
-        isConnected = NOT_CONNECTED;
-        }
+// Close the socket file env
 
+fdCloseSession(TaskSelf());
 
-    }
+System_printf("Tcp Handler Task Exit\n");
+System_flush();
 
-    System_printf("roveTcpSender: stop thread for = 0x%x\n", clientfd);
-    Task_exit();
-}
+//exit Task
 
+return;
 
-int attemptToConnect(int *the_socket)
-{
-	int connect_success;
-    struct sockaddr_in localAddr;
-    struct sockaddr_in clientAddr;
-    int                optval;
-    //int                optlen = sizeof(optval);
-    //socklen_t          addrlen = sizeof(clientAddr);
-    struct timeval     timeout; //Timeout settings for client
-
-	//System_printf("Creating socket instance\n");
-	//System_flush();
-	*the_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if( (*the_socket) == INVALID_SOCKET )
-	{
-		System_printf("failed socket create (%d)\n",fdError());
-		System_flush();
-	}
-
-	//System_printf("Defining Socket Options\n");
-	//System_flush();
-	//----Define Socket options
-	memset(&localAddr, 0, sizeof(localAddr));
-	//Use IPv4
-	localAddr.sin_family = AF_INET;
-	localAddr.sin_port = htons(TCPPORT);
-	System_printf("Assigning Target IP Address\n");
-	inet_pton(AF_INET, RED_IP, &localAddr.sin_addr);
-
-	//System_printf("Socket Options Set\n");
-	//System_flush();
-	// Configure our Tx and Rx timeout to be 5 seconds
-	timeout.tv_sec = 3600;
-	timeout.tv_usec = 0;
-	setsockopt( *the_socket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof( timeout ) );
-	setsockopt( *the_socket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof( timeout ) );
-
-	//---- Attempt to make the connection
-	connect_success =  connect( *the_socket, (PSA) &localAddr, sizeof(localAddr) );
-
-	return connect_success;
-}
-
-int parseJson(base_station_msg_struct *command, char *JSON_string_buf, int buf_length)
-{
-	int index = 0;
-
-	///////////////
-	// JSON Parse
-	// Author: Keenan Johnson
-	//
-	// Handwritten for now
-	//
-	// TODO: fix this and make it less brittle
-	///////////////
-
-	char Id[5];
-	char Value[10];
-
-	// Get Id
-	Id[0] = JSON_string_buf[6];
-	Id[1] = JSON_string_buf[7];
-	Id[2] = JSON_string_buf[8];
-	Id[3] = JSON_string_buf[9];
-	Id[4] = '\0';
-
-		// Convert cmd value
-	int cmd_value = atoi( Id);
-
-	// Get Value starting at 19
-	Value[0] = '\0';
-	char is_end_of_value = 0;
-	int value_index = 0;
-	int json_value_string_index = 19;
-
-	while(is_end_of_value == 0)
-	{
-		//Check for ending } which denotes end of value
-		if( JSON_string_buf[json_value_string_index] == '}' )
-		{
-			is_end_of_value = 1;
-			Value[value_index] = '\0';
-		}
-		// this char is a digit of a value
-		else
-		{
-			Value[value_index] = JSON_string_buf[json_value_string_index];
-			value_index++;
-			json_value_string_index++;
-		}
-	}
-
-	// Convert string value to real value
-	uint8_t value_byte = atoi( Value );
-
-	// Send data
-	(*command).id = cmd_value;
-	(*command).value = value_byte;
-	return 1;
-}
+}//end Function roveTcpHandler() Task

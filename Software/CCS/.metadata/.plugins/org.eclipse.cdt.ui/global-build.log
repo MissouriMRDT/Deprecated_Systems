@@ -1,13 +1,100 @@
 
-**** Clean-only build of configuration Debug for project RoverMotherboard ****
+**** Build of configuration Debug for project RoverMotherboard ****
 
-/opt/ti/ccsv6/utils/bin/gmake -k clean 
-cleaning ../src/sysbios ...
-rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
-rm -rf  "configPkg/" 
-rm -rf "EK_TM4C1294XL.pp" "RoverMotherboardMain.pp" "json.pp" "roveCommand.pp" "roveTcpHandler.pp" "roveTelemController.pp" "struct_xfer.pp" "timing.pp" 
-rm -rf "EK_TM4C1294XL.obj" "RoverMotherboardMain.obj" "json.obj" "roveCommand.obj" "roveTcpHandler.obj" "roveTelemController.obj" "struct_xfer.obj" "timing.obj" 
-Finished clean
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+clem4f /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/BIOS.c ...
+asmem4f /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/family/arm/m3/Hwi_asm.sv7M ...
+asmem4f /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/family/arm/m3/Hwi_asm_switch.sv7M ...
+asmem4f /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/family/arm/m3/IntrinsicsSupport_asm.sv7M ...
+asmem4f /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/family/arm/m3/TaskSupport_asm.sv7M ...
+arem4f BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj ...
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+Building file: ../RoverMotherboard.cfg
+Invoking: XDCtools
+"/opt/ti/xdctools_3_30_03_47_core/xs" --xdcpath="/opt/ti/tirtos_tivac_2_10_01_38/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/uia_2_00_02_39/packages;/opt/ti/ccsv6/ccs_base;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "/opt/ti/ccsv6/tools/compiler/arm_5.1.6" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path=\"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include\" --include_path=\"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c\" --include_path=\"/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd\" -g --gcc --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on  " "../RoverMotherboard.cfg"
+making package.mak (because of package.bld) ...
+generating interfaces for package configPkg (because package/package.xdc.inc is older than package.xdc) ...
+configuring RoverMotherboard.xem4f from package/cfg/RoverMotherboard_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/RoverMotherboard_pem4f.c ...
+Finished building: ../RoverMotherboard.cfg
+ 
+Building file: ../EK_TM4C1294XL.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="EK_TM4C1294XL.pp" --cmd_file="./configPkg/compiler.opt"  "../EK_TM4C1294XL.c"
+Finished building: ../EK_TM4C1294XL.c
+ 
+Building file: ../RoverMotherboardMain.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="RoverMotherboardMain.pp" --cmd_file="./configPkg/compiler.opt"  "../RoverMotherboardMain.c"
+"../RoverMotherboardMain.c", line 87: warning #225-D: function "init_uart" declared implicitly
+"../RoverMotherboardMain.c", line 87: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+"../RoverMotherboardMain.c", line 88: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+"../RoverMotherboardMain.c", line 89: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+"../RoverMotherboardMain.c", line 90: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+Finished building: ../RoverMotherboardMain.c
+ 
+Building file: ../json.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="json.pp" --cmd_file="./configPkg/compiler.opt"  "../json.c"
+"../RoverMotherboardMain.c", line 91: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+"../RoverMotherboardMain.c", line 92: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+"../RoverMotherboardMain.c", line 93: warning #515-D: a value of type "int" cannot be assigned to an entity of type "UART_Handle"
+Finished building: ../json.c
+ 
+Building file: ../roveCommand.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveCommand.pp" --cmd_file="./configPkg/compiler.opt"  "../roveCommand.c"
+Finished building: ../roveCommand.c
+ 
+Building file: ../roveTcpHandler.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTcpHandler.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTcpHandler.c"
+"../roveTcpHandler.c", line 29: warning #225-D: function "TaskSelf" declared implicitly
+"../roveTcpHandler.c", line 29: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
+"../roveTcpHandler.c", line 159: warning #112-D: statement is unreachable
+"../roveTcpHandler.c", line 159: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
+"../roveTcpHandler.c", line 41: warning #179-D: variable "bytesSent" was declared but never referenced
+"../roveTcpHandler.c", line 175: warning #179-D: variable "toBaseTelem" was declared but never referenced
+"../roveTcpHandler.c", line 177: warning #179-D: variable "outgoinggBuffer" was declared but never referenced
+"../roveTcpHandler.c", line 178: warning #179-D: variable "JsonBuffer" was declared but never referenced
+"../roveTcpHandler.c", line 218: warning #43-D: operand types are incompatible ("int" and "void *")
+"../roveTcpHandler.c", line 232: warning #225-D: function "inet_pton" declared implicitly
+"../roveTcpHandler.c", line 209: warning #179-D: variable "clientAddr" was declared but never referenced
+"../roveTcpHandler.c", line 210: warning #179-D: variable "optval" was declared but never referenced
+"../roveTcpHandler.c", line 250: warning #179-D: variable "index" was declared but never referenced
+Finished building: ../roveTcpHandler.c
+ 
+Building file: ../roveTelemController.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTelemController.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTelemController.c"
+Finished building: ../roveTelemController.c
+ 
+Building file: ../struct_xfer.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="struct_xfer.pp" --cmd_file="./configPkg/compiler.opt"  "../struct_xfer.c"
+Finished building: ../struct_xfer.c
+ 
+Building file: ../timing.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="timing.pp" --cmd_file="./configPkg/compiler.opt"  "../timing.c"
+"../timing.c", line 13: warning #225-D: function "SysCtlDelay" declared implicitly
+"../timing.c", line 13: warning #225-D: function "SysCtlClockGet" declared implicitly
+Finished building: ../timing.c
+ 
+Building target: RoverMotherboard.out
+Invoking: ARM Linker
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./EK_TM4C1294XL.obj" "./RoverMotherboardMain.obj" "./json.obj" "./roveCommand.obj" "./roveTcpHandler.obj" "./roveTelemController.obj" "./struct_xfer.obj" "./timing.obj" "../EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
+<Linking>
+Finished building target: RoverMotherboard.out
  
 
 **** Build Finished ****

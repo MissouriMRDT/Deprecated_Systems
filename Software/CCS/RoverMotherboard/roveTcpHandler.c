@@ -20,14 +20,11 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
 	fdOpenSession(TaskSelf());
 
-	int                optval = 0;
     int                clientfd = 0;
-    int                connect_success = 0;
-    int                connectedFlag = NOT_CONNECTED;
-    int  			   isConnected = CONNECTED;
-
     struct sockaddr_in localAddr;
-    struct sockaddr_in clientAddr;
+
+	int                connect_success = 0;
+    int                connectedFlag = NOT_CONNECTED;
 
     char incomingBuffer[TCPPACKETSIZE];
     char outgoinggBuffer[TCPPACKETSIZE];
@@ -45,8 +42,13 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
    	int 				json_value_string_index = 19;
    	char 				is_end_of_value = 0;
    	int 				value_index = 0;
+   	int 				index = 0;
 
-	uint8_t 			value_byte
+    char Id[5];
+    char Value[10];
+
+    int 				cmd_value = 0;
+	uint8_t 			value_byte;
 
     base_station_msg_struct  fromBaseCmd;
 
@@ -70,16 +72,16 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
     	System_printf("Attempting to create a Socket()\n");
     	System_flush();
 
-    	*the_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    	clientfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
     	//flag bad socket
 
-		if( (*the_socket) == INVALID_SOCKET){
+		if(clientfd == INVALID_SOCKET){
 
 			System_printf("Failed Socket() create (src = socket()) (%d)\n",fdError());
 			System_flush();
 
-    	}//endif( (*the_socket) == INVALID_SOCKET )
+    	}//endif(clientfd == INVALID_SOCKET)
 
 		//init socket config struct
 
@@ -97,27 +99,29 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 		timeout.tv_sec = 3600;
 		timeout.tv_usec = 0;
 
-		setsockopt(*the_socket, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
-		setsockopt(*the_socket, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
+		setsockopt(clientfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
+		setsockopt(clientfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
 
 		//connect socket
 
     	System_printf("Attempting to Connect() new connection\n");
     	System_flush();
 
-		connect_success = connect(*the_socket, (PSA)&localAddr, sizeof(localAddr) );
+		connect_success = connect(clientfd, (PSA)&localAddr, sizeof(localAddr) );
 
 		//flag failed connection
 
     	if(connect_success < 0){
 
     		connectedFlag = NOT_CONNECTED;
+
     		System_printf("Error: socket Accept() failed (src = connect())\n");
     		System_flush();
 
     	}else{
 
     		connectedFlag = CONNECTED;
+
     		System_printf("Connected to RED\n");
     		System_flush();
 
@@ -188,10 +192,10 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
 				//peel off ID
 
-    			Id[0] = JSON_string_buf[6];
-    			Id[1] = JSON_string_buf[7];
-    			Id[2] = JSON_string_buf[8];
-    			Id[3] = JSON_string_buf[9];
+    			Id[0] = JsonBuffer[6];
+    			Id[1] = JsonBuffer[7];
+    			Id[2] = JsonBuffer[8];
+    			Id[3] = JsonBuffer[9];
     			Id[4] = '\0';
 
     			//convert ID
@@ -207,14 +211,15 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
     			while(is_end_of_value == 0){
 
-    				if(JSON_string_buf[json_value_string_index] == '}'){
+    				if(JsonBuffer[json_value_string_index] == '}'){
 
     					is_end_of_value = 1;
+
     					Value[value_index] = '\0';
 
     				}else{
 
-    					Value[value_index] = JSON_string_buf[json_value_string_index];
+    					Value[value_index] = JsonBuffer[json_value_string_index];
 
     					json_value_string_index++;
 
@@ -230,8 +235,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
     			//pass to ID and Value to Command struct
 
-    			(*command).id = cmd_value;
-    			(*command).value = value_byte;
+    			fromBaseCmd.id = cmd_value;
+    			fromBaseCmd.value = value_byte;
 
 			System_printf("Received data: %c\n", incomingBuffer[0]);
 			System_flush();
@@ -243,14 +248,14 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 			Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
 
 			//TODO Event handler for Telem Send
-
+/*
 			bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
 
 			if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
 
 				System_printf("Error: send failed.\n");
 
-				isConnected = NOT_CONNECTED;
+				connectedFlag = NOT_CONNECTED;
 
 				//Task_sleep(2000);	-> i++
 
@@ -259,14 +264,15 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 				if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
 
 					System_printf("Error: send failed.\n");
-					isConnected = NOT_CONNECTED;
+
+					connectedFlag = NOT_CONNECTED;
 
 				Mailbox_pend(toBaseStationMailbox, &toBaseTelem, BIOS_WAIT_FOREVER);
 
 				}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
 
 			}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
-
+*/
     	}//endif(bytesReceived < 0)
 
     } //endwhile(connectedFlag == CONNECTED)

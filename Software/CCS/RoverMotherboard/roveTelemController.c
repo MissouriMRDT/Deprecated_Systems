@@ -9,8 +9,8 @@
 
 Void roveTelemController(UArg arg0, UArg arg1)
 {
-/*
-	// define extern UARTs
+
+	//define extern UARTs
 	extern UART_Handle uart0;
 	extern UART_Handle uart1;
 	extern UART_Handle uart2;
@@ -29,10 +29,11 @@ Void roveTelemController(UArg arg0, UArg arg1)
 
 	bool test_telem_is_valid = false;
 
-	char string_buf[50];
+	System_printf("roveTelemController task is initialized");
+	Task_exit();
 
-	while(1)
-	{
+	while(1){
+
 		System_printf("roveTelemController has priority right now \n");
 		System_flush();
 
@@ -40,42 +41,44 @@ Void roveTelemController(UArg arg0, UArg arg1)
 		ms_delay( 1 );
 		test_telem_is_valid = recv_struct( uart1, &test_device_data_struct, test );
 
-		if( test_telem_is_valid )
-		{
+		if( test_telem_is_valid ){
+
 			System_printf("test_telem_is_valid is valid mux_1( 9 ) \n");
 			System_flush();
 
 			package_telem_struct.id = test_device_data_struct.id;
 			package_telem_struct.value = test_device_data_struct.value;
 			Mailbox_post(toBaseStationMailbox, &package_telem_struct, BIOS_WAIT_FOREVER);
-		}//endif
-		else
-		{
+
+		}else{
+
 			System_printf("test_telem_is_valid is invalid!");
 			Task_exit();
-		}//endelse
+
+		}//endif(test_telem_is_valid)
 
 		mux_2( 10 );
 		ms_delay( 1 );
 		test_telem_is_valid = recv_struct( uart1, &test_device_data_struct, test );
 
-		if( test_telem_is_valid )
-		{
+		if(test_telem_is_valid){
+
 			System_printf("test_telem_is_valid is valid mux_2( 10 ) \n");
 			System_flush();
 
 			package_telem_struct.id = test_device_data_struct.id;
 			package_telem_struct.value = test_device_data_struct.value;
 			Mailbox_post(toBaseStationMailbox, &package_telem_struct, BIOS_WAIT_FOREVER);
-		}//endif
-		else
-		{
+
+		}else{
+
 			System_printf("test_telem_is_valid is invalid!");
 			Task_exit();
-		}//endelse
 
-	}//endwhile
-*/
+		}//endif(test_telem_is_valid)
+
+	}//endwhile(1)
+
 	System_printf("roveTelemController task exit!");
 	Task_exit();
 

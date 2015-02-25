@@ -1,0 +1,22 @@
+//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+
+// mrdtRoveWare.h
+//
+// first created:
+//
+// 02_24_2015_Judah Schad_jrs6w7@mst.edu
+//
+// last edited:
+//
+//02_25_2015_Judah Schad_jrs6w7@mst.edu
+
+#ifndef MRDTROVEWARE_H_
+#define MRDTROVEWARE_H_
+
+//MRDesign Team:: 	roveWare::
+
+#include "structs.h"
+
+
+
+#endif /* MRDTROVEWARE_H_ */

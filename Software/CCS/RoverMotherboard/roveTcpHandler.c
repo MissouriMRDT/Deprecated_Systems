@@ -1,98 +1,86 @@
-/*
- * roveTcpHandler.c
- *
- *  Created on: Jan 22, 2015
- *      Author: Owen Chiaventone, Judah Schad, Connor Walsh
- *
- *  Deals with maintaining a connection to the base station
- *  more detailed documentation is available on the motherboard wiki
- */
+//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+//
+// roveTcpHandler.c
+//
+// first created:
+//
+// 01_22_2015_Owen_Chiaventone
+//
+// last edited:
+//
+//02_24_2015_Judah Schad_jrs6w7@mst.edu
 
-#include "roveTcpHandler.h"
+//this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveTcpHandlerTask handle
+//
+//recieves base station commands and send device telemetry using tcp ip bsd sockets
 
-Void roveTcpHandler(UArg arg0, UArg arg1)
-{
+#include "roveIncludes/roveTcpHandler.h"
 
-	System_printf("Function roveTcpHandler() Task Created\n");
-	System_flush();
+//BIOS_start inits this as the roveTcpHandlerTask Thread
 
-	//init socket file env, json parser, msg structs
+//this is a RoverMotherboard.cfg object::		roveTcpHandlerTask		::		priority 1, vital_flag = t, 2048 persistent private stack
 
-	fdOpenSession(TaskSelf());
+Void roveTcpHandler(UArg arg0, UArg arg1){
 
-    int                clientfd = 0;
-    struct sockaddr_in localAddr;
+	//init socket file environment
 
-	int                connect_success = 0;
-    int                connectedFlag = NOT_CONNECTED;
+	fdOpenSession((void*)TaskSelf());
 
-    char incomingBuffer[TCPPACKETSIZE];
-    char outgoinggBuffer[TCPPACKETSIZE];
+	//init tcp socket handle
 
-    int                bytesSent = 0;
-    int                bytesReceived = 0;
+    int              clientfd = 0;
 
-    int    			   KEEPALIVE_SIZE = 9;
-    struct timeval     timeout;
+    //TODO wait, what? should this be called local address or client address (We don't need both now do we?)
 
-    char JsonBuffer[JSON_BUFFER_SIZE];
+    struct 			 sockaddr_in localAddr;
+    struct 			 timeval timeout;
 
-    int                 JsonBytesRecvd = 0;
+    //init flags for socket status handles
 
-   	int 				json_value_string_index = 19;
-   	char 				is_end_of_value = 0;
-   	int 				value_index = 0;
-   	int 				index = 0;
+	int              bytesSent = 0;
+	int			     bytesReceived =0;
+	int              connect_success = 0;
+	int              connectedFlag = NOT_CONNECTED;
 
-    char Id[5];
-    char Value[10];
+    //init RoveNet recieve struct
 
-    int 				cmd_value = 0;
-	uint8_t 			value_byte;
+    base_station_msg_struct fromBaseCmd;
 
-    base_station_msg_struct  fromBaseCmd;
+    //init RoveNet send struct
 
-    base_station_msg_struct  toBaseTelem;
+    base_station_msg_struct toBaseTelem;
 
-    System_printf("Environment Instantiated\n");
-    System_flush();
+	//the task loops for ever
 
-    //Task loops for ever
+	//it sleeps on the Mailbox_post to roveCommandController Task
 
-    //It sleeps on full Mailbox_post to roveCommandController Task
+	//it awakes on full Mailbox_pend from roveTelemController Task
 
-    //It awakes on full Mailbox_pend frome roveTelemController Task
-
-    //It only exits on error
+	//it only exits from BIOS_start, on error state
 
     while(1){
 
-    	//init socket
+    	//init socket, if the socket fails any point we break, close(clientfd), and reloop to re-init a fresh clientfd
 
-    	System_printf("Attempting to create a Socket()\n");
-    	System_flush();
+       	clientfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-    	clientfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+       	//flag for bad socket
 
-    	//flag bad socket
+		if(clientfd < 0){
 
-		if(clientfd == INVALID_SOCKET){
-
-			System_printf("Failed Socket() create (src = socket()) (%d)\n",fdError());
+			System_printf("Failed Socket() create (src = socket()) (%d)\n",fdError() );
 			System_flush();
 
-    	}//endif(clientfd == INVALID_SOCKET)
+    	}//endif:	(clientfd == INVALID_SOCKET)
 
-		//init socket config struct
+		//init bsd socket config struct
 
 		memset(&localAddr, 0, sizeof(localAddr) );
 
-		//config socket
+		//config the socket
 
 		localAddr.sin_family = AF_INET;
 		localAddr.sin_port = htons(TCPPORT);
-
-		System_printf("Assigning Target IP Address\n");
 
 		inet_pton(AF_INET, RED_IP, &localAddr.sin_addr);
 
@@ -102,14 +90,11 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 		setsockopt(clientfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
 		setsockopt(clientfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
 
-		//connect socket
-
-    	System_printf("Attempting to Connect() new connection\n");
-    	System_flush();
+		//connect the socket
 
 		connect_success = connect(clientfd, (PSA)&localAddr, sizeof(localAddr) );
 
-		//flag failed connection
+		//flag for failed connection
 
     	if(connect_success < 0){
 
@@ -120,23 +105,35 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
     	}else{
 
+    		//we are now connected
+
     		connectedFlag = CONNECTED;
 
-    		System_printf("Connected to RED\n");
-    		System_flush();
+    	}//endifelse:	(connect_success < 0)
 
-    	}//endif(connect_success < 0)
-
-    	//loop to recieve, break to attempt reconnect
+    	//loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
 
     	while(connectedFlag == CONNECTED){
 
-    		System_printf("Connected. Waiting for data\n");
-    	    System_flush();
+    		//clean the structs for Mailbox_post:		.id is enum 	.value is char[MAX_COMMAND_SIZE]
 
-    		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
+    		fromBaseCmd.id = null_device;
 
-			//flag lost connection
+    		memset(&fromBaseCmd.value, 0, sizeof(MAX_COMMAND_SIZE) );
+
+    		//clean the structs for Mailbox_pend:		.id is enum 	.value is char[MAX_TELEM_SIZE]
+
+    		toBaseTelem.id = null_device;
+
+    		memset(&toBaseTelem.value, 0, sizeof(MAX_COMMAND_SIZE) );
+
+    		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
+
+    		//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
+
+    		bytesReceived = recv(clientfd, &fromBaseCmd, sizeof(struct base_station_msg_struct), 0);
+
+    		//flag for lost connection when recieving
 
     		if(bytesReceived < 0){
 
@@ -147,154 +144,77 @@ Void roveTcpHandler(UArg arg0, UArg arg1)
 
     		}else{
 
-    			//connected
+    			//we have recieved successfully
 
-    			//detect Json by beginning { in buffer
+    			//the following call copy buffers the packet for roveCmdCntrl Thread, then implicitly task_sleeps roveTcpHandlerTask
 
-    			if(incomingBuffer[0] == '{'){
+    			//finally this call will implicitly awaken the roveCmdCntrlTask Thread to handle the Mailbox.Semaphore
 
-    				System_printf("Json Detected\n");
-    				System_flush();
+    			//This is a RoverMotherboard.cfg object::		fromBaseStationMailbox		::		 1024, max msg =10
 
-    				//Store { and null termination in json buffer
+				 Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
 
-    				JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
-    				JsonBuffer[JsonBytesRecvd+1] = '\0';
+    		}//endifelse:		(bytesReceived < 0)
 
-    				//break for Json by ending {
+    		//The following call also opens implicitly task_sleeping, roveTcpHandlerTask
 
-    				//break for lost connection again
+    		//BIOS will next reawake roveTcpHandlerTask here, when roveTelemCntrl Thread posts telem on this Mail.Semaphore.Pend
 
-    				while( (incomingBuffer[0] != '}') && !(bytesReceived < 0) ){
+    		//This is a RoverMotherboard.cfg object::		fromTelemMailbox::		1024, max msg = 10
 
-    		    		bytesReceived = recv(clientfd, incomingBuffer, TCPPACKETSIZE, 0);
+    		//timeout of 600 is 1/4 the  maxTimeout cycle which is the reference we set for ndk::		timeout.tv_sec = 3600 in roveTCPHandler
 
-    		    		//one char incoming, fill Json Buff by each char
+			Mailbox_pend(fromTelemCntrlMailbox, &toBaseTelem, 600);
 
-    		    		JsonBytesRecvd++;
+			//we have now recieved a device telemetry packet from the roveTelemCntrl Thread
 
-    		    		JsonBuffer[JsonBytesRecvd] = incomingBuffer[0];
-    		    		JsonBuffer[JsonBytesRecvd+1] = '\0';
+			switch(toBaseTelem.id){
 
-    				}//endwhile( (incomingBuffer[0] != '}') && !(bytesReceived < 0) )
+		    	//the robot arm is the one sending us telemetry
 
-    				System_printf("Finished Recving Json\n");
+		    	case test_device:
 
-    			}//endif(incomingBuffer[0] == '{')
+		    		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
 
-    			//prime Json Parser
+		    		//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
 
-    			index = 0;
-    			cmd_value = 0;
-				is_end_of_value = 0;
-				value_index = 0;
-				json_value_string_index = 19;
+		    		bytesSent = send(clientfd,  &toBaseTelem,  sizeof(struct test_device_data_struct), 0);
 
-				//peel off ID
+		    	break;
 
-    			Id[0] = JsonBuffer[6];
-    			Id[1] = JsonBuffer[7];
-    			Id[2] = JsonBuffer[8];
-    			Id[3] = JsonBuffer[9];
-    			Id[4] = '\0';
+	    	}//endswitch:	(fromBaseCmd.id)
 
-    			//convert ID
+		    //flag for lost connection when sending
 
-    			cmd_value = atoi(Id);
-
-    			Value[0] = '\0';
-    			is_end_of_value = 0;
-    			value_index = 0;
-    			json_value_string_index = 19;
-
-    			//convert the rest of the values
-
-    			while(is_end_of_value == 0){
-
-    				if(JsonBuffer[json_value_string_index] == '}'){
-
-    					is_end_of_value = 1;
-
-    					Value[value_index] = '\0';
-
-    				}else{
-
-    					Value[value_index] = JsonBuffer[json_value_string_index];
-
-    					json_value_string_index++;
-
-    					value_index++;
-
-    				}//endif(JSON_string_buf[json_value_string_index] == '}')
-
-    			}//endwhile(is_end_of_value == 0)
-
-    			//convert full Value
-
-    			value_byte = atoi(Value);
-
-    			//pass to ID and Value to Command struct
-
-    			fromBaseCmd.id = cmd_value;
-    			fromBaseCmd.value = value_byte;
-
-			System_printf("Received data: %c\n", incomingBuffer[0]);
-			System_flush();
-
-			//pass struct through to commandThread
-
-			//implicitly sleeps to allow the next Task to awake while Mailbox is full
-
-			Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
-
-			//TODO Event handler for Telem Send
-/*
-			bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
-
-			if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
-
-				System_printf("Error: send failed.\n");
+		    if(bytesSent < 0){
 
 				connectedFlag = NOT_CONNECTED;
 
-				//Task_sleep(2000);	-> i++
+				System_printf("Connection lost. (src = sent()\n");
+				System_flush();
 
-				bytesSent = send(clientfd, "keepalive", KEEPALIVE_SIZE, 0);
+		    }//endif:		(bytesSent < 0)
 
-				if (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE) {
+    	} //endwhile(connectedFlag == CONNECTED)
 
-					System_printf("Error: send failed.\n");
+    	//If execution reaches this point, then the connection has broken and we will attempt a new socket
 
-					connectedFlag = NOT_CONNECTED;
+    	close(clientfd);
 
-				Mailbox_pend(toBaseStationMailbox, &toBaseTelem, BIOS_WAIT_FOREVER);
-
-				}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
-
-			}//endif (bytesSent < 0 || bytesSent != KEEPALIVE_SIZE)
-*/
-    	}//endif(bytesReceived < 0)
-
-    } //endwhile(connectedFlag == CONNECTED)
-
-    //If execution reaches this point, then the connection has broken
-
-    close(clientfd);
-
-} //end while(1)
+    }//endwhile:	(1)
 
 
-//---- postcondition: Execution will not reach this state unless a serious error occurs
+    //postcondition: execution will not reach this state unless a serious error occurs
 
-// Close the socket file env
+    //close the socket file environment
 
-fdCloseSession(TaskSelf());
+    fdCloseSession((void*)TaskSelf());
 
-System_printf("Tcp Handler Task Exit\n");
-System_flush();
+    System_printf("Tcp Handler Task Error: Forced Exit\n");
+    System_flush();
 
-//exit Task
+    //exit Task
 
-return;
+    Task_exit();
 
-}//end Function roveTcpHandler() Task
+}//endfnctn:: 	roveTcpHandler() Task Thread

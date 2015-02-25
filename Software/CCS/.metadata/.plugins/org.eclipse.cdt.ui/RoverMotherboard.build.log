@@ -6,27 +6,14 @@ making ../src/sysbios/sysbios.aem4f ...
 gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 gmake[1]: Nothing to be done for `all'.
 gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-Building file: ../roveTcpHandler.c
+Building file: ../roveTelemCntrl.c
 Invoking: ARM Compiler
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTcpHandler.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTcpHandler.c"
-"../roveTcpHandler.c", line 21: warning #225-D: function "TaskSelf" declared implicitly
-"../roveTcpHandler.c", line 21: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
-"../roveTcpHandler.c", line 79: warning #43-D: operand types are incompatible ("int" and "void *")
-"../roveTcpHandler.c", line 97: warning #225-D: function "inet_pton" declared implicitly
-"../roveTcpHandler.c", line 291: warning #112-D: statement is unreachable
-"../roveTcpHandler.c", line 291: warning #169-D: argument of type "int" is incompatible with parameter of type "void *"
-"../roveTcpHandler.c", line 30: warning #179-D: variable "outgoinggBuffer" was declared but never referenced
-"../roveTcpHandler.c", line 32: warning #179-D: variable "bytesSent" was declared but never referenced
-"../roveTcpHandler.c", line 35: warning #179-D: variable "KEEPALIVE_SIZE" was declared but never referenced
-"../roveTcpHandler.c", line 45: warning #552-D: variable "index" was set but never used
-"../roveTcpHandler.c", line 55: warning #179-D: variable "toBaseTelem" was declared but never referenced
-Finished building: ../roveTcpHandler.c
- 
-Building target: RoverMotherboard.out
-Invoking: ARM Linker
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./EK_TM4C1294XL.obj" "./RoverMotherboardMain.obj" "./json.obj" "./roveCommandController.obj" "./roveTcpHandler.obj" "./roveTelemController.obj" "./struct_xfer.obj" "./timing.obj" "../EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
-<Linking>
-Finished building target: RoverMotherboard.out
- 
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTelemCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTelemCntrl.c"
+At end of source: error #68: expected a "}"
+1 error detected in the compilation of "../roveTelemCntrl.c".
+
+>> Compilation failure
+gmake: *** [roveTelemCntrl.obj] Error 1
+gmake: Target `all' not remade because of errors.
 
 **** Build Finished ****

@@ -1,15 +1,20 @@
 # FIXED
 
 RoverMotherboardMain.obj: ../RoverMotherboardMain.c
+RoverMotherboardMain.obj: ../roveIncludes/RoverMotherboardMain.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/string.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/linkage.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdbool.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/yvals.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdarg.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/_lock.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/std.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdarg.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/arm/elf/std.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/arm/elf/M4F.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/std.h
-RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/cfg/global.h
 RoverMotherboardMain.obj: /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/Debug/configPkg/package/cfg/RoverMotherboard_pem4f.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
@@ -162,6 +167,8 @@ RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h
@@ -195,27 +202,35 @@ RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/BIOS__epilogue.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/GPIO.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UART.h
+RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h
+RoverMotherboardMain.obj: ../roveIncludes/roveBoard.h
+RoverMotherboardMain.obj: ../roveIncludes/EK_TM4C1294XL.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/serrno.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/netinet/in.h
-RoverMotherboardMain.obj: ../Board.h
-RoverMotherboardMain.obj: ../EK_TM4C1294XL.h
-RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/GPIO.h
-RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UART.h
-RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
+RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 
 ../RoverMotherboardMain.c: 
+../roveIncludes/RoverMotherboardMain.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/string.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/linkage.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdbool.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/yvals.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdarg.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/_lock.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/std.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdarg.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/arm/elf/std.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/arm/elf/M4F.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/targets/std.h: 
-/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/cfg/global.h: 
 /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/Debug/configPkg/package/cfg/RoverMotherboard_pem4f.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
@@ -368,6 +383,8 @@ RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h: 
@@ -401,13 +418,16 @@ RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/BIOS__epilogue.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/package/BIOS_RtsGateProxy.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/GPIO.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UART.h: 
+/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h: 
+../roveIncludes/roveBoard.h: 
+../roveIncludes/EK_TM4C1294XL.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/serrno.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/netinet/in.h: 
-../Board.h: 
-../EK_TM4C1294XL.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/GPIO.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UART.h: 
-/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 

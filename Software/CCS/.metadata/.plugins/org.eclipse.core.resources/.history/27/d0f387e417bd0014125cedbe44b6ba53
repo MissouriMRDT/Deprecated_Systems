@@ -1,0 +1,48 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../roveIncludes/roveJson.c \
+../roveIncludes/roveMuxes.c \
+../roveIncludes/roveStructXfer.c \
+../roveIncludes/roveTiming.c \
+../roveIncludes/roveUarts.c 
+
+OBJS += \
+./roveIncludes/roveJson.obj \
+./roveIncludes/roveMuxes.obj \
+./roveIncludes/roveStructXfer.obj \
+./roveIncludes/roveTiming.obj \
+./roveIncludes/roveUarts.obj 
+
+C_DEPS += \
+./roveIncludes/roveJson.pp \
+./roveIncludes/roveMuxes.pp \
+./roveIncludes/roveStructXfer.pp \
+./roveIncludes/roveTiming.pp \
+./roveIncludes/roveUarts.pp 
+
+C_DEPS__QUOTED += \
+"roveIncludes/roveJson.pp" \
+"roveIncludes/roveMuxes.pp" \
+"roveIncludes/roveStructXfer.pp" \
+"roveIncludes/roveTiming.pp" \
+"roveIncludes/roveUarts.pp" 
+
+OBJS__QUOTED += \
+"roveIncludes/roveJson.obj" \
+"roveIncludes/roveMuxes.obj" \
+"roveIncludes/roveStructXfer.obj" \
+"roveIncludes/roveTiming.obj" \
+"roveIncludes/roveUarts.obj" 
+
+C_SRCS__QUOTED += \
+"../roveIncludes/roveJson.c" \
+"../roveIncludes/roveMuxes.c" \
+"../roveIncludes/roveStructXfer.c" \
+"../roveIncludes/roveTiming.c" \
+"../roveIncludes/roveUarts.c" 
+
+

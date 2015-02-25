@@ -14,13 +14,19 @@ extern const ti_sysbios_knl_Task_Handle roveTcpHandlerTask;
 extern const ti_sysbios_knl_Mailbox_Handle fromBaseStationMailbox;
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle roveCommandTask;
+extern const ti_sysbios_knl_Task_Handle roveCmdCntrlTask;
 
 #include <ti/sysbios/knl/Mailbox.h>
 extern const ti_sysbios_knl_Mailbox_Handle toBaseStationMailbox;
 
 #include <ti/sysbios/knl/Task.h>
-extern const ti_sysbios_knl_Task_Handle roveTelemControllerTask;
+extern const ti_sysbios_knl_Task_Handle roveTelemCntrlTask;
+
+#include <ti/sysbios/knl/Mailbox.h>
+extern const ti_sysbios_knl_Mailbox_Handle signalTelemMailbox;
+
+#include <ti/sysbios/knl/Mailbox.h>
+extern const ti_sysbios_knl_Mailbox_Handle fromTelemCntrlMailbox;
 
 #define TI_DRIVERS_WIFI_INCLUDED 0
 

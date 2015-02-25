@@ -1,0 +1,53 @@
+//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+
+// RoverMotherboardMain.h
+//
+// first created:
+//
+// 01_22_2015_Owen_Chiaventone
+//
+// last edited:
+//
+//02_24_2015_Judah Schad_jrs6w7@mst.edu
+//
+//this implements global scope for header files
+
+#ifndef ROVERMOTHERBOARDMAIN_H_
+#define ROVERMOTHERBOARDMAIN_H_
+
+//Globally Referencing:
+
+//C lib
+
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
+//CCS TI config
+
+#include <xdc/std.h>
+
+#include <xdc/cfg/global.h>
+
+#include <xdc/runtime/Error.h>
+#include <xdc/runtime/System.h>
+
+//CCS TI operating system
+
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+//CCS TI NDK BSD support
+
+#include <sys/socket.h>
+
+//TI hardware access routines
+
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
+
+//defines target device
+
+#include "Board.h"
+
+#endif /* ROVERMOTHERBOARDMAIN_H_ */

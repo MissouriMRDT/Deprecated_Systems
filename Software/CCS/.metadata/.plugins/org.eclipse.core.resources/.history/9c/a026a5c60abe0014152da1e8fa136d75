@@ -1,0 +1,57 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../roveIncludes/EK_TM4C1294XL.cmd 
+
+C_SRCS += \
+../roveIncludes/EK_TM4C1294XL.c \
+../roveIncludes/roveJson.c \
+../roveIncludes/roveMuxes.c \
+../roveIncludes/roveStructXfer.c \
+../roveIncludes/roveTiming.c \
+../roveIncludes/roveUarts.c 
+
+OBJS += \
+./roveIncludes/EK_TM4C1294XL.obj \
+./roveIncludes/roveJson.obj \
+./roveIncludes/roveMuxes.obj \
+./roveIncludes/roveStructXfer.obj \
+./roveIncludes/roveTiming.obj \
+./roveIncludes/roveUarts.obj 
+
+C_DEPS += \
+./roveIncludes/EK_TM4C1294XL.pp \
+./roveIncludes/roveJson.pp \
+./roveIncludes/roveMuxes.pp \
+./roveIncludes/roveStructXfer.pp \
+./roveIncludes/roveTiming.pp \
+./roveIncludes/roveUarts.pp 
+
+C_DEPS__QUOTED += \
+"roveIncludes/EK_TM4C1294XL.pp" \
+"roveIncludes/roveJson.pp" \
+"roveIncludes/roveMuxes.pp" \
+"roveIncludes/roveStructXfer.pp" \
+"roveIncludes/roveTiming.pp" \
+"roveIncludes/roveUarts.pp" 
+
+OBJS__QUOTED += \
+"roveIncludes/EK_TM4C1294XL.obj" \
+"roveIncludes/roveJson.obj" \
+"roveIncludes/roveMuxes.obj" \
+"roveIncludes/roveStructXfer.obj" \
+"roveIncludes/roveTiming.obj" \
+"roveIncludes/roveUarts.obj" 
+
+C_SRCS__QUOTED += \
+"../roveIncludes/EK_TM4C1294XL.c" \
+"../roveIncludes/roveJson.c" \
+"../roveIncludes/roveMuxes.c" \
+"../roveIncludes/roveStructXfer.c" \
+"../roveIncludes/roveTiming.c" \
+"../roveIncludes/roveUarts.c" 
+
+

@@ -6,14 +6,65 @@ making ../src/sysbios/sysbios.aem4f ...
 gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 gmake[1]: Nothing to be done for `all'.
 gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-Building file: ../roveTelemCntrl.c
-Invoking: ARM Compiler
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTelemCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTelemCntrl.c"
-At end of source: error #68: expected a "}"
-1 error detected in the compilation of "../roveTelemCntrl.c".
+Building file: ../RoverMotherboard.cfg
+Invoking: XDCtools
+"/opt/ti/xdctools_3_30_03_47_core/xs" --xdcpath="/opt/ti/tirtos_tivac_2_10_01_38/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages;/opt/ti/tirtos_tivac_2_10_01_38/products/uia_2_00_02_39/packages;/opt/ti/ccsv6/ccs_base;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "/opt/ti/ccsv6/tools/compiler/arm_5.1.6" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path=\"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include\" --include_path=\"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c\" --include_path=\"/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd\" -g --gcc --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on  " "../RoverMotherboard.cfg"
+configuring RoverMotherboard.xem4f from package/cfg/RoverMotherboard_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/RoverMotherboard_pem4f.c ...
+Finished building: ../RoverMotherboard.cfg
+ 
+Building target: RoverMotherboard.out
+Invoking: ARM Linker
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./RoverMotherboardMain.obj" "./roveCmdCntrl.obj" "./roveTcpHandler.obj" "./roveTelemCntrl.obj" "./roveIncludes/EK_TM4C1294XL.obj" "./roveIncludes/roveJson.obj" "./roveIncludes/roveMuxes.obj" "./roveIncludes/roveStructXfer.obj" "./roveIncludes/roveTiming.obj" "./roveIncludes/roveUarts.obj" "../roveIncludes/EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
+<Linking>
+Finished building target: RoverMotherboard.out
+ 
 
->> Compilation failure
-gmake: *** [roveTelemCntrl.obj] Error 1
-gmake: Target `all' not remade because of errors.
+**** Build Finished ****
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 
 **** Build Finished ****

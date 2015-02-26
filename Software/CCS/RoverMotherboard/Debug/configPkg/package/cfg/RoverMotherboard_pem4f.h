@@ -16,9 +16,6 @@ extern const ti_sysbios_knl_Mailbox_Handle fromBaseStationMailbox;
 #include <ti/sysbios/knl/Task.h>
 extern const ti_sysbios_knl_Task_Handle roveCmdCntrlTask;
 
-#include <ti/sysbios/knl/Mailbox.h>
-extern const ti_sysbios_knl_Mailbox_Handle toBaseStationMailbox;
-
 #include <ti/sysbios/knl/Task.h>
 extern const ti_sysbios_knl_Task_Handle roveTelemCntrlTask;
 

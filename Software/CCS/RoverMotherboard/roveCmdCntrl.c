@@ -35,15 +35,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	base_station_msg_struct fromBaseMsg;
 
-	fromBaseMsg.id = null_device;
+	fromBaseMsg.id = onenull_device;
 
-	memset(&fromBaseMsg.value, 0, sizeof(MAX_COMMAND_SIZE) );
+	memset(&fromBaseMsg.value, 1, sizeof(MAX_COMMAND_SIZE) );
 
 	//init and clean RoveCom signal send struct
 
 	signal_telem_control_struct signal_telem_struct;
 
-	signal_telem_struct.id = null_device;
+	signal_telem_struct.id = onenull_device;
 
 	signal_telem_struct.sig = null_signal;
 
@@ -61,6 +61,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
     //It only exits on error
 
+    ms_delay( 10 );
+
+	System_printf("roveCmdCntrlr		init \n");
+	System_flush();
+
+	ms_delay( 1 );
+
+	//Mailbox_post(signalTelemMailbox, &signal_telem_struct, 3600);
+
 	while(1){
 
 				//read cmd from roveTCPHandler
@@ -73,6 +82,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
+				ms_delay( 10 );
+
+				System_printf("2			Passed Cmd PEND: 						\n");
+				System_flush();
+
+				ms_delay( 10 );
+
 				switch(fromBaseMsg.id){
 
 					//*************
@@ -83,7 +99,11 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 					case motor_left:
 
-						motor_control_struct.value = fromBaseMsg.value;
+						//TODO
+
+						//memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+
+						//motor_control_struct.value = fromBaseMsg.value;
 
 						mux_1( 8 );
 						mux_2( 7 );
@@ -108,7 +128,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 					case motor_right:
 
-						motor_control_struct.value = fromBaseMsg.value;
+						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
 
 						mux_1( 1 );
 						mux_2( 2 );
@@ -135,9 +155,14 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				//This is a RoverMotherboard.cfg object::		signalTelemMailbox		::		 1024, max msg =10
 
-				//600 as 1/4 the  maxTimeout as reference by ndk::		timeout.tv_sec = 3600 in roveTCPHandler
-
 				Mailbox_post(signalTelemMailbox, &signal_telem_struct, 600);
+
+				ms_delay( 10 );
+
+				System_printf("2			Passed Cmd POST: 						\n");
+				System_flush();
+
+				ms_delay( 10 );
 
 	}//endwhile:		(1)
 

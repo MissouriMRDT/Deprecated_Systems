@@ -31,7 +31,7 @@
 
 typedef enum DeviceID{
 
-	null_device = 0,
+	onenull_device = 1,
 	test_device = 99,
 	motor_left = 100,
 	motor_right = 101,

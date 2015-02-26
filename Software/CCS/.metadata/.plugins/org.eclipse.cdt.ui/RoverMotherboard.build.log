@@ -6,14 +6,5 @@ making ../src/sysbios/sysbios.aem4f ...
 gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 gmake[1]: Nothing to be done for `all'.
 gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-Building file: ../roveTelemCntrl.c
-Invoking: ARM Compiler
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTelemCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTelemCntrl.c"
-At end of source: error #68: expected a "}"
-1 error detected in the compilation of "../roveTelemCntrl.c".
-
->> Compilation failure
-gmake: *** [roveTelemCntrl.obj] Error 1
-gmake: Target `all' not remade because of errors.
 
 **** Build Finished ****

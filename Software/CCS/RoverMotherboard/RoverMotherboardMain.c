@@ -39,6 +39,7 @@ int main(void)
 
     Board_initGeneral();
     Board_initGPIO();
+    Board_initEMAC();
     Board_initUART();
 
 //init UARTS
@@ -52,6 +53,15 @@ int main(void)
 	uart7 = (UART_Handle)init_uart( 7, 115200 );
 
 //start TI BIOS
+
+	ms_delay( 10 );
+
+	System_printf("roveMotherboardMain init \n");
+	System_printf("\n");
+	System_printf("\n");
+	System_flush();
+
+	ms_delay( 10 );
 
     BIOS_start();
 

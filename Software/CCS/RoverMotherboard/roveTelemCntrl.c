@@ -53,11 +53,22 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 	bool test_telem_is_valid = false;
 
+	ms_delay( 10 );
+
+	System_printf("Telem 		init \n");
+	System_printf("\n");
+	System_printf("\n");
+	System_flush();
+
+	ms_delay( 10 );
+
+	//Mailbox_post(toBaseStationMailbox, &test_device_data_struct, 3600);
+
 	while(1){
 
 		//clean the struct for command signaling    .id and .sig are enum
 
-		signal_telem_struct.id = null_device;
+		signal_telem_struct.id = onenull_device;
 
 		signal_telem_struct.sig = null_signal;
 
@@ -65,7 +76,7 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 		//the struct is (packed)
 
-		test_device_data_struct.id = null_device;
+		test_device_data_struct.id = onenull_device;
 
 		test_device_data_struct.value = 0;
 
@@ -78,9 +89,14 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 		//This is a RoverMotherboard.cfg object::		signalTelemMailbox::		1024, max msg = 10
 
-		//timeout of 600 is 1/4 the  maxTimeout cycle which is the reference we set for ndk::		timeout.tv_sec = 3600 in roveTCPHandler
-
 		Mailbox_pend(signalTelemMailbox, &signal_telem_struct, 600);
+
+		ms_delay( 10 );
+
+		System_printf("3			Passed Telem PEND: 						\n");
+		System_flush();
+
+		ms_delay( 10 );
 
 		switch(signal_telem_struct.id){
 
@@ -117,9 +133,16 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 				//This is a RoverMotherboard.cfg object::		toBaseStationMailbox::		 1024, max msg =10
 
-				//timeout of 600 is 1/4 the  maxTimeout cycle which is the reference we set for ndk::		timeout.tv_sec = 3600 in roveTCPHandler
+				Mailbox_post(fromTelemCntrlMailbox, &test_device_data_struct, 600);
 
-				Mailbox_post(toBaseStationMailbox, &test_device_data_struct, 600);
+				ms_delay( 10 );
+
+				System_printf("3			Passed Telem POST: 						\n");
+				System_flush();
+
+				ms_delay( 10 );
+
+		}//endswitch:		(signal_telem_struct.id)
 
 	}//endwhile:	(1)
 

@@ -39,15 +39,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	memset(&fromBaseMsg.value, 1, sizeof(MAX_COMMAND_SIZE) );
 
-	//init and clean RoveCom signal send struct
 
-	signal_telem_control_struct signal_telem_struct;
-
-	signal_telem_struct.id = onenull_device;
-
-	signal_telem_struct.sig = null_signal;
-
-	//init and clea RoveCom uart send struct
+	//init and clean RoveCom uart send struct
 
 	struct motor_control_struct motor_control_struct;
 
@@ -55,20 +48,16 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
     //Task loops for ever
 
-    //It sleeps on full Mailbox_post to roveTelemController Task
-
-    //It awakes on full Mailbox_pend frome roveTelem Task
+    //It awakes on full Mailbox_pend frome roveTCPHandler Task
 
     //It only exits on error
 
-    ms_delay( 10 );
+    ms_delay( 1 );
 
-	System_printf("roveCmdCntrlr		init \n");
+	System_printf("roveCmdCntrlr		init! \n");
 	System_flush();
 
 	ms_delay( 1 );
-
-	//Mailbox_post(signalTelemMailbox, &signal_telem_struct, 3600);
 
 	while(1){
 
@@ -79,12 +68,12 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-				ms_delay( 10 );
+				ms_delay( 1 );
 
-				System_printf("2			Just CMD PENDED MAIL!: %d \n", fromBaseMsg.value);
+				System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
 				System_flush();
 
-				ms_delay( 10 );
+				ms_delay( 1 );
 
 				switch(fromBaseMsg.id){
 
@@ -98,7 +87,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 						//TODO
 
-						//memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
 
 						//motor_control_struct.value = fromBaseMsg.value;
 
@@ -110,10 +99,14 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 						send_struct(uart2, &motor_control_struct, motor_controller);
 						send_struct(uart3, &motor_control_struct, motor_controller);
 
-//TODO
+						ms_delay( 1 );
 
-						//signal_telem_struct.id = test_device;
-						//signal_telem_struct.sig = null_signal;
+						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
+						System_flush();
+
+						ms_delay( 1 );
+
+//TODO:
 
 					break;
 
@@ -121,7 +114,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 					// Drive Right
 					//*************
 
-					//roveCom::	enum motor_right::	id = 101
+/*					//roveCom::	enum motor_right::	id = 101
 
 					case motor_right:
 
@@ -141,25 +134,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 						//signal_telem_struct.sig = null_signal;
 
 					break;
-
+*/
 				}//endswitch::		(fromBaseMsg.id)
-
-				//call Telemtery Thread
-
-				//the following call copy buffers the packet for roveTelemCntrlTask Thread, then implicitly task_sleeps roveCmdCntrlTask
-
-				//finally this call will implicitly awaken the roveTelemCntrlTask Thread to handle the Mailbox.Semaphore
-
-				//This is a RoverMotherboard.cfg object::		signalTelemMailbox		::		 1024, max msg =10
-
-				//Mailbox_post(signalTelemMailbox, &signal_telem_struct, 600);
-
-				//ms_delay( 10 );
-
-				//System_printf("2			Passed Cmd POST: 						\n");
-				//System_flush();
-
-				//ms_delay( 10 );
 
 	}//endwhile:		(1)
 

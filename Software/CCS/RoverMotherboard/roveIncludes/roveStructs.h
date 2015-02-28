@@ -57,24 +57,6 @@ typedef struct base_station_msg_struct{
 
 } base_station_msg_struct, *base_msg;
 
-//TODO
-
-typedef struct package_telem_struct{
-
-	DeviceID  id;
-	uint8_t value;
-
-} package_telem_struct, *telem_msg;
-
-typedef struct signal_telem_control_struct{
-
-	DeviceID id;
-	SignalID sig;
-
-} signal_telem_control_struct, *telem_sig_msg;
-
-//TODO
-
 struct test_device_data_struct{
 
 	DeviceID  id;

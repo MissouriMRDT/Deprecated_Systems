@@ -61,14 +61,14 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 	//only exits from BIOS_start, on error state
 
-    ms_delay( 10 );
+    ms_delay( 1 );
 
-    System_printf("roveTCPHandler 		init \n");
+    System_printf("roveTCPHandler 		init! \n");
     System_printf("\n");
     System_printf("\n");
     System_flush();
 
-    ms_delay( 10 );
+    ms_delay( 1 );
 
     while(1){
 
@@ -85,14 +85,14 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     	}//endif:	(roveServerlocalfd == -1)
 
-		ms_delay( 10 );
+		ms_delay( 1 );
 
-		System_printf("TCPHandler:			socket \n");
+		System_printf("TCPHandler:			socket init success! \n");
 		System_printf("\n");
 		System_printf("\n");
 		System_flush();
 
-		ms_delay( 10 );
+		ms_delay( 1 );
 
 		//init bsd socket config struct
 
@@ -135,7 +135,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
         		connectedFlag = CONNECTED;
 
-    			System_printf("Connected to RED\n");
+    			System_printf("Connected to RED! \n");
     			System_flush();
 
         }//endifelse:	(connect_success < 0)*/
@@ -192,16 +192,23 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     					bytesReceived = recv(serverfd, &(fromBaseCmd.value), 1, 0);
 
+    					ms_delay( 1 );
+						System_printf("1			Just got a TCP REC() VALUE: %d \n", (int)fromBaseCmd.value);
+						System_flush();
+						ms_delay( 1 );
+
+						Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+
     				break;
 
-    				case motor_right:
+    			/*	case motor_right:
 
     					//bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
 
     					bytesReceived = recv(serverfd, &(fromBaseCmd.value), 1, 0);
 
     				break;
-
+*/
     			}//endswitch:		(fromBaseCmd.id)
 
     			//flag for lost connection when recieving
@@ -217,26 +224,14 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 					//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
 
-					bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
-					bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
+					//bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
+					//bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
 
-					//flag for lost connection when sending
-
-					if(bytesSent == -1){
-
-						connectedFlag = NOT_CONNECTED;
-
-						System_printf("Connection lost. (src = sent()\n");
-						System_flush();
-
-					}//endif:			(bytesSent == -1)
-
-    		    	Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
-
-					ms_delay( 10 );
-					System_printf("2			Just TCP POSTED MAIL!: %d \n", fromBaseCmd.value);
+    		    	ms_delay( 1 );
+					System_printf("1			DID WE GET HERE? %d \n");
 					System_flush();
-					ms_delay( 10 );
+					ms_delay( 1 );
+
 
     		    }//endifelse:			(bytesReceived == -1)
 

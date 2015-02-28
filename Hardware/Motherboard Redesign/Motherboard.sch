@@ -2727,6 +2727,42 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <text x="1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">R</text>
 <text x="-1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">L</text>
 </package>
+<package name="OKI-78SRH">
+<description>OKI-78SR-3.3/1.5W36H&lt;br&gt;
+OKI-78SR-5/1.5W36H</description>
+<wire x1="5.08" y1="-1.27" x2="-5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-1.27" x2="-5.08" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="15.24" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="15.24" x2="5.08" y2="15.24" width="0.127" layer="21"/>
+<wire x1="5.08" y1="15.24" x2="5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="-2.54" y2="12.7" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="12.7" x2="2.54" y2="12.7" width="0.127" layer="21"/>
+<wire x1="2.54" y1="12.7" x2="5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="5.08" y1="10.16" x2="5.08" y2="5.08" width="0.127" layer="21"/>
+<wire x1="5.08" y1="5.08" x2="2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="2.54" x2="-5.08" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="10.16" width="0.127" layer="21"/>
+<pad name="3" x="-2.54" y="0" drill="1.016"/>
+<pad name="2" x="0" y="0" drill="1.016"/>
+<pad name="1" x="2.54" y="0" drill="1.016"/>
+<text x="-1.016" y="-2.794" size="1.27" layer="25">&gt;NAME</text>
+<wire x1="-5.08" y1="-1.27" x2="5.08" y2="-1.27" width="0.127" layer="51"/>
+<wire x1="5.08" y1="-1.27" x2="5.08" y2="5.08" width="0.127" layer="51"/>
+<wire x1="5.08" y1="10.16" x2="5.08" y2="15.24" width="0.127" layer="51"/>
+<wire x1="5.08" y1="15.24" x2="-5.08" y2="15.24" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="15.24" x2="-5.08" y2="10.16" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="5.08" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-1.27" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="10.16" x2="-2.54" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="12.7" x2="2.54" y2="12.7" width="0.127" layer="51"/>
+<wire x1="2.54" y1="12.7" x2="5.08" y2="10.16" width="0.127" layer="51"/>
+<wire x1="5.08" y1="10.16" x2="5.08" y2="5.08" width="0.127" layer="51"/>
+<wire x1="5.08" y1="5.08" x2="2.54" y2="2.54" width="0.127" layer="51"/>
+<wire x1="2.54" y1="2.54" x2="-2.54" y2="2.54" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="2.54" x2="-5.08" y2="5.08" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="2-PIN_HEADER">
@@ -2739,6 +2775,17 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <wire x1="5.08" y1="-7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
 <text x="0" y="-10.16" size="1.778" layer="96" rot="R180" align="top-center">&gt;VALUE</text>
 <text x="0" y="7.62" size="1.778" layer="95" rot="R180" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="5V_REG">
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<pin name="VI" x="-7.62" y="0" length="short"/>
+<pin name="GND" x="2.54" y="-7.62" length="short" rot="R90"/>
+<pin name="VO" x="12.7" y="0" length="short" rot="R180"/>
+<text x="0" y="7.62" size="1.778" layer="95" align="top-center">&gt;NAME</text>
+<text x="-9.652" y="3.302" size="1.778" layer="95">OKI-78SRH DCDC CONV</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2774,6 +2821,30 @@ Part Numbers:&lt;Br&gt;
 <technology name="">
 <attribute name="DIGIKEY_PN" value="732-2769-ND"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="Q_OKI-78SR">
+<description>4.95W DC/DC Converter
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt; Manufacturer:&lt;/b&gt;&lt;br&gt;
+Murata
+&lt;br&gt;&lt;br&gt;&lt;b&gt;Part Number:&lt;/b&gt;&lt;br&gt;
+OKI-78SR-5/1.5-W36H-C&lt;br&gt;
+OKI-78SR-3.3/1.5-W36H-C</description>
+<gates>
+<gate name="G$1" symbol="5V_REG" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="OKI-78SRH">
+<connects>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VI" pad="1"/>
+<connect gate="G$1" pin="VO" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -2973,7 +3044,6 @@ Part Numbers:&lt;Br&gt;
 <part name="P+10" library="supply1" deviceset="+12V" device=""/>
 <part name="U$6" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT"/>
 <part name="U$7" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT"/>
-<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V25" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V26" library="supply1" deviceset="+3V3" device=""/>
@@ -2988,6 +3058,9 @@ Part Numbers:&lt;Br&gt;
 <part name="C27" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
+<part name="U$8" library="MRDT-2015-PowerBoard" deviceset="Q_OKI-78SR" device=""/>
+<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND36" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3005,8 +3078,10 @@ Part Numbers:&lt;Br&gt;
 <instance part="C33" gate="G$1" x="22.86" y="12.7"/>
 <instance part="P+8" gate="1" x="-30.48" y="15.24"/>
 <instance part="JP1" gate="G$1" x="-43.18" y="20.32"/>
-<instance part="+3V23" gate="G$1" x="-20.32" y="38.1"/>
 <instance part="+3V20" gate="G$1" x="-10.16" y="-17.78"/>
+<instance part="U$8" gate="G$1" x="-48.26" y="-7.62"/>
+<instance part="+3V22" gate="G$1" x="-30.48" y="-15.24" rot="R180"/>
+<instance part="GND36" gate="1" x="-45.72" y="-22.86"/>
 </instances>
 <busses>
 </busses>
@@ -3040,6 +3115,11 @@ Part Numbers:&lt;Br&gt;
 <junction x="-7.62" y="5.08"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="GND"/>
+<wire x1="-45.72" y1="-15.24" x2="-45.72" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="GND36" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$45" class="0">
 <segment>
@@ -3059,6 +3139,25 @@ Part Numbers:&lt;Br&gt;
 </net>
 <net name="+3V3" class="0">
 <segment>
+<wire x1="-10.16" y1="-20.32" x2="-10.16" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="-22.86" x2="-7.62" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="+3V20" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="VO"/>
+<wire x1="-35.56" y1="-7.62" x2="-30.48" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-7.62" x2="-30.48" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="+3V22" gate="G$1" pin="+3V3"/>
+</segment>
+</net>
+<net name="5V" class="0">
+<segment>
+<pinref part="U$8" gate="G$1" pin="VI"/>
+<wire x1="-55.88" y1="-7.62" x2="-60.96" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="-60.96" y1="-7.62" x2="-60.96" y2="-12.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
 <wire x1="-35.56" y1="22.86" x2="-20.32" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="-20.32" y1="17.78" x2="-20.32" y2="22.86" width="0.1524" layer="91"/>
@@ -3076,13 +3175,6 @@ Part Numbers:&lt;Br&gt;
 <wire x1="-7.62" y1="17.78" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
 <junction x="-7.62" y="22.86"/>
 <pinref part="JP1" gate="G$1" pin="3"/>
-<pinref part="+3V23" gate="G$1" pin="+3V3"/>
-</segment>
-<segment>
-<wire x1="-10.16" y1="-20.32" x2="-10.16" y2="-22.86" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="-22.86" x2="-7.62" y2="-22.86" width="0.1524" layer="91"/>
-<pinref part="+3V20" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 </nets>
@@ -4101,7 +4193,7 @@ Part Numbers:&lt;Br&gt;
 <instance part="+3V19" gate="G$1" x="96.52" y="-71.12"/>
 <instance part="RS-485-1" gate="G$1" x="269.24" y="-121.92"/>
 <instance part="GND34" gate="1" x="251.46" y="-134.62"/>
-<instance part="U$1" gate="G$1" x="322.58" y="-121.92"/>
+<instance part="U$1" gate="G$1" x="325.12" y="-121.92"/>
 <instance part="R38" gate="G$1" x="294.64" y="-114.3" rot="R180"/>
 <instance part="R39" gate="G$1" x="294.64" y="-129.54"/>
 <instance part="C27" gate="G$1" x="218.44" y="-127"/>
@@ -5175,6 +5267,13 @@ Part Numbers:&lt;Br&gt;
 <pinref part="C27" gate="G$1" pin="2"/>
 <wire x1="218.44" y1="-129.54" x2="218.44" y2="-132.08" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="8"/>
+<wire x1="312.42" y1="-129.54" x2="309.88" y2="-129.54" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="-129.54" x2="309.88" y2="-127" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="7"/>
+<wire x1="312.42" y1="-127" x2="309.88" y2="-127" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="RS485_2_RX" class="0">
 <segment>
@@ -6002,7 +6101,7 @@ Part Numbers:&lt;Br&gt;
 <wire x1="287.02" y1="-109.22" x2="304.8" y2="-109.22" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="-109.22" x2="304.8" y2="-111.76" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="1"/>
-<wire x1="304.8" y1="-111.76" x2="309.88" y2="-111.76" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="-111.76" x2="312.42" y2="-111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="18_RX-1" class="0">
@@ -6012,7 +6111,7 @@ Part Numbers:&lt;Br&gt;
 <wire x1="302.26" y1="-119.38" x2="304.8" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="-119.38" x2="304.8" y2="-114.3" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="2"/>
-<wire x1="304.8" y1="-114.3" x2="309.88" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="-114.3" x2="312.42" y2="-114.3" width="0.1524" layer="91"/>
 <pinref part="R38" gate="G$1" pin="1"/>
 <wire x1="299.72" y1="-114.3" x2="302.26" y2="-114.3" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="-114.3" x2="302.26" y2="-119.38" width="0.1524" layer="91"/>
@@ -6029,7 +6128,7 @@ Part Numbers:&lt;Br&gt;
 <junction x="287.02" y="-129.54"/>
 <wire x1="307.34" y1="-134.62" x2="307.34" y2="-116.84" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="3"/>
-<wire x1="307.34" y1="-116.84" x2="309.88" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="-116.84" x2="312.42" y2="-116.84" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="-134.62" x2="307.34" y2="-134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -6039,7 +6138,7 @@ Part Numbers:&lt;Br&gt;
 <pinref part="U$1" gate="G$1" pin="6"/>
 <wire x1="284.48" y1="-124.46" x2="302.26" y2="-124.46" width="0.1524" layer="91"/>
 <pinref part="R39" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="-124.46" x2="309.88" y2="-124.46" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="-124.46" x2="312.42" y2="-124.46" width="0.1524" layer="91"/>
 <wire x1="299.72" y1="-129.54" x2="302.26" y2="-129.54" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="-129.54" x2="302.26" y2="-124.46" width="0.1524" layer="91"/>
 <junction x="302.26" y="-124.46"/>
@@ -6057,6 +6156,15 @@ Part Numbers:&lt;Br&gt;
 <pinref part="RS-485-1" gate="G$1" pin="DI"/>
 <wire x1="254" y1="-124.46" x2="228.6" y2="-124.46" width="0.1524" layer="91"/>
 <label x="231.14" y="-124.46" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="5V" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="5"/>
+<wire x1="312.42" y1="-121.92" x2="309.88" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="-121.92" x2="309.88" y2="-119.38" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="4"/>
+<wire x1="309.88" y1="-119.38" x2="312.42" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

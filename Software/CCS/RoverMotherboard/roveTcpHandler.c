@@ -34,12 +34,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     //init flags for socket status handles
 
-	int              bytesSent = 0;
 	int			     bytesReceived =0;
 
 	int              connectedFlag = NOT_CONNECTED;
-
-	int              socketStatus = -1;
 
 	//a copy is placed in the mailbox when a message is recieved.
 
@@ -50,10 +47,6 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     //init RoveNet recieve struct
 
     base_station_msg_struct fromBaseCmd;
-
-    //init RoveNet send struct
-
-    base_station_msg_struct toBaseTelem;
 
 	//the task loops for ever
 
@@ -147,12 +140,13 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     		//clean the structs for Mailbox_post:		.id is enum 	.value is char[MAX_COMMAND_SIZE]
 
     		fromBaseCmd.id = onenull_device;
-    		memset(&fromBaseCmd.value, 1, sizeof(MAX_COMMAND_SIZE) );
+    		memset(&fromBaseCmd.value, 0, sizeof(MAX_COMMAND_SIZE) );
 
     		ms_delay( 1 );
-			System_printf("1			Just NULLED the RECIEVE ID: %d \n", fromBaseCmd.id);
+			System_printf("1			Just ONENULLED the RECIEVE ID: %d \n", fromBaseCmd.id);
+			System_printf("1			Just NULLED the RECIEVE VALUE: %d \n", fromBaseCmd.value);
 			System_flush();
-			ms_delay( 10 );
+			ms_delay( 1 );
 
     		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
 
@@ -193,7 +187,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     					bytesReceived = recv(serverfd, &(fromBaseCmd.value), 1, 0);
 
     					ms_delay( 1 );
-						System_printf("1			Just got a TCP REC() VALUE: %d \n", (int)fromBaseCmd.value);
+						System_printf("1			Just got a TCP REC() VALUE: %d \n", fromBaseCmd.value);
 						System_flush();
 						ms_delay( 1 );
 

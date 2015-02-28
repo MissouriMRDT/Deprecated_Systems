@@ -73,18 +73,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 	while(1){
 
 				//read cmd from roveTCPHandler
-
 				//The following call also opens implicitly task_sleeping, roveCmdCntrlTask
-
 				//BIOS will next reawake roveCmdCntrlTask here, when roveTCPHandler Thread posts telem on this Mail.Semaphore.Pend
-
 				//This is a RoverMotherboard.cfg object::		fromBaseMsg::		1024, max msg = 10
 
 				Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
 				ms_delay( 10 );
 
-				System_printf("2			Passed Cmd PEND: 						\n");
+				System_printf("2			Just CMD PENDED MAIL!: %d \n", fromBaseMsg.value);
 				System_flush();
 
 				ms_delay( 10 );
@@ -115,8 +112,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 //TODO
 
-						signal_telem_struct.id = test_device;
-						signal_telem_struct.sig = null_signal;
+						//signal_telem_struct.id = test_device;
+						//signal_telem_struct.sig = null_signal;
 
 					break;
 
@@ -128,7 +125,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 					case motor_right:
 
-						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+						//memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
 
 						mux_1( 1 );
 						mux_2( 2 );
@@ -140,8 +137,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 //TODO
 
-						signal_telem_struct.id = test_device;
-						signal_telem_struct.sig = null_signal;
+						//signal_telem_struct.id = test_device;
+						//signal_telem_struct.sig = null_signal;
 
 					break;
 
@@ -155,14 +152,14 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				//This is a RoverMotherboard.cfg object::		signalTelemMailbox		::		 1024, max msg =10
 
-				Mailbox_post(signalTelemMailbox, &signal_telem_struct, 600);
+				//Mailbox_post(signalTelemMailbox, &signal_telem_struct, 600);
 
-				ms_delay( 10 );
+				//ms_delay( 10 );
 
-				System_printf("2			Passed Cmd POST: 						\n");
-				System_flush();
+				//System_printf("2			Passed Cmd POST: 						\n");
+				//System_flush();
 
-				ms_delay( 10 );
+				//ms_delay( 10 );
 
 	}//endwhile:		(1)
 

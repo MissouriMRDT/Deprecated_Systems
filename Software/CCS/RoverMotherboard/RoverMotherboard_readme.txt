@@ -1,9 +1,13 @@
-//TODO:
+//I killed the TELEM TASKS itself in .cfg, but left the file so we can add it back
 
-//Match up signal mailbox size, test number of messages 10 in Mailbox config 
-
-//Add protection IF clauses in Telem and Cmd Tasks
+//TODO
 
 //Add Logging Support
 
 //Add Robot Arm Structs
+
+//Add XFER mods
+
+//Add Telem Signaling
+
+

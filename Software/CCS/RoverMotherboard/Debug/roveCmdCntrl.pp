@@ -165,10 +165,9 @@ roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packa
 roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h
 roveCmdCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h
 roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h
-roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
-roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
+roveCmdCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 roveCmdCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h
 roveCmdCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h
 roveCmdCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h
@@ -387,10 +386,9 @@ roveCmdCntrl.obj: ../roveIncludes/roveTiming.h
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
+/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h: 

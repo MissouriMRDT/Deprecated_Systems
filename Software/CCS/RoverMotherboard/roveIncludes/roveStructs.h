@@ -21,7 +21,9 @@
 
 //size in bytes of longest command that can be recieved from the base station
 
-#define MAX_COMMAND_SIZE 30
+//#define MAX_COMMAND_SIZE 30
+
+#define MAX_COMMAND_SIZE 1
 
 #define MAX_TELEM_SIZE 30
 

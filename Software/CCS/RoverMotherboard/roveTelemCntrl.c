@@ -30,7 +30,7 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 	//external ref the scope for global uart handles
 
-	extern UART_Handle uart0;
+/*	extern UART_Handle uart0;
 	extern UART_Handle uart1;
 	extern UART_Handle uart2;
 	extern UART_Handle uart3;
@@ -154,5 +154,5 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 	//exit Task
 
 	Task_exit();
-
+*/
 }//endfnctn:		roveTelemContoller() Task Thread

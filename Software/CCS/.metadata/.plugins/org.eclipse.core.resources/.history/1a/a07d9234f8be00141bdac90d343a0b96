@@ -1,0 +1,13 @@
+//TODO:
+
+//Match up signal mailbox size, test number of messages 10 in Mailbox config 
+
+//Add protection IF clauses in Telem and Cmd Tasks
+
+//Add Logging Support
+
+//Add Robot Arm Structs
+
+//I killed the TASKS themselves in .cfg but left the files so we can add it back
+
+//Inlining quick and dirty right now

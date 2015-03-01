@@ -3,21 +3,13 @@ BMS_Rev2 Documentation
 
 The primary difference between Rev 1 and Rev 2 is splitting the physical board into two different boards. The high power components are isolated to one board (SSR), which reduces cost in manufacturing, and difficulty in assembly.
 
-TO DO:
-	Finalize interconnect stuff
-	Probably more stuff
-
 
 
 _SSR Documentation:
 
-The '_SSR' board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this, but DRC rules have NOT been adjusted for it yet.
+The '_SSR' board should be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. However, the current board is manufactured with 2 oz/ft^2. 
 
-TO DO:
-
-	Add connection for ground
-	Check PTC arrangement
-	Check Entire Board	
+	
 
 Electromechanical Inputs:
 	Logic Power Switch	Switches 5V regulator between Charger input (power off) and array input (power on)
@@ -73,16 +65,7 @@ Notes:
 
 
 
-_logic		 
-
-TO DO:
-	Implement new LCD
-	Add connection for ground
-	Properly layout
-	Implement interconnect
-		
-
-
+_logic		
 
 
 

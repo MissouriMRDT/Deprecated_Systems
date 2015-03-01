@@ -25,7 +25,6 @@
 
 #define MAX_TELEM_SIZE 30
 
-//telem_signal_control_struct
 
 //TODO
 
@@ -38,13 +37,6 @@ typedef enum DeviceID{
 	robot_arm = 102
 
 } DeviceID;
-
-typedef enum SignalID{
-
-	null_signal = 0,
-	error_signal= -1
-
-} SignalID;
 
 //TODO
 

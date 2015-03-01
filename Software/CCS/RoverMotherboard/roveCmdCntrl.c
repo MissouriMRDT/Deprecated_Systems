@@ -128,7 +128,7 @@ TODO-> Mailbox Init
 						ms_delay( 1 );
 
 					break;
-*/
+
 				}//endswitch::		(fromBaseMsg.id)
 
 	}//endwhile:		(1)
@@ -141,5 +141,5 @@ TODO-> Mailbox Init
 	//exit Task
 
 	Task_exit();
-
+*/
 }//endfnct:		roveCmdCntrl() Task Thread

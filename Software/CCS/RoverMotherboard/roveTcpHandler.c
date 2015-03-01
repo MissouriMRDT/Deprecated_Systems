@@ -48,6 +48,25 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     base_station_msg_struct fromBaseCmd;
 
+
+//TODO-> Move to Cmd Cntrl
+
+	extern UART_Handle uart0;
+	extern UART_Handle uart1;
+	extern UART_Handle uart2;
+	extern UART_Handle uart3;
+	extern UART_Handle uart4;
+	extern UART_Handle uart5;
+	extern UART_Handle uart6;
+	extern UART_Handle uart7;
+
+	//init and clean RoveCom uart send struct
+
+	struct motor_control_struct motor_control_struct;
+
+	motor_control_struct.value = 0;
+
+
 	//the task loops for ever
 
 	//sleeps on the Mailbox_post to roveCommandController Task
@@ -199,7 +218,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 						//roveCom::	enum motor_left::	id = 100
 
-						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
 
 						mux_1( 8 );
 						mux_2( 7 );
@@ -235,7 +254,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 						//roveCom::	enum motor_right::	id = 101
 
-						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
 
 						mux_1( 1 );
 						mux_2( 2 );

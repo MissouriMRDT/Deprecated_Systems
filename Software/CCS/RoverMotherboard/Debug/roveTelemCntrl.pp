@@ -165,7 +165,6 @@ roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/pac
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h
-roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h
@@ -384,7 +383,6 @@ roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveTimin
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Types.h: 

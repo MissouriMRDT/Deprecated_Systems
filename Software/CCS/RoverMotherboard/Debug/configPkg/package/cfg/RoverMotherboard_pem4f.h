@@ -13,12 +13,6 @@ extern const ti_sysbios_knl_Task_Handle roveTcpHandlerTask;
 #include <ti/sysbios/knl/Mailbox.h>
 extern const ti_sysbios_knl_Mailbox_Handle fromBaseStationMailbox;
 
-#include <ti/sysbios/knl/Mailbox.h>
-extern const ti_sysbios_knl_Mailbox_Handle signalTelemMailbox;
-
-#include <ti/sysbios/knl/Mailbox.h>
-extern const ti_sysbios_knl_Mailbox_Handle fromTelemCntrlMailbox;
-
 #include <ti/sysbios/knl/Task.h>
 extern const ti_sysbios_knl_Task_Handle roveCmdCntrlTask;
 

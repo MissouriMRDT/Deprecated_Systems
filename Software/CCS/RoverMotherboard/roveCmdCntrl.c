@@ -16,10 +16,10 @@
 //
 //	sends requests to roveTelemCntrl for device telemetry in roveCom protocol using using TI.Mailbox.to object
 
-#include "roveIncludes/roveCmdCntrl.h"
+#include "roveIncludes/roveWareHeaders/roveCmdCntrl.h"
 
 Void roveCmdCntrl(UArg arg0, UArg arg1){
-
+/*
 	//external ref the scope for global uart handles
 
 	extern UART_Handle uart0;
@@ -61,6 +61,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	while(1){
 
+TODO-> Mailbox Init
+
 				//read cmd from roveTCPHandler
 				//The following call also opens implicitly task_sleeping, roveCmdCntrlTask
 				//BIOS will next reawake roveCmdCntrlTask here, when roveTCPHandler Thread posts telem on this Mail.Semaphore.Pend
@@ -85,11 +87,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 					case motor_left:
 
-						//TODO
-
 						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
-
-						//motor_control_struct.value = fromBaseMsg.value;
 
 						mux_1( 8 );
 						mux_2( 7 );
@@ -100,13 +98,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 						send_struct(uart3, &motor_control_struct, motor_controller);
 
 						ms_delay( 1 );
-
 						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
 						System_flush();
-
 						ms_delay( 1 );
-
-//TODO:
 
 					break;
 
@@ -114,11 +108,11 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 					// Drive Right
 					//*************
 
-/*					//roveCom::	enum motor_right::	id = 101
+					//roveCom::	enum motor_right::	id = 101
 
 					case motor_right:
 
-						//memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
 
 						mux_1( 1 );
 						mux_2( 2 );
@@ -128,10 +122,10 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 						send_struct(uart2, &motor_control_struct, motor_controller);
 						send_struct(uart3, &motor_control_struct, motor_controller);
 
-//TODO
-
-						//signal_telem_struct.id = test_device;
-						//signal_telem_struct.sig = null_signal;
+						ms_delay( 1 );
+						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
+						System_flush();
+						ms_delay( 1 );
 
 					break;
 */

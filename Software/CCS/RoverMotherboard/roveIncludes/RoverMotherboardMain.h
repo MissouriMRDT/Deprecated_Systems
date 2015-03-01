@@ -51,7 +51,7 @@
 
 //defines target device
 
-#include "roveBoard.h"
+#include "tiHardware/Board.h"
 
 //CCS TI NDK BSD support
 

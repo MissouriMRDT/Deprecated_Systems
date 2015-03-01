@@ -14,7 +14,7 @@
 //
 //recieves base station commands and send device telemetry using tcp ip bsd sockets
 
-#include "roveIncludes/roveTcpHandler.h"
+#include "roveIncludes/roveWareHeaders/roveTcpHandler.h"
 
 //BIOS_start inits this as the roveTcpHandlerTask Thread
 
@@ -144,7 +144,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     		ms_delay( 1 );
 			System_printf("1			Just ONENULLED the RECIEVE ID: %d \n", fromBaseCmd.id);
-			System_printf("1			Just NULLED the RECIEVE VALUE: %d \n", fromBaseCmd.value);
+			System_printf("1			Just NULLED the RECIEVE VALUE: %d \n", fromBaseCmd.value[0]);
 			System_flush();
 			ms_delay( 1 );
 
@@ -182,27 +182,76 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     				case motor_left:
 
-    					//bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
-
-    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), 1, 0);
+    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
 
     					ms_delay( 1 );
-						System_printf("1			Just got a TCP REC() VALUE: %d \n", fromBaseCmd.value);
+						System_printf("1			Just got a TCP REC() motor_left VALUE: %d \n", fromBaseCmd.value[0]);
 						System_flush();
 						ms_delay( 1 );
 
-						Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+						//Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+
+//TODO-> Move this to the roveCmdCntrl
+
+						//*************
+						// Drive Left
+						//*************
+
+						//roveCom::	enum motor_left::	id = 100
+
+						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+
+						mux_1( 8 );
+						mux_2( 7 );
+						mux_3( 6 );
+
+						send_struct(uart1, &motor_control_struct, motor_controller);
+						send_struct(uart2, &motor_control_struct, motor_controller);
+						send_struct(uart3, &motor_control_struct, motor_controller);
+
+						ms_delay( 1 );
+						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
+						System_flush();
+						ms_delay( 1 );
 
     				break;
 
-    			/*	case motor_right:
+    				case motor_right:
 
-    					//bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
+    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
 
-    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), 1, 0);
+						ms_delay( 1 );
+						System_printf("1			Just got a TCP REC() motor_left VALUE: %d \n", fromBaseCmd.value[0]);
+						System_flush();
+						ms_delay( 1 );
+
+						//Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
+
+						//TODO-> Move this to the roveCmdCntrl
+
+						//*************
+						// Drive Right
+						//*************
+
+						//roveCom::	enum motor_right::	id = 101
+
+						memset(&motor_control_struct.value, &fromBaseMsg.value, sizeof(struct motor_control_struct) );
+
+						mux_1( 1 );
+						mux_2( 2 );
+						mux_3( 3 );
+
+						send_struct(uart1, &motor_control_struct, motor_controller);
+						send_struct(uart2, &motor_control_struct, motor_controller);
+						send_struct(uart3, &motor_control_struct, motor_controller);
+
+						ms_delay( 1 );
+						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
+						System_flush();
+						ms_delay( 1 );
 
     				break;
-*/
+
     			}//endswitch:		(fromBaseCmd.id)
 
     			//flag for lost connection when recieving
@@ -214,68 +263,25 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 					System_printf("Connection lost. (src = recv)\n");
 					System_flush();
 
-    		    }else{
-
-					//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
-
-					//bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
-					//bytesSent = send(serverfd,  &(fromBaseCmd.value), 1, 0);
-
-    		    	ms_delay( 1 );
-					System_printf("1			DID WE GET HERE? %d \n");
-					System_flush();
-					ms_delay( 1 );
-
-
-    		    }//endifelse:			(bytesReceived == -1)
+    		    }//endif			(bytesReceived == -1)
 
     		}//endifelse:			(bytesReceived == -1)
 
-    		//The following call also opens implicitly task_sleeping, roveTcpHandlerTask
+			//Mailbox_pend(<&TELEM>);
 
-    		//BIOS will next reawake roveTcpHandlerTask here, when roveTelemCntrl Thread posts telem on this Mail.Semaphore.Pend
-
-    		//This is a RoverMotherboard.cfg object::		fromTelemMailbox::		1024, max msg = 10
-
-    		//timeout of 36000 is 1/4 the  maxTimeout cycle which is the reference we set for ndk::		timeout.tv_sec = 336000 in roveTCPHandler
-
-			//Mailbox_pend(fromTelemCntrlMailbox, &toBaseTelem, 600);
-
-			//ms_delay( 10 );
-
-			//System_printf("1			Passed TCP PEND: 						");
-			//System_flush();
-
-			//ms_delay( 10 );
-
-			//we have now recieved a device telemetry packet from the roveTelemCntrl Thread
-
-			//switch(toBaseTelem.id){
+			//switch(<TELEM.id>){
 
 		    	//the robot arm is the one sending us telemetry
 
 		    	//case test_device:
 
-		    		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
-
-		    		//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
-
-		    		//bytesSent = send(serverfd,  &toBaseTelem,  sizeof(struct test_device_data_struct), 0);
+		     	 	 //bytesSent = send(serverfd,  &TELEM,  sizeof(struct test_device_data_struct), 0);
 
 		    	//break;
 
 	    	//}//endswitch:	(fromBaseCmd.id)
 
 		    //flag for lost connection when sending
-
-		    //if(bytesSent == -1){
-
-				//connectedFlag = NOT_CONNECTED;
-
-				//System_printf("Connection lost. (src = sent()\n");
-				//System_flush();
-
-		    //}//endif:		(bytesSent < 0)
 
     	}//endwhile(connectedFlag == CONNECTED)
 

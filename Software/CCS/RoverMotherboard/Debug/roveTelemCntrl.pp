@@ -1,8 +1,8 @@
 # FIXED
 
 roveTelemCntrl.obj: ../roveTelemCntrl.c
-roveTelemCntrl.obj: ../roveIncludes/roveTelemCntrl.h
-roveTelemCntrl.obj: ../roveIncludes/RoverMotherboardMain.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/roveTelemCntrl.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../RoverMotherboardMain.h
 roveTelemCntrl.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h
 roveTelemCntrl.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/string.h
 roveTelemCntrl.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/linkage.h
@@ -165,8 +165,6 @@ roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/pac
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h
-roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
-roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h
 roveTelemCntrl.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h
@@ -206,24 +204,24 @@ roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UART.h
 roveTelemCntrl.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h
-roveTelemCntrl.obj: ../roveIncludes/roveBoard.h
-roveTelemCntrl.obj: ../roveIncludes/EK_TM4C1294XL.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../tiHardware/Board.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../tiHardware/EK_TM4C1294XL.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h
 roveTelemCntrl.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/serrno.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/netinet/in.h
 roveTelemCntrl.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
-roveTelemCntrl.obj: ../roveIncludes/mrdtRoveWare.h
-roveTelemCntrl.obj: ../roveIncludes/roveStructs.h
-roveTelemCntrl.obj: ../roveIncludes/roveStructXfer.h
-roveTelemCntrl.obj: ../roveIncludes/roveUarts.h
-roveTelemCntrl.obj: ../roveIncludes/roveMuxes.h
-roveTelemCntrl.obj: ../roveIncludes/roveTiming.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../mrdtRoveWare.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveStructs.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveStructXfer.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveUarts.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveMuxes.h
+roveTelemCntrl.obj: ../roveIncludes/roveWareHeaders/../roveWareHeaders/roveTiming.h
 
 ../roveTelemCntrl.c: 
-../roveIncludes/roveTelemCntrl.h: 
-../roveIncludes/RoverMotherboardMain.h: 
+../roveIncludes/roveWareHeaders/roveTelemCntrl.h: 
+../roveIncludes/roveWareHeaders/../RoverMotherboardMain.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stdint.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/string.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/linkage.h: 
@@ -386,8 +384,6 @@ roveTelemCntrl.obj: ../roveIncludes/roveTiming.h
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h: 
@@ -427,17 +423,17 @@ roveTelemCntrl.obj: ../roveIncludes/roveTiming.h
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h: 
-../roveIncludes/roveBoard.h: 
-../roveIncludes/EK_TM4C1294XL.h: 
+../roveIncludes/roveWareHeaders/../tiHardware/Board.h: 
+../roveIncludes/roveWareHeaders/../tiHardware/EK_TM4C1294XL.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/serrno.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/netinet/in.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
-../roveIncludes/mrdtRoveWare.h: 
-../roveIncludes/roveStructs.h: 
-../roveIncludes/roveStructXfer.h: 
-../roveIncludes/roveUarts.h: 
-../roveIncludes/roveMuxes.h: 
-../roveIncludes/roveTiming.h: 
+../roveIncludes/roveWareHeaders/../mrdtRoveWare.h: 
+../roveIncludes/roveWareHeaders/../roveWareHeaders/roveStructs.h: 
+../roveIncludes/roveWareHeaders/../roveWareHeaders/roveStructXfer.h: 
+../roveIncludes/roveWareHeaders/../roveWareHeaders/roveUarts.h: 
+../roveIncludes/roveWareHeaders/../roveWareHeaders/roveMuxes.h: 
+../roveIncludes/roveWareHeaders/../roveWareHeaders/roveTiming.h: 

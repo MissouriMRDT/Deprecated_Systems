@@ -164,8 +164,6 @@ RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h
-RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
-RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h
 RoverMotherboardMain.obj: /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h
@@ -205,8 +203,8 @@ RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/packages/ti/drivers/UA
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h
-RoverMotherboardMain.obj: ../roveIncludes/roveBoard.h
-RoverMotherboardMain.obj: ../roveIncludes/EK_TM4C1294XL.h
+RoverMotherboardMain.obj: ../roveIncludes/tiHardware/Board.h
+RoverMotherboardMain.obj: ../roveIncludes/tiHardware/EK_TM4C1294XL.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h
 RoverMotherboardMain.obj: /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h
 RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h
@@ -378,8 +376,6 @@ RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Clock.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/IModule.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Event.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
-/opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Mailbox.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_26/packages/ti/sysbios/knl/Task.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/Error.h: 
 /opt/ti/xdctools_3_30_03_47_core/packages/xdc/runtime/System.h: 
@@ -419,8 +415,8 @@ RoverMotherboardMain.obj: /opt/ti/tirtos_tivac_2_10_01_38/products/bios_6_41_00_
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/gpio.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/inc/hw_memmap.h: 
-../roveIncludes/roveBoard.h: 
-../roveIncludes/EK_TM4C1294XL.h: 
+../roveIncludes/tiHardware/Board.h: 
+../roveIncludes/tiHardware/EK_TM4C1294XL.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/sys/socket.h: 
 /opt/ti/ccsv6/tools/compiler/arm_5.1.6/include/stddef.h: 
 /opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd/socketndk.h: 

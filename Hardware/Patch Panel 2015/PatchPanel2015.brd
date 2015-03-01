@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -147,10 +147,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="226.04" y2="0" width="0" layer="20"/>
-<wire x1="226.04" y1="0" x2="226.04" y2="119.05" width="0" layer="20"/>
-<wire x1="226.04" y1="119.05" x2="0" y2="119.05" width="0" layer="20"/>
-<wire x1="0" y1="119.05" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="0" y1="0" x2="209.55" y2="0" width="0" layer="20"/>
+<wire x1="209.55" y1="0" x2="209.55" y2="127" width="0" layer="20"/>
+<wire x1="209.55" y1="127" x2="0" y2="127" width="0" layer="20"/>
+<wire x1="0" y1="127" x2="0" y2="0" width="0" layer="20"/>
 <hole x="6.35" y="6.35" drill="5.5372"/>
 <hole x="50.8" y="6.35" drill="5.5372"/>
 <hole x="81.28" y="6.35" drill="5.5372"/>

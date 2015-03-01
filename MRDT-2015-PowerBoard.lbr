@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -429,6 +429,35 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
 </package>
+<package name="20020620-M02">
+<pad name="L1" x="-3.81" y="7.62" drill="1.6"/>
+<pad name="R1" x="3.81" y="7.62" drill="1.6"/>
+<pad name="R2" x="3.81" y="0" drill="1.6"/>
+<pad name="L2" x="-3.81" y="0" drill="1.6"/>
+<wire x1="-7.62" y1="7.62" x2="-5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="5.08" y1="10.16" x2="7.62" y2="7.62" width="0.127" layer="21"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="7.62" width="0.127" layer="21"/>
+<text x="0" y="11.43" size="1.778" layer="25" align="center">&gt;NAME</text>
+<text x="-3.81" y="3.81" size="1.778" layer="21" align="center">L</text>
+<text x="3.81" y="3.81" size="1.778" layer="21" align="center">R</text>
+</package>
+<package name="XT60_BOARD">
+<wire x1="0" y1="0" x2="0" y2="8.128" width="0.127" layer="21"/>
+<wire x1="0" y1="8.128" x2="12.954" y2="8.128" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="12.954" y2="0" width="0.127" layer="21"/>
+<wire x1="15.748" y1="5.334" x2="15.748" y2="2.794" width="0.127" layer="21"/>
+<wire x1="15.748" y1="2.794" x2="12.954" y2="0" width="0.127" layer="21"/>
+<wire x1="15.748" y1="5.334" x2="12.954" y2="8.128" width="0.127" layer="21"/>
+<pad name="POS" x="4.064" y="4.064" drill="5.08" thermals="no"/>
+<pad name="NEG" x="11.176" y="4.064" drill="5.08" thermals="no"/>
+<wire x1="-2.286" y1="2.54" x2="-2.286" y2="5.588" width="0.3048" layer="21"/>
+<wire x1="19.304" y1="4.064" x2="16.256" y2="4.064" width="0.3048" layer="21"/>
+<wire x1="-0.762" y1="4.064" x2="-3.81" y2="4.064" width="0.3048" layer="21"/>
+<text x="1.524" y="8.89" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="Q_DC/DC">
@@ -634,6 +663,17 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <text x="-10.16" y="20.32" size="1.778" layer="95" rot="MR180">&gt;NAME</text>
 <text x="-10.16" y="17.78" size="1.778" layer="95" rot="MR180">&gt;VALUE</text>
 </symbol>
+<symbol name="XT-60">
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<pin name="+" x="-7.62" y="0" length="short"/>
+<pin name="-" x="7.62" y="0" length="short" rot="R180"/>
+<text x="-5.08" y="5.08" size="1.27" layer="96" rot="MR180">&gt;NAME</text>
+<text x="-5.08" y="-5.08" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="Q_PTN78020">
@@ -797,18 +837,36 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 </devices>
 </deviceset>
 <deviceset name="H_20020618-M02*" prefix="H">
-<description>20020618-M02* header pin from FCI. Rated up to 32A</description>
+<description>High amp pluggable screw terminal from FCI. Rated up to 32A
+&lt;br&gt;&lt;br&gt;
+Horizantal variant is 20020618-M02*
+&lt;br&gt;&lt;br&gt;
+
+Vertical variant is 20020620-M02*</description>
 <gates>
 <gate name="G$1" symbol="2-PIN_HEADER" x="-2.54" y="-10.16"/>
 </gates>
 <devices>
-<device name="" package="20020618-M02">
+<device name="HORIZ" package="20020618-M02">
 <connects>
 <connect gate="G$1" pin="L" pad="L1 L2"/>
 <connect gate="G$1" pin="R" pad="R1 R2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGIKEY_PN" value="609-3951-ND"/>
+</technology>
+</technologies>
+</device>
+<device name="VERT" package="20020620-M02">
+<connects>
+<connect gate="G$1" pin="L" pad="L1 L2"/>
+<connect gate="G$1" pin="R" pad="R1 R2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGIKEY_PN" value="609-3948-ND"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -938,6 +996,22 @@ Part Numbers:&lt;Br&gt;
 <connect gate="G$1" pin="SENSE" pad="6"/>
 <connect gate="G$1" pin="TIMER" pad="2"/>
 <connect gate="G$1" pin="V+" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="XT60_BOARD_MOUNT">
+<gates>
+<gate name="G$1" symbol="XT-60" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="XT60_BOARD">
+<connects>
+<connect gate="G$1" pin="+" pad="POS"/>
+<connect gate="G$1" pin="-" pad="NEG"/>
 </connects>
 <technologies>
 <technology name=""/>

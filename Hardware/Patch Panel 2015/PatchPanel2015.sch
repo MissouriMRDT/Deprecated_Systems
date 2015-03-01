@@ -241,6 +241,13 @@
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
+<symbol name="V+">
+<wire x1="0.889" y1="-1.27" x2="0" y2="0.127" width="0.254" layer="94"/>
+<wire x1="0" y1="0.127" x2="-0.889" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-0.889" y1="-1.27" x2="0.889" y2="-1.27" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="V+" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="+5V" prefix="P+">
@@ -273,6 +280,19 @@
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="V+" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="V+" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -705,6 +725,90 @@ Vertical variant is 20020620-M02*</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="molex-power">
+<packages>
+<package name="0.93&quot;">
+<pad name="3" x="4.191" y="4.191" drill="1.6"/>
+<pad name="2" x="9.2202" y="4.191" drill="1.6"/>
+<pad name="1" x="14.2494" y="4.191" drill="1.6"/>
+<hole x="18.2626" y="4.191" drill="2.54"/>
+<wire x1="0" y1="0" x2="0" y2="8.382" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="19.558" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="8.382" x2="19.558" y2="8.382" width="0.127" layer="21"/>
+<wire x1="19.558" y1="0" x2="19.558" y2="8.382" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="3-PIN">
+<pin name="P$1" x="2.54" y="-10.16" length="middle" rot="R90"/>
+<pin name="P$2" x="5.08" y="-10.16" length="middle" rot="R90"/>
+<pin name="P$3" x="7.62" y="-10.16" length="middle" rot="R90"/>
+<wire x1="0" y1="-5.08" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="3PIN">
+<gates>
+<gate name="G$1" symbol="3-PIN" x="0" y="5.08"/>
+</gates>
+<devices>
+<device name="" package="0.93&quot;">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="MLX">
+<packages>
+<package name="42002-2">
+<pad name="P$1" x="0" y="0" drill="1.778" shape="square"/>
+<pad name="P$2" x="6.35" y="0" drill="1.778" shape="square"/>
+<wire x1="-5.715" y1="-5.08" x2="12.065" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="-5.08" x2="12.065" y2="5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="5.08" x2="-5.715" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="5.08" x2="-5.715" y2="-5.08" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="2PIN">
+<pin name="P$1" x="0" y="-5.08" length="middle" rot="R90"/>
+<pin name="P$2" x="5.08" y="-5.08" length="middle" rot="R90"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MLX-2">
+<gates>
+<gate name="G$1" symbol="2PIN" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="42002-2">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -803,6 +907,31 @@ Vertical variant is 20020620-M02*</description>
 <part name="EXT_MOTOR_5" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
 <part name="EXT_MOTOR_6" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
 <part name="P+21" library="supply1" deviceset="+12V" device=""/>
+<part name="12V_HIGH_POWER" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="U$7" library="molex-power" deviceset="3PIN" device=""/>
+<part name="P+22" library="supply1" deviceset="V+" device=""/>
+<part name="P+23" library="supply1" deviceset="V+" device=""/>
+<part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="U$8" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$1" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$2" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$3" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$5" library="MLX" deviceset="MLX-2" device=""/>
+<part name="U$6" library="MLX" deviceset="MLX-2" device=""/>
+<part name="P+24" library="supply1" deviceset="V+" device=""/>
+<part name="P+25" library="supply1" deviceset="V+" device=""/>
+<part name="P+26" library="supply1" deviceset="V+" device=""/>
+<part name="P+27" library="supply1" deviceset="V+" device=""/>
+<part name="P+28" library="supply1" deviceset="V+" device=""/>
+<part name="P+29" library="supply1" deviceset="V+" device=""/>
+<part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="GND25" library="supply1" deviceset="GND" device=""/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
+<part name="GND27" library="supply1" deviceset="GND" device=""/>
+<part name="GND28" library="supply1" deviceset="GND" device=""/>
+<part name="GND29" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -899,6 +1028,31 @@ Vertical variant is 20020620-M02*</description>
 <instance part="EXT_MOTOR_5" gate="G$1" x="281.94" y="220.98"/>
 <instance part="EXT_MOTOR_6" gate="G$1" x="312.42" y="220.98"/>
 <instance part="P+21" gate="1" x="-35.56" y="185.42"/>
+<instance part="12V_HIGH_POWER" gate="G$1" x="182.88" y="193.04"/>
+<instance part="U$7" gate="G$1" x="93.98" y="208.28" rot="R90"/>
+<instance part="P+22" gate="1" x="170.18" y="208.28"/>
+<instance part="P+23" gate="1" x="111.76" y="220.98"/>
+<instance part="GND21" gate="1" x="111.76" y="208.28"/>
+<instance part="GND22" gate="1" x="198.12" y="190.5"/>
+<instance part="GND23" gate="1" x="134.62" y="187.96"/>
+<instance part="U$8" gate="G$1" x="185.42" y="233.68" rot="R180"/>
+<instance part="U$1" gate="G$1" x="185.42" y="254" rot="R180"/>
+<instance part="U$2" gate="G$1" x="185.42" y="271.78" rot="R180"/>
+<instance part="U$3" gate="G$1" x="185.42" y="292.1" rot="R180"/>
+<instance part="U$5" gate="G$1" x="185.42" y="309.88" rot="R180"/>
+<instance part="U$6" gate="G$1" x="185.42" y="327.66" rot="R180"/>
+<instance part="P+24" gate="1" x="172.72" y="246.38"/>
+<instance part="P+25" gate="1" x="172.72" y="266.7"/>
+<instance part="P+26" gate="1" x="172.72" y="284.48"/>
+<instance part="P+27" gate="1" x="172.72" y="304.8"/>
+<instance part="P+28" gate="1" x="172.72" y="322.58"/>
+<instance part="P+29" gate="1" x="172.72" y="340.36"/>
+<instance part="GND24" gate="1" x="193.04" y="231.14"/>
+<instance part="GND25" gate="1" x="193.04" y="251.46"/>
+<instance part="GND26" gate="1" x="193.04" y="269.24"/>
+<instance part="GND27" gate="1" x="193.04" y="289.56"/>
+<instance part="GND28" gate="1" x="193.04" y="307.34"/>
+<instance part="GND29" gate="1" x="193.04" y="325.12"/>
 </instances>
 <busses>
 </busses>
@@ -1340,6 +1494,60 @@ Vertical variant is 20020620-M02*</description>
 <pinref part="RS-485_OUT3" gate="G$1" pin="8-DC-"/>
 <pinref part="RS-485_OUT3" gate="G$1" pin="7-DC--"/>
 <pinref part="GND20" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="P$2"/>
+<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="104.14" y1="213.36" x2="111.76" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="213.36" x2="111.76" y2="210.82" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="12V_HIGH_POWER" gate="G$1" pin="R"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="193.04" y1="195.58" x2="198.12" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="195.58" x2="198.12" y2="193.04" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="ARM_POWER" gate="G$1" pin="R"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+<wire x1="132.08" y1="193.04" x2="134.62" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="193.04" x2="134.62" y2="190.5" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="P$1"/>
+<pinref part="GND24" gate="1" pin="GND"/>
+<wire x1="193.04" y1="233.68" x2="193.04" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="238.76" x2="185.42" y2="238.76" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="P$1"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+<wire x1="193.04" y1="271.78" x2="193.04" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="276.86" x2="185.42" y2="276.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="P$1"/>
+<pinref part="GND27" gate="1" pin="GND"/>
+<wire x1="193.04" y1="292.1" x2="193.04" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="297.18" x2="185.42" y2="297.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="P$1"/>
+<pinref part="GND28" gate="1" pin="GND"/>
+<wire x1="193.04" y1="309.88" x2="193.04" y2="314.96" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="314.96" x2="185.42" y2="314.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="P$1"/>
+<pinref part="GND29" gate="1" pin="GND"/>
+<wire x1="193.04" y1="327.66" x2="193.04" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="332.74" x2="185.42" y2="332.74" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="P$1"/>
+<pinref part="GND25" gate="1" pin="GND"/>
+<wire x1="193.04" y1="254" x2="193.04" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="259.08" x2="185.42" y2="259.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -2568,6 +2776,65 @@ Vertical variant is 20020620-M02*</description>
 <wire x1="325.12" y1="208.28" x2="325.12" y2="220.98" width="0.1524" layer="91"/>
 <pinref part="EXT_MOTOR_6" gate="G$1" pin="-"/>
 <wire x1="325.12" y1="220.98" x2="320.04" y2="220.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<pinref part="ARM_POWER" gate="G$1" pin="L"/>
+<wire x1="111.76" y1="193.04" x2="106.68" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="193.04" x2="106.68" y2="210.82" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="P$1"/>
+<wire x1="106.68" y1="210.82" x2="104.14" y2="210.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="V+" class="0">
+<segment>
+<pinref part="P+23" gate="1" pin="V+"/>
+<wire x1="111.76" y1="218.44" x2="111.76" y2="215.9" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="P$3"/>
+<wire x1="111.76" y1="215.9" x2="104.14" y2="215.9" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+22" gate="1" pin="V+"/>
+<wire x1="170.18" y1="205.74" x2="170.18" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="12V_HIGH_POWER" gate="G$1" pin="L"/>
+<wire x1="170.18" y1="195.58" x2="172.72" y2="195.58" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="P$2"/>
+<pinref part="P+24" gate="1" pin="V+"/>
+<wire x1="172.72" y1="243.84" x2="172.72" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="238.76" x2="180.34" y2="238.76" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="P$2"/>
+<pinref part="P+25" gate="1" pin="V+"/>
+<wire x1="172.72" y1="264.16" x2="172.72" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="259.08" x2="180.34" y2="259.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="P$2"/>
+<pinref part="P+26" gate="1" pin="V+"/>
+<wire x1="172.72" y1="281.94" x2="172.72" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="276.86" x2="180.34" y2="276.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="P$2"/>
+<pinref part="P+27" gate="1" pin="V+"/>
+<wire x1="172.72" y1="302.26" x2="172.72" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="297.18" x2="180.34" y2="297.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="P$2"/>
+<pinref part="P+28" gate="1" pin="V+"/>
+<wire x1="172.72" y1="320.04" x2="172.72" y2="314.96" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="314.96" x2="180.34" y2="314.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="P$2"/>
+<pinref part="P+29" gate="1" pin="V+"/>
+<wire x1="172.72" y1="337.82" x2="172.72" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="332.74" x2="180.34" y2="332.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

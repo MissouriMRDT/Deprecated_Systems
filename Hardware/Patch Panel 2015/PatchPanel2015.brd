@@ -297,6 +297,32 @@
 </package>
 </packages>
 </library>
+<library name="molex-power">
+<packages>
+<package name="0.93&quot;">
+<pad name="3" x="4.191" y="4.191" drill="1.6"/>
+<pad name="2" x="9.2202" y="4.191" drill="1.6"/>
+<pad name="1" x="14.2494" y="4.191" drill="1.6"/>
+<hole x="18.2626" y="4.191" drill="2.54"/>
+<wire x1="0" y1="0" x2="0" y2="8.382" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="19.558" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="8.382" x2="19.558" y2="8.382" width="0.127" layer="21"/>
+<wire x1="19.558" y1="0" x2="19.558" y2="8.382" width="0.127" layer="21"/>
+</package>
+</packages>
+</library>
+<library name="MLX">
+<packages>
+<package name="42002-2">
+<pad name="P$1" x="0" y="0" drill="1.778" shape="square"/>
+<pad name="P$2" x="6.35" y="0" drill="1.778" shape="square"/>
+<wire x1="-5.715" y1="-5.08" x2="12.065" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="-5.08" x2="12.065" y2="5.08" width="0.127" layer="21"/>
+<wire x1="12.065" y1="5.08" x2="-5.715" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="5.08" x2="-5.715" y2="-5.08" width="0.127" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -547,6 +573,16 @@ Please make sure your boards conform to these design rules.</description>
 <element name="EXT_MOTOR_4" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="-132.08" y="-396.24"/>
 <element name="EXT_MOTOR_5" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="-132.08" y="-408.94"/>
 <element name="EXT_MOTOR_6" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="-132.08" y="-421.64"/>
+<element name="12V_HIGH_POWER" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="-144.272" y="-419.862">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="-144.272" y="-419.862" size="1.778" layer="27" display="off"/>
+</element>
+<element name="U$7" library="molex-power" package="0.93&quot;" value="3PIN" x="-155.448" y="-431.292"/>
+<element name="U$8" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-437.642"/>
+<element name="U$1" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-448.056"/>
+<element name="U$2" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-458.47"/>
+<element name="U$3" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-468.884"/>
+<element name="U$5" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-479.298"/>
+<element name="U$6" library="MLX" package="42002-2" value="MLX-2" x="-150.622" y="-489.712"/>
 </elements>
 <signals>
 <signal name="N$1">
@@ -734,7 +770,16 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="RS-485_OUT17" pad="7"/>
 <contactref element="RS-485_OUT9" pad="8"/>
 <contactref element="RS-485_OUT9" pad="7"/>
-<wire x1="184.785" y1="6.775" x2="183.515" y2="4.235" width="0" layer="19" extent="1-16"/>
+<contactref element="U$7" pad="2"/>
+<contactref element="12V_HIGH_POWER" pad="R1"/>
+<contactref element="12V_HIGH_POWER" pad="R2"/>
+<contactref element="ARM_POWER" pad="R"/>
+<contactref element="U$8" pad="P$1"/>
+<contactref element="U$2" pad="P$1"/>
+<contactref element="U$3" pad="P$1"/>
+<contactref element="U$5" pad="P$1"/>
+<contactref element="U$6" pad="P$1"/>
+<contactref element="U$1" pad="P$1"/>
 <wire x1="-15.875" y1="-225.215" x2="-17.145" y2="-227.755" width="0" layer="19" extent="1-1"/>
 <wire x1="-17.145" y1="-209.975" x2="-15.875" y2="-225.215" width="0" layer="19" extent="1-1"/>
 <wire x1="-15.875" y1="-207.435" x2="-17.145" y2="-209.975" width="0" layer="19" extent="1-1"/>
@@ -769,6 +814,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="-15.875" y1="-331.895" x2="-17.145" y2="-316.655" width="0" layer="19" extent="1-1"/>
 <wire x1="-17.145" y1="-334.435" x2="-15.875" y2="-331.895" width="0" layer="19" extent="1-1"/>
 <wire x1="-12.18" y1="-31.75" x2="-15.875" y2="-47.415" width="0" layer="19" extent="1-1"/>
+<wire x1="-21.07" y1="-31.75" x2="-12.18" y2="-31.75" width="0" layer="19" extent="1-1"/>
 <wire x1="-3.29" y1="-31.75" x2="-12.18" y2="-31.75" width="0" layer="19" extent="1-1"/>
 <wire x1="13.335" y1="-22.015" x2="-3.29" y2="-31.75" width="0" layer="19" extent="1-1"/>
 <wire x1="14.605" y1="-19.475" x2="13.335" y2="-22.015" width="0" layer="19" extent="1-1"/>
@@ -797,6 +843,16 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="183.515" y1="31.325" x2="154.305" y2="28.785" width="0" layer="19" extent="1-1"/>
 <wire x1="184.785" y1="28.785" x2="183.515" y2="31.325" width="0" layer="19" extent="1-1"/>
 <wire x1="184.785" y1="6.775" x2="184.785" y2="28.785" width="0" layer="19" extent="1-1"/>
+<wire x1="183.515" y1="4.235" x2="184.785" y2="6.775" width="0" layer="19" extent="1-1"/>
+<wire x1="-140.462" y1="-412.242" x2="-17.145" y2="-334.435" width="0" layer="19" extent="1-1"/>
+<wire x1="-140.462" y1="-419.862" x2="-140.462" y2="-412.242" width="0" layer="19" extent="1-1"/>
+<wire x1="-146.2278" y1="-427.101" x2="-140.462" y2="-419.862" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-437.642" x2="-146.2278" y2="-427.101" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-448.056" x2="-150.622" y2="-437.642" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-458.47" x2="-150.622" y2="-448.056" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-468.884" x2="-150.622" y2="-458.47" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-479.298" x2="-150.622" y2="-468.884" width="0" layer="19" extent="1-1"/>
+<wire x1="-150.622" y1="-489.712" x2="-150.622" y2="-479.298" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+12V">
 <contactref element="12V_CRITICAL" pad="L"/>
@@ -1371,6 +1427,30 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="EXT_MOTOR_6" pad="NEG"/>
 <wire x1="-123.19" y1="-336.55" x2="-123.19" y2="-344.17" width="0" layer="19" extent="1-1"/>
 <wire x1="-120.904" y1="-417.576" x2="-123.19" y2="-344.17" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$25">
+<contactref element="ARM_POWER" pad="L"/>
+<contactref element="U$7" pad="1"/>
+<wire x1="-24.65" y1="-31.75" x2="-141.1986" y2="-427.101" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="V+">
+<contactref element="U$7" pad="3"/>
+<contactref element="12V_HIGH_POWER" pad="L2"/>
+<contactref element="12V_HIGH_POWER" pad="L1"/>
+<contactref element="U$8" pad="P$2"/>
+<contactref element="U$1" pad="P$2"/>
+<contactref element="U$2" pad="P$2"/>
+<contactref element="U$3" pad="P$2"/>
+<contactref element="U$5" pad="P$2"/>
+<contactref element="U$6" pad="P$2"/>
+<wire x1="-144.272" y1="-479.298" x2="-144.272" y2="-489.712" width="0" layer="19" extent="1-1"/>
+<wire x1="-144.272" y1="-468.884" x2="-144.272" y2="-479.298" width="0" layer="19" extent="1-1"/>
+<wire x1="-144.272" y1="-458.47" x2="-144.272" y2="-468.884" width="0" layer="19" extent="1-1"/>
+<wire x1="-144.272" y1="-448.056" x2="-144.272" y2="-458.47" width="0" layer="19" extent="1-1"/>
+<wire x1="-144.272" y1="-437.642" x2="-144.272" y2="-448.056" width="0" layer="19" extent="1-1"/>
+<wire x1="-151.257" y1="-427.101" x2="-144.272" y2="-437.642" width="0" layer="19" extent="1-1"/>
+<wire x1="-148.082" y1="-419.862" x2="-151.257" y2="-427.101" width="0" layer="19" extent="1-1"/>
+<wire x1="-148.082" y1="-412.242" x2="-148.082" y2="-419.862" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

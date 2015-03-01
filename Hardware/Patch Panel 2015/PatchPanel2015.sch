@@ -284,39 +284,6 @@
 </deviceset>
 </devicesets>
 </library>
-<library name="supply2">
-<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
-GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
-Please keep in mind, that these devices are necessary for the
-automatic wiring of the supply signals.&lt;p&gt;
-The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
-In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="VEE">
-<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
-<text x="-1.905" y="3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VEE" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="VEE" prefix="SUPPLY">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="VEE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="MRDT-2015-PowerBoard">
 <packages>
 <package name="691321100002">
@@ -341,6 +308,50 @@ In this library the device names are the same as the pin names of the symbols, t
 <text x="1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">R</text>
 <text x="-1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">L</text>
 </package>
+<package name="20020618-M02">
+<pad name="L1" x="-3.81" y="3.81" drill="1.6"/>
+<pad name="R1" x="3.81" y="3.81" drill="1.6"/>
+<pad name="R2" x="3.81" y="-3.81" drill="1.6"/>
+<pad name="L2" x="-3.81" y="-3.81" drill="1.6"/>
+<wire x1="-7.62" y1="6.35" x2="7.62" y2="6.35" width="0.127" layer="21"/>
+<wire x1="7.62" y1="6.35" x2="7.62" y2="-22.86" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-22.86" x2="-7.62" y2="-22.86" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="-22.86" x2="-7.62" y2="6.35" width="0.127" layer="21"/>
+<rectangle x1="-7.62" y1="-22.86" x2="7.62" y2="6.35" layer="39"/>
+<text x="0" y="7.62" size="1.778" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="-17.78" size="1.27" layer="27" rot="R90" align="center-left">&gt;VALUE</text>
+<text x="-3.81" y="0" size="1.778" layer="21" align="center">L</text>
+<text x="3.81" y="0" size="1.778" layer="21" align="center">R</text>
+</package>
+<package name="20020620-M02">
+<pad name="L1" x="-3.81" y="7.62" drill="1.6"/>
+<pad name="R1" x="3.81" y="7.62" drill="1.6"/>
+<pad name="R2" x="3.81" y="0" drill="1.6"/>
+<pad name="L2" x="-3.81" y="0" drill="1.6"/>
+<wire x1="-7.62" y1="7.62" x2="-5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="10.16" x2="5.08" y2="10.16" width="0.127" layer="21"/>
+<wire x1="5.08" y1="10.16" x2="7.62" y2="7.62" width="0.127" layer="21"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="7.62" width="0.127" layer="21"/>
+<text x="0" y="11.43" size="1.778" layer="25" align="center">&gt;NAME</text>
+<text x="-3.81" y="3.81" size="1.778" layer="21" align="center">L</text>
+<text x="3.81" y="3.81" size="1.778" layer="21" align="center">R</text>
+</package>
+<package name="XT60_BOARD">
+<wire x1="0" y1="0" x2="0" y2="8.128" width="0.127" layer="21"/>
+<wire x1="0" y1="8.128" x2="12.954" y2="8.128" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="12.954" y2="0" width="0.127" layer="21"/>
+<wire x1="15.748" y1="5.334" x2="15.748" y2="2.794" width="0.127" layer="21"/>
+<wire x1="15.748" y1="2.794" x2="12.954" y2="0" width="0.127" layer="21"/>
+<wire x1="15.748" y1="5.334" x2="12.954" y2="8.128" width="0.127" layer="21"/>
+<pad name="POS" x="4.064" y="4.064" drill="5.08" thermals="no"/>
+<pad name="NEG" x="11.176" y="4.064" drill="5.08" thermals="no"/>
+<wire x1="-2.286" y1="2.54" x2="-2.286" y2="5.588" width="0.3048" layer="21"/>
+<wire x1="19.304" y1="4.064" x2="16.256" y2="4.064" width="0.3048" layer="21"/>
+<wire x1="-0.762" y1="4.064" x2="-3.81" y2="4.064" width="0.3048" layer="21"/>
+<text x="1.524" y="8.89" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="2-PIN_HEADER">
@@ -353,6 +364,17 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="5.08" y1="-7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
 <text x="0" y="-10.16" size="1.778" layer="96" rot="R180" align="top-center">&gt;VALUE</text>
 <text x="0" y="7.62" size="1.778" layer="95" rot="R180" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="XT-60">
+<wire x1="-5.08" y1="2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<pin name="+" x="-7.62" y="0" visible="pin" length="short"/>
+<pin name="-" x="7.62" y="0" visible="pin" length="short" rot="R180"/>
+<text x="-5.08" y="5.08" size="1.27" layer="96" rot="MR180">&gt;NAME</text>
+<text x="-5.08" y="-5.08" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -388,6 +410,57 @@ Part Numbers:&lt;Br&gt;
 <technology name="">
 <attribute name="DIGIKEY_PN" value="732-2769-ND"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="H_20020618-M02*" prefix="H">
+<description>High amp pluggable screw terminal from FCI. Rated up to 32A
+&lt;br&gt;&lt;br&gt;
+Horizantal variant is 20020618-M02*
+&lt;br&gt;&lt;br&gt;
+
+Vertical variant is 20020620-M02*</description>
+<gates>
+<gate name="G$1" symbol="2-PIN_HEADER" x="-2.54" y="-10.16"/>
+</gates>
+<devices>
+<device name="HORIZ" package="20020618-M02">
+<connects>
+<connect gate="G$1" pin="L" pad="L1 L2"/>
+<connect gate="G$1" pin="R" pad="R1 R2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGIKEY_PN" value="609-3951-ND"/>
+</technology>
+</technologies>
+</device>
+<device name="VERT" package="20020620-M02">
+<connects>
+<connect gate="G$1" pin="L" pad="L1 L2"/>
+<connect gate="G$1" pin="R" pad="R1 R2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGIKEY_PN" value="609-3948-ND"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="XT60_BOARD_MOUNT">
+<gates>
+<gate name="G$1" symbol="XT-60" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="XT60_BOARD">
+<connects>
+<connect gate="G$1" pin="+" pad="POS"/>
+<connect gate="G$1" pin="-" pad="NEG"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -660,7 +733,6 @@ Part Numbers:&lt;Br&gt;
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="ETH_OUT7" library="PCB0M1" deviceset="RJ45" device=""/>
 <part name="ETH_IN7" library="PCB0M1" deviceset="RJ45" device=""/>
-<part name="SUPPLY1" library="supply2" deviceset="VEE" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="P+15" library="supply1" deviceset="+5V" device=""/>
 <part name="12V_CRITICAL" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT"/>
@@ -718,6 +790,19 @@ Part Numbers:&lt;Br&gt;
 <part name="P+20" library="supply1" deviceset="+5V" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="INT_MOTOR_1" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="INT_MOTOR_2" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="INT_MOTOR_3" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="INT_MOTOR_4" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="INT_MOTOR_5" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="INT_MOTOR_6" library="MRDT-2015-PowerBoard" deviceset="H_20020618-M02*" device="VERT"/>
+<part name="EXT_MOTOR_1" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="EXT_MOTOR_2" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="EXT_MOTOR_3" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="EXT_MOTOR_4" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="EXT_MOTOR_5" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="EXT_MOTOR_6" library="MRDT-2015-PowerBoard" deviceset="XT60_BOARD_MOUNT" device=""/>
+<part name="P+21" library="supply1" deviceset="+12V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -744,7 +829,6 @@ Part Numbers:&lt;Br&gt;
 <instance part="GND3" gate="1" x="78.74" y="187.96"/>
 <instance part="ETH_OUT7" gate="G$1" x="-17.78" y="154.94"/>
 <instance part="ETH_IN7" gate="G$1" x="-53.34" y="154.94" rot="MR0"/>
-<instance part="SUPPLY1" gate="G$1" x="-35.56" y="185.42"/>
 <instance part="GND9" gate="1" x="-30.48" y="-73.66"/>
 <instance part="P+15" gate="1" x="-40.64" y="134.62"/>
 <instance part="12V_CRITICAL" gate="G$1" x="17.78" y="190.5"/>
@@ -802,6 +886,19 @@ Part Numbers:&lt;Br&gt;
 <instance part="P+20" gate="1" x="127" y="58.42"/>
 <instance part="GND19" gate="1" x="127" y="78.74"/>
 <instance part="GND20" gate="1" x="127" y="43.18"/>
+<instance part="INT_MOTOR_1" gate="G$1" x="251.46" y="264.16"/>
+<instance part="INT_MOTOR_2" gate="G$1" x="281.94" y="264.16"/>
+<instance part="INT_MOTOR_3" gate="G$1" x="312.42" y="264.16"/>
+<instance part="INT_MOTOR_4" gate="G$1" x="251.46" y="205.74"/>
+<instance part="INT_MOTOR_5" gate="G$1" x="281.94" y="205.74"/>
+<instance part="INT_MOTOR_6" gate="G$1" x="312.42" y="205.74"/>
+<instance part="EXT_MOTOR_1" gate="G$1" x="251.46" y="279.4"/>
+<instance part="EXT_MOTOR_2" gate="G$1" x="281.94" y="279.4"/>
+<instance part="EXT_MOTOR_3" gate="G$1" x="312.42" y="279.4"/>
+<instance part="EXT_MOTOR_4" gate="G$1" x="251.46" y="220.98"/>
+<instance part="EXT_MOTOR_5" gate="G$1" x="281.94" y="220.98"/>
+<instance part="EXT_MOTOR_6" gate="G$1" x="312.42" y="220.98"/>
+<instance part="P+21" gate="1" x="-35.56" y="185.42"/>
 </instances>
 <busses>
 </busses>
@@ -1252,6 +1349,21 @@ Part Numbers:&lt;Br&gt;
 <wire x1="5.08" y1="195.58" x2="5.08" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="193.04" x2="7.62" y2="193.04" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="ETH_OUT7" gate="G$1" pin="4-DC+"/>
+<pinref part="ETH_IN7" gate="G$1" pin="4-DC+"/>
+<wire x1="-22.86" y1="165.1" x2="-35.56" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="165.1" x2="-48.26" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="182.88" x2="-35.56" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="ETH_IN7" gate="G$1" pin="5-DC++"/>
+<pinref part="ETH_OUT7" gate="G$1" pin="5-DC++"/>
+<wire x1="-48.26" y1="162.56" x2="-35.56" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="162.56" x2="-22.86" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="165.1" x2="-35.56" y2="162.56" width="0.1524" layer="91"/>
+<junction x="-35.56" y="162.56"/>
+<junction x="-35.56" y="165.1"/>
+<pinref part="P+21" gate="1" pin="+12V"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -1532,23 +1644,6 @@ Part Numbers:&lt;Br&gt;
 <pinref part="ETH_IN7" gate="G$1" pin="6-RECEIVE-"/>
 <pinref part="ETH_OUT7" gate="G$1" pin="6-RECEIVE-"/>
 <wire x1="-48.26" y1="160.02" x2="-22.86" y2="160.02" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VEE" class="0">
-<segment>
-<pinref part="ETH_OUT7" gate="G$1" pin="4-DC+"/>
-<pinref part="ETH_IN7" gate="G$1" pin="4-DC+"/>
-<wire x1="-22.86" y1="165.1" x2="-35.56" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="165.1" x2="-48.26" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="182.88" x2="-35.56" y2="165.1" width="0.1524" layer="91"/>
-<pinref part="ETH_IN7" gate="G$1" pin="5-DC++"/>
-<pinref part="ETH_OUT7" gate="G$1" pin="5-DC++"/>
-<wire x1="-48.26" y1="162.56" x2="-35.56" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="162.56" x2="-22.86" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="165.1" x2="-35.56" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="SUPPLY1" gate="G$1" pin="VEE"/>
-<junction x="-35.56" y="162.56"/>
-<junction x="-35.56" y="165.1"/>
 </segment>
 </net>
 <net name="1_TX+" class="0">
@@ -2365,6 +2460,114 @@ Part Numbers:&lt;Br&gt;
 <pinref part="RS-485_OUT17" gate="G$1" pin="3+RECEIVE+"/>
 <wire x1="231.14" y1="129.54" x2="243.84" y2="129.54" width="0.1524" layer="91"/>
 <label x="236.22" y="129.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="EXT_MOTOR_1" gate="G$1" pin="+"/>
+<wire x1="243.84" y1="279.4" x2="238.76" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="279.4" x2="238.76" y2="266.7" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_1" gate="G$1" pin="L"/>
+<wire x1="238.76" y1="266.7" x2="241.3" y2="266.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="INT_MOTOR_1" gate="G$1" pin="R"/>
+<wire x1="261.62" y1="266.7" x2="264.16" y2="266.7" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="266.7" x2="264.16" y2="279.4" width="0.1524" layer="91"/>
+<pinref part="EXT_MOTOR_1" gate="G$1" pin="-"/>
+<wire x1="264.16" y1="279.4" x2="259.08" y2="279.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="EXT_MOTOR_2" gate="G$1" pin="+"/>
+<wire x1="274.32" y1="279.4" x2="269.24" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="269.24" y1="279.4" x2="269.24" y2="266.7" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_2" gate="G$1" pin="L"/>
+<wire x1="269.24" y1="266.7" x2="271.78" y2="266.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="INT_MOTOR_2" gate="G$1" pin="R"/>
+<wire x1="292.1" y1="266.7" x2="294.64" y2="266.7" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="266.7" x2="294.64" y2="279.4" width="0.1524" layer="91"/>
+<pinref part="EXT_MOTOR_2" gate="G$1" pin="-"/>
+<wire x1="294.64" y1="279.4" x2="289.56" y2="279.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="EXT_MOTOR_3" gate="G$1" pin="+"/>
+<wire x1="304.8" y1="279.4" x2="299.72" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="279.4" x2="299.72" y2="266.7" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_3" gate="G$1" pin="L"/>
+<wire x1="299.72" y1="266.7" x2="302.26" y2="266.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="EXT_MOTOR_3" gate="G$1" pin="-"/>
+<wire x1="320.04" y1="279.4" x2="325.12" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="279.4" x2="325.12" y2="266.7" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_3" gate="G$1" pin="R"/>
+<wire x1="325.12" y1="266.7" x2="322.58" y2="266.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="EXT_MOTOR_4" gate="G$1" pin="+"/>
+<wire x1="243.84" y1="220.98" x2="238.76" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="220.98" x2="238.76" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_4" gate="G$1" pin="L"/>
+<wire x1="238.76" y1="208.28" x2="241.3" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<pinref part="EXT_MOTOR_4" gate="G$1" pin="-"/>
+<wire x1="259.08" y1="220.98" x2="264.16" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="220.98" x2="264.16" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_4" gate="G$1" pin="R"/>
+<wire x1="264.16" y1="208.28" x2="261.62" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$20" class="0">
+<segment>
+<pinref part="EXT_MOTOR_5" gate="G$1" pin="+"/>
+<wire x1="274.32" y1="220.98" x2="269.24" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="269.24" y1="220.98" x2="269.24" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_5" gate="G$1" pin="L"/>
+<wire x1="269.24" y1="208.28" x2="271.78" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="EXT_MOTOR_5" gate="G$1" pin="-"/>
+<wire x1="289.56" y1="220.98" x2="294.64" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="220.98" x2="294.64" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_5" gate="G$1" pin="R"/>
+<wire x1="294.64" y1="208.28" x2="292.1" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="EXT_MOTOR_6" gate="G$1" pin="+"/>
+<wire x1="304.8" y1="220.98" x2="299.72" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="220.98" x2="299.72" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="INT_MOTOR_6" gate="G$1" pin="L"/>
+<wire x1="299.72" y1="208.28" x2="302.26" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$24" class="0">
+<segment>
+<pinref part="INT_MOTOR_6" gate="G$1" pin="R"/>
+<wire x1="322.58" y1="208.28" x2="325.12" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="208.28" x2="325.12" y2="220.98" width="0.1524" layer="91"/>
+<pinref part="EXT_MOTOR_6" gate="G$1" pin="-"/>
+<wire x1="325.12" y1="220.98" x2="320.04" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -1,6 +1,7 @@
 BMS_Rev2 Documentation
 
 
+
 The primary difference between Rev 1 and Rev 2 is splitting the physical board into two different boards. The high power components are isolated to one board (SSR), which reduces cost in manufacturing, and difficulty in assembly.
 
 

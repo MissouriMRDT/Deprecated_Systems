@@ -40,9 +40,13 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 	//a copy is placed in the mailbox when a message is recieved.
 
-	//TI ndk defined timeout
+	//TI ndk defined buffers that we must pass to setsocopt to hold timeout and blocking options
 
 	struct 			 timeval timeout;
+	int              optval;
+	int 			 getOptval;
+	int 			 optResult;
+
 
     //init RoveNet recieve struct
 
@@ -62,10 +66,11 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 	//init and clean RoveCom uart send struct
 
-	struct motor_control_struct motor_control_struct;
+	struct motor_control_struct* motor_control_struct;
 
-	motor_control_struct.value = 0;
+	//motor_control_struct.value = 0;
 
+//ENDTODO
 
 	//the task loops for ever
 
@@ -73,14 +78,10 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 	//only exits from BIOS_start, on error state
 
-    ms_delay( 1 );
-
     System_printf("roveTCPHandler 		init! \n");
     System_printf("\n");
     System_printf("\n");
     System_flush();
-
-    ms_delay( 1 );
 
     while(1){
 
@@ -92,19 +93,15 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 		if(serverfd == -1){
 
-			System_printf("Failed Socket() create roveClientfd (src = socket()) (%d)\n",fdError() );
+			System_printf("Failed Socket() create serverfd (src = socket()) (%d)\n",fdError() );
 			System_flush();
 
-    	}//endif:	(roveServerlocalfd == -1)
+    	}//endif:	(serverfd == -1)
 
-		ms_delay( 1 );
-
+		System_printf("\n");
 		System_printf("TCPHandler:			socket init success! \n");
 		System_printf("\n");
-		System_printf("\n");
 		System_flush();
-
-		ms_delay( 1 );
 
 		//init bsd socket config struct
 
@@ -117,24 +114,42 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 		inet_pton(AF_INET, RED_IP, &server_addr.sin_addr);
 
+//TODO timeout constant
+
 		timeout.tv_sec = 6;
 		timeout.tv_usec = 0;
 
 		setsockopt(serverfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
 		setsockopt(serverfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
 
+		//TODO
+
+		//CHECK SOCK OPT= getsockopt(serverfd, SOL_SOCKET,SO_BLOCKING, &getOptval, sizeof(getOptval));
+
+		//System_printf("\n");
+		//System_printf("Before Set SockOpt :			%d \n",optResult );
+		//System_printf("\n");
+		//System_flush();
+
+		//setsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &optval, sizeof(optval) );
+
+		//optResult = getsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &getOptval, sizeof(getOptval) );
+
 		//connect to Red
 
-		ms_delay( 1 );
 	    System_printf("TCPHandler:				 	Trying to connect! \n");
 	    System_flush();
-	    ms_delay( 10 );
 
 		//connect the socket
 
 		connectedFlag = connect(serverfd, (PSA)&server_addr, sizeof(server_addr) );
 
-		if(connectedFlag == -1){
+		System_printf("\n");
+		System_printf("Connected Flag %d\n", connectedFlag);
+		System_printf("\n");
+		System_flush();
+
+		if(connectedFlag == NOT_CONNECTED){
 
 					System_printf("Error: connect failed.\n");
 					System_printf("\n");
@@ -159,13 +174,18 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     		//clean the structs for Mailbox_post:		.id is enum 	.value is char[MAX_COMMAND_SIZE]
 
     		fromBaseCmd.id = onenull_device;
-    		memset(&fromBaseCmd.value, 0, sizeof(MAX_COMMAND_SIZE) );
+    		memset(&fromBaseCmd.value, 133, sizeof(MAX_COMMAND_SIZE) );
 
-    		ms_delay( 1 );
 			System_printf("1			Just ONENULLED the RECIEVE ID: %d \n", fromBaseCmd.id);
 			System_printf("1			Just NULLED the RECIEVE VALUE: %d \n", fromBaseCmd.value[0]);
 			System_flush();
-			ms_delay( 1 );
+
+			//optResult = getsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &getOptval, sizeof(getOptval));
+
+			//System_printf("\n");
+			//System_printf("During WHILE SockOpt :			%d \n",optResult );
+			//System_printf("\n");
+			//System_flush();
 
     		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
 
@@ -173,10 +193,20 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     		bytesReceived = recv(serverfd, &(fromBaseCmd.id), 1, 0);
 
-      		ms_delay( 1 );
+      		System_printf("\n");
 			System_printf("1			Just got a TCP RECIEVE ID: %d \n", fromBaseCmd.id);
+			System_printf("\n");
 			System_flush();
-			ms_delay( 1 );
+
+			System_printf("\n");
+			System_printf("1			And bytesReceived: %d \n", bytesReceived);
+			System_printf("\n");
+			System_flush();
+
+			System_printf("\n");
+			System_printf("1			And fdError: %d \n", fdError());
+			System_printf("\n");
+			System_flush();
 
     		//flag for lost connection when recieving
 
@@ -204,38 +234,53 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
 
     					ms_delay( 1 );
+    					System_printf("\n");
 						System_printf("1			Just got a TCP REC() motor_left VALUE: %d \n", fromBaseCmd.value[0]);
+						System_printf("\n");
 						System_flush();
 						ms_delay( 1 );
+
+						System_printf("\n");
+						System_printf("1			And fdError: %d \n", fdError());
+						System_printf("\n");
+						System_flush();
+
+						System_printf("\n");
+						System_printf("1			And bytesReceived: %d \n", bytesReceived);
+						System_printf("\n");
+						System_flush();
 
 						//Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
 
 //TODO-> Move this to the roveCmdCntrl
 
-						//*************
+						//////////////
 						// Drive Left
-						//*************
+						//////////////
 
 						//roveCom::	enum motor_left::	id = 100
 
-						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
+//						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
+						motor_control_struct = (struct motor_control_struct*)&(fromBaseCmd.value[0]);
+
+						ms_delay( 1 );
+						System_printf("\n");
+						System_printf("3:	Cmd Cntrl About to SEND UART 1, 2, 3! VALUE: %d \n", (*motor_control_struct).value);
+						System_printf("\n");
+						System_flush();
+						ms_delay( 1 );
 
 						mux_1( 8 );
 						mux_2( 7 );
 						mux_3( 6 );
 
-						send_struct(uart1, &motor_control_struct, motor_controller);
-						send_struct(uart2, &motor_control_struct, motor_controller);
-						send_struct(uart3, &motor_control_struct, motor_controller);
-
-						ms_delay( 1 );
-						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
-						System_flush();
-						ms_delay( 1 );
+						send_struct(uart1, motor_control_struct, motor_controller);
+						send_struct(uart2, motor_control_struct, motor_controller);
+						send_struct(uart3, motor_control_struct, motor_controller);
 
     				break;
 
-    				case motor_right:
+   /* 				case motor_right:
 
     					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
 
@@ -248,13 +293,20 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 						//TODO-> Move this to the roveCmdCntrl
 
-						//*************
+						//////////////
 						// Drive Right
-						//*************
+						//////////////
 
 						//roveCom::	enum motor_right::	id = 101
 
 						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
+
+						ms_delay( 1 );
+						System_printf("\n");
+						System_printf("3:	Cmd Cntrl About to SEND UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
+						System_printf("\n");
+						System_flush();
+						ms_delay( 1 );
 
 						mux_1( 1 );
 						mux_2( 2 );
@@ -270,7 +322,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 						ms_delay( 1 );
 
     				break;
-
+*/
     			}//endswitch:		(fromBaseCmd.id)
 
     			//flag for lost connection when recieving

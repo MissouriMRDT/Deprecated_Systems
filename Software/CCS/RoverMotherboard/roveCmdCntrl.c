@@ -79,9 +79,9 @@ TODO-> Mailbox Init
 
 				switch(fromBaseMsg.id){
 
-					//*************
+					//////////////
 					// Drive Left
-					//*************
+					//////////////
 
 					//roveCom::	enum motor_left::	id = 100
 
@@ -104,9 +104,9 @@ TODO-> Mailbox Init
 
 					break;
 
-					//*************
+					//////////////
 					// Drive Right
-					//*************
+					//////////////
 
 					//roveCom::	enum motor_right::	id = 101
 

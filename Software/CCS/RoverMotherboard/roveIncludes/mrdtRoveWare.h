@@ -17,7 +17,7 @@
 
 //tcp ip socket flags
 
-#define NOT_CONNECTED 0
+#define NOT_CONNECTED -1
 #define CONNECTED 1
 
 //hardcodes the IP of the base station

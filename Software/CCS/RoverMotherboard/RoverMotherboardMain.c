@@ -56,14 +56,14 @@ int main(void)
 
 //start TI BIOS
 
-	ms_delay( 10 );
+	ms_delay( 1 );
 
 	System_printf("roveMotherboardMain init \n");
 	System_printf("\n");
 	System_printf("\n");
 	System_flush();
 
-	ms_delay( 10 );
+	ms_delay( 1 );
 
     BIOS_start();
 

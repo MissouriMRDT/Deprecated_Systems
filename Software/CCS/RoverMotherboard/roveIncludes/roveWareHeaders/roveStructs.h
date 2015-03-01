@@ -30,7 +30,9 @@
 
 typedef enum DeviceID{
 
-	onenull_device = 1,
+	//TODO reserve zero and open bracket (for JSON)
+
+	onenull_device = 111,
 	test_device = 99,
 	motor_left = 100,
 	motor_right = 101,

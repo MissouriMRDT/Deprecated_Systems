@@ -10,10 +10,11 @@ Building file: ../roveTcpHandler.c
 Invoking: ARM Compiler
 "/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTcpHandler.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTcpHandler.c"
 "../roveTcpHandler.c", line 27: warning #225-D: function "TaskSelf" declared implicitly
-"../roveTcpHandler.c", line 118: warning #225-D: function "inet_pton" declared implicitly
-"../roveTcpHandler.c", line 221: warning #169-D: argument of type "char (*)[30]" is incompatible with parameter of type "int"
-"../roveTcpHandler.c", line 257: warning #169-D: argument of type "char (*)[30]" is incompatible with parameter of type "int"
-"../roveTcpHandler.c", line 318: warning #112-D: statement is unreachable
+"../roveTcpHandler.c", line 115: warning #225-D: function "inet_pton" declared implicitly
+"../roveTcpHandler.c", line 370: warning #112-D: statement is unreachable
+"../roveTcpHandler.c", line 46: warning #179-D: variable "optval" was declared but never referenced
+"../roveTcpHandler.c", line 47: warning #179-D: variable "getOptval" was declared but never referenced
+"../roveTcpHandler.c", line 48: warning #179-D: variable "optResult" was declared but never referenced
 Finished building: ../roveTcpHandler.c
  
 Building target: RoverMotherboard.out
@@ -22,15 +23,5 @@ Invoking: ARM Linker
 <Linking>
 Finished building target: RoverMotherboard.out
  
-
-**** Build Finished ****
-
-**** Build of configuration Debug for project RoverMotherboard ****
-
-/opt/ti/ccsv6/utils/bin/gmake -k all 
-making ../src/sysbios/sysbios.aem4f ...
-gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-gmake[1]: Nothing to be done for `all'.
-gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
 
 **** Build Finished ****

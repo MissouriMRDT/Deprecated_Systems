@@ -210,7 +210,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     		//flag for lost connection when recieving
 
-    		if(bytesReceived == -1){
+    		if(!(bytesReceived > 0)){
 
     			connectedFlag = NOT_CONNECTED;
 

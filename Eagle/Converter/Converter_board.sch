@@ -837,150 +837,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="MRDT-2015-BMS">
-<packages>
-<package name="PFF_LEADFORM">
-<pad name="2" x="0" y="0" drill="0.8" diameter="1.5"/>
-<pad name="1" x="-1.91" y="0" drill="0.8" diameter="1.5"/>
-<pad name="3" x="1.91" y="0" drill="0.8" diameter="1.5"/>
-<polygon width="0" layer="46">
-<vertex x="-8" y="21.4" curve="-90"/>
-<vertex x="-7" y="22.4"/>
-<vertex x="-3" y="22.4" curve="-90"/>
-<vertex x="-2" y="21.4" curve="-90"/>
-<vertex x="-3" y="20.4"/>
-<vertex x="-7" y="20.4" curve="-90"/>
-</polygon>
-<polygon width="0" layer="46">
-<vertex x="2" y="21.4" curve="-90"/>
-<vertex x="3" y="22.4"/>
-<vertex x="7" y="22.4" curve="-90"/>
-<vertex x="8" y="21.4" curve="-90"/>
-<vertex x="7" y="20.4"/>
-<vertex x="3" y="20.4" curve="-90"/>
-</polygon>
-<wire x1="-4.5" y1="8.7" x2="-3.5" y2="9.7" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="8.7" x2="-3.5" y2="7.7" width="0.127" layer="21"/>
-<wire x1="-5" y1="3.2" x2="-5" y2="16.2" width="0.127" layer="21"/>
-<wire x1="-5" y1="16.2" x2="5" y2="16.2" width="0.127" layer="21"/>
-<wire x1="5" y1="16.2" x2="5" y2="3.2" width="0.127" layer="21"/>
-<wire x1="5" y1="3.2" x2="-5" y2="3.2" width="0.127" layer="21"/>
-<polygon width="0.127" layer="21">
-<vertex x="-5" y="7.6"/>
-<vertex x="-6.6" y="7.6"/>
-<vertex x="-7" y="8"/>
-<vertex x="-7" y="21.4"/>
-<vertex x="-3" y="21.4"/>
-<vertex x="-3" y="16.2"/>
-<vertex x="-5" y="16.2"/>
-<vertex x="-5" y="7.6"/>
-<vertex x="-6.5" y="7.6"/>
-</polygon>
-<polygon width="0.127" layer="21">
-<vertex x="5" y="7.6"/>
-<vertex x="6.6" y="7.6"/>
-<vertex x="7" y="8"/>
-<vertex x="7" y="21.4"/>
-<vertex x="3" y="21.4"/>
-<vertex x="3" y="16.2"/>
-<vertex x="5" y="16.2"/>
-<vertex x="5" y="7.6"/>
-<vertex x="6.5" y="7.6"/>
-</polygon>
-<rectangle x1="1.6" y1="0" x2="2.2" y2="3.2" layer="21"/>
-<rectangle x1="-0.3" y1="0" x2="0.3" y2="3.2" layer="21"/>
-<rectangle x1="-2.2" y1="0" x2="-1.6" y2="3.2" layer="21"/>
-<text x="-4.1" y="13.8" size="1.27" layer="25">&gt;NAME</text>
-<text x="-4.2" y="11.2" size="1.27" layer="27">&gt;VALUE</text>
-<wire x1="-0.7" y1="9.7" x2="-0.4" y2="9.7" width="0.127" layer="21"/>
-<wire x1="-0.1" y1="9.7" x2="-0.4" y2="9.7" width="0.127" layer="21"/>
-<wire x1="-0.4" y1="9.7" x2="-0.4" y2="8.9" width="0.127" layer="21"/>
-<wire x1="-0.4" y1="8.9" x2="-0.7" y2="8.9" width="0.127" layer="21"/>
-<wire x1="-0.4" y1="8.9" x2="-0.1" y2="8.9" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="9.2" x2="-2.9" y2="8.3" width="0.127" layer="21" curve="-290.449548"/>
-<wire x1="-2.8" y1="9.6" x2="-2.8" y2="9.2" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="9.2" x2="-2.5" y2="9.2" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="8.7" x2="-1.6" y2="8.7" width="0.127" layer="21"/>
-<wire x1="-1.2" y1="8.7" x2="3.9" y2="8.7" width="0.127" layer="21"/>
-<smd name="5_T" x="-5" y="21.4" dx="9" dy="6" layer="1"/>
-<smd name="5_B" x="-5" y="21.4" dx="9" dy="6" layer="16"/>
-<smd name="4_T" x="5" y="21.4" dx="9" dy="6" layer="1"/>
-<smd name="4_B" x="5" y="21.4" dx="9" dy="6" layer="16"/>
-<pad name="5_1" x="-7" y="23.4" drill="0.5"/>
-<pad name="5_2" x="-5.67" y="23.4" drill="0.5"/>
-<pad name="5_3" x="-4.33" y="23.4" drill="0.5"/>
-<pad name="5_4" x="-3" y="23.4" drill="0.5"/>
-<pad name="5_5" x="-1.8" y="23" drill="0.5"/>
-<pad name="5_6" x="-1.1" y="22.1" drill="0.5"/>
-<pad name="5_7" x="-1.1" y="20.7" drill="0.5"/>
-<pad name="5_8" x="-1.8" y="19.8" drill="0.5"/>
-<pad name="5_9" x="-3" y="19.4" drill="0.5"/>
-<pad name="5_10" x="-4.33" y="19.4" drill="0.5"/>
-<pad name="5_11" x="-5.67" y="19.4" drill="0.5"/>
-<pad name="5_12" x="-7" y="19.4" drill="0.5"/>
-<pad name="5_13" x="-8.2" y="19.8" drill="0.5"/>
-<pad name="5_14" x="-8.9" y="20.7" drill="0.5"/>
-<pad name="5_15" x="-8.9" y="22.1" drill="0.5"/>
-<pad name="5_16" x="-8.2" y="23" drill="0.5"/>
-<pad name="4_1" x="3" y="23.4" drill="0.5"/>
-<pad name="4_2" x="4.33" y="23.4" drill="0.5"/>
-<pad name="4_3" x="5.67" y="23.4" drill="0.5"/>
-<pad name="4_4" x="7" y="23.4" drill="0.5"/>
-<pad name="4_5" x="8.2" y="23" drill="0.5"/>
-<pad name="4_6" x="8.9" y="22.1" drill="0.5"/>
-<pad name="4_7" x="8.9" y="20.7" drill="0.5"/>
-<pad name="4_8" x="8.2" y="19.8" drill="0.5"/>
-<pad name="4_9" x="7" y="19.4" drill="0.5"/>
-<pad name="4_10" x="5.67" y="19.4" drill="0.5"/>
-<pad name="4_11" x="4.33" y="19.4" drill="0.5"/>
-<pad name="4_12" x="3" y="19.4" drill="0.5"/>
-<pad name="4_13" x="1.8" y="19.8" drill="0.5"/>
-<pad name="4_14" x="1.1" y="20.7" drill="0.5"/>
-<pad name="4_15" x="1.1" y="22.1" drill="0.5"/>
-<pad name="4_16" x="1.8" y="23" drill="0.5"/>
-</package>
-</packages>
-<symbols>
-<symbol name="ACS770">
-<wire x1="-7.62" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
-<pin name="IP+" x="-10.16" y="10.16" visible="pin" length="middle"/>
-<pin name="IP-" x="-10.16" y="-10.16" visible="pin" length="middle"/>
-<pin name="VCC" x="12.7" y="-2.54" visible="pin" length="middle" rot="R180"/>
-<pin name="GND" x="12.7" y="0" visible="pin" length="middle" rot="R180"/>
-<pin name="VIOUT" x="12.7" y="2.54" visible="pin" length="middle" rot="R180"/>
-<text x="2.54" y="7.62" size="1.778" layer="95" rot="MR180">&gt;NAME</text>
-<text x="2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
-<wire x1="-5.08" y1="10.16" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ACS770">
-<gates>
-<gate name="G$1" symbol="ACS770" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="PFF_LEADFORM">
-<connects>
-<connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="IP+" pad="4_1 4_2 4_3 4_4 4_5 4_6 4_7 4_8 4_9 4_10 4_11 4_12 4_13 4_14 4_15 4_16 4_B 4_T" route="any"/>
-<connect gate="G$1" pin="IP-" pad="5_1 5_2 5_3 5_4 5_5 5_6 5_7 5_8 5_9 5_10 5_11 5_12 5_13 5_14 5_15 5_16 5_B 5_T" route="any"/>
-<connect gate="G$1" pin="VCC" pad="1"/>
-<connect gate="G$1" pin="VIOUT" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Passives">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find resistors, capacitors, inductors, test points, jumper pads, etc.&lt;br&gt;&lt;br&gt;
@@ -1372,83 +1228,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="MRDT-2015-PowerBoard">
-<packages>
-<package name="691321100002">
-<pad name="L" x="-1.79" y="0" drill="1.4"/>
-<pad name="R" x="1.79" y="0" drill="1.4"/>
-<wire x1="-4.1" y1="-2.8" x2="-4.1" y2="4.4" width="0.127" layer="21"/>
-<wire x1="-4.1" y1="4.4" x2="4.1" y2="4.4" width="0.127" layer="21"/>
-<wire x1="4.1" y1="4.4" x2="4.1" y2="-2.8" width="0.127" layer="21"/>
-<wire x1="4.1" y1="-2.8" x2="-4.1" y2="-2.8" width="0.127" layer="21"/>
-<text x="-0.1" y="4.6" size="1.27" layer="21" align="bottom-center">&gt;NAME</text>
-<text x="1.79" y="-2.6" size="1.27" layer="21" align="bottom-center">R</text>
-<text x="-1.79" y="-2.6" size="1.27" layer="21" align="bottom-center">L</text>
-</package>
-<package name="691322110002">
-<pad name="L" x="-1.79" y="0" drill="1.4"/>
-<pad name="R" x="1.79" y="0" drill="1.4"/>
-<wire x1="-4.1" y1="-8" x2="-4.1" y2="1.2" width="0.127" layer="21"/>
-<wire x1="-4.1" y1="1.2" x2="4.1" y2="1.2" width="0.127" layer="21"/>
-<wire x1="4.1" y1="1.2" x2="4.1" y2="-8" width="0.127" layer="21"/>
-<wire x1="4.1" y1="-8" x2="-4.1" y2="-8" width="0.127" layer="21"/>
-<text x="0" y="1.4" size="1.27" layer="21" align="bottom-center">&gt;NAME</text>
-<text x="1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">R</text>
-<text x="-1.79" y="-3.9" size="1.27" layer="21" align="bottom-center">L</text>
-</package>
-</packages>
-<symbols>
-<symbol name="2-PIN_HEADER">
-<description>Two Pin Header</description>
-<pin name="L" x="-10.16" y="2.54" visible="pin" length="middle"/>
-<pin name="R" x="10.16" y="2.54" visible="pin" length="middle" rot="R180"/>
-<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-7.62" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<text x="0" y="-10.16" size="1.778" layer="96" rot="R180" align="top-center">&gt;VALUE</text>
-<text x="0" y="7.62" size="1.778" layer="95" rot="R180" align="bottom-center">&gt;NAME</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="H_WR-TBL_32*1*0002">
-<description>Wurth Electronic's 2-pin 10A pluggable screw terminal headers. Vertical and Horizantal
-&lt;Br&gt;
-&lt;Br&gt;
-Part Numbers:&lt;Br&gt;
-691322110002 (Horizantal)
-&lt;Br&gt;
-691321100002 (Vertical)</description>
-<gates>
-<gate name="G$1" symbol="2-PIN_HEADER" x="0" y="0"/>
-</gates>
-<devices>
-<device name="VERT" package="691321100002">
-<connects>
-<connect gate="G$1" pin="L" pad="L"/>
-<connect gate="G$1" pin="R" pad="R"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DIGIKEY_PN" value="732-2763-ND"/>
-</technology>
-</technologies>
-</device>
-<device name="HORIZ" package="691322110002">
-<connects>
-<connect gate="G$1" pin="L" pad="L"/>
-<connect gate="G$1" pin="R" pad="R"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DIGIKEY_PN" value="732-2769-ND"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1478,14 +1257,8 @@ Part Numbers:&lt;Br&gt;
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="VCC" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
-<part name="U$5" library="MRDT-2015-BMS" deviceset="ACS770" device="" value="ACS756"/>
-<part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="VCC1" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="120"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="0.1uF"/>
-<part name="GND10" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="U$6" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="HORIZ"/>
 </parts>
 <sheets>
 <sheet>
@@ -1511,14 +1284,8 @@ Part Numbers:&lt;Br&gt;
 <instance part="GND7" gate="1" x="43.18" y="52.07"/>
 <instance part="GND8" gate="1" x="-5.08" y="54.61"/>
 <instance part="VCC" gate="G$1" x="39.37" y="63.5"/>
-<instance part="U$5" gate="G$1" x="-38.1" y="63.5"/>
-<instance part="GND9" gate="1" x="-15.24" y="45.72"/>
-<instance part="VCC1" gate="G$1" x="-20.32" y="76.2"/>
 <instance part="R1" gate="G$1" x="73.66" y="116.84" rot="R90"/>
 <instance part="R2" gate="G$1" x="80.01" y="105.41" rot="R90"/>
-<instance part="C7" gate="G$1" x="-20.32" y="55.88"/>
-<instance part="GND10" gate="1" x="-20.32" y="50.8"/>
-<instance part="U$6" gate="G$1" x="-63.5" y="63.5" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -1617,16 +1384,6 @@ Part Numbers:&lt;Br&gt;
 <wire x1="-5.08" y1="62.23" x2="-5.08" y2="57.15" width="0.1524" layer="91"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
-<segment>
-<pinref part="U$5" gate="G$1" pin="GND"/>
-<wire x1="-25.4" y1="63.5" x2="-15.24" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="-15.24" y1="63.5" x2="-15.24" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="GND9" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="C7" gate="G$1" pin="2"/>
-<pinref part="GND10" gate="1" pin="GND"/>
-</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -1657,14 +1414,6 @@ Part Numbers:&lt;Br&gt;
 <wire x1="33.02" y1="58.42" x2="39.37" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="39.37" y1="58.42" x2="39.37" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="VCC" gate="G$1" pin="5V"/>
-</segment>
-<segment>
-<pinref part="U$5" gate="G$1" pin="VCC"/>
-<wire x1="-25.4" y1="60.96" x2="-20.32" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="60.96" x2="-20.32" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="VCC1" gate="G$1" pin="5V"/>
-<pinref part="C7" gate="G$1" pin="1"/>
-<junction x="-20.32" y="60.96"/>
 </segment>
 </net>
 <net name="R_IN1" class="0">
@@ -1780,25 +1529,6 @@ Part Numbers:&lt;Br&gt;
 <pinref part="U$4" gate="G$1" pin="4"/>
 <wire x1="12.7" y1="64.77" x2="3.81" y2="64.77" width="0.1524" layer="91"/>
 <label x="3.81" y="64.77" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$5" gate="G$1" pin="VIOUT"/>
-<wire x1="-25.4" y1="66.04" x2="-13.97" y2="66.04" width="0.1524" layer="91"/>
-<label x="-19.05" y="66.04" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="IP+"/>
-<wire x1="-48.26" y1="73.66" x2="-60.96" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="L"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="IP-"/>
-<wire x1="-48.26" y1="53.34" x2="-60.96" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="R"/>
 </segment>
 </net>
 </nets>

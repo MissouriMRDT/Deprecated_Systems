@@ -8,7 +8,8 @@
 #ifndef ROVEHARDWAREABSTRACTION_H_
 #define ROVEHARDWAREABSTRACTION_H_
 
-#include "pinmap.h"
+#include "../RoverMotherboardMain.h"
+#include "rovePinMap.h"
 
 //-------- DEFINITIONS                    ----------//
 #define OUTPUT 1
@@ -74,7 +75,7 @@ int deviceWrite(int rs485jack, char* buffer, int buf_len);
  * 	rs485jack - number of the jack to write to (0-18)
  * 	buf_len - size of the buffer
  * 	timeout: number of milliseconds to wait before moving abandoning the read
- * 		and returning an error
+ * 		and returning an error. Also accepts BIOS_WAIT_FOREVER
  * outputs:
  * 	returns number of bytes read. -1 for error
  * 	buffer: Overwritten with the data recieved from uart, and null terminated

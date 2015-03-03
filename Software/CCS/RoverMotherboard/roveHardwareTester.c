@@ -11,7 +11,13 @@
 #include "roveIncludes/roveWareHeaders/roveHardwareTester.h"
 
 
-Void roveHardwareTester(UArg arg0, UArg arg1){
-
-
+Void roveHardwareTester(UArg arg0, UArg arg1)
+{
+	/*
+	char[20] buffer = "This is a test\0";
+	for(int i = 0; i < 18; i++)
+	{
+		deviceWrite(i, buffer, 20);
+	}
+	*/
 }

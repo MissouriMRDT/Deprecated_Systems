@@ -17,7 +17,9 @@
 
 #include "../mrdtRoveWare.h"
 
+//MRDesign Team::roveHardwareAbstraction::		GPIO and RS485 jack access
 
+#include "roveHardwareAbstraction.h"
 Void roveHardwareTester(UArg arg0, UArg arg1);
 
 #endif //ROVECMDCNTRL_H_

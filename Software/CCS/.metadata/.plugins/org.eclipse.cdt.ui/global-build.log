@@ -5,8 +5,8 @@
 cleaning ../src/sysbios ...
 rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
 rm -rf  "configPkg/" 
-rm -rf "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveMuxes.pp" "roveIncludes/roveWareSource/roveStructXfer.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
-rm -rf "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveMuxes.obj" "roveIncludes/roveWareSource/roveStructXfer.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
+rm -rf "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveHardwareTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveMuxes.pp" "roveIncludes/roveWareSource/roveStructXfer.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
+rm -rf "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveHardwareTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveMuxes.obj" "roveIncludes/roveWareSource/roveStructXfer.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
 Finished clean
  
 

@@ -505,202 +505,202 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="ETH_OUT1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="62.484" y="22.606" rot="MR0"/>
-<element name="ETH_OUT2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="89.662" y="22.606" rot="MR0"/>
-<element name="ETH_OUT3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="116.84" y="22.606" rot="MR0"/>
-<element name="ETH_OUT4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="144.526" y="22.606" rot="MR0"/>
-<element name="ETH_OUT5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="171.958" y="22.606" rot="MR0"/>
-<element name="ETH_OUT6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="199.136" y="22.606" rot="MR0"/>
-<element name="ETH_IN1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="62.484" y="9.906" rot="R180"/>
-<element name="ETH_IN2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="89.662" y="9.906" rot="R180"/>
-<element name="ETH_IN3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="116.84" y="9.906" rot="R180"/>
-<element name="ETH_IN4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="144.526" y="9.906" rot="R180"/>
-<element name="ETH_IN5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="171.958" y="9.906" rot="R180"/>
-<element name="ETH_IN6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="199.136" y="9.906" rot="R180"/>
-<element name="ETH_OUT7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="10.668" y="26.924"/>
-<element name="ETH_IN7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="10.414" y="9.398"/>
-<element name="12V_CRITICAL" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="26.162" y="4.826">
-<attribute name="DIGIKEY_PN" value="732-2763-ND" x="26.162" y="4.826" size="1.778" layer="27" display="off"/>
+<element name="ETH_OUT1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="68.072" y="22.352" rot="MR0"/>
+<element name="ETH_OUT2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="87.884" y="22.352" rot="MR0"/>
+<element name="ETH_OUT3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="107.696" y="22.352" rot="MR0"/>
+<element name="ETH_OUT4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="128.016" y="22.352" rot="MR0"/>
+<element name="ETH_OUT5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="147.828" y="22.606" rot="MR0"/>
+<element name="ETH_OUT6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="167.894" y="22.352" rot="MR0"/>
+<element name="ETH_IN1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="68.072" y="9.652" rot="R180"/>
+<element name="ETH_IN2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="87.884" y="9.652" rot="R180"/>
+<element name="ETH_IN3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="107.696" y="9.652" rot="R180"/>
+<element name="ETH_IN4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="128.016" y="9.652" rot="R180"/>
+<element name="ETH_IN5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="147.828" y="9.906" rot="R180"/>
+<element name="ETH_IN6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="167.894" y="9.652" rot="R180"/>
+<element name="ETH_OUT7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="22.352" y="26.924"/>
+<element name="ETH_IN7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="22.352" y="9.906" rot="MR180"/>
+<element name="12V_CRITICAL" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="37.846" y="4.826" rot="MR0">
+<attribute name="DIGIKEY_PN" value="732-2763-ND" x="37.846" y="4.826" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="5V_EXT" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="37.338" y="4.826">
-<attribute name="DIGIKEY_PN" value="732-2763-ND" x="37.338" y="4.826" size="1.778" layer="27" display="off"/>
+<element name="5V_EXT" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="49.022" y="4.826" rot="MR0">
+<attribute name="DIGIKEY_PN" value="732-2763-ND" x="49.022" y="4.826" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="ARM_POWER" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="37.592" y="15.494">
-<attribute name="DIGIKEY_PN" value="732-2763-ND" x="37.592" y="15.494" size="1.778" layer="27" display="off"/>
+<element name="ARM_POWER" library="MRDT-2015-PowerBoard" package="691321100002" value="H_WR-TBL_321*0002VERT" x="49.276" y="15.494" rot="MR0">
+<attribute name="DIGIKEY_PN" value="732-2763-ND" x="49.276" y="15.494" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="U$4" library="harting-scsi" package="60050685100" value="TB60050685100" x="141.224" y="87.122" rot="R180"/>
-<element name="RS-485_OUT1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="59.69" y="83.82" rot="R270"/>
-<element name="RS-485_OUT2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="59.944" y="43.434"/>
-<element name="RS-485_OUT3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="78.486" y="43.434"/>
-<element name="RS-485_OUT4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="98.044" y="43.434"/>
-<element name="RS-485_OUT5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="117.348" y="43.688"/>
-<element name="RS-485_OUT6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="137.16" y="43.688"/>
-<element name="RS-485_OUT7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="157.48" y="43.434"/>
-<element name="RS-485_OUT8" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="177.292" y="43.434"/>
-<element name="RS-485_OUT9" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="177.038" y="71.12" rot="R180"/>
-<element name="RS-485_OUT10" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="177.292" y="93.218" rot="R180"/>
-<element name="RS-485_OUT11" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="177.292" y="116.078" rot="R180"/>
-<element name="RS-485_OUT12" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="157.734" y="116.078" rot="R180"/>
-<element name="RS-485_OUT13" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="137.922" y="115.824" rot="R180"/>
-<element name="RS-485_OUT14" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="118.618" y="116.078" rot="R180"/>
-<element name="RS-485_OUT15" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="99.06" y="116.078" rot="R180"/>
-<element name="RS-485_OUT16" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="79.756" y="115.824" rot="R180"/>
-<element name="RS-485_OUT17" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="60.452" y="115.824" rot="R180"/>
-<element name="INT_MOTOR_1" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="9.652" y="121.92" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="9.652" y="121.92" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="U$4" library="harting-scsi" package="60050685100" value="TB60050685100" x="143.002" y="83.566" rot="R180"/>
+<element name="RS-485_OUT1" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="65.786" y="79.756" rot="R270"/>
+<element name="RS-485_OUT2" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="78.232" y="60.198"/>
+<element name="RS-485_OUT3" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="89.662" y="41.91"/>
+<element name="RS-485_OUT4" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="100.838" y="60.198"/>
+<element name="RS-485_OUT5" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="113.03" y="41.91"/>
+<element name="RS-485_OUT6" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="123.952" y="59.944"/>
+<element name="RS-485_OUT7" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="136.144" y="42.164"/>
+<element name="RS-485_OUT8" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="146.812" y="59.69"/>
+<element name="RS-485_OUT9" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="167.894" y="68.834" rot="R180"/>
+<element name="RS-485_OUT10" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="167.64" y="90.678" rot="R180"/>
+<element name="RS-485_OUT11" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="146.812" y="98.552" rot="R180"/>
+<element name="RS-485_OUT12" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="134.112" y="116.586" rot="R180"/>
+<element name="RS-485_OUT13" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="123.444" y="98.298" rot="R180"/>
+<element name="RS-485_OUT14" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="112.014" y="116.586" rot="R180"/>
+<element name="RS-485_OUT15" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="100.838" y="98.298" rot="R180"/>
+<element name="RS-485_OUT16" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="89.408" y="117.094" rot="R180"/>
+<element name="RS-485_OUT17" library="PCB0M1" package="RJ45-CAT5E" value="RJ45" x="77.978" y="98.298" rot="R180"/>
+<element name="INT_MOTOR_1" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="21.336" y="121.92" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="21.336" y="121.92" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="INT_MOTOR_2" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="9.398" y="92.964" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="9.398" y="92.964" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="INT_MOTOR_2" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="21.082" y="92.964" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="21.082" y="92.964" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="INT_MOTOR_3" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="9.652" y="64.262" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="9.652" y="64.262" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="INT_MOTOR_3" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="21.336" y="64.262" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="21.336" y="64.262" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="INT_MOTOR_4" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="199.898" y="65.278" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="199.898" y="65.278" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="INT_MOTOR_4" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="187.452" y="65.278" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="187.452" y="65.278" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="INT_MOTOR_5" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="199.898" y="94.234" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="199.898" y="94.234" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="INT_MOTOR_5" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="187.452" y="94.234" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="187.452" y="94.234" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="INT_MOTOR_6" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="200.152" y="122.428" rot="MR180">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="200.152" y="122.428" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="INT_MOTOR_6" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="187.706" y="122.428" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="187.706" y="122.428" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="EXT_MOTOR_1" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="2.032" y="98.806"/>
-<element name="EXT_MOTOR_2" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="2.032" y="69.85"/>
-<element name="EXT_MOTOR_3" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="2.032" y="40.894"/>
-<element name="EXT_MOTOR_4" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="192.278" y="41.91"/>
-<element name="EXT_MOTOR_5" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="192.278" y="70.866"/>
-<element name="EXT_MOTOR_6" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="192.532" y="99.314"/>
-<element name="12V_HIGH_POWER" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="36.576" y="112.776">
-<attribute name="DIGIKEY_PN" value="609-3948-ND" x="36.576" y="112.776" size="1.778" layer="27" display="off"/>
+<element name="EXT_MOTOR_1" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="13.716" y="98.806"/>
+<element name="EXT_MOTOR_2" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="13.716" y="69.85"/>
+<element name="EXT_MOTOR_3" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="13.716" y="40.894"/>
+<element name="EXT_MOTOR_4" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="179.832" y="41.91"/>
+<element name="EXT_MOTOR_5" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="179.832" y="70.866"/>
+<element name="EXT_MOTOR_6" library="MRDT-2015-PowerBoard" package="XT60_BOARD" value="XT60_BOARD_MOUNT" x="180.086" y="99.314"/>
+<element name="12V_HIGH_POWER" library="MRDT-2015-PowerBoard" package="20020620-M02" value="H_20020618-M02VERT" x="47.244" y="120.142" rot="MR180">
+<attribute name="DIGIKEY_PN" value="609-3948-ND" x="47.244" y="120.142" size="1.778" layer="28" rot="MR180" display="off"/>
 </element>
-<element name="U$7" library="molex-power" package="0.93&quot;" value="3PIN" x="26.162" y="99.06"/>
-<element name="U$8" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="93.218" rot="R180"/>
-<element name="U$1" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="82.55" rot="R180"/>
-<element name="U$2" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="71.882" rot="R180"/>
-<element name="U$3" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="61.214" rot="R180"/>
-<element name="U$5" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="50.8" rot="R180"/>
-<element name="U$6" library="MLX" package="42002-2" value="MLX-2" x="38.354" y="40.386" rot="R180"/>
+<element name="U$7" library="molex-power" package="0.93&quot;" value="3PIN" x="37.338" y="24.638"/>
+<element name="U$8" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="93.218" rot="R180"/>
+<element name="U$1" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="82.55" rot="R180"/>
+<element name="U$2" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="71.882" rot="R180"/>
+<element name="U$3" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="61.214" rot="R180"/>
+<element name="U$5" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="50.8" rot="R180"/>
+<element name="U$6" library="MLX" package="42002-2" value="MLX-2" x="50.038" y="40.386" rot="R180"/>
 </elements>
 <signals>
 <signal name="N$1">
 <contactref element="ETH_OUT1" pad="1"/>
 <contactref element="ETH_IN1" pad="1"/>
-<wire x1="66.929" y1="5.251" x2="66.929" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="72.517" y1="4.997" x2="72.517" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$2">
 <contactref element="ETH_OUT1" pad="2"/>
 <contactref element="ETH_IN1" pad="2"/>
-<wire x1="65.659" y1="2.711" x2="65.659" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="71.247" y1="2.457" x2="71.247" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$3">
 <contactref element="ETH_OUT1" pad="3"/>
 <contactref element="ETH_IN1" pad="3"/>
-<wire x1="64.389" y1="5.251" x2="64.389" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="69.977" y1="4.997" x2="69.977" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$6">
 <contactref element="ETH_IN1" pad="6"/>
 <contactref element="ETH_OUT1" pad="6"/>
-<wire x1="60.579" y1="2.711" x2="60.579" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="66.167" y1="2.457" x2="66.167" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$9">
 <contactref element="ETH_IN2" pad="1"/>
 <contactref element="ETH_OUT2" pad="1"/>
-<wire x1="94.107" y1="5.251" x2="94.107" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="92.329" y1="4.997" x2="92.329" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$10">
 <contactref element="ETH_OUT2" pad="2"/>
 <contactref element="ETH_IN2" pad="2"/>
-<wire x1="92.837" y1="2.711" x2="92.837" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="91.059" y1="2.457" x2="91.059" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$11">
 <contactref element="ETH_IN2" pad="3"/>
 <contactref element="ETH_OUT2" pad="3"/>
-<wire x1="91.567" y1="5.251" x2="91.567" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="89.789" y1="4.997" x2="89.789" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$14">
 <contactref element="ETH_IN2" pad="6"/>
 <contactref element="ETH_OUT2" pad="6"/>
-<wire x1="87.757" y1="2.711" x2="87.757" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="85.979" y1="2.457" x2="85.979" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$17">
 <contactref element="ETH_IN3" pad="1"/>
 <contactref element="ETH_OUT3" pad="1"/>
-<wire x1="121.285" y1="5.251" x2="121.285" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="112.141" y1="4.997" x2="112.141" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$18">
 <contactref element="ETH_IN3" pad="2"/>
 <contactref element="ETH_OUT3" pad="2"/>
-<wire x1="120.015" y1="2.711" x2="120.015" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="110.871" y1="2.457" x2="110.871" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$19">
 <contactref element="ETH_IN3" pad="3"/>
 <contactref element="ETH_OUT3" pad="3"/>
-<wire x1="118.745" y1="5.251" x2="118.745" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="109.601" y1="4.997" x2="109.601" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$22">
 <contactref element="ETH_IN3" pad="6"/>
 <contactref element="ETH_OUT3" pad="6"/>
-<wire x1="114.935" y1="2.711" x2="114.935" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="105.791" y1="2.457" x2="105.791" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$27">
 <contactref element="ETH_IN4" pad="6"/>
 <contactref element="ETH_OUT4" pad="6"/>
-<wire x1="142.621" y1="2.711" x2="142.621" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="126.111" y1="2.457" x2="126.111" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$30">
 <contactref element="ETH_OUT4" pad="3"/>
 <contactref element="ETH_IN4" pad="3"/>
-<wire x1="146.431" y1="5.251" x2="146.431" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="129.921" y1="4.997" x2="129.921" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$31">
 <contactref element="ETH_IN4" pad="2"/>
 <contactref element="ETH_OUT4" pad="2"/>
-<wire x1="147.701" y1="2.711" x2="147.701" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="131.191" y1="2.457" x2="131.191" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$32">
 <contactref element="ETH_OUT4" pad="1"/>
 <contactref element="ETH_IN4" pad="1"/>
-<wire x1="148.971" y1="5.251" x2="148.971" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="132.461" y1="4.997" x2="132.461" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$35">
 <contactref element="ETH_IN5" pad="6"/>
 <contactref element="ETH_OUT5" pad="6"/>
-<wire x1="170.053" y1="2.711" x2="170.053" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="145.923" y1="2.711" x2="145.923" y2="29.801" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$38">
 <contactref element="ETH_IN5" pad="3"/>
 <contactref element="ETH_OUT5" pad="3"/>
-<wire x1="173.863" y1="5.251" x2="173.863" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="149.733" y1="5.251" x2="149.733" y2="27.261" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$39">
 <contactref element="ETH_OUT5" pad="2"/>
 <contactref element="ETH_IN5" pad="2"/>
-<wire x1="175.133" y1="2.711" x2="175.133" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="151.003" y1="2.711" x2="151.003" y2="29.801" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$40">
 <contactref element="ETH_IN5" pad="1"/>
 <contactref element="ETH_OUT5" pad="1"/>
-<wire x1="176.403" y1="5.251" x2="176.403" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="152.273" y1="5.251" x2="152.273" y2="27.261" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$41">
 <contactref element="ETH_IN6" pad="1"/>
 <contactref element="ETH_OUT6" pad="1"/>
-<wire x1="203.581" y1="5.251" x2="203.581" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="172.339" y1="4.997" x2="172.339" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$42">
 <contactref element="ETH_OUT6" pad="2"/>
 <contactref element="ETH_IN6" pad="2"/>
-<wire x1="202.311" y1="29.801" x2="202.311" y2="2.711" width="0" layer="19" extent="1-16"/>
+<wire x1="171.069" y1="2.457" x2="171.069" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$43">
 <contactref element="ETH_IN6" pad="3"/>
 <contactref element="ETH_OUT6" pad="3"/>
-<wire x1="201.041" y1="5.251" x2="201.041" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="169.799" y1="4.997" x2="169.799" y2="27.007" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$46">
 <contactref element="ETH_IN6" pad="6"/>
 <contactref element="ETH_OUT6" pad="6"/>
-<wire x1="197.231" y1="2.711" x2="197.231" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="165.989" y1="2.457" x2="165.989" y2="29.547" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="ETH_OUT5" pad="8"/>
@@ -777,79 +777,79 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$5" pad="P$1"/>
 <contactref element="U$6" pad="P$1"/>
 <contactref element="U$1" pad="P$1"/>
-<wire x1="172.847" y1="108.883" x2="174.117" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="174.117" y1="88.563" x2="172.847" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="172.847" y1="86.023" x2="174.117" y2="88.563" width="0" layer="19" extent="1-1"/>
-<wire x1="173.863" y1="66.465" x2="172.847" y2="86.023" width="0" layer="19" extent="1-1"/>
-<wire x1="172.593" y1="63.925" x2="173.863" y2="66.465" width="0" layer="19" extent="1-1"/>
-<wire x1="180.467" y1="48.089" x2="172.593" y2="63.925" width="0" layer="19" extent="1-1"/>
-<wire x1="181.737" y1="50.629" x2="180.467" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="160.655" y1="48.089" x2="181.737" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="161.925" y1="50.629" x2="160.655" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="140.335" y1="48.343" x2="161.925" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="141.605" y1="50.883" x2="140.335" y2="48.343" width="0" layer="19" extent="1-1"/>
-<wire x1="120.523" y1="48.343" x2="141.605" y2="50.883" width="0" layer="19" extent="1-1"/>
-<wire x1="121.793" y1="50.883" x2="120.523" y2="48.343" width="0" layer="19" extent="1-1"/>
-<wire x1="101.219" y1="48.089" x2="121.793" y2="50.883" width="0" layer="19" extent="1-1"/>
-<wire x1="102.489" y1="50.629" x2="101.219" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="81.661" y1="48.089" x2="102.489" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="82.931" y1="50.629" x2="81.661" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="63.119" y1="48.089" x2="82.931" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="64.389" y1="50.629" x2="63.119" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="64.345" y1="80.645" x2="64.389" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="66.885" y1="79.375" x2="64.345" y2="80.645" width="0" layer="19" extent="1-1"/>
-<wire x1="153.289" y1="108.883" x2="174.117" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="154.559" y1="111.423" x2="153.289" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="133.477" y1="108.629" x2="154.559" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="134.747" y1="111.169" x2="133.477" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="114.173" y1="108.883" x2="134.747" y2="111.169" width="0" layer="19" extent="1-1"/>
-<wire x1="115.443" y1="111.423" x2="114.173" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="94.615" y1="108.883" x2="115.443" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="95.885" y1="111.423" x2="94.615" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="75.311" y1="108.629" x2="95.885" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="76.581" y1="111.169" x2="75.311" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="56.007" y1="108.629" x2="76.581" y2="111.169" width="0" layer="19" extent="1-1"/>
-<wire x1="57.277" y1="111.169" x2="56.007" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="39.128" y1="4.826" x2="66.885" y2="79.375" width="0" layer="19" extent="1-1"/>
-<wire x1="39.382" y1="15.494" x2="39.128" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="27.952" y1="4.826" x2="39.128" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="13.589" y1="14.053" x2="27.952" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="14.859" y1="16.593" x2="13.589" y2="14.053" width="0" layer="19" extent="1-1"/>
-<wire x1="13.843" y1="31.579" x2="14.859" y2="16.593" width="0" layer="19" extent="1-1"/>
-<wire x1="15.113" y1="34.119" x2="13.843" y2="31.579" width="0" layer="19" extent="1-1"/>
-<wire x1="58.039" y1="2.711" x2="15.113" y2="34.119" width="0" layer="19" extent="1-1"/>
-<wire x1="59.309" y1="5.251" x2="58.039" y2="2.711" width="0" layer="19" extent="1-1"/>
-<wire x1="59.309" y1="27.261" x2="59.309" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="58.039" y1="29.801" x2="59.309" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="85.217" y1="29.801" x2="59.309" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="86.487" y1="27.261" x2="85.217" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="86.487" y1="5.251" x2="86.487" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="85.217" y1="2.711" x2="86.487" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="112.395" y1="29.801" x2="86.487" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="113.665" y1="27.261" x2="112.395" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="113.665" y1="5.251" x2="113.665" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="112.395" y1="2.711" x2="113.665" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="140.081" y1="29.801" x2="113.665" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="141.351" y1="27.261" x2="140.081" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="141.351" y1="5.251" x2="141.351" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="140.081" y1="2.711" x2="141.351" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="167.513" y1="29.801" x2="141.351" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="168.783" y1="27.261" x2="167.513" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="168.783" y1="5.251" x2="168.783" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="167.513" y1="2.711" x2="168.783" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="194.691" y1="29.801" x2="168.783" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="195.961" y1="27.261" x2="194.691" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="195.961" y1="5.251" x2="195.961" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="194.691" y1="2.711" x2="195.961" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="40.386" y1="120.396" x2="57.277" y2="111.169" width="0" layer="19" extent="1-1"/>
-<wire x1="40.386" y1="112.776" x2="40.386" y2="120.396" width="0" layer="19" extent="1-1"/>
-<wire x1="35.3822" y1="103.251" x2="40.386" y2="112.776" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="93.218" x2="35.3822" y2="103.251" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="82.55" x2="38.354" y2="93.218" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="71.882" x2="38.354" y2="82.55" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="61.214" x2="38.354" y2="71.882" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="50.8" x2="38.354" y2="61.214" width="0" layer="19" extent="1-1"/>
-<wire x1="38.354" y1="40.386" x2="38.354" y2="50.8" width="0" layer="19" extent="1-1"/>
+<wire x1="118.999" y1="91.103" x2="120.269" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="108.839" y1="111.931" x2="118.999" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="107.569" y1="109.391" x2="108.839" y2="111.931" width="0" layer="19" extent="1-1"/>
+<wire x1="97.663" y1="93.643" x2="107.569" y2="109.391" width="0" layer="19" extent="1-1"/>
+<wire x1="96.393" y1="91.103" x2="97.663" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="86.233" y1="112.439" x2="96.393" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="84.963" y1="109.899" x2="86.233" y2="112.439" width="0" layer="19" extent="1-1"/>
+<wire x1="74.803" y1="93.643" x2="84.963" y2="109.899" width="0" layer="19" extent="1-1"/>
+<wire x1="73.533" y1="91.103" x2="74.803" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="51.054" y1="120.142" x2="73.533" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="51.054" y1="112.522" x2="51.054" y2="120.142" width="0" layer="19" extent="1-1"/>
+<wire x1="129.667" y1="109.391" x2="120.269" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="130.937" y1="111.931" x2="129.667" y2="109.391" width="0" layer="19" extent="1-1"/>
+<wire x1="142.367" y1="91.357" x2="130.937" y2="111.931" width="0" layer="19" extent="1-1"/>
+<wire x1="143.637" y1="93.897" x2="142.367" y2="91.357" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="93.218" x2="51.054" y2="120.142" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="82.55" x2="50.038" y2="93.218" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="71.882" x2="50.038" y2="82.55" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="61.214" x2="50.038" y2="71.882" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="50.8" x2="50.038" y2="61.214" width="0" layer="19" extent="1-1"/>
+<wire x1="50.038" y1="40.386" x2="50.038" y2="50.8" width="0" layer="19" extent="1-1"/>
+<wire x1="46.5582" y1="28.829" x2="50.038" y2="40.386" width="0" layer="19" extent="1-1"/>
+<wire x1="47.486" y1="15.494" x2="46.5582" y2="28.829" width="0" layer="19" extent="1-1"/>
+<wire x1="47.232" y1="4.826" x2="47.486" y2="15.494" width="0" layer="19" extent="1-1"/>
+<wire x1="36.056" y1="4.826" x2="47.232" y2="4.826" width="0" layer="19" extent="1-1"/>
+<wire x1="25.527" y1="5.251" x2="36.056" y2="4.826" width="0" layer="19" extent="1-1"/>
+<wire x1="26.797" y1="2.711" x2="25.527" y2="5.251" width="0" layer="19" extent="1-1"/>
+<wire x1="25.527" y1="31.579" x2="26.797" y2="2.711" width="0" layer="19" extent="1-1"/>
+<wire x1="26.797" y1="34.119" x2="25.527" y2="31.579" width="0" layer="19" extent="1-1"/>
+<wire x1="63.627" y1="2.457" x2="47.232" y2="4.826" width="0" layer="19" extent="1-1"/>
+<wire x1="64.897" y1="4.997" x2="63.627" y2="2.457" width="0" layer="19" extent="1-1"/>
+<wire x1="164.465" y1="86.023" x2="142.367" y2="91.357" width="0" layer="19" extent="1-1"/>
+<wire x1="163.195" y1="83.483" x2="164.465" y2="86.023" width="0" layer="19" extent="1-1"/>
+<wire x1="164.719" y1="64.179" x2="163.195" y2="83.483" width="0" layer="19" extent="1-1"/>
+<wire x1="163.449" y1="61.639" x2="164.719" y2="64.179" width="0" layer="19" extent="1-1"/>
+<wire x1="151.257" y1="66.885" x2="163.449" y2="61.639" width="0" layer="19" extent="1-1"/>
+<wire x1="149.987" y1="64.345" x2="151.257" y2="66.885" width="0" layer="19" extent="1-1"/>
+<wire x1="140.589" y1="49.359" x2="163.449" y2="61.639" width="0" layer="19" extent="1-1"/>
+<wire x1="139.319" y1="46.819" x2="140.589" y2="49.359" width="0" layer="19" extent="1-1"/>
+<wire x1="128.397" y1="67.139" x2="139.319" y2="46.819" width="0" layer="19" extent="1-1"/>
+<wire x1="127.127" y1="64.599" x2="128.397" y2="67.139" width="0" layer="19" extent="1-1"/>
+<wire x1="123.571" y1="29.547" x2="127.127" y2="64.599" width="0" layer="19" extent="1-1"/>
+<wire x1="124.841" y1="27.007" x2="123.571" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="117.475" y1="49.105" x2="127.127" y2="64.599" width="0" layer="19" extent="1-1"/>
+<wire x1="116.205" y1="46.565" x2="117.475" y2="49.105" width="0" layer="19" extent="1-1"/>
+<wire x1="105.283" y1="67.393" x2="116.205" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="104.013" y1="64.853" x2="105.283" y2="67.393" width="0" layer="19" extent="1-1"/>
+<wire x1="94.107" y1="49.105" x2="104.013" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="92.837" y1="46.565" x2="94.107" y2="49.105" width="0" layer="19" extent="1-1"/>
+<wire x1="82.677" y1="67.393" x2="92.837" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="81.407" y1="64.853" x2="82.677" y2="67.393" width="0" layer="19" extent="1-1"/>
+<wire x1="83.439" y1="29.547" x2="92.837" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="84.709" y1="27.007" x2="83.439" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="63.627" y1="29.547" x2="81.407" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="64.897" y1="27.007" x2="63.627" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="143.383" y1="29.801" x2="139.319" y2="46.819" width="0" layer="19" extent="1-1"/>
+<wire x1="144.653" y1="27.261" x2="143.383" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="103.251" y1="29.547" x2="116.205" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="104.521" y1="27.007" x2="103.251" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="144.653" y1="5.251" x2="144.653" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="143.383" y1="2.711" x2="144.653" y2="5.251" width="0" layer="19" extent="1-1"/>
+<wire x1="124.841" y1="4.997" x2="124.841" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="123.571" y1="2.457" x2="124.841" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="104.521" y1="4.997" x2="104.521" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="103.251" y1="2.457" x2="104.521" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="84.709" y1="4.997" x2="84.709" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="83.439" y1="2.457" x2="84.709" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="163.449" y1="29.547" x2="149.987" y2="64.345" width="0" layer="19" extent="1-1"/>
+<wire x1="164.719" y1="27.007" x2="163.449" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="164.719" y1="4.997" x2="164.719" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="163.449" y1="2.457" x2="164.719" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="70.441" y1="76.581" x2="50.038" y2="82.55" width="0" layer="19" extent="1-1"/>
+<wire x1="72.981" y1="75.311" x2="70.441" y2="76.581" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+12V">
 <contactref element="12V_CRITICAL" pad="L"/>
@@ -857,10 +857,10 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="ETH_IN7" pad="4"/>
 <contactref element="ETH_IN7" pad="5"/>
 <contactref element="ETH_OUT7" pad="4"/>
-<wire x1="11.049" y1="14.053" x2="24.372" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="9.779" y1="16.593" x2="11.049" y2="14.053" width="0" layer="19" extent="1-1"/>
-<wire x1="11.303" y1="31.579" x2="9.779" y2="16.593" width="0" layer="19" extent="1-1"/>
-<wire x1="10.033" y1="34.119" x2="11.303" y2="31.579" width="0" layer="19" extent="1-1"/>
+<wire x1="21.717" y1="34.119" x2="22.987" y2="31.579" width="0" layer="19" extent="1-1"/>
+<wire x1="21.717" y1="2.711" x2="22.987" y2="31.579" width="0" layer="19" extent="1-1"/>
+<wire x1="22.987" y1="5.251" x2="21.717" y2="2.711" width="0" layer="19" extent="1-1"/>
+<wire x1="39.636" y1="4.826" x2="22.987" y2="5.251" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="ETH_OUT1" pad="5"/>
@@ -922,231 +922,231 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="RS-485_OUT17" pad="4"/>
 <contactref element="RS-485_OUT9" pad="5"/>
 <contactref element="RS-485_OUT9" pad="4"/>
-<wire x1="199.771" y1="29.801" x2="198.501" y2="27.261" width="0" layer="19" extent="1-16"/>
-<wire x1="198.501" y1="5.251" x2="199.771" y2="2.711" width="0" layer="19" extent="1-16"/>
-<wire x1="177.927" y1="108.883" x2="176.657" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="176.657" y1="88.563" x2="177.927" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="177.927" y1="86.023" x2="176.657" y2="88.563" width="0" layer="19" extent="1-1"/>
-<wire x1="176.403" y1="66.465" x2="177.927" y2="86.023" width="0" layer="19" extent="1-1"/>
-<wire x1="177.673" y1="63.925" x2="176.403" y2="66.465" width="0" layer="19" extent="1-1"/>
-<wire x1="177.927" y1="48.089" x2="177.673" y2="63.925" width="0" layer="19" extent="1-1"/>
-<wire x1="176.657" y1="50.629" x2="177.927" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="158.115" y1="48.089" x2="176.657" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="156.845" y1="50.629" x2="158.115" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="137.795" y1="48.343" x2="156.845" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="136.525" y1="50.883" x2="137.795" y2="48.343" width="0" layer="19" extent="1-1"/>
-<wire x1="117.983" y1="48.343" x2="136.525" y2="50.883" width="0" layer="19" extent="1-1"/>
-<wire x1="116.713" y1="50.883" x2="117.983" y2="48.343" width="0" layer="19" extent="1-1"/>
-<wire x1="98.679" y1="48.089" x2="116.713" y2="50.883" width="0" layer="19" extent="1-1"/>
-<wire x1="97.409" y1="50.629" x2="98.679" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="79.121" y1="48.089" x2="97.409" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="77.851" y1="50.629" x2="79.121" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="60.579" y1="48.089" x2="77.851" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="59.309" y1="50.629" x2="60.579" y2="48.089" width="0" layer="19" extent="1-1"/>
-<wire x1="64.345" y1="83.185" x2="59.309" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="66.885" y1="84.455" x2="64.345" y2="83.185" width="0" layer="19" extent="1-1"/>
-<wire x1="158.369" y1="108.883" x2="176.657" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="157.099" y1="111.423" x2="158.369" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="138.557" y1="108.629" x2="157.099" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="137.287" y1="111.169" x2="138.557" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="119.253" y1="108.883" x2="137.287" y2="111.169" width="0" layer="19" extent="1-1"/>
-<wire x1="117.983" y1="111.423" x2="119.253" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="99.695" y1="108.883" x2="117.983" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="98.425" y1="111.423" x2="99.695" y2="108.883" width="0" layer="19" extent="1-1"/>
-<wire x1="80.391" y1="108.629" x2="98.425" y2="111.423" width="0" layer="19" extent="1-1"/>
-<wire x1="79.121" y1="111.169" x2="80.391" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="61.087" y1="108.629" x2="79.121" y2="111.169" width="0" layer="19" extent="1-1"/>
-<wire x1="59.817" y1="111.169" x2="61.087" y2="108.629" width="0" layer="19" extent="1-1"/>
-<wire x1="35.548" y1="4.826" x2="66.885" y2="84.455" width="0" layer="19" extent="1-1"/>
-<wire x1="63.119" y1="2.711" x2="35.548" y2="4.826" width="0" layer="19" extent="1-1"/>
-<wire x1="61.849" y1="5.251" x2="63.119" y2="2.711" width="0" layer="19" extent="1-1"/>
-<wire x1="61.849" y1="27.261" x2="61.849" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="63.119" y1="29.801" x2="61.849" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="89.027" y1="27.261" x2="63.119" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="90.297" y1="29.801" x2="89.027" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="89.027" y1="5.251" x2="89.027" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="90.297" y1="2.711" x2="89.027" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="116.205" y1="27.261" x2="90.297" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="117.475" y1="29.801" x2="116.205" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="116.205" y1="5.251" x2="116.205" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="117.475" y1="2.711" x2="116.205" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="143.891" y1="27.261" x2="117.475" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="145.161" y1="29.801" x2="143.891" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="143.891" y1="5.251" x2="143.891" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="145.161" y1="2.711" x2="143.891" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="171.323" y1="27.261" x2="145.161" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="172.593" y1="29.801" x2="171.323" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="171.323" y1="5.251" x2="171.323" y2="27.261" width="0" layer="19" extent="1-1"/>
-<wire x1="172.593" y1="2.711" x2="171.323" y2="5.251" width="0" layer="19" extent="1-1"/>
-<wire x1="198.501" y1="27.261" x2="172.593" y2="29.801" width="0" layer="19" extent="1-1"/>
-<wire x1="198.501" y1="5.251" x2="198.501" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="124.079" y1="91.103" x2="122.809" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="112.649" y1="109.391" x2="122.809" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="111.379" y1="111.931" x2="112.649" y2="109.391" width="0" layer="19" extent="1-1"/>
+<wire x1="101.473" y1="91.103" x2="111.379" y2="111.931" width="0" layer="19" extent="1-1"/>
+<wire x1="100.203" y1="93.643" x2="101.473" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="90.043" y1="109.899" x2="100.203" y2="93.643" width="0" layer="19" extent="1-1"/>
+<wire x1="88.773" y1="112.439" x2="90.043" y2="109.899" width="0" layer="19" extent="1-1"/>
+<wire x1="78.613" y1="91.103" x2="88.773" y2="112.439" width="0" layer="19" extent="1-1"/>
+<wire x1="77.343" y1="93.643" x2="78.613" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="133.477" y1="111.931" x2="124.079" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="134.747" y1="109.391" x2="133.477" y2="111.931" width="0" layer="19" extent="1-1"/>
+<wire x1="146.177" y1="93.897" x2="134.747" y2="109.391" width="0" layer="19" extent="1-1"/>
+<wire x1="147.447" y1="91.357" x2="146.177" y2="93.897" width="0" layer="19" extent="1-1"/>
+<wire x1="167.005" y1="86.023" x2="147.447" y2="91.357" width="0" layer="19" extent="1-1"/>
+<wire x1="168.275" y1="83.483" x2="167.005" y2="86.023" width="0" layer="19" extent="1-1"/>
+<wire x1="167.259" y1="64.179" x2="168.275" y2="83.483" width="0" layer="19" extent="1-1"/>
+<wire x1="168.529" y1="61.639" x2="167.259" y2="64.179" width="0" layer="19" extent="1-1"/>
+<wire x1="146.177" y1="66.885" x2="168.529" y2="61.639" width="0" layer="19" extent="1-1"/>
+<wire x1="147.447" y1="64.345" x2="146.177" y2="66.885" width="0" layer="19" extent="1-1"/>
+<wire x1="136.779" y1="46.819" x2="146.177" y2="66.885" width="0" layer="19" extent="1-1"/>
+<wire x1="135.509" y1="49.359" x2="136.779" y2="46.819" width="0" layer="19" extent="1-1"/>
+<wire x1="148.463" y1="29.801" x2="147.447" y2="64.345" width="0" layer="19" extent="1-1"/>
+<wire x1="147.193" y1="27.261" x2="148.463" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="124.587" y1="64.599" x2="135.509" y2="49.359" width="0" layer="19" extent="1-1"/>
+<wire x1="123.317" y1="67.139" x2="124.587" y2="64.599" width="0" layer="19" extent="1-1"/>
+<wire x1="113.665" y1="46.565" x2="123.317" y2="67.139" width="0" layer="19" extent="1-1"/>
+<wire x1="112.395" y1="49.105" x2="113.665" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="101.473" y1="64.853" x2="112.395" y2="49.105" width="0" layer="19" extent="1-1"/>
+<wire x1="100.203" y1="67.393" x2="101.473" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="90.297" y1="46.565" x2="100.203" y2="67.393" width="0" layer="19" extent="1-1"/>
+<wire x1="89.027" y1="49.105" x2="90.297" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="78.867" y1="64.853" x2="89.027" y2="49.105" width="0" layer="19" extent="1-1"/>
+<wire x1="77.597" y1="67.393" x2="78.867" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="68.707" y1="29.547" x2="78.867" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="67.437" y1="27.007" x2="68.707" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="108.331" y1="29.547" x2="113.665" y2="46.565" width="0" layer="19" extent="1-1"/>
+<wire x1="107.061" y1="27.007" x2="108.331" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="128.651" y1="29.547" x2="124.587" y2="64.599" width="0" layer="19" extent="1-1"/>
+<wire x1="127.381" y1="27.007" x2="128.651" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="88.519" y1="29.547" x2="101.473" y2="64.853" width="0" layer="19" extent="1-1"/>
+<wire x1="87.249" y1="27.007" x2="88.519" y2="29.547" width="0" layer="19" extent="1-1"/>
+<wire x1="147.193" y1="5.251" x2="147.193" y2="27.261" width="0" layer="19" extent="1-1"/>
+<wire x1="148.463" y1="2.711" x2="147.193" y2="5.251" width="0" layer="19" extent="1-1"/>
+<wire x1="127.381" y1="4.997" x2="127.381" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="128.651" y1="2.457" x2="127.381" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="107.061" y1="4.997" x2="107.061" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="108.331" y1="2.457" x2="107.061" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="87.249" y1="4.997" x2="87.249" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="88.519" y1="2.457" x2="87.249" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="67.437" y1="4.997" x2="67.437" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="68.707" y1="2.457" x2="67.437" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="72.981" y1="80.391" x2="78.613" y2="91.103" width="0" layer="19" extent="1-1"/>
+<wire x1="70.441" y1="79.121" x2="72.981" y2="80.391" width="0" layer="19" extent="1-1"/>
+<wire x1="167.259" y1="27.007" x2="148.463" y2="29.801" width="0" layer="19" extent="1-1"/>
+<wire x1="168.529" y1="29.547" x2="167.259" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="167.259" y1="4.997" x2="167.259" y2="27.007" width="0" layer="19" extent="1-1"/>
+<wire x1="168.529" y1="2.457" x2="167.259" y2="4.997" width="0" layer="19" extent="1-1"/>
+<wire x1="50.812" y1="4.826" x2="67.437" y2="4.997" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$61">
 <contactref element="ETH_IN7" pad="1"/>
 <contactref element="ETH_OUT7" pad="1"/>
-<wire x1="6.223" y1="31.579" x2="5.969" y2="14.053" width="0" layer="19" extent="1-1"/>
+<wire x1="17.907" y1="5.251" x2="17.907" y2="31.579" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$62">
 <contactref element="ETH_OUT7" pad="2"/>
 <contactref element="ETH_IN7" pad="2"/>
-<wire x1="7.493" y1="34.119" x2="7.239" y2="16.593" width="0" layer="19" extent="1-1"/>
+<wire x1="19.177" y1="2.711" x2="19.177" y2="34.119" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$63">
 <contactref element="ETH_IN7" pad="3"/>
 <contactref element="ETH_OUT7" pad="3"/>
-<wire x1="8.763" y1="31.579" x2="8.509" y2="14.053" width="0" layer="19" extent="1-1"/>
+<wire x1="20.447" y1="5.251" x2="20.447" y2="31.579" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$66">
 <contactref element="ETH_IN7" pad="6"/>
 <contactref element="ETH_OUT7" pad="6"/>
-<wire x1="12.319" y1="16.593" x2="12.573" y2="34.119" width="0" layer="19" extent="1-1"/>
+<wire x1="24.257" y1="2.711" x2="24.257" y2="34.119" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="1_TX+">
 <contactref element="U$4" pad="3"/>
 <contactref element="RS-485_OUT1" pad="3"/>
-<wire x1="96.209" y1="80.0145" x2="64.345" y2="85.725" width="0" layer="19" extent="1-1"/>
+<wire x1="70.441" y1="81.661" x2="97.987" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="1_TX-">
 <contactref element="U$4" pad="4"/>
 <contactref element="RS-485_OUT1" pad="6"/>
 <contactref element="RS-485_OUT8" pad="6"/>
-<wire x1="66.885" y1="81.915" x2="179.197" y2="50.629" width="0" layer="19" extent="1-1"/>
-<wire x1="97.479" y1="81.9195" x2="66.885" y2="81.915" width="0" layer="19" extent="1-1"/>
+<wire x1="99.257" y1="78.3635" x2="148.717" y2="66.885" width="0" layer="19" extent="1-1"/>
+<wire x1="72.981" y1="77.851" x2="99.257" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="1_RX+">
 <contactref element="U$4" pad="1"/>
 <contactref element="RS-485_OUT1" pad="1"/>
-<wire x1="93.669" y1="80.0145" x2="64.345" y2="88.265" width="0" layer="19" extent="1-1"/>
+<wire x1="70.441" y1="84.201" x2="95.447" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="1_RX-">
 <contactref element="U$4" pad="2"/>
 <contactref element="RS-485_OUT1" pad="2"/>
-<wire x1="94.939" y1="81.9195" x2="66.885" y2="86.995" width="0" layer="19" extent="1-1"/>
+<wire x1="72.981" y1="82.931" x2="96.717" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="2_RX+">
 <contactref element="U$4" pad="5"/>
 <contactref element="RS-485_OUT2" pad="1"/>
-<wire x1="98.749" y1="80.0145" x2="55.499" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="73.787" y1="64.853" x2="100.527" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="2_TX+">
 <contactref element="U$4" pad="7"/>
 <contactref element="RS-485_OUT2" pad="3"/>
-<wire x1="101.289" y1="80.0145" x2="58.039" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="76.327" y1="64.853" x2="103.067" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="2_TX-">
 <contactref element="U$4" pad="8"/>
 <contactref element="RS-485_OUT2" pad="6"/>
-<wire x1="102.559" y1="81.9195" x2="61.849" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="80.137" y1="67.393" x2="104.337" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="2_RX-">
 <contactref element="U$4" pad="6"/>
 <contactref element="RS-485_OUT2" pad="2"/>
-<wire x1="100.019" y1="81.9195" x2="56.769" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="75.057" y1="67.393" x2="101.797" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="4_TX-">
 <contactref element="U$4" pad="16"/>
 <contactref element="RS-485_OUT4" pad="6"/>
-<wire x1="112.719" y1="81.9195" x2="99.949" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="102.743" y1="67.393" x2="114.497" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="4_RX+">
 <contactref element="U$4" pad="13"/>
 <contactref element="RS-485_OUT4" pad="1"/>
-<wire x1="108.909" y1="80.0145" x2="93.599" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="96.393" y1="64.853" x2="110.687" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="4_RX-">
 <contactref element="U$4" pad="14"/>
 <contactref element="RS-485_OUT4" pad="2"/>
-<wire x1="110.179" y1="81.9195" x2="94.869" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="97.663" y1="67.393" x2="111.957" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3_RX-">
 <contactref element="U$4" pad="10"/>
 <contactref element="RS-485_OUT3" pad="2"/>
-<wire x1="105.099" y1="81.9195" x2="75.311" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="86.487" y1="49.105" x2="106.877" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="4_TX+">
 <contactref element="U$4" pad="15"/>
 <contactref element="RS-485_OUT4" pad="3"/>
-<wire x1="111.449" y1="80.0145" x2="96.139" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="98.933" y1="64.853" x2="113.227" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3_TX+">
 <contactref element="U$4" pad="11"/>
 <contactref element="RS-485_OUT3" pad="3"/>
-<wire x1="106.369" y1="80.0145" x2="76.581" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="87.757" y1="46.565" x2="108.147" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3_TX-">
 <contactref element="U$4" pad="12"/>
 <contactref element="RS-485_OUT3" pad="6"/>
-<wire x1="107.639" y1="81.9195" x2="80.391" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="91.567" y1="49.105" x2="109.417" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3_RX+">
 <contactref element="U$4" pad="9"/>
 <contactref element="RS-485_OUT3" pad="1"/>
-<wire x1="103.829" y1="80.0145" x2="74.041" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="85.217" y1="46.565" x2="105.607" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="6_RX+">
 <contactref element="U$4" pad="21"/>
 <contactref element="RS-485_OUT6" pad="1"/>
-<wire x1="119.069" y1="80.0145" x2="132.715" y2="48.343" width="0" layer="19" extent="1-1"/>
+<wire x1="119.507" y1="64.599" x2="120.847" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="6_RX-">
 <contactref element="U$4" pad="22"/>
 <contactref element="RS-485_OUT6" pad="2"/>
-<wire x1="120.339" y1="81.9195" x2="133.985" y2="50.883" width="0" layer="19" extent="1-1"/>
+<wire x1="120.777" y1="67.139" x2="122.117" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="6_TX+">
 <contactref element="U$4" pad="23"/>
 <contactref element="RS-485_OUT6" pad="3"/>
-<wire x1="121.609" y1="80.0145" x2="135.255" y2="48.343" width="0" layer="19" extent="1-1"/>
+<wire x1="122.047" y1="64.599" x2="123.387" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="6_TX-">
 <contactref element="U$4" pad="24"/>
 <contactref element="RS-485_OUT6" pad="6"/>
-<wire x1="122.879" y1="81.9195" x2="139.065" y2="50.883" width="0" layer="19" extent="1-1"/>
+<wire x1="125.857" y1="67.139" x2="124.657" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="7_RX+">
 <contactref element="U$4" pad="25"/>
 <contactref element="RS-485_OUT7" pad="1"/>
-<wire x1="124.149" y1="80.0145" x2="153.035" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="131.699" y1="46.819" x2="125.927" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="7_RX-">
 <contactref element="U$4" pad="26"/>
 <contactref element="RS-485_OUT7" pad="2"/>
-<wire x1="125.419" y1="81.9195" x2="154.305" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="132.969" y1="49.359" x2="127.197" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="7_TX+">
 <contactref element="U$4" pad="27"/>
 <contactref element="RS-485_OUT7" pad="3"/>
-<wire x1="126.689" y1="80.0145" x2="155.575" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="134.239" y1="46.819" x2="128.467" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="7_TX-">
 <contactref element="U$4" pad="28"/>
 <contactref element="RS-485_OUT7" pad="6"/>
-<wire x1="127.959" y1="81.9195" x2="159.385" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="138.049" y1="49.359" x2="129.737" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5_TX+">
 <contactref element="U$4" pad="19"/>
 <contactref element="RS-485_OUT5" pad="3"/>
-<wire x1="116.529" y1="80.0145" x2="115.443" y2="48.343" width="0" layer="19" extent="1-1"/>
+<wire x1="111.125" y1="46.565" x2="118.307" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5_TX-">
 <contactref element="U$4" pad="20"/>
 <contactref element="RS-485_OUT5" pad="6"/>
-<wire x1="117.799" y1="81.9195" x2="119.253" y2="50.883" width="0" layer="19" extent="1-1"/>
+<wire x1="114.935" y1="49.105" x2="119.577" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5_RX+">
 <contactref element="U$4" pad="17"/>
 <contactref element="RS-485_OUT5" pad="1"/>
-<wire x1="113.989" y1="80.0145" x2="112.903" y2="48.343" width="0" layer="19" extent="1-1"/>
+<wire x1="108.585" y1="46.565" x2="115.767" y2="76.4585" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5_RX-">
 <contactref element="U$4" pad="18"/>
 <contactref element="RS-485_OUT5" pad="2"/>
-<wire x1="115.259" y1="81.9195" x2="114.173" y2="50.883" width="0" layer="19" extent="1-1"/>
+<wire x1="109.855" y1="49.105" x2="117.037" y2="78.3635" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="8_TX+">
 <contactref element="U$4" pad="31"/>
 <contactref element="RS-485_OUT8" pad="3"/>
-<wire x1="131.769" y1="80.0145" x2="175.387" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="133.547" y1="76.4585" x2="144.907" y2="64.345" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="8_TX-">
 <contactref element="U$4" pad="32"/>
@@ -1154,281 +1154,281 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="8_RX+">
 <contactref element="U$4" pad="29"/>
 <contactref element="RS-485_OUT8" pad="1"/>
-<wire x1="129.229" y1="80.0145" x2="172.847" y2="48.089" width="0" layer="19" extent="1-1"/>
+<wire x1="131.007" y1="76.4585" x2="142.367" y2="64.345" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="8_RX-">
 <contactref element="U$4" pad="30"/>
 <contactref element="RS-485_OUT8" pad="2"/>
-<wire x1="130.499" y1="81.9195" x2="174.117" y2="50.629" width="0" layer="19" extent="1-1"/>
+<wire x1="132.277" y1="78.3635" x2="143.637" y2="66.885" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="9_TX+">
 <contactref element="U$4" pad="68"/>
 <contactref element="RS-485_OUT9" pad="3"/>
-<wire x1="135.579" y1="85.7295" x2="178.943" y2="66.465" width="0" layer="19" extent="1-1"/>
+<wire x1="137.357" y1="82.1735" x2="169.799" y2="64.179" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="9_TX-">
 <contactref element="U$4" pad="67"/>
 <contactref element="RS-485_OUT9" pad="6"/>
-<wire x1="134.309" y1="83.8245" x2="175.133" y2="63.925" width="0" layer="19" extent="1-1"/>
+<wire x1="136.087" y1="80.2685" x2="165.989" y2="61.639" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="9_RX-">
 <contactref element="U$4" pad="34"/>
 <contactref element="RS-485_OUT9" pad="2"/>
-<wire x1="135.579" y1="81.9195" x2="180.213" y2="63.925" width="0" layer="19" extent="1-1"/>
+<wire x1="137.357" y1="78.3635" x2="171.069" y2="61.639" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="9_RX+">
 <contactref element="U$4" pad="33"/>
 <contactref element="RS-485_OUT9" pad="1"/>
-<wire x1="134.309" y1="80.0145" x2="181.483" y2="66.465" width="0" layer="19" extent="1-1"/>
+<wire x1="136.087" y1="76.4585" x2="172.339" y2="64.179" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="10_TX+">
 <contactref element="U$4" pad="64"/>
 <contactref element="RS-485_OUT10" pad="3"/>
-<wire x1="130.499" y1="85.7295" x2="179.197" y2="88.563" width="0" layer="19" extent="1-1"/>
+<wire x1="169.545" y1="86.023" x2="132.277" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="10_TX-">
 <contactref element="U$4" pad="63"/>
 <contactref element="RS-485_OUT10" pad="6"/>
-<wire x1="129.229" y1="83.8245" x2="175.387" y2="86.023" width="0" layer="19" extent="1-1"/>
+<wire x1="165.735" y1="83.483" x2="131.007" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="10_RX+">
 <contactref element="U$4" pad="66"/>
 <contactref element="RS-485_OUT10" pad="1"/>
-<wire x1="133.039" y1="85.7295" x2="181.737" y2="88.563" width="0" layer="19" extent="1-1"/>
+<wire x1="172.085" y1="86.023" x2="134.817" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="10_RX-">
 <contactref element="U$4" pad="65"/>
 <contactref element="RS-485_OUT10" pad="2"/>
-<wire x1="131.769" y1="83.8245" x2="180.467" y2="86.023" width="0" layer="19" extent="1-1"/>
+<wire x1="170.815" y1="83.483" x2="133.547" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="11_TX+">
 <contactref element="U$4" pad="60"/>
 <contactref element="RS-485_OUT11" pad="3"/>
-<wire x1="125.419" y1="85.7295" x2="179.197" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="148.717" y1="93.897" x2="127.197" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="11_TX-">
 <contactref element="U$4" pad="59"/>
 <contactref element="RS-485_OUT11" pad="6"/>
-<wire x1="124.149" y1="83.8245" x2="175.387" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="144.907" y1="91.357" x2="125.927" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="11_RX+">
 <contactref element="U$4" pad="62"/>
 <contactref element="RS-485_OUT11" pad="1"/>
-<wire x1="127.959" y1="85.7295" x2="181.737" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="151.257" y1="93.897" x2="129.737" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="11_RX-">
 <contactref element="U$4" pad="61"/>
 <contactref element="RS-485_OUT11" pad="2"/>
-<wire x1="126.689" y1="83.8245" x2="180.467" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="149.987" y1="91.357" x2="128.467" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12_TX+">
 <contactref element="U$4" pad="56"/>
 <contactref element="RS-485_OUT12" pad="3"/>
-<wire x1="159.639" y1="111.423" x2="120.339" y2="85.7295" width="0" layer="19" extent="1-1"/>
+<wire x1="136.017" y1="111.931" x2="122.117" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12_TX-">
 <contactref element="U$4" pad="55"/>
 <contactref element="RS-485_OUT12" pad="6"/>
-<wire x1="155.829" y1="108.883" x2="119.069" y2="83.8245" width="0" layer="19" extent="1-1"/>
+<wire x1="132.207" y1="109.391" x2="120.847" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12_RX+">
 <contactref element="U$4" pad="58"/>
 <contactref element="RS-485_OUT12" pad="1"/>
-<wire x1="162.179" y1="111.423" x2="122.879" y2="85.7295" width="0" layer="19" extent="1-1"/>
+<wire x1="138.557" y1="111.931" x2="124.657" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="12_RX-">
 <contactref element="U$4" pad="57"/>
 <contactref element="RS-485_OUT12" pad="2"/>
-<wire x1="160.909" y1="108.883" x2="121.609" y2="83.8245" width="0" layer="19" extent="1-1"/>
+<wire x1="137.287" y1="109.391" x2="123.387" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="13_TX+">
 <contactref element="U$4" pad="52"/>
 <contactref element="RS-485_OUT13" pad="3"/>
-<wire x1="139.827" y1="111.169" x2="115.259" y2="85.7295" width="0" layer="19" extent="1-1"/>
+<wire x1="117.037" y1="82.1735" x2="125.349" y2="93.643" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="13_TX-">
 <contactref element="U$4" pad="51"/>
 <contactref element="RS-485_OUT13" pad="6"/>
-<wire x1="136.017" y1="108.629" x2="113.989" y2="83.8245" width="0" layer="19" extent="1-1"/>
+<wire x1="115.767" y1="80.2685" x2="121.539" y2="91.103" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="13_RX+">
 <contactref element="U$4" pad="54"/>
 <contactref element="RS-485_OUT13" pad="1"/>
-<wire x1="142.367" y1="111.169" x2="117.799" y2="85.7295" width="0" layer="19" extent="1-1"/>
+<wire x1="119.577" y1="82.1735" x2="127.889" y2="93.643" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="14_TX+">
 <contactref element="U$4" pad="48"/>
 <contactref element="RS-485_OUT14" pad="3"/>
-<wire x1="110.179" y1="85.7295" x2="120.523" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="111.957" y1="82.1735" x2="113.919" y2="111.931" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="14_RX+">
 <contactref element="U$4" pad="50"/>
 <contactref element="RS-485_OUT14" pad="1"/>
-<wire x1="112.719" y1="85.7295" x2="123.063" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="114.497" y1="82.1735" x2="116.459" y2="111.931" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="13_RX-">
 <contactref element="U$4" pad="53"/>
 <contactref element="RS-485_OUT13" pad="2"/>
-<wire x1="141.097" y1="108.629" x2="116.529" y2="83.8245" width="0" layer="19" extent="1-1"/>
+<wire x1="118.307" y1="80.2685" x2="126.619" y2="91.103" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="14_TX-">
 <contactref element="U$4" pad="47"/>
 <contactref element="RS-485_OUT14" pad="6"/>
-<wire x1="108.909" y1="83.8245" x2="116.713" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="110.687" y1="80.2685" x2="110.109" y2="109.391" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="14_RX-">
 <contactref element="U$4" pad="49"/>
 <contactref element="RS-485_OUT14" pad="2"/>
-<wire x1="111.449" y1="83.8245" x2="121.793" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="113.227" y1="80.2685" x2="115.189" y2="109.391" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="15_TX+">
 <contactref element="U$4" pad="44"/>
 <contactref element="RS-485_OUT15" pad="3"/>
-<wire x1="105.099" y1="85.7295" x2="100.965" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="106.877" y1="82.1735" x2="102.743" y2="93.643" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="15_RX+">
 <contactref element="U$4" pad="46"/>
 <contactref element="RS-485_OUT15" pad="1"/>
-<wire x1="107.639" y1="85.7295" x2="103.505" y2="111.423" width="0" layer="19" extent="1-1"/>
+<wire x1="109.417" y1="82.1735" x2="105.283" y2="93.643" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="16_TX+">
 <contactref element="U$4" pad="40"/>
 <contactref element="RS-485_OUT16" pad="3"/>
-<wire x1="100.019" y1="85.7295" x2="81.661" y2="111.169" width="0" layer="19" extent="1-1"/>
+<wire x1="101.797" y1="82.1735" x2="91.313" y2="112.439" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="16_RX+">
 <contactref element="U$4" pad="42"/>
 <contactref element="RS-485_OUT16" pad="1"/>
-<wire x1="102.559" y1="85.7295" x2="84.201" y2="111.169" width="0" layer="19" extent="1-1"/>
+<wire x1="104.337" y1="82.1735" x2="93.853" y2="112.439" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="16_RX-">
 <contactref element="U$4" pad="41"/>
 <contactref element="RS-485_OUT16" pad="2"/>
-<wire x1="101.289" y1="83.8245" x2="82.931" y2="108.629" width="0" layer="19" extent="1-1"/>
+<wire x1="103.067" y1="80.2685" x2="92.583" y2="109.899" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="16_TX-">
 <contactref element="U$4" pad="39"/>
 <contactref element="RS-485_OUT16" pad="6"/>
-<wire x1="98.749" y1="83.8245" x2="77.851" y2="108.629" width="0" layer="19" extent="1-1"/>
+<wire x1="100.527" y1="80.2685" x2="87.503" y2="109.899" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="15_RX-">
 <contactref element="U$4" pad="45"/>
 <contactref element="RS-485_OUT15" pad="2"/>
-<wire x1="106.369" y1="83.8245" x2="102.235" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="108.147" y1="80.2685" x2="104.013" y2="91.103" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="15_TX-">
 <contactref element="U$4" pad="43"/>
 <contactref element="RS-485_OUT15" pad="6"/>
-<wire x1="103.829" y1="83.8245" x2="97.155" y2="108.883" width="0" layer="19" extent="1-1"/>
+<wire x1="105.607" y1="80.2685" x2="98.933" y2="91.103" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="17_RX+">
 <contactref element="U$4" pad="38"/>
 <contactref element="RS-485_OUT17" pad="1"/>
-<wire x1="97.479" y1="85.7295" x2="64.897" y2="111.169" width="0" layer="19" extent="1-1"/>
+<wire x1="82.423" y1="93.643" x2="99.257" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="17_RX-">
 <contactref element="U$4" pad="37"/>
 <contactref element="RS-485_OUT17" pad="2"/>
-<wire x1="96.209" y1="83.8245" x2="63.627" y2="108.629" width="0" layer="19" extent="1-1"/>
+<wire x1="81.153" y1="91.103" x2="97.987" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="17_TX-">
 <contactref element="U$4" pad="35"/>
 <contactref element="RS-485_OUT17" pad="6"/>
-<wire x1="93.669" y1="83.8245" x2="58.547" y2="108.629" width="0" layer="19" extent="1-1"/>
+<wire x1="76.073" y1="91.103" x2="95.447" y2="80.2685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="17_TX+">
 <contactref element="U$4" pad="36"/>
 <contactref element="RS-485_OUT17" pad="3"/>
-<wire x1="94.939" y1="85.7295" x2="62.357" y2="111.169" width="0" layer="19" extent="1-1"/>
+<wire x1="79.883" y1="93.643" x2="96.717" y2="82.1735" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$4">
 <contactref element="EXT_MOTOR_1" pad="POS"/>
 <contactref element="INT_MOTOR_1" pad="L2"/>
 <contactref element="INT_MOTOR_1" pad="L1"/>
-<wire x1="5.842" y1="121.92" x2="6.096" y2="102.87" width="0" layer="19" extent="1-1"/>
-<wire x1="5.842" y1="114.3" x2="5.842" y2="121.92" width="0" layer="19" extent="1-1"/>
+<wire x1="17.526" y1="114.3" x2="17.526" y2="121.92" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="102.87" x2="17.526" y2="114.3" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="INT_MOTOR_1" pad="R2"/>
 <contactref element="INT_MOTOR_1" pad="R1"/>
 <contactref element="EXT_MOTOR_1" pad="NEG"/>
-<wire x1="13.462" y1="121.92" x2="13.208" y2="102.87" width="0" layer="19" extent="1-1"/>
-<wire x1="13.462" y1="114.3" x2="13.462" y2="121.92" width="0" layer="19" extent="1-1"/>
+<wire x1="25.146" y1="114.3" x2="25.146" y2="121.92" width="0" layer="19" extent="1-1"/>
+<wire x1="24.892" y1="102.87" x2="25.146" y2="114.3" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
 <contactref element="EXT_MOTOR_2" pad="POS"/>
 <contactref element="INT_MOTOR_2" pad="L2"/>
 <contactref element="INT_MOTOR_2" pad="L1"/>
-<wire x1="5.588" y1="92.964" x2="6.096" y2="73.914" width="0" layer="19" extent="1-1"/>
-<wire x1="5.588" y1="85.344" x2="5.588" y2="92.964" width="0" layer="19" extent="1-1"/>
+<wire x1="17.272" y1="85.344" x2="17.272" y2="92.964" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="73.914" x2="17.272" y2="85.344" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$8">
 <contactref element="INT_MOTOR_2" pad="R2"/>
 <contactref element="INT_MOTOR_2" pad="R1"/>
 <contactref element="EXT_MOTOR_2" pad="NEG"/>
-<wire x1="13.208" y1="92.964" x2="13.208" y2="73.914" width="0" layer="19" extent="1-1"/>
-<wire x1="13.208" y1="85.344" x2="13.208" y2="92.964" width="0" layer="19" extent="1-1"/>
+<wire x1="24.892" y1="85.344" x2="24.892" y2="92.964" width="0" layer="19" extent="1-1"/>
+<wire x1="24.892" y1="73.914" x2="24.892" y2="85.344" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$12">
 <contactref element="EXT_MOTOR_3" pad="POS"/>
 <contactref element="INT_MOTOR_3" pad="L2"/>
 <contactref element="INT_MOTOR_3" pad="L1"/>
-<wire x1="5.842" y1="64.262" x2="6.096" y2="44.958" width="0" layer="19" extent="1-1"/>
-<wire x1="5.842" y1="56.642" x2="5.842" y2="64.262" width="0" layer="19" extent="1-1"/>
+<wire x1="17.526" y1="56.642" x2="17.526" y2="64.262" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="44.958" x2="17.526" y2="56.642" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$13">
 <contactref element="EXT_MOTOR_3" pad="NEG"/>
 <contactref element="INT_MOTOR_3" pad="R2"/>
 <contactref element="INT_MOTOR_3" pad="R1"/>
-<wire x1="13.462" y1="64.262" x2="13.208" y2="44.958" width="0" layer="19" extent="1-1"/>
-<wire x1="13.462" y1="56.642" x2="13.462" y2="64.262" width="0" layer="19" extent="1-1"/>
+<wire x1="25.146" y1="56.642" x2="25.146" y2="64.262" width="0" layer="19" extent="1-1"/>
+<wire x1="24.892" y1="44.958" x2="25.146" y2="56.642" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$15">
 <contactref element="EXT_MOTOR_4" pad="POS"/>
 <contactref element="INT_MOTOR_4" pad="L2"/>
 <contactref element="INT_MOTOR_4" pad="L1"/>
-<wire x1="196.088" y1="57.658" x2="196.088" y2="65.278" width="0" layer="19" extent="1-1"/>
-<wire x1="196.342" y1="45.974" x2="196.088" y2="65.278" width="0" layer="19" extent="1-1"/>
+<wire x1="183.642" y1="65.278" x2="183.642" y2="57.658" width="0" layer="19" extent="1-1"/>
+<wire x1="183.896" y1="45.974" x2="183.642" y2="57.658" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$16">
 <contactref element="EXT_MOTOR_4" pad="NEG"/>
 <contactref element="INT_MOTOR_4" pad="R2"/>
 <contactref element="INT_MOTOR_4" pad="R1"/>
-<wire x1="203.708" y1="57.658" x2="203.708" y2="65.278" width="0" layer="19" extent="1-1"/>
-<wire x1="203.454" y1="45.974" x2="203.708" y2="65.278" width="0" layer="19" extent="1-1"/>
+<wire x1="191.262" y1="57.658" x2="191.008" y2="45.974" width="0" layer="19" extent="1-1"/>
+<wire x1="191.262" y1="65.278" x2="191.262" y2="57.658" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$20">
 <contactref element="EXT_MOTOR_5" pad="POS"/>
 <contactref element="INT_MOTOR_5" pad="L2"/>
 <contactref element="INT_MOTOR_5" pad="L1"/>
-<wire x1="196.088" y1="86.614" x2="196.088" y2="94.234" width="0" layer="19" extent="1-1"/>
-<wire x1="196.342" y1="74.93" x2="196.088" y2="94.234" width="0" layer="19" extent="1-1"/>
+<wire x1="183.642" y1="86.614" x2="183.642" y2="94.234" width="0" layer="19" extent="1-1"/>
+<wire x1="183.896" y1="74.93" x2="183.642" y2="86.614" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="EXT_MOTOR_5" pad="NEG"/>
 <contactref element="INT_MOTOR_5" pad="R2"/>
 <contactref element="INT_MOTOR_5" pad="R1"/>
-<wire x1="203.708" y1="86.614" x2="203.708" y2="94.234" width="0" layer="19" extent="1-1"/>
-<wire x1="203.454" y1="74.93" x2="203.708" y2="94.234" width="0" layer="19" extent="1-1"/>
+<wire x1="191.262" y1="86.614" x2="191.262" y2="94.234" width="0" layer="19" extent="1-1"/>
+<wire x1="191.008" y1="74.93" x2="191.262" y2="86.614" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$23">
 <contactref element="EXT_MOTOR_6" pad="POS"/>
 <contactref element="INT_MOTOR_6" pad="L2"/>
 <contactref element="INT_MOTOR_6" pad="L1"/>
-<wire x1="196.342" y1="114.808" x2="196.342" y2="122.428" width="0" layer="19" extent="1-1"/>
-<wire x1="196.596" y1="103.378" x2="196.342" y2="122.428" width="0" layer="19" extent="1-1"/>
+<wire x1="183.896" y1="114.808" x2="183.896" y2="122.428" width="0" layer="19" extent="1-1"/>
+<wire x1="184.15" y1="103.378" x2="183.896" y2="114.808" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$24">
 <contactref element="INT_MOTOR_6" pad="R2"/>
 <contactref element="INT_MOTOR_6" pad="R1"/>
 <contactref element="EXT_MOTOR_6" pad="NEG"/>
-<wire x1="203.962" y1="114.808" x2="203.962" y2="122.428" width="0" layer="19" extent="1-1"/>
-<wire x1="203.708" y1="103.378" x2="203.962" y2="122.428" width="0" layer="19" extent="1-1"/>
+<wire x1="191.516" y1="114.808" x2="191.516" y2="122.428" width="0" layer="19" extent="1-1"/>
+<wire x1="191.262" y1="103.378" x2="191.516" y2="114.808" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$25">
 <contactref element="ARM_POWER" pad="L"/>
 <contactref element="U$7" pad="1"/>
-<wire x1="35.802" y1="15.494" x2="40.4114" y2="103.251" width="0" layer="19" extent="1-1"/>
+<wire x1="51.066" y1="15.494" x2="51.5874" y2="28.829" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="V+">
 <contactref element="U$7" pad="3"/>
@@ -1440,14 +1440,14 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$3" pad="P$2"/>
 <contactref element="U$5" pad="P$2"/>
 <contactref element="U$6" pad="P$2"/>
-<wire x1="32.004" y1="50.8" x2="32.004" y2="40.386" width="0" layer="19" extent="1-1"/>
-<wire x1="32.004" y1="61.214" x2="32.004" y2="50.8" width="0" layer="19" extent="1-1"/>
-<wire x1="32.004" y1="71.882" x2="32.004" y2="61.214" width="0" layer="19" extent="1-1"/>
-<wire x1="32.004" y1="82.55" x2="32.004" y2="71.882" width="0" layer="19" extent="1-1"/>
-<wire x1="32.004" y1="93.218" x2="32.004" y2="82.55" width="0" layer="19" extent="1-1"/>
-<wire x1="30.353" y1="103.251" x2="32.004" y2="93.218" width="0" layer="19" extent="1-1"/>
-<wire x1="32.766" y1="112.776" x2="30.353" y2="103.251" width="0" layer="19" extent="1-1"/>
-<wire x1="32.766" y1="120.396" x2="32.766" y2="112.776" width="0" layer="19" extent="1-1"/>
+<wire x1="43.434" y1="120.142" x2="43.434" y2="112.522" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="93.218" x2="43.434" y2="120.142" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="82.55" x2="43.688" y2="93.218" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="71.882" x2="43.688" y2="82.55" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="61.214" x2="43.688" y2="71.882" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="50.8" x2="43.688" y2="61.214" width="0" layer="19" extent="1-1"/>
+<wire x1="43.688" y1="40.386" x2="43.688" y2="50.8" width="0" layer="19" extent="1-1"/>
+<wire x1="41.529" y1="28.829" x2="43.688" y2="40.386" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

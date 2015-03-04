@@ -22,16 +22,6 @@
  * U5_MUX_S1 PE1
  */
 
-//Connor: As long as all of the pins are defined as something, the value doesn't matter
-// Define them as whatever makes it easiest to implement general gpio.
-// It's pretty easy to map to integers if nothing else works
-
-#define U3_MUX_S0 1
-//#define U3_MUX_S1 PE1
-//#define U4_MUX_S0 PH0
-//#define U4_MUX_S1 PH1
-//#define U5_MUX_S0 PE0
-//#define U5_MUX_S1 PE1
 
 //Uarts
 

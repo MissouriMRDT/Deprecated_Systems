@@ -62,6 +62,20 @@ extern "C" {
 #define Board_BUTTON1               EK_TM4C1294XL_USR_SW2
 */
 
+// Muxing pins
+
+#define U3_MUX_S0 					EK_TM4C1294XL_PH0
+#define U3_MUX_S1 					EK_TM4C1294XL_PH1
+#define U4_MUX_S0 					EK_TM4C1294XL_PM6
+#define U4_MUX_S1 					EK_TM4C1294XL_PM7
+#define U5_MUX_S0 					EK_TM4C1294XL_PL0
+#define U5_MUX_S1 					EK_TM4C1294XL_PL1
+
+#define U6_MUX_S0 					EK_TM4C1294XL_PK2
+#define U6_MUX_S1 					EK_TM4C1294XL_PK3
+#define U7_MUX_S0 					EK_TM4C1294XL_PE0
+#define U7_MUX_S1 					EK_TM4C1294XL_PE1
+
 #define Board_I2C0                  EK_TM4C1294XL_I2C7
 #define Board_I2C1                  EK_TM4C1294XL_I2C8
 #define Board_I2C_TMP               EK_TM4C1294XL_I2C7

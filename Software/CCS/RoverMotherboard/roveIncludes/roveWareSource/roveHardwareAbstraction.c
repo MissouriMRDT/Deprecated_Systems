@@ -32,11 +32,14 @@ void digitalWrite(int pin, int val)
 
 int deviceWrite(int rs485jack, char* buffer, int buf_len)
 {
+	//Debug
+	System_printf("deviceWrite called\n");
+	System_flush();
 	/*
 	switch(rs485jack)
 	{
 	case 1:
-		digitalWrite(U1_MUX_S1, LOW)
+		GPIO_write(U1_MUX_S1, LOW)
 		digitalWrite(U1_MUX_S0, LOW)
 		//Write buffer to UART
 		break;

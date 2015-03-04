@@ -15,18 +15,24 @@ void pinMode(int pin, int mode)
 
 void digitalWrite(int pin, int val)
 {
-	/*
-	 * Some big switch case is probably the best way to handle this
-	switch pin:
+	System_printf("DigitalWrite Called, writing %d\n", val);
+	System_flush();
+	switch(pin)
 	{
 	case U3_MUX_S0:
+		if(val == LOW)
+		{
 		//Not the right port, etc
-		GPIOPinWrite(GPIO_PORTH_BASE, (GPIO_PIN_0 | GPIO_PIN_1), (0));
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (0));
+		} else if (val == HIGH)
+		{
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (~0));
+		}
 		break;
 	case U3_MUX_S1:
 		break;
-	}
-	*/
+	} //endswitch
+	return;
 
 }
 

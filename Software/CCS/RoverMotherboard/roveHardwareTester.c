@@ -14,7 +14,7 @@
 Void roveHardwareTester(UArg arg0, UArg arg1)
 {
 	char buffer[20] = "This is a test\0";
-	int i;
+	int i, j;
 
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
@@ -24,12 +24,14 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	{
 		System_printf("Testing High\n");
 		System_flush();
-		digitalWrite(U3_MUX_S0, HIGH);
+		for(j = U3_MUX_S0; j < U7_MUX_S1; j++)
+			digitalWrite(j, HIGH);
 		Task_sleep(2000);
 
 		System_printf("Testing Low\n");
 		System_flush();
-		digitalWrite(U3_MUX_S0, LOW);
+		for(j = U3_MUX_S0; j < U7_MUX_S1; j++)
+			digitalWrite(j, LOW);
 		Task_sleep(2000);
 	}
 

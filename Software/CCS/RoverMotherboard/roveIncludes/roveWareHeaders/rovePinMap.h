@@ -14,9 +14,8 @@
 #define HIGH 1
 #define LOW 0
 
-//Mux pins
+//Mux Select Line pins
 /*
- * Mux pins:
  * U3_MUX_S0 PH0
  * U3_MUX_S1 PH1
  * U4_MUX_S0 PM6

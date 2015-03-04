@@ -24,7 +24,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	{
 		System_printf("Testing High\n");
 		System_flush();
-		for(j = U3_MUX_S0; j < U7_MUX_S1; j++)
+		for(j = 0; j < 10; j++) //Test all 10 mux pins
 			digitalWrite(j, HIGH);
 		Task_sleep(2000);
 

@@ -19,7 +19,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
 
-	System_printf("Testing GPIO abstraction on U3_MUX_S0 (PH0)\n");
+	System_printf("Testing GPIO abstraction on All pins\n");
 	while(1)
 	{
 		System_printf("Testing High\n");
@@ -30,7 +30,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 
 		System_printf("Testing Low\n");
 		System_flush();
-		for(j = U3_MUX_S0; j < U7_MUX_S1; j++)
+		for(j = 0; j < 10; j++)
 			digitalWrite(j, LOW);
 		Task_sleep(2000);
 	}

@@ -105,6 +105,7 @@ int deviceWrite(int rs485jack, char* buffer, int buf_len)
 	case 1:
 		GPIO_write(U1_MUX_S1, LOW)
 		digitalWrite(U1_MUX_S0, LOW)
+		UartWrite
 		//Write buffer to UART
 		break;
 	//etc.

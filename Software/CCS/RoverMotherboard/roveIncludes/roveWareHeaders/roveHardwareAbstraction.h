@@ -54,9 +54,11 @@ void digitalWrite(int pin, int val);
  * inputs:
  * 	rs485jack - number of the jack to write to (0-18)
  * 	buffer - where to get the data from
- * 	buf_len - size of the buffer
+ * 	bytes_to_write - number of bytes to write
  * outputs:
- * 	returns number of bytes written. -1 for error
+ * 	returns number of bytes written.
+ * 		-1 for invalid device.
+ * 		UART_ERROR for, well, a uart error
  * pre: GPIO pins and UARTS have been initialized
  * post: mux is set to correct settings for specified rs485 jack, data
  * 	sent to device over UART
@@ -65,25 +67,37 @@ void digitalWrite(int pin, int val);
  * 	buffer[15] = "My Buffer";
  * 	deviceWrite(14, buffer, 15); //Write "My Buffer" to device on jack 14
  */
-int deviceWrite(int rs485jack, char* buffer, int buf_len);
+int deviceWrite(int rs485jack, char* buffer, int bytes_to_write);
 
 /*
  * deviceRead Retrieves a specified number of bytes from
  * It will deal with properly muxing to the device and writing to the uart
  *    internally
  * inputs:
- * 	rs485jack - number of the jack to write to (0-18)
+ * 	rs485jack - number of the jack to write to (0-18) on ONBOARD_ROVECOMM
  * 	buf_len - size of the buffer
  * 	timeout: number of milliseconds to wait before moving abandoning the read
  * 		and returning an error. Also accepts BIOS_WAIT_FOREVER
  * outputs:
- * 	returns number of bytes read. -1 for error
+ * 	returns number of bytes read.
+ * 		-1 for invalid device.
+ * 		UART_ERROR for, well, a uart error
  * 	buffer: Overwritten with the data recieved from uart, and null terminated
  * pre: muxes have been set up & UARTS are initialized
  * post:mux is set to correct settings for specified rs485 jack, data
  * 	recieved from device UART
+ *
+ * usage example:
+ * 	buffer[15];
+ * 	deviceRead(13, buffer, 1, BIOS_WAIT_FOREVER);
+ * 	switch(buffer[1])
+ * 	{
+ * 		case MY_STRUCT_ID: //This should be defined
+ * 			deviceRead(13, buffer, sizeof(struct my_struct), BIOS_WAIT_FOREVER);
+ * 			break;
+ * 	}
  */
-int deviceRead(int rs485jack, char* buffer, int buf_len, int timeout);
+int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout);
 
 //-------- HARDWARE INITIALIZATION FUNCTIONS ----------//
 

@@ -28,6 +28,14 @@
  * U7_MUX_S1 PE1
  */
 
+// Shitty optimization notes:
+// These have to be sequential integers
+// starting at 0 for compiler to optimize
+// digitalWrite to a jump table that runs in O(1)
+// If they are nonconsecutive or non-0 indexed
+// Then it will revert to if-else-else
+// And digitalWrite will run in O(n)
+
 #define U3_MUX_S0 0
 #define U3_MUX_S1 1
 #define U4_MUX_S0 2
@@ -38,6 +46,9 @@
 #define U6_MUX_S1 7
 #define U7_MUX_S0 8
 #define U7_MUX_S1 9
+
+//Special Devices
+#define ONBOARD_ROVECOMM 19
 
 //Uarts
 
@@ -54,14 +65,15 @@
  */
 
 
-#define U3RX PA4
-#define U3TX PA5
-#define U2RX PA6
-#define U2TX PA7
-#define U6RX PK0
-#define U6TX PK1
-#define U7RX PP0
-#define U7TX PP1
+#define U3RX uart3
+#define U3TX uart3
+#define U2RX uart2
+#define U2TX uart2
+#define U6RX uart6
+#define U6TX uart6
+#define U7RX uart7
+#define U7TX uart7
+
 
 
 

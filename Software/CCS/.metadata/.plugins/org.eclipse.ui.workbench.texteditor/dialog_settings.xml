@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="289" key="DIALOG_WIDTH"/>
 		<item value="228" key="DIALOG_Y_ORIGIN"/>
-		<item value="429" key="DIALOG_HEIGHT"/>
 		<item value="848" key="DIALOG_X_ORIGIN"/>
+		<item value="429" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="(~0)" key="selection"/>
+		<item value="UART_Handle" key="selection"/>
 		<list key="findhistory">
-			<item value="(0)"/>
-			<item value="#define "/>
-			<item value=" * "/>
-			<item value="fromBaseMsg"/>
-			<item value="inet_pton"/>
-			<item value="attemptToConnect"/>
-			<item value="Msg"/>
-			<item value="cmd"/>
+			<item value="UART_HANDLE"/>
+			<item value="extern"/>
+			<item value="bytes_to_write"/>
+			<item value="bytes_read = UART_read"/>
+			<item value="bytes_wrote = UART_write"/>
+			<item value="bytes_wrote -"/>
+			<item value="bytesWritten"/>
+			<item value="UART_write"/>
 		</list>
 		<list key="replacehistory">
+			<item value="UART_Handle"/>
+			<item value="extern UART_HANDLE"/>
+			<item value="bytes_to_read"/>
+			<item value="bytes_wrote = UART_write"/>
+			<item value="bytes_read = UART_read"/>
+			<item value="bytes_wrote"/>
+			<item value="bytesWritten = UART_write"/>
 			<item value="(~0)"/>
-			<item value="case "/>
-			<item value="#define "/>
-			<item value=" * "/>
-			<item value="//#define "/>
-			<item value="//#define"/>
-			<item value=""/>
-			<item value="fromBaseCmd"/>
 		</list>
 	</section>
 </section>

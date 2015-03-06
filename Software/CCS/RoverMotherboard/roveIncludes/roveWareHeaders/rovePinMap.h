@@ -54,21 +54,28 @@
 
 /*
  * Uart pins:
- * U3RX PA4
- * U3TX PA5
  * U2RX PA6
  * U2TX PA7
- * U6RX PK0
- * U6TX PK1
- * U7RX PP0
- * U7TX PP1
+ * U3RX PA4
+ * U3TX PA5
+ * U4RX PK0
+ * U4TX PK1
+ * U5RX PC6
+ * U5TX PC7
+ * U6RX PP0
+ * U6TX PP1
+ * U7RX PC4
+ * U7TX PC5
  */
 
-
-#define U3RX uart3
-#define U3TX uart3
 #define U2RX uart2
 #define U2TX uart2
+#define U3RX uart3
+#define U3TX uart3
+#define U4RX uart4
+#define U4TX uart4
+#define U5RX uart5
+#define U5TX uart5
 #define U6RX uart6
 #define U6TX uart6
 #define U7RX uart7

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<<<<<<< Updated upstream
-<eagle version="6.6.0">
-=======
 <eagle version="7.2.0">
->>>>>>> Stashed changes
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -834,19 +830,11 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$5" pad="P$1"/>
 <contactref element="U$6" pad="P$1"/>
 <contactref element="U$1" pad="P$1"/>
-<<<<<<< Updated upstream
 <polygon width="0.4064" layer="16" thermals="no">
 <vertex x="-26.67" y="138.43"/>
 <vertex x="219.71" y="138.43"/>
 <vertex x="219.71" y="-6.35"/>
 <vertex x="-26.67" y="-6.35"/>
-=======
-<polygon width="0.4064" layer="1">
-<vertex x="0" y="127"/>
-<vertex x="209.55" y="127"/>
-<vertex x="209.55" y="0"/>
-<vertex x="0" y="0"/>
->>>>>>> Stashed changes
 </polygon>
 </signal>
 <signal name="+12V">

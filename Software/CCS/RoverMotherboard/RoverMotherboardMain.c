@@ -52,6 +52,7 @@ int main(void)
 	uart3 = (UART_Handle)init_uart( 3, 115200 );
 	uart4 = (UART_Handle)init_uart( 4, 115200 );
 	uart5 = (UART_Handle)init_uart( 5, 115200 );
+	uart6 = (UART_Handle)init_uart( 6, 115200 );
 	uart7 = (UART_Handle)init_uart( 7, 115200 );
 
 //start TI BIOS

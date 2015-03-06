@@ -42,7 +42,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		System_flush();
 		for(j = 0; j < 10; j++)
 			digitalWrite(j, LOW);
-		Task_sleep(2000);
+		ms_delay(60);
 	}
 
 	System_printf("Testing UART devices\n");
@@ -80,7 +80,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		System_flush();
 		buffer[i] = '0' + (char)i;
 		deviceWrite(i, buffer, 35);
-		Task_sleep(2000);
+		ms_delay(10);
 	}
 
 	System_printf("Finished testing all devices\n");

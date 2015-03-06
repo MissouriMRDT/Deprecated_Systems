@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3602,32 +3602,11 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_1_RX" class="0">
-<segment>
-<pinref part="U3_MUX" gate="A" pin="1Y0"/>
-<wire x1="-33.02" y1="53.34" x2="-12.7" y2="53.34" width="0.1524" layer="91"/>
-<label x="-30.48" y="53.34" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_1_TX" class="0">
-<segment>
-<pinref part="U3_MUX" gate="A" pin="2Y0"/>
-<wire x1="-33.02" y1="40.64" x2="-12.7" y2="40.64" width="0.1524" layer="91"/>
-<label x="-30.48" y="40.64" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RS485_8_RX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="1Y2"/>
 <wire x1="-33.02" y1="-5.08" x2="-12.7" y2="-5.08" width="0.1524" layer="91"/>
 <label x="-30.48" y="-5.08" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_9_RX" class="0">
-<segment>
-<pinref part="U5_MUX" gate="A" pin="1Y3"/>
-<wire x1="-33.02" y1="-7.62" x2="-12.7" y2="-7.62" width="0.1524" layer="91"/>
-<label x="-30.48" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_8_TX" class="0">
@@ -3637,20 +3616,6 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_9_TX" class="0">
-<segment>
-<pinref part="U5_MUX" gate="A" pin="2Y3"/>
-<wire x1="-33.02" y1="-20.32" x2="-12.7" y2="-20.32" width="0.1524" layer="91"/>
-<label x="-30.48" y="-20.32" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_2_RX" class="0">
-<segment>
-<pinref part="U3_MUX" gate="A" pin="1Y1"/>
-<wire x1="-33.02" y1="50.8" x2="-12.7" y2="50.8" width="0.1524" layer="91"/>
-<label x="-30.48" y="50.8" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RS485_7_RX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="1Y1"/>
@@ -3658,32 +3623,11 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_2_TX" class="0">
-<segment>
-<pinref part="U3_MUX" gate="A" pin="2Y1"/>
-<wire x1="-33.02" y1="38.1" x2="-12.7" y2="38.1" width="0.1524" layer="91"/>
-<label x="-30.48" y="38.1" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RS485_7_TX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="2Y1"/>
 <wire x1="-33.02" y1="-15.24" x2="-12.7" y2="-15.24" width="0.1524" layer="91"/>
 <label x="-30.48" y="-15.24" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_3_RX" class="0">
-<segment>
-<pinref part="U4_MUX" gate="A" pin="1Y0"/>
-<wire x1="83.82" y1="53.34" x2="104.14" y2="53.34" width="0.1524" layer="91"/>
-<label x="86.36" y="53.34" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_3_TX" class="0">
-<segment>
-<pinref part="U4_MUX" gate="A" pin="2Y0"/>
-<wire x1="83.82" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
-<label x="86.36" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="U4_MUX_S0" class="0">
@@ -3716,23 +3660,23 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 </net>
 <net name="RS485_13_RX" class="0">
 <segment>
-<pinref part="U6_MUX" gate="A" pin="1Y0"/>
-<wire x1="83.82" y1="0" x2="104.14" y2="0" width="0.1524" layer="91"/>
-<label x="86.36" y="0" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_14_RX" class="0">
-<segment>
 <pinref part="U6_MUX" gate="A" pin="1Y1"/>
 <wire x1="83.82" y1="-2.54" x2="104.14" y2="-2.54" width="0.1524" layer="91"/>
 <label x="86.36" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_15_RX" class="0">
+<net name="RS485_14_RX" class="0">
 <segment>
 <pinref part="U6_MUX" gate="A" pin="1Y2"/>
 <wire x1="83.82" y1="-5.08" x2="104.14" y2="-5.08" width="0.1524" layer="91"/>
 <label x="86.36" y="-5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_15_RX" class="0">
+<segment>
+<pinref part="U3_MUX" gate="A" pin="1Y1"/>
+<wire x1="-33.02" y1="50.8" x2="-12.7" y2="50.8" width="0.1524" layer="91"/>
+<label x="-30.48" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_16_RX" class="0">
@@ -3744,23 +3688,23 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 </net>
 <net name="RS485_13_TX" class="0">
 <segment>
-<pinref part="U6_MUX" gate="A" pin="2Y0"/>
-<wire x1="83.82" y1="-12.7" x2="104.14" y2="-12.7" width="0.1524" layer="91"/>
-<label x="86.36" y="-12.7" size="1.778" layer="95"/>
+<pinref part="U6_MUX" gate="A" pin="2Y1"/>
+<wire x1="83.82" y1="-15.24" x2="104.14" y2="-15.24" width="0.1524" layer="91"/>
+<label x="86.36" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_15_TX" class="0">
 <segment>
-<pinref part="U6_MUX" gate="A" pin="2Y2"/>
-<wire x1="83.82" y1="-17.78" x2="104.14" y2="-17.78" width="0.1524" layer="91"/>
-<label x="86.36" y="-17.78" size="1.778" layer="95"/>
+<pinref part="U3_MUX" gate="A" pin="2Y1"/>
+<wire x1="-33.02" y1="38.1" x2="-12.7" y2="38.1" width="0.1524" layer="91"/>
+<label x="-30.48" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_14_TX" class="0">
 <segment>
-<pinref part="U6_MUX" gate="A" pin="2Y1"/>
-<wire x1="83.82" y1="-15.24" x2="104.14" y2="-15.24" width="0.1524" layer="91"/>
-<label x="86.36" y="-15.24" size="1.778" layer="95"/>
+<pinref part="U6_MUX" gate="A" pin="2Y2"/>
+<wire x1="83.82" y1="-17.78" x2="104.14" y2="-17.78" width="0.1524" layer="91"/>
+<label x="86.36" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_16_TX" class="0">
@@ -3868,32 +3812,18 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RS485_4_RX" class="0">
-<segment>
-<pinref part="U4_MUX" gate="A" pin="1Y1"/>
-<wire x1="83.82" y1="50.8" x2="104.14" y2="50.8" width="0.1524" layer="91"/>
-<label x="86.36" y="50.8" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RS485_5_RX" class="0">
 <segment>
-<pinref part="U4_MUX" gate="A" pin="1Y2"/>
-<wire x1="83.82" y1="48.26" x2="104.14" y2="48.26" width="0.1524" layer="91"/>
-<label x="86.36" y="48.26" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RS485_4_TX" class="0">
-<segment>
-<pinref part="U4_MUX" gate="A" pin="2Y1"/>
-<wire x1="83.82" y1="38.1" x2="104.14" y2="38.1" width="0.1524" layer="91"/>
-<label x="86.36" y="38.1" size="1.778" layer="95"/>
+<pinref part="U5_MUX" gate="A" pin="1Y3"/>
+<wire x1="-33.02" y1="-7.62" x2="-12.7" y2="-7.62" width="0.1524" layer="91"/>
+<label x="-30.48" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_5_TX" class="0">
 <segment>
-<pinref part="U4_MUX" gate="A" pin="2Y2"/>
-<wire x1="83.82" y1="35.56" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
-<label x="86.36" y="35.56" size="1.778" layer="95"/>
+<pinref part="U5_MUX" gate="A" pin="2Y3"/>
+<wire x1="-33.02" y1="-20.32" x2="-12.7" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-30.48" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RS485_6_RX" class="0">
@@ -3964,6 +3894,76 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <pinref part="U6_MUX" gate="A" pin="2Y3"/>
 <wire x1="83.82" y1="-20.32" x2="104.14" y2="-20.32" width="0.1524" layer="91"/>
 <label x="86.36" y="-20.32" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_9_RX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="1Y0"/>
+<wire x1="-33.02" y1="-55.88" x2="-12.7" y2="-55.88" width="0.1524" layer="91"/>
+<label x="-30.48" y="-55.88" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_9_TX" class="0">
+<segment>
+<pinref part="U7_MUX" gate="A" pin="2Y0"/>
+<wire x1="-33.02" y1="-68.58" x2="-12.7" y2="-68.58" width="0.1524" layer="91"/>
+<label x="-30.48" y="-68.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_4_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y0"/>
+<wire x1="83.82" y1="53.34" x2="104.14" y2="53.34" width="0.1524" layer="91"/>
+<label x="86.36" y="53.34" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_3_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y2"/>
+<wire x1="83.82" y1="48.26" x2="104.14" y2="48.26" width="0.1524" layer="91"/>
+<label x="86.36" y="48.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_2_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y3"/>
+<wire x1="83.82" y1="45.72" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
+<label x="86.36" y="45.72" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_1_RX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="1Y1"/>
+<wire x1="83.82" y1="50.8" x2="104.14" y2="50.8" width="0.1524" layer="91"/>
+<label x="86.36" y="50.8" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_4_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y0"/>
+<wire x1="83.82" y1="40.64" x2="104.14" y2="40.64" width="0.1524" layer="91"/>
+<label x="86.36" y="40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_3_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y2"/>
+<wire x1="83.82" y1="35.56" x2="104.14" y2="35.56" width="0.1524" layer="91"/>
+<label x="86.36" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_2_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y3"/>
+<wire x1="83.82" y1="33.02" x2="104.14" y2="33.02" width="0.1524" layer="91"/>
+<label x="86.36" y="33.02" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RS485_1_TX" class="0">
+<segment>
+<pinref part="U4_MUX" gate="A" pin="2Y1"/>
+<wire x1="83.82" y1="38.1" x2="104.14" y2="38.1" width="0.1524" layer="91"/>
+<label x="86.36" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

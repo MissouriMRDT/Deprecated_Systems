@@ -110,8 +110,8 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)
 	extern UART_Handle uart7;
 
 	//Debug
-	System_printf("deviceWrite called\n");
-	System_flush();
+	//System_printf("deviceWrite called\n");
+	//System_flush();
 	switch(rs485jack)
 	{
 	//We have to include case 0 to get TI's compiler to build a jump table
@@ -222,6 +222,9 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)
 		break;
 	//etc.
 	}
+
+	//Make sure the message is fully written before leaving the function
+	ms_delay(1);
 	return bytes_wrote;
 }
 

@@ -36,7 +36,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		System_flush();
 		for(j = 0; j < 10; j++) //Test all 10 mux pins
 			digitalWrite(j, HIGH);
-		Task_sleep(2000);
+		ms_delay(60);
 
 		System_printf("Testing Low\n");
 		System_flush();
@@ -76,11 +76,11 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	System_flush();
 	for(i = 0; i < 18; i++)
 	{
-		System_printf("Testing Device #%d\n", i);
-		System_flush();
-		buffer[i] = '0' + (char)i;
+		//System_printf("Testing Device #%d\n", i);
+		//System_flush();
+		buffer[32] = '0' + (char)i;
 		deviceWrite(i, buffer, 35);
-		ms_delay(10);
+		//ms_delay(10);
 	}
 
 	System_printf("Finished testing all devices\n");

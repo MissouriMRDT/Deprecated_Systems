@@ -3577,86 +3577,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="MRDT-2014-All">
-<packages>
-<package name="TO-92-3">
-<pad name="2" x="0" y="0" drill="0.55"/>
-<pad name="3" x="-1.27" y="0" drill="0.55"/>
-<pad name="1" x="1.27" y="0" drill="0.55"/>
-<wire x1="-2.67" y1="0" x2="0" y2="-2.67" width="0.127" layer="21" curve="90"/>
-<wire x1="2.67" y1="0" x2="0" y2="-2.67" width="0.127" layer="21" curve="-90"/>
-<wire x1="-2.67" y1="1.52" x2="2.67" y2="1.52" width="0.127" layer="21"/>
-<wire x1="-2.67" y1="1.52" x2="-2.67" y2="0" width="0.127" layer="21"/>
-<wire x1="2.67" y1="1.52" x2="2.67" y2="0" width="0.127" layer="21"/>
-<text x="-3" y="2" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3" y="-5" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-<package name="SOIC8">
-<smd name="8" x="2.6" y="1.905" dx="2.2" dy="0.6" layer="1"/>
-<smd name="7" x="2.6" y="0.635" dx="2.2" dy="0.6" layer="1"/>
-<smd name="6" x="2.6" y="-0.635" dx="2.2" dy="0.6" layer="1"/>
-<smd name="5" x="2.6" y="-1.905" dx="2.2" dy="0.6" layer="1"/>
-<smd name="1" x="-2.6" y="1.905" dx="2.2" dy="0.6" layer="1"/>
-<smd name="2" x="-2.6" y="0.635" dx="2.2" dy="0.6" layer="1"/>
-<smd name="3" x="-2.6" y="-0.635" dx="2.2" dy="0.6" layer="1"/>
-<smd name="4" x="-2.6" y="-1.905" dx="2.2" dy="0.6" layer="1"/>
-<wire x1="-2" y1="2.5" x2="-2" y2="-2.5" width="0.127" layer="21"/>
-<wire x1="-2" y1="2.5" x2="2" y2="2.5" width="0.127" layer="21"/>
-<wire x1="2" y1="2.5" x2="2" y2="-2.5" width="0.127" layer="21"/>
-<wire x1="2" y1="-2.5" x2="-2" y2="-2.5" width="0.127" layer="21"/>
-<circle x="-1" y="1.75" radius="0.353553125" width="0.127" layer="21"/>
-<text x="4" y="1" size="1.27" layer="21">&gt;NAME</text>
-<text x="4" y="-1" size="1.27" layer="21">&gt;VALUE</text>
-<wire x1="-4" y1="3" x2="-4" y2="-3" width="0.127" layer="39"/>
-<wire x1="-4" y1="-3" x2="4" y2="-3" width="0.127" layer="39"/>
-<wire x1="4" y1="-3" x2="4" y2="3" width="0.127" layer="39"/>
-<wire x1="4" y1="3" x2="-4" y2="3" width="0.127" layer="39"/>
-</package>
-</packages>
-<symbols>
-<symbol name="Q_TEMP">
-<pin name="VIN" x="-5.08" y="5.08" length="middle"/>
-<pin name="GND" x="-5.08" y="0" length="middle"/>
-<pin name="OUT" x="12.7" y="2.54" length="middle" rot="R180"/>
-<wire x1="0" y1="7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
-<wire x1="7.62" y1="7.62" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="7.62" width="0.254" layer="94"/>
-<text x="0" y="10.16" size="1.778" layer="95">&gt;NAME</text>
-<text x="0" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="Q_LM35" prefix="Q">
-<description>IC, TEMPERATURE SENSOR, 0.4°C, TO-92-3</description>
-<gates>
-<gate name="G$1" symbol="Q_TEMP" x="-2.54" y="-2.54"/>
-</gates>
-<devices>
-<device name="TO-92" package="TO-92-3">
-<connects>
-<connect gate="G$1" pin="GND" pad="3"/>
-<connect gate="G$1" pin="OUT" pad="2"/>
-<connect gate="G$1" pin="VIN" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SOIC8" package="SOIC8">
-<connects>
-<connect gate="G$1" pin="GND" pad="4"/>
-<connect gate="G$1" pin="OUT" pad="1"/>
-<connect gate="G$1" pin="VIN" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="Spark">
 <packages>
 <package name="SOT223">
@@ -3863,14 +3783,11 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="C7" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
-<part name="Q1" library="MRDT-2014-All" deviceset="Q_LM35" device="TO-92"/>
 <part name="IC1" library="Spark" deviceset="MCP1825S" device="-SOT223"/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
-<part name="+3V7" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
 <part name="S2" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
 <part name="S3" library="SparkFun-Electromechanical" deviceset="STANDOFF_ELECTRICAL" device=""/>
@@ -3931,14 +3848,11 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <instance part="C7" gate="G$1" x="149.86" y="109.22"/>
 <instance part="GND13" gate="1" x="149.86" y="101.6"/>
 <instance part="+3V16" gate="G$1" x="149.86" y="127"/>
-<instance part="Q1" gate="G$1" x="198.12" y="66.04"/>
 <instance part="IC1" gate="G$1" x="259.08" y="88.9"/>
 <instance part="SUPPLY1" gate="G$1" x="246.38" y="88.9" rot="R90"/>
 <instance part="GND9" gate="1" x="256.54" y="76.2"/>
 <instance part="GND10" gate="1" x="261.62" y="76.2"/>
 <instance part="+3V6" gate="G$1" x="274.32" y="88.9" rot="R270"/>
-<instance part="+3V7" gate="G$1" x="190.5" y="71.12" rot="R90"/>
-<instance part="GND11" gate="1" x="190.5" y="66.04" rot="R270"/>
 <instance part="S1" gate="G$1" x="35.56" y="172.72" rot="R270"/>
 <instance part="S2" gate="G$1" x="48.26" y="172.72" rot="R270"/>
 <instance part="S3" gate="G$1" x="60.96" y="172.72" rot="R270"/>
@@ -4076,10 +3990,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <wire x1="261.62" y1="81.28" x2="261.62" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="GND"/>
-<pinref part="GND11" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="S2" gate="G$1" pin="P$1"/>
 <pinref part="GND14" gate="1" pin="GND"/>
 </segment>
@@ -4186,10 +4096,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="IC1" gate="G$1" pin="OUT"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
 <wire x1="269.24" y1="88.9" x2="271.78" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="Q1" gate="G$1" pin="VIN"/>
-<pinref part="+3V7" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
@@ -4413,18 +4319,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <pinref part="IC1" gate="G$1" pin="IN"/>
 <pinref part="SUPPLY1" gate="G$1" pin="5V"/>
 <wire x1="248.92" y1="88.9" x2="246.38" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="A8" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="D8/A8"/>
-<wire x1="60.96" y1="76.2" x2="66.04" y2="76.2" width="0.1524" layer="91"/>
-<label x="66.04" y="76.2" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="Q1" gate="G$1" pin="OUT"/>
-<wire x1="210.82" y1="68.58" x2="215.9" y2="68.58" width="0.1524" layer="91"/>
-<label x="215.9" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="IO" class="0">

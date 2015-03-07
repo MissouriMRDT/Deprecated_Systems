@@ -33,8 +33,8 @@
 #include "roveWareHeaders/roveStructs.h"
 
 //MRDesign Team:: 	roveWare::		roveCom uart :: ardui easy write lib branch
-
-#include "roveWareHeaders/roveStructXfer.h"
+// TODO remove this from included files, newly implemented in device
+//#include "roveWareHeaders/roveStructXfer.h"
 
 //MRDesign Team:: 	roveWare::		roveCom uart :: constructs and instatiates uarts
 
@@ -47,6 +47,10 @@
 //MRDesign Team:: 	roveWare::		roveCom timing :: encapsulate system delay
 
 #include "roveWareHeaders/roveTiming.h"
+
+//MRDesign Team:: 	roveWare::		roveCom transfer :: creates message protocol for easyTransfer
+
+#include "roveWareHeaders/roveStructTransfer.h"
 
 //MRDesign Team:: 	roveWare::		roveNet convert json to and from roveCom formatting
 

@@ -451,8 +451,8 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <wire x1="15.748" y1="5.334" x2="15.748" y2="2.794" width="0.127" layer="21"/>
 <wire x1="15.748" y1="2.794" x2="12.954" y2="0" width="0.127" layer="21"/>
 <wire x1="15.748" y1="5.334" x2="12.954" y2="8.128" width="0.127" layer="21"/>
-<pad name="POS" x="4.064" y="4.064" drill="4.318" diameter="6.096" thermals="no"/>
-<pad name="NEG" x="11.176" y="4.064" drill="4.318" diameter="6.096" thermals="no"/>
+<pad name="POS" x="4.064" y="4.064" drill="4.572" diameter="6.096" thermals="no"/>
+<pad name="NEG" x="11.176" y="4.064" drill="4.572" diameter="6.096" thermals="no"/>
 <wire x1="-2.286" y1="2.54" x2="-2.286" y2="5.588" width="0.3048" layer="21"/>
 <wire x1="19.304" y1="4.064" x2="16.256" y2="4.064" width="0.3048" layer="21"/>
 <wire x1="-0.762" y1="4.064" x2="-3.81" y2="4.064" width="0.3048" layer="21"/>

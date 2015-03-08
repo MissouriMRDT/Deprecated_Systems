@@ -744,6 +744,39 @@ Vertical variant is 20020620-M02*</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="ant-pass-through">
+<packages>
+<package name="SMA">
+<hole x="0" y="0" drill="3.2"/>
+<circle x="0" y="0" radius="3.302" width="0.127" layer="21"/>
+<wire x1="-2.921" y1="-2.921" x2="2.921" y2="-2.921" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="4" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ANT">
+<text x="2.54" y="2.54" size="1.27" layer="94">Antenna Pass-Through</text>
+<wire x1="0" y1="0" x2="0" y2="7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="7.62" x2="22.86" y2="7.62" width="0.254" layer="94"/>
+<wire x1="22.86" y1="7.62" x2="22.86" y2="0" width="0.254" layer="94"/>
+<wire x1="22.86" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SMA-THRU">
+<gates>
+<gate name="G$1" symbol="ANT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SMA">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -861,6 +894,7 @@ Vertical variant is 20020620-M02*</description>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="29V-LOW_POWER_EXT" library="MRDT-2015-PowerBoard" deviceset="H_WR-TBL_32*1*0002" device="VERT"/>
+<part name="U$16" library="ant-pass-through" deviceset="SMA-THRU" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -976,6 +1010,7 @@ Vertical variant is 20020620-M02*</description>
 <instance part="GND28" gate="1" x="193.04" y="307.34"/>
 <instance part="GND29" gate="1" x="193.04" y="325.12"/>
 <instance part="29V-LOW_POWER_EXT" gate="G$1" x="121.92" y="220.98" rot="R180"/>
+<instance part="U$16" gate="G$1" x="-7.62" y="208.28"/>
 </instances>
 <busses>
 </busses>
@@ -1697,11 +1732,6 @@ Vertical variant is 20020620-M02*</description>
 <wire x1="101.6" y1="121.92" x2="114.3" y2="121.92" width="0.1524" layer="91"/>
 <label x="106.68" y="121.92" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="RS-485_OUT8" gate="G$1" pin="6-RECEIVE-"/>
-<wire x1="101.6" y1="-127" x2="114.3" y2="-127" width="0.1524" layer="91"/>
-<label x="106.68" y="-127" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="1_RX+" class="0">
 <segment>
@@ -2032,6 +2062,11 @@ Vertical variant is 20020620-M02*</description>
 <pinref part="U$4" gate="G$1" pin="32"/>
 <wire x1="154.94" y1="25.4" x2="144.78" y2="25.4" width="0.1524" layer="91"/>
 <label x="144.78" y="25.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RS-485_OUT8" gate="G$1" pin="6-RECEIVE-"/>
+<wire x1="101.6" y1="-127" x2="114.3" y2="-127" width="0.1524" layer="91"/>
+<label x="106.68" y="-127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="8_RX+" class="0">

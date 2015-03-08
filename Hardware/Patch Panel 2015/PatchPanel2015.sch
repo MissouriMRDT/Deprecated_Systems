@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1733,7 +1733,7 @@ Vertical variant is 20020620-M02*</description>
 <label x="106.68" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="1_RX+" class="0">
+<net name="JACK_5_RX+" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="1"/>
 <wire x1="154.94" y1="104.14" x2="144.78" y2="104.14" width="0.1524" layer="91"/>

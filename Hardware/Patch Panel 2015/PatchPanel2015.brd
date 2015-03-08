@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1197,7 +1197,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="99.06" y1="80.01" x2="99.6425" y2="80.01" width="0.4064" layer="16"/>
 <wire x1="99.6425" y1="80.01" x2="99.765" y2="80.1325" width="0.4064" layer="16"/>
 </signal>
-<signal name="1_RX+">
+<signal name="JACK_5_RX+">
 <contactref element="U$4" pad="1"/>
 <contactref element="RS-485_OUT1" pad="1"/>
 <wire x1="84.455" y1="93.135" x2="84.455" y2="92.075" width="0.4064" layer="1"/>

@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="287" key="DIALOG_WIDTH"/>
 		<item value="228" key="DIALOG_Y_ORIGIN"/>
-		<item value="423" key="DIALOG_HEIGHT"/>
 		<item value="848" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Ubuntu|11.114583|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="GPIO_PA4_U3RX" key="selection"/>
+		<item value="bytes_to_read" key="selection"/>
 		<list key="findhistory">
+			<item value="bytes_to_write"/>
+			<item value="bytes_wrote"/>
+			<item value="Uart_write"/>
 			<item value="GPIO_PA4_U3RX"/>
 			<item value="U2RX"/>
 			<item value="U7RX"/>
 			<item value="U6RX"/>
 			<item value="bytes_wrote = "/>
-			<item value="UART_HANDLE"/>
-			<item value="extern"/>
-			<item value="bytes_to_write"/>
 		</list>
 		<list key="replacehistory">
+			<item value="bytes_to_read"/>
+			<item value="bytes_read"/>
+			<item value="Uart_read"/>
 			<item value=""/>
 			<item value="UART_Handle"/>
 			<item value="extern UART_HANDLE"/>
-			<item value="bytes_to_read"/>
 			<item value="bytes_wrote = UART_write"/>
 			<item value="bytes_read = UART_read"/>
-			<item value="bytes_wrote"/>
-			<item value="bytesWritten = UART_write"/>
 		</list>
 	</section>
 </section>

@@ -48,6 +48,7 @@
 #define U7_MUX_S1 9
 
 //Special Devices
+#define POWER_BOARD 18
 #define ONBOARD_ROVECOMM 19
 
 //Uarts

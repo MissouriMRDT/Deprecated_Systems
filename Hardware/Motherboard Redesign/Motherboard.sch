@@ -3014,21 +3014,21 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND36" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
-<part name="P+2" library="supply1" deviceset="+12V" device=""/>
-<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
-<part name="P+3" library="supply1" deviceset="+12V" device=""/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100uF"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value="100uF"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="1uF"/>
 <part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value="10uF"/>
-<part name="+3V29" library="supply1" deviceset="+3V3" device=""/>
-<part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="C6" library="SparkFun-Passives" deviceset="CAP" device="1206" value="1000uF"/>
 <part name="P+4" library="supply1" deviceset="+12V" device=""/>
-<part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="R40" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="330"/>
+<part name="GND13" library="supply1" deviceset="GND" device=""/>
+<part name="C7" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C8" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND15" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3051,21 +3051,21 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <instance part="+3V22" gate="G$1" x="-30.48" y="-15.24" rot="R180"/>
 <instance part="GND36" gate="1" x="-45.72" y="-22.86"/>
 <instance part="P+1" gate="1" x="-60.96" y="-15.24" rot="R180"/>
-<instance part="P+2" gate="1" x="48.26" y="-5.08"/>
-<instance part="+3V23" gate="G$1" x="66.04" y="-5.08"/>
-<instance part="P+3" gate="1" x="53.34" y="-5.08"/>
-<instance part="C2" gate="G$1" x="48.26" y="-12.7"/>
-<instance part="C3" gate="G$1" x="53.34" y="-12.7"/>
-<instance part="C4" gate="G$1" x="66.04" y="-12.7"/>
-<instance part="C5" gate="G$1" x="71.12" y="-12.7"/>
-<instance part="+3V29" gate="G$1" x="71.12" y="-5.08"/>
-<instance part="GND13" gate="1" x="48.26" y="-17.78"/>
-<instance part="GND15" gate="1" x="53.34" y="-17.78"/>
-<instance part="GND17" gate="1" x="66.04" y="-17.78"/>
-<instance part="GND19" gate="1" x="71.12" y="-17.78"/>
-<instance part="C6" gate="G$1" x="43.18" y="-12.7"/>
-<instance part="P+4" gate="1" x="43.18" y="-5.08"/>
-<instance part="GND21" gate="1" x="43.18" y="-17.78"/>
+<instance part="C2" gate="G$1" x="45.72" y="-12.7"/>
+<instance part="C3" gate="G$1" x="55.88" y="-12.7"/>
+<instance part="C4" gate="G$1" x="-60.96" y="-55.88"/>
+<instance part="C5" gate="G$1" x="-50.8" y="-55.88"/>
+<instance part="C6" gate="G$1" x="35.56" y="-12.7"/>
+<instance part="P+4" gate="1" x="45.72" y="0"/>
+<instance part="R40" gate="G$1" x="-2.54" y="-38.1"/>
+<instance part="GND13" gate="1" x="45.72" y="-22.86"/>
+<instance part="C7" gate="G$1" x="-40.64" y="-55.88"/>
+<instance part="C8" gate="G$1" x="-30.48" y="-55.88"/>
+<instance part="C9" gate="G$1" x="-20.32" y="-55.88"/>
+<instance part="C10" gate="G$1" x="-10.16" y="-55.88"/>
+<instance part="C11" gate="G$1" x="0" y="-55.88"/>
+<instance part="+3V23" gate="G$1" x="-30.48" y="-43.18"/>
+<instance part="GND15" gate="1" x="-30.48" y="-66.04"/>
 </instances>
 <busses>
 </busses>
@@ -3105,24 +3105,46 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <pinref part="GND36" gate="1" pin="GND"/>
 </segment>
 <segment>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="-15.24" x2="35.56" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="-17.78" x2="45.72" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-17.78" x2="55.88" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="-17.78" x2="55.88" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="-15.24" x2="45.72" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="45.72" y="-17.78"/>
+<wire x1="45.72" y1="-17.78" x2="45.72" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="GND13" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="C4" gate="G$1" pin="2"/>
-<pinref part="GND17" gate="1" pin="GND"/>
-</segment>
-<segment>
+<wire x1="-60.96" y1="-58.42" x2="-60.96" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="-60.96" y1="-60.96" x2="-50.8" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-60.96" x2="-40.64" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="-60.96" x2="-30.48" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-60.96" x2="-20.32" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="-60.96" x2="-10.16" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-60.96" x2="0" y2="-60.96" width="0.1524" layer="91"/>
+<wire x1="0" y1="-60.96" x2="0" y2="-58.42" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="-10.16" y1="-58.42" x2="-10.16" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="-20.32" y1="-58.42" x2="-20.32" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="-30.48" y1="-58.42" x2="-30.48" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="2"/>
+<wire x1="-40.64" y1="-58.42" x2="-40.64" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<pinref part="GND19" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="C6" gate="G$1" pin="2"/>
-<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="-50.8" y1="-58.42" x2="-50.8" y2="-60.96" width="0.1524" layer="91"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+<wire x1="-30.48" y1="-60.96" x2="-30.48" y2="-63.5" width="0.1524" layer="91"/>
+<junction x="-50.8" y="-60.96"/>
+<junction x="-40.64" y="-60.96"/>
+<junction x="-30.48" y="-60.96"/>
+<junction x="-20.32" y="-60.96"/>
+<junction x="-10.16" y="-60.96"/>
 </segment>
 </net>
 <net name="N$45" class="0">
@@ -3147,16 +3169,17 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <pinref part="P+1" gate="1" pin="+12V"/>
 </segment>
 <segment>
-<pinref part="P+2" gate="1" pin="+12V"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="P+3" gate="1" pin="+12V"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-</segment>
-<segment>
 <pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="-7.62" x2="35.56" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="-5.08" x2="45.72" y2="-5.08" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="1" pin="+12V"/>
+<wire x1="45.72" y1="-7.62" x2="45.72" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-2.54" x2="45.72" y2="-5.08" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="45.72" y1="-5.08" x2="55.88" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="-5.08" x2="55.88" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="45.72" y="-5.08"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -3173,12 +3196,33 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <pinref part="+3V22" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
-<pinref part="+3V23" gate="G$1" pin="+3V3"/>
 <pinref part="C4" gate="G$1" pin="1"/>
-</segment>
-<segment>
+<wire x1="-60.96" y1="-50.8" x2="-60.96" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="-60.96" y1="-48.26" x2="-50.8" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="-48.26" x2="-40.64" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="-48.26" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="-48.26" x2="-20.32" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="-48.26" x2="-10.16" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-48.26" x2="0" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="0" y1="-48.26" x2="0" y2="-50.8" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="-50.8" x2="-10.16" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="-20.32" y1="-50.8" x2="-20.32" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="-30.48" y1="-50.8" x2="-30.48" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="-40.64" y1="-50.8" x2="-40.64" y2="-48.26" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<pinref part="+3V29" gate="G$1" pin="+3V3"/>
+<wire x1="-50.8" y1="-50.8" x2="-50.8" y2="-48.26" width="0.1524" layer="91"/>
+<pinref part="+3V23" gate="G$1" pin="+3V3"/>
+<wire x1="-30.48" y1="-48.26" x2="-30.48" y2="-45.72" width="0.1524" layer="91"/>
+<junction x="-50.8" y="-48.26"/>
+<junction x="-40.64" y="-48.26"/>
+<junction x="-30.48" y="-48.26"/>
+<junction x="-20.32" y="-48.26"/>
+<junction x="-10.16" y="-48.26"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -3200,6 +3244,20 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <wire x1="-7.62" y1="17.78" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
 <junction x="-7.62" y="22.86"/>
 <pinref part="JP1" gate="G$1" pin="3"/>
+</segment>
+</net>
+<net name="P65" class="0">
+<segment>
+<pinref part="R40" gate="G$1" pin="1"/>
+<wire x1="-7.62" y1="-38.1" x2="-10.16" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="-38.1" x2="-10.16" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="FAN_CTRL" class="0">
+<segment>
+<pinref part="R40" gate="G$1" pin="2"/>
+<wire x1="2.54" y1="-38.1" x2="5.08" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="-38.1" x2="5.08" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -3490,7 +3548,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="35.56" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="FAN_CTRL" class="0">
+<net name="P65" class="0">
 <segment>
 <label x="104.14" y="-38.1" size="1.778" layer="95"/>
 <pinref part="U$5" gate="G$1" pin="PL5"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4208,7 +4208,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <busses>
 </busses>
 <nets>
-<net name="JACK_5_TX+" class="0">
+<net name="JACK_17_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="78.74" x2="-88.9" y2="78.74" width="0.1524" layer="91"/>
@@ -4227,7 +4227,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_5_TX-" class="0">
+<net name="JACK_17_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="83.82" x2="-86.36" y2="83.82" width="0.1524" layer="91"/>
@@ -4244,7 +4244,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_5_RX+" class="0">
+<net name="JACK_17_RX+" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_1" gate="G$1" pin="A"/>
@@ -4261,7 +4261,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_5_RX-" class="0">
+<net name="JACK_17_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_1" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="88.9" x2="-71.12" y2="88.9" width="0.1524" layer="91"/>
@@ -4278,7 +4278,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_7_RX+" class="0">
+<net name="JACK_16_RX+" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_3" gate="G$1" pin="A"/>
@@ -4295,7 +4295,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_7_TX+" class="0">
+<net name="JACK_16_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="35.56" x2="-88.9" y2="35.56" width="0.1524" layer="91"/>
@@ -4314,7 +4314,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_7_TX-" class="0">
+<net name="JACK_16_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="40.64" x2="-86.36" y2="40.64" width="0.1524" layer="91"/>
@@ -4331,7 +4331,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_7_RX-" class="0">
+<net name="JACK_16_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_3" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="45.72" x2="-71.12" y2="45.72" width="0.1524" layer="91"/>
@@ -4348,7 +4348,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_4_TX-" class="0">
+<net name="JACK_14_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-43.18" x2="-86.36" y2="-43.18" width="0.1524" layer="91"/>
@@ -4365,7 +4365,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_4_RX+" class="0">
+<net name="JACK_14_RX+" class="0">
 <segment>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_7" gate="G$1" pin="A"/>
@@ -4382,7 +4382,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_4_RX-" class="0">
+<net name="JACK_14_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-38.1" x2="-71.12" y2="-38.1" width="0.1524" layer="91"/>
@@ -4399,7 +4399,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_6_RX-" class="0">
+<net name="JACK_15_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="2.54" x2="-71.12" y2="2.54" width="0.1524" layer="91"/>
@@ -4416,7 +4416,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_4_TX+" class="0">
+<net name="JACK_14_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_7" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-48.26" x2="-88.9" y2="-48.26" width="0.1524" layer="91"/>
@@ -4435,7 +4435,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_6_TX+" class="0">
+<net name="JACK_15_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-7.62" x2="-88.9" y2="-7.62" width="0.1524" layer="91"/>
@@ -4454,7 +4454,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_6_TX-" class="0">
+<net name="JACK_15_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_5" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-2.54" x2="-86.36" y2="-2.54" width="0.1524" layer="91"/>
@@ -4471,7 +4471,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_6_RX+" class="0">
+<net name="JACK_15_RX+" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_5" gate="G$1" pin="A"/>
@@ -4488,7 +4488,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_8_RX+" class="0">
+<net name="JACK_12_RX+" class="0">
 <segment>
 <pinref part="R22" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_11" gate="G$1" pin="A"/>
@@ -4505,7 +4505,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_8_RX-" class="0">
+<net name="JACK_12_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-121.92" x2="-71.12" y2="-121.92" width="0.1524" layer="91"/>
@@ -4522,7 +4522,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_8_TX+" class="0">
+<net name="JACK_12_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-132.08" x2="-88.9" y2="-132.08" width="0.1524" layer="91"/>
@@ -4541,7 +4541,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-33.02" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_8_TX-" class="0">
+<net name="JACK_12_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_11" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-127" x2="-86.36" y2="-127" width="0.1524" layer="91"/>
@@ -4558,7 +4558,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_9_RX+" class="0">
+<net name="JACK_11_RX+" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_2" gate="G$1" pin="A"/>
@@ -4575,7 +4575,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_9_RX-" class="0">
+<net name="JACK_11_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="88.9" x2="50.8" y2="88.9" width="0.1524" layer="91"/>
@@ -4592,7 +4592,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_9_TX+" class="0">
+<net name="JACK_11_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="78.74" x2="33.02" y2="78.74" width="0.1524" layer="91"/>
@@ -4611,7 +4611,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_9_TX-" class="0">
+<net name="JACK_11_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_2" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="83.82" x2="35.56" y2="83.82" width="0.1524" layer="91"/>
@@ -4628,7 +4628,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_11_TX+" class="0">
+<net name="JACK_13_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_9" gate="G$1" pin="Y"/>
 <wire x1="-91.44" y1="-91.44" x2="-88.9" y2="-91.44" width="0.1524" layer="91"/>
@@ -4647,7 +4647,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_11_TX-" class="0">
+<net name="JACK_13_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_9" gate="G$1" pin="Z"/>
 <wire x1="-91.44" y1="-86.36" x2="-86.36" y2="-86.36" width="0.1524" layer="91"/>
@@ -4664,7 +4664,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_11_RX+" class="0">
+<net name="JACK_13_RX+" class="0">
 <segment>
 <pinref part="R18" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_9" gate="G$1" pin="A"/>
@@ -4681,7 +4681,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_11_RX-" class="0">
+<net name="JACK_13_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_9" gate="G$1" pin="B"/>
 <wire x1="-91.44" y1="-81.28" x2="-71.12" y2="-81.28" width="0.1524" layer="91"/>
@@ -4768,7 +4768,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_14_TX+" class="0">
+<net name="JACK_9_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-7.62" x2="33.02" y2="-7.62" width="0.1524" layer="91"/>
@@ -4787,7 +4787,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_14_TX-" class="0">
+<net name="JACK_9_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-2.54" x2="35.56" y2="-2.54" width="0.1524" layer="91"/>
@@ -4804,7 +4804,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-58.42" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_14_RX-" class="0">
+<net name="JACK_9_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_6" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="2.54" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
@@ -4821,7 +4821,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_14_RX+" class="0">
+<net name="JACK_9_RX+" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_6" gate="G$1" pin="A"/>
@@ -4838,7 +4838,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-228.6" y="-58.42" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_15_TX+" class="0">
+<net name="JACK_8_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-48.26" x2="33.02" y2="-48.26" width="0.1524" layer="91"/>
@@ -4857,7 +4857,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_15_TX-" class="0">
+<net name="JACK_8_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-43.18" x2="35.56" y2="-43.18" width="0.1524" layer="91"/>
@@ -4874,7 +4874,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_15_RX+" class="0">
+<net name="JACK_8_RX+" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_8" gate="G$1" pin="A"/>
@@ -4891,7 +4891,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_15_RX-" class="0">
+<net name="JACK_8_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_8" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-38.1" x2="50.8" y2="-38.1" width="0.1524" layer="91"/>
@@ -4908,7 +4908,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-53.34" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_16_TX+" class="0">
+<net name="JACK_7_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-91.44" x2="33.02" y2="-91.44" width="0.1524" layer="91"/>
@@ -4927,7 +4927,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_16_TX-" class="0">
+<net name="JACK_7_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-86.36" x2="35.56" y2="-86.36" width="0.1524" layer="91"/>
@@ -4944,7 +4944,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_16_RX+" class="0">
+<net name="JACK_7_RX+" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_10" gate="G$1" pin="A"/>
@@ -4961,7 +4961,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-45.72" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_16_RX-" class="0">
+<net name="JACK_7_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_10" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-81.28" x2="50.8" y2="-81.28" width="0.1524" layer="91"/>
@@ -4978,7 +4978,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_17_TX+" class="0">
+<net name="JACK_6_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="Y"/>
 <wire x1="30.48" y1="-132.08" x2="33.02" y2="-132.08" width="0.1524" layer="91"/>
@@ -4997,7 +4997,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_17_TX-" class="0">
+<net name="JACK_6_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="Z"/>
 <wire x1="30.48" y1="-127" x2="35.56" y2="-127" width="0.1524" layer="91"/>
@@ -5014,7 +5014,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_17_RX+" class="0">
+<net name="JACK_6_RX+" class="0">
 <segment>
 <pinref part="R23" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_12" gate="G$1" pin="A"/>
@@ -5031,7 +5031,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_17_RX-" class="0">
+<net name="JACK_6_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_12" gate="G$1" pin="B"/>
 <wire x1="30.48" y1="-121.92" x2="50.8" y2="-121.92" width="0.1524" layer="91"/>
@@ -5547,7 +5547,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="109.22" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_12_TX+" class="0">
+<net name="JACK_5_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_13" gate="G$1" pin="Y"/>
 <wire x1="160.02" y1="78.74" x2="162.56" y2="78.74" width="0.1524" layer="91"/>
@@ -5566,7 +5566,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_12_TX-" class="0">
+<net name="JACK_5_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_13" gate="G$1" pin="Z"/>
 <wire x1="160.02" y1="83.82" x2="165.1" y2="83.82" width="0.1524" layer="91"/>
@@ -5583,7 +5583,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_12_RX+" class="0">
+<net name="JACK_5_RX+" class="0">
 <segment>
 <pinref part="R26" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_13" gate="G$1" pin="A"/>
@@ -5600,7 +5600,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_13_TX+" class="0">
+<net name="JACK_4_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_14" gate="G$1" pin="Y"/>
 <wire x1="160.02" y1="38.1" x2="162.56" y2="38.1" width="0.1524" layer="91"/>
@@ -5619,7 +5619,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_13_RX+" class="0">
+<net name="JACK_4_RX+" class="0">
 <segment>
 <pinref part="R30" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_14" gate="G$1" pin="A"/>
@@ -5636,7 +5636,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_12_RX-" class="0">
+<net name="JACK_5_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_13" gate="G$1" pin="B"/>
 <wire x1="160.02" y1="88.9" x2="180.34" y2="88.9" width="0.1524" layer="91"/>
@@ -5653,7 +5653,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_13_TX-" class="0">
+<net name="JACK_4_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_14" gate="G$1" pin="Z"/>
 <wire x1="160.02" y1="43.18" x2="165.1" y2="43.18" width="0.1524" layer="91"/>
@@ -5670,7 +5670,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_13_RX-" class="0">
+<net name="JACK_4_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_14" gate="G$1" pin="B"/>
 <wire x1="160.02" y1="48.26" x2="180.34" y2="48.26" width="0.1524" layer="91"/>
@@ -5687,7 +5687,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_1_TX+" class="0">
+<net name="JACK_3_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_15" gate="G$1" pin="Y"/>
 <wire x1="160.02" y1="-5.08" x2="162.56" y2="-5.08" width="0.1524" layer="91"/>
@@ -5706,7 +5706,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_1_RX+" class="0">
+<net name="JACK_3_RX+" class="0">
 <segment>
 <pinref part="R32" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_15" gate="G$1" pin="A"/>
@@ -5793,7 +5793,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_1_RX-" class="0">
+<net name="JACK_3_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_15" gate="G$1" pin="B"/>
 <wire x1="160.02" y1="5.08" x2="180.34" y2="5.08" width="0.1524" layer="91"/>
@@ -5810,7 +5810,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="-2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_1_TX-" class="0">
+<net name="JACK_3_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_15" gate="G$1" pin="Z"/>
 <wire x1="160.02" y1="0" x2="165.1" y2="0" width="0.1524" layer="91"/>
@@ -5897,7 +5897,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="109.22" y="-86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_3_RX+" class="0">
+<net name="JACK_1_RX+" class="0">
 <segment>
 <pinref part="R36" gate="G$1" pin="2"/>
 <pinref part="RS_TRANS_17" gate="G$1" pin="A"/>
@@ -5914,7 +5914,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_3_RX-" class="0">
+<net name="JACK_1_RX-" class="0">
 <segment>
 <pinref part="RS_TRANS_17" gate="G$1" pin="B"/>
 <wire x1="160.02" y1="-81.28" x2="180.34" y2="-81.28" width="0.1524" layer="91"/>
@@ -5931,7 +5931,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_3_TX-" class="0">
+<net name="JACK_1_TX-" class="0">
 <segment>
 <pinref part="RS_TRANS_17" gate="G$1" pin="Z"/>
 <wire x1="160.02" y1="-86.36" x2="165.1" y2="-86.36" width="0.1524" layer="91"/>
@@ -5948,7 +5948,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-195.58" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_3_TX+" class="0">
+<net name="JACK_1_TX+" class="0">
 <segment>
 <pinref part="RS_TRANS_17" gate="G$1" pin="Y"/>
 <wire x1="160.02" y1="-91.44" x2="162.56" y2="-91.44" width="0.1524" layer="91"/>

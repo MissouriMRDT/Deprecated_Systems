@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -750,9 +750,6 @@ Please make sure your boards conform to these design rules.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
-<param name="AutoGrid" value="1"/>
-<param name="Efforts" value="0"/>
-<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -2082,7 +2079,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="58.26125" y1="67.945" x2="58.42" y2="68.10375" width="0.1524" layer="1"/>
 <wire x1="58.42" y1="68.10375" x2="58.42" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_5_TX+">
+<signal name="JACK_17_TX+">
 <contactref element="RS_TRANS_1" pad="Y"/>
 <contactref element="R4" pad="1"/>
 <contactref element="U$4" pad="3"/>
@@ -2096,7 +2093,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="58.1025" y1="40.64" x2="58.49" y2="41.0275" width="0.1524" layer="1"/>
 <wire x1="58.49" y1="41.94625" x2="58.49" y2="41.0275" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_5_TX-">
+<signal name="JACK_17_TX-">
 <contactref element="RS_TRANS_1" pad="Z"/>
 <contactref element="R4" pad="2"/>
 <contactref element="U$4" pad="4"/>
@@ -2114,7 +2111,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="59.76" y1="43.85125" x2="59.76" y2="43.25" width="0.1524" layer="1"/>
 <wire x1="52.86375" y1="38.4175" x2="51.59375" y2="37.1475" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_5_RX+">
+<signal name="JACK_17_RX+">
 <contactref element="R2" pad="2"/>
 <contactref element="RS_TRANS_1" pad="A"/>
 <contactref element="U$4" pad="1"/>
@@ -2126,7 +2123,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="51.27625" y1="41.5925" x2="51.63" y2="41.94625" width="0.1524" layer="1"/>
 <wire x1="55.95" y1="41.94625" x2="51.63" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_5_RX-">
+<signal name="JACK_17_RX-">
 <contactref element="RS_TRANS_1" pad="B"/>
 <contactref element="R2" pad="1"/>
 <contactref element="U$4" pad="2"/>
@@ -2142,7 +2139,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="50.00625" y1="38.70625" x2="48.92375" y2="38.70625" width="0.1524" layer="1"/>
 <wire x1="48.92375" y1="38.70625" x2="48.895" y2="38.735" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_7_RX+">
+<signal name="JACK_16_RX+">
 <contactref element="R6" pad="2"/>
 <contactref element="RS_TRANS_3" pad="A"/>
 <contactref element="U$4" pad="5"/>
@@ -2158,7 +2155,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="60.0075" y1="41.75125" x2="60.2025" y2="41.94625" width="0.1524" layer="1"/>
 <wire x1="61.03" y1="41.94625" x2="60.2025" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_7_TX+">
+<signal name="JACK_16_TX+">
 <contactref element="RS_TRANS_3" pad="Y"/>
 <contactref element="R8" pad="1"/>
 <contactref element="U$4" pad="7"/>
@@ -2173,7 +2170,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="63.34125" y1="40.64" x2="63.57" y2="40.86875" width="0.1524" layer="1"/>
 <wire x1="63.57" y1="41.94625" x2="63.57" y2="40.86875" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_7_TX-">
+<signal name="JACK_16_TX-">
 <contactref element="RS_TRANS_3" pad="Z"/>
 <contactref element="R8" pad="2"/>
 <contactref element="U$4" pad="8"/>
@@ -2195,7 +2192,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="64.61125" y1="42.8625" x2="64.84" y2="43.09125" width="0.1524" layer="1"/>
 <wire x1="64.84" y1="43.85125" x2="64.84" y2="43.09125" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_7_RX-">
+<signal name="JACK_16_RX-">
 <contactref element="RS_TRANS_3" pad="B"/>
 <contactref element="R6" pad="1"/>
 <contactref element="U$4" pad="6"/>
@@ -2216,7 +2213,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="55.08625" y1="38.4175" x2="55.375" y2="38.70625" width="0.1524" layer="1"/>
 <wire x1="56.35625" y1="38.70625" x2="55.375" y2="38.70625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_4_TX-">
+<signal name="JACK_14_TX-">
 <contactref element="RS_TRANS_7" pad="Z"/>
 <contactref element="R16" pad="2"/>
 <contactref element="U$4" pad="16"/>
@@ -2233,7 +2230,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="72.0725" y1="38.865" x2="71.91375" y2="38.70625" width="0.1524" layer="1"/>
 <wire x1="71.91375" y1="38.70625" x2="71.91375" y2="38.4175" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_4_RX+">
+<signal name="JACK_14_RX+">
 <contactref element="R14" pad="2"/>
 <contactref element="RS_TRANS_7" pad="A"/>
 <contactref element="U$4" pad="13"/>
@@ -2245,7 +2242,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="70.32625" y1="41.75125" x2="70.52125" y2="41.94625" width="0.1524" layer="1"/>
 <wire x1="71.19" y1="41.94625" x2="70.52125" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_4_RX-">
+<signal name="JACK_14_RX-">
 <contactref element="RS_TRANS_7" pad="B"/>
 <contactref element="R14" pad="1"/>
 <contactref element="U$4" pad="14"/>
@@ -2266,7 +2263,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="67.78625" y1="38.4175" x2="68.075" y2="38.70625" width="0.1524" layer="1"/>
 <wire x1="69.05625" y1="38.70625" x2="68.075" y2="38.70625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_6_RX-">
+<signal name="JACK_15_RX-">
 <contactref element="RS_TRANS_5" pad="B"/>
 <contactref element="R10" pad="1"/>
 <contactref element="U$4" pad="10"/>
@@ -2287,7 +2284,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="67.15125" y1="42.8625" x2="67.38" y2="43.09125" width="0.1524" layer="1"/>
 <wire x1="67.38" y1="43.85125" x2="67.38" y2="43.09125" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_4_TX+">
+<signal name="JACK_14_TX+">
 <contactref element="RS_TRANS_7" pad="Y"/>
 <contactref element="R16" pad="1"/>
 <contactref element="U$4" pad="15"/>
@@ -2298,7 +2295,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="73.25375" y1="36.265" x2="73.25375" y2="41.47" width="0.1524" layer="1"/>
 <wire x1="73.25375" y1="41.47" x2="73.73" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_6_TX+">
+<signal name="JACK_15_TX+">
 <contactref element="RS_TRANS_5" pad="Y"/>
 <contactref element="R12" pad="1"/>
 <contactref element="U$4" pad="11"/>
@@ -2314,7 +2311,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="65.56375" y1="35.90625" x2="66.545" y2="35.90625" width="0.1524" layer="1"/>
 <wire x1="66.545" y1="35.90625" x2="66.83375" y2="36.195" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_6_TX-">
+<signal name="JACK_15_TX-">
 <contactref element="RS_TRANS_5" pad="Z"/>
 <contactref element="R12" pad="2"/>
 <contactref element="U$4" pad="12"/>
@@ -2333,7 +2330,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="69.69125" y1="42.8625" x2="69.92" y2="43.09125" width="0.1524" layer="1"/>
 <wire x1="69.92" y1="43.85125" x2="69.92" y2="43.09125" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_6_RX+">
+<signal name="JACK_15_RX+">
 <contactref element="R10" pad="2"/>
 <contactref element="RS_TRANS_5" pad="A"/>
 <contactref element="U$4" pad="9"/>
@@ -2347,7 +2344,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="65.7225" y1="40.005" x2="66.11" y2="40.3925" width="0.1524" layer="1"/>
 <wire x1="66.11" y1="41.94625" x2="66.11" y2="40.3925" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_8_RX+">
+<signal name="JACK_12_RX+">
 <contactref element="R22" pad="2"/>
 <contactref element="RS_TRANS_11" pad="A"/>
 <contactref element="U$4" pad="21"/>
@@ -2359,7 +2356,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="80.48625" y1="41.75125" x2="80.68125" y2="41.94625" width="0.1524" layer="1"/>
 <wire x1="81.35" y1="41.94625" x2="80.68125" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_8_RX-">
+<signal name="JACK_12_RX-">
 <contactref element="RS_TRANS_11" pad="B"/>
 <contactref element="R22" pad="1"/>
 <contactref element="U$4" pad="22"/>
@@ -2370,7 +2367,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="82.62" y1="43.85125" x2="82.62" y2="39.57" width="0.1524" layer="1"/>
 <wire x1="82.62" y1="39.57" x2="81.75625" y2="38.70625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_8_TX+">
+<signal name="JACK_12_TX+">
 <contactref element="RS_TRANS_11" pad="Y"/>
 <contactref element="R24" pad="1"/>
 <contactref element="U$4" pad="23"/>
@@ -2381,7 +2378,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="83.34375" y1="36.195" x2="83.34375" y2="41.4" width="0.1524" layer="1"/>
 <wire x1="83.34375" y1="41.4" x2="83.89" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_8_TX-">
+<signal name="JACK_12_TX-">
 <contactref element="RS_TRANS_11" pad="Z"/>
 <contactref element="R24" pad="2"/>
 <contactref element="U$4" pad="24"/>
@@ -2396,7 +2393,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="85.16" y1="43.85125" x2="85.16" y2="39.2525" width="0.1524" layer="1"/>
 <wire x1="85.16" y1="39.2525" x2="84.61375" y2="38.70625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_9_RX+">
+<signal name="JACK_11_RX+">
 <contactref element="R3" pad="2"/>
 <contactref element="RS_TRANS_2" pad="A"/>
 <contactref element="U$4" pad="25"/>
@@ -2407,7 +2404,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="86.96625" y1="35.90625" x2="86.43" y2="36.4425" width="0.1524" layer="1"/>
 <wire x1="86.43" y1="41.94625" x2="86.43" y2="36.4425" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_9_RX-">
+<signal name="JACK_11_RX-">
 <contactref element="RS_TRANS_2" pad="B"/>
 <contactref element="R3" pad="1"/>
 <contactref element="U$4" pad="26"/>
@@ -2421,7 +2418,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="87.7" y1="43.85125" x2="87.7" y2="39.1125" width="0.1524" layer="1"/>
 <wire x1="87.7" y1="39.1125" x2="88.10625" y2="38.70625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_9_TX+">
+<signal name="JACK_11_TX+">
 <contactref element="RS_TRANS_2" pad="Y"/>
 <contactref element="R5" pad="1"/>
 <contactref element="U$4" pad="27"/>
@@ -2432,7 +2429,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="89.69375" y1="36.195" x2="89.69375" y2="41.2225" width="0.1524" layer="1"/>
 <wire x1="89.69375" y1="41.2225" x2="88.97" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_9_TX-">
+<signal name="JACK_11_TX-">
 <contactref element="RS_TRANS_2" pad="Z"/>
 <contactref element="R5" pad="2"/>
 <contactref element="U$4" pad="28"/>
@@ -2447,7 +2444,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="90.96375" y1="40.005" x2="90.24" y2="40.72875" width="0.1524" layer="1"/>
 <wire x1="90.24" y1="43.85125" x2="90.24" y2="40.72875" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_11_TX+">
+<signal name="JACK_13_TX+">
 <contactref element="RS_TRANS_9" pad="Y"/>
 <contactref element="R20" pad="1"/>
 <contactref element="U$4" pad="19"/>
@@ -2463,7 +2460,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="77.94625" y1="41.75125" x2="78.14125" y2="41.94625" width="0.1524" layer="1"/>
 <wire x1="78.81" y1="41.94625" x2="78.14125" y2="41.94625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_11_TX-">
+<signal name="JACK_13_TX-">
 <contactref element="RS_TRANS_9" pad="Z"/>
 <contactref element="R20" pad="2"/>
 <contactref element="U$4" pad="20"/>
@@ -2481,7 +2478,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="79.85125" y1="40.79875" x2="80.08" y2="41.0275" width="0.1524" layer="1"/>
 <wire x1="80.08" y1="43.85125" x2="80.08" y2="41.0275" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_11_RX+">
+<signal name="JACK_13_RX+">
 <contactref element="R18" pad="2"/>
 <contactref element="RS_TRANS_9" pad="A"/>
 <contactref element="U$4" pad="17"/>
@@ -2495,7 +2492,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="76.04125" y1="40.79875" x2="76.27" y2="41.0275" width="0.1524" layer="1"/>
 <wire x1="76.27" y1="41.94625" x2="76.27" y2="41.0275" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_11_RX-">
+<signal name="JACK_13_RX-">
 <contactref element="RS_TRANS_9" pad="B"/>
 <contactref element="R18" pad="1"/>
 <contactref element="U$4" pad="18"/>
@@ -2566,7 +2563,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="93.5325" y1="41.24625" x2="92.78" y2="41.99875" width="0.1524" layer="1"/>
 <wire x1="92.78" y1="43.85125" x2="92.78" y2="41.99875" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_14_TX+">
+<signal name="JACK_9_TX+">
 <contactref element="RS_TRANS_6" pad="Y"/>
 <contactref element="R13" pad="1"/>
 <contactref element="U$4" pad="68"/>
@@ -2581,7 +2578,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="101.75875" y1="54.2925" x2="100.835" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="100.835" y1="54.2925" x2="100.80625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_14_TX-">
+<signal name="JACK_9_TX-">
 <contactref element="RS_TRANS_6" pad="Z"/>
 <contactref element="R13" pad="2"/>
 <contactref element="U$4" pad="67"/>
@@ -2598,7 +2595,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="101.44125" y1="58.57875" x2="101.6" y2="58.42" width="0.1524" layer="1"/>
 <wire x1="101.6" y1="58.42" x2="101.6" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_14_RX-">
+<signal name="JACK_9_RX-">
 <contactref element="RS_TRANS_6" pad="B"/>
 <contactref element="R11" pad="1"/>
 <contactref element="U$4" pad="34"/>
@@ -2611,7 +2608,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="103.3825" y1="43.85125" x2="103.66375" y2="44.1325" width="0.1524" layer="1"/>
 <wire x1="103.66375" y1="44.1325" x2="103.66375" y2="51.46375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_14_RX+">
+<signal name="JACK_9_RX+">
 <contactref element="R11" pad="2"/>
 <contactref element="RS_TRANS_6" pad="A"/>
 <contactref element="U$4" pad="33"/>
@@ -2624,7 +2621,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="104.775" y1="54.2925" x2="103.6925" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="103.6925" y1="54.2925" x2="103.66375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_15_TX+">
+<signal name="JACK_8_TX+">
 <contactref element="RS_TRANS_8" pad="Y"/>
 <contactref element="R17" pad="1"/>
 <contactref element="U$4" pad="64"/>
@@ -2641,7 +2638,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="95.5675" y1="54.13375" x2="94.58625" y2="54.13375" width="0.1524" layer="1"/>
 <wire x1="94.58625" y1="54.13375" x2="94.45625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_15_TX-">
+<signal name="JACK_8_TX-">
 <contactref element="RS_TRANS_8" pad="Z"/>
 <contactref element="R17" pad="2"/>
 <contactref element="U$4" pad="63"/>
@@ -2661,7 +2658,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="95.09125" y1="58.57875" x2="95.25" y2="58.42" width="0.1524" layer="1"/>
 <wire x1="95.25" y1="58.42" x2="95.25" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_15_RX+">
+<signal name="JACK_8_RX+">
 <contactref element="R15" pad="2"/>
 <contactref element="RS_TRANS_8" pad="A"/>
 <contactref element="U$4" pad="66"/>
@@ -2676,7 +2673,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="98.425" y1="54.45125" x2="97.50125" y2="54.45125" width="0.1524" layer="1"/>
 <wire x1="97.50125" y1="54.45125" x2="97.31375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_15_RX-">
+<signal name="JACK_8_RX-">
 <contactref element="RS_TRANS_8" pad="B"/>
 <contactref element="R15" pad="1"/>
 <contactref element="U$4" pad="65"/>
@@ -2690,7 +2687,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="96.04375" y1="51.7525" x2="96.04375" y2="57.15" width="0.1524" layer="1"/>
 <wire x1="96.04375" y1="57.15" x2="96.52" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_16_TX+">
+<signal name="JACK_7_TX+">
 <contactref element="RS_TRANS_10" pad="Y"/>
 <contactref element="R21" pad="1"/>
 <contactref element="U$4" pad="60"/>
@@ -2705,7 +2702,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="89.2175" y1="54.2925" x2="88.135" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="88.135" y1="54.2925" x2="88.10625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_16_TX-">
+<signal name="JACK_7_TX-">
 <contactref element="RS_TRANS_10" pad="Z"/>
 <contactref element="R21" pad="2"/>
 <contactref element="U$4" pad="59"/>
@@ -2721,7 +2718,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="86.43" y1="51.1875" x2="86.70625" y2="51.46375" width="0.1524" layer="1"/>
 <wire x1="86.70625" y1="51.46375" x2="86.96625" y2="51.46375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_16_RX+">
+<signal name="JACK_7_RX+">
 <contactref element="R19" pad="2"/>
 <contactref element="RS_TRANS_10" pad="A"/>
 <contactref element="U$4" pad="62"/>
@@ -2736,7 +2733,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="92.075" y1="54.2925" x2="90.9925" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="90.9925" y1="54.2925" x2="90.96375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_16_RX-">
+<signal name="JACK_7_RX-">
 <contactref element="RS_TRANS_10" pad="B"/>
 <contactref element="R19" pad="1"/>
 <contactref element="U$4" pad="61"/>
@@ -2750,7 +2747,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="89.69375" y1="51.59375" x2="89.69375" y2="57.15" width="0.1524" layer="1"/>
 <wire x1="89.69375" y1="57.15" x2="90.17" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_17_TX+">
+<signal name="JACK_6_TX+">
 <contactref element="RS_TRANS_12" pad="Y"/>
 <contactref element="R25" pad="1"/>
 <contactref element="U$4" pad="56"/>
@@ -2763,7 +2760,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="82.8675" y1="54.13375" x2="81.88625" y2="54.13375" width="0.1524" layer="1"/>
 <wire x1="81.88625" y1="54.13375" x2="81.75625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_17_TX-">
+<signal name="JACK_6_TX-">
 <contactref element="RS_TRANS_12" pad="Z"/>
 <contactref element="R25" pad="2"/>
 <contactref element="U$4" pad="55"/>
@@ -2777,7 +2774,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="82.39125" y1="58.57875" x2="82.55" y2="58.42" width="0.1524" layer="1"/>
 <wire x1="82.55" y1="58.42" x2="82.55" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_17_RX+">
+<signal name="JACK_6_RX+">
 <contactref element="R23" pad="2"/>
 <contactref element="RS_TRANS_12" pad="A"/>
 <contactref element="U$4" pad="58"/>
@@ -2792,7 +2789,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="85.725" y1="53.975" x2="84.9025" y2="53.975" width="0.1524" layer="1"/>
 <wire x1="84.9025" y1="53.975" x2="84.61375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_17_RX-">
+<signal name="JACK_6_RX-">
 <contactref element="RS_TRANS_12" pad="B"/>
 <contactref element="R23" pad="1"/>
 <contactref element="U$4" pad="57"/>
@@ -2843,7 +2840,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="60.48375" y1="81.915" x2="60.325" y2="81.75625" width="0.1524" layer="1"/>
 <wire x1="60.325" y1="81.75625" x2="60.325" y2="80.645" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_12_TX+">
+<signal name="JACK_5_TX+">
 <contactref element="RS_TRANS_13" pad="Y"/>
 <contactref element="R28" pad="1"/>
 <contactref element="U$4" pad="52"/>
@@ -2858,7 +2855,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="76.35875" y1="54.2925" x2="75.435" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="75.435" y1="54.2925" x2="75.40625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_12_TX-">
+<signal name="JACK_5_TX-">
 <contactref element="RS_TRANS_13" pad="Z"/>
 <contactref element="R28" pad="2"/>
 <contactref element="U$4" pad="51"/>
@@ -2876,7 +2873,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="76.04125" y1="58.57875" x2="76.2" y2="58.42" width="0.1524" layer="1"/>
 <wire x1="76.2" y1="58.42" x2="76.2" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_12_RX+">
+<signal name="JACK_5_RX+">
 <contactref element="R26" pad="2"/>
 <contactref element="RS_TRANS_13" pad="A"/>
 <contactref element="U$4" pad="54"/>
@@ -2889,7 +2886,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="79.375" y1="54.13375" x2="78.39375" y2="54.13375" width="0.1524" layer="1"/>
 <wire x1="78.39375" y1="54.13375" x2="78.26375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_13_TX+">
+<signal name="JACK_4_TX+">
 <contactref element="RS_TRANS_14" pad="Y"/>
 <contactref element="R31" pad="1"/>
 <contactref element="U$4" pad="48"/>
@@ -2906,7 +2903,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="70.00875" y1="54.2925" x2="69.085" y2="54.2925" width="0.1524" layer="1"/>
 <wire x1="69.085" y1="54.2925" x2="69.05625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_13_RX+">
+<signal name="JACK_4_RX+">
 <contactref element="R30" pad="2"/>
 <contactref element="RS_TRANS_14" pad="A"/>
 <contactref element="U$4" pad="50"/>
@@ -2921,7 +2918,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="73.025" y1="54.13375" x2="72.04375" y2="54.13375" width="0.1524" layer="1"/>
 <wire x1="72.04375" y1="54.13375" x2="71.91375" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_12_RX-">
+<signal name="JACK_5_RX-">
 <contactref element="RS_TRANS_13" pad="B"/>
 <contactref element="R26" pad="1"/>
 <contactref element="U$4" pad="53"/>
@@ -2932,7 +2929,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="76.99375" y1="51.91125" x2="76.99375" y2="57.15" width="0.1524" layer="1"/>
 <wire x1="76.99375" y1="57.15" x2="77.47" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_13_TX-">
+<signal name="JACK_4_TX-">
 <contactref element="RS_TRANS_14" pad="Z"/>
 <contactref element="R31" pad="2"/>
 <contactref element="U$4" pad="47"/>
@@ -2952,7 +2949,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="69.69125" y1="58.57875" x2="69.85" y2="58.42" width="0.1524" layer="1"/>
 <wire x1="69.85" y1="58.42" x2="69.85" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_13_RX-">
+<signal name="JACK_4_RX-">
 <contactref element="RS_TRANS_14" pad="B"/>
 <contactref element="R30" pad="1"/>
 <contactref element="U$4" pad="49"/>
@@ -2966,7 +2963,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="70.64375" y1="52.07" x2="70.64375" y2="57.15" width="0.1524" layer="1"/>
 <wire x1="70.64375" y1="57.15" x2="71.12" y2="57.62625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_1_TX+">
+<signal name="JACK_3_TX+">
 <contactref element="RS_TRANS_15" pad="Y"/>
 <contactref element="R33" pad="1"/>
 <contactref element="U$4" pad="44"/>
@@ -2979,7 +2976,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="63.97625" y1="49.8475" x2="63.97625" y2="52.99375" width="0.1524" layer="1"/>
 <wire x1="63.97625" y1="52.99375" x2="62.70625" y2="54.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_1_RX+">
+<signal name="JACK_3_RX+">
 <contactref element="R32" pad="2"/>
 <contactref element="RS_TRANS_15" pad="A"/>
 <contactref element="U$4" pad="46"/>
@@ -3069,7 +3066,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="56.515" y1="49.2125" x2="56.35625" y2="49.37125" width="0.1524" layer="1"/>
 <wire x1="56.35625" y1="49.37125" x2="56.35625" y2="51.46375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_1_RX-">
+<signal name="JACK_3_RX-">
 <contactref element="RS_TRANS_15" pad="B"/>
 <contactref element="R32" pad="1"/>
 <contactref element="U$4" pad="45"/>
@@ -3083,7 +3080,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="65.88125" y1="49.8475" x2="65.56375" y2="50.165" width="0.1524" layer="1"/>
 <wire x1="65.56375" y1="50.165" x2="65.56375" y2="51.46375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_1_TX-">
+<signal name="JACK_3_TX-">
 <contactref element="RS_TRANS_15" pad="Z"/>
 <contactref element="R33" pad="2"/>
 <contactref element="U$4" pad="43"/>
@@ -3100,7 +3097,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="63.02375" y1="49.2125" x2="62.70625" y2="49.53" width="0.1524" layer="1"/>
 <wire x1="62.70625" y1="49.53" x2="62.70625" y2="51.46375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_3_RX+">
+<signal name="JACK_1_RX+">
 <contactref element="R36" pad="2"/>
 <contactref element="RS_TRANS_17" pad="A"/>
 <contactref element="U$4" pad="38"/>
@@ -3114,7 +3111,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="52.86375" y1="54.26375" x2="54.1625" y2="54.26375" width="0.1524" layer="1"/>
 <wire x1="54.1625" y1="54.26375" x2="54.2925" y2="54.13375" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_3_RX-">
+<signal name="JACK_1_RX-">
 <contactref element="RS_TRANS_17" pad="B"/>
 <contactref element="R36" pad="1"/>
 <contactref element="U$4" pad="37"/>
@@ -3128,7 +3125,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="53.0225" y1="48.5775" x2="52.86375" y2="48.73625" width="0.1524" layer="1"/>
 <wire x1="52.86375" y1="51.46375" x2="52.86375" y2="48.73625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_3_TX-">
+<signal name="JACK_1_TX-">
 <contactref element="RS_TRANS_17" pad="Z"/>
 <contactref element="R37" pad="2"/>
 <contactref element="U$4" pad="35"/>
@@ -3145,7 +3142,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="50.165" y1="47.3075" x2="50.00625" y2="47.46625" width="0.1524" layer="1"/>
 <wire x1="50.00625" y1="51.46375" x2="50.00625" y2="47.46625" width="0.1524" layer="1"/>
 </signal>
-<signal name="JACK_3_TX+">
+<signal name="JACK_1_TX+">
 <contactref element="RS_TRANS_17" pad="Y"/>
 <contactref element="R37" pad="1"/>
 <contactref element="U$4" pad="36"/>

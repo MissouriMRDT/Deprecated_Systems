@@ -44,7 +44,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 			digitalWrite(j, LOW);
 		ms_delay(60);
 	}
-
+/*
 	System_printf("Testing UART devices\n");
 	System_flush();
 	UART_write(uart0, "This is uart 0", 15);
@@ -71,16 +71,40 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	UART_write(uart7, "This is uart 7", 15);
 	System_printf("Uart 7 tested\n");
 		System_flush();
-
+*/
 	System_printf("Testing full device access\n");
 	System_flush();
-	for(i = 0; i < 18; i++)
+	while(1)
 	{
-		//System_printf("Testing Device #%d\n", i);
-		//System_flush();
-		buffer[32] = '0' + (char)i;
-		deviceWrite(i, buffer, 35);
-		//ms_delay(10);
+		//Precalculated message to drive the motors
+		buffer[0] = 0x06; //2014 start byte 1
+		buffer[1] = 0x85; //2014 start byte 2
+		buffer[2] = 0x01; //size byte for motor control struct
+		buffer[3] = 128;  // speed
+		buffer[4] = CalcCheckSum(buffer+3, 1);      //checksum
+		for(i = 1; i < 20; i++)
+		{
+			//System_printf("Testing Device #%d\n", i);
+			//System_flush();
+			//buffer[32] = '0' + (char)i;
+			deviceWrite(i, buffer, 5);
+		}
+		ms_delay(3000);
+
+		buffer[0] = 0x06; //2014 start byte 1
+		buffer[1] = 0x85; //2014 start byte 2
+		buffer[2] = 0x01; //size byte for motor control struct
+		buffer[3] = 0;  // speed
+		buffer[4] = CalcCheckSum(buffer+3, 1);      //checksum
+		for(i = 1; i < 20; i++)
+		{
+			//System_printf("Testing Device #%d\n", i);
+			//System_flush();
+			//buffer[32] = '0' + (char)i;
+			deviceWrite(i, buffer, 5);
+
+		}
+		ms_delay(3000);
 	}
 
 	System_printf("Finished testing all devices\n");

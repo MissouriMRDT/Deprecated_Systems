@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3436,14 +3436,14 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="104.14" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U6RX" class="0">
+<net name="U4RX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PK0"/>
 <wire x1="55.88" y1="-15.24" x2="33.02" y2="-15.24" width="0.1524" layer="91"/>
 <label x="35.56" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U6TX" class="0">
+<net name="U4TX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PK1"/>
 <wire x1="55.88" y1="-17.78" x2="33.02" y2="-17.78" width="0.1524" layer="91"/>
@@ -3478,14 +3478,14 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="104.14" y="-27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U4RX" class="0">
+<net name="U5RX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PC6"/>
 <wire x1="101.6" y1="12.7" x2="121.92" y2="12.7" width="0.1524" layer="91"/>
 <label x="104.14" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U4TX" class="0">
+<net name="U5TX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PC7"/>
 <wire x1="101.6" y1="10.16" x2="121.92" y2="10.16" width="0.1524" layer="91"/>
@@ -3506,28 +3506,28 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="104.14" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U5RX" class="0">
+<net name="U7RX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PC4"/>
 <wire x1="101.6" y1="17.78" x2="121.92" y2="17.78" width="0.1524" layer="91"/>
 <label x="104.14" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U5TX" class="0">
+<net name="U7TX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PC5"/>
 <wire x1="101.6" y1="15.24" x2="121.92" y2="15.24" width="0.1524" layer="91"/>
 <label x="104.14" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U7RX" class="0">
+<net name="U6RX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PP0"/>
 <wire x1="101.6" y1="-55.88" x2="121.92" y2="-55.88" width="0.1524" layer="91"/>
 <label x="104.14" y="-55.88" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U7TX" class="0">
+<net name="U6TX" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="PP1"/>
 <wire x1="101.6" y1="-58.42" x2="121.92" y2="-58.42" width="0.1524" layer="91"/>
@@ -3719,14 +3719,14 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-86.36" y="-60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U7RX" class="0">
+<net name="U6RX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="1Z"/>
 <wire x1="-33.02" y1="-48.26" x2="-12.7" y2="-48.26" width="0.1524" layer="91"/>
 <label x="-30.48" y="-48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U7TX" class="0">
+<net name="U6TX" class="0">
 <segment>
 <pinref part="U7_MUX" gate="A" pin="2Z"/>
 <wire x1="-33.02" y1="-50.8" x2="-12.7" y2="-50.8" width="0.1524" layer="91"/>
@@ -3775,14 +3775,14 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="30.48" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U4RX" class="0">
+<net name="U5RX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="1Z"/>
 <wire x1="83.82" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
 <label x="86.36" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U4TX" class="0">
+<net name="U5TX" class="0">
 <segment>
 <pinref part="U4_MUX" gate="A" pin="2Z"/>
 <wire x1="83.82" y1="58.42" x2="104.14" y2="58.42" width="0.1524" layer="91"/>
@@ -3845,7 +3845,7 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U5TX" class="0">
+<net name="U7TX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="2Z"/>
 <wire x1="-33.02" y1="5.08" x2="-12.7" y2="5.08" width="0.1524" layer="91"/>
@@ -3922,21 +3922,21 @@ OKI-78SR-3.3/1.5-W36H-C</description>
 <label x="-30.48" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U6RX" class="0">
+<net name="U4RX" class="0">
 <segment>
 <pinref part="U6_MUX" gate="A" pin="1Z"/>
 <wire x1="83.82" y1="7.62" x2="104.14" y2="7.62" width="0.1524" layer="91"/>
 <label x="86.36" y="7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U6TX" class="0">
+<net name="U4TX" class="0">
 <segment>
 <pinref part="U6_MUX" gate="A" pin="2Z"/>
 <wire x1="83.82" y1="5.08" x2="104.14" y2="5.08" width="0.1524" layer="91"/>
 <label x="86.36" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="U5RX" class="0">
+<net name="U7RX" class="0">
 <segment>
 <pinref part="U5_MUX" gate="A" pin="1Z"/>
 <wire x1="-33.02" y1="7.62" x2="-12.7" y2="7.62" width="0.1524" layer="91"/>

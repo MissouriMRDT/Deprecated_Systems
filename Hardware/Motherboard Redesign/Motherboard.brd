@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -750,6 +750,9 @@ Please make sure your boards conform to these design rules.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -1219,7 +1222,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="70.32625" y1="7.46125" x2="70.32625" y2="1.74625" width="0.1524" layer="16"/>
 <via x="70.32625" y="1.74625" extent="1-16" drill="0.3302"/>
 </signal>
-<signal name="U6RX">
+<signal name="U4RX">
 <contactref element="U6_MUX" pad="13"/>
 <contactref element="U$5" pad="P16"/>
 <wire x1="73.66" y1="71.96455" x2="73.66" y2="71.59625" width="0.1524" layer="1"/>
@@ -1242,7 +1245,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="73.50125" y1="74.45375" x2="73.66" y2="74.295" width="0.1524" layer="16"/>
 <wire x1="73.66" y1="74.295" x2="73.66" y2="71.59625" width="0.1524" layer="16"/>
 </signal>
-<signal name="U6TX">
+<signal name="U4TX">
 <contactref element="U6_MUX" pad="3"/>
 <contactref element="U$5" pad="P15"/>
 <wire x1="72.39" y1="66.78295" x2="72.39" y2="67.15125" width="0.1524" layer="1"/>
@@ -1408,7 +1411,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.24375" y1="8.5725" x2="45.085" y2="8.73125" width="0.1524" layer="1"/>
 <wire x1="45.085" y1="8.73125" x2="45.085" y2="9.68375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5TX">
+<signal name="U7TX">
 <contactref element="U5_MUX" pad="3"/>
 <contactref element="U$5" pad="P27"/>
 <via x="92.075" y="18.57375" extent="1-16" drill="0.3302" diameter="0.6858"/>
@@ -1428,7 +1431,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="92.075" y1="18.57375" x2="92.075" y2="21.6408" width="0.1524" layer="1"/>
 <wire x1="92.075" y1="21.6408" x2="91.44" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5RX">
+<signal name="U7RX">
 <contactref element="U5_MUX" pad="13"/>
 <contactref element="U$5" pad="P28"/>
 <wire x1="90.17" y1="17.0942" x2="90.17" y2="15.5575" width="0.1524" layer="1"/>
@@ -1445,7 +1448,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="47.78375" y1="7.9375" x2="47.625" y2="7.77875" width="0.1524" layer="1"/>
 <wire x1="47.625" y1="7.77875" x2="47.625" y2="7.14375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4RX">
+<signal name="U5RX">
 <contactref element="U4_MUX" pad="13"/>
 <contactref element="U$5" pad="P26"/>
 <wire x1="64.77" y1="17.0942" x2="64.77" y2="17.4625" width="0.1524" layer="1"/>
@@ -1458,7 +1461,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="48.73625" y1="12.3825" x2="48.5775" y2="12.22375" width="0.1524" layer="16"/>
 <wire x1="48.5775" y1="12.22375" x2="47.625" y2="12.22375" width="0.1524" layer="16"/>
 </signal>
-<signal name="U4TX">
+<signal name="U5TX">
 <contactref element="U4_MUX" pad="3"/>
 <contactref element="U$5" pad="P23"/>
 <wire x1="66.04" y1="22.2758" x2="66.04" y2="20.0025" width="0.1524" layer="1"/>
@@ -1469,7 +1472,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="60.96" y="19.84375" extent="1-16" drill="0.3302"/>
 <wire x1="60.96" y1="19.84375" x2="47.625" y2="19.84375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7RX">
+<signal name="U6RX">
 <contactref element="U7_MUX" pad="13"/>
 <contactref element="U$5" pad="P8"/>
 <wire x1="91.44" y1="71.96455" x2="91.44" y2="69.5325" width="0.1524" layer="1"/>
@@ -1490,7 +1493,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="48.895" y1="70.485" x2="48.73625" y2="70.64375" width="0.1524" layer="16"/>
 <wire x1="48.73625" y1="70.64375" x2="47.625" y2="70.64375" width="0.1524" layer="16"/>
 </signal>
-<signal name="U7TX">
+<signal name="U6TX">
 <contactref element="U7_MUX" pad="3"/>
 <contactref element="U$5" pad="P7"/>
 <wire x1="90.17" y1="66.78295" x2="90.17" y2="70.1675" width="0.1524" layer="1"/>

@@ -19,40 +19,77 @@ void digitalWrite(int pin, int val)
 	//Everything is base on a bunch of TI defined constants that can't be indexed into
 	//Or iterated through
 
-	//See rovePinMap.h to find out where these come from
-	switch(pin)
+	if(val == LOW)
 	{
-	case U3_MUX_S0 :
-		GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, val);
-		break;
-	case U3_MUX_S1 :
-		GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_1, val);
-		break;
-	case U4_MUX_S0 :
-		GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_6, val);
-		break;
-	case U4_MUX_S1 :
-		GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_7, val);
-		break;
-	case U5_MUX_S0 :
-		GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_0, val);
-		break;
-	case U5_MUX_S1 :
-		GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_1, val);
-		break;
-	case U6_MUX_S0 :
-		GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_2, val);
-		break;
-	case U6_MUX_S1 :
-		GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_3, val);
-		break;
-	case U7_MUX_S0 :
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, val);
-		break;
-	case U7_MUX_S1 :
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, val);
-		break;
-	}//endswitch
+		switch(pin)
+		{
+		case U3_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (0));
+			break;
+		case U3_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_1, (0));
+			break;
+		case U4_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_6, (0));
+			break;
+		case U4_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_7, (0));
+			break;
+		case U5_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_0, (0));
+			break;
+		case U5_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_1, (0));
+			break;
+		case U6_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_2, (0));
+			break;
+		case U6_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_3, (0));
+			break;
+		case U7_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, (0));
+			break;
+		case U7_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (0));
+			break;
+		}//endswitch
+	} else if (val == HIGH)
+	{
+		switch(pin)
+		{
+		case U3_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (~0));
+			break;
+		case U3_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_1, (~0));
+			break;
+		case U4_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_6, (~0));
+			break;
+		case U4_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_7, (~0));
+			break;
+		case U5_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_0, (~0));
+			break;
+		case U5_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_1, (~0));
+			break;
+		case U6_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_2, (~0));
+			break;
+		case U6_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_3, (~0));
+			break;
+		case U7_MUX_S0 :
+			GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, (~0));
+			break;
+		case U7_MUX_S1 :
+			GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (~0));
+			break;
+		}//endswitch
+	}
 	return;
 
 }

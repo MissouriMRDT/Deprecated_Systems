@@ -917,7 +917,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="OC_FARNELL" value="1826642" x="57.785" y="69.37375" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="53.21935" y="69.37375" size="1.016" layer="25" ratio="10" rot="SR0"/>
 </element>
-<element name="U4_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="64.135" y="19.685" smashed="yes" rot="R270">
+<element name="U5_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="64.135" y="19.685" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SO-16" x="64.135" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="78R7402" x="64.135" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="74HC4052D,653" x="64.135" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
@@ -925,7 +925,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="OC_FARNELL" value="1826642" x="64.135" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="63.06185" y="20.16125" size="1.016" layer="25" ratio="10" rot="SR0"/>
 </element>
-<element name="U5_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="89.535" y="19.685" smashed="yes" rot="R270">
+<element name="U7_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="89.535" y="19.685" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SO-16" x="89.535" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="78R7402" x="89.535" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="74HC4052D,653" x="89.535" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
@@ -933,7 +933,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="OC_FARNELL" value="1826642" x="89.535" y="19.685" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="82.11185" y="20.0025" size="1.016" layer="25" ratio="10" rot="SR0"/>
 </element>
-<element name="U6_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="74.295" y="69.37375" smashed="yes" rot="R90">
+<element name="U4_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="74.295" y="69.37375" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="SO-16" x="74.295" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_NEWARK" value="78R7402" x="74.295" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="74HC4052D,653" x="74.295" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
@@ -941,7 +941,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="OC_FARNELL" value="1826642" x="74.295" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="69.72935" y="69.37375" size="1.016" layer="25" ratio="10" rot="SR0"/>
 </element>
-<element name="U7_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="92.075" y="69.37375" smashed="yes" rot="R90">
+<element name="U6_MUX" library="4x1_Dual_Mux" package="SOIC127P600X175-16N" value="74HC4052D,653" x="92.075" y="69.37375" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="SO-16" x="92.075" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_NEWARK" value="78R7402" x="92.075" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="74HC4052D,653" x="92.075" y="69.37375" size="1.778" layer="27" rot="R90" display="off"/>
@@ -989,21 +989,21 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U$5" pad="P19"/>
 <contactref element="U$5" pad="P39"/>
 <contactref element="U$5" pad="P60"/>
+<contactref element="U6_MUX" pad="6"/>
+<contactref element="U6_MUX" pad="8"/>
+<contactref element="U6_MUX" pad="7"/>
 <contactref element="U7_MUX" pad="6"/>
 <contactref element="U7_MUX" pad="8"/>
 <contactref element="U7_MUX" pad="7"/>
 <contactref element="U5_MUX" pad="6"/>
 <contactref element="U5_MUX" pad="8"/>
 <contactref element="U5_MUX" pad="7"/>
-<contactref element="U4_MUX" pad="6"/>
-<contactref element="U4_MUX" pad="8"/>
-<contactref element="U4_MUX" pad="7"/>
 <contactref element="U3_MUX" pad="6"/>
 <contactref element="U3_MUX" pad="8"/>
 <contactref element="U3_MUX" pad="7"/>
-<contactref element="U6_MUX" pad="7"/>
-<contactref element="U6_MUX" pad="8"/>
-<contactref element="U6_MUX" pad="6"/>
+<contactref element="U4_MUX" pad="7"/>
+<contactref element="U4_MUX" pad="8"/>
+<contactref element="U4_MUX" pad="6"/>
 <contactref element="RS_TRANS_1" pad="GND"/>
 <contactref element="RS_TRANS_3" pad="GND"/>
 <contactref element="RS_TRANS_5" pad="GND"/>
@@ -1223,7 +1223,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="70.32625" y="1.74625" extent="1-16" drill="0.3302"/>
 </signal>
 <signal name="U4RX">
-<contactref element="U6_MUX" pad="13"/>
+<contactref element="U4_MUX" pad="13"/>
 <contactref element="U$5" pad="P16"/>
 <wire x1="73.66" y1="71.96455" x2="73.66" y2="71.59625" width="0.1524" layer="1"/>
 <via x="73.66" y="71.59625" extent="1-16" drill="0.3302" shape="square"/>
@@ -1246,7 +1246,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="73.66" y1="74.295" x2="73.66" y2="71.59625" width="0.1524" layer="16"/>
 </signal>
 <signal name="U4TX">
-<contactref element="U6_MUX" pad="3"/>
+<contactref element="U4_MUX" pad="3"/>
 <contactref element="U$5" pad="P15"/>
 <wire x1="72.39" y1="66.78295" x2="72.39" y2="67.15125" width="0.1524" layer="1"/>
 <via x="72.39" y="67.15125" extent="1-16" drill="0.3302" shape="square"/>
@@ -1274,8 +1274,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.24375" y1="77.1525" x2="45.085" y2="77.31125" width="0.1524" layer="1"/>
 <wire x1="45.085" y1="77.31125" x2="45.085" y2="78.26375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_MUX_S0">
-<contactref element="U7_MUX" pad="10"/>
+<signal name="U6_MUX_S0">
+<contactref element="U6_MUX" pad="10"/>
 <contactref element="U$5" pad="P14"/>
 <wire x1="95.25" y1="71.96455" x2="95.25" y2="74.93" width="0.1524" layer="1"/>
 <wire x1="95.25" y1="74.93" x2="95.09125" y2="75.08875" width="0.1524" layer="1"/>
@@ -1293,8 +1293,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.24375" y1="81.915" x2="45.085" y2="81.75625" width="0.1524" layer="1"/>
 <wire x1="45.085" y1="81.75625" x2="45.085" y2="80.80375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_MUX_S1">
-<contactref element="U7_MUX" pad="9"/>
+<signal name="U6_MUX_S1">
+<contactref element="U6_MUX" pad="9"/>
 <contactref element="U$5" pad="P13"/>
 <wire x1="96.52" y1="71.96455" x2="96.52" y2="75.2475" width="0.1524" layer="1"/>
 <wire x1="96.52" y1="75.2475" x2="96.36125" y2="75.40625" width="0.1524" layer="1"/>
@@ -1312,8 +1312,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.24375" y1="82.2325" x2="45.085" y2="82.39125" width="0.1524" layer="1"/>
 <wire x1="45.085" y1="82.39125" x2="45.085" y2="83.34375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_MUX_S0">
-<contactref element="U4_MUX" pad="10"/>
+<signal name="U5_MUX_S0">
+<contactref element="U5_MUX" pad="10"/>
 <contactref element="U$5" pad="P64"/>
 <wire x1="60.96" y1="17.0942" x2="60.96" y2="16.03375" width="0.1524" layer="1"/>
 <wire x1="60.96" y1="16.03375" x2="60.80125" y2="15.875" width="0.1524" layer="1"/>
@@ -1323,8 +1323,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="5.715" y1="17.145" x2="5.55625" y2="17.30375" width="0.1524" layer="1"/>
 <wire x1="5.55625" y1="17.30375" x2="4.445" y2="17.30375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_MUX_S1">
-<contactref element="U4_MUX" pad="9"/>
+<signal name="U5_MUX_S1">
+<contactref element="U5_MUX" pad="9"/>
 <contactref element="U$5" pad="P63"/>
 <wire x1="59.69" y1="17.0942" x2="59.69" y2="16.51" width="0.1524" layer="1"/>
 <wire x1="59.69" y1="16.51" x2="59.3725" y2="16.1925" width="0.1524" layer="1"/>
@@ -1361,11 +1361,11 @@ Please make sure your boards conform to these design rules.</description>
 <vertex x="110.49" y="-2.38125"/>
 <vertex x="110.49" y="94.77375"/>
 </polygon>
+<contactref element="U6_MUX" pad="16"/>
 <contactref element="U7_MUX" pad="16"/>
 <contactref element="U5_MUX" pad="16"/>
-<contactref element="U4_MUX" pad="16"/>
 <contactref element="U3_MUX" pad="16"/>
-<contactref element="U6_MUX" pad="16"/>
+<contactref element="U4_MUX" pad="16"/>
 <contactref element="R1" pad="1"/>
 <contactref element="RS-485-1" pad="VCC"/>
 <contactref element="U$8" pad="3"/>
@@ -1377,8 +1377,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="C7" pad="1"/>
 <contactref element="C5" pad="1"/>
 </signal>
-<signal name="U5_MUX_S0">
-<contactref element="U5_MUX" pad="10"/>
+<signal name="U7_MUX_S0">
+<contactref element="U7_MUX" pad="10"/>
 <contactref element="U$5" pad="P38"/>
 <wire x1="86.36" y1="17.0942" x2="86.36" y2="16.03375" width="0.1524" layer="1"/>
 <wire x1="86.36" y1="16.03375" x2="86.20125" y2="15.875" width="0.1524" layer="1"/>
@@ -1394,8 +1394,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.24375" y1="8.255" x2="45.085" y2="8.09625" width="0.1524" layer="1"/>
 <wire x1="45.085" y1="8.09625" x2="45.085" y2="7.14375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_MUX_S1">
-<contactref element="U5_MUX" pad="9"/>
+<signal name="U7_MUX_S1">
+<contactref element="U7_MUX" pad="9"/>
 <contactref element="U$5" pad="P37"/>
 <wire x1="85.09" y1="17.0942" x2="85.09" y2="16.66875" width="0.1524" layer="1"/>
 <wire x1="85.09" y1="16.66875" x2="84.7725" y2="16.35125" width="0.1524" layer="1"/>
@@ -1412,7 +1412,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="45.085" y1="8.73125" x2="45.085" y2="9.68375" width="0.1524" layer="1"/>
 </signal>
 <signal name="U7TX">
-<contactref element="U5_MUX" pad="3"/>
+<contactref element="U7_MUX" pad="3"/>
 <contactref element="U$5" pad="P27"/>
 <via x="92.075" y="18.57375" extent="1-16" drill="0.3302" diameter="0.6858"/>
 <wire x1="92.075" y1="18.57375" x2="86.36" y2="18.57375" width="0.1524" layer="16"/>
@@ -1432,7 +1432,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="92.075" y1="21.6408" x2="91.44" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
 <signal name="U7RX">
-<contactref element="U5_MUX" pad="13"/>
+<contactref element="U7_MUX" pad="13"/>
 <contactref element="U$5" pad="P28"/>
 <wire x1="90.17" y1="17.0942" x2="90.17" y2="15.5575" width="0.1524" layer="1"/>
 <wire x1="90.17" y1="15.5575" x2="90.01125" y2="15.39875" width="0.1524" layer="1"/>
@@ -1449,7 +1449,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="47.625" y1="7.77875" x2="47.625" y2="7.14375" width="0.1524" layer="1"/>
 </signal>
 <signal name="U5RX">
-<contactref element="U4_MUX" pad="13"/>
+<contactref element="U5_MUX" pad="13"/>
 <contactref element="U$5" pad="P26"/>
 <wire x1="64.77" y1="17.0942" x2="64.77" y2="17.4625" width="0.1524" layer="1"/>
 <via x="64.77" y="17.4625" extent="1-16" drill="0.3302" diameter="0.6858" shape="square"/>
@@ -1462,7 +1462,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="48.5775" y1="12.22375" x2="47.625" y2="12.22375" width="0.1524" layer="16"/>
 </signal>
 <signal name="U5TX">
-<contactref element="U4_MUX" pad="3"/>
+<contactref element="U5_MUX" pad="3"/>
 <contactref element="U$5" pad="P23"/>
 <wire x1="66.04" y1="22.2758" x2="66.04" y2="20.0025" width="0.1524" layer="1"/>
 <wire x1="66.04" y1="20.0025" x2="65.88125" y2="19.84375" width="0.1524" layer="1"/>
@@ -1473,7 +1473,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="60.96" y1="19.84375" x2="47.625" y2="19.84375" width="0.1524" layer="1"/>
 </signal>
 <signal name="U6RX">
-<contactref element="U7_MUX" pad="13"/>
+<contactref element="U6_MUX" pad="13"/>
 <contactref element="U$5" pad="P8"/>
 <wire x1="91.44" y1="71.96455" x2="91.44" y2="69.5325" width="0.1524" layer="1"/>
 <via x="91.44" y="69.5325" extent="1-16" drill="0.3302"/>
@@ -1494,7 +1494,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="48.73625" y1="70.64375" x2="47.625" y2="70.64375" width="0.1524" layer="16"/>
 </signal>
 <signal name="U6TX">
-<contactref element="U7_MUX" pad="3"/>
+<contactref element="U6_MUX" pad="3"/>
 <contactref element="U$5" pad="P7"/>
 <wire x1="90.17" y1="66.78295" x2="90.17" y2="70.1675" width="0.1524" layer="1"/>
 <via x="90.17" y="70.1675" extent="1-16" drill="0.3302"/>
@@ -1580,8 +1580,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="59.53125" y1="76.835" x2="59.69" y2="76.67625" width="0.1524" layer="1"/>
 <wire x1="59.69" y1="76.67625" x2="59.69" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_MUX_S0">
-<contactref element="U6_MUX" pad="10"/>
+<signal name="U4_MUX_S0">
+<contactref element="U4_MUX" pad="10"/>
 <contactref element="U$5" pad="P51"/>
 <wire x1="77.47" y1="71.59625" x2="77.47" y2="71.4375" width="0.1524" layer="1"/>
 <wire x1="1.905" y1="89.535" x2="2.06375" y2="89.69375" width="0.1524" layer="1"/>
@@ -1593,8 +1593,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="77.47" y1="71.59625" x2="77.47" y2="71.96455" width="0.1524" layer="1"/>
 <wire x1="1.905" y1="88.42375" x2="1.905" y2="89.535" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_MUX_S1">
-<contactref element="U6_MUX" pad="9"/>
+<signal name="U4_MUX_S1">
+<contactref element="U4_MUX" pad="9"/>
 <contactref element="U$5" pad="P59"/>
 <wire x1="78.74" y1="71.96455" x2="78.74" y2="71.59625" width="0.1524" layer="1"/>
 <via x="78.74" y="71.59625" extent="1-16" drill="0.3302" shape="square"/>
@@ -1668,9 +1668,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="43.97375" y1="84.29625" x2="43.97375" y2="81.5975" width="0.1524" layer="1"/>
 <wire x1="43.97375" y1="81.5975" x2="43.815" y2="81.43875" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_5_TX">
+<signal name="U5_JACK_5_TX">
 <contactref element="RS_TRANS_1" pad="DI"/>
-<contactref element="U4_MUX" pad="5"/>
+<contactref element="U5_MUX" pad="5"/>
 <wire x1="52.07" y1="26.9875" x2="52.07" y2="26.19375" width="0.1524" layer="1"/>
 <wire x1="52.07" y1="26.19375" x2="52.22875" y2="26.035" width="0.1524" layer="1"/>
 <wire x1="52.22875" y1="26.035" x2="56.515" y2="26.035" width="0.1524" layer="1"/>
@@ -1681,27 +1681,27 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="63.34125" y1="24.4475" x2="63.5" y2="24.28875" width="0.1524" layer="1"/>
 <wire x1="63.5" y1="24.28875" x2="63.5" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_10_RX">
+<signal name="U7_JACK_10_RX">
 <contactref element="RS_TRANS_4" pad="RO"/>
-<contactref element="U5_MUX" pad="15"/>
+<contactref element="U7_MUX" pad="15"/>
 <wire x1="95.25" y1="26.9875" x2="95.25" y2="21.2725" width="0.1524" layer="1"/>
 <wire x1="95.25" y1="21.2725" x2="95.09125" y2="21.11375" width="0.1524" layer="1"/>
 <wire x1="95.09125" y1="21.11375" x2="92.86875" y2="21.11375" width="0.1524" layer="1"/>
 <wire x1="92.86875" y1="21.11375" x2="92.71" y2="20.955" width="0.1524" layer="1"/>
 <wire x1="92.71" y1="20.955" x2="92.71" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_14_RX">
+<signal name="U6_JACK_14_RX">
 <contactref element="RS_TRANS_6" pad="RO"/>
-<contactref element="U7_MUX" pad="12"/>
+<contactref element="U6_MUX" pad="12"/>
 <wire x1="102.87" y1="63.34125" x2="102.87" y2="69.69125" width="0.1524" layer="1"/>
 <wire x1="102.87" y1="69.69125" x2="102.71125" y2="69.85" width="0.1524" layer="1"/>
 <wire x1="102.71125" y1="69.85" x2="92.86875" y2="69.85" width="0.1524" layer="1"/>
 <wire x1="92.86875" y1="69.85" x2="92.71" y2="70.00875" width="0.1524" layer="1"/>
 <wire x1="92.71" y1="70.00875" x2="92.71" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_10_TX">
+<signal name="U7_JACK_10_TX">
 <contactref element="RS_TRANS_4" pad="DI"/>
-<contactref element="U5_MUX" pad="2"/>
+<contactref element="U7_MUX" pad="2"/>
 <wire x1="96.52" y1="26.9875" x2="96.52" y2="28.575" width="0.1524" layer="1"/>
 <wire x1="96.52" y1="28.575" x2="96.36125" y2="28.73375" width="0.1524" layer="1"/>
 <wire x1="96.36125" y1="28.73375" x2="93.18625" y2="28.73375" width="0.1524" layer="1"/>
@@ -1710,9 +1710,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="93.0275" y1="25.87625" x2="92.71" y2="25.55875" width="0.1524" layer="1"/>
 <wire x1="92.71" y1="25.55875" x2="92.71" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_14_TX">
+<signal name="U6_JACK_14_TX">
 <contactref element="RS_TRANS_6" pad="DI"/>
-<contactref element="U7_MUX" pad="1"/>
+<contactref element="U6_MUX" pad="1"/>
 <via x="87.63" y="67.15125" extent="1-16" drill="0.3302" diameter="0.6858" shape="square"/>
 <wire x1="87.63" y1="67.15125" x2="87.63" y2="66.78295" width="0.1524" layer="1"/>
 <wire x1="87.63" y1="67.15125" x2="87.63" y2="67.78625" width="0.1524" layer="16"/>
@@ -1725,9 +1725,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="101.44125" y1="68.58" x2="101.6" y2="68.42125" width="0.1524" layer="1"/>
 <wire x1="101.6" y1="68.42125" x2="101.6" y2="63.34125" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_7_RX">
+<signal name="U5_JACK_7_RX">
 <contactref element="RS_TRANS_3" pad="RO"/>
-<contactref element="U4_MUX" pad="11"/>
+<contactref element="U5_MUX" pad="11"/>
 <wire x1="57.15" y1="26.9875" x2="57.15" y2="25.0825" width="0.1524" layer="1"/>
 <wire x1="57.15" y1="25.0825" x2="57.30875" y2="24.92375" width="0.1524" layer="1"/>
 <wire x1="57.30875" y1="24.92375" x2="63.97625" y2="24.92375" width="0.1524" layer="1"/>
@@ -1738,8 +1738,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="62.38875" y1="21.11375" x2="62.23" y2="20.955" width="0.1524" layer="1"/>
 <wire x1="62.23" y1="20.955" x2="62.23" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_9_RX">
-<contactref element="U5_MUX" pad="14"/>
+<signal name="U7_JACK_9_RX">
+<contactref element="U7_MUX" pad="14"/>
 <contactref element="RS_TRANS_2" pad="RO"/>
 <wire x1="88.9" y1="26.9875" x2="89.37625" y2="26.9875" width="0.1524" layer="1"/>
 <wire x1="89.37625" y1="26.9875" x2="89.535" y2="26.82875" width="0.1524" layer="1"/>
@@ -1749,9 +1749,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="91.28125" y1="21.11375" x2="91.44" y2="20.955" width="0.1524" layer="1"/>
 <wire x1="91.44" y1="20.955" x2="91.44" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_15_RX">
+<signal name="U6_JACK_15_RX">
 <contactref element="RS_TRANS_8" pad="RO"/>
-<contactref element="U7_MUX" pad="14"/>
+<contactref element="U6_MUX" pad="14"/>
 <wire x1="96.52" y1="63.34125" x2="96.52" y2="62.5475" width="0.1524" layer="1"/>
 <wire x1="96.52" y1="62.5475" x2="96.36125" y2="62.38875" width="0.1524" layer="1"/>
 <wire x1="96.36125" y1="62.38875" x2="92.23375" y2="62.38875" width="0.1524" layer="1"/>
@@ -1765,17 +1765,17 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="90.64625" y1="71.91375" x2="90.2208" y2="71.91375" width="0.1524" layer="1"/>
 <wire x1="90.2208" y1="71.91375" x2="90.17" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_7_TX">
+<signal name="U5_JACK_7_TX">
 <contactref element="RS_TRANS_3" pad="DI"/>
-<contactref element="U4_MUX" pad="4"/>
+<contactref element="U5_MUX" pad="4"/>
 <wire x1="58.42" y1="26.9875" x2="58.42" y2="25.55875" width="0.1524" layer="1"/>
 <wire x1="58.42" y1="25.55875" x2="58.7375" y2="25.24125" width="0.1524" layer="1"/>
 <wire x1="58.7375" y1="25.24125" x2="64.61125" y2="25.24125" width="0.1524" layer="1"/>
 <wire x1="64.61125" y1="25.24125" x2="64.77" y2="25.0825" width="0.1524" layer="1"/>
 <wire x1="64.77" y1="25.0825" x2="64.77" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_9_TX">
-<contactref element="U5_MUX" pad="5"/>
+<signal name="U7_JACK_9_TX">
+<contactref element="U7_MUX" pad="5"/>
 <contactref element="RS_TRANS_2" pad="DI"/>
 <wire x1="88.9" y1="22.2758" x2="88.9" y2="25.7175" width="0.1524" layer="1"/>
 <wire x1="88.9" y1="25.7175" x2="88.74125" y2="25.87625" width="0.1524" layer="1"/>
@@ -1787,18 +1787,18 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="90.01125" y1="27.94" x2="90.17" y2="27.78125" width="0.1524" layer="1"/>
 <wire x1="90.17" y1="27.78125" x2="90.17" y2="26.9875" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_15_TX">
+<signal name="U6_JACK_15_TX">
 <contactref element="RS_TRANS_8" pad="DI"/>
-<contactref element="U7_MUX" pad="5"/>
+<contactref element="U6_MUX" pad="5"/>
 <wire x1="95.25" y1="63.34125" x2="95.25" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="95.25" y1="64.135" x2="95.09125" y2="64.29375" width="0.1524" layer="1"/>
 <wire x1="95.09125" y1="64.29375" x2="92.86875" y2="64.29375" width="0.1524" layer="1"/>
 <wire x1="92.86875" y1="64.29375" x2="92.71" y2="64.4525" width="0.1524" layer="1"/>
 <wire x1="92.71" y1="64.4525" x2="92.71" y2="66.78295" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_6_RX">
+<signal name="U5_JACK_6_RX">
 <contactref element="RS_TRANS_5" pad="RO"/>
-<contactref element="U4_MUX" pad="15"/>
+<contactref element="U5_MUX" pad="15"/>
 <wire x1="63.5" y1="26.9875" x2="63.5" y2="25.7175" width="0.1524" layer="1"/>
 <wire x1="63.5" y1="25.7175" x2="63.65875" y2="25.55875" width="0.1524" layer="1"/>
 <wire x1="63.65875" y1="25.55875" x2="66.51625" y2="25.55875" width="0.1524" layer="1"/>
@@ -1810,18 +1810,18 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="67.15125" y1="18.57375" x2="67.31" y2="18.415" width="0.1524" layer="1"/>
 <wire x1="67.31" y1="18.415" x2="67.31" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_6_TX">
+<signal name="U5_JACK_6_TX">
 <contactref element="RS_TRANS_5" pad="DI"/>
-<contactref element="U4_MUX" pad="2"/>
+<contactref element="U5_MUX" pad="2"/>
 <wire x1="64.77" y1="26.9875" x2="64.77" y2="26.19375" width="0.1524" layer="1"/>
 <wire x1="64.77" y1="26.19375" x2="64.92875" y2="26.035" width="0.1524" layer="1"/>
 <wire x1="64.92875" y1="26.035" x2="67.15125" y2="26.035" width="0.1524" layer="1"/>
 <wire x1="67.15125" y1="26.035" x2="67.31" y2="25.87625" width="0.1524" layer="1"/>
 <wire x1="67.31" y1="25.87625" x2="67.31" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_8_RX">
+<signal name="U7_JACK_8_RX">
 <contactref element="RS_TRANS_11" pad="RO"/>
-<contactref element="U5_MUX" pad="12"/>
+<contactref element="U7_MUX" pad="12"/>
 <wire x1="82.55" y1="26.9875" x2="82.55" y2="24.4475" width="0.1524" layer="1"/>
 <wire x1="82.55" y1="24.4475" x2="82.70875" y2="24.28875" width="0.1524" layer="1"/>
 <wire x1="82.70875" y1="24.28875" x2="88.10625" y2="24.28875" width="0.1524" layer="1"/>
@@ -1831,9 +1831,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="88.42375" y1="17.145" x2="88.8492" y2="17.145" width="0.1524" layer="1"/>
 <wire x1="88.8492" y1="17.145" x2="88.9" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_8_TX">
+<signal name="U7_JACK_8_TX">
 <contactref element="RS_TRANS_11" pad="DI"/>
-<contactref element="U5_MUX" pad="1"/>
+<contactref element="U7_MUX" pad="1"/>
 <via x="93.345" y="24.92375" extent="1-16" drill="0.3302"/>
 <wire x1="93.345" y1="24.92375" x2="88.265" y2="24.92375" width="0.1524" layer="16"/>
 <via x="88.265" y="24.92375" extent="1-16" drill="0.3302"/>
@@ -1844,9 +1844,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="93.98" y1="24.765" x2="93.82125" y2="24.92375" width="0.1524" layer="1"/>
 <wire x1="93.82125" y1="24.92375" x2="93.345" y2="24.92375" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_16_RX">
+<signal name="U6_JACK_16_RX">
 <contactref element="RS_TRANS_10" pad="RO"/>
-<contactref element="U7_MUX" pad="15"/>
+<contactref element="U6_MUX" pad="15"/>
 <wire x1="90.17" y1="63.34125" x2="89.69375" y2="63.34125" width="0.1524" layer="1"/>
 <wire x1="89.69375" y1="63.34125" x2="89.535" y2="63.5" width="0.1524" layer="1"/>
 <wire x1="89.535" y1="63.5" x2="89.535" y2="71.755" width="0.1524" layer="1"/>
@@ -1854,14 +1854,14 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="89.37625" y1="71.91375" x2="88.9508" y2="71.91375" width="0.1524" layer="1"/>
 <wire x1="88.9508" y1="71.91375" x2="88.9" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_16_TX">
+<signal name="U6_JACK_16_TX">
 <contactref element="RS_TRANS_10" pad="DI"/>
-<contactref element="U7_MUX" pad="2"/>
+<contactref element="U6_MUX" pad="2"/>
 <wire x1="88.9" y1="63.34125" x2="88.9" y2="66.78295" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_4_RX">
+<signal name="U5_JACK_4_RX">
 <contactref element="RS_TRANS_7" pad="RO"/>
-<contactref element="U4_MUX" pad="12"/>
+<contactref element="U5_MUX" pad="12"/>
 <wire x1="63.5" y1="17.0942" x2="63.5" y2="18.0975" width="0.1524" layer="1"/>
 <wire x1="63.5" y1="18.0975" x2="63.65875" y2="18.25625" width="0.1524" layer="1"/>
 <wire x1="63.65875" y1="18.25625" x2="66.51625" y2="18.25625" width="0.1524" layer="1"/>
@@ -1880,18 +1880,18 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="70.00875" y1="27.94" x2="69.85" y2="27.78125" width="0.1524" layer="1"/>
 <wire x1="69.85" y1="27.78125" x2="69.85" y2="26.9875" width="0.1524" layer="1"/>
 </signal>
-<signal name="U4_JACK_4_TX">
+<signal name="U5_JACK_4_TX">
 <contactref element="RS_TRANS_7" pad="DI"/>
-<contactref element="U4_MUX" pad="1"/>
+<contactref element="U5_MUX" pad="1"/>
 <wire x1="71.12" y1="26.9875" x2="71.12" y2="25.55875" width="0.1524" layer="1"/>
 <wire x1="71.12" y1="25.55875" x2="70.96125" y2="25.4" width="0.1524" layer="1"/>
 <wire x1="70.96125" y1="25.4" x2="68.73875" y2="25.4" width="0.1524" layer="1"/>
 <wire x1="68.73875" y1="25.4" x2="68.58" y2="25.24125" width="0.1524" layer="1"/>
 <wire x1="68.58" y1="25.24125" x2="68.58" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_11_RX">
+<signal name="U7_JACK_11_RX">
 <contactref element="RS_TRANS_9" pad="RO"/>
-<contactref element="U5_MUX" pad="11"/>
+<contactref element="U7_MUX" pad="11"/>
 <wire x1="76.2" y1="26.9875" x2="76.2" y2="25.7175" width="0.1524" layer="1"/>
 <wire x1="76.2" y1="25.7175" x2="76.35875" y2="25.55875" width="0.1524" layer="1"/>
 <wire x1="76.35875" y1="25.55875" x2="81.915" y2="25.55875" width="0.1524" layer="1"/>
@@ -1905,9 +1905,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="87.15375" y1="17.145" x2="87.5792" y2="17.145" width="0.1524" layer="1"/>
 <wire x1="87.5792" y1="17.145" x2="87.63" y2="17.0942" width="0.1524" layer="1"/>
 </signal>
-<signal name="U5_JACK_11_TX">
+<signal name="U7_JACK_11_TX">
 <contactref element="RS_TRANS_9" pad="DI"/>
-<contactref element="U5_MUX" pad="4"/>
+<contactref element="U7_MUX" pad="4"/>
 <wire x1="77.47" y1="26.9875" x2="77.47" y2="28.575" width="0.1524" layer="1"/>
 <wire x1="77.47" y1="28.575" x2="77.62875" y2="28.73375" width="0.1524" layer="1"/>
 <wire x1="77.62875" y1="28.73375" x2="92.075" y2="28.73375" width="0.1524" layer="1"/>
@@ -1918,9 +1918,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="90.32875" y1="26.035" x2="90.17" y2="25.87625" width="0.1524" layer="1"/>
 <wire x1="90.17" y1="25.87625" x2="90.17" y2="22.2758" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_17_RX">
+<signal name="U6_JACK_17_RX">
 <contactref element="RS_TRANS_12" pad="RO"/>
-<contactref element="U7_MUX" pad="11"/>
+<contactref element="U6_MUX" pad="11"/>
 <wire x1="83.82" y1="63.34125" x2="83.82" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="83.82" y1="64.135" x2="83.97875" y2="64.29375" width="0.1524" layer="1"/>
 <wire x1="83.97875" y1="64.29375" x2="88.10625" y2="64.29375" width="0.1524" layer="1"/>
@@ -1931,9 +1931,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="93.82125" y1="73.18375" x2="93.98" y2="73.025" width="0.1524" layer="1"/>
 <wire x1="93.98" y1="73.025" x2="93.98" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U7_JACK_17_TX">
+<signal name="U6_JACK_17_TX">
 <contactref element="RS_TRANS_12" pad="DI"/>
-<contactref element="U7_MUX" pad="4"/>
+<contactref element="U6_MUX" pad="4"/>
 <via x="91.44" y="67.15125" extent="1-16" drill="0.3302" diameter="0.6858" shape="square"/>
 <wire x1="91.44" y1="67.15125" x2="91.44" y2="66.78295" width="0.1524" layer="1"/>
 <via x="86.36" y="67.15125" extent="1-16" drill="0.3302"/>
@@ -1948,20 +1948,20 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="82.70875" y1="64.61125" x2="82.55" y2="64.4525" width="0.1524" layer="1"/>
 <wire x1="82.55" y1="64.4525" x2="82.55" y2="63.34125" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_JACK_12_RX">
+<signal name="U4_JACK_12_RX">
 <contactref element="RS_TRANS_13" pad="RO"/>
 <wire x1="77.47" y1="63.34125" x2="76.99375" y2="63.34125" width="0.1524" layer="1"/>
 <wire x1="76.99375" y1="63.34125" x2="76.835" y2="63.5" width="0.1524" layer="1"/>
 <wire x1="76.835" y1="63.5" x2="76.835" y2="70.64375" width="0.1524" layer="1"/>
 <wire x1="76.835" y1="70.64375" x2="76.67625" y2="70.8025" width="0.1524" layer="1"/>
-<contactref element="U6_MUX" pad="14"/>
+<contactref element="U4_MUX" pad="14"/>
 <wire x1="76.67625" y1="70.8025" x2="72.54875" y2="70.8025" width="0.1524" layer="1"/>
 <wire x1="72.54875" y1="70.8025" x2="72.39" y2="70.96125" width="0.1524" layer="1"/>
 <wire x1="72.39" y1="70.96125" x2="72.39" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_JACK_13_RX">
+<signal name="U4_JACK_13_RX">
 <contactref element="RS_TRANS_14" pad="RO"/>
-<contactref element="U6_MUX" pad="15"/>
+<contactref element="U4_MUX" pad="15"/>
 <wire x1="71.12" y1="63.34125" x2="71.12" y2="65.0875" width="0.1524" layer="1"/>
 <wire x1="71.12" y1="65.0875" x2="71.27875" y2="65.24625" width="0.1524" layer="1"/>
 <wire x1="71.27875" y1="65.24625" x2="71.59625" y2="65.24625" width="0.1524" layer="1"/>
@@ -1995,9 +1995,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="60.80125" y1="64.29375" x2="60.96" y2="64.4525" width="0.1524" layer="1"/>
 <wire x1="60.96" y1="64.4525" x2="60.96" y2="66.78295" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_JACK_12_TX">
+<signal name="U4_JACK_12_TX">
 <contactref element="RS_TRANS_13" pad="DI"/>
-<contactref element="U6_MUX" pad="5"/>
+<contactref element="U4_MUX" pad="5"/>
 <wire x1="76.2" y1="63.34125" x2="76.2" y2="64.135" width="0.1524" layer="1"/>
 <wire x1="76.2" y1="64.135" x2="76.04125" y2="64.29375" width="0.1524" layer="1"/>
 <wire x1="76.04125" y1="64.29375" x2="75.08875" y2="64.29375" width="0.1524" layer="1"/>
@@ -2017,9 +2017,9 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="61.43625" y1="71.59625" x2="61.595" y2="71.4375" width="0.1524" layer="16"/>
 <wire x1="61.595" y1="71.4375" x2="61.595" y2="70.00875" width="0.1524" layer="16"/>
 </signal>
-<signal name="U6_JACK_13_TX">
+<signal name="U4_JACK_13_TX">
 <contactref element="RS_TRANS_14" pad="DI"/>
-<contactref element="U6_MUX" pad="2"/>
+<contactref element="U4_MUX" pad="2"/>
 <wire x1="69.85" y1="63.34125" x2="69.85" y2="65.405" width="0.1524" layer="1"/>
 <wire x1="69.85" y1="65.405" x2="70.00875" y2="65.56375" width="0.1524" layer="1"/>
 <wire x1="70.00875" y1="65.56375" x2="70.96125" y2="65.56375" width="0.1524" layer="1"/>
@@ -2038,16 +2038,16 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="60.48375" y1="71.59625" x2="60.9092" y2="71.59625" width="0.1524" layer="1"/>
 <wire x1="60.9092" y1="71.59625" x2="60.96" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_POWRBOARD_RX">
+<signal name="U4_POWRBOARD_RX">
 <contactref element="RS-485-2" pad="RO"/>
-<contactref element="U6_MUX" pad="11"/>
+<contactref element="U4_MUX" pad="11"/>
 <wire x1="79.85125" y1="76.99375" x2="76.35875" y2="76.99375" width="0.1524" layer="1"/>
 <wire x1="76.35875" y1="76.99375" x2="76.2" y2="76.835" width="0.1524" layer="1"/>
 <wire x1="76.2" y1="76.835" x2="76.2" y2="71.96455" width="0.1524" layer="1"/>
 </signal>
-<signal name="U6_POWERBOARD_TX">
+<signal name="U4_POWERBOARD_TX">
 <contactref element="RS-485-2" pad="DI"/>
-<contactref element="U6_MUX" pad="4"/>
+<contactref element="U4_MUX" pad="4"/>
 <wire x1="79.85125" y1="78.26375" x2="76.04125" y2="78.26375" width="0.1524" layer="1"/>
 <wire x1="76.04125" y1="78.26375" x2="75.8825" y2="78.105" width="0.1524" layer="1"/>
 <wire x1="75.8825" y1="78.105" x2="75.8825" y2="73.3425" width="0.1524" layer="1"/>
@@ -3283,8 +3283,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="88.28" y1="4.60375" x2="88.28" y2="10.3325" width="0.6096" layer="1"/>
 <wire x1="88.28" y1="10.3325" x2="88.10625" y2="10.50625" width="0.6096" layer="1"/>
 </signal>
-<signal name="U4_JACK_5_RX">
-<contactref element="U4_MUX" pad="14"/>
+<signal name="U5_JACK_5_RX">
+<contactref element="U5_MUX" pad="14"/>
 <contactref element="RS_TRANS_1" pad="RO"/>
 <wire x1="50.8" y1="26.9875" x2="50.8" y2="25.87625" width="0.1524" layer="1"/>
 <wire x1="50.8" y1="25.87625" x2="50.95875" y2="25.7175" width="0.1524" layer="1"/>

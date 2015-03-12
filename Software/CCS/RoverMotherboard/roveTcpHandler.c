@@ -377,3 +377,21 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     Task_exit();
 
 }//endfnctn:: 	roveTcpHandler() Task Thread
+
+
+// ------- Network Abstraction Layer -----------//
+
+int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes)
+{
+
+}
+
+int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
+{
+
+}
+
+int attemptToConnect(struct NetworkConnection* connection)
+{
+
+}

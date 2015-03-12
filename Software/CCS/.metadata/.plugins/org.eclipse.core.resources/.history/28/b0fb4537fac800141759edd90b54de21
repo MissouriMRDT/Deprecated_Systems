@@ -1,0 +1,52 @@
+//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+
+// roveTcpHandler.h
+//
+// first created:
+//
+// 01_22_2015_Owen_Chiaventone
+//
+// last edited:
+//
+//02_24_2015_Judah Schad_jrs6w7@mst.edu
+
+#pragma once
+
+#ifndef ROVETCPHANDLER_H_
+#define ROVETCPHANDLER_H_
+
+//includes globally scoped Texas Instruments (TI) header files
+
+#include "../RoverMotherboardMain.h"
+
+//MRDesign Team::roveWare::		roveCom and RoveNet services headers
+
+#include "../mrdtRoveWare.h"
+
+//When data is recieved it goes into the fromBaseStationMailbox as RoveNet recieve struct base_station_msg_struct
+
+//When data is sent it goes into the toBaseStationMailbox mailbox RoveNet send switching on the enum device structs and sizeof()
+
+Void roveTcpHandler(UArg arg0, UArg arg1);
+
+struct NetworkConnection
+{
+	int fileDescriptor = NULL;
+	bool isConnected = false;
+} NetworkConnection;
+
+//Recieves <bytes> bytes from the specified network connection and places them
+// in the specified buffer
+// Pre: network connection is valid
+// Post: Buffer is filled with bytes from network
+// Error: connection.isConnected set to false
+//        -1 returned
+//
+int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes);
+
+int roveSend(struct NetworkConnection* connection, char* buffer, int bytes);
+
+//Creates a connection and stores the result in the specified NetworkConnection
+//Uses the RED_IP and RED_SOCKET constants
+int attemptToConnect(struct NetworkConnection* connection);
+#endif // ROVETCPHANDLER_H_

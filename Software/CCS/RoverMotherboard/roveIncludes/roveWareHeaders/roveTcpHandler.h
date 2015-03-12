@@ -29,4 +29,27 @@
 
 Void roveTcpHandler(UArg arg0, UArg arg1);
 
+
+// ------- Network Abstraction Layer -----------//
+
+struct NetworkConnection
+{
+	int fileDescriptor;
+	bool isConnected;
+} NetworkConnection;
+
+//Recieves <bytes> bytes from the specified network connection and places them
+// in the specified buffer
+// Pre: network connection is valid
+// Post: Buffer is filled with bytes from network
+// Error: connection.isConnected set to false
+//        -1 returned
+//
+int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes);
+
+int roveSend(struct NetworkConnection* connection, char* buffer, int bytes);
+
+//Creates a connection and stores the result in the specified NetworkConnection
+//Uses the RED_IP and RED_SOCKET constants
+int attemptToConnect(struct NetworkConnection* connection);
 #endif // ROVETCPHANDLER_H_

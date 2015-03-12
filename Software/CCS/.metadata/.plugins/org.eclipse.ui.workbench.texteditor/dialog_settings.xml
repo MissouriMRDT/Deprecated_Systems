@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="287" key="DIALOG_WIDTH"/>
+		<item value="289" key="DIALOG_WIDTH"/>
 		<item value="228" key="DIALOG_Y_ORIGIN"/>
-		<item value="848" key="DIALOG_X_ORIGIN"/>
 		<item value="423" key="DIALOG_HEIGHT"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="848" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.226804|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="bytes_to_read" key="selection"/>
+		<item value="val" key="selection"/>
 		<list key="findhistory">
+			<item value="(0)"/>
 			<item value="bytes_to_write"/>
 			<item value="bytes_wrote"/>
 			<item value="Uart_write"/>
@@ -22,9 +23,9 @@
 			<item value="U2RX"/>
 			<item value="U7RX"/>
 			<item value="U6RX"/>
-			<item value="bytes_wrote = "/>
 		</list>
 		<list key="replacehistory">
+			<item value="val"/>
 			<item value="bytes_to_read"/>
 			<item value="bytes_read"/>
 			<item value="Uart_read"/>
@@ -32,7 +33,6 @@
 			<item value="UART_Handle"/>
 			<item value="extern UART_HANDLE"/>
 			<item value="bytes_wrote = UART_write"/>
-			<item value="bytes_read = UART_read"/>
 		</list>
 	</section>
 </section>

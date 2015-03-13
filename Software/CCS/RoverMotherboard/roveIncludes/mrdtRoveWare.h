@@ -21,7 +21,7 @@
 #define CONNECTED 1
 
 //hardcodes the IP of the base station
-#define NETWORK_TIMEOUT 6000
+#define NETWORK_TIMEOUT 6
 #define RED_IP "192.168.1.2"
 
 //hardcodes the TCP port

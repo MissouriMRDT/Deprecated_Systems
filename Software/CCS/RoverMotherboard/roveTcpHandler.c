@@ -138,13 +138,18 @@ static int roveRecv(struct NetworkConnection* connection, char* buffer, int byte
 		if(bytesRecvd <= 0)
 		{
 			connection->isConnected = false;
+			//Connection broke
+			return -1;
+		} else
+		{
+			//Recv'd correctly
+			return bytesRecvd;
 		}
-	}
-	else
+	} else
 	{
+		//Not connected
 		return -1;
 	}
-	return 0;
 }
 
 static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)

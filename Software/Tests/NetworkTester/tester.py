@@ -14,6 +14,7 @@ root.title("NetworkTestUtility")
 print "Waiting for Connection"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 server.bind(('192.168.1.2', 11000))
 server.listen(5)
 connection, addr = server.accept()
@@ -33,7 +34,9 @@ try:
     root.mainloop()
 except:
     print "Shit hit the fan"
-    connection.close()
-    server.close()
-    quit()
+connection.shutdown(socket.SHUT_RDWR)
+connection.close()
+server.shutdown(socket.SHUT_RDWR)
+server.close()
+sys.exit()
 

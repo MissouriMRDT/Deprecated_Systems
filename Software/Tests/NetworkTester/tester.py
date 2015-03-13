@@ -14,7 +14,7 @@ root.title("NetworkTestUtility")
 print "Waiting for Connection"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-server.bind((socket.gethostname(), 11000))
+server.bind(('192.168.1.2', 11000))
 server.listen(5)
 connection, addr = server.accept()
 print "Connected"

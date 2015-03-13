@@ -34,9 +34,13 @@ Void roveTcpHandler(UArg arg0, UArg arg1);
 
 struct NetworkConnection
 {
-	int fileDescriptor;
+	int socketFileDescriptor;
 	bool isConnected;
 } NetworkConnection;
+
+//These functions are declared static to preserve the scope of the calling
+// function. The file descriptor environment is only available from the scope
+// of the function that created it, and pointers to it don't seem to work.
 
 //Recieves <bytes> bytes from the specified network connection and places them
 // in the specified buffer
@@ -45,11 +49,13 @@ struct NetworkConnection
 // Error: connection.isConnected set to false
 //        -1 returned
 //
-int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes);
+static int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes);
 
-int roveSend(struct NetworkConnection* connection, char* buffer, int bytes);
+static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes);
+
+static bool roveCloseConnection(struct NetworkConnection*);
 
 //Creates a connection and stores the result in the specified NetworkConnection
 //Uses the RED_IP and RED_SOCKET constants
-int attemptToConnect(struct NetworkConnection* connection);
+static bool attemptToConnect(struct NetworkConnection* connection);
 #endif // ROVETCPHANDLER_H_

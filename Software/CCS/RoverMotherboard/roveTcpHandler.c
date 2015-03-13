@@ -25,30 +25,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 	//init socket file environment
 
 	fdOpenSession((void*)TaskSelf());
+	struct NetworkConnection RED_socket;
+	RED_socket.isConnected = false;
 
-	//init tcp socket handle
-
-    int              serverfd = 0;
-
-    struct 	         sockaddr_in server_addr;
-
-    //init flags for socket status handles
-
-	int			     bytesReceived =0;
-
-	int              connectedFlag = NOT_CONNECTED;
-
-	//a copy is placed in the mailbox when a message is recieved.
-
-	//TI ndk defined buffers that we must pass to setsocopt to hold timeout and blocking options
-
-	struct 			 timeval timeout;
-	int              optval;
-	int 			 getOptval;
-	int 			 optResult;
-
-
-    //init RoveNet recieve struct
 
     base_station_msg_struct fromBaseCmd;
 
@@ -84,281 +63,50 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     System_flush();
 
     while(1){
-
-    	//init socket, if the socket fails any point we break, close(clientfd), and reloop to re-init a fresh clientfd
-
-    	serverfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-
-       	//flag for bad socket
-
-		if(serverfd == -1){
-
-			System_printf("Failed Socket() create serverfd (src = socket()) (%d)\n",fdError() );
-			System_flush();
-
-    	}//endif:	(serverfd == -1)
-
-		System_printf("\n");
-		System_printf("TCPHandler:			socket init success! \n");
-		System_printf("\n");
-		System_flush();
-
-		//init bsd socket config struct
-
-		memset(&server_addr, 0, sizeof(server_addr) );
-
-		//config the socket
-
-		server_addr.sin_family = AF_INET;
-		server_addr.sin_port = htons(TCPPORT);
-
-		inet_pton(AF_INET, RED_IP, &server_addr.sin_addr);
-
-//TODO timeout constant
-
-		timeout.tv_sec = 6;
-		timeout.tv_usec = 0;
-
-		setsockopt(serverfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
-		setsockopt(serverfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
-
-		//TODO
-
-		//CHECK SOCK OPT= getsockopt(serverfd, SOL_SOCKET,SO_BLOCKING, &getOptval, sizeof(getOptval));
-
-		//System_printf("\n");
-		//System_printf("Before Set SockOpt :			%d \n",optResult );
-		//System_printf("\n");
-		//System_flush();
-
-		//setsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &optval, sizeof(optval) );
-
-		//optResult = getsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &getOptval, sizeof(getOptval) );
-
-		//connect to Red
-
-	    System_printf("TCPHandler:				 	Trying to connect! \n");
-	    System_flush();
-
-		//connect the socket
-
-		connectedFlag = connect(serverfd, (PSA)&server_addr, sizeof(server_addr) );
-
-		System_printf("\n");
-		System_printf("Connected Flag %d\n", connectedFlag);
-		System_printf("\n");
-		System_flush();
-
-		if(connectedFlag == NOT_CONNECTED){
-
-					System_printf("Error: connect failed.\n");
-					System_printf("\n");
-					System_printf("\n");
-					System_flush();
-
-    	}else{
-
-        		//we are now CONNECTED
-
-        		connectedFlag = CONNECTED;
-
-    			System_printf("Connected to RED! \n");
-    			System_flush();
-
-        }//endifelse:	(connect_success < 0)*/
-
+    	System_printf("Attempting to connect\n");
+    	System_flush();
+    	attemptToConnect(&RED_socket);
+    	System_printf("Finished attempt. Result: ");
     	//loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
 
-    	while(connectedFlag == CONNECTED){
+    	while(RED_socket.isConnected == true)
+    	{
+    		System_printf("Success\n");
+    		System_flush();
 
-    		//clean the structs for Mailbox_post:		.id is enum 	.value is char[MAX_COMMAND_SIZE]
-
-    		fromBaseCmd.id = onenull_device;
-    		memset(&fromBaseCmd.value, 133, sizeof(MAX_COMMAND_SIZE) );
-
-			System_printf("1			Just ONENULLED the RECIEVE ID: %d \n", fromBaseCmd.id);
-			System_printf("1			Just NULLED the RECIEVE VALUE: %d \n", fromBaseCmd.value[0]);
-			System_flush();
-
-			//optResult = getsockopt(serverfd, SOL_SOCKET, SO_BLOCKING, &getOptval, sizeof(getOptval));
-
-			//System_printf("\n");
-			//System_printf("During WHILE SockOpt :			%d \n",optResult );
-			//System_printf("\n");
-			//System_flush();
-
-    		//get the tcp packet and store it in the RoveNet fromBaseCmd struct
-
-    		//order is device dependent: Tiva C is little-endian, so this reads indexed to the lsb of fromBaseCmd.id field
-
-    		bytesReceived = recv(serverfd, &(fromBaseCmd.id), 1, 0);
-
-      		System_printf("\n");
-			System_printf("1			Just got a TCP RECIEVE ID: %d \n", fromBaseCmd.id);
-			System_printf("\n");
-			System_flush();
-
-			System_printf("\n");
-			System_printf("1			And bytesReceived: %d \n", bytesReceived);
-			System_printf("\n");
-			System_flush();
-
-			System_printf("\n");
-			System_printf("1			And fdError: %d \n", fdError());
-			System_printf("\n");
-			System_flush();
-
-    		//flag for lost connection when recieving
-
-    		if(!(bytesReceived > 0)){
-
-    			connectedFlag = NOT_CONNECTED;
-
-    			System_printf("Connection lost. (src = recv)\n");
+    		static char incoming = 'a';
+    		if(roveRecv(&RED_socket, &incoming, 1) != -1)
+    		{
+    			System_printf("Got %c \n", incoming);
     			System_flush();
-
-    		}else{
-
-    			//we have recieved successfully
-
-						//	the following call copy buffers the packet for roveCmdCntrl Thread, then implicitly task_sleeps roveTcpHandlerTask
-						//	finally this call will implicitly awaken the roveCmdCntrlTask Thread to handle the Mailbox.Semaphore
-						//	This is a RoverMotherboard.cfg object::		fromBaseStationMailbox		::		 1024, max msg =10
-
-    			//Recieve a variable number of bytes based on the ID sent to us
-
-    			switch(fromBaseCmd.id){
-
-    				case motor_left:
-
-    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
-
-    					ms_delay( 1 );
-    					System_printf("\n");
-						System_printf("1			Just got a TCP REC() motor_left VALUE: %d \n", fromBaseCmd.value[0]);
-						System_printf("\n");
-						System_flush();
-						ms_delay( 1 );
-
-						System_printf("\n");
-						System_printf("1			And fdError: %d \n", fdError());
-						System_printf("\n");
-						System_flush();
-
-						System_printf("\n");
-						System_printf("1			And bytesReceived: %d \n", bytesReceived);
-						System_printf("\n");
-						System_flush();
-
-						//Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
-
-//TODO-> Move this to the roveCmdCntrl
-
-						//////////////
-						// Drive Left
-						//////////////
-
-						//roveCom::	enum motor_left::	id = 100
-
-//						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
-						motor_control_struct = (struct motor_control_struct*)&(fromBaseCmd.value[0]);
-
-						ms_delay( 1 );
-						System_printf("\n");
-						System_printf("3:	Cmd Cntrl About to SEND UART 1, 2, 3! VALUE: %d \n", (*motor_control_struct).value);
-						System_printf("\n");
-						System_flush();
-						ms_delay( 1 );
-
-						mux_1( 8 );
-						mux_2( 7 );
-						mux_3( 6 );
-
-						send_struct(uart1, motor_control_struct, motor_controller);
-						send_struct(uart2, motor_control_struct, motor_controller);
-						send_struct(uart3, motor_control_struct, motor_controller);
-
+    			incoming++;
+    		} else
+    		{
+    			System_printf("Connection has been closed\n");
+    			System_flush();
+    		}
+    		/*
+    		char messageType
+    		//Get the message type
+    		roveRecv(RED_socket, &messageType, 1);
+    		switch(messageType)
+    		{
+    			case ROVER_COMMAND:
+    				processRoverCommand(&RED_socket, );
     				break;
-
-   /* 				case motor_right:
-
-    					bytesReceived = recv(serverfd, &(fromBaseCmd.value), sizeof(struct motor_control_struct), 0);
-
-						ms_delay( 1 );
-						System_printf("1			Just got a TCP REC() motor_left VALUE: %d \n", fromBaseCmd.value[0]);
-						System_flush();
-						ms_delay( 1 );
-
-						//Mailbox_post(fromBaseStationMailbox, &fromBaseCmd, BIOS_WAIT_FOREVER);
-
-						//TODO-> Move this to the roveCmdCntrl
-
-						//////////////
-						// Drive Right
-						//////////////
-
-						//roveCom::	enum motor_right::	id = 101
-
-						memset(&motor_control_struct.value, &fromBaseCmd.value, sizeof(struct motor_control_struct) );
-
-						ms_delay( 1 );
-						System_printf("\n");
-						System_printf("3:	Cmd Cntrl About to SEND UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
-						System_printf("\n");
-						System_flush();
-						ms_delay( 1 );
-
-						mux_1( 1 );
-						mux_2( 2 );
-						mux_3( 3 );
-
-						send_struct(uart1, &motor_control_struct, motor_controller);
-						send_struct(uart2, &motor_control_struct, motor_controller);
-						send_struct(uart3, &motor_control_struct, motor_controller);
-
-						ms_delay( 1 );
-						System_printf("3:	Cmd Cntrl Just SENT UART 1, 2, 3! VALUE: %d \n", motor_control_struct.value);
-						System_flush();
-						ms_delay( 1 );
-
+    			case '{': //Start of a JSON message
     				break;
-*/
-    			}//endswitch:		(fromBaseCmd.id)
-
-    			//flag for lost connection when recieving
-
-				if(bytesReceived == -1){
-
-					connectedFlag = NOT_CONNECTED;
-
-					System_printf("Connection lost. (src = recv)\n");
-					System_flush();
-
-    		    }//endif			(bytesReceived == -1)
-
-    		}//endifelse:			(bytesReceived == -1)
-
-			//Mailbox_pend(<&TELEM>);
-
-			//switch(<TELEM.id>){
-
-		    	//the robot arm is the one sending us telemetry
-
-		    	//case test_device:
-
-		     	 	 //bytesSent = send(serverfd,  &TELEM,  sizeof(struct test_device_data_struct), 0);
-
-		    	//break;
-
-	    	//}//endswitch:	(fromBaseCmd.id)
-
-		    //flag for lost connection when sending
-
+    			default:
+    				//Don't do anything with a message we don't recognize
+    				break;
+    		}
+    		*/
     	}//endwhile(connectedFlag == CONNECTED)
-
+    	System_printf("Connection Lost\n");
+    	System_flush();
     	//If execution reaches this point, then the connection has broken and we will attempt a new socket
 
-    	close(serverfd);
+    	close(RED_socket.socketFileDescriptor);
 
     }//endwhile:	(1)
 
@@ -381,17 +129,83 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 // ------- Network Abstraction Layer -----------//
 
-int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes)
+static int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes)
 {
-
+	static int bytesRecvd;
+	if(connection->isConnected)
+	{
+		bytesRecvd = recv(connection->socketFileDescriptor, buffer, bytes, MSG_WAITALL);
+		if(bytesRecvd <= 0)
+		{
+			connection->isConnected = false;
+		}
+	}
+	else
+	{
+		return -1;
+	}
+	return 0;
 }
 
-int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
+static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
 {
-
+	return 0;
 }
 
-int attemptToConnect(struct NetworkConnection* connection)
+static bool attemptToConnect(struct NetworkConnection* connection)
 {
+    struct 	         sockaddr_in server_addr;
+	struct 			 timeval timeout;
 
+	connection->socketFileDescriptor = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+   	//flag for bad socket
+
+	if(connection->socketFileDescriptor == -1){
+
+		System_printf("Failed Socket() create serverfd (src = socket()) (%d)\n",fdError() );
+		System_flush();
+
+	}//endif:	(serverfd == -1)
+
+	System_printf("\n");
+	System_printf("TCPHandler:			socket init success! \n");
+	System_printf("\n");
+	System_flush();
+
+	//init bsd socket config struct
+
+	memset(&server_addr, 0, sizeof(server_addr) );
+
+	//config the socket
+
+	server_addr.sin_family = AF_INET;
+	server_addr.sin_port = htons(TCPPORT);
+	inet_pton(AF_INET, RED_IP, &server_addr.sin_addr);
+
+	timeout.tv_sec = NETWORK_TIMEOUT;
+	timeout.tv_usec = 0;
+
+	setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
+	setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
+
+	//connect to Red
+
+    System_printf("TCPHandler:				 	Trying to connect! \n");
+    System_flush();
+
+	//connect the socket
+
+	if(connect(connection->socketFileDescriptor, (PSA)&server_addr, sizeof(server_addr)) < 0)
+	{
+		connection->isConnected = false;
+		return false;
+	}	else
+	{
+		connection->isConnected = true;
+		return true;
+	}
+
+	//Share the socket
+	//fdShare()
 }

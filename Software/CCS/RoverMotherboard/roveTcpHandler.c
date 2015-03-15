@@ -27,33 +27,11 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 	fdOpenSession((void*)TaskSelf());
 	struct NetworkConnection RED_socket;
 	RED_socket.isConnected = false;
-
+	static char messageType = NULL;
 
     base_station_msg_struct fromBaseCmd;
 
-
-//TODO-> Move to Cmd Cntrl
-
-	extern UART_Handle uart0;
-	extern UART_Handle uart1;
-	extern UART_Handle uart2;
-	extern UART_Handle uart3;
-	extern UART_Handle uart4;
-	extern UART_Handle uart5;
-	extern UART_Handle uart6;
-	extern UART_Handle uart7;
-
-	//init and clean RoveCom uart send struct
-
-	struct motor_control_struct* motor_control_struct;
-
-	//motor_control_struct.value = 0;
-
-//ENDTODO
-
 	//the task loops for ever
-
-	//sleeps on the Mailbox_post to roveCommandController Task
 
 	//only exits from BIOS_start, on error state
 
@@ -71,38 +49,30 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     	while(RED_socket.isConnected == true)
     	{
-    		System_printf("Success\n");
+    		System_printf("Connected\n");
     		System_flush();
-
-    		static char incoming = 'a';
-    		if(roveRecv(&RED_socket, &incoming, 1) != -1)
+    		//Get Message Type, check for connection errors
+    		if(roveRecv(&RED_socket, &messageType, 1) != -1)
     		{
-    			System_printf("Got %c \n", incoming);
-    			System_flush();
-    			incoming++;
+    			switch(messageType)
+    			{
+    			case ROVER_COMMAND:
+    				System_printf("Got rover command. Passing control.\n");
+    				break;
+    			case JSON_START_BYTE:
+    				System_printf("Got JSON start byte. Parsing...\n");
+    				break;
+    			default:
+    				System_printf("Command identifier not recognized: %c\n", messageType);
+    				break;
+    			}
     		} else
     		{
     			System_printf("Connection has been closed\n");
     			System_flush();
     		}
-    		/*
-    		char messageType
-    		//Get the message type
-    		roveRecv(RED_socket, &messageType, 1);
-    		switch(messageType)
-    		{
-    			case ROVER_COMMAND:
-    				processRoverCommand(&RED_socket, );
-    				break;
-    			case '{': //Start of a JSON message
-    				break;
-    			default:
-    				//Don't do anything with a message we don't recognize
-    				break;
-    		}
-    		*/
     	}//endwhile(connectedFlag == CONNECTED)
-    	System_printf("Connection Lost\n");
+    	System_printf("Connection Lost\n\n");
     	System_flush();
     	//If execution reaches this point, then the connection has broken and we will attempt a new socket
 
@@ -173,11 +143,6 @@ static bool attemptToConnect(struct NetworkConnection* connection)
 
 	}//endif:	(serverfd == -1)
 
-	System_printf("\n");
-	System_printf("TCPHandler:			socket init success! \n");
-	System_printf("\n");
-	System_flush();
-
 	//init bsd socket config struct
 
 	memset(&server_addr, 0, sizeof(server_addr) );
@@ -191,13 +156,10 @@ static bool attemptToConnect(struct NetworkConnection* connection)
 	timeout.tv_sec = NETWORK_TIMEOUT;
 	timeout.tv_usec = 0;
 
-	setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
-	setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
+	//setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
+	//setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
 
 	//connect to Red
-
-    System_printf("TCPHandler:				 	Trying to connect! \n");
-    System_flush();
 
 	//connect the socket
 

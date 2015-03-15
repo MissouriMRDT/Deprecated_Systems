@@ -56,20 +56,21 @@ static bool roveCloseConnection(struct NetworkConnection*);
 //Creates a connection and stores the result in the specified NetworkConnection
 //Uses the RED_IP and RED_SOCKET constants
 static bool attemptToConnect(struct NetworkConnection* connection);
-#endif // ROVETCPHANDLER_H_
+
 
 // -------- Base Station Command Identifiers -------//
 //See https://github.com/MST-MRDT/Motherboard/wiki/Base-Station-Communication-Protocol
 //for more information.
 
-#define CONSOLE_COMMAND	0x00
+#define CONSOLE_COMMAND		0x00
 #define SYNCHRONIZE_STATUS	0x01
 #define COMMAND_METADATA	0x02
-#define TELEM_METADATA	0x03
-#define ERROR_METADATA0x04
-#define ROVER_COMMAND	0x05
-#define ROVER_TELEM	0x06
-#define ROVER_ERROR	0x07
+#define TELEM_METADATA		0x03
+#define ERROR_METADATA		0x04
+#define ROVER_COMMAND		0x05
+#define ROVER_TELEM			0x06
+#define ROVER_ERROR			0x07
 
 #define JSON_START_BYTE '{'
 
+#endif // ROVETCPHANDLER_H_

@@ -56,9 +56,23 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     		{
     			switch(messageType)
     			{
+    			case CONSOLE_COMMAND:
+    				break;
+    			case SYNCHRONIZE_STATUS:
+    				break;
+    			case COMMAND_METADATA:
+    				break;
+    			case TELEM_METADATA:
+    				break;
+    			case ERROR_METADATA:
+    				break;
     			case ROVER_COMMAND:
     				System_printf("Got rover command. Passing control.\n");
     				break;
+    			case ROVER_TELEM:
+    			    break;
+    			case ROVER_ERROR:
+    			    break;
     			case JSON_START_BYTE:
     				System_printf("Got JSON start byte. Parsing...\n");
     				break;

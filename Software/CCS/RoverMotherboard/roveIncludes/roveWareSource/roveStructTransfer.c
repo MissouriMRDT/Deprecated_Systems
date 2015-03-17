@@ -9,46 +9,48 @@
 
 // New struct transfer to fill a buffer with a easy transfer frame
 
-void buildSerialStructMessage(void* my_struct, enum peripheral_devices device, char* buffer)
+void buildSerialStructMessage(void* my_struct, enum peripheral_struct_ids struct_id, char* buffer)
 {
 	uint8_t size;
 	uint8_t start_byte1 = 0x06;
 	uint8_t start_byte2 = 0x85;
 
-	switch(device)
+	switch(struct_id)
 	{
-		case motor_controller:
-			size = sizeof(*((struct motor_control_struct*)my_struct));
+		case mobo_identify_req:
+			size = sizeof(*((struct mobo_identify_req*)my_struct));
+
+		case dev_identify_reply:
+			size = sizeof(*((struct dev_identify_reply*)my_struct));
 		break;
 
-		case robotic_arm:
-			size = sizeof(*((struct arm_control_struct*)my_struct));
+		case mobo_begin_op_req:
+			size = sizeof(*((struct mobo_begin_op_req*)my_struct));
 		break;
 
-		case gripper:
-			size = sizeof(*((struct gripper_control_struct*)my_struct));
+		case dev_begin_op_reply:
+			size = sizeof(*((struct dev_begin_op_reply*)my_struct));
 		break;
 
-		case drill:
-			size = sizeof(*((struct drill_Controls*)my_struct));
+		case mobo_telem_req:
+			size =  sizeof(*((struct mobo_telem_req*)my_struct));
 		break;
 
-		case science_payload:
-			size =  sizeof(*((struct science_payload_control_struct*)my_struct));
+		case dev_command_reply:
+			size =  sizeof(*((struct dev_command_reply*)my_struct));
 		break;
 
-		case lighting_board:
-			size =  sizeof(*((struct lighting_board_struct*)my_struct));
+		case dev_robo_arm_command:
+			size =  sizeof(*((struct dev_robo_arm_command*)my_struct));
 		break;
 
-		case camera:
-			size =  sizeof(*((struct camera_control_struct*)my_struct));
+		case dev_gripper_command:
+			size =  sizeof(*((struct dev_gripper_command*)my_struct));
 		break;
 
-		case test:
-			size =  sizeof(*((struct test_device_data_struct*)my_struct));
+		case dev_drill_command:
+			size = sizeof(*((struct dev_drill_command*)my_struct));
 		break;
-		// TODO Add default case here later
 	} // End Switch (device)
 
 	uint8_t checkSum = size;
@@ -60,13 +62,13 @@ void buildSerialStructMessage(void* my_struct, enum peripheral_devices device, c
 	// copy the struct into the buffer starting at byte 3
 	memcpy(buffer + 3, my_struct, size);
 
-	checkSum = CalcCheckSum(my_struct, size);
+	checkSum = calcCheckSum(my_struct, size);
 
 	// 3 for two start bytes and size byte plus size of struct to get final position
 	buffer[3 + size] = checkSum;
 } // end Function
 
-uint8_t CalcCheckSum(const void* my_struct, uint8_t size)
+uint8_t calcCheckSum(const void* my_struct, uint8_t size)
 {
 	uint8_t checkSum = size;
 	uint8_t i;
@@ -77,7 +79,16 @@ uint8_t CalcCheckSum(const void* my_struct, uint8_t size)
 	return checkSum;
 }
 
-bool ParseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
+uint8_t CalcCheckSum(const void* my_struct, uint8_t size)
+{
+	uint8_t checkSum = size;
+	uint8_t i;
+	for(i = 0; i < size; i++)
+	checkSum ^= *((char*)my_struct + i);
+	return checkSum;
+}
+
+bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
 {
 	return true;
 }

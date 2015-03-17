@@ -1,5 +1,3 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
-
 // roveStructs.h
 //
 // first created:
@@ -9,6 +7,7 @@
 // last edited:
 //
 //02_25_2015_Judah Schad_jrs6w7@mst.edu
+//03_08_2015 Connor Walsh cwd8d@mst.edu ~ add stubs for RoveComm structs
 
 #pragma once
 
@@ -26,9 +25,8 @@
 #define MAX_TELEM_SIZE 30
 
 
-//TODO
-
-typedef enum DeviceID{
+typedef enum DeviceID
+{
 
 	//TODO reserve zero and open bracket (for JSON)
 
@@ -39,8 +37,6 @@ typedef enum DeviceID{
 	robot_arm = 102
 
 } DeviceID;
-
-//TODO
 
 typedef struct base_station_msg_struct{
 
@@ -60,6 +56,8 @@ struct test_device_data_struct{
 
 //attribute__((packed)) explicitly overides this and is necessary because the TI board is 32 bit and the ATMegas are 8 bit
 
+// TODO remove last years structs, they will not be used for new RoveComm
+
 struct motor_control_struct{
 
 	//0 for open loop control, non-zero for closed-loop
@@ -67,8 +65,6 @@ struct motor_control_struct{
 	uint8_t value;
 
 }__attribute__((packed));
-
-//TODO
 
 struct gps_data_struct{
 
@@ -84,8 +80,6 @@ struct gps_data_struct{
   uint8_t satellites;
 
 }__attribute__((packed));
-
-//TODO
 
 struct bms_data_struct{
 
@@ -108,8 +102,6 @@ struct bms_data_struct{
 
 }__attribute__((packed));
 
-//TODO
-
 struct arm_control_struct{
 
 	uint8_t reset;
@@ -128,15 +120,11 @@ struct arm_control_struct{
 
 }__attribute__((packed));
 
-//TODO
-
 struct gripper_control_struct{
 
 	uint8_t grip_cmd;
 
 }__attribute__((packed));
-
-//TODO
 
 struct drill_Controls{
 
@@ -160,8 +148,6 @@ struct drill_Controls{
 
 }__attribute__((packed));
 
-//TODO
-
 struct drill_Telemetry{
 
   //gas data
@@ -182,8 +168,6 @@ struct drill_Telemetry{
 
 }__attribute__((packed));
 
-//TODO
-
 struct science_payload_control_struct{
 
   //1 for on, 0 for off
@@ -200,8 +184,6 @@ struct science_payload_control_struct{
 
 }__attribute__((packed));
 
-//TODO
-
 struct lighting_board_struct{
 
   uint8_t red;
@@ -215,8 +197,6 @@ struct lighting_board_struct{
 
 }__attribute__((packed));
 
-//TODO
-
 struct camera_control_struct{
 
   uint8_t pitch;
@@ -226,8 +206,6 @@ struct camera_control_struct{
 
 }__attribute__((packed));
 
-//TODO
-
 struct power_board_telem{
 
   uint16_t ambientTemperature;
@@ -236,6 +214,91 @@ struct power_board_telem{
   uint16_t busCVoltage;
   uint16_t inputVoltage;
   uint16_t inputCurrent;
+
+}__attribute__((packed));
+
+// These structs will be used for the New RovComm Protocol
+// Each struct will start with an identifier byte that will be used to determine which struct follows
+
+struct mobo_identify_req // Sent from mobo to device to request identify
+{
+	uint8_t struct_id;
+
+}__attribute__((packed));
+
+struct dev_identify_reply  // Sent from device to mobo to ack request for identification
+{
+	uint8_t struct_id;
+	uint8_t device_id;
+
+}__attribute__((packed));
+
+struct mobo_begin_op_req  // Sent from mobo to tell device to begin operating mode
+{
+	uint8_t struct_id;
+
+}__attribute__((packed));
+
+struct dev_begin_op_reply // Sent from dev to mobo to acknoledge request and begin operation mode
+{
+	uint8_t struct_id;
+	uint8_t device_id; // this field may not be necessary
+
+}__attribute__((packed));
+
+struct mobo_telem_req // sent from mobo to device to request telemetry data
+{
+	uint8_t struct_id;
+
+}__attribute__((packed));
+
+struct dev_command_reply // sent from device to mobo to acknoledge command received
+{
+	uint8_t struct_id;
+
+}__attribute__((packed));
+
+// TODO determine what data is needed, current data is last years implementation
+struct dev_robo_arm_command // sent from mobo to roboticArm to control the peripheral
+{
+	uint8_t struct_id;
+	uint8_t reset;
+	uint8_t wristUp;
+	uint8_t wristDown;
+	uint8_t wristClockWise;
+	uint8_t wristCounterClockWise;
+	uint8_t elbowUp;
+	uint8_t elbowDown;
+	uint8_t elbowClockWise;
+	uint8_t elbowCounterClockWise;
+	uint8_t actuatorForward;
+	uint8_t actuatorReverse;
+	uint8_t baseClockWise;
+	uint8_t baseCounterClockWise;
+
+}__attribute__((packed));
+
+struct dev_gripper_command // Sent from mobo to gripper to control the peripheral
+{
+	uint8_t struct_id;
+	uint8_t grip_cmd;
+
+}__attribute__((packed));
+
+struct dev_drill_command // Sent from mobo to drill to control the peripheral
+{
+	uint8_t struct_id;
+	uint8_t grip_cmd;
+	//drill ctrl
+	uint8_t goalSpeed;
+	uint8_t direction;
+	//thermo ctrl
+	uint8_t heaterPower;
+	uint8_t thermoReadings;
+	//gas ctrl
+	uint8_t sensorPower;
+	//readings will only be updated when true
+	uint8_t gasReadings;
 
 }__attribute__((packed));
 

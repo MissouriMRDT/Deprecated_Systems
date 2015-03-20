@@ -217,6 +217,6 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	System_printf("Recieved data. Posting to mailbox\n");
 	System_flush();
 	//Post message to maibox. The mailbox is defined as a global by the config script
-	Mailbox_post(&fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
+	Mailbox_post(fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
 	return true;
 }

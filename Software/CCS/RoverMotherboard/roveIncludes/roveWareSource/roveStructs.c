@@ -12,6 +12,8 @@ int getStructSize(char structId)
 {
 	switch(structId)
 	{
+	case (char)robot_arm:
+			return sizeof(struct arm_control_struct);
 	default:
 		return 1;
 	}

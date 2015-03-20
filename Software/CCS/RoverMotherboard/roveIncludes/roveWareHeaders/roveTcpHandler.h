@@ -1,14 +1,14 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
-
 // roveTcpHandler.h
 //
 // first created:
 //
 // 01_22_2015_Owen_Chiaventone
 //
-// last edited:
+// Refactor:
+// 02_24_2015_Judah Schad_jrs6w7@mst.edu
 //
-//02_24_2015_Judah Schad_jrs6w7@mst.edu
+// Introduce abstraction and message types
+// 03_12_2015 Owen Chiaventone
 
 #pragma once
 
@@ -29,6 +29,10 @@ Void roveTcpHandler(UArg arg0, UArg arg1);
 
 
 // ------- Network Abstraction Layer -----------//
+
+//If your function needs to access the network, it should
+// go through this abstraction layer
+
 
 struct NetworkConnection
 {
@@ -57,8 +61,15 @@ static bool roveCloseConnection(struct NetworkConnection*);
 //Uses the RED_IP and RED_SOCKET constants
 static bool attemptToConnect(struct NetworkConnection* connection);
 
+// -------- Network Message Parsers --------//
+
+//Pre: Next bytes in network queue are a rovecomm message
+//     Should only be called if the message type indicates this
+//Post:Message placed in fromBaseStation mailbox
+static bool parseRoverCommandMessage(struct NetworkConnection* connection);
 
 // -------- Base Station Command Identifiers -------//
+
 //See https://github.com/MST-MRDT/Motherboard/wiki/Base-Station-Communication-Protocol
 //for more information.
 

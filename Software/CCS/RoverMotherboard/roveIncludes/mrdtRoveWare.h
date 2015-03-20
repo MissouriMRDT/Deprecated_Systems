@@ -20,12 +20,12 @@
 #define NOT_CONNECTED -1
 #define CONNECTED 1
 
-//hardcodes the IP of the base station
+//Network Parameters
+//Sending timeout in seconds
 #define NETWORK_TIMEOUT 6
+//hardcodes the IP of the base station
 #define RED_IP "192.168.1.2"
-
 //hardcodes the TCP port
-
 #define TCPPORT 11000
 
 //MRDesign Team:: 	roveWare::		roveCom cmnd || telem :: data structures

@@ -1,5 +1,3 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
-//
 // roveTcpHandler.c
 //
 // first created:
@@ -68,6 +66,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     				break;
     			case ROVER_COMMAND:
     				System_printf("Got rover command. Passing control.\n");
+    				parseRoverCommandMessage(&RED_socket);
     				break;
     			case ROVER_TELEM:
     			    break;
@@ -85,7 +84,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     			System_printf("Connection has been closed\n");
     			System_flush();
     		}
-    	}//endwhile(connectedFlag == CONNECTED)
+    	}//endwhile(RED_socket.isConnected == true)
     	System_printf("Connection Lost\n\n");
     	System_flush();
     	//If execution reaches this point, then the connection has broken and we will attempt a new socket
@@ -189,4 +188,35 @@ static bool attemptToConnect(struct NetworkConnection* connection)
 
 	//Share the socket
 	//fdShare()
+}
+
+
+static bool parseRoverCommandMessage(struct NetworkConnection* connection)
+{
+	static base_station_msg_struct messagebuffer;
+	int size;
+
+	System_printf("Entering parseRoverCommandMessage\n");
+	System_flush();
+
+	//Get type of message
+	if(!roveRecv(connection, &(messagebuffer.id), 1))
+		return false;
+
+	//Get size of message
+	//TODO: Not really sure about the best way to do this. We should probably
+	//      have a lookup function that takes message type and outputs
+	System_printf("Getting struct size\n");
+	System_flush();
+	size = getStructSize((char)messagebuffer.id);
+
+	//Get message contents
+	if(!roveRecv(connection, &(messagebuffer.value), size))
+		return false;
+
+	System_printf("Recieved data. Posting to mailbox\n");
+	System_flush();
+	//Post message to maibox. The mailbox is defined as a global by the config script
+	Mailbox_post(&fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
+	return true;
 }

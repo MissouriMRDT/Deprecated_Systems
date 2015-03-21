@@ -18,6 +18,7 @@
 #define LOW 0
 
 //-------- HARDWARE ABSTRACTION FUNCTIONS ----------//
+
 /*
  * pinMode sets a pin to be input or output.
  * inputs:
@@ -98,6 +99,28 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write);
  * 	}
  */
 int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout);
+
+
+/*
+ * Generates a command to drive a motor controller and places it in the buffer
+ * This buffer can then be written to a motor controller with deviceWrite
+ *
+ * inputs:
+ * 	speed: 0 - 10000
+ * outputs:
+ *  number of bytes in command is returned
+ * 	buffer is filled with command data
+ *
+ * pre: buffer is big enough to handle the command. ~10 bytes should be good
+ * post: Buffer is filled with command, number of bytes in buffer returned
+ *
+ * usage example - set motor connected to MOTOR_JACK to half speed:
+ *    int size;
+ *    char buffer[50];
+ *    size = generateMotorCommand(5000, buffer);
+ *    DeviceWrite(MOTOR_JACK, buffer, size);
+ */
+int generateMotorCommand(int speed, char* buffer);
 
 //-------- HARDWARE INITIALIZATION FUNCTIONS ----------//
 

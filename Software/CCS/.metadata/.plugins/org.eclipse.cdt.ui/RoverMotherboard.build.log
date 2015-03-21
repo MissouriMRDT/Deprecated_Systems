@@ -1,5 +1,5 @@
 
-**** Build of configuration Debug for project RoverMotherboard ****
+**** Clean-only build of configuration Debug for project RoverMotherboard ****
 
 /opt/ti/ccsv6/utils/bin/gmake -k clean 
 cleaning ../src/sysbios ...

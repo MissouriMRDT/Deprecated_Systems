@@ -24,6 +24,9 @@
 
 #define MAX_TELEM_SIZE 30
 
+//Returns the size of the struct with the associated ID
+//-1 for error
+int getStructSize(char structId);
 
 typedef enum DeviceID
 {

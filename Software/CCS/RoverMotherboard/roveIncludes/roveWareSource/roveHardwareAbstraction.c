@@ -372,9 +372,6 @@ int generateMotorCommand(int speed, char* buffer){
 
 	int workerInt = speed;
 
-	System_printf("Inside generateMotorCommand speed holds %d \n", workerInt);
-	System_flush();
-
 	// variable to work on the character for ASCII version
 
 	char workerChar;
@@ -391,9 +388,6 @@ int generateMotorCommand(int speed, char* buffer){
 
 	}// endwhile:	(workerInt != 0)
 
-	System_printf("Inside generateMotorCommand workerCount holds %d \n", workerCount);
-	System_flush();
-
 	// reload the speed value
 
 	workerInt = speed;
@@ -405,8 +399,6 @@ int generateMotorCommand(int speed, char* buffer){
 	buffer[2] = ' ';
 	buffer[3] = '1';
 	buffer[4] = ' ';
-
-	// store return value (this is the count of the ASCII chars in the buffer)
 
 	workerCount = workerCount + 5;
 
@@ -423,6 +415,8 @@ int generateMotorCommand(int speed, char* buffer){
 
 	while(workerCount > 5){
 
+		//move one character towards the front of the buffer
+
 		workerCount = workerCount - 1;
 
 		//extracts right digit of integer speed and stores as binary
@@ -431,14 +425,11 @@ int generateMotorCommand(int speed, char* buffer){
 
 		//add ASCII offset and place at the back of the buffer
 
-		buffer[workerCount] = workerChar + '0'; //decrement workercount?
+		buffer[workerCount] = workerChar + '0';
 
 		//truncates the last digit of integer speed (shift one digit)
 
 		workerInt = workerInt/10;
-
-		//move one character towards the front of the buffer
-
 
 	}//endwhile:	(workerCount > 0)
 

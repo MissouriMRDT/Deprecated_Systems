@@ -1,12 +1,12 @@
 /*
- * roveHardwareTester.c
+ * roveMotorControlTester.c
  *
- *  Created on: Mar 3, 2015
- *      Author: owen
+ *  Created on: Mar 25, 2015
+ *      Author: Judah
  *
- * Task that will test all of the hardware functionality
+ * Task that will test MC functionality
  * Should be disabled most of the time. Only run it when you want to
- * do hardware testing.
+ * do Motor Control testing.
  */
 #include "roveIncludes/roveWareHeaders/roveMotorControlTester.h"
 
@@ -42,6 +42,18 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 	System_printf("Starting motor control diagnostic\n");
 	System_flush();
 
+	//config the MC for safe test protection modes
+
+	//^MMOD 1 0_		Set to Open Loop Mode
+
+	//^ALIM 1 250_		Set Max Amps to 25A
+
+	char configMessageBuffer[] = "^MMOD 1 0_^ALIM 1 250_";
+
+	int configMessageSize = sizeof(configMessageBuffer);
+
+	deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
+
 	while(1){
 
 		if(speed > 900){
@@ -51,15 +63,6 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 		}//endif:	(speed > 900)
 
 		speed = speed + 10;
-
-		System_printf("messageBuffer holds %s \n", messageBuffer);
-		System_flush();
-
-		System_printf("messageSize holds %d \n", messageSize);
-		System_flush();
-
-		System_printf("speed holds %d \n", speed);
-		System_flush();
 
 		ms_delay(100);
 

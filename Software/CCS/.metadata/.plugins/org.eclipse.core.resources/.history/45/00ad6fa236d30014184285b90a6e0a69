@@ -9,6 +9,7 @@ $(GEN_CMDS__FLAG) \
 "./RoverMotherboardMain.obj" \
 "./roveCmdCntrl.obj" \
 "./roveHardwareTester.obj" \
+"./roveMotorControlTester.obj" \
 "./roveTcpHandler.obj" \
 "./roveTelemCntrl.obj" \
 "./roveIncludes/tiHardware/EK_TM4C1294XL.obj" \
@@ -17,6 +18,7 @@ $(GEN_CMDS__FLAG) \
 "./roveIncludes/roveWareSource/roveMuxes.obj" \
 "./roveIncludes/roveWareSource/roveStructTransfer.obj" \
 "./roveIncludes/roveWareSource/roveStructXfer.obj" \
+"./roveIncludes/roveWareSource/roveStructs.obj" \
 "./roveIncludes/roveWareSource/roveTiming.obj" \
 "./roveIncludes/roveWareSource/roveUarts.obj" \
 "../roveIncludes/tiHardware/EK_TM4C1294XL.cmd" \
@@ -157,8 +159,8 @@ RoverMotherboard.hex: $(EXE_OUTPUTS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveHardwareTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveHardwareAbstraction.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveMuxes.pp" "roveIncludes/roveWareSource/roveStructTransfer.pp" "roveIncludes/roveWareSource/roveStructXfer.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
-	-$(RM) "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveHardwareTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveMuxes.obj" "roveIncludes/roveWareSource/roveStructTransfer.obj" "roveIncludes/roveWareSource/roveStructXfer.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
+	-$(RM) "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveHardwareTester.pp" "roveMotorControlTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveHardwareAbstraction.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveMuxes.pp" "roveIncludes/roveWareSource/roveStructTransfer.pp" "roveIncludes/roveWareSource/roveStructXfer.pp" "roveIncludes/roveWareSource/roveStructs.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
+	-$(RM) "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveHardwareTester.obj" "roveMotorControlTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveMuxes.obj" "roveIncludes/roveWareSource/roveStructTransfer.obj" "roveIncludes/roveWareSource/roveStructXfer.obj" "roveIncludes/roveWareSource/roveStructs.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

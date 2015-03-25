@@ -62,18 +62,9 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 		System_printf("speed holds %d \n", speed);
 		System_flush();
 
-		ms_delay(1000);
+		ms_delay(100);
 
 		messageSize = generateMotorCommand(speed, messageBuffer);
-
-		//	#define ONBOARD_ROVECOMM 19
-		//	UART2		U2TX PA7
-
-		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, messageSize);
-
-		ms_delay(1000);
-
-		loopCount = loopCount + 1;
 
 		System_printf("messageBuffer holds %s \n", messageBuffer);
 		System_flush();
@@ -83,6 +74,16 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 
 		System_printf("speed holds %d \n", speed);
 		System_flush();
+
+		//	#define ONBOARD_ROVECOMM 19
+		//	UART2		U2TX PA7
+
+		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, messageSize);
+
+		ms_delay(100);
+
+		loopCount = loopCount + 1;
+
 
 		System_printf("Finished testing loop number %d \n", loopCount);
 		System_flush();

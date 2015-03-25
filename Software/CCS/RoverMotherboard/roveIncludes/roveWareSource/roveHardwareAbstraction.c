@@ -368,13 +368,12 @@ int generateMotorCommand(int speed, char* buffer){
 
 	int workerCount = 0;
 
-	// variable to hold return value
-
-	int returnCount = 0;
-
 	// variable to do temp work on the integer for ASCII conversion
 
 	int workerInt = speed;
+
+	System_printf("Inside generateMotorCommand speed holds %d \n", workerInt);
+	System_flush();
 
 	// variable to work on the character for ASCII version
 
@@ -392,6 +391,9 @@ int generateMotorCommand(int speed, char* buffer){
 
 	}// endwhile:	(workerInt != 0)
 
+	System_printf("Inside generateMotorCommand workerCount holds %d \n", workerCount);
+	System_flush();
+
 	// reload the speed value
 
 	workerInt = speed;
@@ -406,20 +408,22 @@ int generateMotorCommand(int speed, char* buffer){
 
 	// store return value (this is the count of the ASCII chars in the buffer)
 
-	returnCount = workerCount + 5;
+	workerCount = workerCount + 5;
 
 	// terminate the string with control character
 	// motor controller interperts '_' as the \r
 
-	buffer[returnCount] = '_';
+	buffer[workerCount] = '_';
 
 	//just for good measure (systemPrintf debugging, etc)
 
-	buffer[returnCount + 1] = '\0';
+	buffer[workerCount + 1] = '\0';
 
 	// loop until we run out of digits
 
-	while(workerCount > 0){
+	while(workerCount > 5){
+
+		workerCount = workerCount - 1;
 
 		//extracts right digit of integer speed and stores as binary
 
@@ -427,23 +431,22 @@ int generateMotorCommand(int speed, char* buffer){
 
 		//add ASCII offset and place at the back of the buffer
 
-		buffer[workerCount] = workerChar + '0';
+		buffer[workerCount] = workerChar + '0'; //decrement workercount?
 
 		//truncates the last digit of integer speed (shift one digit)
 
-		workerChar = speed/10;
+		workerInt = workerInt/10;
 
 		//move one character towards the front of the buffer
 
-		workerCount = workerCount - 1;
 
 	}//endwhile:	(workerCount > 0)
 
-	// the message '!G 1 <ASCIISPEED> _' is placed by side effect in the passed buffer
+	// the message '!G 1 <ASCIISPEED>_' is placed by side effect in the passed buffer
 
 	// return the size of the message
 
-	return returnCount;
+	return workerCount + 5;
 
 }//end fnctn generateMotorCommand
 

@@ -39,7 +39,6 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 	System_printf("speed holds %d \n", speed);
 	System_flush();
 
-
 	System_printf("Starting motor control diagnostic\n");
 	System_flush();
 
@@ -87,7 +86,6 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 
 		System_printf("Finished testing loop number %d \n", loopCount);
 		System_flush();
-		Task_exit();
 
 	}//endwhile:	(1)
 

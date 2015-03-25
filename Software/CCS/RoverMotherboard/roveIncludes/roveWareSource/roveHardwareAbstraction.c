@@ -362,6 +362,91 @@ void initUarts()
 
 }
 
+int generateMotorCommand(int speed, char* buffer){
+
+	// variable to do temp work on the count of needed buffer size
+
+	int workerCount = 0;
+
+	// variable to hold return value
+
+	int returnCount = 0;
+
+	// variable to do temp work on the integer for ASCII conversion
+
+	int workerInt = speed;
+
+	// variable to work on the character for ASCII version
+
+	char workerChar;
+
+	while(workerInt != 0){
+
+		// shift right one decimal digit
+
+		workerInt = workerInt/10;
+
+		// count that digit
+
+		workerCount = workerCount + 1;
+
+	}// endwhile:	(workerInt != 0)
+
+	// reload the speed value
+
+	workerInt = speed;
+
+	// initialize the buffer for G command
+
+	buffer[0] = '!';
+	buffer[1] = 'G';
+	buffer[2] = ' ';
+	buffer[3] = '1';
+	buffer[4] = ' ';
+
+	// store return value (this is the count of the ASCII chars in the buffer)
+
+	returnCount = workerCount + 5;
+
+	// terminate the string with control character
+	// motor controller interperts '_' as the \r
+
+	buffer[returnCount] = '_';
+
+	//just for good measure (systemPrintf debugging, etc)
+
+	buffer[returnCount + 1] = '\0';
+
+	// loop until we run out of digits
+
+	while(workerCount > 0){
+
+		//extracts right digit of integer speed and stores as binary
+
+		workerChar = (workerInt%10);
+
+		//add ASCII offset and place at the back of the buffer
+
+		buffer[workerCount] = workerChar + '0';
+
+		//truncates the last digit of integer speed (shift one digit)
+
+		workerChar = speed/10;
+
+		//move one character towards the front of the buffer
+
+		workerCount = workerCount - 1;
+
+	}//endwhile:	(workerCount > 0)
+
+	// the message '!G 1 <ASCIISPEED> _' is placed by side effect in the passed buffer
+
+	// return the size of the message
+
+	return returnCount;
+
+}//end fnctn generateMotorCommand
+
 void initMuxGPIO()
 {
 	//Probably just a bunch of pinModes.

@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/RoverMotherboard_pem4f.c"/>
     </sources>
     <configscripts>
-        <srcFile name="/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"/>
+        <srcFile name="/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -44,7 +44,7 @@
         isPartial="false"
         xCfgScript="package/cfg/RoverMotherboard_pem4f.cfg"
         xCfgPrefix="package/cfg/RoverMotherboard_pem4f"
-        cfgScript="/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"
+        cfgScript="/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -56,7 +56,7 @@
         profile="release"
         xCfgScript="package/cfg/RoverMotherboard_pem4f.cfg"
         xCfgPrefix="package/cfg/RoverMotherboard_pem4f"
-        cfgScript="/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"
+        cfgScript="/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg"
         cfgArgs="null"
         />
     </executables>

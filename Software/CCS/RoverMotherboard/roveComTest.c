@@ -9,7 +9,7 @@
 
 void roveComTest(UArg arg0, UArg arg1)
 {
-	base_station_msg_struct baseStationMsg;
+/*	base_station_msg_struct baseStationMsg;
 
 	struct mobo_robo_arm_command robotArmStruct;
 
@@ -37,6 +37,8 @@ void roveComTest(UArg arg0, UArg arg1)
 
 		Mailbox_post(fromBaseStationMailbox, &baseStationMsg, BIOS_WAIT_FOREVER);
 	}
+
+	*/
 }
 
 

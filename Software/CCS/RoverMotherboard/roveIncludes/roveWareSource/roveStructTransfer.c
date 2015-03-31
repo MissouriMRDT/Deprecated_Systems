@@ -16,7 +16,9 @@ int buildSerialStructMessage(void* my_struct, char* buffer)
 	uint8_t start_byte2 = 0x85;
 	int totalSize = -1;
 
-	switch(((struct mobo_identify_req *)my_struct)->struct_id)
+	//size = getStructSize((char)messagebuffer.id);
+
+	/*switch(((struct mobo_identify_req *)my_struct)->struct_id)
 	{
 		case mobo_identify_req:
 			size = sizeof(*((struct mobo_identify_req*)my_struct));
@@ -53,6 +55,8 @@ int buildSerialStructMessage(void* my_struct, char* buffer)
 			size = sizeof(*((struct mobo_drill_command*)my_struct));
 		break;
 	} // End Switch (device)
+*/
+
 
 	uint8_t checkSum = size;
 
@@ -93,10 +97,10 @@ uint8_t CalcCheckSum(const void* my_struct, uint8_t size)
 	return checkSum;
 }
 
-bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
-{
-	return true;
-}
+//bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
+//{
+//	return true;
+//}
 /*
 bool recv_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device){
 

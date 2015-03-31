@@ -208,7 +208,7 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	//      have a lookup function that takes message type and outputs
 	System_printf("Getting struct size\n");
 	System_flush();
-	size = getStructSize((char)messagebuffer.id);
+	size = getStructSize((char)messagebuffer.id) - 1;
 
 	//Get message contents
 	if(!roveRecv(connection, &(messagebuffer.value), size))

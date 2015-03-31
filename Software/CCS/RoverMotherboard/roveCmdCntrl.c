@@ -24,6 +24,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 	base_station_msg_struct fromBaseMsg;
 	char commandBuffer[MAX_COMMAND_SIZE + 4];
 	int messageSize;
+	int speed = 0;
 
 	fromBaseMsg.id = onenull_device;
 	memset(&fromBaseMsg.value, 1, sizeof(MAX_COMMAND_SIZE) );
@@ -41,16 +42,22 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 		switch(fromBaseMsg.id)
 		{
 			case motor_left:
-				// TODO implement the motor controller interface
-				// messageSize = generateMotorCommand(&(fromBaseMsg.value), commandBuffer)
-				// for i in left_motors
-				//		deviceWrite(i, commandBuffer, messageSize);
+				// TODO implement correct Jack for Motor Comm Board
+
+				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
 			break;
 
 			case motor_right:
-				// messageSize = generateMotorCommand(&(fromBaseMsg.value), commandBuffer)
-				// for i in left_motors
-				//		deviceWrite(i, commandBuffer, messageSize);
+
+				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
 			break;
 
 			default: // might want to change this to fallthrough cases and save default for error case

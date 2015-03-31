@@ -24,33 +24,46 @@
 
 #define MAX_TELEM_SIZE 30
 
+
+// Device id
+
+#define	onenull_device 111
+#define	test_device 99
+#define	motor_left 100
+#define	motor_right 101
+#define	robot_arm 102
+#define	gripper 103
+#define	drill 104
+
+//struct id
+
+/*#define	blank_id_zero 0
+#define	mobo_identify_req 1
+#define	dev_identify_reply 2
+#define	mobo_begin_op_req 3
+#define	dev_begin_op_reply 4
+#define	mobo_telem_req 5
+#define	dev_command_reply 6
+#define	blank_id_seven 7
+#define	mobo_robo_arm_command 8
+#define	mobo_gripper_command 9
+#define	mobo_drill_command 10
+*/
+
 //Returns the size of the struct with the associated ID
 //-1 for error
 int getStructSize(char structId);
 
-typedef enum DeviceID
-{
-
-	//TODO reserve zero and open bracket (for JSON)
-
-	onenull_device = 111,
-	test_device = 99,
-	motor_left = 100,
-	motor_right = 101,
-	robot_arm = 102
-
-} DeviceID;
-
 typedef struct base_station_msg_struct{
 
-	DeviceID id;
+	char id;
 	char value[MAX_COMMAND_SIZE];
 
-} base_station_msg_struct, *base_msg;
+}__attribute__((packed)) base_station_msg_struct, *base_msg;
 
 struct test_device_data_struct{
 
-	DeviceID  id;
+	char  id;
 	uint8_t value;
 
 }__attribute__((packed));
@@ -63,11 +76,12 @@ struct test_device_data_struct{
 
 struct motor_control_struct{
 
-	//0 for open loop control, non-zero for closed-loop
-
-	uint8_t value;
+	char id;
+	int speed;
 
 }__attribute__((packed));
+
+//TODO add id to all of Keens stuffs:
 
 struct gps_data_struct{
 
@@ -129,7 +143,7 @@ struct gripper_control_struct{
 
 }__attribute__((packed));
 
-struct drill_Controls{
+struct drill_control_struct{
 
   //drill ctrl
 

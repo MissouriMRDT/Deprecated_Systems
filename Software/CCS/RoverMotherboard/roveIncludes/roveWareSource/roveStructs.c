@@ -12,12 +12,21 @@ int getStructSize(char structId)
 {
 	switch(structId)
 	{
+	case (char)motor_left:
+			return sizeof(struct motor_control_struct);
+	case (char)motor_right:
+			return sizeof(struct motor_control_struct);
 	case (char)robot_arm:
 			return sizeof(struct arm_control_struct);
-	default:
-		return 1;
-	}
+	case (char)gripper:
+			return sizeof(struct gripper_control_struct);
+	case (char)drill:
+			return sizeof(struct drill_control_struct);
+
+	}//endswitch:		(structId)
+
 	return -1;
-}
+
+}//endfnctn:	gtetStructSize(char structId)
 
 

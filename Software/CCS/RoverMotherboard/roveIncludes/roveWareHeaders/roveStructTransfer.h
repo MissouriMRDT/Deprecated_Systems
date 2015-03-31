@@ -10,7 +10,7 @@
 #ifndef ROVESTRUCTTRANSFER_H_
 #define ROVESTRUCTTRANSFER_H_
 
-enum peripheral_devices{motor_controller, bms, robotic_arm, tcp_cmd, drill, gripper, science_payload, gps, lighting_board, camera, power_board, test};
+/*enum peripheral_devices{motor_controller, bms, robotic_arm, tcp_cmd, drill, gripper, science_payload, gps, lighting_board, camera, power_board, test};
 
 enum peripheral_struct_ids{
 		blank_id_zero = 0,
@@ -24,7 +24,9 @@ enum peripheral_struct_ids{
 		mobo_robo_arm_command,
 		mobo_gripper_command,
 		mobo_drill_command
-};
+};*/
+
+
 // used in Hardware tester, probably need to change to lowercase version
 uint8_t CalcCheckSum(const void* my_struct, uint8_t size);
 

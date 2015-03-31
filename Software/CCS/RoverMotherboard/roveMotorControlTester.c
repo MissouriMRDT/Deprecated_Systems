@@ -80,7 +80,7 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 		//	#define ONBOARD_ROVECOMM 19
 		//	UART2		U2TX PA7
 
-		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, messageSize);
+		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, (messageSize-1));
 
 		ms_delay(100);
 

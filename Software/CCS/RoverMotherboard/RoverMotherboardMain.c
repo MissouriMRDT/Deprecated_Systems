@@ -18,6 +18,8 @@
 
 #include "roveIncludes/RoverMotherboardMain.h"
 
+#include "roveIncludes/roveWareHeaders/roveUarts.h"
+
 //globally init UART handles
 
 	UART_Handle uart0;

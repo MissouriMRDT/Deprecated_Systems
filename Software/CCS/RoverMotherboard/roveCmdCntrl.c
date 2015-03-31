@@ -20,6 +20,63 @@
 Void roveCmdCntrl(UArg arg0, UArg arg1)
 {
 
+	//init and clean RoveCom msg recieve struct
+	base_station_msg_struct fromBaseMsg;
+	char commandBuffer[MAX_COMMAND_SIZE + 4];
+	int messageSize;
+
+	fromBaseMsg.id = onenull_device;
+	memset(&fromBaseMsg.value, 1, sizeof(MAX_COMMAND_SIZE) );
+
+	System_printf("roveCmdCntrlr		init! \n");
+	System_flush();
+
+	while (1)
+	{
+		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
+
+		System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		System_flush();
+
+		switch(fromBaseMsg.id)
+		{
+			case motor_left:
+				// TODO implement the motor controller interface
+				// messageSize = generateMotorCommand(&(fromBaseMsg.value), commandBuffer)
+				// for i in left_motors
+				//		deviceWrite(i, commandBuffer, messageSize);
+			break;
+
+			case motor_right:
+				// messageSize = generateMotorCommand(&(fromBaseMsg.value), commandBuffer)
+				// for i in left_motors
+				//		deviceWrite(i, commandBuffer, messageSize);
+			break;
+
+			default: // might want to change this to fallthrough cases and save default for error case
+
+				System_printf("\nDefault case reached in CmdCnt\n");
+				System_flush();
+				// adds the start bytes, size byte, and checksum based on what struct id
+				messageSize = buildSerialStructMessage((void *)(&(fromBaseMsg.value)), commandBuffer);
+				System_printf("Message Size: %d\n", messageSize);
+				System_flush();
+
+				int robotArmJack = 1; // getDeviceJack(fromBaseMsg.id);
+				deviceWrite(robotArmJack, commandBuffer, messageSize);
+
+			break;
+
+		}//endswitch::		(fromBaseMsg.id)
+
+	}//endwhile:		(1)
+
+
+
+
+
+
+/*
 	struct dev_robo_arm_command robotArmStruct;
 
 	//init and clean RoveCom msg recieve struct
@@ -92,7 +149,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 		}//endswitch::		(fromBaseMsg.id)
 
 	}//endwhile:		(1)
-
+*/
 	//postcondition: execution will not reach this state unless a serious error occurs
 
 	System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");

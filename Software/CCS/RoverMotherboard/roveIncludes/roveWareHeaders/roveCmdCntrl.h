@@ -27,6 +27,8 @@
 
 #include "../mrdtRoveWare.h"
 
+#include "roveHardwareAbstraction.h"
+
 //When data is recieved it comes from fromBaseStationMailbox as RoveNet recieve struct base_station_msg_struct
 
 //When data is sent it goes into the TODO

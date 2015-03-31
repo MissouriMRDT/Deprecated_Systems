@@ -21,9 +21,9 @@ enum peripheral_struct_ids{
 		mobo_telem_req,
 		dev_command_reply = 6,
 		blank_id_seven,
-		dev_robo_arm_command,
-		dev_gripper_command,
-		dev_drill_command
+		mobo_robo_arm_command,
+		mobo_gripper_command,
+		mobo_drill_command
 };
 // used in Hardware tester, probably need to change to lowercase version
 uint8_t CalcCheckSum(const void* my_struct, uint8_t size);
@@ -32,7 +32,7 @@ uint8_t CalcCheckSum(const void* my_struct, uint8_t size);
 uint8_t calcCheckSum(const void* my_struct, uint8_t size);
 
 // Pre: buffer must be of size(my_struct) + 4 bytes (start bytes, size, and checksum)
-void buildSerialStructMessage(void* my_struct, enum peripheral_struct_ids struct_id, char* buffer);
+int buildSerialStructMessage(void* my_struct, char* buffer);
 
 // Pre: is a buffer containing a message in easyTransfer form
 bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer);

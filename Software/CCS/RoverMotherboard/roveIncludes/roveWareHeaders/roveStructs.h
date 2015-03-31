@@ -262,7 +262,7 @@ struct dev_command_reply // sent from device to mobo to acknoledge command recei
 }__attribute__((packed));
 
 // TODO determine what data is needed, current data is last years implementation
-struct dev_robo_arm_command // sent from mobo to roboticArm to control the peripheral
+struct mobo_robo_arm_command // sent from mobo to roboticArm to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t reset;
@@ -281,14 +281,14 @@ struct dev_robo_arm_command // sent from mobo to roboticArm to control the perip
 
 }__attribute__((packed));
 
-struct dev_gripper_command // Sent from mobo to gripper to control the peripheral
+struct mobo_gripper_command // Sent from mobo to gripper to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t grip_cmd;
 
 }__attribute__((packed));
 
-struct dev_drill_command // Sent from mobo to drill to control the peripheral
+struct mobo_drill_command // Sent from mobo to drill to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t grip_cmd;

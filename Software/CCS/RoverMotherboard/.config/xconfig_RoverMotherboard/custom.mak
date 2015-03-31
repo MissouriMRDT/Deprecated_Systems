@@ -7,5 +7,5 @@
 #       or equal to the generated config header
 #
 linker.cmd: package/cfg/RoverMotherboard_pem4f.xdl
-	$(SED) 's"^\"\(package/cfg/RoverMotherboard_pem4fcfg.cmd\)\"$""\"/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/.config/xconfig_RoverMotherboard/\1\""' package/cfg/RoverMotherboard_pem4f.xdl > $@
+	$(SED) 's"^\"\(package/cfg/RoverMotherboard_pem4fcfg.cmd\)\"$""\"/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/.config/xconfig_RoverMotherboard/\1\""' package/cfg/RoverMotherboard_pem4f.xdl > $@
 	-$(SETDATE) -r:max package/cfg/RoverMotherboard_pem4f.h compiler.opt compiler.opt.defs

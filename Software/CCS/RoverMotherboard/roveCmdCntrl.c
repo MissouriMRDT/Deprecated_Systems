@@ -49,6 +49,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 				messageSize = generateMotorCommand(speed, commandBuffer);
 				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
 
+				System_printf("commandBuffer holds %s \n", commandBuffer);
+				System_flush();
+
+				System_printf("messageSize holds %d \n", messageSize);
+				System_flush();
+
+				System_printf("speed holds %d \n", speed);
+				System_flush();
+
 			break;
 
 			case motor_right:
@@ -57,6 +66,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 				messageSize = generateMotorCommand(speed, commandBuffer);
 				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
+				System_printf("commandBuffer holds %s \n", commandBuffer);
+				System_flush();
+
+				System_printf("messageSize holds %d \n", messageSize);
+				System_flush();
+
+				System_printf("speed holds %d \n", speed);
+				System_flush();
 
 			break;
 

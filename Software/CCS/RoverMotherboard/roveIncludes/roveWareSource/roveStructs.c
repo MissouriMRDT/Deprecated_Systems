@@ -17,9 +17,9 @@ int getStructSize(char structId)
 	case (char)motor_right:
 			return sizeof(struct motor_control_struct);
 	case (char)robot_arm:
-			return sizeof(struct arm_control_struct);
+			return sizeof(struct mobo_robo_arm_command);
 	case (char)gripper:
-			return sizeof(struct gripper_control_struct);
+			return sizeof(struct mobo_gripper_command);
 	case (char)drill:
 			return sizeof(struct drill_control_struct);
 

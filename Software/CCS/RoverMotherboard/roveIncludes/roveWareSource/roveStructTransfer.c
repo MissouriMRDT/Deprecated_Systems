@@ -14,51 +14,18 @@ int buildSerialStructMessage(void* my_struct, char* buffer)
 	uint8_t size;
 	uint8_t start_byte1 = 0x06;
 	uint8_t start_byte2 = 0x85;
+	uint8_t checkSum;
 	int totalSize = -1;
 
-	//size = getStructSize((char)messagebuffer.id);
-
-	/*switch(((struct mobo_identify_req *)my_struct)->struct_id)
+	size = getStructSize(((struct mobo_robo_arm_command*)my_struct)->struct_id);
+	if (size <= 0)
 	{
-		case mobo_identify_req:
-			size = sizeof(*((struct mobo_identify_req*)my_struct));
+		System_printf("Error in function: buildSerialStructMessage() - struct size is not valid");
+		System_flush();
+		return -1;
+	}
 
-		case dev_identify_reply:
-			size = sizeof(*((struct dev_identify_reply*)my_struct));
-		break;
-
-		case mobo_begin_op_req:
-			size = sizeof(*((struct mobo_begin_op_req*)my_struct));
-		break;
-
-		case dev_begin_op_reply:
-			size = sizeof(*((struct dev_begin_op_reply*)my_struct));
-		break;
-
-		case mobo_telem_req:
-			size =  sizeof(*((struct mobo_telem_req*)my_struct));
-		break;
-
-		case dev_command_reply:
-			size =  sizeof(*((struct dev_command_reply*)my_struct));
-		break;
-
-		case mobo_robo_arm_command:
-			size =  sizeof(*((struct mobo_robo_arm_command*)my_struct));
-		break;
-
-		case mobo_gripper_command:
-			size =  sizeof(*((struct mobo_gripper_command*)my_struct));
-		break;
-
-		case mobo_drill_command:
-			size = sizeof(*((struct mobo_drill_command*)my_struct));
-		break;
-	} // End Switch (device)
-*/
-
-
-	uint8_t checkSum = size;
+//	checkSum = size;
 
 	buffer[0] = start_byte1;
 	buffer[1] = start_byte2;
@@ -85,15 +52,6 @@ uint8_t calcCheckSum(const void* my_struct, uint8_t size)
 	for(i = 0; i < size; i++)
 		checkSum ^= *((char*)my_struct + i);
 
-	return checkSum;
-}
-
-uint8_t CalcCheckSum(const void* my_struct, uint8_t size)
-{
-	uint8_t checkSum = size;
-	uint8_t i;
-	for(i = 0; i < size; i++)
-	checkSum ^= *((char*)my_struct + i);
 	return checkSum;
 }
 

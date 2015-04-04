@@ -37,6 +37,5 @@ uint8_t calcCheckSum(const void* my_struct, uint8_t size);
 int buildSerialStructMessage(void* my_struct, char* buffer);
 
 // Pre: is a buffer containing a message in easyTransfer form
-bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer);
 
 #endif /* ROVESTRUCTTRANSFER_H_ */

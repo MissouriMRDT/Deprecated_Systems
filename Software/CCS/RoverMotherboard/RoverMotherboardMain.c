@@ -20,6 +20,8 @@
 
 #include "roveIncludes/roveWareHeaders/roveUarts.h"
 
+const uint8_t FOREVER = 1;
+
 //globally init UART handles
 
 	UART_Handle uart0;

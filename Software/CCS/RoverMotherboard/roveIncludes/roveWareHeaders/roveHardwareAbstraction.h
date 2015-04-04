@@ -9,7 +9,7 @@
 #define ROVEHARDWAREABSTRACTION_H_
 
 #include "../RoverMotherboardMain.h"
-#include "rovePinMap.h"
+#include "../mrdtRoveWare.h"
 
 //-------- DEFINITIONS                    ----------//
 #define OUTPUT 1

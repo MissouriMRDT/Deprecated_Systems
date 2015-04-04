@@ -27,13 +27,13 @@
 
 // Device id
 
-#define	onenull_device 111
-#define	test_device 99
-#define	motor_left 100
-#define	motor_right 101
-#define	robot_arm 102
-#define	gripper 103
-#define	drill 104
+#define	onenull_device_id 111
+#define	test_device_id 99
+#define	motor_left_id 100
+#define	motor_right_id 101
+#define	robot_arm_id 102
+#define	gripper_id 103
+#define	drill_id 104
 
 //struct id
 
@@ -61,13 +61,6 @@ typedef struct base_station_msg_struct{
 
 }__attribute__((packed)) base_station_msg_struct, *base_msg;
 
-struct test_device_data_struct{
-
-	char  id;
-	uint8_t value;
-
-}__attribute__((packed));
-
 //normally the compiler implicitly optimizes memory allocations for member variables by padding to the nearest 32 bits
 
 //attribute__((packed)) explicitly overides this and is necessary because the TI board is 32 bit and the ATMegas are 8 bit
@@ -80,162 +73,6 @@ struct motor_control_struct{
 	int speed;
 
 }__attribute__((packed));
-
-//TODO add id to all of Keens stuffs:
-
-struct gps_data_struct{
-
-  uint8_t fix;
-  uint16_t latitude_whole;
-  uint16_t latitude_frac;
-  uint16_t longitude_whole;
-  uint16_t longitude_frac;
-  uint16_t altitude_whole;
-  uint16_t altitude_frac;
-  uint8_t lat_dir;
-  uint8_t lon_dir;
-  uint8_t satellites;
-
-}__attribute__((packed));
-
-struct bms_data_struct{
-
-  uint16_t volt0;
-  uint16_t temp0;
-  uint16_t volt1;
-  uint16_t temp1;
-  uint16_t volt2;
-  uint16_t temp2;
-  uint16_t volt3;
-  uint16_t temp3;
-  uint16_t volt4;
-  uint16_t temp4;
-  uint16_t volt5;
-  uint16_t temp5;
-  uint16_t volt6;
-  uint16_t temp6;
-  uint16_t main_bat_cur;
-  uint16_t main_bat_volt;
-
-}__attribute__((packed));
-
-struct arm_control_struct{
-
-	uint8_t reset;
-	uint8_t wristUp;
-	uint8_t wristDown;
-	uint8_t wristClockWise;
-	uint8_t wristCounterClockWise;
-	uint8_t elbowUp;
-	uint8_t elbowDown;
-	uint8_t elbowClockWise;
-	uint8_t elbowCounterClockWise;
-	uint8_t actuatorForward;
-	uint8_t actuatorReverse;
-	uint8_t baseClockWise;
-	uint8_t baseCounterClockWise;
-
-}__attribute__((packed));
-
-struct gripper_control_struct{
-
-	uint8_t grip_cmd;
-
-}__attribute__((packed));
-
-struct drill_control_struct{
-
-  //drill ctrl
-
-  uint8_t goalSpeed;
-  uint8_t direction;
-
-  //thermo ctrl
-
-  uint8_t heaterPower;
-  uint8_t thermoReadings;
-
-  //gas ctrl
-
-  uint8_t sensorPower;
-
-  //readings will only be updated when true
-
-  uint8_t gasReadings;
-
-}__attribute__((packed));
-
-struct drill_Telemetry{
-
-  //gas data
-
-  uint16_t hydrogenReading;
-  uint16_t methaneReading;
-  uint16_t ammoniaReading;
-
-  //thermo data
-
-  float temp;
-
-  //drill data
-
-  uint8_t actualSpeed;
-  uint16_t goalCurrent;
-  uint16_t actualCurrent;
-
-}__attribute__((packed));
-
-struct science_payload_control_struct{
-
-  //1 for on, 0 for off
-
-  uint8_t lb395;
-
-  //1 for on, 0 for off
-
-  uint8_t lb440;
-
-  //position. 255 for open, 0 for close
-
-  uint8_t doorserv;
-
-}__attribute__((packed));
-
-struct lighting_board_struct{
-
-  uint8_t red;
-  uint8_t green;
-  uint8_t blue;
-  uint8_t pwm1;
-  uint8_t pwm2;
-  uint8_t pwm3;
-  uint8_t d1;
-  uint8_t d2;
-
-}__attribute__((packed));
-
-struct camera_control_struct{
-
-  uint8_t pitch;
-  uint8_t yaw;
-  uint8_t roll;
-  uint8_t mode;
-
-}__attribute__((packed));
-
-struct power_board_telem{
-
-  uint16_t ambientTemperature;
-  uint16_t busAVoltage;
-  uint16_t busBVoltage;
-  uint16_t busCVoltage;
-  uint16_t inputVoltage;
-  uint16_t inputCurrent;
-
-}__attribute__((packed));
-
-// These structs will be used for the New RovComm Protocol
-// Each struct will start with an identifier byte that will be used to determine which struct follows
 
 struct mobo_identify_req // Sent from mobo to device to request identify
 {
@@ -263,20 +100,7 @@ struct dev_begin_op_reply // Sent from dev to mobo to acknoledge request and beg
 
 }__attribute__((packed));
 
-struct mobo_telem_req // sent from mobo to device to request telemetry data
-{
-	uint8_t struct_id;
-
-}__attribute__((packed));
-
-struct dev_command_reply // sent from device to mobo to acknoledge command received
-{
-	uint8_t struct_id;
-
-}__attribute__((packed));
-
-// TODO determine what data is needed, current data is last years implementation
-struct mobo_robo_arm_command // sent from mobo to roboticArm to control the peripheral
+struct robot_arm_command // sent from mobo to roboticArm to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t reset;
@@ -295,14 +119,14 @@ struct mobo_robo_arm_command // sent from mobo to roboticArm to control the peri
 
 }__attribute__((packed));
 
-struct mobo_gripper_command // Sent from mobo to gripper to control the peripheral
+struct gripper_command // Sent from mobo to gripper to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t grip_cmd;
 
 }__attribute__((packed));
 
-struct mobo_drill_command // Sent from mobo to drill to control the peripheral
+struct drill_command // Sent from mobo to drill to control the peripheral
 {
 	uint8_t struct_id;
 	uint8_t grip_cmd;
@@ -318,5 +142,11 @@ struct mobo_drill_command // Sent from mobo to drill to control the peripheral
 	uint8_t gasReadings;
 
 }__attribute__((packed));
+
+// This struct should only be used for type casting as it does not have a corresponding id;
+struct rovecom_id_cast
+{
+	uint8_t struct_id;
+}__attribute__((packed)); // may not work with non void pointer casts
 
 #endif // ROVESTRUCTS_H_

@@ -17,7 +17,7 @@ int buildSerialStructMessage(void* my_struct, char* buffer)
 	uint8_t checkSum;
 	int totalSize = -1;
 
-	size = getStructSize(((struct mobo_robo_arm_command*)my_struct)->struct_id);
+	size = getStructSize(((struct rovecom_id_cast*)my_struct)->struct_id);
 	if (size <= 0)
 	{
 		System_printf("Error in function: buildSerialStructMessage() - struct size is not valid");

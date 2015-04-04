@@ -19,6 +19,7 @@
 
 Void roveCmdCntrl(UArg arg0, UArg arg1)
 {
+	extern const uint8_t FOREVER;
 
 	//init and clean RoveCom msg recieve struct
 	base_station_msg_struct fromBaseMsg;
@@ -26,13 +27,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 	int messageSize;
 	int speed = 0;
 
-	fromBaseMsg.id = onenull_device;
+	fromBaseMsg.id = onenull_device_id;
 	memset(&fromBaseMsg.value, 1, sizeof(MAX_COMMAND_SIZE) );
 
 	System_printf("roveCmdCntrlr		init! \n");
 	System_flush();
 
-	while (1)
+	while (FOREVER)
 	{
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
@@ -41,7 +42,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 		switch(fromBaseMsg.id)
 		{
-			case motor_left:
+			case 0:
+			break;
+			case motor_left_id:
 				// TODO implement correct Jack for Motor Comm Board
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
@@ -60,7 +63,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 			break;
 
-			case motor_right:
+			case motor_right_id:
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
@@ -78,7 +81,10 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 			break;
 
-			default: // might want to change this to fallthrough cases and save default for error case
+			// Use case fallthrough to handle each id
+			case gripper_id:
+			case robot_arm_id:
+			case drill_id:// might want to change this to fallthrough cases and save default for error case
 
 				System_printf("\nDefault case reached in CmdCnt\n");
 				System_flush();
@@ -87,11 +93,16 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 				System_printf("Message Size: %d\n", messageSize);
 				System_flush();
 
-				int gripperJack = 1; // getDeviceJack(fromBaseMsg.id);
-				deviceWrite(gripperJack, commandBuffer, messageSize);
+				// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
+				int deviceJack = 1; // getDeviceJack(fromBaseMsg.id);
+				deviceWrite(deviceJack, commandBuffer, messageSize);
 
 			break;
 
+			default:
+				System_printf("Error: StructID cannot be handled");
+				System_flush();
+			break;
 		}//endswitch::		(fromBaseMsg.id)
 
 	}//endwhile:		(1)

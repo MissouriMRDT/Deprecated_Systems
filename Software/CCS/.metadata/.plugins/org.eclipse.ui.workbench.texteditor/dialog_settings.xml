@@ -3,18 +3,19 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="287" key="DIALOG_WIDTH"/>
 		<item value="155" key="DIALOG_Y_ORIGIN"/>
-		<item value="423" key="DIALOG_HEIGHT"/>
 		<item value="859" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Ubuntu|11.114583|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="motor" key="selection"/>
+		<item value="from" key="selection"/>
 		<list key="findhistory">
+			<item value="from"/>
 			<item value="MOTOR"/>
 			<item value="GPIO_PG0"/>
 			<item value="GPIO_PK4"/>
@@ -22,7 +23,6 @@
 			<item value="GPIO_PF3"/>
 			<item value="GPIO_PF2"/>
 			<item value="GPIO_PF1"/>
-			<item value="size"/>
 		</list>
 		<list key="replacehistory">
 			<item value="motor"/>

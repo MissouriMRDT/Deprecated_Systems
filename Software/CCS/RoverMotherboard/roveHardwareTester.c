@@ -13,8 +13,9 @@
 
 Void roveHardwareTester(UArg arg0, UArg arg1)
 {
-	char buffer[35] = "This is a test of device number _\0";
 	int i, j;
+
+	extern const uint8_t FOREVER;
 
 	extern UART_Handle uart0;
 	extern UART_Handle uart1;
@@ -110,7 +111,8 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		ms_delay(3000);
 	}
 */
-	while(1)
+
+	while(FOREVER)
 	{
 		System_printf("Setting motor 0 to neutral\n");
 		System_flush();

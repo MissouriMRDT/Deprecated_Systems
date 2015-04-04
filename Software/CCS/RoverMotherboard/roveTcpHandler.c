@@ -22,12 +22,13 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
 	//init socket file environment
 
+	extern const uint8_t FOREVER;
+
 	fdOpenSession((void*)TaskSelf());
 	struct NetworkConnection RED_socket;
 	RED_socket.isConnected = false;
 	static char messageType = NULL;
 
-    base_station_msg_struct fromBaseCmd;
 
 	//the task loops for ever
 
@@ -38,7 +39,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     System_printf("\n");
     System_flush();
 
-    while(1){
+    while(FOREVER){
     	System_printf("Attempting to connect\n");
     	System_flush();
     	attemptToConnect(&RED_socket);
@@ -134,12 +135,12 @@ static int roveRecv(struct NetworkConnection* connection, char* buffer, int byte
 		return -1;
 	}
 }
-
+/*
 static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
 {
 	return 0;
 }
-
+*/
 static bool attemptToConnect(struct NetworkConnection* connection)
 {
     struct 	         sockaddr_in server_addr;
@@ -211,6 +212,7 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	size = getStructSize((char)messagebuffer.id) - 1;
 
 	//Get message contents
+	//TODO 169-D remove the address operator for second paramenter to return char* instead of char**
 	if(!roveRecv(connection, &(messagebuffer.value), size))
 		return false;
 

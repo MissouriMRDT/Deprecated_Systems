@@ -146,6 +146,7 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)
 	//We have to include case 0 to get TI's compiler to build a jump table
 	//If we leave this out, mux performance goes from O(1) to O(n) (That's bad)
 	case 0:
+	break;
 	case 1:
 		//Configure the mux pins
 		//See the mux datasheet for more info
@@ -248,7 +249,6 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)
 		System_printf("DeviceWrite passed invalid device %d\n", rs485jack);
 		System_flush();
 		return -1;
-		break;
 	//etc.
 	}
 
@@ -380,7 +380,6 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout)
 		System_printf("DeviceWrite passed invalid device %d\n", rs485jack);
 		System_flush();
 		return -1;
-		break;
 	//etc.
 	}
 	return bytes_read;

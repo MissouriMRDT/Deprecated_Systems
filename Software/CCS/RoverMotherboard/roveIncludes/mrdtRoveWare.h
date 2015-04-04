@@ -53,6 +53,13 @@
 #include "roveWareHeaders/roveStructTransfer.h"
 
 #include "roveWareHeaders/roveUarts.h"
+
+#include "roveWareHeaders/rovePinMap.h"
+
+#include "roveWareHeaders/roveTiming.h"
+
+#include "roveWareHeaders/roveHardwareAbstraction.h"
+
 //MRDesign Team:: 	roveWare::		roveNet convert json to and from roveCom formatting
 
 //#include "json.h"

@@ -94,7 +94,7 @@ void digitalWrite(int pin, int val)
 
 }
 
-PWM_Handle rovePWMInit(PWM_Handle pwm_index, int period_in_microseconds)
+PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds)
 {
 	PWM_Handle pwm_handle;
 

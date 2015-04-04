@@ -413,11 +413,8 @@ PWMTiva_Object pwmTivaObjects[EK_TM4C1294XL_PWMCOUNT];
 
 /* PWM configuration structure */
 const PWMTiva_HWAttrs pwmTivaHWAttrs[EK_TM4C1294XL_PWMCOUNT] = {
-    {
-        PWM0_BASE,
-        PWM_OUT_0,
-        PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN
-    }
+    {PWM0_BASE, PWM_OUT_0, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN}
+
 };
 
 const PWM_Config PWM_config[] = {
@@ -443,7 +440,7 @@ void EK_TM4C1294XL_initPWM(void)
 
     GPIOPinConfigure(GPIO_PF1_M0PWM1);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1);
-/*
+
     GPIOPinConfigure(GPIO_PF2_M0PWM2);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_2);
 
@@ -458,7 +455,7 @@ void EK_TM4C1294XL_initPWM(void)
 
     GPIOPinConfigure(GPIO_PK4_M0PWM6);
     GPIOPinTypePWM(GPIO_PORTK_BASE, GPIO_PIN_4);
-*/
+
     PWM_init();
 }
 

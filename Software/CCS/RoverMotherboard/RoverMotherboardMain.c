@@ -75,7 +75,7 @@ int main(void)
 //Init PWMs
     System_printf("Assign PWM 1\n");
     System_flush();
-	motor_0 = (PWM_Handle)rovePWMInit( 1, 20000);
+	motor_0 = (PWM_Handle)rovePWMInit( 1, 20000 );
 /*
 	System_printf("Assign PWM 2\n");
     System_flush();

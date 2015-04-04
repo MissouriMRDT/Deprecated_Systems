@@ -443,7 +443,7 @@ void EK_TM4C1294XL_initPWM(void)
 
     GPIOPinConfigure(GPIO_PF1_M0PWM1);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1);
-
+/*
     GPIOPinConfigure(GPIO_PF2_M0PWM2);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_2);
 
@@ -458,7 +458,7 @@ void EK_TM4C1294XL_initPWM(void)
 
     GPIOPinConfigure(GPIO_PK4_M0PWM6);
     GPIOPinTypePWM(GPIO_PORTK_BASE, GPIO_PIN_4);
-
+*/
     PWM_init();
 }
 

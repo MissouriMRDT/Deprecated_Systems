@@ -45,9 +45,11 @@
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 
+
 //TI BIOS hardware drivers
 
 #include "driverlib/gpio.h"
+#include "driverlib/pwm.h"
 #include "inc/hw_memmap.h"
 
 //defines target device

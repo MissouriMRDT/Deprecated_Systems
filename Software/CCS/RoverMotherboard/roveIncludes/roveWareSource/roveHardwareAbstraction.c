@@ -94,7 +94,7 @@ void digitalWrite(int pin, int val)
 
 }
 
-PWM_Handle rovePWMInit(UInt pwm_index, int period_in_microseconds)
+PWM_Handle rovePWMInit(PWM_Handle pwm_index, int period_in_microseconds)
 {
 	PWM_Handle pwm_handle;
 
@@ -108,6 +108,10 @@ PWM_Handle rovePWMInit(UInt pwm_index, int period_in_microseconds)
 	pwmParams.period = period_in_microseconds;
 	pwm_handle = PWM_open(pwm_index, &pwmParams);
 
+	if(pwm_handle == NULL)
+	{
+		System_abort("Error opening the PWM\n");
+	}
 	return pwm_handle;
 	//Output 1.5ms for 2 seconds to arm the servos
 

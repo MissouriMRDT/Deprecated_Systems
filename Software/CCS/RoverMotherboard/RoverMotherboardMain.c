@@ -48,15 +48,21 @@ int main(void)
 {
 
 //init TI board driver routines
-
     Board_initGeneral();
     Board_initGPIO();
     Board_initEMAC();
+
+    System_printf("Init uarts\n");
+    System_flush();
     Board_initUART();
+
+    System_printf("Init PWM\n");
+    System_flush();
     Board_initPWM();
 
 //init UARTS
-
+    System_printf("Assign UARTS\n");
+    System_flush();
 	uart0 = (UART_Handle)init_uart( 0, 115200 );
     uart1 = (UART_Handle)init_uart( 1, 115200 );
 	uart2 = (UART_Handle)init_uart( 2, 115200 );
@@ -66,14 +72,31 @@ int main(void)
 	uart6 = (UART_Handle)init_uart( 6, 115200 );
 	uart7 = (UART_Handle)init_uart( 7, 115200 );
 
-//init PWM
+//Init PWMs
+    System_printf("Assign PWM 1\n");
+    System_flush();
 	motor_0 = (PWM_Handle)rovePWMInit( 1, 20000);
-	motor_1 = (PWM_Handle)rovePWMInit( 2, 20000);
-	motor_2 = (PWM_Handle)rovePWMInit( 3, 20000);
-	motor_3 = (PWM_Handle)rovePWMInit( 4, 20000);
-	motor_4 = (PWM_Handle)rovePWMInit( 5, 20000);
-	motor_5 = (PWM_Handle)rovePWMInit( 6, 20000);
+/*
+	System_printf("Assign PWM 2\n");
+    System_flush();
+	motor_1 = (PWM_Handle)rovePWMInit( EK_TM4C1294XL_PWM2, 20000);
+    System_printf("Assign PWM 3\n");
+    System_flush();
 
+	motor_2 = (PWM_Handle)rovePWMInit( EK_TM4C1294XL_PWM3, 20000);
+    System_printf("Assign PWM 4\n");
+    System_flush();
+
+	motor_3 = (PWM_Handle)rovePWMInit( EK_TM4C1294XL_PWM4, 20000);
+    System_printf("Assign PWM 5\n");
+    System_flush();
+
+	motor_4 = (PWM_Handle)rovePWMInit( EK_TM4C1294XL_PWM5, 20000);
+    System_printf("Assign PWM 6\n");
+    System_flush();
+
+	motor_5 = (PWM_Handle)rovePWMInit( 6, 20000);
+*/
 //start TI BIOS
 
 	ms_delay( 1 );

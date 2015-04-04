@@ -438,8 +438,26 @@ void EK_TM4C1294XL_initPWM(void)
      * LED on the development board (D4).  The PWM configuration
      * below will disable Ethernet functionality.
      */
-    GPIOPinConfigure(GPIO_PF0_M0PWM0);
-    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_0);
+//    GPIOPinConfigure(GPIO_PF0_M0PWM0);
+//    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_0);
+
+    GPIOPinConfigure(GPIO_PF1_M0PWM1);
+    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1);
+
+    GPIOPinConfigure(GPIO_PF2_M0PWM2);
+    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_2);
+
+    GPIOPinConfigure(GPIO_PF3_M0PWM3);
+    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_3);
+
+    GPIOPinConfigure(GPIO_PG0_M0PWM4);
+    GPIOPinTypePWM(GPIO_PORTG_BASE, GPIO_PIN_0);
+
+    GPIOPinConfigure(GPIO_PG1_M0PWM5);
+    GPIOPinTypePWM(GPIO_PORTG_BASE, GPIO_PIN_1);
+
+    GPIOPinConfigure(GPIO_PK4_M0PWM6);
+    GPIOPinTypePWM(GPIO_PORTK_BASE, GPIO_PIN_4);
 
     PWM_init();
 }

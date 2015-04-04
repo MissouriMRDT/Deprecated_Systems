@@ -48,6 +48,12 @@ void pinMode(int pin, int mode);
  */
 void digitalWrite(int pin, int val);
 
+PWM_Handle rovePWMInit(UInt pwm_index, int period_in_microseconds);
+
+void analogWrite(PWM_Handle pin, int val);
+
+void DriveMotor(PWM_Handle motor, int speed);
+
 /*
  * deviceWrite sends data passed to it to the specified RS485 jack.
  * It will deal with properly muxing to the device and writing to the uart

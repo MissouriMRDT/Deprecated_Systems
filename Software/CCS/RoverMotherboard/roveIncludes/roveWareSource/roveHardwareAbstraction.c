@@ -94,6 +94,31 @@ void digitalWrite(int pin, int val)
 
 }
 
+PWM_Handle rovePWMInit(UInt pwm_index, int period_in_microseconds)
+{
+	PWM_Handle pwm_handle;
+
+	PWM_Params pwmParams;
+    uint16_t   duty = 0;
+    uint16_t   dutyInc = 100;
+
+
+	PWM_Params_init(&pwmParams);
+
+	pwmParams.period = period_in_microseconds;
+	pwm_handle = PWM_open(pwm_index, &pwmParams);
+
+	return pwm_handle;
+	//Output 1.5ms for 2 seconds to arm the servos
+
+}
+
+void analogWrite(PWM_Handle pin, int duty_microseconds)
+{
+	//
+	PWM_setDuty(pin, duty_microseconds);
+}
+
 int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)
 {
 	int bytes_wrote;

@@ -120,7 +120,26 @@ typedef enum EK_TM4C1294XL_I2CName {
  *  @brief  Enum of PWM names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_PWMName {
+	//DO NOT USE - conflicts with ethernet support
     EK_TM4C1294XL_PWM0 = 0,
+
+    //Motor 0
+    EK_TM4C1294XL_PWM1 = 1,
+
+    //Motor 1
+    EK_TM4C1294XL_PWM2 = 2,
+
+    //Motor 2
+    EK_TM4C1294XL_PWM3 = 3,
+
+    //Motor 3
+    EK_TM4C1294XL_PWM4 = 4,
+
+    //Motor 4
+    EK_TM4C1294XL_PWM5 = 5,
+
+    //Motor 5
+    EK_TM4C1294XL_PWM6 = 6,
 
     EK_TM4C1294XL_PWMCOUNT
 } EK_TM4C1294XL_PWMName;

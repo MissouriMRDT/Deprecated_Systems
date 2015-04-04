@@ -31,6 +31,14 @@
     UART_Handle uart6;
     UART_Handle uart7;
 
+//globally create PWM handles
+    PWM_Handle motor_0;
+    PWM_Handle motor_1;
+    PWM_Handle motor_2;
+    PWM_Handle motor_3;
+    PWM_Handle motor_4;
+    PWM_Handle motor_5;
+
 //TODO Mailbox Init
 
 //
@@ -45,6 +53,7 @@ int main(void)
     Board_initGPIO();
     Board_initEMAC();
     Board_initUART();
+    Board_initPWM();
 
 //init UARTS
 
@@ -56,6 +65,14 @@ int main(void)
 	uart5 = (UART_Handle)init_uart( 5, 115200 );
 	uart6 = (UART_Handle)init_uart( 6, 115200 );
 	uart7 = (UART_Handle)init_uart( 7, 115200 );
+
+//init PWM
+	motor_0 = (PWM_Handle)rovePWMInit( 1, 20000);
+	motor_1 = (PWM_Handle)rovePWMInit( 2, 20000);
+	motor_2 = (PWM_Handle)rovePWMInit( 3, 20000);
+	motor_3 = (PWM_Handle)rovePWMInit( 4, 20000);
+	motor_4 = (PWM_Handle)rovePWMInit( 5, 20000);
+	motor_5 = (PWM_Handle)rovePWMInit( 6, 20000);
 
 //start TI BIOS
 

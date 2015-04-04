@@ -43,6 +43,7 @@
 
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
+#include <ti/drivers/PWM.h>
 
 //TI BIOS hardware drivers
 

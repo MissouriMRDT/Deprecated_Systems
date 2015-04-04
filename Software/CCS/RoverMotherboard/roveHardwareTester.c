@@ -25,6 +25,8 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	extern UART_Handle uart6;
 	extern UART_Handle uart7;
 
+	extern PWM_Handle motor_0;
+
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
 
@@ -72,6 +74,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	System_printf("Uart 7 tested\n");
 		System_flush();
 */
+	/*
 	System_printf("Testing full device access\n");
 	System_flush();
 	while(1)
@@ -105,6 +108,39 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 
 		}
 		ms_delay(3000);
+	}
+*/
+	while(1)
+	{
+		System_printf("Setting motor 0 to neutral\n");
+		System_flush();
+
+		pwm_write(motor_0, 1500);
+		ms_delay(6000);
+
+		System_printf("Spinning up\n");
+		System_flush();
+		for(i = 1500; i < 2000; i+= 50) //Go Forward
+		{
+			pwm_write(motor_0, i);
+			ms_delay(500);
+		}
+
+		System_printf("Spinning Down\n");
+		System_flush();
+		for(i = 2000; i > 1000; i-= 50)
+		{
+			pwm_write(motor_0, i);
+			ms_delay(500);
+		}
+
+		System_printf("Turning motor 0 off\n");
+		System_flush();
+		for(i = 1000; i < 1500; i+= 50) //Go Forward
+		{
+			pwm_write(motor_0, i);
+			ms_delay(500);
+		}
 	}
 
 	System_printf("Finished testing all devices\n");

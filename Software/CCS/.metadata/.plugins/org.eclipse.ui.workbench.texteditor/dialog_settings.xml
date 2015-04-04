@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="291" key="DIALOG_WIDTH"/>
-		<item value="111" key="DIALOG_Y_ORIGIN"/>
-		<item value="1028" key="DIALOG_X_ORIGIN"/>
-		<item value="436" key="DIALOG_HEIGHT"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="287" key="DIALOG_WIDTH"/>
+		<item value="155" key="DIALOG_Y_ORIGIN"/>
+		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="859" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.114583|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="size" key="selection"/>
+		<item value="motor" key="selection"/>
 		<list key="findhistory">
+			<item value="MOTOR"/>
+			<item value="GPIO_PG0"/>
+			<item value="GPIO_PK4"/>
+			<item value="GPIO_PG1"/>
+			<item value="GPIO_PF3"/>
+			<item value="GPIO_PF2"/>
+			<item value="GPIO_PF1"/>
 			<item value="size"/>
-			<item value="arm"/>
-			<item value="robot"/>
-			<item value="bytes_to_write"/>
-			<item value="bytes_wrote"/>
-			<item value="Uart_write"/>
-			<item value="GPIO_PA4_U3RX"/>
-			<item value="U2RX"/>
 		</list>
 		<list key="replacehistory">
+			<item value="motor"/>
 			<item value="bytes_to_read"/>
 			<item value="bytes_read"/>
 			<item value="Uart_read"/>
@@ -32,7 +33,6 @@
 			<item value="UART_Handle"/>
 			<item value="extern UART_HANDLE"/>
 			<item value="bytes_wrote = UART_write"/>
-			<item value="bytes_read = UART_read"/>
 		</list>
 	</section>
 </section>

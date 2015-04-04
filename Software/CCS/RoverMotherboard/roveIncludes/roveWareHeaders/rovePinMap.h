@@ -83,6 +83,21 @@
 #define U7TX uart7
 
 
+//PWM Lines
+
+/*
+ * MOTOR_0 PF1
+ * MOTOR_1 PF2
+ * MOTOR_2 PF3
+ * MOTOR_3 PG0
+ * MOTOR_4 PG1
+ * MOTOR_5 PK4
+ *
+ * Extra unused pwm capable pins
+ * PK5
+ * PM0
+ * PM6
+ */
 
 
 

@@ -50,7 +50,7 @@ void digitalWrite(int pin, int val);
 
 PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds);
 
-void analogWrite(PWM_Handle pin, int val);
+void pwmWrite(PWM_Handle pin, int val);
 
 void DriveMotor(PWM_Handle motor, int speed);
 

@@ -117,7 +117,7 @@ PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds)
 
 }
 
-void analogWrite(PWM_Handle pin, int duty_microseconds)
+void pwmWrite(PWM_Handle pin, int duty_microseconds)
 {
 	//
 	PWM_setDuty(pin, duty_microseconds);

@@ -27,7 +27,12 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	extern UART_Handle uart7;
 
 	extern PWM_Handle motor_0;
-
+	extern PWM_Handle motor_1;
+	extern PWM_Handle motor_2;
+	extern PWM_Handle motor_3;
+	extern PWM_Handle motor_4;
+	extern PWM_Handle motor_5;
+/*
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
 
@@ -47,6 +52,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 			digitalWrite(j, LOW);
 		ms_delay(60);
 	}
+*/
 /*
 	System_printf("Testing UART devices\n");
 	System_flush();
@@ -114,17 +120,29 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 
 	while(FOREVER)
 	{
-		System_printf("Setting motor 0 to neutral\n");
+		System_printf("Setting motors to neutral\n");
 		System_flush();
 
-		pwm_write(motor_0, 1500);
+		pwmWrite(motor_0, 1500);
+		pwmWrite(motor_1, 1500);
+		pwmWrite(motor_2, 1500);
+		pwmWrite(motor_3, 1500);
+		pwmWrite(motor_4, 1500);
+		pwmWrite(motor_5, 1500);
+
 		ms_delay(6000);
 
 		System_printf("Spinning up\n");
 		System_flush();
 		for(i = 1500; i < 2000; i+= 50) //Go Forward
 		{
-			pwm_write(motor_0, i);
+			pwmWrite(motor_0, i);
+			pwmWrite(motor_1, i);
+			pwmWrite(motor_2, i);
+			pwmWrite(motor_3, i);
+			pwmWrite(motor_4, i);
+			pwmWrite(motor_5, i);
+
 			ms_delay(500);
 		}
 
@@ -132,7 +150,13 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		System_flush();
 		for(i = 2000; i > 1000; i-= 50)
 		{
-			pwm_write(motor_0, i);
+			pwmWrite(motor_0, i);
+			pwmWrite(motor_1, i);
+			pwmWrite(motor_2, i);
+			pwmWrite(motor_3, i);
+			pwmWrite(motor_4, i);
+			pwmWrite(motor_5, i);
+
 			ms_delay(500);
 		}
 
@@ -140,7 +164,13 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 		System_flush();
 		for(i = 1000; i < 1500; i+= 50) //Go Forward
 		{
-			pwm_write(motor_0, i);
+			pwmWrite(motor_0, i);
+			pwmWrite(motor_1, i);
+			pwmWrite(motor_2, i);
+			pwmWrite(motor_3, i);
+			pwmWrite(motor_4, i);
+			pwmWrite(motor_5, i);
+
 			ms_delay(500);
 		}
 	}

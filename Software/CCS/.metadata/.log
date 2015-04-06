@@ -2404,3 +2404,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product com.ti.ccstudio.br
 
 !ENTRY com.ti.ccstudio.debug.server 4 214294189 2015-04-05 17:16:25.183
 !MESSAGE Unexpected CCS exit detected [4/5/15 3:54 PM]!!!
+!SESSION 2015-04-05 19:53:49.352 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-04-05 20:51:35.566
+!MESSAGE DS_ERROR: CORTEX_M4_0: Error: Connection with the target was unexpectedly lost.
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-04-05 20:51:36.585
+!MESSAGE DS_ERROR: CORTEX_M4_0: Failed to remove the debug state from the target before disconnecting.  There may still be breakpoint op-codes embedded in program memory.  It is recommended that you reset the emulator before you connect and reload your program before you continue debugging
+

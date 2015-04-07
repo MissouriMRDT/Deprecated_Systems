@@ -119,8 +119,12 @@ PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds)
 
 void pwmWrite(PWM_Handle pin, int duty_microseconds)
 {
-	//
-	PWM_setDuty(pin, duty_microseconds);
+	//scale to nuetral to 1.5 uSec and resolution to 500 increments
+
+	PWM_setDuty(pin, ((duty_microseconds/2)+1500) );
+
+	//System_printf("speed holds %d \n", ((duty_microseconds/2)+1500));
+	//System_flush();
 }
 
 int deviceWrite(int rs485jack, char* buffer, int bytes_to_write)

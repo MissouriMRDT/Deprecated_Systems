@@ -21,6 +21,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 {
 	extern const uint8_t FOREVER;
 
+	extern PWM_Handle motor_0;
+	extern PWM_Handle motor_1;
+	extern PWM_Handle motor_2;
+	extern PWM_Handle motor_3;
+	extern PWM_Handle motor_4;
+	extern PWM_Handle motor_5;
+
 	//init and clean RoveCom msg recieve struct
 	base_station_msg_struct fromBaseMsg;
 	char commandBuffer[MAX_COMMAND_SIZE + 4];
@@ -37,14 +44,17 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 	{
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-		System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-		System_flush();
+		//System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		//System_flush();
 
 		switch(fromBaseMsg.id)
 		{
 			case 0:
 			break;
-			case motor_left_id:
+			//case motor_left_id:
+/*
+			should never hit this right now
+			case 1;
 				// TODO implement correct Jack for Motor Comm Board
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
@@ -63,7 +73,10 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 			break;
 
-			case motor_right_id:
+			//case motor_right_id:
+
+			//should never hit this right now
+			case 1;
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
@@ -78,6 +91,65 @@ Void roveCmdCntrl(UArg arg0, UArg arg1)
 
 				System_printf("speed holds %d \n", speed);
 				System_flush();
+
+			break;
+
+			//should never hit this right now
+*/
+
+			case motor_left_id:
+
+				// TODO implement correct Jack for Motor Comm Board
+
+				//the left motors must be the negative of the right motors. Their phase is backwards
+
+				speed = -( ( (struct motor_control_struct*)(&fromBaseMsg) )->speed );
+
+				//System_printf("left speed before conversion holds %d \n", speed);
+
+				//protect from the max and min for the motorcontroller
+
+				if (speed > 999){
+
+					speed = 999;
+
+				}//endif
+
+				if (speed < -999){
+
+						speed = -999;
+
+				}//endif
+
+				pwmWrite(motor_0, speed);
+				pwmWrite(motor_1, speed);
+				pwmWrite(motor_2, speed);
+
+			break;
+
+			case motor_right_id:
+
+				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+				//System_printf("right speed before conversion holds %d \n", speed);
+
+				//protect from the max and min for the motorcontroller
+
+				if (speed > 999){
+
+					speed = 999;
+
+				}//endif
+
+				if (speed < -999){
+
+						speed = -999;
+
+				}//endif
+
+				pwmWrite(motor_0, speed);
+				pwmWrite(motor_1, speed);
+				pwmWrite(motor_2, speed);
 
 			break;
 

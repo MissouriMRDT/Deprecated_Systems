@@ -48,8 +48,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
 
     	while(RED_socket.isConnected == true)
     	{
-    		System_printf("Connected\n");
-    		System_flush();
+    		//System_printf("Connected\n");
+    		//System_flush();
     		//Get Message Type, check for connection errors
     		if(roveRecv(&RED_socket, &messageType, 1) != -1)
     		{
@@ -66,7 +66,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1){
     			case ERROR_METADATA:
     				break;
     			case ROVER_COMMAND:
-    				System_printf("Got rover command. Passing control.\n");
+    				//System_printf("Got rover command. Passing control.\n");
+    				//System_flush;
     				parseRoverCommandMessage(&RED_socket);
     				break;
     			case ROVER_TELEM:
@@ -197,8 +198,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	static base_station_msg_struct messagebuffer;
 	int size;
 
-	System_printf("Entering parseRoverCommandMessage\n");
-	System_flush();
+	//System_printf("Entering parseRoverCommandMessage\n");
+	//System_flush();
 
 	//Get type of message
 	if(!roveRecv(connection, &(messagebuffer.id), 1))
@@ -207,8 +208,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	//Get size of message
 	//TODO: Not really sure about the best way to do this. We should probably
 	//      have a lookup function that takes message type and outputs
-	System_printf("Getting struct size\n");
-	System_flush();
+	//System_printf("Getting struct size\n");
+	//System_flush();
 	size = getStructSize((char)messagebuffer.id) - 1;
 
 	//Get message contents
@@ -216,8 +217,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection)
 	if(!roveRecv(connection, &(messagebuffer.value), size))
 		return false;
 
-	System_printf("Recieved data. Posting to mailbox\n");
-	System_flush();
+	//System_printf("Recieved data. Posting to mailbox\n");
+	//System_flush();
 	//Post message to maibox. The mailbox is defined as a global by the config script
 	Mailbox_post(fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
 	return true;

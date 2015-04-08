@@ -6,38 +6,54 @@
 //
 // last edited:
 //
-//02_25_2015_Judah Schad_jrs6w7@mst.edu
-//03_08_2015 Connor Walsh cwd8d@mst.edu ~ add stubs for RoveComm structs
+// 03_08_2015 Connor Walsh cwd8d@mst.edu ~ add stubs for RoveComm structs
+//
+// 04_07_2015_Judah Schad_jrs6w7@mst.edu
 
 #pragma once
 
 #ifndef ROVESTRUCTS_H_
 #define ROVESTRUCTS_H_
 
-//includes globally scoped Texas Instruments (TI) header files
+// includes globally scoped Texas Instruments (TI) header files
 
 #include "../RoverMotherboardMain.h"
 
-//size in bytes of longest command that can be recieved from the base station
+// size in bytes of longest command that can be recieved from the base station
 
 #define MAX_COMMAND_SIZE 30
 
 #define MAX_TELEM_SIZE 30
 
-
-// Device id
+// device id
 
 #define	onenull_device_id 111
 #define	test_device_id 99
 #define	motor_left_id 100
 #define	motor_right_id 101
-#define	robot_arm_id 102
+#define	robot_arm_id 201
 #define	gripper_id 103
 #define	drill_id 104
 
+// robot arm values
+
+#define wrist_counter_clock_wise 0
+#define wrist_clock_wise 1
+#define wrist_down 2
+#define wrist_up 3
+#define elbow_counter_clock_wise 4
+#define elbow_clock_wise 5
+#define elbow_down 6
+#define elbow_up 7
+#define actuator_reverse 8
+#define actuator_forward 9
+#define base_counter_clock_wise10
+#define base_clock_wise 11
+#define reset_arm 12
+
 //struct id
 
-/*#define	blank_id_zero 0
+/*#define blank_id_zero 0
 #define	mobo_identify_req 1
 #define	dev_identify_reply 2
 #define	mobo_begin_op_req 3
@@ -50,8 +66,8 @@
 #define	mobo_drill_command 10
 */
 
-//Returns the size of the struct with the associated ID
-//-1 for error
+// returns the size of the struct with the associated id, returns -1 for error
+
 int getStructSize(char structId);
 
 typedef struct base_station_msg_struct{
@@ -65,8 +81,6 @@ typedef struct base_station_msg_struct{
 
 //attribute__((packed)) explicitly overides this and is necessary because the TI board is 32 bit and the ATMegas are 8 bit
 
-// TODO remove last years structs, they will not be used for new RoveComm
-
 struct motor_control_struct{
 
 	char id;
@@ -74,34 +88,47 @@ struct motor_control_struct{
 
 }__attribute__((packed));
 
-struct mobo_identify_req // Sent from mobo to device to request identify
-{
+// sent from mobo to device to request identify
+
+struct mobo_identify_req{
+
 	uint8_t struct_id;
 
 }__attribute__((packed));
 
-struct dev_identify_reply  // Sent from device to mobo to ack request for identification
-{
+// sent from device to mobo to ack request for identification
+
+struct dev_identify_reply{
+
 	uint8_t struct_id;
 	uint8_t device_id;
 
 }__attribute__((packed));
 
-struct mobo_begin_op_req  // Sent from mobo to tell device to begin operating mode
-{
+// sent from mobo to tell device to begin operating mode
+
+struct mobo_begin_op_req{
+
 	uint8_t struct_id;
 
 }__attribute__((packed));
 
-struct dev_begin_op_reply // Sent from dev to mobo to acknoledge request and begin operation mode
-{
+// sent from dev to mobo to acknoledge request and begin operation mode
+
+struct dev_begin_op_reply{
+
 	uint8_t struct_id;
-	uint8_t device_id; // this field may not be necessary
+
+	// this field may not be necessary
+
+	uint8_t device_id;
 
 }__attribute__((packed));
 
-struct robot_arm_command // sent from mobo to roboticArm to control the peripheral
-{
+// sent from mobo to roboticArm to control the peripheral
+
+struct robot_arm_command{
+
 	uint8_t struct_id;
 	uint8_t reset;
 	uint8_t wristUp;
@@ -119,15 +146,19 @@ struct robot_arm_command // sent from mobo to roboticArm to control the peripher
 
 }__attribute__((packed));
 
-struct gripper_command // Sent from mobo to gripper to control the peripheral
-{
+// sent from mobo to gripper to control the peripheral
+
+struct gripper_command{
+
 	uint8_t struct_id;
 	uint8_t grip_cmd;
 
 }__attribute__((packed));
 
-struct drill_command // Sent from mobo to drill to control the peripheral
-{
+// sent from mobo to drill to control the peripheral
+
+struct drill_command{
+
 	uint8_t struct_id;
 	uint8_t grip_cmd;
 	//drill ctrl
@@ -143,10 +174,14 @@ struct drill_command // Sent from mobo to drill to control the peripheral
 
 }__attribute__((packed));
 
-// This struct should only be used for type casting as it does not have a corresponding id;
-struct rovecom_id_cast
-{
+// this struct should only be used for type casting as it does not have a corresponding id
+
+// may not work with non void pointer casts
+
+struct rovecom_id_cast{
+
 	uint8_t struct_id;
-}__attribute__((packed)); // may not work with non void pointer casts
+
+}__attribute__((packed));
 
 #endif // ROVESTRUCTS_H_

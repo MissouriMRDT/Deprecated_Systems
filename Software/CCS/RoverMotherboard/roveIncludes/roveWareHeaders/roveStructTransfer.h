@@ -18,23 +18,6 @@
 
 #include "../mrdtRoveWare.h"
 
-/*enum peripheral_devices{motor_controller, bms, robotic_arm, tcp_cmd, drill, gripper, science_payload, gps, lighting_board, camera, power_board, test};
-
-enum peripheral_struct_ids{
-		blank_id_zero = 0,
-		mobo_identify_req = 1,
-		dev_identify_reply = 2,
-		mobo_begin_op_req,
-		dev_begin_op_reply,
-		mobo_telem_req,
-		dev_command_reply = 6,
-		blank_id_seven,
-		mobo_robo_arm_command,
-		mobo_gripper_command,
-		mobo_drill_command
-};*/
-
-
 // used in Hardware tester, probably need to change to lowercase version
 uint8_t CalcCheckSum(const void* my_struct, uint8_t size);
 

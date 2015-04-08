@@ -12,7 +12,7 @@
 
 Void roveMotorControlTester(UArg arg0, UArg arg1){
 
-	extern const uint8_t FOREVER = 1;
+	const uint8_t FOREVER = 1;
 
 	char messageBuffer[35] = "This is a test of motor control";
 

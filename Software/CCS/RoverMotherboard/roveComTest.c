@@ -1,22 +1,21 @@
-/*
- * roveComTest.c
- *
- *  Created on: Mar 23, 2015
- *      Author: Connor Walsh
- */
+// roveComTest.c
+//
+//  Created on: Mar 23, 2015
+//      Author: Connor Walsh
+//
 
 #include "roveIncludes/roveWareHeaders/roveComTest.h"
 
 void roveComTest(UArg arg0, UArg arg1){
 
-	extern const uint8_t FOREVER = 1;
+	const uint8_t FOREVER = 1;
 
 	base_station_msg_struct baseStationMsg;
 
 	struct robot_arm_command robotArmStruct;
 
-	while (FOREVER)
-	{
+	while (FOREVER){
+
 		Task_sleep(5000);
 
 		robotArmStruct.struct_id = robot_arm_id;

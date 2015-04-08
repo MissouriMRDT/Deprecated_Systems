@@ -5,7 +5,7 @@
  *      Author: Connor Walsh
  */
 
-#include "../mrdtRoveWare.h"
+#include "../roveWareHeaders/roveStructTransfer.h"
 
 // New struct transfer to fill a buffer with a easy transfer frame
 

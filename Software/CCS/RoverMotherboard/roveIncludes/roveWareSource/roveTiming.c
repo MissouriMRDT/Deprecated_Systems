@@ -10,7 +10,7 @@
 //
 //02_25_2015_Judah Schad_jrs6w7@mst.edu
 
-//MRDesign Team:: 	roveWare::		encapsulates the system control call to delay a given number of milliseconds
+//MRDesign Team::roveWare::		encapsulates the system control call to delay a given number of milliseconds
 
 #include "../roveWareHeaders/roveTiming.h"
 
@@ -18,6 +18,6 @@
 
 void ms_delay(int milliseconds){
 
-	SysCtlDelay(milliseconds*(SysCtlClockGet() / 100) );
+	SysCtlDelay( milliseconds*(SysCtlClockGet() / 100) );
 
-}//endfnct:		ms_delay( int milliseconds )
+}//endfnctn ms_delay( int milliseconds )

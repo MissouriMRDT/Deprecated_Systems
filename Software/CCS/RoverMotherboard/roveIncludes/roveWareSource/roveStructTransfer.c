@@ -9,23 +9,26 @@
 
 // New struct transfer to fill a buffer with a easy transfer frame
 
-int buildSerialStructMessage(void* my_struct, char* buffer)
-{
+int buildSerialStructMessage(void* my_struct, char* buffer){
+
 	uint8_t size;
 	uint8_t start_byte1 = 0x06;
 	uint8_t start_byte2 = 0x85;
 	uint8_t checkSum;
+
 	int totalSize = -1;
 
 	size = getStructSize(((struct rovecom_id_cast*)my_struct)->struct_id);
-	if (size <= 0)
-	{
+
+	if (size <= 0){
+
 		System_printf("Error in function: buildSerialStructMessage() - struct size is not valid");
 		System_flush();
 		return -1;
-	}
 
-//	checkSum = size;
+	}//endif
+
+	// checkSum = size;
 
 	buffer[0] = start_byte1;
 	buffer[1] = start_byte2;
@@ -42,10 +45,11 @@ int buildSerialStructMessage(void* my_struct, char* buffer)
 	totalSize = 3 + size + 1;
 
 	return totalSize;
-} // end Function
 
-uint8_t calcCheckSum(const void* my_struct, uint8_t size)
-{
+}//end fnctn buildSerialStructMessage
+
+uint8_t calcCheckSum(const void* my_struct, uint8_t size){
+
 	uint8_t checkSum = size;
 	uint8_t i;
 
@@ -53,7 +57,8 @@ uint8_t calcCheckSum(const void* my_struct, uint8_t size)
 		checkSum ^= *((char*)my_struct + i);
 
 	return checkSum;
-}
+
+}//end fnctn
 
 //bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
 //{

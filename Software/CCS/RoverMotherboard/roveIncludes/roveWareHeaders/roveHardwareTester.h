@@ -1,10 +1,10 @@
-//
 // roveHardwareTester
 //
 // first created:
 //
 // 03_03_2015_Owen_Chiaventone
-//
+
+#pragma once
 
 #ifndef ROVECMDCNTRL_H_
 #define ROVECMDCNTRL_H_
@@ -17,9 +17,6 @@
 
 #include "../mrdtRoveWare.h"
 
-//MRDesign Team::roveHardwareAbstraction::		GPIO and RS485 jack access
-
-#include "roveHardwareAbstraction.h"
 Void roveHardwareTester(UArg arg0, UArg arg1);
 
 #endif //ROVECMDCNTRL_H_

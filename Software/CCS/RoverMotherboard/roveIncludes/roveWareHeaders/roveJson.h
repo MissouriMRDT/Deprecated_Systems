@@ -15,9 +15,13 @@
 #ifndef ROVEJSON_H_
 #define ROVEJSON_H_
 
-//includes globally scoped Texas Instruments (TI) header files
+//globally scoped Texas Instruments (TI) headers
 
 #include "../RoverMotherboardMain.h"
+
+//MRDesign Team::roveWare::		roveCom and RoveNet services headers
+
+#include "../mrdtRoveWare.h"
 
 //reverses a string
 

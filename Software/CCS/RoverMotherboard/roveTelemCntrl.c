@@ -28,6 +28,8 @@
 
 Void roveTelemCntrl(UArg arg0, UArg arg1){
 
+	extern const uint8_t FOREVER = 1;
+
 	//external ref the scope for global uart handles
 
 /*	extern UART_Handle uart0;

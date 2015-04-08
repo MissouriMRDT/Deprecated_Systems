@@ -1,17 +1,18 @@
-/*
- * roveMotorControlTester.c
- *
- *  Created on: Mar 25, 2015
- *      Author: Judah
- *
- * Task that will test MC functionality
- * Should be disabled most of the time. Only run it when you want to
- * do Motor Control testing.
- */
+//
+// roveMotorControlTester.c
+//
+//  Created on: Mar 25, 2015
+//      Author: Judah
+//
+// Task that will test MC functionality
+// Should be disabled most of the time. Only run it when you want to
+// do Motor Control testing.
+
 #include "roveIncludes/roveWareHeaders/roveMotorControlTester.h"
 
-
 Void roveMotorControlTester(UArg arg0, UArg arg1){
+
+	extern const uint8_t FOREVER = 1;
 
 	char messageBuffer[35] = "This is a test of motor control";
 
@@ -54,7 +55,7 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 
 	deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
 
-	while(1){
+	while(FOREVER){
 
 		if(speed > 900){
 
@@ -90,6 +91,6 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 		System_printf("Finished testing loop number %d \n", loopCount);
 		System_flush();
 
-	}//endwhile:	(1)
+	}//endwhile (FOREVER)
 
-}//endfnctn:		roveMotorControlTester(UArg arg0, UArg arg1)
+}//endfnctn Task roveMotorControlTester

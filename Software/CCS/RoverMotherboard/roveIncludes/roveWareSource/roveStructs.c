@@ -7,9 +7,7 @@
 //
 // last edited:
 //
-//04_07_2015_Judah Schad_jrs6w7@mst.edu
-
-#pragma once
+// 04_07_2015_Judah Schad_jrs6w7@mst.edu
 
 #include "../roveWareHeaders/roveStructs.h"
 
@@ -41,6 +39,6 @@ int getStructSize(char structId){
 
 	return -1;
 
-}//endfnctn:	gtetStructSize(char structId)
+}//endfnctn getStructSize(char structId)
 
 

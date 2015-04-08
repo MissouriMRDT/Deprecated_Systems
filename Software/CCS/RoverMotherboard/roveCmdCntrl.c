@@ -10,11 +10,15 @@
 //
 // 04_07_2015_Judah Schad_jrs6w7@mst.edu
 //
-// 	this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveCmdCtrlTask handle
+// this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveCmdCtrlTask handle
 //
-//	recieves commands from roveTCPHandler in roveCom protocol using TI.Mailbox.from object
+// recieves commands from roveTCPHandler in roveCom protocol using TI.Mailbox.from object
 //
-//	sends pwm commands to motors, and uart commands to robot arm
+// sends pwm commands to motors, and uart commands to robot arm
+//
+// BIOS_start in main inits this as the roveCmdCntrlTask Thread
+//
+// this is a RoverMotherboard.cfg object::roveCmdCntrlTask::		priority 3, vital_flag = t, 2048 persistent private stack
 
 #include "roveIncludes/roveWareHeaders/roveCmdCntrl.h"
 
@@ -33,8 +37,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 	extern PWM_Handle motor_4;
 	extern PWM_Handle motor_5;
 
-	//init roveCom mailbox msg recieve struct
-
 	base_station_msg_struct fromBaseMsg;
 
 	struct robot_arm_command robotArmCommand;
@@ -45,8 +47,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	int speed = 0;
 
-	System_printf("roveCmdCntrlr		init! \n");
-	System_flush();
+					System_printf("roveCmdCntrlr		init! \n");
+					System_flush();
 
 	while (FOREVER){
 
@@ -57,7 +59,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 		switch(fromBaseMsg.id){
 
-			//case 0 hack to make a happy switch
+			// case 0 hack to make a happy switch
 			case 0:
 			break;
 
@@ -97,6 +99,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			break;
 
+			//end drive motor_left_id with ASCII strings
+
 			//case motor_right_id:
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
@@ -127,7 +131,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			break;
 
-			//should never hit this right now
+			// end drive motor_right_id with ASCII strings
 */
 
 			case motor_left_id:

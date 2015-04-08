@@ -16,10 +16,6 @@
 
 #include "../mrdtRoveWare.h"
 
-//MRDesign Team::roveHardwareAbstraction::		GPIO and RS485 jack access
-
-#include "roveHardwareAbstraction.h"
-
 Void roveMotorControlTester(UArg arg0, UArg arg1);
 
 #endif /* ROVEMOTORCONTROLTESTER_H_ */

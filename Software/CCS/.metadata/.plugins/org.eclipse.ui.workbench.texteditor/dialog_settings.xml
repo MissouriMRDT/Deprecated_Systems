@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="287" key="DIALOG_WIDTH"/>
+		<item value="289" key="DIALOG_WIDTH"/>
 		<item value="155" key="DIALOG_Y_ORIGIN"/>
+		<item value="429" key="DIALOG_HEIGHT"/>
 		<item value="859" key="DIALOG_X_ORIGIN"/>
-		<item value="423" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="from" key="selection"/>
+		<item value="//" key="selection"/>
 		<list key="findhistory">
+			<item value="*"/>
 			<item value="from"/>
 			<item value="MOTOR"/>
 			<item value="GPIO_PG0"/>
@@ -22,17 +23,16 @@
 			<item value="GPIO_PG1"/>
 			<item value="GPIO_PF3"/>
 			<item value="GPIO_PF2"/>
-			<item value="GPIO_PF1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="//"/>
+			<item value="/"/>
 			<item value="motor"/>
 			<item value="bytes_to_read"/>
 			<item value="bytes_read"/>
 			<item value="Uart_read"/>
 			<item value=""/>
 			<item value="UART_Handle"/>
-			<item value="extern UART_HANDLE"/>
-			<item value="bytes_wrote = UART_write"/>
 		</list>
 	</section>
 </section>

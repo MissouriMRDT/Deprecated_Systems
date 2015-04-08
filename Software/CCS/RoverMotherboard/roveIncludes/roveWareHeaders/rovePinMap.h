@@ -1,32 +1,35 @@
-/*
- * rovePinMap.h
- *
- *  Created on: Mar 3, 2015
- *      Author: Owen Chiaventone
- *
- *  Every name in this file should correspond to a net in the
- *  board schematic
- */
+// rovePinMap.h
+//
+//  Created on: Mar 3, 2015
+//      Author: Owen Chiaventone
+//
+//  Every name in this file should correspond to a net in the board schematic
+
+#pragma once
 
 #ifndef ROVEPINMAP_H_
 #define ROVEPINMAP_H_
 
-#define HIGH 1
-#define LOW 0
+// globally scoped Texas Instruments (TI) headers
 
-//Mux Select Line pins
-/*
- * U3_MUX_S0 PH0
- * U3_MUX_S1 PH1
- * U4_MUX_S0 PM6
- * U4_MUX_S1 PM7
- * U5_MUX_S0 PL0
- * U5_MUX_S1 PL1
- * U6_MUX_S0 PK2
- * U6_MUX_S1 PK3
- * U7_MUX_S0 PE0
- * U7_MUX_S1 PE1
- */
+#include "../RoverMotherboardMain.h"
+
+// MRDesign Team::roveWare::		roveCom and RoveNet services headers
+
+#include "../mrdtRoveWare.h"
+
+// mux select line pins
+
+// U3_MUX_S0 PH0
+// U3_MUX_S1 PH1
+// U4_MUX_S0 PM6
+// U4_MUX_S1 PM7
+// U5_MUX_S0 PL0
+// U5_MUX_S1 PL1
+// U6_MUX_S0 PK2
+// U6_MUX_S1 PK3
+// U7_MUX_S0 PE0
+// U7_MUX_S1 PE1
 
 // Shitty optimization notes:
 // These have to be sequential integers
@@ -47,27 +50,26 @@
 #define U7_MUX_S0 8
 #define U7_MUX_S1 9
 
-//Special Devices
+// special devices
+
 #define POWER_BOARD 18
 #define ONBOARD_ROVECOMM 19
 
-//Uarts
+// uarts
 
-/*
- * Uart pins:
- * U2RX PA6
- * U2TX PA7
- * U3RX PA4
- * U3TX PA5
- * U4RX PK0
- * U4TX PK1
- * U5RX PC6
- * U5TX PC7
- * U6RX PP0
- * U6TX PP1
- * U7RX PC4
- * U7TX PC5
- */
+// Uart pins:
+// U2RX PA6
+// U2TX PA7
+// U3RX PA4
+// U3TX PA5
+// U4RX PK0
+// U4TX PK1
+// U5RX PC6
+// U5TX PC7
+// U6RX PP0
+// U6TX PP1
+// U7RX PC4
+// U7TX PC5
 
 #define U2RX uart2
 #define U2TX uart2
@@ -82,23 +84,18 @@
 #define U7RX uart7
 #define U7TX uart7
 
+// PWM Lines
 
-//PWM Lines
+// MOTOR_0 PF1
+// MOTOR_1 PF2
+// MOTOR_2 PF3
+// MOTOR_3 PG0
+// MOTOR_4 PG1
+// MOTOR_5 PK4
+//
+// Extra unused pwm capable pins
+// PK5
+// PM0
+// PM6
 
-/*
- * MOTOR_0 PF1
- * MOTOR_1 PF2
- * MOTOR_2 PF3
- * MOTOR_3 PG0
- * MOTOR_4 PG1
- * MOTOR_5 PK4
- *
- * Extra unused pwm capable pins
- * PK5
- * PM0
- * PM6
- */
-
-
-
-#endif /* ROVEPINMAP_H_ */
+#endif // ROVEPINMAP_H_

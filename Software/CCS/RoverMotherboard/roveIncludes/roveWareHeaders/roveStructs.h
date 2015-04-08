@@ -15,56 +15,13 @@
 #ifndef ROVESTRUCTS_H_
 #define ROVESTRUCTS_H_
 
-// includes globally scoped Texas Instruments (TI) header files
+// globally scoped Texas Instruments (TI) headers
 
 #include "../RoverMotherboardMain.h"
 
-// size in bytes of longest command that can be recieved from the base station
+// MRDesign Team::roveWare::		roveCom and RoveNet services headers
 
-#define MAX_COMMAND_SIZE 30
-
-#define MAX_TELEM_SIZE 30
-
-// device id
-
-#define	onenull_device_id 111
-#define	test_device_id 99
-#define	motor_left_id 100
-#define	motor_right_id 101
-#define	robot_arm_id 201
-#define	gripper_id 103
-#define	drill_id 104
-
-// robot arm values
-
-#define wrist_counter_clock_wise 0
-#define wrist_clock_wise 1
-#define wrist_down 2
-#define wrist_up 3
-#define elbow_counter_clock_wise 4
-#define elbow_clock_wise 5
-#define elbow_down 6
-#define elbow_up 7
-#define actuator_reverse 8
-#define actuator_forward 9
-#define base_counter_clock_wise10
-#define base_clock_wise 11
-#define reset_arm 12
-
-//struct id
-
-/*#define blank_id_zero 0
-#define	mobo_identify_req 1
-#define	dev_identify_reply 2
-#define	mobo_begin_op_req 3
-#define	dev_begin_op_reply 4
-#define	mobo_telem_req 5
-#define	dev_command_reply 6
-#define	blank_id_seven 7
-#define	mobo_robo_arm_command 8
-#define	mobo_gripper_command 9
-#define	mobo_drill_command 10
-*/
+#include "../mrdtRoveWare.h"
 
 // returns the size of the struct with the associated id, returns -1 for error
 

@@ -1,18 +1,17 @@
-/*
- * roveHardwareTester.c
- *
- *  Created on: Mar 3, 2015
- *      Author: owen
- *
- * Task that will test all of the hardware functionality
- * Should be disabled most of the time. Only run it when you want to
- * do hardware testing.
- */
+//
+// roveHardwareTester.c
+//
+//  Created on: Mar 3, 2015
+//      Author: owen
+//
+// Task that will test all of the hardware functionality
+// Should be disabled most of the time. Only run it when you want to
+// do hardware testing.
+
 #include "roveIncludes/roveWareHeaders/roveHardwareTester.h"
 
+Void roveHardwareTester(UArg arg0, UArg arg1){
 
-Void roveHardwareTester(UArg arg0, UArg arg1)
-{
 	int i, j;
 
 	extern const uint8_t FOREVER;
@@ -118,8 +117,8 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 	}
 */
 
-	while(FOREVER)
-	{
+	while(FOREVER){
+
 		System_printf("Setting motors to neutral\n");
 		System_flush();
 
@@ -134,8 +133,11 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 
 		System_printf("Spinning up\n");
 		System_flush();
-		for(i = 1500; i < 2000; i+= 50) //Go Forward
-		{
+
+		// go forward
+
+		for(i = 1500; i < 2000; i+= 50){
+
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
 			pwmWrite(motor_2, i);
@@ -144,12 +146,14 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 			pwmWrite(motor_5, i);
 
 			ms_delay(500);
-		}
+
+		}//end for
 
 		System_printf("Spinning Down\n");
 		System_flush();
-		for(i = 2000; i > 1000; i-= 50)
-		{
+
+		for(i = 2000; i > 1000; i-= 50){
+
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
 			pwmWrite(motor_2, i);
@@ -158,12 +162,14 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 			pwmWrite(motor_5, i);
 
 			ms_delay(500);
-		}
+
+		}//end for
 
 		System_printf("Turning motor 0 off\n");
 		System_flush();
-		for(i = 1000; i < 1500; i+= 50) //Go Forward
-		{
+
+		for(i = 1000; i < 1500; i+= 50){
+
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
 			pwmWrite(motor_2, i);
@@ -172,10 +178,14 @@ Void roveHardwareTester(UArg arg0, UArg arg1)
 			pwmWrite(motor_5, i);
 
 			ms_delay(500);
-		}
-	}
+
+		}//end for
+
+	}//end while forever
 
 	System_printf("Finished testing all devices\n");
 	System_flush();
+
 	Task_exit();
-}
+
+}//end fnctn Task roveHardwareTester

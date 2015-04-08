@@ -17,9 +17,13 @@
 #ifndef ROVETIMING_H_
 #define ROVETIMING_H_
 
-//globally scoped Texas Instruments (TI) header files
+// globally scoped Texas Instruments (TI) headers
 
 #include "../RoverMotherboardMain.h"
+
+// MRDesign Team::roveWare::		roveCom and RoveNet services headers
+
+#include "../mrdtRoveWare.h"
 
 void ms_delay(int milliseconds);
 

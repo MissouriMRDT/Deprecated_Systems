@@ -7,13 +7,15 @@
 
 #include "roveIncludes/roveWareHeaders/roveComTest.h"
 
-void roveComTest(UArg arg0, UArg arg1)
-{
+void roveComTest(UArg arg0, UArg arg1){
+
+	extern const uint8_t FOREVER = 1;
+
 	base_station_msg_struct baseStationMsg;
 
 	struct robot_arm_command robotArmStruct;
 
-	while (1)
+	while (FOREVER)
 	{
 		Task_sleep(5000);
 

@@ -47,10 +47,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	int speed = 0;
 
+	int i = 0;
+
 					System_printf("roveCmdCntrlr		init! \n");
 					System_flush();
 
 	while (FOREVER){
+
+		System_printf("Cmd Cntrl Is PENDING FOR MAIL!");
+		System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
@@ -307,16 +312,27 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
-								//System_printf("Message Size: %d\n", messageSize);
-								//System_flush();
+								System_printf("Message Size: %d\n", messageSize);
+								System_flush();
 
 				// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
 
 				// getDeviceJack(fromBaseMsg.id);
 
-				int deviceJack = 1;
+				int deviceJack = ONBOARD_ROVECOMM;
 
 				deviceWrite(deviceJack, commandBuffer, messageSize);
+
+				i = 0;
+
+				while( i < messageSize ){
+
+				System_printf("Cmd Cntrl Just Sent! ID: %d\n", commandBuffer[i]);
+				System_flush();
+
+				i++;
+
+				}//end for
 
 			break;
 

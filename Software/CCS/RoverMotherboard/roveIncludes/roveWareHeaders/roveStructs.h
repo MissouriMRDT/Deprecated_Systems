@@ -117,15 +117,17 @@ struct gripper_command{
 struct drill_command{
 
 	uint8_t struct_id;
-	uint8_t grip_cmd;
 	//drill ctrl
 	uint8_t goalSpeed;
 	uint8_t direction;
+
 	//thermo ctrl
 	uint8_t heaterPower;
 	uint8_t thermoReadings;
+
 	//gas ctrl
 	uint8_t sensorPower;
+
 	//readings will only be updated when true
 	uint8_t gasReadings;
 

@@ -64,8 +64,8 @@
 #define	motor_left_id 100
 #define	motor_right_id 101
 #define	robot_arm_id 201
-#define	gripper_id 103
-#define	drill_id 104
+#define	gripper_id 202
+#define	drill_id 203
 
 // robot arm values
 

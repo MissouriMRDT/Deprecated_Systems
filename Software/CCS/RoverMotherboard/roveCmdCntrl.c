@@ -335,11 +335,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				int deviceJack = ONBOARD_ROVECOMM;
 
-				//deviceWrite(deviceJack, commandBuffer, messageSize);
+				deviceWrite(deviceJack, commandBuffer, messageSize);
 
-				//judah
+				// TODO judah ... Drue doesn't think we are sending the checksum byte?
 
-				deviceWrite(deviceJack, commandBuffer, messageSize + 1);
+				// probably he is not catching it....
+
+				//deviceWrite(deviceJack, commandBuffer, messageSize + 1);
 
 				i = 0;
 

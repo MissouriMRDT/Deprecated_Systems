@@ -249,8 +249,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection){
 	//TODO: Not really sure about the best way to do this. We should probably
 	//      have a lookup function that takes message type and outputs
 
-					//System_printf("Getting struct size\n");
-					//System_flush();
+					System_printf("Getting struct size\n");
+					System_flush();
 
 	// get size of message
 

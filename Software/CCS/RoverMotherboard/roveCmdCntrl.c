@@ -39,8 +39,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	base_station_msg_struct fromBaseMsg;
 
-	struct robot_arm_command robotArmCommand;
-
 	char commandBuffer[MAX_COMMAND_SIZE + 4];
 
 	int messageSize;
@@ -199,98 +197,114 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				//zero out the struct
 
-				robotArmCommand.wristCounterClockWise = 	0;
-				robotArmCommand.wristClockWise = 			0;
-				robotArmCommand.wristDown = 				0;
-				robotArmCommand.wristUp = 					0;
-				robotArmCommand.elbowDown = 				0;
-				robotArmCommand.elbowUp =					0;
-				robotArmCommand.elbowCounterClockWise = 	0;
-				robotArmCommand.elbowClockWise = 			0;
-				robotArmCommand.actuatorReverse = 			0;
-				robotArmCommand.actuatorForward = 			0;
-				robotArmCommand.baseCounterClockWise = 		0;
-				robotArmCommand.baseClockWise = 			0;
-				robotArmCommand.reset =						0;
+				System_printf("First Char: %d\n", fromBaseMsg.value[0]);
+				System_printf("When I cast: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->reset);
+				System_flush();
 
-				switch( (int)fromBaseMsg.value ){
+				((struct robot_arm_command*)(&fromBaseMsg))->wristCounterClockWise = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->wristClockWise = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->wristDown = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->wristUp = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->elbowDown = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->elbowUp = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->elbowCounterClockWise = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->elbowClockWise = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->actuatorReverse = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->actuatorForward = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->baseCounterClockWise = 0;
+				((struct robot_arm_command*)(&fromBaseMsg))->baseClockWise = 0;
+
+				switch( fromBaseMsg.value[0] ){
 
 					// defined 0
 					case wrist_counter_clock_wise:
 
-						robotArmCommand.wristCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->wristCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 1
 					case wrist_clock_wise:
 
-						robotArmCommand.wristClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->wristClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 2
 					case wrist_down:
 
-						robotArmCommand.wristDown = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->wristDown = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					//defined 3
 					case wrist_up:
 
-						robotArmCommand.wristUp = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->wristUp = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 4
 					case elbow_counter_clock_wise:
 
-						robotArmCommand.elbowCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->elbowCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 5
 					case elbow_clock_wise:
 
-						robotArmCommand.elbowClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->elbowClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 6
 					case elbow_down:
 
-						robotArmCommand.elbowDown = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->elbowDown = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 7
 					case elbow_up:
 
-						robotArmCommand.elbowUp = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->elbowUp = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 8
 					case actuator_reverse:
 
-						robotArmCommand.actuatorReverse = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->actuatorReverse = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 9
 					case actuator_forward:
 
-						robotArmCommand.actuatorForward = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->actuatorForward = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 10
 					case base_counter_clock_wise:
 
-						robotArmCommand.baseCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->baseCounterClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 11
 					case base_clock_wise:
 
-						robotArmCommand.baseClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->baseClockWise = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// defined 12
 					case reset_arm:
 
-						robotArmCommand.reset =	1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 1;
+						((struct robot_arm_command*)(&fromBaseMsg))->reset = 0;
 					break;
 
 					// end robot arm
@@ -321,13 +335,18 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				int deviceJack = ONBOARD_ROVECOMM;
 
-				deviceWrite(deviceJack, commandBuffer, messageSize);
+				//deviceWrite(deviceJack, commandBuffer, messageSize);
+
+				//judah
+
+				deviceWrite(deviceJack, commandBuffer, messageSize + 1);
 
 				i = 0;
 
-				while( i < messageSize ){
+				while( i <( messageSize ) ){
 
-				System_printf("Cmd Cntrl Just Sent! ID: %d\n", commandBuffer[i]);
+
+				System_printf("Cmd Cntrl Just Sent!: %d\n", commandBuffer[i]);
 				System_flush();
 
 				i++;

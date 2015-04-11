@@ -1,28 +1,13 @@
 
-**** Build of configuration Debug for project RoverMotherboard ****
+**** Clean-only build of configuration Debug for project RoverMotherboard ****
 
-/opt/ti/ccsv6/utils/bin/gmake -k all 
-making ../src/sysbios/sysbios.aem4f ...
-gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-gmake[1]: Nothing to be done for `all'.
-gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
-Building file: ../roveCmdCntrl.c
-Invoking: ARM Compiler
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveCmdCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveCmdCntrl.c"
-"../roveCmdCntrl.c", line 63: warning #548-D: transfer of control bypasses initialization of:
-            variable "deviceJack" (declared at line 336)
-Finished building: ../roveCmdCntrl.c
- 
-Building file: ../roveIncludes/roveWareSource/roveStructTransfer.c
-Invoking: ARM Compiler
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveStructTransfer.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveStructTransfer.c"
-Finished building: ../roveIncludes/roveWareSource/roveStructTransfer.c
- 
-Building target: RoverMotherboard.out
-Invoking: ARM Linker
-"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./RoverMotherboardMain.obj" "./roveCmdCntrl.obj" "./roveComTest.obj" "./roveHardwareTester.obj" "./roveMotorControlTester.obj" "./roveTcpHandler.obj" "./roveTelemCntrl.obj" "./roveIncludes/tiHardware/EK_TM4C1294XL.obj" "./roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "./roveIncludes/roveWareSource/roveJson.obj" "./roveIncludes/roveWareSource/roveStructTransfer.obj" "./roveIncludes/roveWareSource/roveStructs.obj" "./roveIncludes/roveWareSource/roveTiming.obj" "./roveIncludes/roveWareSource/roveUarts.obj" "../roveIncludes/tiHardware/EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
-<Linking>
-Finished building target: RoverMotherboard.out
+/opt/ti/ccsv6/utils/bin/gmake -k clean 
+cleaning ../src/sysbios ...
+rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
+rm -rf  "configPkg/" 
+rm -rf "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveComTest.pp" "roveHardwareTester.pp" "roveMotorControlTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveHardwareAbstraction.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveStructTransfer.pp" "roveIncludes/roveWareSource/roveStructs.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
+rm -rf "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveComTest.obj" "roveHardwareTester.obj" "roveMotorControlTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveStructTransfer.obj" "roveIncludes/roveWareSource/roveStructs.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
+Finished clean
  
 
 **** Build Finished ****

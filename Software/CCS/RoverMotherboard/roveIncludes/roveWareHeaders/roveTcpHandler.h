@@ -31,6 +31,7 @@
 
 Void roveTcpHandler(UArg arg0, UArg arg1);
 
+Void roveTcpSender(UArg arg0, UArg arg1);
 // Network Abstraction Layer
 
 // if a function needs to access the network, it should go through this abstraction layer

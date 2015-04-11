@@ -131,7 +131,22 @@ void pwmWrite(PWM_Handle pin, int duty_microseconds){
 
 	// scale to nuetral to 1.5 uSec and resolution to 500 increments
 
-	PWM_setDuty(pin, ((duty_microseconds/2)+1500) );
+	int speed = ((duty_microseconds/4)+1500);
+
+
+				if (speed > 1750){
+
+					speed = 1700;
+
+				}//endif
+
+				if (speed < 1250){
+
+					speed = 1250;
+
+				}//endif
+
+	PWM_setDuty(pin, speed);
 
 				//System_printf("speed holds %d \n", ((duty_microseconds/2)+1500));
 				//System_flush();

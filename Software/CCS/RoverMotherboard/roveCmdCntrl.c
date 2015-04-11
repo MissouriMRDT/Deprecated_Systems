@@ -137,57 +137,66 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			// end drive motor_right_id with ASCII strings
 */
 
-			case motor_left_id:
-
-				//the left motors must be the negative of the right motors. Their phase is backwards
-
-				speed = -( ((struct motor_control_struct*)(&fromBaseMsg))->speed );
-
-							//System_printf("left speed before conversion holds %d \n", speed);
-
-				//protect from the max and min for the motorcontroller
-
-				if(speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if(speed < -999){
-
-						speed = -999;
-				}//endif
-
-				pwmWrite(motor_0, speed);
-				pwmWrite(motor_1, speed);
-				pwmWrite(motor_2, speed);
-
-			break;
-
-			// end drive motor_left_id
-
 			case motor_right_id:
 
-				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+						// TODO implement correct Jack for Motor Comm Board
 
-								//System_printf("right speed before conversion holds %d \n", speed);
+						//the left motors must be the negative of the right motors. Their phase is backwards
 
-				//protect from the max and min for the motorcontroller
+						speed = -( ( (struct motor_control_struct*)(&fromBaseMsg) )->speed );
 
-				if(speed > 999){
+						//System_printf("left speed before conversion holds %d \n", speed);
 
-					speed = 999;
-				}//endif
+						//protect from the max and min for the motorcontroller
 
-				if(speed < -999){
+						if (speed > 999){
 
-						speed = -999;
-				}//endif
+							speed = 999;
 
-				pwmWrite(motor_0, speed);
-				pwmWrite(motor_1, speed);
-				pwmWrite(motor_2, speed);
+						}//endif
 
-			break;
+						if (speed < -999){
+
+								speed = -999;
+
+						}//endif
+
+						//TODO need to go fix the pin outs instead of this quick hack for Sys Test
+
+						pwmWrite(motor_0, speed);
+						pwmWrite(motor_1, speed);
+						pwmWrite(motor_2, (-speed));
+
+					break;
+
+					case motor_left_id:
+
+						speed = ( ( (struct motor_control_struct*)(&fromBaseMsg))->speed );
+
+						//System_printf("right speed before conversion holds %d \n", speed);
+
+						//protect from the max and min for the motorcontroller
+
+						if (speed > 999){
+
+							speed = 999;
+
+						}//endif
+
+						if (speed < -999){
+
+								speed = -999;
+
+						}//endif
+
+						//TODO need to go fix the pin outs instead of this quick hack for Sys Test
+
+						pwmWrite(motor_3, (-speed));
+						pwmWrite(motor_4, speed);
+						pwmWrite(motor_5, (-speed));
+
+					break;
+
 
 			//end drive motor_right_id
 

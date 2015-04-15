@@ -316,95 +316,95 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout){
 			digitalWrite(U3_MUX_S1, HIGH);
 
 			//Write the buffer to the device
-			bytes_read = Uart_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read(uart3, buffer, bytes_to_read);
 			break;
 		case 2:
 			digitalWrite(U3_MUX_S0, LOW);
 			digitalWrite(U3_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read(uart3, buffer, bytes_to_read);
 			break;
 		case 3:
 			digitalWrite(U3_MUX_S0, HIGH);
 			digitalWrite(U3_MUX_S1, LOW);
-			bytes_read = Uart_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read(uart3, buffer, bytes_to_read);
 			break;
 		case 4:
 			digitalWrite(U6_MUX_S0, LOW);
 			digitalWrite(U6_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read(uart6, buffer, bytes_to_read);
 			break;
 		case 5:
 			digitalWrite(U6_MUX_S0, HIGH);
 			digitalWrite(U6_MUX_S1, LOW);
-			bytes_read = Uart_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read(uart6, buffer, bytes_to_read);
 			break;
 		case 6:
 			digitalWrite(U7_MUX_S0, HIGH);
 			digitalWrite(U7_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read(uart7, buffer, bytes_to_read);
 			break;
 		case 7:
 			digitalWrite(U7_MUX_S0, LOW);
 			digitalWrite(U7_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read(uart7, buffer, bytes_to_read);
 			break;
 		case 8:
 			digitalWrite(U7_MUX_S0, HIGH);
 			digitalWrite(U7_MUX_S1, LOW);
-			bytes_read = Uart_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read(uart7, buffer, bytes_to_read);
 			break;
 		case 9:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = Uart_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read(uart5, buffer, bytes_to_read);
 			break;
 		case 10:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read(uart5, buffer, bytes_to_read);
 			break;
 		case 11:
 			digitalWrite(U5_MUX_S0, HIGH);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = Uart_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read(uart5, buffer, bytes_to_read);
 			break;
 		case 12:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = Uart_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read(uart5, buffer, bytes_to_read);
 			break;
 		case 13:
 			digitalWrite(U5_MUX_S0, HIGH);
 			digitalWrite(U5_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read(uart5, buffer, bytes_to_read);
 			break;
 		case 14:
 			digitalWrite(U4_MUX_S0, LOW);
 			digitalWrite(U4_MUX_S1, LOW);
-			bytes_read = Uart_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read(uart4, buffer, bytes_to_read);
 			break;
 		case 15:
 			digitalWrite(U4_MUX_S0, LOW);
 			digitalWrite(U4_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read(uart4, buffer, bytes_to_read);
 			break;
 		case 16:
 			digitalWrite(U4_MUX_S0, HIGH);
 			digitalWrite(U4_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read(uart4, buffer, bytes_to_read);
 			break;
 		case 17:
 			digitalWrite(U4_MUX_S0, HIGH);
 			digitalWrite(U4_MUX_S1, LOW);
-			bytes_read = Uart_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read(uart4, buffer, bytes_to_read);
 			break;
 		case POWER_BOARD:
 			digitalWrite(U6_MUX_S0, HIGH);
 			digitalWrite(U6_MUX_S1, HIGH);
-			bytes_read = Uart_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read(uart6, buffer, bytes_to_read);
 			break;
 		case ONBOARD_ROVECOMM:
-			bytes_read = Uart_read(uart2, buffer, bytes_to_read);
+			bytes_read = UART_read(uart2, buffer, bytes_to_read);
 			break;
 		default:
 			//Tried to write to invalid device

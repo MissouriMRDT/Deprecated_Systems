@@ -60,10 +60,71 @@ uint8_t calcCheckSum(const void* my_struct, uint8_t size){
 
 }//end fnctn
 
-//bool parseStructSerial(void* out_struct, enum peripheral_devices device, char* buffer)
-//{
-//	return true;
-//}
+bool RecvSerialStructMessage(int deviceJack, char* buffer)
+{
+	uint8_t rx_len = 0;
+
+	int bytesRead = 0;
+	char receiveBuffer[40];
+
+	uint8_t garbageCount = 10; // This is used to decide how much pre-data to discard before quitting
+
+	bool startReceived = false;
+
+	if (rx_len == 0)
+	{
+		while (!startReceived)
+		{
+			bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1);
+			if (bytesRead == 1)
+			{
+				if (receiveBuffer[0] == 0x06)
+				{
+					startReceived = 1;
+				} else {
+					garbageCount--;
+					if (garbageCount <= 0)
+						return false;
+				}
+			}
+		}
+
+		if (bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1))
+		{
+			if (receiveBuffer[0] != 0x85)
+			{
+				return false;
+			} else {
+				bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1);
+				rx_len = receiveBuffer[0];
+				if (rx_len < 0)
+				{
+					return false;
+				}
+			}
+		}
+	}
+
+	if (rx_len > 0)
+	{
+		bytesRead = deviceRead(deviceJack, receiveBuffer, rx_len + 1, -1);
+		if (bytesRead != rx_len)
+			return false;
+
+		uint8_t calcCS = calcCheckSum(receiveBuffer, rx_len);
+
+		if (calcCS != receiveBuffer[rx_len])
+		{
+			// Checksum error
+			return false;
+		}
+
+		memcpy(buffer, receiveBuffer, rx_len);
+		return true;
+	}
+
+	return false;
+}
 /*
 bool recv_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device){
 

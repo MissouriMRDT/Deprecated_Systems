@@ -161,7 +161,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 						}//endif
 
-						//TODO need to go fix the pin outs instead of this quick hack for Sys Test
+						//motor_2 was wired backwards in hardware
 
 						pwmWrite(motor_0, speed);
 						pwmWrite(motor_1, speed);
@@ -190,6 +190,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 						}//endif
 
 						//TODO need to go fix the pin outs instead of this quick hack for Sys Test
+
+						//motor_4 was wired backwards in hardware
 
 						pwmWrite(motor_3, (-speed));
 						pwmWrite(motor_4, speed);

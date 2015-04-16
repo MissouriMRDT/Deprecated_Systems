@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -206,109 +206,6 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 </deviceset>
 </devicesets>
 </library>
-<library name="CCDCAMERA (1)">
-<packages>
-<package name="CCDCAMERA">
-<pad name="NC11" x="0" y="4.825" drill="0.47"/>
-<pad name="NC" x="0" y="-4.825" drill="0.47"/>
-<pad name="NC12" x="-2.54" y="4.82" drill="0.47"/>
-<pad name="NC13" x="-5.08" y="4.82" drill="0.47"/>
-<pad name="NC14" x="-7.62" y="4.82" drill="0.47"/>
-<pad name="OS" x="-10.16" y="4.82" drill="0.47"/>
-<pad name="SS" x="-12.7" y="4.82" drill="0.47"/>
-<pad name="NC6" x="12.7" y="4.82" drill="0.47"/>
-<pad name="NC7" x="10.16" y="4.82" drill="0.47"/>
-<pad name="NC8" x="7.62" y="4.82" drill="0.47"/>
-<pad name="NC9" x="5.08" y="4.82" drill="0.47"/>
-<pad name="NC10" x="2.54" y="4.82" drill="0.47"/>
-<pad name="SH" x="-2.54" y="-4.825" drill="0.47"/>
-<pad name="M" x="-5.08" y="-4.825" drill="0.47"/>
-<pad name="ICG" x="-7.62" y="-4.825" drill="0.47"/>
-<pad name="VAD" x="-10.16" y="-4.825" drill="0.47"/>
-<pad name="VDD" x="-12.7" y="-4.825" drill="0.47"/>
-<pad name="NC1" x="2.54" y="-4.825" drill="0.47"/>
-<pad name="NC2" x="5.08" y="-4.825" drill="0.47"/>
-<pad name="NC3" x="7.62" y="-4.825" drill="0.47"/>
-<pad name="NC4" x="10.16" y="-4.825" drill="0.47"/>
-<pad name="NC5" x="12.7" y="-4.825" drill="0.47"/>
-<wire x1="-20.8" y1="4.825" x2="20.8" y2="4.825" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-4.825" x2="20.8" y2="-4.825" width="0.127" layer="21"/>
-<wire x1="-20.804" y1="-4.827" x2="-20.801" y2="-4.827" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="4.8" x2="-20.8" y2="0.9" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-4.8" x2="-20.8" y2="-0.7" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-0.7" x2="-20.8" y2="0.9" width="0.127" layer="21" curve="180"/>
-<wire x1="20.8" y1="4.8" x2="20.8" y2="-4.8" width="0.127" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="CCDCAMERA">
-<wire x1="-20.32" y1="20.32" x2="-20.32" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="-20.32" y1="-10.16" x2="12.7" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-10.16" x2="12.7" y2="20.32" width="0.254" layer="94"/>
-<wire x1="12.7" y1="20.32" x2="-20.32" y2="20.32" width="0.254" layer="94"/>
-<pin name="VDD" x="-25.4" y="17.78" length="middle"/>
-<pin name="VAD" x="-25.4" y="15.24" length="middle"/>
-<pin name="ICG" x="-25.4" y="12.7" length="middle"/>
-<pin name="M" x="-25.4" y="10.16" length="middle"/>
-<pin name="SH" x="-25.4" y="7.62" length="middle"/>
-<pin name="NC" x="-25.4" y="5.08" length="middle"/>
-<pin name="NC1" x="-25.4" y="2.54" length="middle"/>
-<pin name="NC2" x="-25.4" y="0" length="middle"/>
-<pin name="NC3" x="-25.4" y="-2.54" length="middle"/>
-<pin name="NC4" x="-25.4" y="-5.08" length="middle"/>
-<pin name="NC5" x="-25.4" y="-7.62" length="middle"/>
-<pin name="NC6" x="17.78" y="-7.62" length="middle" rot="R180"/>
-<pin name="NC7" x="17.78" y="-5.08" length="middle" rot="R180"/>
-<pin name="NC8" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<pin name="NC9" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="NC10" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="NC11" x="17.78" y="5.08" length="middle" rot="R180"/>
-<pin name="NC12" x="17.78" y="7.62" length="middle" rot="R180"/>
-<pin name="NC13" x="17.78" y="10.16" length="middle" rot="R180"/>
-<pin name="NC14" x="17.78" y="12.7" length="middle" rot="R180"/>
-<pin name="OS" x="17.78" y="15.24" length="middle" rot="R180"/>
-<pin name="SS" x="17.78" y="17.78" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="CCDCAMERA">
-<gates>
-<gate name="G$1" symbol="CCDCAMERA" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="CCDCAMERA">
-<connects>
-<connect gate="G$1" pin="ICG" pad="ICG"/>
-<connect gate="G$1" pin="M" pad="M"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
-<connect gate="G$1" pin="NC1" pad="NC1"/>
-<connect gate="G$1" pin="NC10" pad="NC10"/>
-<connect gate="G$1" pin="NC11" pad="NC11"/>
-<connect gate="G$1" pin="NC12" pad="NC12"/>
-<connect gate="G$1" pin="NC13" pad="NC13"/>
-<connect gate="G$1" pin="NC14" pad="NC14"/>
-<connect gate="G$1" pin="NC2" pad="NC2"/>
-<connect gate="G$1" pin="NC3" pad="NC3"/>
-<connect gate="G$1" pin="NC4" pad="NC4"/>
-<connect gate="G$1" pin="NC5" pad="NC5"/>
-<connect gate="G$1" pin="NC6" pad="NC6"/>
-<connect gate="G$1" pin="NC7" pad="NC7"/>
-<connect gate="G$1" pin="NC8" pad="NC8"/>
-<connect gate="G$1" pin="NC9" pad="NC9"/>
-<connect gate="G$1" pin="OS" pad="OS"/>
-<connect gate="G$1" pin="SH" pad="SH"/>
-<connect gate="G$1" pin="SS" pad="SS"/>
-<connect gate="G$1" pin="VAD" pad="VAD"/>
-<connect gate="G$1" pin="VDD" pad="VDD"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SCIENCE_BOARD">
 <packages>
 <package name="SOT23-BEC">
@@ -347,6 +244,38 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <wire x1="-2.65" y1="-4.3" x2="-2.65" y2="4.3" width="0.127" layer="21"/>
 <wire x1="-2.65" y1="4.3" x2="0" y2="4.3" width="0.127" layer="21"/>
 </package>
+<package name="CCDCAMERA">
+<pad name="NC11" x="0" y="4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC" x="0" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC12" x="-2.54" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC13" x="-5.08" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC14" x="-7.62" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="OS" x="-10.16" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="SS" x="-12.7" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC6" x="12.7" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC7" x="10.16" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC8" x="7.62" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC9" x="5.08" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC10" x="2.54" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="SH" x="-2.54" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="M" x="-5.08" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="ICG" x="-7.62" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="VAD" x="-10.16" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="VDD" x="-12.7" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC1" x="2.54" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC2" x="5.08" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC3" x="7.62" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC4" x="10.16" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC5" x="12.7" y="-4.825" drill="1.016" diameter="1.905"/>
+<wire x1="-20.8" y1="4.825" x2="20.8" y2="4.825" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-4.825" x2="20.8" y2="-4.825" width="0.127" layer="21"/>
+<wire x1="-20.804" y1="-4.827" x2="-20.801" y2="-4.827" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="4.8" x2="-20.8" y2="0.9" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-4.8" x2="-20.8" y2="-0.7" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-0.7" x2="-20.8" y2="0.9" width="0.127" layer="21" curve="180"/>
+<wire x1="20.8" y1="4.8" x2="20.8" y2="-4.8" width="0.127" layer="21"/>
+<pad name="OS1" x="-10.16" y="4.82" drill="1.016" diameter="1.905"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TRANSISTOR">
@@ -377,6 +306,34 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <wire x1="7.62" y1="12.7" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-7.62" x2="-7.62" y2="12.7" width="0.254" layer="94"/>
+</symbol>
+<symbol name="CCDCAMERA">
+<wire x1="-20.32" y1="20.32" x2="-20.32" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-10.16" x2="12.7" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-10.16" x2="12.7" y2="20.32" width="0.254" layer="94"/>
+<wire x1="12.7" y1="20.32" x2="-20.32" y2="20.32" width="0.254" layer="94"/>
+<pin name="VDD" x="-25.4" y="17.78" length="middle"/>
+<pin name="VAD" x="-25.4" y="15.24" length="middle"/>
+<pin name="ICG" x="-25.4" y="12.7" length="middle"/>
+<pin name="M" x="-25.4" y="10.16" length="middle"/>
+<pin name="SH" x="-25.4" y="7.62" length="middle"/>
+<pin name="NC" x="-25.4" y="5.08" length="middle"/>
+<pin name="NC1" x="-25.4" y="2.54" length="middle"/>
+<pin name="NC2" x="-25.4" y="0" length="middle"/>
+<pin name="NC3" x="-25.4" y="-2.54" length="middle"/>
+<pin name="NC4" x="-25.4" y="-5.08" length="middle"/>
+<pin name="NC5" x="-25.4" y="-7.62" length="middle"/>
+<pin name="NC6" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="NC7" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<pin name="NC8" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="NC9" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="NC10" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="NC11" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="NC12" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="NC13" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="NC14" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="OS" x="17.78" y="15.24" length="middle" rot="R180"/>
+<pin name="SS" x="17.78" y="17.78" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -418,6 +375,42 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <connect gate="G$1" pin="Y4" pad="Y4"/>
 <connect gate="G$1" pin="Y5" pad="Y5"/>
 <connect gate="G$1" pin="Y6" pad="Y6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CCDCAMERA">
+<gates>
+<gate name="G$1" symbol="CCDCAMERA" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CCDCAMERA">
+<connects>
+<connect gate="G$1" pin="ICG" pad="ICG"/>
+<connect gate="G$1" pin="M" pad="M"/>
+<connect gate="G$1" pin="NC" pad="NC"/>
+<connect gate="G$1" pin="NC1" pad="NC1"/>
+<connect gate="G$1" pin="NC10" pad="NC10"/>
+<connect gate="G$1" pin="NC11" pad="NC11"/>
+<connect gate="G$1" pin="NC12" pad="NC12"/>
+<connect gate="G$1" pin="NC13" pad="NC13"/>
+<connect gate="G$1" pin="NC14" pad="NC14"/>
+<connect gate="G$1" pin="NC2" pad="NC2"/>
+<connect gate="G$1" pin="NC3" pad="NC3"/>
+<connect gate="G$1" pin="NC4" pad="NC4"/>
+<connect gate="G$1" pin="NC5" pad="NC5"/>
+<connect gate="G$1" pin="NC6" pad="NC6"/>
+<connect gate="G$1" pin="NC7" pad="NC7"/>
+<connect gate="G$1" pin="NC8" pad="NC8"/>
+<connect gate="G$1" pin="NC9" pad="NC9"/>
+<connect gate="G$1" pin="OS" pad="OS"/>
+<connect gate="G$1" pin="SH" pad="SH"/>
+<connect gate="G$1" pin="SS" pad="SS"/>
+<connect gate="G$1" pin="VAD" pad="VAD"/>
+<connect gate="G$1" pin="VDD" pad="VDD"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2265,7 +2258,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="U$2" library="CCDCAMERA (1)" deviceset="CCDCAMERA" device=""/>
+<part name="U$2" library="SCIENCE_BOARD" deviceset="CCDCAMERA" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$1" library="SCIENCE_BOARD" deviceset="TRANSISTOR" device=""/>

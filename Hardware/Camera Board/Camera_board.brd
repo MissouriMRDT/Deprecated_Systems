@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -153,41 +153,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="CCDCAMERA (1)">
-<packages>
-<package name="CCDCAMERA">
-<pad name="NC11" x="0" y="4.825" drill="0.47"/>
-<pad name="NC" x="0" y="-4.825" drill="0.47"/>
-<pad name="NC12" x="-2.54" y="4.82" drill="0.47"/>
-<pad name="NC13" x="-5.08" y="4.82" drill="0.47"/>
-<pad name="NC14" x="-7.62" y="4.82" drill="0.47"/>
-<pad name="OS" x="-10.16" y="4.82" drill="0.47"/>
-<pad name="SS" x="-12.7" y="4.82" drill="0.47"/>
-<pad name="NC6" x="12.7" y="4.82" drill="0.47"/>
-<pad name="NC7" x="10.16" y="4.82" drill="0.47"/>
-<pad name="NC8" x="7.62" y="4.82" drill="0.47"/>
-<pad name="NC9" x="5.08" y="4.82" drill="0.47"/>
-<pad name="NC10" x="2.54" y="4.82" drill="0.47"/>
-<pad name="SH" x="-2.54" y="-4.825" drill="0.47"/>
-<pad name="M" x="-5.08" y="-4.825" drill="0.47"/>
-<pad name="ICG" x="-7.62" y="-4.825" drill="0.47"/>
-<pad name="VAD" x="-10.16" y="-4.825" drill="0.47"/>
-<pad name="VDD" x="-12.7" y="-4.825" drill="0.47"/>
-<pad name="NC1" x="2.54" y="-4.825" drill="0.47"/>
-<pad name="NC2" x="5.08" y="-4.825" drill="0.47"/>
-<pad name="NC3" x="7.62" y="-4.825" drill="0.47"/>
-<pad name="NC4" x="10.16" y="-4.825" drill="0.47"/>
-<pad name="NC5" x="12.7" y="-4.825" drill="0.47"/>
-<wire x1="-20.8" y1="4.825" x2="20.8" y2="4.825" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-4.825" x2="20.8" y2="-4.825" width="0.127" layer="21"/>
-<wire x1="-20.804" y1="-4.827" x2="-20.801" y2="-4.827" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="4.8" x2="-20.8" y2="0.9" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-4.8" x2="-20.8" y2="-0.7" width="0.127" layer="21"/>
-<wire x1="-20.8" y1="-0.7" x2="-20.8" y2="0.9" width="0.127" layer="21" curve="180"/>
-<wire x1="20.8" y1="4.8" x2="20.8" y2="-4.8" width="0.127" layer="21"/>
-</package>
-</packages>
-</library>
 <library name="SCIENCE_BOARD">
 <packages>
 <package name="SOT23-BEC">
@@ -225,6 +190,38 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="2.65" y1="-4.3" x2="-2.65" y2="-4.3" width="0.127" layer="21"/>
 <wire x1="-2.65" y1="-4.3" x2="-2.65" y2="4.3" width="0.127" layer="21"/>
 <wire x1="-2.65" y1="4.3" x2="0" y2="4.3" width="0.127" layer="21"/>
+</package>
+<package name="CCDCAMERA">
+<pad name="NC11" x="0" y="4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC" x="0" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC12" x="-2.54" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC13" x="-5.08" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC14" x="-7.62" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="OS" x="-10.16" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="SS" x="-12.7" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC6" x="12.7" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC7" x="10.16" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC8" x="7.62" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC9" x="5.08" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="NC10" x="2.54" y="4.82" drill="1.016" diameter="1.905"/>
+<pad name="SH" x="-2.54" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="M" x="-5.08" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="ICG" x="-7.62" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="VAD" x="-10.16" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="VDD" x="-12.7" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC1" x="2.54" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC2" x="5.08" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC3" x="7.62" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC4" x="10.16" y="-4.825" drill="1.016" diameter="1.905"/>
+<pad name="NC5" x="12.7" y="-4.825" drill="1.016" diameter="1.905"/>
+<wire x1="-20.8" y1="4.825" x2="20.8" y2="4.825" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-4.825" x2="20.8" y2="-4.825" width="0.127" layer="21"/>
+<wire x1="-20.804" y1="-4.827" x2="-20.801" y2="-4.827" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="4.8" x2="-20.8" y2="0.9" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-4.8" x2="-20.8" y2="-0.7" width="0.127" layer="21"/>
+<wire x1="-20.8" y1="-0.7" x2="-20.8" y2="0.9" width="0.127" layer="21" curve="180"/>
+<wire x1="20.8" y1="4.8" x2="20.8" y2="-4.8" width="0.127" layer="21"/>
+<pad name="OS1" x="-10.16" y="4.82" drill="1.016" diameter="1.905"/>
 </package>
 </packages>
 </library>
@@ -498,7 +495,7 @@ design rules under a new name.</description>
 <element name="S2" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="39.37" y="19.05"/>
 <element name="S3" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="3.81" y="19.05"/>
 <element name="S4" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="3.81" y="3.81"/>
-<element name="U$2" library="CCDCAMERA (1)" package="CCDCAMERA" value="CCDCAMERA" x="21.59" y="11.43"/>
+<element name="U$2" library="SCIENCE_BOARD" package="CCDCAMERA" value="CCDCAMERA" x="21.59" y="11.43"/>
 <element name="U$1" library="SCIENCE_BOARD" package="SOT23-BEC" value="TRANSISTOR" x="27.178" y="10.16" rot="MR180"/>
 <element name="U$3" library="SCIENCE_BOARD" package="CMOS_HEX_INVERTER" value="CMOS_HEX_INVERTER" x="15.24" y="11.43" rot="MR270"/>
 <element name="C1" library="SparkFun-Capacitors" package="1206" value="0.1uF" x="7.62" y="10.16" rot="MR180"/>

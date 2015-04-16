@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11517,6 +11517,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <part name="U$1" library="New" deviceset="8POS_LOGIC" device=""/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="2N7002PW" value="2N7002PW"/>
+<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="2N7002PW" value="2N7002PW"/>
+<part name="SUPPLY7" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
+<part name="SUPPLY8" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
+<part name="SUPPLY9" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
+<part name="SUPPLY10" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11559,17 +11565,17 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <instance part="Q9" gate="G$1" x="27.94" y="5.08"/>
 <instance part="GND11" gate="1" x="27.94" y="-2.54"/>
 <instance part="JP3" gate="G$1" x="-129.54" y="60.96"/>
-<instance part="R7" gate="G$1" x="-111.76" y="60.96" rot="R270"/>
+<instance part="R7" gate="G$1" x="-111.76" y="71.12" rot="R90"/>
 <instance part="GND44" gate="1" x="-111.76" y="50.8"/>
-<instance part="JP1" gate="G$1" x="-129.54" y="106.68"/>
-<instance part="R8" gate="G$1" x="-111.76" y="106.68" rot="R270"/>
-<instance part="GND12" gate="1" x="-111.76" y="96.52"/>
-<instance part="JP2" gate="G$1" x="-129.54" y="83.82"/>
-<instance part="R9" gate="G$1" x="-111.76" y="83.82" rot="R270"/>
-<instance part="GND15" gate="1" x="-111.76" y="73.66"/>
-<instance part="BUZZER_2" gate="G$1" x="-101.6" y="-109.22" rot="R180"/>
-<instance part="BUZZER_1" gate="G$1" x="-104.14" y="-99.06"/>
-<instance part="GND45" gate="1" x="-111.76" y="-104.14" rot="R270"/>
+<instance part="JP1" gate="G$1" x="-190.5" y="66.04"/>
+<instance part="R8" gate="G$1" x="-172.72" y="76.2" rot="R90"/>
+<instance part="GND12" gate="1" x="-172.72" y="55.88"/>
+<instance part="JP2" gate="G$1" x="-83.82" y="60.96"/>
+<instance part="R9" gate="G$1" x="-66.04" y="71.12" rot="R90"/>
+<instance part="GND15" gate="1" x="-66.04" y="50.8"/>
+<instance part="BUZZER_2" gate="G$1" x="-124.46" y="-101.6" rot="R90"/>
+<instance part="BUZZER_1" gate="G$1" x="-109.22" y="-99.06" rot="R270"/>
+<instance part="GND45" gate="1" x="-119.38" y="-152.4"/>
 <instance part="U$10" gate="G$1" x="149.86" y="-101.6"/>
 <instance part="C1" gate="G$1" x="190.5" y="-111.76"/>
 <instance part="GND8" gate="1" x="190.5" y="-119.38"/>
@@ -11607,6 +11613,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <instance part="U$1" gate="G$1" x="-10.16" y="91.44"/>
 <instance part="GND6" gate="1" x="-5.08" y="78.74"/>
 <instance part="GND7" gate="1" x="0" y="111.76"/>
+<instance part="Q1" gate="G$1" x="-127" y="-129.54"/>
+<instance part="Q2" gate="G$1" x="-106.68" y="-139.7"/>
+<instance part="SUPPLY7" gate="G$1" x="-116.84" y="-91.44"/>
+<instance part="SUPPLY8" gate="G$1" x="-66.04" y="76.2"/>
+<instance part="SUPPLY9" gate="G$1" x="-111.76" y="76.2"/>
+<instance part="SUPPLY10" gate="G$1" x="-172.72" y="81.28"/>
 </instances>
 <busses>
 </busses>
@@ -11650,6 +11662,26 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <wire x1="-15.24" y1="12.7" x2="-15.24" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="G$1" pin="5V"/>
 <wire x1="-15.24" y1="7.62" x2="-5.08" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="SUPPLY7" gate="G$1" pin="5V"/>
+<wire x1="-116.84" y1="-91.44" x2="-116.84" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="BUZZER_2" gate="G$1" pin="2"/>
+<wire x1="-116.84" y1="-99.06" x2="-121.92" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="BUZZER_1" gate="G$1" pin="1"/>
+<wire x1="-116.84" y1="-99.06" x2="-111.76" y2="-99.06" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="SUPPLY8" gate="G$1" pin="5V"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="SUPPLY9" gate="G$1" pin="5V"/>
+</segment>
+<segment>
+<pinref part="R8" gate="G$1" pin="2"/>
+<pinref part="SUPPLY10" gate="G$1" pin="5V"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11708,41 +11740,6 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <pinref part="GND11" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
-<pinref part="GND44" gate="1" pin="GND"/>
-<wire x1="-111.76" y1="53.34" x2="-111.76" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="60.96" x2="-119.38" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="60.96" x2="-119.38" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="55.88" x2="-111.76" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="-111.76" y1="99.06" x2="-111.76" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="106.68" x2="-119.38" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="106.68" x2="-119.38" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="101.6" x2="-111.76" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="R9" gate="G$1" pin="2"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-<wire x1="-111.76" y1="76.2" x2="-111.76" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="G$1" pin="1"/>
-<wire x1="-121.92" y1="83.82" x2="-119.38" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="83.82" x2="-119.38" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="78.74" x2="-111.76" y2="78.74" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="BUZZER_1" gate="G$1" pin="1"/>
-<wire x1="-104.14" y1="-101.6" x2="-104.14" y2="-104.14" width="0.1524" layer="91"/>
-<pinref part="GND45" gate="1" pin="GND"/>
-<pinref part="BUZZER_2" gate="G$1" pin="2"/>
-<wire x1="-104.14" y1="-106.68" x2="-104.14" y2="-104.14" width="0.1524" layer="91"/>
-<wire x1="-104.14" y1="-104.14" x2="-109.22" y2="-104.14" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
@@ -11797,6 +11794,40 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <pinref part="U$1" gate="G$1" pin="GND1"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="-5.08" y1="114.3" x2="0" y2="114.3" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="1"/>
+<wire x1="-182.88" y1="66.04" x2="-180.34" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="66.04" x2="-180.34" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="GND12" gate="1" pin="GND"/>
+<wire x1="-180.34" y1="60.96" x2="-172.72" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-172.72" y1="60.96" x2="-172.72" y2="58.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="60.96" x2="-119.38" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="60.96" x2="-119.38" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="GND44" gate="1" pin="GND"/>
+<wire x1="-119.38" y1="55.88" x2="-111.76" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-111.76" y1="55.88" x2="-111.76" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="G$1" pin="1"/>
+<wire x1="-76.2" y1="60.96" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="60.96" x2="-73.66" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+<wire x1="-73.66" y1="55.88" x2="-66.04" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="-66.04" y1="55.88" x2="-66.04" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<wire x1="-106.68" y1="-144.78" x2="-106.68" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="-106.68" y1="-147.32" x2="-119.38" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="-147.32" x2="-119.38" y2="-149.86" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="S"/>
+<wire x1="-127" y1="-134.62" x2="-127" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="-127" y1="-147.32" x2="-119.38" y2="-147.32" width="0.1524" layer="91"/>
+<pinref part="GND45" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="GATE" class="0">
@@ -12029,12 +12060,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <net name="SW_LCDWAKE" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="-121.92" y1="109.22" x2="-119.38" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-182.88" y1="68.58" x2="-180.34" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="-119.38" y1="109.22" x2="-119.38" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="111.76" x2="-111.76" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="-111.76" y1="111.76" x2="-109.22" y2="111.76" width="0.1524" layer="91"/>
-<label x="-109.22" y="111.76" size="1.27" layer="95" xref="yes"/>
+<wire x1="-180.34" y1="68.58" x2="-180.34" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="71.12" x2="-172.72" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="-172.72" y1="71.12" x2="-170.18" y2="71.12" width="0.1524" layer="91"/>
+<label x="-170.18" y="71.12" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="PD5"/>
@@ -12045,12 +12076,12 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <net name="SW_POWER" class="0">
 <segment>
 <pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="-121.92" y1="86.36" x2="-119.38" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="-76.2" y1="63.5" x2="-73.66" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="-119.38" y1="86.36" x2="-119.38" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="-119.38" y1="88.9" x2="-111.76" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="-111.76" y1="88.9" x2="-109.22" y2="88.9" width="0.1524" layer="91"/>
-<label x="-109.22" y="88.9" size="1.27" layer="95" xref="yes"/>
+<wire x1="-73.66" y1="63.5" x2="-73.66" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="66.04" x2="-66.04" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-66.04" y1="66.04" x2="-63.5" y2="66.04" width="0.1524" layer="91"/>
+<label x="-63.5" y="66.04" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <label x="-55.88" y="-10.16" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -12060,27 +12091,26 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 </net>
 <net name="BUZZ_1" class="0">
 <segment>
-<pinref part="BUZZER_1" gate="G$1" pin="2"/>
-<wire x1="-101.6" y1="-101.6" x2="-101.6" y2="-104.14" width="0.1524" layer="91"/>
-<wire x1="-101.6" y1="-104.14" x2="-93.98" y2="-104.14" width="0.1524" layer="91"/>
-<label x="-93.98" y="-104.14" size="1.27" layer="95" xref="yes"/>
+<pinref part="Q1" gate="G$1" pin="G"/>
+<wire x1="-134.62" y1="-129.54" x2="-137.16" y2="-129.54" width="0.1524" layer="91"/>
+<label x="-137.16" y="-129.54" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="A4"/>
-<wire x1="-12.7" y1="-71.12" x2="-7.62" y2="-71.12" width="0.1524" layer="91"/>
-<label x="-7.62" y="-71.12" size="1.27" layer="95" xref="yes"/>
+<pinref part="U$3" gate="G$1" pin="D10~/A10"/>
+<wire x1="-12.7" y1="-30.48" x2="-5.08" y2="-30.48" width="0.1524" layer="91"/>
+<label x="-5.08" y="-30.48" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="BUZZ_2" class="0">
 <segment>
-<wire x1="-101.6" y1="-106.68" x2="-93.98" y2="-106.68" width="0.1524" layer="91"/>
-<label x="-93.98" y="-106.68" size="1.27" layer="95" xref="yes"/>
-<pinref part="BUZZER_2" gate="G$1" pin="1"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<wire x1="-114.3" y1="-139.7" x2="-116.84" y2="-139.7" width="0.1524" layer="91"/>
+<label x="-116.84" y="-139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="A5"/>
-<wire x1="-12.7" y1="-76.2" x2="-7.62" y2="-76.2" width="0.1524" layer="91"/>
-<label x="-7.62" y="-76.2" size="1.27" layer="95" xref="yes"/>
+<pinref part="U$3" gate="G$1" pin="D9~/A9"/>
+<wire x1="-12.7" y1="-25.4" x2="-5.08" y2="-25.4" width="0.1524" layer="91"/>
+<label x="-5.08" y="-25.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$89" class="0">
@@ -12299,6 +12329,25 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <pinref part="LCD" gate="G$1" pin="3"/>
 <wire x1="-22.86" y1="17.78" x2="-7.62" y2="17.78" width="0.1524" layer="91"/>
 <label x="-7.62" y="17.78" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="BUZZER_1" gate="G$1" pin="2"/>
+<wire x1="-111.76" y1="-101.6" x2="-114.3" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="-114.3" y1="-101.6" x2="-114.3" y2="-124.46" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
+<wire x1="-114.3" y1="-124.46" x2="-106.68" y2="-124.46" width="0.1524" layer="91"/>
+<wire x1="-106.68" y1="-124.46" x2="-106.68" y2="-134.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$19" class="0">
+<segment>
+<pinref part="BUZZER_2" gate="G$1" pin="1"/>
+<wire x1="-121.92" y1="-101.6" x2="-119.38" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="-101.6" x2="-119.38" y2="-124.46" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="-124.46" x2="-127" y2="-124.46" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="D"/>
 </segment>
 </net>
 </nets>

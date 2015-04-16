@@ -30,22 +30,42 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 	const uint8_t FOREVER = 1;
 
-	//external ref the scope for global uart handles
+	struct device_telem_req deviceTelemReq;
 
-/*	extern UART_Handle uart0;
-	extern UART_Handle uart1;
-	extern UART_Handle uart2;
-	extern UART_Handle uart3;
-	extern UART_Handle uart4;
-	extern UART_Handle uart5;
-	extern UART_Handle uart6;
-	extern UART_Handle uart7;
+	int poll_telem_array_idx = 3;
+	char poll_telem_device[poll_telem_array_idx] = { robot_arm_id, bms_id, power_board_id };
 
-	TODO
+	base_station_msg_struct messageInBuffer;
 
-	Thread Signaling:
+	char messageOutBuffer[MAX_TELEM_SIZE];
 
-	Post to TCPHandler
+	int messageSize;
+
+	int i;
+
+	while(FOREVER){
+
+		for(i = 0; i < poll_telem_array_idx; i++ ){
+
+		messageSize = buildSerialStructMessage((void *)&deviceTelemReq, messageOutBuffer);
+
+											System_printf("Message Size: %d\n", messageSize);
+											System_flush();
+
+			//TODO int deviceJack = getDeviceJack(poll_telem_device[i]);
+
+			int deviceJack = ONBOARD_ROVECOMM;
+
+			deviceWrite(deviceJack, messageOutBuffer, messageSize);
+
+			while( !RecvSerialStructMessage(deviceJack, &messageInBuffer) ){
+
+			}//endwhile
+
+		}//endfor
+
+
+		Mailbox_post(toBaseStationMailbox, &messageInBuffer, BIOS_WAIT_FOREVER);
 
 	}//endwhile:	(1)
 
@@ -57,5 +77,5 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 	//exit Task
 
 	Task_exit();
-*/
+
 }//endfnctn:		roveTelemContoller() Task Thread

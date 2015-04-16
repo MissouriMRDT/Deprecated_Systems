@@ -62,7 +62,7 @@
 #define MAX_COMMAND_SIZE 30
 #define MAX_TELEM_SIZE 30
 
-// device id
+// struct id
 
 #define	onenull_device_id 111
 #define	test_device_id 99
@@ -71,6 +71,18 @@
 #define	robot_arm_id 201
 #define	gripper_id 202
 #define	drill_id 203
+#define	bms_req_id 204
+#define	power_board_id 205
+
+#define	telem_req_id 254
+
+// telem_device_id
+
+#define	robot_arm_telem__req_id 0
+#define	gripper_telem__req_id 1
+#define	drill_telem_req_id 2
+#define	bms_telem_req_id 3
+#define	power_board_telem_req_id 4
 
 // robot arm values
 

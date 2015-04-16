@@ -47,6 +47,13 @@ struct motor_control_struct{
 
 // sent from mobo to device to request identify
 
+struct device_telem_req{
+
+	uint8_t struct_id;
+	uint8_t telem_device_req_id;
+
+}__attribute__((packed));
+
 struct mobo_identify_req{
 
 	uint8_t struct_id;

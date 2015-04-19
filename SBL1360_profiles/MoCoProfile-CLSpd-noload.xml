@@ -63,7 +63,7 @@
               </Node>
               <Node Text="Pulse Safety">
                 <Nodes>
-                  <Node Text="Keep within Min/Max" Value="0">
+                  <Node Text="Keep within Min/Max" Value="1">
                     <Nodes />
                   </Node>
                 </Nodes>
@@ -379,7 +379,7 @@
               <Node Text="Capture Type" Value="1">
                 <Nodes />
               </Node>
-              <Node Text="Input Use" Value="16">
+              <Node Text="Input Use" Value="17">
                 <Nodes />
               </Node>
               <Node Text="Range" Value="">
@@ -682,7 +682,7 @@
               <Node Text="Amps Trigger (A)" Value="300">
                 <Nodes />
               </Node>
-              <Node Text="Amps Trigger Action" Value="16">
+              <Node Text="Amps Trigger Action" Value="48">
                 <Nodes />
               </Node>
               <Node Text="Amps Trigger Delay (ms)" Value="1500">

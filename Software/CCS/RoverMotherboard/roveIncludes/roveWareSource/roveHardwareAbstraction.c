@@ -10,6 +10,55 @@
 
 #include "../roveWareHeaders/roveHardwareAbstraction.h"
 
+//TODO Configure Patch Panel Jacks to Physical Devices (In Hardware FIRST)
+
+int getDeviceJack(int device){
+
+	switch(device){
+		case 0:
+				//Tried to get jack for an null device
+				System_printf("getDeviceJack passed null device %d\n", device);
+				System_flush();
+			return;
+
+		case test_device_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case motor_left_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case motor_right_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case robot_arm_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case drill_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case bms_id:
+
+			return ONBOARD_ROVECOMM;
+
+		case power_board_id:
+
+			return POWER_BOARD;
+
+		default:
+				//Tried to get jack for an \ invalid device
+				System_printf("getDeviceJack passed invalid device %d\n", device);
+				System_flush();
+			return;
+
+	}//endswitch (device)
+
+}//endfnctn deviceJack
+
 void pinMode(int pin, int mode){
 
 	//No idea how to start this one
@@ -56,7 +105,11 @@ void digitalWrite(int pin, int val){
 			case U7_MUX_S1 :
 				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (0));
 				break;
-
+			default:
+						//Tried to write to invalid device
+						System_printf("DigitalWrite passed invalid pin %d\n", pin);
+						System_flush();
+				return;
 		}//endswitch
 
 	}else if (val == HIGH){
@@ -93,6 +146,11 @@ void digitalWrite(int pin, int val){
 			case U7_MUX_S1 :
 				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (~0));
 				break;
+			default:
+						//Tried to write to invalid device
+						System_printf("DigitalWrite passed invalid pin %d\n", pin);
+						System_flush();
+					return;
 
 		}//endswitch
 

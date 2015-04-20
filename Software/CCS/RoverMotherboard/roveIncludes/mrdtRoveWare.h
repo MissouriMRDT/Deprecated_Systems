@@ -15,6 +15,83 @@
 #ifndef MRDTROVEWARE_H_
 #define MRDTROVEWARE_H_
 
+// jump table needs sequential integers for compiler to optimize switch statements run in O(1)
+// any non consecutive integer #defines will revert to if-else-else that runs in O(n)
+
+// hardware parameters
+
+// mux select line pins
+
+// U3_MUX_S0 PH0
+// U3_MUX_S1 PH1
+// U4_MUX_S0 PM6
+// U4_MUX_S1 PM7
+// U5_MUX_S0 PL0
+// U5_MUX_S1 PL1
+// U6_MUX_S0 PK2
+// U6_MUX_S1 PK3
+// U7_MUX_S0 PE0
+// U7_MUX_S1 PE1
+
+#define U3_MUX_S0 0
+#define U3_MUX_S1 1
+#define U4_MUX_S0 2
+#define U4_MUX_S1 3
+#define U5_MUX_S0 4
+#define U5_MUX_S1 5
+#define U6_MUX_S0 6
+#define U6_MUX_S1 7
+#define U7_MUX_S0 8
+#define U7_MUX_S1 9
+
+// uarts
+
+// Uart pins:
+// U2RX PA6
+// U2TX PA7
+// U3RX PA4
+// U3TX PA5
+// U4RX PK0
+// U4TX PK1
+// U5RX PC6
+// U5TX PC7
+// U6RX PP0
+// U6TX PP1
+// U7RX PC4
+// U7TX PC5
+
+#define U2RX uart2
+#define U2TX uart2
+#define U3RX uart3
+#define U3TX uart3
+#define U4RX uart4
+#define U4TX uart4
+#define U5RX uart5
+#define U5TX uart5
+#define U6RX uart6
+#define U6TX uart6
+#define U7RX uart7
+#define U7TX uart7
+
+// special devices
+
+#define POWER_BOARD 18
+#define ONBOARD_ROVECOMM 19
+
+// PWM Lines init as handles
+
+// MOTOR_0 PF1
+// MOTOR_1 PF2
+// MOTOR_2 PF3
+// MOTOR_3 PG0
+// MOTOR_4 PG1
+// MOTOR_5 PK4
+//
+// Extra unused pwm capable pins
+// PK5
+// PM0
+// PM6
+
 // Network Parameters
 
 // tcp ip socket flags
@@ -64,22 +141,21 @@
 
 // struct id
 
-#define	onenull_device_id 111
 #define	test_device_id 99
 #define	motor_left_id 100
 #define	motor_right_id 101
 #define	robot_arm_id 201
 #define	gripper_id 202
 #define	drill_id 203
-#define	bms_req_id 204
+#define	bms_id 204
 #define	power_board_id 205
 
 #define	telem_req_id 254
 
 // telem_device_id
 
-#define	robot_arm_telem__req_id 0
-#define	gripper_telem__req_id 1
+#define	robot_arm_telem_req_id 0
+#define	gripper_telem_req_id 1
 #define	drill_telem_req_id 2
 #define	bms_telem_req_id 3
 #define	power_board_telem_req_id 4
@@ -133,17 +209,13 @@
 
 #include "roveWareHeaders/roveStructTransfer.h"
 
-//MRDesign Team:: 	roveWare::		roveCom pinMap :: contains the mappings for shield pin outs to mob jacks
-
-#include "roveWareHeaders/rovePinMap.h"
-
 //MRDesign Team:: 	roveWare::		roveCom pinMap :: contains the wrappers for the TI hardware resources
 
 #include "roveWareHeaders/roveHardwareAbstraction.h"
 
 //MRDesign Team:: 	roveWare::		roveNet convert json to and from roveCom formatting
 
-//#include "json.h"
+#include "roveWareHeaders/roveJson.h"
 
 //DON'T INCLUDE SYS BIOS THREADS in ROVEWARE:
 

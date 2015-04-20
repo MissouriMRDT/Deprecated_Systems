@@ -2,6 +2,12 @@
 **** Clean-only build of configuration Debug for project RoverMotherboard ****
 
 /opt/ti/ccsv6/utils/bin/gmake -k clean 
-gmake: *** No rule to make target `clean'.
+cleaning ../src/sysbios ...
+rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
+rm -rf  "configPkg/" 
+rm -rf "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveComTest.pp" "roveHardwareTester.pp" "roveMotorControlTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveHardwareAbstraction.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveStructTransfer.pp" "roveIncludes/roveWareSource/roveStructs.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
+rm -rf "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveComTest.obj" "roveHardwareTester.obj" "roveMotorControlTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveStructTransfer.obj" "roveIncludes/roveWareSource/roveStructs.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
+Finished clean
+ 
 
 **** Build Finished ****

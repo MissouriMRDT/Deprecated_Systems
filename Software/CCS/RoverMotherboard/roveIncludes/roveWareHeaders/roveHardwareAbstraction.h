@@ -18,6 +18,10 @@
 
 //HARDWARE ABSTRACTION FUNCTIONS
 
+//pass a device struct id (#define from mrdtRoveWare.h) as an int, and returns the rs485 jack as an int
+
+int getDeviceJack(int device);
+
 // pinMode sets a pin to be input or output.
 // inputs:
 // 	pin - name of the pin. Can be found in rovePinMap.h or the eagle file

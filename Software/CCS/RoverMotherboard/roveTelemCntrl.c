@@ -32,8 +32,11 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 	struct device_telem_req deviceTelemReq;
 
-	int poll_telem_array_idx = 3;
-	char poll_telem_device[poll_telem_array_idx] = { robot_arm_id, bms_id, power_board_id };
+	int poll_telem_array_idx = 2;
+	char poll_telem_device[poll_telem_array_idx];
+
+	poll_telem_device[0] = bms_id;
+	poll_telem_device[1] = power_board_id;
 
 	base_station_msg_struct messageInBuffer;
 
@@ -47,25 +50,27 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 
 		for(i = 0; i < poll_telem_array_idx; i++ ){
 
+		int deviceJack = getDeviceJack(poll_telem_device[i]);
+
+		//populate device id into the telem request
+
+		deviceTelemReq.struct_id = telem_req_id;
+		deviceTelemReq.telem_device_req_id = poll_telem_device[i];
+
 		messageSize = buildSerialStructMessage((void *)&deviceTelemReq, messageOutBuffer);
 
 											System_printf("Message Size: %d\n", messageSize);
 											System_flush();
 
-			//TODO int deviceJack = getDeviceJack(poll_telem_device[i]);
-
-			int deviceJack = ONBOARD_ROVECOMM;
-
 			deviceWrite(deviceJack, messageOutBuffer, messageSize);
 
-			while( !RecvSerialStructMessage(deviceJack, &messageInBuffer) ){
+			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
 
-			}//endwhile
+			while( !RecvSerialStructMessage(deviceJack, &messageInBuffer) );
+
+			Mailbox_post(toBaseStationMailbox, &messageInBuffer, BIOS_WAIT_FOREVER);
 
 		}//endfor
-
-
-		Mailbox_post(toBaseStationMailbox, &messageInBuffer, BIOS_WAIT_FOREVER);
 
 	}//endwhile:	(1)
 

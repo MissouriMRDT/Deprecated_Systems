@@ -180,6 +180,9 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 		//Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
 		if(Mailbox_pend(toBaseStationMailbox, &toBaseTelem, SEND_KEEPALIVE_DELAY_TICKS))
 		{
+
+			System_printf("Passed the Pend in TCP!! Success!!!\n");
+			System_flush();
 			roveSend(&RED_socket, toBaseTelem.value, getStructSize(toBaseTelem.id));
 
 		} else //Nothing to go out

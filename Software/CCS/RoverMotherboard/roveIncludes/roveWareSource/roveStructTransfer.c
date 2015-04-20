@@ -71,23 +71,39 @@ bool RecvSerialStructMessage(int deviceJack, char* buffer)
 
 	bool startReceived = false;
 
-	if (rx_len == 0)
-	{
-		while (!startReceived)
-		{
+	//testing
+
+	int debug_rx_cnt = 0;
+
+	if (rx_len == 0){
+
+		while (!startReceived){
+
 			bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1);
-			if (bytesRead == 1)
-			{
-				if (receiveBuffer[0] == 0x06)
-				{
+
+			if (bytesRead == 1){
+
+				if (receiveBuffer[0] == 0x06){
+
 					startReceived = 1;
-				} else {
+
+				}else{
+
 					garbageCount--;
+
 					if (garbageCount <= 0)
 						return false;
-				}
-			}
-		}
+
+				}//endif
+
+			}//endif
+
+			debug_rx_cnt++;
+
+		}//endwhile
+
+		System_printf("Looped through the rx debug_rx_cnt: %d\n", debug_rx_cnt);
+		System_flush();
 
 		if (bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1))
 		{
@@ -100,10 +116,15 @@ bool RecvSerialStructMessage(int deviceJack, char* buffer)
 				if (rx_len < 0)
 				{
 					return false;
-				}
-			}
-		}
-	}
+				}//endif
+			}//endif
+
+		}//endif
+
+		System_printf("bytesRead: %d\n", bytesRead);
+		System_flush();
+
+	}//end if (rx_len == 0)
 
 	if (rx_len > 0)
 	{

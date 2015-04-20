@@ -57,16 +57,25 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 		deviceTelemReq.struct_id = telem_req_id;
 		deviceTelemReq.telem_device_req_id = poll_telem_device[i];
 
+		System_printf("Telem Entering build Serial\n");
+		System_flush();
+
 		messageSize = buildSerialStructMessage((void *)&deviceTelemReq, messageOutBuffer);
 
-											System_printf("Message Size: %d\n", messageSize);
-											System_flush();
+			System_printf("Message Size: %d\n", messageSize);
+			System_flush();
 
 			deviceWrite(deviceJack, messageOutBuffer, messageSize);
 
 			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
 
 			while( !RecvSerialStructMessage(deviceJack, &messageInBuffer) );
+
+			System_printf("Struct_id: %d\n", &(messageInBuffer.id) );
+			System_flush();
+
+			System_printf("Value: %d\n", &(messageInBuffer.value[0]) );
+			System_flush();
 
 			Mailbox_post(toBaseStationMailbox, &messageInBuffer, BIOS_WAIT_FOREVER);
 

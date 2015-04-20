@@ -19,7 +19,7 @@ int getDeviceJack(int device){
 				//Tried to get jack for an null device
 				System_printf("getDeviceJack passed null device %d\n", device);
 				System_flush();
-			return;
+			return -1;
 
 		case test_device_id:
 
@@ -47,13 +47,15 @@ int getDeviceJack(int device){
 
 		case power_board_id:
 
-			return POWER_BOARD;
+			//return POWER_BOARD;
+
+			return ONBOARD_ROVECOMM;
 
 		default:
 				//Tried to get jack for an \ invalid device
 				System_printf("getDeviceJack passed invalid device %d\n", device);
 				System_flush();
-			return;
+			return -1;
 
 	}//endswitch (device)
 

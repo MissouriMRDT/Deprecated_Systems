@@ -202,6 +202,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			//end drive motor_right_id
 
+/*
 			case robot_arm_id:
 
 				//base sends a single value int that we switch on to build the arm struct
@@ -365,6 +366,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 				i++;
 
 				}//end for
+*/
 
 			break;
 

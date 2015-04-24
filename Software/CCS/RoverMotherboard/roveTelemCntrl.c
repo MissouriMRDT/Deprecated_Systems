@@ -35,8 +35,8 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 	int poll_telem_array_idx = 2;
 	char poll_telem_device[poll_telem_array_idx];
 
-	poll_telem_device[0] = bms_id;
-	poll_telem_device[1] = power_board_id;
+//	poll_telem_device[0] = bms_id;
+//	poll_telem_device[1] = power_board_id;
 
 	base_station_msg_struct messageInBuffer;
 

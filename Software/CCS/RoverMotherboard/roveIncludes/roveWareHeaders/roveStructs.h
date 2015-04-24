@@ -140,6 +140,28 @@ struct drill_command{
 
 }__attribute__((packed));
 
+
+struct bms_emergency_stop_command
+{
+	uint8_t struct_id;
+};
+
+struct power_board_command
+{
+	uint8_t struct_id;
+	uint8_t commmand[2];
+}__attribute__((packed));
+
+struct power_board_bms_telem
+{
+	uint8_t struct_id;
+	float value;
+};
+
+
+
+
+
 // this struct should only be used for type casting as it does not have a corresponding id
 
 // may not work with non void pointer casts

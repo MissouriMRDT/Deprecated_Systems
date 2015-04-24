@@ -29,27 +29,11 @@ int getDeviceJack(int device){
 
 			return ONBOARD_ROVECOMM;
 
-		case motor_right_id:
-
+		case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:
 			return ONBOARD_ROVECOMM;
 
-		case robot_arm_id:
-
-			return ONBOARD_ROVECOMM;
-
-		case drill_id:
-
-			return ONBOARD_ROVECOMM;
-
-		case bms_id:
-
-			return ONBOARD_ROVECOMM;
-
-		case power_board_id:
-
-			//return POWER_BOARD;
-
-			return ONBOARD_ROVECOMM;
+		case power_board_command_id ... power_board_telem_main_battery_voltage_id:
+			return POWER_BOARD;
 
 		default:
 				//Tried to get jack for an \ invalid device

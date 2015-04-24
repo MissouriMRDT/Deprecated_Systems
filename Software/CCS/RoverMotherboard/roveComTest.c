@@ -18,7 +18,7 @@ void roveComTest(UArg arg0, UArg arg1){
 
 		Task_sleep(5000);
 
-		robotArmStruct.struct_id = robot_arm_id;
+//		robotArmStruct.struct_id = robot_arm_id;
 		robotArmStruct.reset = 0;
 		robotArmStruct.wristUp = 1;
 		robotArmStruct.wristDown = 2;

@@ -23,17 +23,21 @@ int getStructSize(char structId){
 
 			return sizeof(struct motor_control_struct);
 
-	case (char)robot_arm_id:
+	case bms_emergency_stop_command_id:
 
-			return sizeof(struct robot_arm_command);
+		return sizeof(struct bms_emergency_stop_command);
 
-	case (char)gripper_id:
+	case bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
 
-			return sizeof(struct gripper_command);
+		return sizeof(struct power_board_bms_telem);
 
-	case (char)drill_id:
+	case power_board_command_id:
 
-			return sizeof(struct drill_command);
+		return sizeof(struct power_board_command);
+
+	case power_board_telem_motor1_current_id ... power_board_telem_main_battery_voltage_id:
+
+		return sizeof(struct power_board_bms_telem);
 
 	}//endswitch:		(structId)
 

@@ -52,7 +52,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 			((struct power_board_bms_telem*)(&toBaseMessage))->value = 4.2;
 
 			System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-			System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+			System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 			System_flush();
 
 			Mailbox_post(toBaseStationMailbox, &toBaseMessage, BIOS_WAIT_FOREVER);
@@ -69,7 +69,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 			((struct power_board_bms_telem*)(&toBaseMessage))->value = 2.7356;
 
 			System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-			System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+			System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 			System_flush();
 
 			Mailbox_post(toBaseStationMailbox, &toBaseMessage, BIOS_WAIT_FOREVER);
@@ -86,7 +86,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 		((struct power_board_bms_telem*)(&toBaseMessage))->value = 33.6;
 
 		System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-		System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+		System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 		System_flush();
 
 		Mailbox_post(toBaseStationMailbox, &toBaseMessage, BIOS_WAIT_FOREVER);
@@ -97,7 +97,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 		((struct power_board_bms_telem*)(&toBaseMessage))->value = 17.6356;
 
 		System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-		System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+		System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 		System_flush();
 
 		Mailbox_post(toBaseStationMailbox, &toBaseMessage, BIOS_WAIT_FOREVER);
@@ -110,7 +110,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 		((struct power_board_bms_telem*)(&toBaseMessage))->value = 200;
 
 		System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-		System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+		System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 		System_flush();
 
 
@@ -143,7 +143,7 @@ Void roveTcpSendTester(UArg arg0, UArg arg1){
 			ms_delay(500);
 
 			System_printf("Struct_id: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->struct_id);
-			System_printf("Value: %d\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
+			System_printf("Value: %f\n", ((struct power_board_bms_telem*)(&toBaseMessage))->value);
 			System_flush();
 
 

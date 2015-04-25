@@ -171,7 +171,7 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 	struct NetworkConnection RED_socket;
 	RED_socket.socketFileDescriptor = arg0;
 	RED_socket.isConnected = true;
-	base_station_msg_struct toBaseTelem;
+	to_base_station_msg_struct toBaseTelem;
 	//Setup
 
 	//Loop: Wait on mailbox, send keepalive otherwise
@@ -183,7 +183,15 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 
 			System_printf("Passed the Pend in TCP!! Success!!!\n");
 			System_flush();
-			roveSend(&RED_socket, toBaseTelem.value, getStructSize(toBaseTelem.id));
+
+			//Let the base station know what we're sending
+			roveSend(&RED_socket, toBaseTelem.bs_message_type, 1);
+
+			//Send the id
+			roveSend(&RED_socket, toBaseTelem.struct_id, 1);
+
+			//Send the value
+			roveSend(&RED_socket, toBaseTelem.value, getStructSize(toBaseTelem.struct_id));
 
 		} else //Nothing to go out
 		{

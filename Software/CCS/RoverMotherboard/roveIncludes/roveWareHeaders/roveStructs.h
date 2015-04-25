@@ -34,6 +34,12 @@ typedef struct base_station_msg_struct{
 
 }__attribute__((packed)) base_station_msg_struct, *base_msg;
 
+typedef struct to_base_station_msg_struct{
+	uint8_t bs_message_type;
+	uint8_t struct_id;
+	uint8_t value[MAX_TELEM_SIZE];
+}__attribute__((packed)) to_base_station_msg_struct, *to_base_msg;
+
 //normally the compiler implicitly optimizes memory allocations for member variables by padding to the nearest 32 bits
 
 //attribute__((packed)) explicitly overides this and is necessary because the TI board is 32 bit and the ATMegas are 8 bit

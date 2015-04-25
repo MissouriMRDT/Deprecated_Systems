@@ -38,4 +38,8 @@
 
 Void roveCmdCntrl(UArg arg0, UArg arg1);
 
+void roboArmPositiveWrite(int struct_id, int speed, char* output_buffer);
+
+void roboArmNegativeWrite(int struct_id, int speed, char* output_buffer);
+
 #endif //ROVECMDCNTRL_H_

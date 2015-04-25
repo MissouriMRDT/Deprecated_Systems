@@ -1,13 +1,108 @@
 
-**** Clean-only build of configuration Debug for project RoverMotherboard ****
+**** Build of configuration Debug for project RoverMotherboard ****
 
-/opt/ti/ccsv6/utils/bin/gmake -k clean 
-cleaning ../src/sysbios ...
-rm -rf  "RoverMotherboard.out"  "configPkg/linker.cmd" "configPkg/compiler.opt"  "RoverMotherboard.hex" 
-rm -rf  "configPkg/" 
-rm -rf "RoverMotherboardMain.pp" "roveCmdCntrl.pp" "roveComTest.pp" "roveHardwareTester.pp" "roveMotorControlTester.pp" "roveTcpHandler.pp" "roveTelemCntrl.pp" "roveIncludes/tiHardware/EK_TM4C1294XL.pp" "roveIncludes/roveWareSource/roveHardwareAbstraction.pp" "roveIncludes/roveWareSource/roveJson.pp" "roveIncludes/roveWareSource/roveStructTransfer.pp" "roveIncludes/roveWareSource/roveStructs.pp" "roveIncludes/roveWareSource/roveTiming.pp" "roveIncludes/roveWareSource/roveUarts.pp" 
-rm -rf "RoverMotherboardMain.obj" "roveCmdCntrl.obj" "roveComTest.obj" "roveHardwareTester.obj" "roveMotorControlTester.obj" "roveTcpHandler.obj" "roveTelemCntrl.obj" "roveIncludes/tiHardware/EK_TM4C1294XL.obj" "roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "roveIncludes/roveWareSource/roveJson.obj" "roveIncludes/roveWareSource/roveStructTransfer.obj" "roveIncludes/roveWareSource/roveStructs.obj" "roveIncludes/roveWareSource/roveTiming.obj" "roveIncludes/roveWareSource/roveUarts.obj" 
-Finished clean
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+Building file: ../RoverMotherboardMain.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="RoverMotherboardMain.pp" --cmd_file="./configPkg/compiler.opt"  "../RoverMotherboardMain.c"
+"../RoverMotherboardMain.c", line 89: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 89: warning #154-D: conversion of nonzero integer to pointer
+"../RoverMotherboardMain.c", line 94: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 94: warning #154-D: conversion of nonzero integer to pointer
+"../RoverMotherboardMain.c", line 99: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 99: warning #154-D: conversion of nonzero integer to pointer
+"../RoverMotherboardMain.c", line 104: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 104: warning #154-D: conversion of nonzero integer to pointer
+"../RoverMotherboardMain.c", line 109: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 109: warning #154-D: conversion of nonzero integer to pointer
+"../RoverMotherboardMain.c", line 114: warning #169-D: argument of type "int" is incompatible with parameter of type "PWM_Handle"
+"../RoverMotherboardMain.c", line 114: warning #154-D: conversion of nonzero integer to pointer
+Finished building: ../RoverMotherboardMain.c
+ 
+Building file: ../roveCmdCntrl.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveCmdCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveCmdCntrl.c"
+"../roveCmdCntrl.c", line 201: warning #169-D: argument of type "base_station_msg_struct *" is incompatible with parameter of type "char *"
+"../roveCmdCntrl.c", line 205: warning #169-D: argument of type "base_station_msg_struct *" is incompatible with parameter of type "char *"
+Finished building: ../roveCmdCntrl.c
+ 
+Building file: ../roveComTest.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveComTest.pp" --cmd_file="./configPkg/compiler.opt"  "../roveComTest.c"
+Finished building: ../roveComTest.c
+ 
+Building file: ../roveHardwareTester.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveHardwareTester.pp" --cmd_file="./configPkg/compiler.opt"  "../roveHardwareTester.c"
+"../roveHardwareTester.c", line 15: warning #179-D: variable "j" was declared but never referenced
+Finished building: ../roveHardwareTester.c
+ 
+Building file: ../roveMotorControlTester.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveMotorControlTester.pp" --cmd_file="./configPkg/compiler.opt"  "../roveMotorControlTester.c"
+Finished building: ../roveMotorControlTester.c
+ 
+Building file: ../roveTcpHandler.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTcpHandler.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTcpHandler.c"
+"../roveTcpHandler.c", line 27: warning #225-D: function "TaskSelf" declared implicitly
+"../roveTcpHandler.c", line 198: warning #225-D: function "TaskSelf" declared implicitly
+"../roveTcpHandler.c", line 289: warning #225-D: function "inet_pton" declared implicitly
+"../roveTcpHandler.c", line 268: warning #552-D: variable "timeout" was set but never used
+"../roveTcpHandler.c", line 347: warning #169-D: argument of type "char (*)[30]" is incompatible with parameter of type "char *"
+Finished building: ../roveTcpHandler.c
+ 
+Building file: ../roveTelemCntrl.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveTelemCntrl.pp" --cmd_file="./configPkg/compiler.opt"  "../roveTelemCntrl.c"
+"../roveTelemCntrl.c", line 72: warning #169-D: argument of type "base_station_msg_struct *" is incompatible with parameter of type "char *"
+Finished building: ../roveTelemCntrl.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveHardwareAbstraction.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveHardwareAbstraction.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveHardwareAbstraction.c"
+"../roveIncludes/roveWareSource/roveHardwareAbstraction.c", line 162: warning #169-D: argument of type "PWM_Handle" is incompatible with parameter of type "unsigned int"
+"../roveIncludes/roveWareSource/roveHardwareAbstraction.c", line 156: warning #179-D: variable "duty" was declared but never referenced
+"../roveIncludes/roveWareSource/roveHardwareAbstraction.c", line 157: warning #179-D: variable "dutyInc" was declared but never referenced
+Finished building: ../roveIncludes/roveWareSource/roveHardwareAbstraction.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveJson.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveJson.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveJson.c"
+Finished building: ../roveIncludes/roveWareSource/roveJson.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveStructTransfer.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveStructTransfer.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveStructTransfer.c"
+"../roveIncludes/roveWareSource/roveStructTransfer.c", line 116: warning #188-D: pointless comparison of unsigned integer with zero
+Finished building: ../roveIncludes/roveWareSource/roveStructTransfer.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveStructs.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveStructs.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveStructs.c"
+Finished building: ../roveIncludes/roveWareSource/roveStructs.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveTiming.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveTiming.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveTiming.c"
+"../roveIncludes/roveWareSource/roveTiming.c", line 21: warning #225-D: function "SysCtlDelay" declared implicitly
+"../roveIncludes/roveWareSource/roveTiming.c", line 21: warning #225-D: function "SysCtlClockGet" declared implicitly
+Finished building: ../roveIncludes/roveWareSource/roveTiming.c
+ 
+Building file: ../roveIncludes/roveWareSource/roveUarts.c
+Invoking: ARM Compiler
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c" --include_path="/opt/ti/tirtos_tivac_2_10_01_38/products/ndk_2_24_01_18/packages/ti/ndk/inc/bsd" -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on --preproc_with_compile --preproc_dependency="roveIncludes/roveWareSource/roveUarts.pp" --obj_directory="roveIncludes/roveWareSource" --cmd_file="./configPkg/compiler.opt"  "../roveIncludes/roveWareSource/roveUarts.c"
+Finished building: ../roveIncludes/roveWareSource/roveUarts.c
+ 
+Building target: RoverMotherboard.out
+Invoking: ARM Linker
+"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"RoverMotherboard.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="RoverMotherboard_linkInfo.xml" --rom_model -o "RoverMotherboard.out" -l"./configPkg/linker.cmd"  "./RoverMotherboardMain.obj" "./roveCmdCntrl.obj" "./roveComTest.obj" "./roveHardwareTester.obj" "./roveMotorControlTester.obj" "./roveTcpHandler.obj" "./roveTelemCntrl.obj" "./roveIncludes/tiHardware/EK_TM4C1294XL.obj" "./roveIncludes/roveWareSource/roveHardwareAbstraction.obj" "./roveIncludes/roveWareSource/roveJson.obj" "./roveIncludes/roveWareSource/roveStructTransfer.obj" "./roveIncludes/roveWareSource/roveStructs.obj" "./roveIncludes/roveWareSource/roveTiming.obj" "./roveIncludes/roveWareSource/roveUarts.obj" "../roveIncludes/tiHardware/EK_TM4C1294XL.cmd" -l"libc.a" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/driverlib/ccs/Debug/driverlib.lib" -l"/opt/ti/tirtos_tivac_2_10_01_38/products/TivaWare_C_Series-2.1.0.12573c/usblib/ccs/Debug/usblib.lib" 
+<Linking>
+Finished building target: RoverMotherboard.out
  
 
 **** Build Finished ****

@@ -171,50 +171,35 @@
 #define power_board_telem_robotarm_bus_current_id		190
 #define power_board_telem_main_battery_voltage_id		191
 
+// robot arm values
 
+//deprecated in favor of variable speed
 
+#define	robot_arm_contant_speed_id 200
 
+// clockwise is positive, counter clockwise is negative
 
-#define	telem_req_id 254
+#define wrist_clock_wise 201
+#define wrist_up 202
+#define elbow_clock_wise 203
+#define elbow_up 204
+#define actuator_forward 205
+#define base_clock_wise 206
+#define e_stop_arm 207
+
+// gripper values
+
+#define gripper_open 220
 
 // telem_device_id
+
+#define	telem_req_id 254
 
 #define	robot_arm_telem_req_id 0
 #define	gripper_telem_req_id 1
 #define	drill_telem_req_id 2
 #define	bms_telem_req_id 3
 #define	power_board_telem_req_id 4
-
-// robot arm values
-
-#define wrist_counter_clock_wise 0
-#define wrist_clock_wise 1
-#define wrist_down 2
-#define wrist_up 3
-#define elbow_counter_clock_wise 4
-#define elbow_clock_wise 5
-#define elbow_down 6
-#define elbow_up 7
-#define actuator_reverse 8
-#define actuator_forward 9
-#define base_counter_clock_wise 10
-#define base_clock_wise 11
-#define reset_arm 12
-
-//struct id
-
-/*#define blank_id_zero 0
-#define	mobo_identify_req 1
-#define	dev_identify_reply 2
-#define	mobo_begin_op_req 3
-#define	dev_begin_op_reply 4
-#define	mobo_telem_req 5
-#define	dev_command_reply 6
-#define	blank_id_seven 7
-#define	mobo_robo_arm_command 8
-#define	mobo_gripper_command 9
-#define	mobo_drill_command 10
-*/
 
 // Custom Drivers
 

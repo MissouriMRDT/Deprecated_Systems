@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;RoverMotherboard/roveCommand.h&apos; to &apos;roveCommandController.h&apos;" description="Rename resource &apos;roveCommand.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="roveCommand.h" name="roveCommandController.h" stamp="1424233154798" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;RoverMotherboard/roveCommand.c&apos; to &apos;roveCommandController.c&apos;" description="Rename resource &apos;roveCommand.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="roveCommand.c" name="roveCommandController.c" stamp="1424233166702" updateReferences="true"/>
-</session>

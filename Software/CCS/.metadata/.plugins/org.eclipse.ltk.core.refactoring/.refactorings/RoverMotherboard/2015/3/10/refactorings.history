@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;RoverMotherboard/roveIncludes/roveWareHeaders/roveHardwaretester.h&apos; to &apos;roveHardwareTester.h&apos;" description="Rename resource &apos;roveHardwaretester.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="roveIncludes/roveWareHeaders/roveHardwaretester.h" name="roveHardwareTester.h" stamp="1425405850259" updateReferences="true"/>
-</session>

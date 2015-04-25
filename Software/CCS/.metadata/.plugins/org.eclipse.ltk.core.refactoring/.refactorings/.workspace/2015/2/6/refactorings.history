@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;tcpEcho_TivaTM4C1294NCPDT&apos; to &apos;RoverMotherboard&apos;" description="Rename resource &apos;tcpEcho_TivaTM4C1294NCPDT&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/tcpEcho_TivaTM4C1294NCPDT" name="RoverMotherboard" stamp="1423010235811" updateReferences="true"/>
-</session>

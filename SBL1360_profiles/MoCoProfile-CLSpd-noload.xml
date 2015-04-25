@@ -727,7 +727,7 @@
               <Node Text="Proportional Gain" Value="0">
                 <Nodes />
               </Node>
-              <Node Text="Integral Gain" Value="12">
+              <Node Text="Integral Gain" Value="11">
                 <Nodes />
               </Node>
               <Node Text="Differential Gain" Value="1">

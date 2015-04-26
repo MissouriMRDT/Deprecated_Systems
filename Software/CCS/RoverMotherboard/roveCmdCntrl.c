@@ -98,10 +98,10 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			arm_speed = (int16_t)(fromBaseMsg.value[0]);
 
-			/*System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
+			System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
 			System_printf("Arm Speed: %d\n", (int16_t)(fromBaseMsg.value[0]) );
 			System_flush();
-*/
+
 				if(arm_speed < 0){
 
 						roboArmNegativeWrite(fromBaseMsg.id,-(arm_speed/10), (char*)&fromBaseMsg);
@@ -138,10 +138,10 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			// adds the start bytes, size byte, and checksum based on what struct id
 
-			/*System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
+			System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
 			System_printf("Arm Speed: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->speed);
 			System_flush();
-*/
+
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
 			//System_printf("Message Size: %d\n", messageSize);
@@ -154,7 +154,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			deviceWrite(deviceJack, commandBuffer, messageSize);
 
-			/*debugging only:
+			//debugging only:
 
 			i = 0;
 
@@ -166,7 +166,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 				i++;
 
 			}//end while
-*/
+
 			System_flush();
 
 

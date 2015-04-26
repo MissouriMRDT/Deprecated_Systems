@@ -94,7 +94,7 @@ struct dev_begin_op_reply{
 struct robot_arm_command{
 
 	uint8_t struct_id;
-	uint8_t reset;
+	//uint8_t reset;
 	uint8_t wristUp;
 	uint8_t wristDown;
 	uint8_t wristClockWise;

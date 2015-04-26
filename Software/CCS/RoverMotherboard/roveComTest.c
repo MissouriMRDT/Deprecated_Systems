@@ -16,22 +16,23 @@ void roveComTest(UArg arg0, UArg arg1){
 
 	while (FOREVER){
 
-		Task_sleep(5000);
+		ms_delay(1000);
 
-//		robotArmStruct.struct_id = robot_arm_id;
-		robotArmStruct.reset = 0;
-		robotArmStruct.wristUp = 1;
-		robotArmStruct.wristDown = 2;
-		robotArmStruct.wristClockWise = 3;
-		robotArmStruct.wristCounterClockWise = 4;
-		robotArmStruct.elbowUp = 5;
-		robotArmStruct.elbowDown = 6;
-		robotArmStruct.elbowClockWise = 7;
-		robotArmStruct.elbowCounterClockWise = 8;
-		robotArmStruct.actuatorForward = 9;
-		robotArmStruct.actuatorReverse = 10;
-		robotArmStruct.baseClockWise = 11;
-		robotArmStruct.baseCounterClockWise = 12;
+		robotArmStruct.struct_id = robot_arm_id;
+		//robotArmStruct.reset = 0;
+		robotArmStruct.wristUp = 0;
+		robotArmStruct.wristDown = 0;
+		robotArmStruct.wristClockWise = 0;
+		robotArmStruct.wristCounterClockWise = 1;
+		robotArmStruct.elbowUp = 0;
+		robotArmStruct.elbowDown = 0;
+		robotArmStruct.elbowClockWise = 0;
+		robotArmStruct.elbowCounterClockWise = 0;
+		robotArmStruct.actuatorForward = 0;
+		robotArmStruct.actuatorReverse = 0;
+		robotArmStruct.baseClockWise = 0;
+		robotArmStruct.baseCounterClockWise = 0;
+		robotArmStruct.speed = 500;
 
 		memcpy(&baseStationMsg, &robotArmStruct, sizeof(robotArmStruct));
 

@@ -104,11 +104,11 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				if(arm_speed < 0){
 
-						roboArmNegativeWrite(fromBaseMsg.id,-(arm_speed/10), (char*)&fromBaseMsg);
+						roboArmNegativeWrite(fromBaseMsg.id,-(arm_speed), (char*)&fromBaseMsg);
 
 				}else{
 
-						roboArmPositiveWrite(fromBaseMsg.id,(arm_speed/10), (char*)&fromBaseMsg);
+						roboArmPositiveWrite(fromBaseMsg.id,(arm_speed), (char*)&fromBaseMsg);
 
 				}//endif
 
@@ -126,7 +126,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			default:
 
-				System_printf("\nDefault case reached in CmdCnt\n");
+				System_printf("\nDefault case reached in CmdCntrl\n");
 				System_printf("Error: StructID cannot be handled");
 				System_flush();
 
@@ -214,12 +214,6 @@ void roboArmPositiveWrite(int struct_id, int16_t speed, char* output_buffer){
 
 				//zero out the struct
 
-				if (speed > 100){
-
-					speed = 100;
-
-				}//endif
-
 
 				((struct robot_arm_command*)(output_buffer))->wristCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->wristClockWise = 0;
@@ -233,7 +227,7 @@ void roboArmPositiveWrite(int struct_id, int16_t speed, char* output_buffer){
 				((struct robot_arm_command*)(output_buffer))->actuatorForward = 0;
 				((struct robot_arm_command*)(output_buffer))->baseCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->baseClockWise = 0;
-				((struct robot_arm_command*)(output_buffer))->reset = 0;
+				//((struct robot_arm_command*)(output_buffer))->reset = 0;
 
 				switch( struct_id ){
 
@@ -274,10 +268,10 @@ void roboArmPositiveWrite(int struct_id, int16_t speed, char* output_buffer){
 					break;
 
 					//
-					case e_stop_arm:
+					//case e_stop_arm:
 
-						((struct robot_arm_command*)(output_buffer))->reset = 1;
-					break;
+						//((struct robot_arm_command*)(output_buffer))->reset = 1;
+					//break;
 
 					// end robot arm
 
@@ -293,12 +287,6 @@ void roboArmNegativeWrite(int struct_id, int16_t speed, char* output_buffer){
 
 				//zero out the struct
 
-				if (speed > 100){
-
-					speed = 100;
-
-				}//endif
-
 				((struct robot_arm_command*)(output_buffer))->wristCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->wristClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->wristDown = 0;
@@ -311,7 +299,7 @@ void roboArmNegativeWrite(int struct_id, int16_t speed, char* output_buffer){
 				((struct robot_arm_command*)(output_buffer))->actuatorForward = 0;
 				((struct robot_arm_command*)(output_buffer))->baseCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->baseClockWise = 0;
-				((struct robot_arm_command*)(output_buffer))->reset = 0;
+				//((struct robot_arm_command*)(output_buffer))->reset = 0;
 
 				switch( struct_id ){
 

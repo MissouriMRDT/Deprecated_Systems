@@ -48,11 +48,11 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 
 	//^ALIM 1 250_		Set Max Amps to 25A
 
-	char configMessageBuffer[] = "^MMOD 1 0_^ALIM 1 250_";
+	//char configMessageBuffer[] = "^MMOD 1 0_^ALIM 1 250_";
 
-	int configMessageSize = sizeof(configMessageBuffer);
+	//int configMessageSize = sizeof(configMessageBuffer);
 
-	deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
+	//deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
 
 	while(1){
 

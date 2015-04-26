@@ -47,8 +47,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	int i = 0;
 
-					System_printf("roveCmdCntrlr		init! \n");
-					System_flush();
+		System_printf("roveCmdCntrlr		init! \n");
+		System_flush();
 
 	while (FOREVER){
 
@@ -57,105 +57,17 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-					//System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-					//System_flush();
-
 		switch(fromBaseMsg.id){
 
 			// case 0 hack to make a happy switch
 			case 0:
 			break;
 
-/* This is for ASCII control only
- *
-			case motor_left_id:
-
-				// TODO implement correct Jack for Motor Comm Board
-
-				//the left motors must be the negative of the right motors. Their phase is backwards
-
-				speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
-
-				//protect from the max and min for the motorcontroller
-
-				if (speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if (speed < -999){
-
-						speed = -999;
-				}//endif
-
-				messageSize = generateMotorCommand(speed, commandBuffer);
-				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
-
-							System_printf("commandBuffer holds %s \n", commandBuffer);
-							System_flush();
-
-							System_printf("messageSize holds %d \n", messageSize);
-							System_flush();
-
-							System_printf("speed holds %d \n", speed);
-							System_flush();
-
-			break;
-
-			//end drive motor_left_id with ASCII strings
-
-			//case motor_right_id:
-
-				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
-
-				//protect from the max and min for the motorcontroller
-
-				if (speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if (speed < -999){
-
-						speed = -999;
-				}//endif
-
-				messageSize = generateMotorCommand(speed, commandBuffer);
-				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
-
-							System_printf("commandBuffer holds %s \n", commandBuffer);
-							System_flush();
-
-							System_printf("messageSize holds %d \n", messageSize);
-							System_flush();
-
-							System_printf("speed holds %d \n", speed);
-							System_flush();
-
-			break;
-
-			// end drive motor_right_id with ASCII strings
-*/
-
 			case motor_left_id:
 
 				//the left motors must be the negative of the right motors. Their phase is backwards
 
 				speed = -( ((struct motor_control_struct*)(&fromBaseMsg))->speed );
-
-							//System_printf("left speed before conversion holds %d \n", speed);
-
-				//protect from the max and min for the motorcontroller
-
-				if(speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if(speed < -999){
-
-						speed = -999;
-				}//endif
 
 				pwmWrite(motor_0, speed);
 				pwmWrite(motor_1, speed);
@@ -169,20 +81,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
-								//System_printf("right speed before conversion holds %d \n", speed);
-
-				//protect from the max and min for the motorcontroller
-
-				if(speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if(speed < -999){
-
-						speed = -999;
-				}//endif
-
 				pwmWrite(motor_0, speed);
 				pwmWrite(motor_1, speed);
 				pwmWrite(motor_2, speed);
@@ -192,19 +90,24 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			//end drive motor_right_id
 
 			//robotic arm commands defined 201 to 207
+
 			case wrist_clock_wise...e_stop_arm:
 
 				speed = fromBaseMsg.value[0];
 
 				if(speed < 0){
 
-						roboArmNegativeWrite(fromBaseMsg.id,-speed, &fromBaseMsg);
+						roboArmNegativeWrite(fromBaseMsg.id,-speed, (char*)&fromBaseMsg);
 
 				}else{
 
-						roboArmPositiveWrite(fromBaseMsg.id,speed, &fromBaseMsg);
+						roboArmPositiveWrite(fromBaseMsg.id,speed, (char*)&fromBaseMsg);
 
 				}//endif
+
+				//defined as 200 on Arm board
+
+				((struct robot_arm_command*)(&fromBaseMsg))->struct_id = robot_arm_id;
 
 			break;
 
@@ -271,6 +174,33 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 	Task_exit();
 
 }//endfnct:		roveCmdCntrl() Task Thread
+
+/* This is the case for ASCII control only
+
+			case motor_left_id:
+
+				//the left motors must be the negative of the right motors. Their phase is backwards
+
+				speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
+			break;
+
+			//end drive motor_left_id with ASCII strings
+
+			//case motor_right_id:
+
+				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
+			break;
+
+			// end drive motor_right_id with ASCII strings
+*/
 
 void roboArmPositiveWrite(int struct_id, int speed, char* output_buffer){
 

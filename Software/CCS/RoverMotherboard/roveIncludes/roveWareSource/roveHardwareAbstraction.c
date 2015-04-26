@@ -348,7 +348,6 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout){
 	extern UART_Handle uart6;
 	extern UART_Handle uart7;
 
-
 	// we have to include case 0 to get TI's compiler to build a jump table
 	// if we leave this out, mux performance goes from O(1) to O(n) (That's bad)
 	switch(rs485jack){
@@ -468,6 +467,20 @@ int generateMotorCommand(int speed, char* buffer){
 	// variable to do temp work on the count of needed buffer size
 
 	int workerCount = 0;
+
+	//protect from the max and min for the motorcontroller
+
+	if (speed > 999){
+
+		speed = 999;
+
+	}//endif
+
+	if (speed < -999){
+
+			speed = -999;
+
+	}//endif
 
 	// variable to do temp work on the integer for ASCII conversion
 

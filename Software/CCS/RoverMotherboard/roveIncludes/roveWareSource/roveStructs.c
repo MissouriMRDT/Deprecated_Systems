@@ -41,7 +41,7 @@ int getStructSize(char structId){
 
 	case (char)wrist_clock_wise...e_stop_arm:
 
-				return sizeof(struct robot_arm_command);
+				return sizeof(struct base_station_robot_arm_command);
 
 	case (char)robot_arm_id:
 

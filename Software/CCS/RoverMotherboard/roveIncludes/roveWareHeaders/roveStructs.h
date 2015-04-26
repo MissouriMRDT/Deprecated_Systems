@@ -111,6 +111,11 @@ struct robot_arm_command{
 
 }__attribute__((packed));
 
+struct base_station_robot_arm_command{
+	uint8_t struct_id;
+	int16_t value;
+}
+
 // sent from mobo to gripper to control the peripheral
 
 struct gripper_command{

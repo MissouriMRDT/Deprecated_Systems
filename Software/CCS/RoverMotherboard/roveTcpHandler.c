@@ -178,7 +178,7 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 	while(RED_socket.isConnected)
 	{
 		//Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
-		if(Mailbox_pend(toBaseStationMailbox, &toBaseTelem, SEND_KEEPALIVE_DELAY_TICKS))
+/*		if(Mailbox_pend(toBaseStationMailbox, &toBaseTelem, SEND_KEEPALIVE_DELAY_TICKS))
 		{
 
 			System_printf("Passed the Pend in TCP!! Success!!!\n");
@@ -190,7 +190,7 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 			System_printf("No data to send\n");
 			System_flush();
 		}
-
+*/
 	}
 
 	//Cleanup: Connection has broken

@@ -107,7 +107,7 @@ struct robot_arm_command{
 	uint8_t actuatorReverse;
 	uint8_t baseClockWise;
 	uint8_t baseCounterClockWise;
-	int speed;
+	int16_t speed;
 
 }__attribute__((packed));
 

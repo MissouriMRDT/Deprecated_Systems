@@ -43,7 +43,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	int messageSize;
 
-	int speed = 0;
+	int motor_speed = 0;
+
+	int16_t arm_speed = 0;
 
 	int i = 0;
 
@@ -67,11 +69,11 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 				//the left motors must be the negative of the right motors. Their phase is backwards
 
-				speed = -( ((struct motor_control_struct*)(&fromBaseMsg))->speed );
+				motor_speed = -( ((struct motor_control_struct*)(&fromBaseMsg))->speed );
 
-				pwmWrite(motor_0, speed);
-				pwmWrite(motor_1, speed);
-				pwmWrite(motor_2, speed);
+				pwmWrite(motor_0, motor_speed);
+				pwmWrite(motor_1, motor_speed);
+				pwmWrite(motor_2, motor_speed);
 
 			break;
 
@@ -79,11 +81,11 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			case motor_right_id:
 
-				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+				motor_speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
-				pwmWrite(motor_0, speed);
-				pwmWrite(motor_1, speed);
-				pwmWrite(motor_2, speed);
+				pwmWrite(motor_0, motor_speed);
+				pwmWrite(motor_1, motor_speed);
+				pwmWrite(motor_2, motor_speed);
 
 			break;
 
@@ -93,15 +95,20 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			case wrist_clock_wise...e_stop_arm:
 
-				speed = fromBaseMsg.value[0];
 
-				if(speed < 0){
+			arm_speed = (int16_t)(fromBaseMsg.value[0]);
 
-						roboArmNegativeWrite(fromBaseMsg.id,-speed, (char*)&fromBaseMsg);
+			/*System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
+			System_printf("Arm Speed: %d\n", (int16_t)(fromBaseMsg.value[0]) );
+			System_flush();
+*/
+				if(arm_speed < 0){
+
+						roboArmNegativeWrite(fromBaseMsg.id,-(arm_speed/10), (char*)&fromBaseMsg);
 
 				}else{
 
-						roboArmPositiveWrite(fromBaseMsg.id,speed, (char*)&fromBaseMsg);
+						roboArmPositiveWrite(fromBaseMsg.id,(arm_speed/10), (char*)&fromBaseMsg);
 
 				}//endif
 
@@ -131,14 +138,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			// adds the start bytes, size byte, and checksum based on what struct id
 
-			System_printf("First Char: %d\n", fromBaseMsg.value[0]);
-			System_printf("When I cast: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->reset);
+			/*System_printf("Struct id: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->struct_id);
+			System_printf("Arm Speed: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->speed);
 			System_flush();
-
+*/
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
-			System_printf("Message Size: %d\n", messageSize);
-			System_flush();
+			//System_printf("Message Size: %d\n", messageSize);
 
 			// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
 
@@ -148,19 +154,21 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			deviceWrite(deviceJack, commandBuffer, messageSize);
 
-			//debugging only:
+			/*debugging only:
 
 			i = 0;
 
+			System_printf("Cmd Cntrl Just Sent!: ");
+
 			while( i <( messageSize ) ){
 
+				System_printf("%d, ", commandBuffer[i]);
+				i++;
 
-			System_printf("Cmd Cntrl Just Sent!: %d\n", commandBuffer[i]);
+			}//end while
+*/
 			System_flush();
 
-			i++;
-
-			}//end for
 
 	}//endwhile(FOREVER)
 
@@ -202,9 +210,16 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			// end drive motor_right_id with ASCII strings
 */
 
-void roboArmPositiveWrite(int struct_id, int speed, char* output_buffer){
+void roboArmPositiveWrite(int struct_id, int16_t speed, char* output_buffer){
 
 				//zero out the struct
+
+				if (speed > 100){
+
+					speed = 100;
+
+				}//endif
+
 
 				((struct robot_arm_command*)(output_buffer))->wristCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->wristClockWise = 0;
@@ -274,9 +289,15 @@ void roboArmPositiveWrite(int struct_id, int speed, char* output_buffer){
 
 }//endfnctn
 
-void roboArmNegativeWrite(int struct_id, int speed, char* output_buffer){
+void roboArmNegativeWrite(int struct_id, int16_t speed, char* output_buffer){
 
 				//zero out the struct
+
+				if (speed > 100){
+
+					speed = 100;
+
+				}//endif
 
 				((struct robot_arm_command*)(output_buffer))->wristCounterClockWise = 0;
 				((struct robot_arm_command*)(output_buffer))->wristClockWise = 0;

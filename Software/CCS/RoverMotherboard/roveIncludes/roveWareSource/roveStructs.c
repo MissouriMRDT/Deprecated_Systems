@@ -43,7 +43,11 @@ int getStructSize(char structId){
 
 				return sizeof(struct robot_arm_command);
 
-		case (char)gripper_open:
+	case (char)robot_arm_id:
+
+				return sizeof(struct robot_arm_command);
+
+	case (char)gripper_open:
 
 				return sizeof(struct gripper_command);
 

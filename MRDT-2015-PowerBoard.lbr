@@ -219,7 +219,7 @@
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
 </package>
 <package name="LARGE_TERMINAL_HOLE">
-<pad name="P$1" x="0" y="0" drill="9.144" diameter="18.288"/>
+<pad name="P$1" x="0" y="0" drill="9.144" diameter="18.288" thermals="no"/>
 </package>
 <package name="D2PACK">
 <description>3-Pin D&lt;sup&gt;2&lt;/sup&gt;PAK

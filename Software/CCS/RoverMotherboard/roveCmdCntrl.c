@@ -144,7 +144,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
-			//System_printf("Message Size: %d\n", messageSize);
+			System_printf("Message Size: %d\n", messageSize);
 
 			// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
 

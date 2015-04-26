@@ -89,6 +89,16 @@ struct dev_begin_op_reply{
 
 }__attribute__((packed));
 
+//this is the key value pair from Base
+//mob will then assemble the full robot_arm_command for the device
+
+struct base_station_robot_arm_command{
+
+	uint8_t struct_id;
+	int16_t value;
+
+}__attribute__((packed));
+
 // sent from mobo to roboticArm to control the peripheral
 
 struct robot_arm_command{
@@ -110,11 +120,6 @@ struct robot_arm_command{
 	int16_t speed;
 
 }__attribute__((packed));
-
-struct base_station_robot_arm_command{
-	uint8_t struct_id;
-	int16_t value;
-}
 
 // sent from mobo to gripper to control the peripheral
 

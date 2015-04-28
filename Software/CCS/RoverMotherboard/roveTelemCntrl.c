@@ -28,6 +28,28 @@
 
 Void roveTelemCntrl(UArg arg0, UArg arg1){
 
+	extern UART_Handle uart2;
+
+	int bytes_to_read = 11;
+	char buffer[20];
+	int bytes_read;
+	int device = ONBOARD_ROVECOMM;
+
+	while(1)
+	{
+		memset(buffer, '\0', 20);
+		bytes_read = deviceRead(device, buffer, bytes_to_read, 2000);
+
+		System_printf("Bytes read: %d\n", bytes_read);
+
+		if (bytes_read > 0)
+			System_printf("%s\n", buffer);
+		System_flush();
+
+		Task_sleep(5000);
+	}
+
+/*
 	const uint8_t FOREVER = 1;
 
 	struct device_telem_req deviceTelemReq;
@@ -91,5 +113,6 @@ Void roveTelemCntrl(UArg arg0, UArg arg1){
 	//exit Task
 
 	Task_exit();
+	*/
 
 }//endfnctn:		roveTelemContoller() Task Thread

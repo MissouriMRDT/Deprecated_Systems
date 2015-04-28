@@ -75,6 +75,8 @@ void DriveMotor(PWM_Handle motor, int speed);
 
 int deviceWrite(int rs485jack, char* buffer, int bytes_to_write);
 
+int UART_read_nonblocking (UART_Handle uart, char* buffer, int bytes_to_read, int timeout);
+
 // deviceRead Retrieves a specified number of bytes from
 // It will deal with properly muxing to the device and writing to the uart
 //    internally
@@ -101,7 +103,6 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write);
 // 			deviceRead(13, buffer, sizeof(struct my_struct), BIOS_WAIT_FOREVER);
 // 			break;
 // 	}
-
 int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout);
 
 // Generates a command to drive a motor controller and places it in the buffer

@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg
+#     /home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    /home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src
+#    /home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/src
 #
 GEN_SRC_DIR ?= ../src
 

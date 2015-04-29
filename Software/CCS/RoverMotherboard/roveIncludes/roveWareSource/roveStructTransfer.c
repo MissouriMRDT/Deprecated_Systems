@@ -60,9 +60,11 @@ uint8_t calcCheckSum(const void* my_struct, uint8_t size){
 
 }//end fnctn
 
-bool RecvSerialStructMessage(int deviceJack, char* buffer)
+bool recvSerialStructMessage(int deviceJack, char* buffer)
 {
 	uint8_t rx_len = 0;
+	uint8_t startByte = 0x06;
+	uint8_t secondByte = 0x85;
 
 	int bytesRead = 0;
 	char receiveBuffer[40];
@@ -79,13 +81,13 @@ bool RecvSerialStructMessage(int deviceJack, char* buffer)
 
 		while (!startReceived){
 
-			bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1);
+			bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500);
 
 			if (bytesRead == 1){
 
-				if (receiveBuffer[0] == 0x06){
+				if (receiveBuffer[0] == startByte){
 
-					startReceived = 1;
+					startReceived = true;
 
 				}else{
 
@@ -102,34 +104,48 @@ bool RecvSerialStructMessage(int deviceJack, char* buffer)
 
 		}//endwhile
 
-		System_printf("Looped through the rx debug_rx_cnt: %d\n", debug_rx_cnt);
-		System_flush();
+//		System_printf("Looped through the rx debug_rx_cnt: %d\n", debug_rx_cnt);
+//		System_flush();
 
-		if (bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1))
+		if ((bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500)) == 1)
 		{
-			if (receiveBuffer[0] != 0x85)
+			if (receiveBuffer[0] != secondByte)
 			{
 				return false;
-			} else {
-				bytesRead = deviceRead(deviceJack, receiveBuffer, 1, -1);
-				rx_len = receiveBuffer[0];
-				if (rx_len < 0)
+			}
+			else
+			{
+				bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500);
+				if (bytesRead == 1)
+				{
+					rx_len = receiveBuffer[0];
+					if (rx_len == 0)
+					{
+						return false;
+					}//endif
+				}
+				else
 				{
 					return false;
-				}//endif
+				}
 			}//endif
 
 		}//endif
+		else
+		{
+			return false;
+		}
 
-		System_printf("bytesRead: %d\n", bytesRead);
-		System_flush();
+//		System_printf("bytesRead: %d\n", bytesRead);
+//		System_flush();
 
 	}//end if (rx_len == 0)
 
 	if (rx_len > 0)
 	{
-		bytesRead = deviceRead(deviceJack, receiveBuffer, rx_len + 1, -1);
-		if (bytesRead != rx_len)
+		bytesRead = deviceRead(deviceJack, receiveBuffer, rx_len + 1, 2000);
+		//rx_len + 1 for the checksum byte at the end
+		if (bytesRead != (rx_len + 1))
 			return false;
 
 		uint8_t calcCS = calcCheckSum(receiveBuffer, rx_len);
@@ -146,132 +162,3 @@ bool RecvSerialStructMessage(int deviceJack, char* buffer)
 
 	return false;
 }
-/*
-bool recv_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device){
-
-	uint8_t start_byte1 = 0x06;
-	uint8_t start_byte2 = 0x85;
-	uint8_t size;
-
-	//calculate checksum
-
-	uint8_t calc_CS;
-
-	int i;
-
-	//get size of struct
-
-	switch(device){
-
-		case bms:
-
-			size = sizeof(*((struct bms_data_struct*)my_struct));
-
-		break;
-
-		case tcp_cmd:
-
-			size = sizeof(*((struct base_station_msg_struct*)my_struct));
-
-		break;
-
-		case drill:
-
-			size = sizeof(*((struct drill_Telemetry*)my_struct));
-
-		break;
-
-		case gps:
-
-			size = sizeof(*((struct gps_data_struct*)my_struct));
-
-		break;
-
-		case power_board:
-
-			size = sizeof(*((struct power_board_telem*)my_struct));
-
-		break;
-
-		case test:
-
-					size = sizeof(*((struct test_device_data_struct*)my_struct));
-
-		break;
-
-	}//endswitch:		(device)
-
-	char rx_buffer[150];
-	char temp;
-
-	//check for Start byte 1
-
-	do{
-
-		UART_read(uart, &temp, 1);
-
-	}while(temp != start_byte1);
-
-	// Check for Start byte 2
-
-	UART_read(uart, &temp, 1);
-
-	if(temp != start_byte2){
-
-		//kick out of function
-
-		return false;
-
-	}//endif:		(temp != start_byte2)
-
-	//check if size matches
-
-	UART_read(uart, &temp, 1);
-
-	if(temp != size){
-
-		//size doesn't match
-
-		return false;
-
-	}//endif:		(temp != size)
-
-	// Read in data bytes
-
-	for(i = 0 ; i <= size ; i++){
-
-		UART_read(uart, &temp, 1);
-		rx_buffer[i] = temp;
-
-	}//endfor:		(i = 0 ; i <= size ; i++)
-
-	//calculate checksum
-
-	calc_CS = size;
-
-	for(i=0 ; i<size ; i++){
-
-		calc_CS ^= rx_buffer[i];
-
-	}//endfor:		(i=0 ; i<size ; i++)
-
-	//flag for checksum match
-
-	if(calc_CS != rx_buffer[size]){
-
-		//checksum does not match
-
-		return false;
-
-	}//endif:		(calc_CS != rx_buffer[size]
-
-	//copy buffer into struct
-
-	memcpy (my_struct, rx_buffer, size);
-
-	//fnctn success
-
-	return true;
-
-}//endnctn:		 recv_struct(UART_Handle uart, void* my_struct, enum peripheral_devices device)
-*/

@@ -94,20 +94,7 @@ struct dev_begin_op_reply{
 struct robot_arm_command{
 
 	uint8_t struct_id;
-	uint8_t reset;
-	uint8_t wristUp;
-	uint8_t wristDown;
-	uint8_t wristClockWise;
-	uint8_t wristCounterClockWise;
-	uint8_t elbowUp;
-	uint8_t elbowDown;
-	uint8_t elbowClockWise;
-	uint8_t elbowCounterClockWise;
-	uint8_t actuatorForward;
-	uint8_t actuatorReverse;
-	uint8_t baseClockWise;
-	uint8_t baseCounterClockWise;
-	int speed;
+	int16_t speed;
 
 }__attribute__((packed));
 

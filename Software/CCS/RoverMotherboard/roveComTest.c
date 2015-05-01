@@ -7,7 +7,7 @@
 #include "roveIncludes/roveWareHeaders/roveComTest.h"
 
 void roveComTest(UArg arg0, UArg arg1){
-
+/*
 	const uint8_t FOREVER = 1;
 
 	base_station_msg_struct baseStationMsg;
@@ -37,6 +37,7 @@ void roveComTest(UArg arg0, UArg arg1){
 
 		Mailbox_post(fromBaseStationMailbox, &baseStationMsg, BIOS_WAIT_FOREVER);
 	}
+	*/
 }
 
 

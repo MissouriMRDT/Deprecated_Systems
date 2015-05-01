@@ -320,8 +320,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection){
 	int size;
 	static base_station_msg_struct messagebuffer;
 
-					//System_printf("Entering parseRoverCommandMessage\n");
-					//System_flush();
+	//System_printf("Entering parseRoverCommandMessage\n");
+	//System_flush();
 
 	// get type of message
 

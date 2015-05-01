@@ -148,10 +148,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			// adds the start bytes, size byte, and checksum based on what struct id
 
-			System_printf("First Char: %d\n", fromBaseMsg.value[0]);
-			System_printf("When I cast: %d\n", ((struct robot_arm_command*)(&fromBaseMsg))->reset);
-			System_flush();
-
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
 			System_printf("Message Size: %d\n", messageSize);

@@ -183,9 +183,10 @@
 #define wrist_up 202
 #define elbow_clock_wise 203
 #define elbow_up 204
-#define actuator_forward 205
-#define base_clock_wise 206
-#define e_stop_arm 207
+#define base_clock_wise 205
+#define e_stop_arm 206
+#define actuator_forward 207
+
 
 // gripper values
 

@@ -36,10 +36,6 @@
 
 // when data is sent it goes into the TODO
 
-Void roveCmdCntrl(UArg arg0, UArg arg1);
-
-void roboArmPositiveWrite(int struct_id, int speed, char* output_buffer);
-
-void roboArmNegativeWrite(int struct_id, int speed, char* output_buffer);
+void roveCmdCntrl(UArg arg0, UArg arg1);
 
 #endif //ROVECMDCNTRL_H_

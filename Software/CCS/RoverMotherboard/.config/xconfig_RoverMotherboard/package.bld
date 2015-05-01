@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: '/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg',
+        cfgScript: '/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg',
         profile: 'release',
         cfgHome: 'xconfig_RoverMotherboard',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        '/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg',
-    outputPath: '/home/mrdtdev/Documents/MarsRover/Motherboard/Software/CCS/RoverMotherboard/.config/xconfig_RoverMotherboard',
+    cfg:        '/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/RoverMotherboard.cfg',
+    outputPath: '/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/.config/xconfig_RoverMotherboard',
     exeName:    'RoverMotherboard' + suffix,
     exeIntName: 'RoverMotherboard' + suffix.replace('.', '_'),
     targ:       targ,

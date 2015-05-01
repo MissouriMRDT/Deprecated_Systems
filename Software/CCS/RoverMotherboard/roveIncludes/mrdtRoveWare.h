@@ -175,7 +175,7 @@
 
 //deprecated in favor of variable speed
 
-#define	robot_arm_contant_speed_id 200
+#define	robot_arm_constant_speed_id 200
 
 // clockwise is positive, counter clockwise is negative
 

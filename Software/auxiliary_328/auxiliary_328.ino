@@ -8,7 +8,7 @@
 EasyTransfer ET;
 
 //gps sensor
-SoftwareSerial gpsSerial(3, 2); // (Rx, Tx)
+SoftwareSerial gpsSerial(9, 10); // (Rx, Tx)
 Adafruit_GPS GPS(&gpsSerial);
 #define GPSECHO false //set to true if you want raw GPS data printed to serial monitor
 

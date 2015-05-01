@@ -181,14 +181,14 @@ Void roveTcpSender(UArg arg0, UArg arg1)
 		if(Mailbox_pend(toBaseStationMailbox, &toBaseTelem, SEND_KEEPALIVE_DELAY_TICKS))
 		{
 
-			System_printf("Passed the Pend in TCP!! Success!!!\n");
-			System_flush();
+			//System_printf("Passed the Pend in TCP!! Success!!!\n");
+			//System_flush();
 			roveSend(&RED_socket, toBaseTelem.value, getStructSize(toBaseTelem.id));
 
 		} else //Nothing to go out
 		{
-			System_printf("No data to send\n");
-			System_flush();
+			//System_printf("No data to send\n");
+			//System_flush();
 		}
 
 	}

@@ -52,13 +52,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	while (FOREVER){
 
-		System_printf("CmdCntrl Is PENDING FOR MAIL!");
-		System_flush();
+		//System_printf("CmdCntrl Is PENDING FOR MAIL!");
+		//System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-		System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-		System_flush();
+		//System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		//System_flush();
 
 		switch(fromBaseMsg.id){
 
@@ -126,8 +126,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
-			System_printf("Message Size: %d\n", messageSize);
-			System_flush();
+			//System_printf("Message Size: %d\n", messageSize);
+			//System_flush();
 
 			// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
 
@@ -135,7 +135,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			deviceWrite(deviceJack, commandBuffer, messageSize);
 
-			//debugging only:
+			/*debugging only:
 
 			i = 0;
 
@@ -149,7 +149,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			}//end for
 
-
+*/
 			break;
 
 			case gripper_open:

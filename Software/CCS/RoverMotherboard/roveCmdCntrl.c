@@ -47,17 +47,17 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	int i = 0;
 
-					System_printf("roveCmdCntrlr		init! \n");
-					System_flush();
+	System_printf("roveCmdCntrlr		init! \n\n");
+	System_flush();
 
 	while (FOREVER){
 
-		//System_printf("CmdCntrl Is PENDING FOR MAIL!");
-		//System_flush();
+		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
+		System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-		System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		System_printf("CmdCntrl Just RECIEVED PENDED MAIL! fromBaseMsg.id: %d \n", fromBaseMsg.id);
 		System_flush();
 
 		switch(fromBaseMsg.id){

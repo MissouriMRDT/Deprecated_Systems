@@ -24,14 +24,16 @@ void roveArmTester(UArg arg0, UArg arg1)
 
 	struct robot_arm_command robot_arm;
 
+	robot_arm.struct_id = actuator_forward;
+
 	while (FOREVER)
 	{
 
-		robot_arm.struct_id = STRUCT_ID_MIN;
+		//robot_arm.struct_id = STRUCT_ID_MIN;
 		robot_arm.speed = MIN_SPEED;
 
-		while(robot_arm.struct_id <= STRUCT_ID_MAX)
-		{
+		//while(robot_arm.struct_id <= STRUCT_ID_MAX)
+		//{
 			while(robot_arm.speed < MAX_SPEED)
 			{
 				robot_arm.speed = robot_arm.speed + SPEED_INCREMENT;
@@ -45,10 +47,10 @@ void roveArmTester(UArg arg0, UArg arg1)
 
 			}//end while
 
-			robot_arm.struct_id = robot_arm.struct_id + STRUCT_INCREMENT;
-			robot_arm.speed = MIN_SPEED;
+			//robot_arm.struct_id = robot_arm.struct_id + STRUCT_INCREMENT;
+			//robot_arm.speed = MIN_SPEED;
 
-		}//end while
+		//}//end while
 
 		ms_delay(100);
 

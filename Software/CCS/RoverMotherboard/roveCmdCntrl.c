@@ -57,8 +57,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-		//System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-		//System_flush();
+		System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		System_flush();
 
 		switch(fromBaseMsg.id){
 
@@ -121,9 +121,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			//end drive motor_right_id
 
 			//robotic arm commands defined 201 to 207
-			case wrist_clock_wise...e_stop_arm:
+			case wrist_clock_wise...actuator_forward:
 //TODO
-
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
 			//System_printf("Message Size: %d\n", messageSize);
@@ -135,7 +134,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			deviceWrite(deviceJack, commandBuffer, messageSize);
 
-			/*debugging only:
+			//debugging only:
 
 			i = 0;
 
@@ -149,7 +148,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			}//end for
 
-*/
+
 			break;
 
 			case gripper_open:
@@ -161,7 +160,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			default:
 
 				System_printf("\n default case reached in CmdCntrl! \n");
-				System_printf("ERROR: struct_id is %d", fromBaseMsg.id);
+				System_printf("ERROR: struct_id is %d\n", fromBaseMsg.id);
 				System_flush();
 
 			break;

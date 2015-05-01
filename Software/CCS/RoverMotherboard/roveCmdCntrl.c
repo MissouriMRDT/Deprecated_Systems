@@ -52,13 +52,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 	while (FOREVER){
 
-		System_printf("Cmd Cntrl Is PENDING FOR MAIL!");
+		System_printf("CmdCntrl Is PENDING FOR MAIL!");
 		System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-					//System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-					//System_flush();
+		System_printf("CmdCntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
+		System_flush();
 
 		switch(fromBaseMsg.id){
 
@@ -123,30 +123,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			//robotic arm commands defined 201 to 207
 			case wrist_clock_wise...e_stop_arm:
 //TODO
-			System_printf("2:	 Cmd Cntrl Just RECIEVED PENDED MAIL! ID: %d \n", fromBaseMsg.id);
-			System_flush();
-
-			break;
-
-			case gripper_open:
-
-			//TODO ((struct gripper_command*)(&fromBaseMsg))->grip_cmd = 0;
-
-			break;
-
-			default:
-
-				System_printf("\nDefault case reached in CmdCnt\n");
-				System_printf("Error: StructID cannot be handled");
-				System_flush();
-
-			break;
-
-			}//endswitch
-
-			//case drill_id
-
-			// adds the start bytes, size byte, and checksum based on what struct id
 
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
@@ -172,6 +148,29 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			i++;
 
 			}//end for
+
+
+			break;
+
+			case gripper_open:
+
+			//TODO ((struct gripper_command*)(&fromBaseMsg))->grip_cmd = 0;
+
+			break;
+
+			default:
+
+				System_printf("\n default case reached in CmdCntrl! \n");
+				System_printf("ERROR: struct_id is %d", fromBaseMsg.id);
+				System_flush();
+
+			break;
+
+			}//endswitch
+
+			//case drill_id
+
+			// adds the start bytes, size byte, and checksum based on what struct id
 
 	}//endwhile(FOREVER)
 

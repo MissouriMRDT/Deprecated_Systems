@@ -46,6 +46,7 @@ void roveArmTester(UArg arg0, UArg arg1)
 			}//end while
 
 			robot_arm.struct_id = robot_arm.struct_id + STRUCT_INCREMENT;
+			robot_arm.speed = MIN_SPEED;
 
 		}//end while
 

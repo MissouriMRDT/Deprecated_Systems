@@ -32,9 +32,7 @@ void roveArmTester(UArg arg0, UArg arg1)
 
 		while(robot_arm.struct_id <= STRUCT_ID_MAX)
 		{
-			robot_arm.struct_id = robot_arm.struct_id + STRUCT_INCREMENT;
-
-			while(robot_arm.speed < STRUCT_ID_MAX)
+			while(robot_arm.speed < MAX_SPEED)
 			{
 				robot_arm.speed = robot_arm.speed + SPEED_INCREMENT;
 				System_printf("Tester Posted struct_id %d, speed, %d\n", robot_arm.struct_id , robot_arm.speed);
@@ -46,6 +44,8 @@ void roveArmTester(UArg arg0, UArg arg1)
 				ms_delay(10);
 
 			}//end while
+
+			robot_arm.struct_id = robot_arm.struct_id + STRUCT_INCREMENT;
 
 		}//end while
 

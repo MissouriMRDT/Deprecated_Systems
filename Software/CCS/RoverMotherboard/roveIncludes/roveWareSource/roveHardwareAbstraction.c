@@ -176,29 +176,25 @@ PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds){
 
 void pwmWrite(PWM_Handle pin, int duty_microseconds){
 
-	// scale to nuetral to 1.5 uSec and resolution to 500 increments
-
-	int speed = ((duty_microseconds/4)+1500);
-
-
-				if (speed > 1750){
-
-					speed = 1700;
-
-				}//endif
-
-				if (speed < 1250){
-
-					speed = 1250;
-
-				}//endif
-
 	PWM_setDuty(pin, speed);
 
-				//System_printf("speed holds %d \n", ((duty_microseconds/2)+1500));
-				//System_flush();
-
 }//endfnctn pwmWrite
+
+void DriveMotor(PWM_Handle motor, int speed)
+{
+	//Scaling
+	int microseconds = (speed / 2) + 1500; //Map to PWM pulse width range
+
+	//Bound checking
+	if(microseconds > 2000) //Upper bound on motor pulse width
+		microseconds = 2000;
+	if(microseconds < 1000) //Lower bound on motor pulse width
+		microseconds = 1000;
+
+	//Writing
+	pwmWrite(motor, microseconds);
+	return;
+}
 
 int deviceWrite(int rs485jack, char* buffer, int bytes_to_write){
 

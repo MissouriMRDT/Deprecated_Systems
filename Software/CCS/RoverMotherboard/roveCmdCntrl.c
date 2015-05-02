@@ -72,9 +72,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 			motor_speed =
 					-(((struct motor_control_struct*) (&fromBaseMsg))->speed);
 
-			pwmWrite(motor_0, motor_speed);
-			pwmWrite(motor_1, motor_speed);
-			pwmWrite(motor_2, -motor_speed);
+			DriveMotor(motor_0, motor_speed);
+			DriveMotor(motor_1, motor_speed);
+			DriveMotor(motor_2, -motor_speed);
 
 			break;
 
@@ -85,9 +85,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 			motor_speed =
 					((struct motor_control_struct*) (&fromBaseMsg))->speed;
 
-			pwmWrite(motor_0, -motor_speed);
-			pwmWrite(motor_1, motor_speed);
-			pwmWrite(motor_2, -motor_speed);
+			DriveMotor(motor_0, -motor_speed);
+			DriveMotor(motor_1, motor_speed);
+			DriveMotor(motor_2, -motor_speed);
 
 			break;
 

@@ -42,7 +42,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 	char commandBuffer[MAX_COMMAND_SIZE + 4];
 
 	int messageSize;
-
+	int deviceJack;
 	int motor_speed = 0;
 
 	int16_t arm_speed = 0;
@@ -74,7 +74,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 			pwmWrite(motor_0, motor_speed);
 			pwmWrite(motor_1, motor_speed);
-			pwmWrite(motor_2, motor_speed);
+			pwmWrite(motor_2, -motor_speed);
 
 			break;
 
@@ -85,9 +85,9 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 			motor_speed =
 					((struct motor_control_struct*) (&fromBaseMsg))->speed;
 
-			pwmWrite(motor_0, motor_speed);
+			pwmWrite(motor_0, -motor_speed);
 			pwmWrite(motor_1, motor_speed);
-			pwmWrite(motor_2, motor_speed);
+			pwmWrite(motor_2, -motor_speed);
 
 			break;
 

@@ -120,17 +120,18 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			//end drive motor_right_id
 
-			//robotic arm commands defined 201 to 207
-			case wrist_clock_wise...actuator_forward:
-//TODO
+			default:
+
+
+			// adds the start bytes, size byte, and checksum based on what struct id
 			messageSize = buildSerialStructMessage((void *)&fromBaseMsg, commandBuffer);
 
-			//System_printf("Message Size: %d\n", messageSize);
-			//System_flush();
+			System_printf("Message Size: %d\n", messageSize);
+			System_flush();
 
-			// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
+			deviceJack = getDeviceJack(fromBaseMsg.id);
 
-			int deviceJack = ONBOARD_ROVECOMM;
+			//int deviceJack = ONBOARD_ROVECOMM;
 
 			deviceWrite(deviceJack, commandBuffer, messageSize);
 
@@ -151,25 +152,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			break;
 
-			case gripper_open:
-
-			//TODO ((struct gripper_command*)(&fromBaseMsg))->grip_cmd = 0;
-
-			break;
-
-			default:
-
-				System_printf("\n default case reached in CmdCntrl! \n");
-				System_printf("ERROR: struct_id is %d\n", fromBaseMsg.id);
-				System_flush();
-
-			break;
-
 			}//endswitch
-
-			//case drill_id
-
-			// adds the start bytes, size byte, and checksum based on what struct id
 
 	}//endwhile(FOREVER)
 

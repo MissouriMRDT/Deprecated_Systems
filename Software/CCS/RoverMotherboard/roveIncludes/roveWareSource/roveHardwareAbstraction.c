@@ -35,6 +35,9 @@ int getDeviceJack(int device){
 		case power_board_command_id ... power_board_telem_main_battery_voltage_id:
 			return POWER_BOARD;
 
+		case wrist_clock_wise ... e_stop_arm:
+			return ONBOARD_ROVECOMM;
+
 		default:
 				//Tried to get jack for an \ invalid device
 				System_printf("getDeviceJack passed invalid device %d\n", device);

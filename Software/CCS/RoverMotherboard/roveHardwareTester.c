@@ -105,7 +105,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 		pwmWrite(motor_4, PWM_NEUTRAL_MICROS);
 		pwmWrite(motor_5, PWM_NEUTRAL_MICROS);
 
-		ms_delay(6000);
+		ms_delay(PWM_STEP_DELAY_TIME_MILLIS);
 
 		System_printf("Spinning up\n");
 		System_flush();
@@ -121,7 +121,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 			pwmWrite(motor_4, i);
 			pwmWrite(motor_5, i);
 
-			ms_delay(100);
+			ms_delay(PWM_STEP_DELAY_TIME_MILLIS);
 
 		} //end for
 
@@ -137,7 +137,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 			pwmWrite(motor_4, i);
 			pwmWrite(motor_5, i);
 
-			ms_delay(500);
+			ms_delay(PWM_STEP_DELAY_TIME_MILLIS);
 
 		} //end for
 
@@ -152,7 +152,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 			pwmWrite(motor_4, i);
 			pwmWrite(motor_5, i);
 
-			ms_delay(500);
+			ms_delay(PWM_STEP_DELAY_TIME_MILLIS);
 
 		} //end for
 

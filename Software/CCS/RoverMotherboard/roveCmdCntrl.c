@@ -125,7 +125,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 		Task_exit();
 
 	} //endfnct:		roveCmdCntrl() Task Thread
-
+}
 	/* This is the case for ASCII control only
 
 	 case motor_left_id:

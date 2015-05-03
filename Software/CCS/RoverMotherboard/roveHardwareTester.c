@@ -13,6 +13,12 @@
 #define PWM_TEST_LOOPS 2
 #define UART_TEST_LOOPS 3
 
+#define PWM_MIN_MICROS 1000
+#define PWM_MAX_MICROS 2000
+#define PWM_NEUTRAL_MICROS 1500
+#define PWM_STEP_MICROS 100
+#define PWM_STEP_DELAY_TIME_MILLIS 10
+
 Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 	int i, j;
@@ -38,87 +44,56 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
 
-	System_printf("Testing GPIO abstraction on All pins\n");
-	System_flush();
-	for (i = 0; i < 2; i++) {
-		System_printf("Testing High\n");
-		System_flush();
-		for (j = 0; j < 10; j++) //Test all 10 mux pins
-			digitalWrite(j, HIGH);
-		ms_delay(60);
-
-		System_printf("Testing Low\n");
-		System_flush();
-		for (j = 0; j < 10; j++)
-			digitalWrite(j, LOW);
-		ms_delay(60);
-	}
-
-
-	System_printf("Testing UART devices\n");
-	System_flush();
-	UART_write(uart0, "This is uart 0", 15);
-	System_printf("Uart 0 tested\n");
-	System_flush();
-	UART_write(uart1, "This is uart 1", 15);
-	System_printf("Uart 1 tested\n");
-	System_flush();
-	UART_write(uart2, "This is uart 2", 15);
-	System_printf("Uart 2 tested\n");
-	System_flush();
-	UART_write(uart3, "This is uart 3", 15);
-	System_printf("Uart 3 tested\n");
-	System_flush();
-	UART_write(uart4, "This is uart 4", 15);
-	System_printf("Uart 4 tested\n");
-	System_flush();
-	UART_write(uart5, "This is uart 5", 15);
-	System_printf("Uart 5 tested\n");
-	System_flush();
-	UART_write(uart6, "This is uart 6", 15);
-	System_printf("Uart 6 tested\n");
-	System_flush();
-	UART_write(uart7, "This is uart 7", 15);
-	System_printf("Uart 7 tested\n");
-	System_flush();
-
-
-	System_printf("Testing full device access\n");
-	System_flush();
-
-	/*
-	while (1) {
-		//Precalculated message to drive the motors
-		buffer[0] = 0x06; //2014 start byte 1
-		buffer[1] = 0x85; //2014 start byte 2
-		buffer[2] = 0x01; //size byte for motor control struct
-		buffer[3] = 128;  // speed
-		buffer[4] = CalcCheckSum(buffer + 3, 1);      //checksum
-		for (i = 1; i < 20; i++) {
-			//System_printf("Testing Device #%d\n", i);
-			//System_flush();
-			//buffer[32] = '0' + (char)i;
-			deviceWrite(i, buffer, 5);
-		}
-		ms_delay(3000);
-
-		buffer[0] = 0x06; //2014 start byte 1
-		buffer[1] = 0x85; //2014 start byte 2
-		buffer[2] = 0x01; //size byte for motor control struct
-		buffer[3] = 0;  // speed
-		buffer[4] = CalcCheckSum(buffer + 3, 1);      //checksum
-		for (i = 1; i < 20; i++) {
-			//System_printf("Testing Device #%d\n", i);
-			//System_flush();
-			//buffer[32] = '0' + (char)i;
-			deviceWrite(i, buffer, 5);
-
-		}
-		ms_delay(3000);
-	}
-	*/
-
 	while (FOREVER) {
+
+// ------------------------------ GPIO --------------------- //
+
+		System_printf("Testing GPIO abstraction on All pins\n");
+		System_flush();
+		for (i = 0; i < 2; i++) {
+			System_printf("Testing High\n");
+			System_flush();
+			for (j = 0; j < 10; j++) //Test all 10 mux pins
+				digitalWrite(j, HIGH);
+			ms_delay(60);
+
+			System_printf("Testing Low\n");
+			System_flush();
+			for (j = 0; j < 10; j++)
+				digitalWrite(j, LOW);
+			ms_delay(60);
+		}
+
+// ------------------------------ UART --------------------- //
+
+		System_printf("Testing UART devices\n");
+		System_flush();
+		UART_write(uart0, "This is uart 0", 15);
+		System_printf("Uart 0 tested\n");
+		System_flush();
+		UART_write(uart1, "This is uart 1", 15);
+		System_printf("Uart 1 tested\n");
+		System_flush();
+		UART_write(uart2, "This is uart 2", 15);
+		System_printf("Uart 2 tested\n");
+		System_flush();
+		UART_write(uart3, "This is uart 3", 15);
+		System_printf("Uart 3 tested\n");
+		System_flush();
+		UART_write(uart4, "This is uart 4", 15);
+		System_printf("Uart 4 tested\n");
+		System_flush();
+		UART_write(uart5, "This is uart 5", 15);
+		System_printf("Uart 5 tested\n");
+		System_flush();
+		UART_write(uart6, "This is uart 6", 15);
+		System_printf("Uart 6 tested\n");
+		System_flush();
+		UART_write(uart7, "This is uart 7", 15);
+		System_printf("Uart 7 tested\n");
+		System_flush();
+
+// ------------------------------ PWM --------------------- //
 
 		System_printf("Setting motors to neutral\n");
 		System_flush();
@@ -137,7 +112,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 		// go forward
 
-		for (i = 1500; i < 2000; i += 50) {
+		for (i = 1500; i < 2000; i += 100) {
 
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
@@ -146,7 +121,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 			pwmWrite(motor_4, i);
 			pwmWrite(motor_5, i);
 
-			ms_delay(500);
+			ms_delay(100);
 
 		} //end for
 
@@ -166,7 +141,6 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 		} //end for
 
-		System_printf("Turning motor 0 off\n");
 		System_flush();
 
 		for (i = 1000; i < 1500; i += 50) {
@@ -182,11 +156,9 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 		} //end for
 
-	} //end while forever
-
-	System_printf("Finished testing all devices\n");
-	System_flush();
-
+		System_printf("Finished testing all pins\n");
+		System_flush();
+	}
 	Task_exit();
 
 } //end fnctn Task roveHardwareTester

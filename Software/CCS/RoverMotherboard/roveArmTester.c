@@ -61,7 +61,6 @@ void roveArmTester(UArg arg0, UArg arg1)
 
 			}//end while
 
-
 		}//end while
 
 	}//end while

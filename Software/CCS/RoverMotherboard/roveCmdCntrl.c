@@ -120,7 +120,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 
 			//end drive motor_right_id
 
-			default:
+			//default:
 
 
 			// adds the start bytes, size byte, and checksum based on what struct id
@@ -148,7 +148,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1){
 			i++;
 
 			}//end for
-
 
 			break;
 

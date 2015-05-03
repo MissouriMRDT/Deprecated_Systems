@@ -69,13 +69,13 @@ bool recvSerialStructMessage(int deviceJack, char* buffer)
 	int bytesRead = 0;
 	char receiveBuffer[40];
 
-	uint8_t garbageCount = 10; // This is used to decide how much pre-data to discard before quitting
+	// this is used to decide how much pre-data to discard before quitting
+	uint8_t garbageCount = 10;
 
 	bool startReceived = false;
 
 	//testing
-
-	int debug_rx_cnt = 0;
+	//int debug_rx_cnt = 0;
 
 	if (rx_len == 0){
 
@@ -100,7 +100,7 @@ bool recvSerialStructMessage(int deviceJack, char* buffer)
 
 			}//endif
 
-			debug_rx_cnt++;
+			//debug_rx_cnt++;
 
 		}//endwhile
 

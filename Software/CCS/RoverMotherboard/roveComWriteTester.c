@@ -79,7 +79,7 @@ void roveComWriteTester(UArg arg0, UArg arg1)
 
             message_count++;
 
-			ms_delay(MS_DELAY);
+			ms_delay(TEST_MS_DELAY);
 
 		//}//end while STRUCT_ID_MAX
 

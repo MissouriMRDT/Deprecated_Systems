@@ -143,9 +143,11 @@
 #define MAX_SPEED 1000
 #define SPEED_INCREMENT 350
 
-#define MS_DELAY 10
+#define TEST_MS_DELAY 10
 
 #define TEST_MESSAGE_SIZE 5
+#define TEST_NON_BLOCKING_FLAG 0
+#define TEST_READ_ONE_BYTE 1
 
 // size in bytes of longest command that can be recieved from the base station
 

@@ -30,7 +30,7 @@ void roveArmTester(UArg arg0, UArg arg1)
 
 				Mailbox_post(fromBaseStationMailbox, &test_command_msg, BIOS_WAIT_FOREVER);
 
-				ms_delay(MS_DELAY);
+				ms_delay(TEST_MS_DELAY);
 
 			} //end while
 
@@ -46,7 +46,7 @@ void roveArmTester(UArg arg0, UArg arg1)
 				Mailbox_post(fromBaseStationMailbox, &test_command_msg,
 						BIOS_WAIT_FOREVER);
 
-				ms_delay(MS_DELAY);
+				ms_delay(TEST_MS_DELAY);
 
 			} //end while
 

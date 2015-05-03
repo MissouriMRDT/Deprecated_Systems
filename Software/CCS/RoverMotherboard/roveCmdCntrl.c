@@ -55,8 +55,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 	while (FOREVER) {
 
-		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
-		System_flush();
+//		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
+//		System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
@@ -69,8 +69,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 		case motor_left_id:
 			//the left motors must be the negative of the right motors. Their phase is backwards
 
-			motor_speed =
-					-(((struct motor_control_struct*) (&fromBaseMsg))->speed);
+			motor_speed = -( ( (struct motor_control_struct*)(&fromBaseMsg))->speed );
 
 			DriveMotor(motor_0, motor_speed);
 			DriveMotor(motor_1, motor_speed);
@@ -82,24 +81,25 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 		case motor_right_id:
 
-			motor_speed =
-					((struct motor_control_struct*) (&fromBaseMsg))->speed;
+			motor_speed = ( ( (struct motor_control_struct*)(&fromBaseMsg))->speed );
 
-			DriveMotor(motor_0, -motor_speed);
-			DriveMotor(motor_1, motor_speed);
-			DriveMotor(motor_2, -motor_speed);
+			DriveMotor(motor_3, -motor_speed);
+			DriveMotor(motor_4, motor_speed);
+			DriveMotor(motor_5, -motor_speed);
 
 			break;
 
 			//end drive motor_right_id
 
 		default:
+			/*
 			deviceJack = getDeviceJack(fromBaseMsg.id);
 			messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
 					commandBuffer);
 
 			System_printf("Message Size: %d\n", messageSize);
 			deviceWrite(deviceJack, commandBuffer, messageSize);
+			*/
 			break;
 
 		} //endswitch

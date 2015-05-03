@@ -183,8 +183,15 @@ void pwmWrite(PWM_Handle pin, int duty_microseconds){
 
 void DriveMotor(PWM_Handle motor, int speed)
 {
+	if(speed != 0)
+	{
+		System_printf("Nonzero speed\n");
+		System_flush();
+	}
 	//Scaling
-	int microseconds = (speed / 2) + 1500; //Map to PWM pulse width range
+	int microseconds;
+	microseconds = speed / 2; //Scale down. We want the final range to be between 1000 and 2000
+	microseconds += 1500;     //Offset. 1500 is neutral
 
 	//Bound checking
 	if(microseconds > 2000) //Upper bound on motor pulse width
@@ -193,6 +200,11 @@ void DriveMotor(PWM_Handle motor, int speed)
 		microseconds = 1000;
 
 	//Writing
+	if(microseconds != 1500)
+	{
+		System_printf("Writing %d microseconds to motor\n", microseconds);
+		System_flush();
+	}
 	pwmWrite(motor, microseconds);
 	return;
 }

@@ -154,11 +154,15 @@ struct power_board_bms_telem
 {
 	uint8_t struct_id;
 	float value;
-};
+}__attribute__((packed));
 
+typedef struct test_msg_struct{
 
-
-
+    char id;
+    char message_count;
+    char device_jack;
+    char message[TEST_MESSAGE_SIZE];
+}__attribute__((packed)) test_msg_struct, *test_msg;
 
 // this struct should only be used for type casting as it does not have a corresponding id
 

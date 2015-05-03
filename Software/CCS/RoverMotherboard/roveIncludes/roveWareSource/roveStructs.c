@@ -11,9 +11,13 @@
 
 #include "../roveWareHeaders/roveStructs.h"
 
-int getStructSize(char structId) {
+int getStructSize(char structId)
+{
 
-	switch (structId) {
+	switch (structId)
+	{
+	case (char) test_message_id:
+	            return sizeof(struct test_msg_struct);
 
 	case (char) motor_left_id:
 		return sizeof(struct motor_control_struct);
@@ -21,16 +25,16 @@ int getStructSize(char structId) {
 	case (char) motor_right_id:
 		return sizeof(struct motor_control_struct);
 
-	case bms_emergency_stop_command_id:
+	case (char) bms_emergency_stop_command_id:
 		return sizeof(struct bms_emergency_stop_command);
 
-	case bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
+	case (char) bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
 		return sizeof(struct power_board_bms_telem);
 
-	case power_board_command_id:
+	case (char) power_board_command_id:
 		return sizeof(struct power_board_command);
 
-	case power_board_telem_motor1_current_id
+	case (char) power_board_telem_motor1_current_id
 			... power_board_telem_main_battery_voltage_id:
 		return sizeof(struct power_board_bms_telem);
 

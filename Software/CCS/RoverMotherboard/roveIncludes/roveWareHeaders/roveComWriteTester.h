@@ -1,13 +1,9 @@
-// roveComTest.h
-//
-//  Created on: Mar 30, 2015
-//      Author: Connor Walsh
-//
+// roveComWriteTester.h
 
 #pragma once
 
-#ifndef ROVECOMTEST_H_
-#define ROVECOMTEST_H_
+#ifndef ROVECOMWRITETESTER_H_
+#define ROVECOMWRITETESTER_H_
 
 // globally scoped Texas Instruments (TI) headers
 
@@ -17,7 +13,6 @@
 
 #include "../mrdtRoveWare.h"
 
-void roveComTest(UArg arg0, UArg arg1);
+void roveComWriteTester(UArg arg0, UArg arg1);
 
-
-#endif // ROVECOMTEST_H_
+#endif // ROVECOMWRITETESTER_H_

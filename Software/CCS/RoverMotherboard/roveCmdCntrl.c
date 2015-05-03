@@ -64,7 +64,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 		// case 0 hack to make a happy switch
 		case 0:
-			break;
+		break;
 
 		case motor_left_id:
 			//the left motors must be the negative of the right motors. Their phase is backwards
@@ -125,6 +125,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 		Task_exit();
 
 	} //endfnct:		roveCmdCntrl() Task Thread
+
+}//end task
 
 	/* This is the case for ASCII control only
 

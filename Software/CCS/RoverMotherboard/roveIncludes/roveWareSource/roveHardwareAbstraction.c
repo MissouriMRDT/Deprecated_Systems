@@ -22,12 +22,10 @@ int getDeviceJack(int device){
 				System_flush();
 			return -1;
 
-		case test_device_id:
-
+		case test_message_id:
 			return ONBOARD_ROVECOMM;
 
 		case motor_left_id:
-
 			return ONBOARD_ROVECOMM;
 
 		case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:

@@ -14,7 +14,7 @@ void roveComWriteTest(UArg arg0, UArg arg1) {
 
 
 	while (1) {
-		for(i = wrist_clock_wise; i < acutator_forward)
+		for(i = wrist_clock_wise; i < actuator_forward; i++)
 		{
 			deviceJack = getDeviceJack(i);
 		}

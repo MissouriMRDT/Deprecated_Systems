@@ -55,7 +55,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 			//Spawn sending thread
 
 			Error_init(&eb);
-
+/*
 			System_printf("Spawning roveTcpSender\n");
 			Task_Params_init(&taskParams);
 			taskParams.arg0 = (UArg) (RED_socket.socketFileDescriptor);
@@ -68,6 +68,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 				System_printf(
 						"Error: Failed to create new roveTcpSender Task\n");
 			}
+			*/
 
 		}
 

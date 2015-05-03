@@ -37,8 +37,7 @@ void roveArmTester(UArg arg0, UArg arg1) {
 				System_flush();
 
 				memcpy(&test_command_msg, &robot_arm, sizeof(robot_arm));
-				Mailbox_post(fromBaseStationMailbox, &test_command_msg,
-						BIOS_WAIT_FOREVER);
+				Mailbox_post(fromBaseStationMailbox, &test_command_msg,BIOS_WAIT_FOREVER);
 
 				ms_delay(MS_DELAY);
 

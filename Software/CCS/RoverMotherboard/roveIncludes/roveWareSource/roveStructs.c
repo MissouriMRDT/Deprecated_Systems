@@ -11,50 +11,41 @@
 
 #include "../roveWareHeaders/roveStructs.h"
 
-int getStructSize(char structId){
+int getStructSize(char structId) {
 
-	switch(structId){
+	switch (structId) {
 
-	case (char)motor_left_id:
+	case (char) motor_left_id:
+		return sizeof(struct motor_control_struct);
 
-			return sizeof(struct motor_control_struct);
-
-	case (char)motor_right_id:
-
-			return sizeof(struct motor_control_struct);
+	case (char) motor_right_id:
+		return sizeof(struct motor_control_struct);
 
 	case bms_emergency_stop_command_id:
-
 		return sizeof(struct bms_emergency_stop_command);
 
 	case bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
-
 		return sizeof(struct power_board_bms_telem);
 
 	case power_board_command_id:
-
 		return sizeof(struct power_board_command);
 
-	case power_board_telem_motor1_current_id ... power_board_telem_main_battery_voltage_id:
-
+	case power_board_telem_motor1_current_id
+			... power_board_telem_main_battery_voltage_id:
 		return sizeof(struct power_board_bms_telem);
 
-	case (char)wrist_clock_wise...actuator_forward:
+	case (char) wrist_clock_wise ... actuator_forward:
+		return sizeof(struct base_station_robot_arm_command);
 
-				return sizeof(struct base_station_robot_arm_command);
+	case (char) robot_arm_constant_speed_id:
+		return sizeof(struct robot_arm_command);
 
-	case (char)robot_arm_constant_speed_id:
+	case (char) gripper_open:
+		return sizeof(struct gripper_command);
 
-				return sizeof(struct robot_arm_command);
-
-	case (char)gripper_open:
-
-				return sizeof(struct gripper_command);
-
-	}//endswitch:		(structId)
+	} //endswitch:		(structId)
 
 	return -1;
 
-}//endfnctn getStructSize(char structId)
-
+} //endfnctn getStructSize(char structId)
 

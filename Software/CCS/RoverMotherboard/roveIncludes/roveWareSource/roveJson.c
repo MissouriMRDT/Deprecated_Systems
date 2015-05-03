@@ -16,26 +16,26 @@
 
 //reverse:  reverse string s in place
 
-void reverse(char s[]){
+void reverse(char s[]) {
 
-     int i, j;
-     char c;
+	int i, j;
+	char c;
 
-     for(i = 0, j = strlen(s)-1; i<j; i++, j--){
+	for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
 
-         c = s[i];
-         s[i] = s[j];
-         s[j] = c;
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
 
-     }//endfor:		(i = 0, j = strlen(s)-1; i<j; i++, j--)
+	} //endfor:		(i = 0, j = strlen(s)-1; i<j; i++, j--)
 
-}//endfnctn:		reverse(char s[]
+} //endfnctn:		reverse(char s[]
 
 //TODO
 
 //itoa:  convert n to characters in s
 
-void itoa(int n, char s[]){
+void itoa(int n, char s[]) {
 
 	int i, sign;
 
@@ -43,33 +43,33 @@ void itoa(int n, char s[]){
 
 	if ((sign = n) < 0)
 
-	  n = -n;
-	  i = 0;
+		n = -n;
+	i = 0;
 
 	//generate digits in reverse order
 
 	do {
 
-	  //get next digit
+		//get next digit
 
-	  s[i++] = n % 10 + '0';
+		s[i++] = n % 10 + '0';
 
-	// delete it
+		// delete it
 
 	} while ((n /= 10) > 0);
 
 	if (sign < 0)
 
-	  s[i++] = '-';
-	  s[i] = '\0';
+		s[i++] = '-';
+	s[i] = '\0';
 
 	reverse(s);
 
- }//endfnctn:		itoa(int n, char s[])
+} //endfnctn:		itoa(int n, char s[])
 
 //TODO
 
-void generate_json_int(char *string_buf, const char *id, const int value){
+void generate_json_int(char *string_buf, const char *id, const int value) {
 
 	//add beginning of json
 
@@ -90,11 +90,11 @@ void generate_json_int(char *string_buf, const char *id, const int value){
 
 	strcat(string_buf, "}");
 
-}//endfnctn:			generate_json_int(char *string_buf, const char *id, const int value
+} //endfnctn:			generate_json_int(char *string_buf, const char *id, const int value
 
 //TODO
 
-void generate_json_strings(char *string_buf, const char *id, const char *value){
+void generate_json_strings(char *string_buf, const char *id, const char *value) {
 
 	//add beginning of json
 
@@ -113,11 +113,11 @@ void generate_json_strings(char *string_buf, const char *id, const char *value){
 
 	strcat(string_buf, "'}");
 
-}//endfnctn:		 generate_json_strings(char *string_buf, const char *id, const char *value)
+} //endfnctn:		 generate_json_strings(char *string_buf, const char *id, const char *value)
 
 //TODO
 
-void generate_json_float(char *string_buf, const char *id, const float value){
+void generate_json_float(char *string_buf, const char *id, const float value) {
 
 	//add beginning of json
 
@@ -134,7 +134,7 @@ void generate_json_float(char *string_buf, const char *id, const float value){
 	int fractional_value;
 
 	whole_value = value;
-	fractional_value = ( whole_value - value ) * 1000;
+	fractional_value = (whole_value - value) * 1000;
 
 	//add whole value
 
@@ -156,11 +156,12 @@ void generate_json_float(char *string_buf, const char *id, const float value){
 
 	strcat(string_buf, "}");
 
-}//endfnctn:		generate_json_float(char *string_buf, const char *id, const float value
+} //endfnctn:		generate_json_float(char *string_buf, const char *id, const float value
 
 //TODO
 
-void generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction){
+void generate_gps_json(char *string_buf, const char *id, const int whole_number,
+		const int frac_number, const uint8_t direction) {
 
 	//add beginning of json
 
@@ -199,11 +200,12 @@ void generate_gps_json(char *string_buf, const char *id, const int whole_number,
 
 	strcat(string_buf, "'}");
 
-}//endfnctn:		generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction)
+} //endfnctn:		generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction)
 
 //TODO
 
-void generate_altitude_json(char *string_buf, const char *id, const int whole_number, const int frac_number){
+void generate_altitude_json(char *string_buf, const char *id,
+		const int whole_number, const int frac_number) {
 
 	//add beginning of json
 
@@ -234,11 +236,11 @@ void generate_altitude_json(char *string_buf, const char *id, const int whole_nu
 
 	strcat(string_buf, "'}");
 
-}//endfnctn:		generate_altitude_json(char *string_buf, const char *id, const int whole_number, const int frac_number)
+} //endfnctn:		generate_altitude_json(char *string_buf, const char *id, const int whole_number, const int frac_number)
 
 //TODO
 
-void write_json(UART_Handle uart, char *json_string){
+void write_json(UART_Handle uart, char *json_string) {
 
 	//get size of JSON string
 
@@ -246,6 +248,6 @@ void write_json(UART_Handle uart, char *json_string){
 
 	//write data out UART
 
-	UART_write(uart, json_string, size+1);
+	UART_write(uart, json_string, size + 1);
 
-}//endfnct:		write_json(UART_Handle uart, char *json_string
+} //endfnct:		write_json(UART_Handle uart, char *json_string

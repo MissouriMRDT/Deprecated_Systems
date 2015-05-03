@@ -104,14 +104,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 		} //endswitch
 
-		// adds the start bytes, size byte, and checksum based on what struct id
-
-
-
-		// TODO change deviceJack = getDeviceJack(fromBaseMsg.id);
-
-
-
 		//debugging only:
 
 		i = 0;
@@ -127,107 +119,107 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 		System_flush();
 
-	System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
+		System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
+		System_flush();
+
+		Task_exit();
+
+	} //endfnct:		roveCmdCntrl() Task Thread
+
+	/* This is the case for ASCII control only
+
+	 case motor_left_id:
+
+	 //the left motors must be the negative of the right motors. Their phase is backwards
+
+	 speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+	 messageSize = generateMotorCommand(speed, commandBuffer);
+	 deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
+	 break;
+
+
+	 //case motor_right_id:
+
+	 speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+	 messageSize = generateMotorCommand(speed, commandBuffer);
+	 deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+
+	 break;
+
+	 // end drive motor_right_id with ASCII strings
+	 */
+
+	/*This is
+	for ASCII control only
+	*
+	case motor_left_id:
+
+	// TODO implement correct Jack for Motor Comm Board
+
+	//the left motors must be the negative of the right motors. Their phase is backwards
+
+	speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
+
+	//protect from the max and min for the motorcontroller
+
+	if (speed > 999) {
+
+		speed = 999;
+	} //endif
+
+	if (speed < -999) {
+
+		speed = -999;
+	} //endif
+
+	messageSize = generateMotorCommand(speed, commandBuffer);
+	deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize - 1));
+
+	System_printf("commandBuffer holds %s \n", commandBuffer);
 	System_flush();
 
-	Task_exit();
+	System_printf("messageSize holds %d \n", messageSize);
+	System_flush();
 
-} //endfnct:		roveCmdCntrl() Task Thread
+	System_printf("speed holds %d \n", speed);
+	System_flush();
 
-/* This is the case for ASCII control only
+	break;
 
- case motor_left_id:
+	//end drive motor_left_id with ASCII strings
 
- //the left motors must be the negative of the right motors. Their phase is backwards
+	//case motor_right_id:
 
- speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
+	speed = ((struct motor_control_struct*) (&fromBaseMsg))->speed;
 
- messageSize = generateMotorCommand(speed, commandBuffer);
- deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+	//protect from the max and min for the motorcontroller
 
- break;
+	if (speed > 999) {
 
+		speed = 999;
+	} //endif
 
- //case motor_right_id:
+	if (speed < -999) {
 
- speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
+		speed = -999;
+	} //endif
 
- messageSize = generateMotorCommand(speed, commandBuffer);
- deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
+	messageSize = generateMotorCommand(speed, commandBuffer);
+	deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize - 1));
 
- break;
+	System_printf("commandBuffer holds %s \n", commandBuffer);
+	System_flush();
 
- // end drive motor_right_id with ASCII strings
- */
+	System_printf("messageSize holds %d \n", messageSize);
+	System_flush();
 
+	System_printf("speed holds %d \n", speed);
+	System_flush();
 
-/* This is for ASCII control only
- *
-			case motor_left_id:
+	break;
 
-				// TODO implement correct Jack for Motor Comm Board
-
-				//the left motors must be the negative of the right motors. Their phase is backwards
-
-				speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
-
-				//protect from the max and min for the motorcontroller
-
-				if (speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if (speed < -999){
-
-						speed = -999;
-				}//endif
-
-				messageSize = generateMotorCommand(speed, commandBuffer);
-				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
-
-							System_printf("commandBuffer holds %s \n", commandBuffer);
-							System_flush();
-
-							System_printf("messageSize holds %d \n", messageSize);
-							System_flush();
-
-							System_printf("speed holds %d \n", speed);
-							System_flush();
-
-			break;
-
-			//end drive motor_left_id with ASCII strings
-
-			//case motor_right_id:
-
-				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
-
-				//protect from the max and min for the motorcontroller
-
-				if (speed > 999){
-
-					speed = 999;
-				}//endif
-
-				if (speed < -999){
-
-						speed = -999;
-				}//endif
-
-				messageSize = generateMotorCommand(speed, commandBuffer);
-				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
-
-							System_printf("commandBuffer holds %s \n", commandBuffer);
-							System_flush();
-
-							System_printf("messageSize holds %d \n", messageSize);
-							System_flush();
-
-							System_printf("speed holds %d \n", speed);
-							System_flush();
-
-			break;
-
-			// end drive motor_right_id with ASCII strings
+	// end drive motor_right_id with ASCII strings
 */

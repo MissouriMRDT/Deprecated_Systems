@@ -186,7 +186,6 @@
 #define e_stop_arm 206
 #define actuator_forward 207
 
-
 // gripper values
 
 #define gripper_open 220

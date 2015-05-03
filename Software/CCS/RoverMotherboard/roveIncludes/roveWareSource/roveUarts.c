@@ -14,7 +14,7 @@
 
 #include "../roveWareHeaders/roveUarts.h"
 
-UART_Handle init_uart(UInt uart_index, UInt baud_rate){
+UART_Handle init_uart(UInt uart_index, UInt baud_rate) {
 
 	UART_Handle uart_handle;
 
@@ -39,8 +39,8 @@ UART_Handle init_uart(UInt uart_index, UInt baud_rate){
 
 		System_abort("Error opening the UART");
 
-	}//endif
+	} //endif
 
 	return uart_handle;
 
-}//endfnct init_uart(UInt uart_index, UInt baud_rate)
+} //endfnct init_uart(UInt uart_index, UInt baud_rate)

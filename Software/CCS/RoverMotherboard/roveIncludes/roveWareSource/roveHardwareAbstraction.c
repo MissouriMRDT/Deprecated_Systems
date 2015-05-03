@@ -611,5 +611,5 @@ int generateMotorCommand(int speed, char* buffer){
 //}//endfnctn initUarts
 
 //void initMuxGPIO(){
-	//Probably just a bunch of pinModes.
+//Probably just a bunch of pinModes.
 //}//endfnctn initMuxGPIO

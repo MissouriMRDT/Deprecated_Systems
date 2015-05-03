@@ -10,7 +10,7 @@
 
 #include "roveIncludes/roveWareHeaders/roveMotorControlTester.h"
 
-Void roveMotorControlTester(UArg arg0, UArg arg1){
+Void roveMotorControlTester(UArg arg0, UArg arg1) {
 
 	const uint8_t FOREVER = 1;
 
@@ -55,13 +55,13 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 
 	deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
 
-	while(FOREVER){
+	while (FOREVER) {
 
-		if(speed > 900){
+		if (speed > 900) {
 
 			speed = 0;
 
-		}//endif:	(speed > 900)
+		} //endif:	(speed > 900)
 
 		speed = speed + 10;
 
@@ -81,16 +81,15 @@ Void roveMotorControlTester(UArg arg0, UArg arg1){
 		//	#define ONBOARD_ROVECOMM 19
 		//	UART2		U2TX PA7
 
-		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, (messageSize-1));
+		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, (messageSize - 1));
 
 		ms_delay(100);
 
 		loopCount = loopCount + 1;
 
-
 		System_printf("Finished testing loop number %d \n", loopCount);
 		System_flush();
 
-	}//endwhile (FOREVER)
+	}		//endwhile (FOREVER)
 
-}//endfnctn Task roveMotorControlTester
+}		//endfnctn Task roveMotorControlTester

@@ -49,12 +49,13 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 	int i = 0;
 
-	System_printf("roveCmdCntrlr		init! \n");
+	System_printf("roveCmdCntrlr		init! \n\n");
+
 	System_flush();
 
 	while (FOREVER) {
 
-		System_printf("Cmd Cntrl Is PENDING FOR MAIL!");
+		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
 		System_flush();
 
 		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
@@ -66,7 +67,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 			break;
 
 		case motor_left_id:
-
 			//the left motors must be the negative of the right motors. Their phase is backwards
 
 			motor_speed =
@@ -127,14 +127,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
 		System_flush();
 
-	} //endwhile(FOREVER)
-
-	// postcondition: execution will not reach this state unless a serious error occurs
-
 	System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
 	System_flush();
-
-	// exit Task
 
 	Task_exit();
 
@@ -153,7 +147,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
  break;
 
- //end drive motor_left_id with ASCII strings
 
  //case motor_right_id:
 
@@ -167,140 +160,74 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
  // end drive motor_right_id with ASCII strings
  */
 
-void roboArmPositiveWrite(int struct_id, int16_t speed, char* output_buffer) {
 
-	//zero out the struct
+/* This is for ASCII control only
+ *
+			case motor_left_id:
 
-	((struct robot_arm_command*) (output_buffer))->wristCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->wristClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->wristDown = 0;
-	((struct robot_arm_command*) (output_buffer))->wristUp = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowDown = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowUp = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->actuatorReverse = 0;
-	((struct robot_arm_command*) (output_buffer))->actuatorForward = 0;
-	((struct robot_arm_command*) (output_buffer))->baseCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->baseClockWise = 0;
-	//((struct robot_arm_command*)(output_buffer))->reset = 0;
+				// TODO implement correct Jack for Motor Comm Board
 
-	switch (struct_id) {
+				//the left motors must be the negative of the right motors. Their phase is backwards
 
-	//
-	case wrist_clock_wise:
+				speed = -((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
-		((struct robot_arm_command*) (output_buffer))->wristClockWise = 1;
-		break;
+				//protect from the max and min for the motorcontroller
 
-		//
-	case wrist_up:
+				if (speed > 999){
 
-		((struct robot_arm_command*) (output_buffer))->wristUp = 1;
-		break;
+					speed = 999;
+				}//endif
 
-		//
-	case elbow_clock_wise:
+				if (speed < -999){
 
-		((struct robot_arm_command*) (output_buffer))->elbowClockWise = 1;
-		break;
+						speed = -999;
+				}//endif
 
-		//
-	case elbow_up:
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
 
-		((struct robot_arm_command*) (output_buffer))->elbowUp = 1;
-		break;
+							System_printf("commandBuffer holds %s \n", commandBuffer);
+							System_flush();
 
-		//
-	case actuator_forward:
+							System_printf("messageSize holds %d \n", messageSize);
+							System_flush();
 
-		((struct robot_arm_command*) (output_buffer))->actuatorForward = 1;
-		break;
+							System_printf("speed holds %d \n", speed);
+							System_flush();
 
-		//
-	case base_clock_wise:
+			break;
 
-		((struct robot_arm_command*) (output_buffer))->baseClockWise = 1;
-		break;
+			//end drive motor_left_id with ASCII strings
 
-		//
-		//case e_stop_arm:
+			//case motor_right_id:
 
-		//((struct robot_arm_command*)(output_buffer))->reset = 1;
-		//break;
+				speed = ((struct motor_control_struct*)(&fromBaseMsg))->speed;
 
-		// end robot arm
+				//protect from the max and min for the motorcontroller
 
-	}					//endswitch(struct_id)
+				if (speed > 999){
 
-	((struct robot_arm_command*) (output_buffer))->speed = speed;
+					speed = 999;
+				}//endif
 
-	return;
+				if (speed < -999){
 
-}					//endfnctn
+						speed = -999;
+				}//endif
 
-void roboArmNegativeWrite(int struct_id, int16_t speed, char* output_buffer) {
+				messageSize = generateMotorCommand(speed, commandBuffer);
+				deviceWrite(ONBOARD_ROVECOMM, commandBuffer, (messageSize-1));
 
-	//zero out the struct
+							System_printf("commandBuffer holds %s \n", commandBuffer);
+							System_flush();
 
-	((struct robot_arm_command*) (output_buffer))->wristCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->wristClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->wristDown = 0;
-	((struct robot_arm_command*) (output_buffer))->wristUp = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowDown = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowUp = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->elbowClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->actuatorReverse = 0;
-	((struct robot_arm_command*) (output_buffer))->actuatorForward = 0;
-	((struct robot_arm_command*) (output_buffer))->baseCounterClockWise = 0;
-	((struct robot_arm_command*) (output_buffer))->baseClockWise = 0;
-	//((struct robot_arm_command*)(output_buffer))->reset = 0;
+							System_printf("messageSize holds %d \n", messageSize);
+							System_flush();
 
-	switch (struct_id) {
+							System_printf("speed holds %d \n", speed);
+							System_flush();
 
-	// negative clockwise speed = positive clockwise speed
+			break;
 
-	case wrist_clock_wise:
-
-		((struct robot_arm_command*) (output_buffer))->wristCounterClockWise =
-				1;
-		break;
-
-		//
-	case wrist_up:
-
-		((struct robot_arm_command*) (output_buffer))->wristDown = 1;
-		break;
-
-		//
-	case elbow_clock_wise:
-
-		((struct robot_arm_command*) (output_buffer))->elbowCounterClockWise =
-				1;
-		break;
-
-		//
-	case elbow_up:
-
-		((struct robot_arm_command*) (output_buffer))->elbowDown = 1;
-		break;
-
-		//
-	case actuator_forward:
-
-		((struct robot_arm_command*) (output_buffer))->actuatorReverse = 1;
-		break;
-
-	case base_clock_wise:
-
-		((struct robot_arm_command*) (output_buffer))->baseCounterClockWise = 1;
-		break;
-
-	}					//endswitch(struct_id)
-
-	((struct robot_arm_command*) (output_buffer))->speed = speed;
-
-	return;
-
-}					//endfnctn roboArmNegativeWrite
+			// end drive motor_right_id with ASCII strings
+*/

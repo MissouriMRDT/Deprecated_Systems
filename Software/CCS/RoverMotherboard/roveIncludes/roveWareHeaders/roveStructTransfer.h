@@ -32,6 +32,6 @@ int buildSerialStructMessage(void* my_struct, char* buffer);
 // only return when either a whole message is read or an incorrect message was received and dropped
 // In the future this may be changed to work as a nonblocking function or a different function
 // may be written - Connor
-bool RecvSerialStructMessage(int deviceJack, char* buffer);
+bool recvSerialStructMessage(int deviceJack, char* buffer);
 
 #endif /* ROVESTRUCTTRANSFER_H_ */

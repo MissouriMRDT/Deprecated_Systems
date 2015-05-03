@@ -39,11 +39,11 @@ int getStructSize(char structId){
 
 		return sizeof(struct power_board_bms_telem);
 
-	case (char)wrist_clock_wise...e_stop_arm:
+	case (char)wrist_clock_wise...actuator_forward:
 
 				return sizeof(struct base_station_robot_arm_command);
 
-	case (char)robot_arm_id:
+	case (char)robot_arm_constant_speed_id:
 
 				return sizeof(struct robot_arm_command);
 

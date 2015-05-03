@@ -9,6 +9,7 @@
 // 02_24_2015_Judah Schad_jrs6w7@mst.edu
 
 #include "../roveWareHeaders/roveHardwareAbstraction.h"
+#include <ti/sysbios/knl/Task.h>
 
 //TODO Configure Patch Panel Jacks to Physical Devices (In Hardware FIRST)
 
@@ -176,7 +177,7 @@ PWM_Handle rovePWMInit(PWM_Handle pwm_index, uint16_t period_in_microseconds){
 
 void pwmWrite(PWM_Handle pin, int duty_microseconds){
 
-	PWM_setDuty(pin, speed);
+	PWM_setDuty(pin, duty_microseconds);
 
 }//endfnctn pwmWrite
 
@@ -332,6 +333,56 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write){
 
 }//endfnctn deviceWrite
 
+Void readIntTask(UArg arg0, UArg arg1)
+{
+//	System_printf("ReadIntTask going to sleep for %d ticks\n", (int)arg1);
+	System_flush();
+	Task_sleep((int)arg1);
+
+	UART_readCancel((UART_Handle)arg0);
+
+//	System_printf("Canceled uart read\n");
+	System_flush();
+	while(1) // wait for task to be deleted by task that created it
+	{
+		Task_sleep(10000);
+	}
+}
+
+int UART_read_nonblocking (UART_Handle uart, char* buffer, int bytes_to_read, int timeout)
+{
+	Task_Params readInterruptTaskParams;
+	Task_Handle readInterruptTask;
+	Error_Block eb;
+	int bytes_read;
+
+	Error_init(&eb);
+	Task_Params_init(&readInterruptTaskParams);
+	readInterruptTaskParams.stackSize = 512;
+	readInterruptTaskParams.priority = -1;
+	readInterruptTaskParams.arg0 = (UArg)uart;
+	readInterruptTaskParams.arg1 = (UArg)timeout;
+
+	readInterruptTask = Task_create((Task_FuncPtr)readIntTask, &readInterruptTaskParams, &eb);
+	if (readInterruptTask == NULL)
+	{
+		System_printf("Failed to create Task in UART_read_nonblocking!\n");
+		System_flush();
+	}
+
+	Task_setPri(readInterruptTask, 2);
+	bytes_read = UART_read(uart, buffer, bytes_to_read);
+	Task_delete(&readInterruptTask);
+
+	if (bytes_read >= 0)
+	{
+		return bytes_read;
+	}
+
+	return -1;
+}
+// ^ Need to implement this function, should return negative one if error
+
 int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout){
 
 	int bytes_read;
@@ -358,95 +409,95 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout){
 			digitalWrite(U3_MUX_S1, HIGH);
 
 			//Write the buffer to the device
-			bytes_read = UART_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart3, buffer, bytes_to_read, timeout);
 			break;
 		case 2:
 			digitalWrite(U3_MUX_S0, LOW);
 			digitalWrite(U3_MUX_S1, HIGH);
-			bytes_read = UART_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart3, buffer, bytes_to_read, timeout);
 			break;
 		case 3:
 			digitalWrite(U3_MUX_S0, HIGH);
 			digitalWrite(U3_MUX_S1, LOW);
-			bytes_read = UART_read(uart3, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart3, buffer, bytes_to_read, timeout);
 			break;
 		case 4:
 			digitalWrite(U6_MUX_S0, LOW);
 			digitalWrite(U6_MUX_S1, HIGH);
-			bytes_read = UART_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart6, buffer, bytes_to_read, timeout);
 			break;
 		case 5:
 			digitalWrite(U6_MUX_S0, HIGH);
 			digitalWrite(U6_MUX_S1, LOW);
-			bytes_read = UART_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart6, buffer, bytes_to_read, timeout);
 			break;
 		case 6:
 			digitalWrite(U7_MUX_S0, HIGH);
 			digitalWrite(U7_MUX_S1, HIGH);
-			bytes_read = UART_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart7, buffer, bytes_to_read, timeout);
 			break;
 		case 7:
 			digitalWrite(U7_MUX_S0, LOW);
 			digitalWrite(U7_MUX_S1, HIGH);
-			bytes_read = UART_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart7, buffer, bytes_to_read, timeout);
 			break;
 		case 8:
 			digitalWrite(U7_MUX_S0, HIGH);
 			digitalWrite(U7_MUX_S1, LOW);
-			bytes_read = UART_read(uart7, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart7, buffer, bytes_to_read, timeout);
 			break;
 		case 9:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = UART_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read, timeout);
 			break;
 		case 10:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, HIGH);
-			bytes_read = UART_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read, timeout);
 			break;
 		case 11:
 			digitalWrite(U5_MUX_S0, HIGH);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = UART_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read, timeout);
 			break;
 		case 12:
 			digitalWrite(U5_MUX_S0, LOW);
 			digitalWrite(U5_MUX_S1, LOW);
-			bytes_read = UART_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read, timeout);
 			break;
 		case 13:
 			digitalWrite(U5_MUX_S0, HIGH);
 			digitalWrite(U5_MUX_S1, HIGH);
-			bytes_read = UART_read(uart5, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read, timeout);
 			break;
 		case 14:
 			digitalWrite(U4_MUX_S0, LOW);
 			digitalWrite(U4_MUX_S1, LOW);
-			bytes_read = UART_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart4, buffer, bytes_to_read, timeout);
 			break;
 		case 15:
 			digitalWrite(U4_MUX_S0, LOW);
 			digitalWrite(U4_MUX_S1, HIGH);
-			bytes_read = UART_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart4, buffer, bytes_to_read, timeout);
 			break;
 		case 16:
 			digitalWrite(U4_MUX_S0, HIGH);
 			digitalWrite(U4_MUX_S1, HIGH);
-			bytes_read = UART_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart4, buffer, bytes_to_read, timeout);
 			break;
 		case 17:
 			digitalWrite(U4_MUX_S0, HIGH);
 			digitalWrite(U4_MUX_S1, LOW);
-			bytes_read = UART_read(uart4, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart4, buffer, bytes_to_read, timeout);
 			break;
 		case POWER_BOARD:
 			digitalWrite(U6_MUX_S0, HIGH);
 			digitalWrite(U6_MUX_S1, HIGH);
-			bytes_read = UART_read(uart6, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart6, buffer, bytes_to_read, timeout);
 			break;
 		case ONBOARD_ROVECOMM:
-			bytes_read = UART_read(uart2, buffer, bytes_to_read);
+			bytes_read = UART_read_nonblocking(uart2, buffer, bytes_to_read, timeout);
 			break;
 		default:
 			//Tried to write to invalid device

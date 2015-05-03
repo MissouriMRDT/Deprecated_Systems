@@ -98,12 +98,12 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 		System_printf("Setting motors to neutral\n");
 		System_flush();
 
-		pwmWrite(motor_0, 1500);
-		pwmWrite(motor_1, 1500);
-		pwmWrite(motor_2, 1500);
-		pwmWrite(motor_3, 1500);
-		pwmWrite(motor_4, 1500);
-		pwmWrite(motor_5, 1500);
+		pwmWrite(motor_0, PWM_NEUTRAL_MICROS);
+		pwmWrite(motor_1, PWM_NEUTRAL_MICROS);
+		pwmWrite(motor_2, PWM_NEUTRAL_MICROS);
+		pwmWrite(motor_3, PWM_NEUTRAL_MICROS);
+		pwmWrite(motor_4, PWM_NEUTRAL_MICROS);
+		pwmWrite(motor_5, PWM_NEUTRAL_MICROS);
 
 		ms_delay(6000);
 
@@ -112,7 +112,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 		// go forward
 
-		for (i = 1500; i < 2000; i += 100) {
+		for (i = PWM_NEUTRAL_MICROS; i < PWM_MAX_MICROS; i += PWM_STEP_MICROS) {
 
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
@@ -128,7 +128,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 		System_printf("Spinning Down\n");
 		System_flush();
 
-		for (i = 2000; i > 1000; i -= 50) {
+		for (i = PWM_MAX_MICROS; i > PWM_MIN_MICROS; i -= PWM_STEP_MICROS) {
 
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);
@@ -143,7 +143,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 		System_flush();
 
-		for (i = 1000; i < 1500; i += 50) {
+		for (i = PWM_MIN_MICROS; i < PWM_NEUTRAL_MICROS; i += PWM_STEP_MICROS) {
 
 			pwmWrite(motor_0, i);
 			pwmWrite(motor_1, i);

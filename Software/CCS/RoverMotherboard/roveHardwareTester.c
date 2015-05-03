@@ -10,6 +10,9 @@
 
 #include "roveIncludes/roveWareHeaders/roveHardwareTester.h"
 
+#define PWM_TEST_LOOPS 2
+#define UART_TEST_LOOPS 3
+
 Void roveHardwareTester(UArg arg0, UArg arg1) {
 
 	int i, j;
@@ -31,7 +34,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 	extern PWM_Handle motor_3;
 	extern PWM_Handle motor_4;
 	extern PWM_Handle motor_5;
-	/*
+
 	System_printf("Starting hardware diagnostic\n");
 	System_flush();
 
@@ -50,7 +53,7 @@ Void roveHardwareTester(UArg arg0, UArg arg1) {
 			digitalWrite(j, LOW);
 		ms_delay(60);
 	}
-	*/
+
 
 	System_printf("Testing UART devices\n");
 	System_flush();

@@ -92,14 +92,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 			//end drive motor_right_id
 
 		default:
-			/*
 			deviceJack = getDeviceJack(fromBaseMsg.id);
-			messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
-					commandBuffer);
+			if(getStructSize(fromBaseMsg.id) !=  -1) // Invalid
+			{
+				messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
+						commandBuffer);
 
-			System_printf("Message Size: %d\n", messageSize);
-			deviceWrite(deviceJack, commandBuffer, messageSize);
-			*/
+				System_printf("Message Size: %d\n", messageSize);
+				deviceWrite(deviceJack, commandBuffer, messageSize);
+			}
 			break;
 
 		} //endswitch

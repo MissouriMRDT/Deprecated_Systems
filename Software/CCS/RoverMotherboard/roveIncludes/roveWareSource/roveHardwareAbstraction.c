@@ -36,7 +36,7 @@ int getDeviceJack(int device){
 		case power_board_command_id ... power_board_telem_main_battery_voltage_id:
 			return POWER_BOARD;
 
-		case wrist_clock_wise ... e_stop_arm:
+		case wrist_clock_wise ... actuator_forward:
 			return ONBOARD_ROVECOMM;
 
 		default:

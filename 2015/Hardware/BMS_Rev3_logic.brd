@@ -2977,32 +2977,32 @@ design rules under a new name.</description>
 <attribute name="MF" value="MOLEX" x="7.874" y="109.982" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="1756827" x="7.874" y="109.982" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="F1" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="43.434" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="118.364" y="83.312" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F1" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="43.434" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-31.496" y="83.312" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F2" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="40.894" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="115.824" y="88.392" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F2" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="40.894" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-34.036" y="88.392" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F3" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="38.354" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="113.284" y="93.472" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F3" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="38.354" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-36.576" y="93.472" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F4" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="35.814" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="110.744" y="98.552" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F4" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="35.814" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-39.116" y="98.552" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F5" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="33.274" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="108.204" y="103.632" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F5" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="33.274" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-41.656" y="103.632" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F6" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="30.734" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="105.664" y="108.712" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F6" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="30.734" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-44.196" y="108.712" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F7" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="28.194" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="109.474" y="59.182" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F7" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="28.194" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-53.086" y="59.182" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F8" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="25.654" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="106.934" y="64.262" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F8" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="25.654" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-55.626" y="64.262" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
-<element name="F9" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="23.114" y="43.942" rot="R90">
-<attribute name="PROD_ID" value="RES-11150" x="104.394" y="69.342" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="F9" library="SparkFun-PowerIC" package="PTC-1206" value="PTCSMD" x="23.114" y="43.942" rot="MR90">
+<attribute name="PROD_ID" value="RES-11150" x="-58.166" y="69.342" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
 <element name="LCD" library="SparkFun-Connectors" package="MOLEX-1X3" value="" x="42.164" y="28.956" rot="R90"/>
 <element name="S1" library="SparkFun-Electromechanical" package="STANDOFF-ELECTRICAL" value="STANDOFF_ELECTRICAL" x="41.8338" y="0.7112"/>
@@ -3059,7 +3059,7 @@ design rules under a new name.</description>
 <vertex x="71.12" y="-12.446"/>
 <vertex x="71.12" y="69.85"/>
 </polygon>
-<wire x1="23.114" y1="38.862" x2="23.114" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="23.114" y1="38.862" x2="23.114" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="25.206" y1="25.844" x2="24.508" y2="25.146" width="0.254" layer="1"/>
 <contactref element="S1" pad="P1"/>
 <contactref element="S2" pad="P1"/>
@@ -3222,7 +3222,7 @@ design rules under a new name.</description>
 <contactref element="U$10" pad="4"/>
 <contactref element="U$10" pad="2"/>
 <contactref element="F1" pad="1"/>
-<wire x1="43.434" y1="38.862" x2="43.434" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="43.434" y1="38.862" x2="43.434" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="33.706" y1="34.542" x2="34.206" y2="34.542" width="0.254" layer="1"/>
 <wire x1="33.706" y1="34.542" x2="33.706" y2="33.6806" width="0.254" layer="1"/>
 <wire x1="33.706" y1="33.6806" x2="33.5788" y2="33.5534" width="0.254" layer="1"/>
@@ -3251,17 +3251,18 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="2"/>
 <contactref element="U$10" pad="12"/>
 <contactref element="F2" pad="1"/>
-<wire x1="40.894" y1="38.862" x2="40.894" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="40.894" y1="38.862" x2="40.894" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="28.706" y1="34.542" x2="28.706" y2="35.3354" width="0.254" layer="1"/>
-<wire x1="37.7444" y1="35.7124" x2="40.894" y2="38.862" width="0.254" layer="1"/>
 <wire x1="28.706" y1="35.3354" x2="29.083" y2="35.7124" width="0.254" layer="1"/>
 <wire x1="29.083" y1="35.7124" x2="37.7444" y2="35.7124" width="0.254" layer="1"/>
+<via x="37.7444" y="35.7124" extent="1-16" drill="0.3302"/>
+<wire x1="37.7444" y1="35.7124" x2="40.894" y2="38.862" width="0.254" layer="16"/>
 </signal>
 <signal name="N$43">
 <contactref element="V_CELL_IN" pad="3"/>
 <contactref element="U$10" pad="14"/>
 <contactref element="F3" pad="1"/>
-<wire x1="38.354" y1="38.862" x2="38.354" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="38.354" y1="38.862" x2="38.354" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="27.706" y1="34.542" x2="27.7114" y2="34.5474" width="0.254" layer="1"/>
 <wire x1="27.7114" y1="34.5474" x2="27.7114" y2="35.433" width="0.254" layer="1"/>
 <wire x1="35.7632" y1="36.2712" x2="38.354" y2="38.862" width="0.254" layer="1"/>
@@ -3272,7 +3273,7 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="6"/>
 <contactref element="U$10" pad="20"/>
 <contactref element="F6" pad="1"/>
-<wire x1="30.734" y1="38.862" x2="30.734" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="30.734" y1="38.862" x2="30.734" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="30.6578" y1="38.862" x2="30.734" y2="38.862" width="0.254" layer="1"/>
 <wire x1="24.706" y1="34.542" x2="24.7142" y2="34.5502" width="0.254" layer="1"/>
 <wire x1="24.7142" y1="34.5502" x2="24.7142" y2="35.8648" width="0.254" layer="1"/>
@@ -3286,7 +3287,7 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="7"/>
 <contactref element="U$10" pad="22"/>
 <contactref element="F7" pad="1"/>
-<wire x1="28.194" y1="42.542" x2="28.194" y2="38.862" width="0.8128" layer="1"/>
+<wire x1="28.194" y1="42.542" x2="28.194" y2="38.862" width="0.8128" layer="16"/>
 <wire x1="28.194" y1="38.862" x2="26.3398" y2="37.0078" width="0.254" layer="1"/>
 <wire x1="26.3398" y1="37.0078" x2="24.5872" y2="37.0078" width="0.254" layer="1"/>
 <wire x1="24.5872" y1="37.0078" x2="23.706" y2="36.1266" width="0.254" layer="1"/>
@@ -3296,7 +3297,7 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="8"/>
 <contactref element="U$10" pad="24"/>
 <contactref element="F8" pad="1"/>
-<wire x1="25.654" y1="42.542" x2="25.654" y2="38.862" width="0.8128" layer="1"/>
+<wire x1="25.654" y1="42.542" x2="25.654" y2="38.862" width="0.8128" layer="16"/>
 <wire x1="24.206" y1="27.942" x2="24.206" y2="28.9812" width="0.254" layer="1"/>
 <wire x1="24.206" y1="28.9812" x2="24.8412" y2="29.6164" width="0.254" layer="1"/>
 <via x="24.8412" y="29.6164" extent="1-16" drill="0.381"/>
@@ -3324,22 +3325,17 @@ design rules under a new name.</description>
 <contactref element="JP3" pad="2"/>
 <contactref element="R7" pad="1"/>
 <contactref element="U$3" pad="13"/>
-<wire x1="19.812" y1="44.704" x2="20.8534" y2="44.704" width="0.254" layer="16"/>
-<wire x1="20.8534" y1="44.704" x2="21.7424" y2="43.815" width="0.254" layer="16"/>
-<wire x1="21.7424" y1="43.815" x2="35.0774" y2="43.815" width="0.254" layer="16"/>
-<wire x1="35.0774" y1="43.815" x2="37.0586" y2="41.8338" width="0.254" layer="16"/>
+<wire x1="19.812" y1="44.704" x2="21.082" y2="44.6786" width="0.254" layer="1"/>
+<wire x1="21.082" y1="44.6786" x2="21.971" y2="43.7896" width="0.254" layer="1"/>
+<wire x1="21.971" y1="43.7896" x2="35.0774" y2="43.815" width="0.254" layer="1"/>
+<wire x1="35.0774" y1="43.815" x2="39.5986" y2="43.815" width="0.254" layer="1"/>
 <wire x1="37.0586" y1="28.5746" x2="36.83" y2="28.346" width="0.254" layer="1"/>
-<wire x1="37.0586" y1="41.8338" x2="38.2016" y2="41.8338" width="0.254" layer="16"/>
-<wire x1="38.2016" y1="41.8338" x2="39.5986" y2="40.4368" width="0.254" layer="16"/>
-<wire x1="39.5986" y1="40.4368" x2="39.5986" y2="36.2458" width="0.254" layer="16"/>
-<via x="39.5986" y="36.2458" extent="1-16" drill="0.3302"/>
-<wire x1="39.5986" y1="36.2458" x2="39.5986" y2="28.575" width="0.254" layer="1"/>
-<wire x1="39.1668" y1="28.575" x2="37.059" y2="28.575" width="0.254" layer="1"/>
+<wire x1="39.5986" y1="43.815" x2="39.5986" y2="28.575" width="0.254" layer="1"/>
+<wire x1="39.5986" y1="28.575" x2="37.059" y2="28.575" width="0.254" layer="1"/>
 <wire x1="37.059" y1="28.575" x2="36.83" y2="28.346" width="0.254" layer="1"/>
 <wire x1="42.164" y1="26.162" x2="42.0624" y2="26.162" width="0.254" layer="1"/>
 <wire x1="42.0624" y1="26.162" x2="39.6494" y2="28.575" width="0.254" layer="1"/>
 <wire x1="39.6494" y1="28.575" x2="39.5986" y2="28.575" width="0.254" layer="1"/>
-<wire x1="39.5986" y1="28.575" x2="39.1668" y2="28.575" width="0.254" layer="1"/>
 </signal>
 <signal name="SW_LCDWAKE">
 <contactref element="JP1" pad="2"/>
@@ -3392,7 +3388,7 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="4"/>
 <contactref element="U$10" pad="16"/>
 <contactref element="F4" pad="1"/>
-<wire x1="35.814" y1="38.862" x2="35.814" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="35.814" y1="38.862" x2="35.814" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="26.706" y1="34.542" x2="26.6954" y2="34.5314" width="0.254" layer="1"/>
 <wire x1="26.6954" y1="34.5314" x2="26.6954" y2="33.4518" width="0.254" layer="1"/>
 <wire x1="26.6954" y1="33.4518" x2="27.1018" y2="33.0454" width="0.254" layer="1"/>
@@ -3407,7 +3403,7 @@ design rules under a new name.</description>
 <contactref element="V_CELL_IN" pad="5"/>
 <contactref element="U$10" pad="18"/>
 <contactref element="F5" pad="1"/>
-<wire x1="33.274" y1="38.862" x2="33.274" y2="42.542" width="0.8128" layer="1"/>
+<wire x1="33.274" y1="38.862" x2="33.274" y2="42.542" width="0.8128" layer="16"/>
 <wire x1="25.706" y1="34.542" x2="25.7048" y2="34.5432" width="0.254" layer="1"/>
 <wire x1="25.7048" y1="34.5432" x2="25.7048" y2="35.4584" width="0.254" layer="1"/>
 <wire x1="25.7048" y1="35.4584" x2="26.0604" y2="35.814" width="0.254" layer="1"/>
@@ -3479,42 +3475,42 @@ design rules under a new name.</description>
 <signal name="N$1">
 <contactref element="F1" pad="2"/>
 <contactref element="V_CELL_OUT" pad="1"/>
-<wire x1="43.434" y1="50.292" x2="43.434" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="43.434" y1="50.292" x2="43.434" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$2">
 <contactref element="F2" pad="2"/>
 <contactref element="V_CELL_OUT" pad="2"/>
-<wire x1="40.894" y1="50.292" x2="40.894" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="40.894" y1="50.292" x2="40.894" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="F3" pad="2"/>
 <contactref element="V_CELL_OUT" pad="3"/>
-<wire x1="38.354" y1="50.292" x2="38.354" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="38.354" y1="50.292" x2="38.354" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$14">
 <contactref element="F4" pad="2"/>
 <contactref element="V_CELL_OUT" pad="4"/>
-<wire x1="35.814" y1="50.292" x2="35.814" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="35.814" y1="50.292" x2="35.814" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$15">
 <contactref element="F5" pad="2"/>
 <contactref element="V_CELL_OUT" pad="5"/>
-<wire x1="33.274" y1="50.292" x2="33.274" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="33.274" y1="50.292" x2="33.274" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$16">
 <contactref element="F6" pad="2"/>
 <contactref element="V_CELL_OUT" pad="6"/>
-<wire x1="30.734" y1="50.292" x2="30.734" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="30.734" y1="50.292" x2="30.734" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$17">
 <contactref element="F7" pad="2"/>
 <contactref element="V_CELL_OUT" pad="7"/>
-<wire x1="28.194" y1="50.292" x2="28.194" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="28.194" y1="50.292" x2="28.194" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$18">
 <contactref element="F8" pad="2"/>
 <contactref element="V_CELL_OUT" pad="8"/>
-<wire x1="25.654" y1="50.292" x2="25.654" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="25.654" y1="50.292" x2="25.654" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="V_OUT">
 <contactref element="U$3" pad="23"/>
@@ -3570,7 +3566,7 @@ design rules under a new name.</description>
 <signal name="N$4">
 <contactref element="V_CELL_OUT" pad="9"/>
 <contactref element="F9" pad="2"/>
-<wire x1="23.114" y1="50.292" x2="23.114" y2="45.342" width="0.8128" layer="1"/>
+<wire x1="23.114" y1="50.292" x2="23.114" y2="45.342" width="0.8128" layer="16"/>
 </signal>
 <signal name="N$5">
 <contactref element="LCD" pad="2"/>

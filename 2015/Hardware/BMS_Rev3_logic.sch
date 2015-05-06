@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -11457,7 +11457,7 @@ Source: www.bourns.com .. 6000_series.pdf</description>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C17" library="resistor" deviceset="C-US" device="C1206" value="47µF"/>
-<part name="L3" library="rcl" deviceset="L-US" device="L4532C" value="Fair-Rite 2773019447"/>
+<part name="L3" library="rcl" deviceset="L-US" device="L8530M" value="Fair-Rite 2773019447"/>
 <part name="C18" library="resistor" deviceset="C-US" device="C1206" value="47µF"/>
 <part name="GND10" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="SparkFun-Aesthetics" deviceset="5V" device=""/>

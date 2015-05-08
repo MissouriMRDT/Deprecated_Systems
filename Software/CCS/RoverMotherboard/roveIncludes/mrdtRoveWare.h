@@ -185,10 +185,8 @@
 #define base_clock_wise 205
 #define e_stop_arm 206
 #define actuator_forward 207
-
-// gripper values
-
-#define gripper_open 220
+// gripper value
+#define gripper_open 208
 
 // telem_device_id
 

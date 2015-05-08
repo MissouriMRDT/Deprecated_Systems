@@ -351,6 +351,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
 
 	//TODO 169-D remove the address operator for second paramenter to return char* instead of char**
 
+	//TODO fix recieving -1 bytes for unrecognized struct
+
 	// get message contents
 	if (!roveRecv(connection, &(messagebuffer.value), size)) {
 

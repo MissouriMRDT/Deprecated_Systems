@@ -9,8 +9,10 @@
 
 //gps sensor
 SoftwareSerial gpsSerial(9, 10); // (Rx, Tx)
-SoftwareSerial moboSerial(8, 6);
+SoftwareSerial moboSerial(0, 1); // (Rx, Tx)  **Not able to get HWSerial working
+
 Adafruit_GPS GPS(&gpsSerial);
+
 #define GPSECHO false //set to true if you want raw GPS data printed to serial monitor
 
 #define data_delay 50  //milliseconds between data collection
@@ -47,33 +49,16 @@ uint32_t timer = millis();
 
 void loop()
 {
-//  Serial.println("fix = " + GPS.fix);
-//  Serial.println("fixquality = " + GPS.fixquality);
-//  Serial.println("satellites = " + GPS.satellites);
-//  Serial.println("latitude = " + GPS.latitude);
-//  Serial.println("latitude_fixed = " + GPS.latitude_fixed);
-//  Serial.println("latitudeDegrees = " + GPS.latitudeDegrees);
-//  Serial.println("lat = " + GPS.lat);
-//  Serial.println("longitude = " + GPS.longitude);
-//  Serial.println("longitude_fixed = " + GPS.longitude_fixed);
-//  Serial.println("longitudeDegrees = " + GPS.longitudeDegrees);
-//  Serial.println("lon = " + GPS.lon);
-//  Serial.println("speed = " + GPS.speed);
-//  Serial.println("angle = " + GPS.angle);
-//  Serial.println("magvariation = " + GPS.magvariation);
-//  Serial.println("mag = " + GPS.mag);
-//  Serial.println("altitude = " + GPS.altitude);
-//  Serial.println("geoidheight = " + GPS.geoidheight);
-//  Serial.println("HDOP = " + GPS.HDOP);
-//  Serial.println("------------------------------");
-//
-//  delay(50);
-
-if(GPS.newNMEAreceived())
-  {
-    if(!GPS.parse(GPS.lastNMEA()))
-      return; //if fails to parse, go back to top of loop
-  }
+  GPS.fix;
+  GPS.fixquality;
+  GPS.satellites;
+  GPS.latitude_fixed;
+  GPS.lat;
+  GPS.longitude_fixed;
+  GPS.lon;
+  GPS.altitude;
+  GPS.speed;
+  GPS.angle;
 
   //if millis or timer overflows, reset
   if(timer > millis())
@@ -87,7 +72,6 @@ if(GPS.newNMEAreceived())
 
     if(GPS.fix)
     {
-      gps_data.fix = GPS.fix;
       gps_data.fixquality = GPS.fixquality;
       gps_data.satellites = GPS.satellites;
       gps_data.latitude_fixed = GPS.latitude_fixed;
@@ -97,6 +81,41 @@ if(GPS.newNMEAreceived())
       gps_data.angle = GPS.angle;
     }
   }
-    //ET.senddata();
-    moboSerial.println(gps_data);
+
+  if(GPS.lat == 'W')
+    gps_data.latpos = 0;
+  else
+    gps_data.latpos = 1;
+
+  if(GPS.lon == 'W')
+    gps_data.lonpos = 0;
+  else
+    gps_data.lonpos = 1;
+
+  /*
+  Serial.print("fix = ");
+  Serial.println(gps_data.fix);
+  Serial.print("fixquality = ");
+  Serial.println(gps_data.fixquality);
+  Serial.print("satellites = ");
+  Serial.println(gps_data.satellites);
+  Serial.print("latitude_fixed = ");
+  Serial.println(gps_data.latitude_fixed);
+  Serial.print("latpos = ");
+  Serial.println(gps_data.latpos);
+  Serial.print("longitude_fixed = ");
+  Serial.println(gps_data.longitude_fixed);
+  Serial.print("lonpos = ");
+  Serial.println(gps_data.lonpos);
+  Serial.print("altitude = ");
+  Serial.printlnt(gps_data.altitude);
+  Serial.print("speed = ");
+  Serial.println(gps_data.speed);
+  Serial.print("angle = ");
+  Serial.println(gps_data.angle);
+  Serial.println("------------------------------");
+
+  delay(50); //*/
+
+//    moboSerial.write(gps_data);
 }

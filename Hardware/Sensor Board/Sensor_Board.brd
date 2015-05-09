@@ -192,6 +192,9 @@
 <text x="38.354" y="58.293" size="0.6096" layer="51">RX</text>
 <text x="35.941" y="58.293" size="0.6096" layer="51">TX</text>
 <text x="41.148" y="55.372" size="0.8128" layer="51" rot="R90">Debug</text>
+<text x="9.906" y="16.764" size="1.778" layer="51">I</text>
+<text x="6.604" y="16.637" size="1.778" layer="51">G</text>
+<text x="3.937" y="16.637" size="1.778" layer="51">O</text>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">

@@ -12,12 +12,10 @@ void GPS_setup(Adafruit_GPS &GPS, GPS_Data &gps_data)
 
   //setting default values for GPS data
   gps_data.fix = GPS.fix = 0;
-  gps_data.fixquality = GPS.fixquality = 0;
+  gps_data.fixquality = 0;
   gps_data.satellites = 0;
   gps_data.latitude_fixed = 0;
-  gps_data.latpos = 0;
   gps_data.longitude_fixed = 0;
-  gps_data.lonpos = 0;
   gps_data.altitude = 0;
   gps_data.speed = 0;
   gps_data.angle = 0;

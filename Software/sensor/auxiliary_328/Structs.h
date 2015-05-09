@@ -3,13 +3,11 @@
 
 struct GPS_Data
 {
-  bool fix;
+  bool fix; //
   uint8_t fixquality;
   uint8_t satellites;
-  uint32_t latitude_fixed;
-  bool latpos;
-  uint32_t longitude_fixed;
-  bool lonpos;
+  int32_t latitude_fixed;
+  int32_t longitude_fixed;
   float altitude;
   float speed;
   float angle;

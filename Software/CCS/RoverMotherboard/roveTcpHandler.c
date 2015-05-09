@@ -349,6 +349,12 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
 
 	size = getStructSize((char) messagebuffer.id) - 1;
 
+	if(size <= 0)
+	{
+		System_printf("Invalid struct ID recieved: %d, skipping", messagebuffer.id);
+		System_flush();
+	}
+
 	//TODO 169-D remove the address operator for second paramenter to return char* instead of char**
 
 	// get message contents

@@ -110,13 +110,6 @@ struct robot_arm_command{
 
 // sent from mobo to gripper to control the peripheral
 
-struct gripper_command{
-
-	uint8_t struct_id;
-	int speed;
-
-}__attribute__((packed));
-
 // sent from mobo to drill to control the peripheral
 
 struct drill_command{

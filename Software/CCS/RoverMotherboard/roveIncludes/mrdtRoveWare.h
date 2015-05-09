@@ -188,7 +188,7 @@
 
 // gripper values
 
-#define gripper_open 220
+#define gripper_open 208
 
 // telem_device_id
 

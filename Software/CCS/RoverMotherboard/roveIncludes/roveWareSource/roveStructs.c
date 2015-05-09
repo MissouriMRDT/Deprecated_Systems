@@ -34,14 +34,11 @@ int getStructSize(char structId) {
 			... power_board_telem_main_battery_voltage_id:
 		return sizeof(struct power_board_bms_telem);
 
-	case (char) wrist_clock_wise ... actuator_forward:
+	case (char) wrist_clock_wise ... gripper_open:
 		return sizeof(struct base_station_robot_arm_command);
 
 	case (char) robot_arm_constant_speed_id:
 		return sizeof(struct robot_arm_command);
-
-	case (char) gripper_open:
-		return sizeof(struct gripper_command);
 
 	} //endswitch:		(structId)
 

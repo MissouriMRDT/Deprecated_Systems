@@ -148,6 +148,8 @@
 #define	motor_left_id 									100
 #define	motor_right_id 									101
 
+#define gps_telem_reply                                 140
+
 #define	bms_emergency_stop_command_id					150
 #define bms_cell1_voltage_telem_id						151
 #define bms_cell2_voltage_telem_id						152

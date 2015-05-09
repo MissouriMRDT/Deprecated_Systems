@@ -152,9 +152,34 @@ struct power_board_bms_telem
 	float value;
 };
 
+/* Keenans:
+struct gps_data_struct
+{
+  uint8_t fix;
+  uint16_t latitude_whole;
+  uint16_t latitude_frac;
+  uint16_t longitude_whole;
+  uint16_t longitude_frac;
+  uint16_t altitude_whole;
+  uint16_t altitude_frac;
+  uint8_t lat_dir;
+  uint8_t lon_dir;
+  uint8_t satellites;
+}__attribute__((packed));
+*/
 
-
-
+struct gps_telem
+{
+    uint8_t struct_id;
+    bool fix;
+    uint8_t fix_quality;
+    uint8_t satellites;
+    int32_t latitude;
+    int32_t longitude;
+    float altitude;
+    float speed;
+    float angle;
+}__attribute__((packed));
 
 // this struct should only be used for type casting as it does not have a corresponding id
 

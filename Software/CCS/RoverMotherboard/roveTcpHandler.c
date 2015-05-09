@@ -53,25 +53,28 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
         //Create sending thread
         if (RED_socket.isConnected) {
+
             //Spawn sending thread
-
             Error_init(&eb);
-            /*
-             System_printf("Spawning roveTcpSender\n");
-             Task_Params_init(&taskParams);
-             taskParams.arg0 = (UArg) (RED_socket.socketFileDescriptor);
-             taskParams.stackSize = 1280;
-             taskParams.priority = SEND_TASK_PRIORITY;
-             taskHandle = Task_create((Task_FuncPtr) roveTcpSender, &taskParams,
-             &eb);
-             //Check to see if memory could not be allocated for the task
-             if (taskHandle == NULL) {
-             System_printf(
-             "Error: Failed to create new roveTcpSender Task\n");
-             }
-             */
 
-        }
+            System_printf("Spawning roveTcpSender\n");
+            System_flush();
+
+            Task_Params_init(&taskParams);
+            taskParams.arg0 = (UArg) (RED_socket.socketFileDescriptor);
+            taskParams.stackSize = 1280;
+            taskParams.priority = SEND_TCP_TASK_PRIORITY;
+            taskHandle = Task_create((Task_FuncPtr) roveTcpSender, &taskParams,
+                    &eb);
+
+            //Check to see if memory could not be allocated for the task
+            if (taskHandle == NULL) {
+                System_printf(
+                        "Error: Failed to create new roveTcpSender Task\n");
+                System_flush();
+            }//end if taskHandle
+
+        }//end if isConnected
 
         System_printf("Finished attempt. Result: ");
 
@@ -79,8 +82,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
         while (RED_socket.isConnected == true) {
 
-            //System_printf("Connected\n");
-            //System_flush();
+            System_printf("Connected, entering roveRecv\n");
+            System_flush();
 
             // get Message Type, check for connection errors
 
@@ -106,8 +109,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
                     // defined 5
                 case ROVER_COMMAND:
 
-                    //System_printf("Got rover command. Passing control.\n");
-                    //System_flush;
+                    System_printf("Got rover command. Passing control.\n");
+                    System_flush;
 
                     parseRoverCommandMessage(&RED_socket);
 
@@ -141,9 +144,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
                 System_printf("Connection has been closed\n");
                 System_flush();
 
-            }			//endif(roveRecv(&RED_socket, &messageType, 1) != -1)
+            }			//endif roveRecv
 
-        }						//endwhile(RED_socket.isConnected == true)
+        }						//endwhile isConnected
 
         System_printf("Connection Lost\n\n");
         System_flush();
@@ -152,7 +155,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
         close(RED_socket.socketFileDescriptor);
 
-    }						//endwhile (FOREVER)
+    }						//endwhile FOREVER
 
     //postcondition: execution will not reach this state unless a serious error occurs
 
@@ -178,22 +181,26 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 
     //Loop: Wait on mailbox, send keepalive otherwise
     while (RED_socket.isConnected) {
+
+        System_printf("roveTcpSender entering TCP Mailbox_pend\n");
+        System_flush();
+
         //Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
         if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,
         SEND_KEEPALIVE_DELAY_TICKS)) {
 
-            //System_printf("Passed the Pend in TCP!! Success!!!\n");
-            //System_flush();
+            System_printf("Passed the Pend in TCPHandler, entering TCP roveSend\n");
+            System_flush();
             roveSend(&RED_socket, toBaseTelem.value,
                     getStructSize(toBaseTelem.id));
 
         } else //Nothing to go out
         {
-            //System_printf("No data to send\n");
-            //System_flush();
-        }
+            System_printf("No data to send\n");
+            System_flush();
+        }//end if Mailbox_pend
 
-    }
+    }// while isConnected
 
     //Cleanup: Connection has broken
 
@@ -259,15 +266,8 @@ static int roveSend(struct NetworkConnection* connection, char* buffer,
         // not connected
         return -1;
     }			//endif
-}
-/*
+}// end fnctn roveSend
 
- static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
- {
- return 0;
- }
-
- */
 static bool attemptToConnect(struct NetworkConnection* connection) {
 
     struct sockaddr_in server_addr;
@@ -361,8 +361,8 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
 
     }					//endif
 
-    //System_printf("Recieved data. Posting to mailbox\n");
-    //System_flush();
+    System_printf("Recieved data. Posting to mailbox\n");
+    System_flush();
 
     // post message to maibox. The mailbox is defined as a global by the config script
 

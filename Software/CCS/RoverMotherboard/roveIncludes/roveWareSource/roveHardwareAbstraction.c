@@ -342,14 +342,14 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
 }		//endfnctn deviceWrite
 
 Void readIntTask(UArg arg0, UArg arg1) {
-//	System_printf("ReadIntTask going to sleep for %d ticks\n", (int)arg1);
-//  System_flush();
+	System_printf("ReadIntTask going to sleep for %d ticks\n", (int)arg1);
+  System_flush();
     Task_sleep((int) arg1);
 
     UART_readCancel((UART_Handle) arg0);
 
-//	System_printf("Canceled uart read\n");
-//    System_flush();
+    System_printf("Canceled uart read\n");
+    System_flush();
     while (1) // wait for task to be deleted by task that created it
     {
         Task_sleep(10000);
@@ -377,7 +377,7 @@ int UART_read_nonblocking(UART_Handle uart, char* buffer, int bytes_to_read,
         System_flush();
     }
 
-    Task_setPri(readInterruptTask, 2);
+    Task_setPri(readInterruptTask, RECV_UART_NONBLOCK_TASK_PRIORITY);
     bytes_read = UART_read(uart, buffer, bytes_to_read);
     Task_delete(&readInterruptTask);
 

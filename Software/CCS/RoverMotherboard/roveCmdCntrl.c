@@ -65,8 +65,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
         case 0:
             break;
 
-
-		case motor_right_id:
+        case motor_right_id:
 
             //the left motors must be the negative of the right motors. Their phase is backwards
             motor_speed =
@@ -80,9 +79,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
             // end drive motor_right_id
 
-
-		case motor_left_id:
-
+        case motor_left_id:
 
             motor_speed =
                     (((struct motor_control_struct*) (&fromBaseMsg))->speed);

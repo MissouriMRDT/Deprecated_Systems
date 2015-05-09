@@ -124,7 +124,10 @@
 
 // TCP Sending Parameters
 
-#define SEND_TASK_PRIORITY 2
+#define SEND_TCP_TASK_PRIORITY 2
+
+#define RECV_UART_NONBLOCK_TASK_PRIORITY 2
+
 #define SEND_KEEPALIVE_DELAY_TICKS 50 //Can also be set to BIOS_WAIT_FOREVER or BIOS_NO_WAIT
 
 // hardware

@@ -23,59 +23,23 @@
 
 Void roveTelemCntrl(UArg arg0, UArg arg1) {
 
-	extern UART_Handle uart2;
-
-//	int bytes_to_read = 11;
-	char buffer[40];
-//	int bytes_read;
-	int device = ONBOARD_ROVECOMM;
-
-	while (1) {
-		/*		memset(buffer, '\0', 20);
-		 bytes_read = deviceRead(device, buffer, bytes_to_read, 2000);
-		 System_printf("Bytes read: %d\n", bytes_read);
-		 if (bytes_read > 0)
-		 System_printf("%s\n", buffer);
-		 System_flush();
-		 */
-		if (recvSerialStructMessage(device, buffer)) {
-			if (((struct rovecom_id_cast*) buffer)->struct_id == 22) {
-				uint8_t value =
-						((struct device_telem_req*) buffer)->telem_device_req_id;
-				System_printf("Struct received with value: %x\n", value);
-				System_flush();
-			}
-		}
-
-		Task_sleep(100);
-	}
-
 	const uint8_t FOREVER = 1;
-
-	struct device_telem_req deviceTelemReq;
-
-	int poll_telem_array_idx = 2;
-	char poll_telem_device[poll_telem_array_idx];
-
-//	poll_telem_device[0] = bms_id;
-//	poll_telem_device[1] = power_board_id;
 
 	base_station_msg_struct messageInBuffer;
 
 	char messageOutBuffer[MAX_TELEM_SIZE];
 
 	int messageSize;
-
+	int deviceJack;
 	int i;
-/*
-	while (FOREVER) {
 
+	while (FOREVER) {
+/*
 		for (i = 0; i < poll_telem_array_idx; i++) {
 
 			int deviceJack = getDeviceJack(poll_telem_device[i]);
 
 			//populate device id into the telem request
-
 			deviceTelemReq.struct_id = telem_req_id;
 			deviceTelemReq.telem_device_req_id = poll_telem_device[i];
 
@@ -91,20 +55,37 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 			deviceWrite(deviceJack, messageOutBuffer, messageSize);
 
 			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
+*/
+	        //debugging only:
+	        i = 0;
+	        //slapping in nulls just for testing
+	        while (i < (MAX_COMMAND_SIZE))
+	        {
+	            messageInBuffer.value[i] = '\0';
+	            i++;
+	        } //end while
 
-			while (!RecvSerialStructMessage(deviceJack, &messageInBuffer))
-				;
+	        deviceJack = ONBOARD_ROVECOMM;
+
+			while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
 
 			System_printf("Struct_id: %d\n", &(messageInBuffer.id));
 			System_flush();
 
-			System_printf("Value: %d\n", &(messageInBuffer.value[0]));
-			System_flush();
+			//debugging only:
+			i = 0;
+
+			System_printf("Cmd Cntrl Just Sent!: ");
+			while (i < (messageSize))
+			{
+                System_printf("%d, ", messageInBuffer.value[i]);
+                i++;
+			} //end while
 
 			Mailbox_post(toBaseStationMailbox, &messageInBuffer,
 					BIOS_WAIT_FOREVER);
 
-		} //endfor
+		//} //endfor
 
 	} //endwhile:	(1)
 
@@ -116,6 +97,44 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 	//exit Task
 
 	Task_exit();
-*/
 
 } //endfnctn:		roveTelemContoller() Task Thread
+
+/*  Connors Testing Stuffs?... stashing it here
+
+    extern UART_Handle uart2;
+
+    struct device_telem_req deviceTelemReq;
+
+    int poll_telem_array_idx = 2;
+    char poll_telem_device[poll_telem_array_idx];
+
+    poll_telem_device[0] = bms_id;
+    poll_telem_device[1] = power_board_id;
+
+
+    int bytes_to_read = 11;
+    char buffer[40];
+    int bytes_read;
+    int device = ONBOARD_ROVECOMM;
+    while (1) {
+                memset(buffer, '\0', 20);
+         bytes_read = deviceRead(device, buffer, bytes_to_read, 2000);
+         System_printf("Bytes read: %d\n", bytes_read);
+         if (bytes_read > 0)
+         System_printf("%s\n", buffer);
+         System_flush();
+
+        if (recvSerialStructMessage(device, buffer)) {
+            if (((struct rovecom_id_cast*) buffer)->struct_id == 22) {
+                uint8_t value =
+                        ((struct device_telem_req*) buffer)->telem_device_req_id;
+
+                System_printf("Struct received with value: %x\n", value);
+                System_flush();
+            }
+        }
+
+        Task_sleep(100);
+    }
+*/

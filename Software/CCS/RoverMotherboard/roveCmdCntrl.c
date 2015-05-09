@@ -1,16 +1,13 @@
-// roveCmdCtrl.c
+// roveCmdCtrl.c MST MRDT
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone omc8db@mst.edu
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
+// Judah Schad_jrs6w7@mst.edu
 //
-// 03_08_2015 Connor Walsh cwd8d@mst.edu
-//
-// 04_07_2015_Judah Schad_jrs6w7@mst.edu
-//
-// this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveCmdCtrlTask handle
+// this implements a single function BIOS thread
+// that acts as the RoverMotherboard.cfg roveCmdCtrlTask handle
 //
 // recieves commands from roveTCPHandler in roveCom protocol using TI.Mailbox.from object
 //
@@ -18,95 +15,98 @@
 //
 // BIOS_start in main inits this as the roveCmdCntrlTask Thread
 //
-// this is a RoverMotherboard.cfg object::roveCmdCntrlTask::		priority 3, vital_flag = t, 2048 persistent private stack
+// this is a RoverMotherboard.cfg object::roveCmdCntrlTask::
+//
+// priority 4, vital_flag = t, 2048 persistent private stack
 
 #include "roveIncludes/roveWareHeaders/roveCmdCntrl.h"
 
 Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
-	//const FOREVER hack to kill the 'unreachable statement' compiler warning
+    //const FOREVER hack to kill the 'unreachable statement' compiler warning
 
-	extern const uint8_t FOREVER;
+    extern const uint8_t FOREVER;
 
-	//initialized in main
+    //initialized in main
 
-	extern PWM_Handle motor_0;
-	extern PWM_Handle motor_1;
-	extern PWM_Handle motor_2;
-	extern PWM_Handle motor_3;
-	extern PWM_Handle motor_4;
-	extern PWM_Handle motor_5;
+    extern PWM_Handle motor_0;
+    extern PWM_Handle motor_1;
+    extern PWM_Handle motor_2;
+    extern PWM_Handle motor_3;
+    extern PWM_Handle motor_4;
+    extern PWM_Handle motor_5;
 
-	base_station_msg_struct fromBaseMsg;
+    base_station_msg_struct fromBaseMsg;
 
-	char commandBuffer[MAX_COMMAND_SIZE + 4];
+    char commandBuffer[MAX_COMMAND_SIZE + 4];
 
-	int messageSize;
-	int deviceJack;
-	int motor_speed = 0;
+    int messageSize;
+    int deviceJack;
+    int motor_speed = 0;
 
-	int16_t arm_speed = 0;
+    int16_t arm_speed = 0;
 
-	int i = 0;
+    int i = 0;
 
-	System_printf("roveCmdCntrlr		init! \n\n");
+    System_printf("roveCmdCntrlr		init! \n\n");
 
-	System_flush();
+    System_flush();
 
-	while (FOREVER) {
+    while (FOREVER) {
 
 //		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
 //		System_flush();
 
-		Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
+        Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
-		switch (fromBaseMsg.id) {
+        switch (fromBaseMsg.id) {
 
-		// case 0 hack to make a happy switch
-		case 0:
-			break;
+        // case 0 hack to make a happy switch
+        case 0:
+            break;
 
-		case motor_left_id:
-			//the left motors must be the negative of the right motors. Their phase is backwards
+        case motor_left_id:
 
-			motor_speed = -( ( (struct motor_control_struct*)(&fromBaseMsg))->speed );
+            //the left motors must be the negative of the right motors. Their phase is backwards
+            motor_speed =
+                    -(((struct motor_control_struct*) (&fromBaseMsg))->speed);
 
-			DriveMotor(motor_0, motor_speed);
-			DriveMotor(motor_1, motor_speed);
-			DriveMotor(motor_2, -motor_speed);
+            DriveMotor(motor_0, motor_speed);
+            DriveMotor(motor_1, motor_speed);
+            DriveMotor(motor_2, -motor_speed);
 
-			break;
+            break;
 
-			// end drive motor_left_id
+            // end drive motor_left_id
 
-		case motor_right_id:
+        case motor_right_id:
 
-			motor_speed = ( ( (struct motor_control_struct*)(&fromBaseMsg))->speed );
+            motor_speed =
+                    (((struct motor_control_struct*) (&fromBaseMsg))->speed);
 
-			DriveMotor(motor_3, -motor_speed);
-			DriveMotor(motor_4, motor_speed);
-			DriveMotor(motor_5, -motor_speed);
+            DriveMotor(motor_3, -motor_speed);
+            DriveMotor(motor_4, motor_speed);
+            DriveMotor(motor_5, -motor_speed);
 
-			break;
+            break;
 
-			//end drive motor_right_id
+            //end drive motor_right_id
 
-		default:
-			deviceJack = getDeviceJack(fromBaseMsg.id);
-			if(getStructSize(fromBaseMsg.id) !=  -1) // Invalid
-			{
-				messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
-						commandBuffer);
+        default:
+            deviceJack = getDeviceJack(fromBaseMsg.id);
+            // flag for invalid struct size
+            if (getStructSize(fromBaseMsg.id) != -1) {
+                messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
+                        commandBuffer);
 
-				System_printf("Rovecomm Message Size: %d\n", messageSize);
-				System_flush();
-				deviceWrite(deviceJack, commandBuffer, messageSize);
-			}
-			break;
+                System_printf("Rovecomm Message Size: %d\n", messageSize);
+                System_flush();
+                deviceWrite(deviceJack, commandBuffer, messageSize);
+            }
+            break;
+        } //endswitch
 
-		} //endswitch
-
-		//debugging only:
+        //debugging only:
 
 //		i = 0;
 //
@@ -118,15 +118,16 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 //			i++;
 //
 //		} //end while
-	}
-	System_flush();
+    }
+    System_flush();
 
-	System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
-	System_flush();
+    System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
+    System_flush();
 
-	Task_exit();
+    Task_exit();
 
 } //endfnct:		roveCmdCntrl() Task Thread
+
 /* This is the case for ASCII control only
 
  case motor_left_id:

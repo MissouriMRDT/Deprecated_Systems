@@ -1,16 +1,10 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+// roveUarts.h MST MRDT 2015
 //
-// roveUarts.h
+// Owen Chiaventone omc8db@mst.edu
 //
-// first created:
+// Connor Walsh cwd8d@mst.edu
 //
-// 04_20_2014_Keenan_Johnson
-//
-// last edited:
-//
-//02_25_2015_Judah Schad_jrs6w7@mst.edu
-
-//MRDesign Team:: 	roveWare::		roveCom uart :: constructs and instatiates uarts
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -25,6 +19,6 @@
 
 #include "../mrdtRoveWare.h"
 
-UART_Handle init_uart( UInt uart_index, UInt baud_rate );
+UART_Handle init_uart(UInt uart_index, UInt baud_rate);
 
 #endif // ROVEUARTS_H_

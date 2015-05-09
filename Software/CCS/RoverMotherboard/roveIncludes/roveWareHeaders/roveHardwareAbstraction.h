@@ -1,9 +1,10 @@
-///
- // roveHardwareAbstraction.h
- //
- //  Created on: Mar 3, 2015
- //      Author: mrdtdev
- ///
+// roveHardwareAbstraction.h MST MRDT 2015
+//
+// Owen Chiaventone omc8db@mst.edu
+//
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad jrs6w7@mst.edu
 
 #ifndef ROVEHARDWAREABSTRACTION_H_
 #define ROVEHARDWAREABSTRACTION_H_

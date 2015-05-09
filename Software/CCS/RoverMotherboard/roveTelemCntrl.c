@@ -1,30 +1,25 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+// roveTelemCnrtl.c MST MRDT
 //
-// roveTelemCnrtl.c
+// Owen Chiaventone omc8db@mst.edu
 //
-// first created:
+// Connor Walsh cwd8d@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone
+// Judah Schad_jrs6w7@mst.edu
 //
-// last edited:
+// this implements a single function BIOS thread
+// that acts as the RoverMotherboard.cfg roveTelemCnrtlTask handle
 //
-//02_28_2015_Judah Schad_jrs6w7@mst.edu
-
-//	this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveTelemCntrl handle
+// recieves telemetry from Devices in roveCom protocol via uart
 //
-//	recieves a request for telem from the command thread,
+// sends telemetry to TCPHandler via roveCom protocol using TI.Mailbox.from objecm
 //
-//	requests telem from the device,
+// BIOS_start in main inits this as the roveTelemCntrlTask Thread
 //
-//	recieves telem from the device,
+// this is a RoverMotherboard.cfg object::roveTelemCntrlTask::
 //
-//	and posts telem to the roveTCPHandler thread
+// priority 3, vital_flag = t, 2048 persistent private stack
 
 #include "roveIncludes/roveWareHeaders/roveTelemCntrl.h"
-
-//BIOS_start inits this as the roveTelemCntrlTask Thread
-
-//This is a RoverMotherboard.cfg object::		roveTelemCntrlTask		::		priority 1, vital_flag = t, 2048 persistent private stack
 
 Void roveTelemCntrl(UArg arg0, UArg arg1) {
 

@@ -1,9 +1,10 @@
-/*
- * roveStructTransfer.h
- *
- *  Created on: Mar 7, 2015
- *      Author: Connor Walsh
- */
+// roveStructTransfer.h MST MRDT 2015
+//
+// Owen Chiaventone omc8db@mst.edu
+//
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 

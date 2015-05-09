@@ -1,23 +1,17 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+// roveTiming.c MST MRDT 2015
 //
-// roveTiming.c
+// Owen Chiaventone omc8db@mst.edu
 //
-// first created:
+// Connor Walsh cwd8d@mst.edu
 //
-// 04_20_2014_Keenan_Johnson
-//
-// last edited:
-//
-//02_25_2015_Judah Schad_jrs6w7@mst.edu
-
-//MRDesign Team::roveWare::		encapsulates the system control call to delay a given number of milliseconds
+// Judah Schad_jrs6w7@mst.edu
 
 #include "../roveWareHeaders/roveTiming.h"
 
 //encapsulates the system control call to delay a given number of milliseconds
 
-void ms_delay(int milliseconds){
+void ms_delay(int milliseconds) {
 
-	SysCtlDelay( milliseconds*(SysCtlClockGet() / 100) );
+    SysCtlDelay(milliseconds * (SysCtlClockGet() / 100));
 
-}//endfnctn ms_delay( int milliseconds )
+} //endfnctn ms_delay( int milliseconds )

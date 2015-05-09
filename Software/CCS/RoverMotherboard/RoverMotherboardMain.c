@@ -1,14 +1,16 @@
 // RoverMotherboardMain.c
 //
-// Using Texas Instruments Code Composer Studio RTOS stack. See read me include for copyright
+// Using Texas Instruments Code Composer Studio RTOS stack
 //
 // first created:
 //
-// 01_22_2015_Owen_Chiaventone omc8db
+// 01_22_2015 Missouri Science and Technology Mars Rover Design Team 2015
 //
-// last edited:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 02_24_2015_Judah Schad_jrs6w7@mst.edu
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad_jrs6w7@mst.edu
 //
 // this instatiates global handles, initializes TI modules and then calls the TI BIOS operating system
 //
@@ -18,14 +20,16 @@
 
 #include "roveIncludes/RoverMotherboardMain.h"
 
-// MRDesign Team::roveWare::		roveCom and RoveNet services headers
+// MRDesign Team::roveWare::roveCom and RoveNet services headers
 
 #include "roveIncludes/mrdtRoveWare.h"
 
 // globally create UART handles
 
-UART_Handle uart0;
-UART_Handle uart1;
+//uart0 and uart1 DO NOT have pinouts on MOB
+
+//UART_Handle uart0;
+//UART_Handle uart1;
 UART_Handle uart2;
 UART_Handle uart3;
 UART_Handle uart4;
@@ -71,8 +75,8 @@ int main(void) {
 
 	// not utilizing uart0 or uart1 (no mob to pins)
 
-	uart0 = (UART_Handle) init_uart(0, 115200);
-	uart1 = (UART_Handle) init_uart(1, 115200);
+	//uart0 = (UART_Handle) init_uart(0, 115200);
+	//uart1 = (UART_Handle) init_uart(1, 115200);
 	uart2 = (UART_Handle) init_uart(2, 115200);
 	uart3 = (UART_Handle) init_uart(3, 115200);
 	uart4 = (UART_Handle) init_uart(4, 115200);

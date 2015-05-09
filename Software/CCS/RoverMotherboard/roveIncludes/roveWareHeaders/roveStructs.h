@@ -1,14 +1,10 @@
-// roveStructs.h
+// roveStructs.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 04_20_2014_Keenan Johnson
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
-//
-// 03_08_2015 Connor Walsh cwd8d@mst.edu ~ add stubs for RoveComm structs
-//
-// 04_07_2015_Judah Schad_jrs6w7@mst.edu
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 

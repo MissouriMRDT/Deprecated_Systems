@@ -1,8 +1,10 @@
-// roveComTest.h
+// roveComTest.h MST MRDT 2015
 //
-//  Created on: Mar 30, 2015
-//      Author: Connor Walsh
+// Owen Chiaventone omc8db@mst.edu
 //
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -18,6 +20,5 @@
 #include "../mrdtRoveWare.h"
 
 void roveComTest(UArg arg0, UArg arg1);
-
 
 #endif // ROVECOMTEST_H_

@@ -178,15 +178,13 @@ void pwmWrite(PWM_Handle pin, int duty_microseconds) {
 
 }	//endfnctn pwmWrite
 
-void DriveMotor(PWM_Handle motor, int speed) {
-    if (speed != 0) {
-        System_printf("Nonzero speed\n");
-        System_flush();
-    }
-    //Scaling
-    int microseconds;
-    microseconds = speed / 2; //Scale down. We want the final range to be between 1000 and 2000
-    microseconds += 1500;     //Offset. 1500 is neutral
+
+void DriveMotor(PWM_Handle motor, int speed)
+{
+	//Scaling
+	int microseconds;
+	microseconds = speed / 2; //Scale down. We want the final range to be between 1000 and 2000
+	microseconds += 1500;     //Offset. 1500 is neutral
 
     //Bound checking
     if (microseconds > 2000) //Upper bound on motor pulse width
@@ -194,14 +192,11 @@ void DriveMotor(PWM_Handle motor, int speed) {
     if (microseconds < 1000) //Lower bound on motor pulse width
         microseconds = 1000;
 
-    //Writing
-    if (microseconds != 1500) {
-        System_printf("Writing %d microseconds to motor\n", microseconds);
-        System_flush();
-    }
-    pwmWrite(motor, microseconds);
-    return;
-}
+	//Writing
+	pwmWrite(motor, microseconds);
+	return;
+
+} //endfnct DriveMotor
 
 int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
 

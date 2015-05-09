@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.005" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1174,6 +1174,7 @@ design rules under a new name.</description>
 <contactref element="U1" pad="21"/>
 <contactref element="U1" pad="20"/>
 <contactref element="R4" pad="1"/>
+<wire x1="47.625" y1="42.415" x2="48.5775" y2="24.13" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="U$3" pad="PRB"/>
@@ -1431,7 +1432,8 @@ design rules under a new name.</description>
 <wire x1="33.02" y1="50.09" x2="33.095" y2="50.165" width="0.254" layer="1"/>
 <wire x1="33.095" y1="50.165" x2="40.005" y2="50.165" width="0.254" layer="1"/>
 <wire x1="40.005" y1="50.165" x2="40.64" y2="49.53" width="0.254" layer="1"/>
-<wire x1="40.64" y1="49.53" x2="40.64" y2="39.37" width="0.254" layer="1"/>
+<wire x1="40.64" y1="49.53" x2="40.64" y2="46.736" width="0.254" layer="1"/>
+<wire x1="40.64" y1="46.736" x2="40.64" y2="39.37" width="0.254" layer="1"/>
 <wire x1="40.64" y1="39.37" x2="41.275" y2="38.735" width="0.254" layer="1"/>
 <wire x1="41.275" y1="38.735" x2="46.355" y2="38.735" width="0.254" layer="1"/>
 <wire x1="46.355" y1="38.735" x2="46.99" y2="38.1" width="0.254" layer="1"/>
@@ -1442,7 +1444,10 @@ design rules under a new name.</description>
 <via x="53.0225" y="35.56" extent="1-16" drill="0.6" diameter="0.4064" shape="square"/>
 <wire x1="53.0225" y1="35.56" x2="53.045" y2="35.56" width="0.254" layer="1"/>
 <contactref element="X1" pad="4"/>
-<wire x1="40.64" y1="49.53" x2="46.825" y2="50.455" width="0" layer="19" extent="1-1"/>
+<wire x1="46.825" y1="50.455" x2="46.863" y2="50.417" width="0.3048" layer="1"/>
+<wire x1="46.863" y1="50.417" x2="46.863" y2="47.752" width="0.3048" layer="1"/>
+<wire x1="46.863" y1="47.752" x2="45.847" y2="46.736" width="0.3048" layer="1"/>
+<wire x1="45.847" y1="46.736" x2="40.64" y2="46.736" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$11">
 <contactref element="U2" pad="17"/>
@@ -1507,15 +1512,17 @@ design rules under a new name.</description>
 <approved hash="1,20,12b1605160741294"/>
 <approved hash="1,20,5279949994755295"/>
 <approved hash="1,20,5a79e899e8725a92"/>
+<approved hash="1,20,d082c1e2c180d0e0"/>
 <approved hash="1,20,0dbb4b5b4a5d0cbd"/>
 <approved hash="1,20,9d7c961c97469c26"/>
+<approved hash="1,20,107e955e94001120"/>
 <approved hash="19,1,c8d71ebe26baf0d3"/>
 <approved hash="19,1,0657e943d1463e52"/>
 <approved hash="19,1,b08962de5ad28885"/>
 <approved hash="19,1,a52c6eb556b99d20"/>
 <approved hash="19,1,d772b866809cef88"/>
-<approved hash="19,1,596a05813d86616d"/>
 <approved hash="19,1,648f32e20ae55c88"/>
+<approved hash="19,1,596a05813d86616d"/>
 <approved hash="5,1,6d0b80acc7cd0d56"/>
 <approved hash="19,1,8029dc5067810048"/>
 <approved hash="19,1,aa08ffd70d2f9b6d"/>

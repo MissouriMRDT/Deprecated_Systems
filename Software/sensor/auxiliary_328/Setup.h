@@ -11,6 +11,7 @@ void GPS_setup(Adafruit_GPS &GPS, GPS_Data &gps_data)
   GPS.sendCommand(PGCMD_ANTENNA);
 
   //setting default values for GPS data
+  gps_data.struct_id = 140;
   gps_data.fix = GPS.fix = 0;
   gps_data.fixquality = 0;
   gps_data.satellites = 0;

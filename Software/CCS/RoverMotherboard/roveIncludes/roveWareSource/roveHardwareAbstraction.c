@@ -36,6 +36,9 @@ int getDeviceJack(int device) {
     case wrist_clock_wise ... gripper_open:
         return ONBOARD_ROVECOMM;
 
+    case gps_telem_reply:
+            return ONBOARD_ROVECOMM;
+
     default:
         //Tried to get jack for an \ invalid device
         System_printf("getDeviceJack passed invalid device %d\n", device);
@@ -519,9 +522,13 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout) {
         bytes_read = UART_read_nonblocking(uart6, buffer, bytes_to_read,
                 timeout);
         break;
-    case ONBOARD_ROVECOMM:
+/*    case ONBOARD_ROVECOMM:
         bytes_read = UART_read_nonblocking(uart2, buffer, bytes_to_read,
                 timeout);
+        break;*/
+
+    case ONBOARD_ROVECOMM:
+          bytes_read = UART_read(uart2, buffer, bytes_to_read);
         break;
     default:
         //Tried to write to invalid device

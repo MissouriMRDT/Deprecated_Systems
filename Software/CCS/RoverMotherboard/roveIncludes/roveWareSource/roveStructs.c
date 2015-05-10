@@ -37,6 +37,9 @@ int getStructSize(char structId) {
     case (char) robot_arm_constant_speed_id:
         return sizeof(struct robot_arm_command);
 
+    case (char) gps_telem_reply:
+            return sizeof(struct gps_telem);
+
     } //endswitch:		(structId)
 
     return -1;

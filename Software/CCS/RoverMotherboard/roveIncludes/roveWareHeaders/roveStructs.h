@@ -174,8 +174,8 @@ struct gps_telem
     bool fix;
     uint8_t fix_quality;
     uint8_t satellites;
-    int32_t latitude;
-    int32_t longitude;
+    int32_t latitude_fixed;
+    int32_t longitude_fixed;
     float altitude;
     float speed;
     float angle;

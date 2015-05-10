@@ -57,33 +57,52 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
 */
 	        //debugging only:
-	        i = 0;
+	        //i = 0;
 	        //slapping in nulls just for testing
-	        while (i < (MAX_COMMAND_SIZE))
-	        {
-	            messageInBuffer.value[i] = '\0';
-	            i++;
-	        } //end while
+	        //while (i < (MAX_COMMAND_SIZE))
+	        //{
+	        //    messageInBuffer.value[i] = '\0';
+	        //    i++;
+	        //} //end while
 
 	        deviceJack = ONBOARD_ROVECOMM;
 
 			while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
 
-			System_printf("Struct_id: %d\n", &(messageInBuffer.id));
-			System_flush();
+			printf("\nStruct_id: %d\n", messageInBuffer.id);
+			//System_flush();
 
 			//debugging only:
-			i = 0;
+			//i = 0;
 
-			System_printf("Cmd Cntrl Just Sent!: ");
-			while (i < (messageSize))
-			{
-                System_printf("%d, ", messageInBuffer.value[i]);
-                i++;
-			} //end while
+			messageSize = getStructSize(messageInBuffer.id);
 
-			Mailbox_post(toBaseStationMailbox, &messageInBuffer,
-					BIOS_WAIT_FOREVER);
+			printf("\nTelemCntrl Just Sent %d: messageSize \n", messageSize);
+
+			printf(" struct_id %d ",((struct gps_telem*)(&messageInBuffer))->struct_id);
+			printf(" fix %d ",((struct  gps_telem*)(&messageInBuffer))->fix);
+			printf(" fix_quality %d ",((struct  gps_telem*)(&messageInBuffer))->fix_quality);
+            printf(" satellites %d ",((struct  gps_telem*)(&messageInBuffer))->satellites);
+            printf(" latitude %d ",((struct  gps_telem*)(&messageInBuffer))->latitude_fixed);
+            printf(" longitude %d ",((struct  gps_telem*)(&messageInBuffer))->longitude_fixed);
+            printf(" altitude %f ",((struct  gps_telem*)(&messageInBuffer))->altitude);
+            printf(" speed %f ",((struct  gps_telem*)(&messageInBuffer))->speed);
+            printf(" angle %f \n",((struct  gps_telem*)(&messageInBuffer))->angle);
+
+			/*
+			    uint8_t struct_id;
+			    bool fix;
+			    uint8_t fix_quality;
+			    uint8_t satellites;
+			    int32_t latitude_fixed;
+			    int32_t longitude_fixed;
+			    float altitude;
+			    float speed;
+			    float angle;
+            */
+
+			//Mailbox_post(toBaseStationMailbox, &messageInBuffer,
+					//BIOS_WAIT_FOREVER);
 
 		//} //endfor
 

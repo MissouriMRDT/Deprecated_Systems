@@ -23,65 +23,75 @@
 
 Void roveTelemCntrl(UArg arg0, UArg arg1) {
 
-	const uint8_t FOREVER = 1;
+    const uint8_t FOREVER = 1;
 
-	base_station_msg_struct messageInBuffer;
+    base_station_msg_struct messageInBuffer;
 
-	char messageOutBuffer[MAX_TELEM_SIZE];
+    char messageOutBuffer[MAX_TELEM_SIZE];
 
-	int messageSize;
-	int deviceJack;
-	int i;
+    int messageSize;
+    int deviceJack;
+    int i;
 
-	while (FOREVER) {
+    while (FOREVER) {
 /*
-		for (i = 0; i < poll_telem_array_idx; i++) {
+        for (i = 0; i < poll_telem_array_idx; i++) {
 
-			int deviceJack = getDeviceJack(poll_telem_device[i]);
+            int deviceJack = getDeviceJack(poll_telem_device[i]);
 
-			//populate device id into the telem request
-			deviceTelemReq.struct_id = telem_req_id;
-			deviceTelemReq.telem_device_req_id = poll_telem_device[i];
+            //populate device id into the telem request
+            deviceTelemReq.struct_id = telem_req_id;
+            deviceTelemReq.telem_device_req_id = poll_telem_device[i];
 
-			System_printf("Telem Entering build Serial\n");
-			System_flush();
+            System_printf("Telem Entering build Serial\n");
+            System_flush();
 
-			messageSize = buildSerialStructMessage((void *) &deviceTelemReq,
-					messageOutBuffer);
+            messageSize = buildSerialStructMessage((void *) &deviceTelemReq,
+                    messageOutBuffer);
 
-			System_printf("Message Size: %d\n", messageSize);
-			System_flush();
+            System_printf("Message Size: %d\n", messageSize);
+            System_flush();
 
-			deviceWrite(deviceJack, messageOutBuffer, messageSize);
+            deviceWrite(deviceJack, messageOutBuffer, messageSize);
 
-			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
+            //looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
 */
-	        //debugging only:
-	        //i = 0;
-	        //slapping in nulls just for testing
-	        //while (i < (MAX_COMMAND_SIZE))
-	        //{
-	        //    messageInBuffer.value[i] = '\0';
-	        //    i++;
-	        //} //end while
+            //debugging only:
+            //i = 0;
+            //slapping in nulls just for testing
+            //while (i < (MAX_COMMAND_SIZE))
+            //{
+            //    messageInBuffer.value[i] = '\0';
+            //    i++;
+            //} //end while
 
-	        deviceJack = ONBOARD_ROVECOMM;
+            deviceJack = ONBOARD_ROVECOMM;
 
-			while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
+            //while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
 
-			printf("\nStruct_id: %d\n", messageInBuffer.id);
-			//System_flush();
+            ((struct gps_telem*)(&messageInBuffer))->struct_id = 140;
+            ((struct gps_telem*)(&messageInBuffer))->fix = 1;
+            ((struct gps_telem*)(&messageInBuffer))->fix_quality = 2;
+            ((struct gps_telem*)(&messageInBuffer))->satellites = 3;
+            ((struct gps_telem*)(&messageInBuffer))->latitude_fixed = 12345;
+            ((struct gps_telem*)(&messageInBuffer))->longitude_fixed = 56789;
+            ((struct gps_telem*)(&messageInBuffer))->altitude = 123.456;
+            ((struct gps_telem*)(&messageInBuffer))->speed = 234.567;
+            ((struct gps_telem*)(&messageInBuffer))->angle = 345.678;
 
-			//debugging only:
-			//i = 0;
+            printf("\nStruct_id: %d\n", messageInBuffer.id);
 
-			messageSize = getStructSize(messageInBuffer.id);
 
-			printf("\nTelemCntrl Just Sent %d: messageSize \n", messageSize);
+            //debugging only:
+            //i = 0;
 
-			printf(" struct_id %d ",((struct gps_telem*)(&messageInBuffer))->struct_id);
-			printf(" fix %d ",((struct  gps_telem*)(&messageInBuffer))->fix);
-			printf(" fix_quality %d ",((struct  gps_telem*)(&messageInBuffer))->fix_quality);
+            messageSize = getStructSize(messageInBuffer.id);
+
+            printf("\nTelemCntrl Just Sent %d: messageSize \n", messageSize);
+
+            printf(" struct_id %d ",((struct gps_telem*)(&messageInBuffer))->struct_id);
+            printf(" fix %d ",((struct  gps_telem*)(&messageInBuffer))->fix);
+            printf(" fix_quality %d ",((struct  gps_telem*)(&messageInBuffer))->fix_quality);
             printf(" satellites %d ",((struct  gps_telem*)(&messageInBuffer))->satellites);
             printf(" latitude %d ",((struct  gps_telem*)(&messageInBuffer))->latitude_fixed);
             printf(" longitude %d ",((struct  gps_telem*)(&messageInBuffer))->longitude_fixed);
@@ -89,35 +99,36 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             printf(" speed %f ",((struct  gps_telem*)(&messageInBuffer))->speed);
             printf(" angle %f \n",((struct  gps_telem*)(&messageInBuffer))->angle);
 
-			/*
-			    uint8_t struct_id;
-			    bool fix;
-			    uint8_t fix_quality;
-			    uint8_t satellites;
-			    int32_t latitude_fixed;
-			    int32_t longitude_fixed;
-			    float altitude;
-			    float speed;
-			    float angle;
+            /*
+                uint8_t struct_id;
+                bool fix;
+                uint8_t fix_quality;
+                uint8_t satellites;
+                int32_t latitude_fixed;
+                int32_t longitude_fixed;
+                float altitude;
+                float speed;
+                float angle;
             */
 
-			//Mailbox_post(toBaseStationMailbox, &messageInBuffer,
-					//BIOS_WAIT_FOREVER);
+            Mailbox_post(toBaseStationMailbox, &messageInBuffer,BIOS_WAIT_FOREVER);
 
-		//} //endfor
 
-	} //endwhile:	(1)
 
-	//postcondition: execution will not reach this state unless a serious error occurs
+        //} //endfor
 
-	System_printf("Rove Telem Cntrl Task Error: Forced Exit\n");
-	System_flush();
+    } //endwhile:   (1)
 
-	//exit Task
+    //postcondition: execution will not reach this state unless a serious error occurs
 
-	Task_exit();
+    System_printf("Rove Telem Cntrl Task Error: Forced Exit\n");
+    System_flush();
 
-} //endfnctn:		roveTelemContoller() Task Thread
+    //exit Task
+
+    Task_exit();
+
+} //endfnctn:       roveTelemContoller() Task Thread
 
 /*  Connors Testing Stuffs?... stashing it here
 

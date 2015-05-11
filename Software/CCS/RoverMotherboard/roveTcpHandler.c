@@ -55,20 +55,22 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 			//Spawn sending thread
 
 			Error_init(&eb);
-/*
+
 			System_printf("Spawning roveTcpSender\n");
+			System_flush();
 			Task_Params_init(&taskParams);
 			taskParams.arg0 = (UArg) (RED_socket.socketFileDescriptor);
 			taskParams.stackSize = 1280;
-			taskParams.priority = SEND_TASK_PRIORITY;
+			taskParams.priority = -1;
 			taskHandle = Task_create((Task_FuncPtr) roveTcpSender, &taskParams,
 					&eb);
 			//Check to see if memory could not be allocated for the task
 			if (taskHandle == NULL) {
-				System_printf(
+				System_abort(
 						"Error: Failed to create new roveTcpSender Task\n");
 			}
-			*/
+			Task_setPri(taskHandle, 3);
+
 
 		}
 
@@ -149,7 +151,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
 		// if execution reaches this point, then the connection has broken and we will attempt a new socket
 
-		close(RED_socket.socketFileDescriptor);
+		fdClose(RED_socket.socketFileDescriptor);
 
 	}						//endwhile (FOREVER)
 

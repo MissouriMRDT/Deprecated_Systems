@@ -186,8 +186,8 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 
 			//System_printf("Passed the Pend in TCP!! Success!!!\n");
 			//System_flush();
-			roveSend(&RED_socket, "There should be data here",
-					strlen("There should be data here"));
+			roveSend(&RED_socket, (char *) &(toBaseTelem.value[0]),
+					getStructSize(toBaseTelem.id));
 			printf("Sent data\n");
 
 		} else //Nothing to go out

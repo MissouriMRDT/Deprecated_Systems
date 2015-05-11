@@ -150,7 +150,6 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 		System_flush();
 
 		// if execution reaches this point, then the connection has broken and we will attempt a new socket
-
 		fdClose(RED_socket.socketFileDescriptor);
 
 	}						//endwhile (FOREVER)
@@ -174,6 +173,8 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 	struct NetworkConnection RED_socket;
 	RED_socket.socketFileDescriptor = arg0;
 	RED_socket.isConnected = true;
+	fdOpenSession(TaskSelf());
+	fdShare(RED_socket.socketFileDescriptor);
 	base_station_msg_struct toBaseTelem;
 	//Setup
 
@@ -185,19 +186,21 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 
 			//System_printf("Passed the Pend in TCP!! Success!!!\n");
 			//System_flush();
-			roveSend(&RED_socket, toBaseTelem.value,
-					getStructSize(toBaseTelem.id));
+			roveSend(&RED_socket, "There should be data here",
+					strlen("There should be data here"));
+			printf("Sent data\n");
 
 		} else //Nothing to go out
 		{
-			//System_printf("No data to send\n");
+			printf("No data to send\n");
 			//System_flush();
 		}
 
 	}
 
+	printf("SendTask has detected a closed connection. Cleaning up\n");
 	//Cleanup: Connection has broken
-
+	fdClose(RED_socket.socketFileDescriptor);
 	fdCloseSession((void*) TaskSelf());
 	Task_exit();
 }
@@ -208,7 +211,6 @@ static int roveRecv(struct NetworkConnection* connection, char* buffer,
 		int bytes) {
 
 	static int bytesRecvd;
-
 	if (connection->isConnected) {
 
 		bytesRecvd = recv(connection->socketFileDescriptor, buffer, bytes,

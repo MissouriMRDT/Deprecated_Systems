@@ -31,9 +31,12 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 	extern UART_Handle uart2;
 
 //	int bytes_to_read = 11;
-	char buffer[40];
+	char buffer[40] = {140, 1, 3, 4, 255, 255, 255, 255, 255, 255, 255 , 255,  255, 255, 255 , 255,  255, 255, 255 , 255,  255, 255, 255 , 255, };
 //	int bytes_read;
 	int device = ONBOARD_ROVECOMM;
+
+	System_printf("Enter roveTelemCntrl\n");
+		System_flush();
 
 	while (1) {
 		/*		memset(buffer, '\0', 20);
@@ -43,15 +46,10 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 		 System_printf("%s\n", buffer);
 		 System_flush();
 		 */
-		if (recvSerialStructMessage(device, buffer)) {
-			if (((struct rovecom_id_cast*) buffer)->struct_id == 22) {
-				uint8_t value =
-						((struct device_telem_req*) buffer)->telem_device_req_id;
-				System_printf("Struct received with value: %x\n", value);
-				System_flush();
-			}
-		}
-
+		//printf("I hope that someone gets my\nI hope that someone gets my\n");
+		Mailbox_post(toBaseStationMailbox, &buffer,
+							BIOS_WAIT_FOREVER);
+		//printf("Message in a buffer\n");
 		Task_sleep(100);
 	}
 

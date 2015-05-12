@@ -92,7 +92,7 @@ void loop()                     // run over and over again
       if (TOSTRING)
         gps_data.ToString();
     
-    // Include time to know when last successful transmission was??
+    // ??Include time to know when last successful transmission was??
 //    Serial.print("\nTime: ");
 //    Serial.print(GPS.hour, DEC); Serial.print(':');
 //    Serial.print(GPS.minute, DEC); Serial.print(':');
@@ -102,25 +102,9 @@ void loop()                     // run over and over again
 //    Serial.print(GPS.day, DEC); Serial.print('/');
 //    Serial.print(GPS.month, DEC); Serial.print("/20");
 //    Serial.println(GPS.year, DEC);
-
-    
-//    Serial.print("Fix: "); Serial.print((int)GPS.fix);
-//    Serial.print(" quality: "); Serial.println((int)GPS.fixquality); 
-//    if (GPS.fix) {
-//      Serial.print("Location: ");
-//      Serial.print(GPS.latitude, 4); Serial.print(GPS.lat);
-//      Serial.print(", "); 
-//      Serial.print(GPS.longitude, 4); Serial.println(GPS.lon);
-//      
-//      Serial.print("Speed (knots): "); Serial.println(GPS.speed);
-//      Serial.print("Angle: "); Serial.println(GPS.angle);
-//      Serial.print("Altitude: "); Serial.println(GPS.altitude);
-//      Serial.print("Satellites: "); Serial.println((int)GPS.satellites);
-//    }
-
      }
     
     // send data to motherboard via EasyTransfer
-//    ET.sendData();
+    ET.sendData();
   }
 }

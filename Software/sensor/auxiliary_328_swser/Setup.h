@@ -33,10 +33,6 @@ void GPS_setup(Adafruit_GPS &GPS, GPS_Data &gps_data)
   gps_data.altitude = 0;
   gps_data.speed = 0;
   gps_data.angle = 0;
-
-//  //settings for GPS timer
-//  OCR0A = 0xAF;
-//  TIMSK0 |= _BV(OCIE0A);
 }
 
 #endif

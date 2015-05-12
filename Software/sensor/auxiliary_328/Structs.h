@@ -31,11 +31,11 @@ void GPS_Data::ToString(){
   Serial.print("altitude = ");
   Serial.println(altitude);
   Serial.print("speed = ");
-  Serial.println(speed);
+  Serial.println(speed); // in knots
   Serial.print("angle = ");
   Serial.println(angle);
   Serial.println("------------------------------");
-  delay(50);
+  delay(500);
 }
 
 #endif

@@ -10,10 +10,10 @@ EasyTransfer ET;
 SoftwareSerial gpsSerial(9, 10); // (Rx from GPS, Tx to GPS)
 SoftwareSerial moboSerial(2, 3); // (Rx=0, Tx=1) **Set to 0,1 for 32u4 **Not able to get HWSerial working
 
-Adafruit_GPS GPS(&gpsSerial);
+Adafruit_GPS GPS(&Serial);//gpsSerial);
 
-#define GPSECHO true // set to true if you want raw GPS data printed to serial monitor
-#define TOSTRING false // set true if you want parsed gps_data.ToString() printed to serial monitor 
+#define GPSECHO false // set to true if you want raw GPS data printed to serial monitor
+#define TOSTRING true // set true if you want parsed gps_data.ToString() printed to serial monitor 
 #define FIXINDICATOR false // set true if you want fix indicator on pin FIXOUT (digitalRead fix from GPS module on pin FIXIN)  
 
 #define data_delay 50  //milliseconds between data collection
@@ -99,16 +99,7 @@ void loop()
   if (GPS.lon == 'W') {
     gps_data.longitude_fixed = -1 * gps_data.longitude_fixed;
   }
-
-  #ifdef TOSTRING
-  #if TOSTRING
-    gps_data.ToString();
-  #endif 
-  #endif
-
-  //    moboSerial.write(gps_data);
-  ET.sendData();
-
+  
   // Determine if fix on gps breakout is high
   #ifdef FIXINDICATOR
   #if FIXINDICATOR
@@ -118,4 +109,14 @@ void loop()
       digitalWrite(FIXOUT, LOW);
   #endif
   #endif
+
+  // print out parsed data to serial monitor
+  #ifdef TOSTRING
+  #if TOSTRING
+    gps_data.ToString();
+  #endif 
+  #endif
+
+  //    moboSerial.write(gps_data);
+  ET.sendData();
 }

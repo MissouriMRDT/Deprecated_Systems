@@ -85,7 +85,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
         while (RED_socket.isConnected == true) {
 
-            printf("Connected, entering roveRecv\n");
+            //printf("Connected, entering roveRecv\n");
 
 
             // get Message Type, check for connection errors
@@ -112,8 +112,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
                     // defined 5
                 case ROVER_COMMAND:
 
-                    printf("Got rover command. Passing control.\n");
-                    System_flush;
+                    //printf("Got rover command. Passing control.\n");
+                    //System_flush;
 
                     parseRoverCommandMessage(&RED_socket);
 
@@ -186,9 +186,8 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 	//Loop: Wait on mailbox, send keepalive otherwise
 	while (RED_socket.isConnected) {
 		//Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
-		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,
-		SEND_KEEPALIVE_DELAY_TICKS)) {
-
+		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,SEND_KEEPALIVE_DELAY_TICKS))
+		{
 			//printf("Passed the Pend in TCP!! Success!!!\n");
 			roveSend(&RED_socket, (char *) &(toBaseTelem.value[0]),
 					getStructSize(toBaseTelem.id));
@@ -370,7 +369,7 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
 
     }					//endif
 
-    printf("Recieved data. Posting to mailbox\n");
+    //printf("Recieved data. Posting to mailbox\n");
 
 
     // post message to maibox. The mailbox is defined as a global by the config script

@@ -88,7 +88,7 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             messageSize = getStructSize(messageInBuffer.id);
 
             printf("\nTelemCntrl Just Sent %d: messageSize \n", messageSize);
-
+/*
             printf(" struct_id %d ",((struct gps_telem*)(&messageInBuffer))->struct_id);
             printf(" fix %d ",((struct  gps_telem*)(&messageInBuffer))->fix);
             printf(" fix_quality %d ",((struct  gps_telem*)(&messageInBuffer))->fix_quality);
@@ -98,7 +98,7 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             printf(" altitude %f ",((struct  gps_telem*)(&messageInBuffer))->altitude);
             printf(" speed %f ",((struct  gps_telem*)(&messageInBuffer))->speed);
             printf(" angle %f \n",((struct  gps_telem*)(&messageInBuffer))->angle);
-
+*/
             /*
                 uint8_t struct_id;
                 bool fix;

@@ -226,6 +226,10 @@
 
 #include "roveWareHeaders/roveJson.h"
 
+//MRDesign Team:: 	roveWare::		lets the rover make its own decisions
+
+//#include "roveWareHeaders/roveAutonomy.h"
+
 //DON'T INCLUDE SYS BIOS THREADS in ROVEWARE:
 
 //MRDesign Team:: 	roveWare::		roveNet tcp ip bsd socket BIOS thread service

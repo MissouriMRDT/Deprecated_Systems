@@ -191,12 +191,11 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,SEND_KEEPALIVE_DELAY_TICKS))
 		{
 
-			//Send the message type and ID
+			//Send the message type
 			roveSend(&RED_socket, message_type, 1);
-			roveSend(&RED_socket, &(toBaseTelem.id), 1);
 
 			//Send the message contents
-			roveSend(&RED_socket, (char *) &(toBaseTelem.value[0]),
+			roveSend(&RED_socket, (char *) &toBaseTelem),
 					getStructSize(toBaseTelem.id));
 			printf("Sent data\n");
 
@@ -342,21 +341,13 @@ static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
     //printf("Entering parseRoverCommandMessage\n");
 
     // get type of message
-
     if (!roveRecv(connection, &(messagebuffer.id), 1)) {
 
         return false;
 
     }	//endif
 
-    //TODO: Not really sure about the best way to do this. We should probably
-    //      have a lookup function that takes message type and outputs
-
-    //printf("Getting struct size\n");
-    //
-
-    // get size of message
-
+    // get size of message. Subtract one because we already got the ID byte
     size = getStructSize((char) messagebuffer.id) - 1;
 
     //TODO 169-D remove the address operator for second paramenter to return char* instead of char**

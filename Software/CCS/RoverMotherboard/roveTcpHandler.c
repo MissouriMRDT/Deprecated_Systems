@@ -178,6 +178,8 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 	struct NetworkConnection RED_socket;
 	RED_socket.socketFileDescriptor = arg0;
 	RED_socket.isConnected = true;
+	char message_type[] = {ROVER_TELEM};
+
 	fdOpenSession(TaskSelf());
 	fdShare(RED_socket.socketFileDescriptor);
 	base_station_msg_struct toBaseTelem;
@@ -188,7 +190,12 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 		//Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
 		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,SEND_KEEPALIVE_DELAY_TICKS))
 		{
-			//printf("Passed the Pend in TCP!! Success!!!\n");
+
+			//Send the message type and ID
+			roveSend(&RED_socket, message_type, 1);
+			roveSend(&RED_socket, &(toBaseTelem.id), 1);
+
+			//Send the message contents
 			roveSend(&RED_socket, (char *) &(toBaseTelem.value[0]),
 					getStructSize(toBaseTelem.id));
 			printf("Sent data\n");

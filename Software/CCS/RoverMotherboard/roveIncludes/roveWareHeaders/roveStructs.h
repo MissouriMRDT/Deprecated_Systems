@@ -106,27 +106,6 @@ struct robot_arm_command{
 
 // sent from mobo to gripper to control the peripheral
 
-// sent from mobo to drill to control the peripheral
-
-struct drill_command{
-
-	uint8_t struct_id;
-	//drill ctrl
-	uint8_t goalSpeed;
-	uint8_t direction;
-
-	//thermo ctrl
-	uint8_t heaterPower;
-	uint8_t thermoReadings;
-
-	//gas ctrl
-	uint8_t sensorPower;
-
-	//readings will only be updated when true
-	uint8_t gasReadings;
-
-}__attribute__((packed));
-
 
 struct bms_emergency_stop_command
 {

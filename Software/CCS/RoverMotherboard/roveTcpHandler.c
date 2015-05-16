@@ -195,7 +195,7 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 			roveSend(&RED_socket, message_type, 1);
 
 			//Send the message contents
-			roveSend(&RED_socket, (char *) &toBaseTelem),
+			roveSend(&RED_socket, (char *) &toBaseTelem,
 					getStructSize(toBaseTelem.id));
 			printf("Sent data\n");
 

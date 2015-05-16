@@ -101,7 +101,7 @@
 
 // sending timeout in seconds
 
-#define NETWORK_TIMEOUT 6
+#define NETWORK_TIMEOUT 2
 
 // hardcodes the IP of the base station
 #define RED_IP "192.168.1.2"

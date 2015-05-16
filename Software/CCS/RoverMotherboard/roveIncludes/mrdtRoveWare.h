@@ -150,7 +150,8 @@
 
 #define gps_telem_reply                                 140
 
-#define	bms_emergency_stop_command_id					150
+#define	bms_command_id					                150
+
 #define bms_cell1_voltage_telem_id						151
 #define bms_cell2_voltage_telem_id						152
 #define bms_cell3_voltage_telem_id						153
@@ -163,6 +164,7 @@
 #define bms_total_amperage_telem_id						160
 
 #define	power_board_command_id 							170
+
 #define power_board_telem_motor1_current_id 			180
 #define power_board_telem_motor2_current_id 			181
 #define power_board_telem_motor3_current_id 			182
@@ -194,6 +196,8 @@
 // gripper value
 
 #define gripper_open 208
+
+#define drill_clock_wise 209
 
 // telem_device_id
 

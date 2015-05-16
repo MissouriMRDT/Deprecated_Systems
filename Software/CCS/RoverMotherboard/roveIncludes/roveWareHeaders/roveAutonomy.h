@@ -24,13 +24,14 @@ static const struct motor_control_struct E_STOP_MOTORS[] = {
 
 
 static const struct robot_arm_command E_STOP_ARM[] = {
-		{wrist_clock_wise, 0},
-		{wrist_up, 0},
-		{elbow_clock_wise, 0},
-		{elbow_up, 0},
-		{base_clock_wise, 0},
-		{actuator_forward, 0},
-		{gripper_open, 0}
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0},
+		{e_stop_arm, 0}
 };
 
 //-----------------------------------

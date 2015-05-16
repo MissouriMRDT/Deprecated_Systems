@@ -19,7 +19,7 @@ void emergencyStop()
 
 	for (i = 0; i < (sizeof(E_STOP_ARM) / sizeof(E_STOP_ARM[0])); i++)
 	{
-		Mailbox_post(fromBaseStationMailbox, &(E_STOP_MOTORS[i]),
+		Mailbox_post(fromBaseStationMailbox, &(E_STOP_ARM[i]),
 		        BIOS_WAIT_FOREVER);
 	}
 

@@ -41,8 +41,7 @@ int getDeviceJack(int device){
 
 		default:
 				//Tried to get jack for an \ invalid device
-				System_printf("getDeviceJack passed invalid device %d\n", device);
-				System_flush();
+				printf("getDeviceJack passed invalid device %d\n", device);
 			return -1;
 
 	}//endswitch (device)

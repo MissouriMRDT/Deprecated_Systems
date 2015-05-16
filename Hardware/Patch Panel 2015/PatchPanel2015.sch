@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1733,18 +1733,6 @@ Vertical variant is 20020620-M02*</description>
 <label x="106.68" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="JACK_5_RX+" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="1"/>
-<wire x1="154.94" y1="104.14" x2="144.78" y2="104.14" width="0.1524" layer="91"/>
-<label x="144.78" y="104.14" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RS-485_OUT1" gate="G$1" pin="1-TRANS+"/>
-<wire x1="101.6" y1="134.62" x2="114.3" y2="134.62" width="0.1524" layer="91"/>
-<label x="106.68" y="134.62" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="1_RX-" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="2"/>
@@ -2723,6 +2711,18 @@ Vertical variant is 20020620-M02*</description>
 <wire x1="-30.48" y1="144.78" x2="30.48" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="144.78" x2="30.48" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="162.56" x2="27.94" y2="162.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="1_RX+" class="0">
+<segment>
+<pinref part="RS-485_OUT1" gate="G$1" pin="1-TRANS+"/>
+<wire x1="101.6" y1="134.62" x2="114.3" y2="134.62" width="0.1524" layer="91"/>
+<label x="106.68" y="134.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="1"/>
+<wire x1="154.94" y1="104.14" x2="144.78" y2="104.14" width="0.1524" layer="91"/>
+<label x="144.78" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -19,7 +19,7 @@ Adafruit_GPS GPS(&gpsSerial);
 
 // Set TOSTRING to 'false' to turn off printing of parsed GPS data in GPS_Data struct to Serial console
 // Set to 'true' to print parsed data to Serial console
-#define TOSTRING true
+#define TOSTRING false
 
 // Collect data from GPS every [data_delay] milliseconds
 #define data_delay 500
@@ -87,10 +87,6 @@ void loop()                     // run over and over again
       if (GPS.lon == 'W') {
         gps_data.longitude_fixed = -1 * gps_data.longitude_fixed;
       }
-
-      // if true and valid, print parsed gps data to serial monitor 
-      if (TOSTRING)
-        gps_data.ToString();
     
     // ??Include time to know when last successful transmission was??
 //    Serial.print("\nTime: ");
@@ -103,6 +99,15 @@ void loop()                     // run over and over again
 //    Serial.print(GPS.month, DEC); Serial.print("/20");
 //    Serial.println(GPS.year, DEC);
      }
+     
+    // if true and valid, print parsed gps data to serial monitor 
+    if (TOSTRING){
+      if(gps_data.fix){
+        gps_data.ToString();
+      }else{
+        Serial.println("NO FIX");
+      }
+    }
     
     // send data to motherboard via EasyTransfer
     ET.sendData();

@@ -107,9 +107,10 @@ struct robot_arm_command{
 // sent from mobo to gripper to control the peripheral
 
 
-struct bms_emergency_stop_command
+struct bms_command
 {
 	uint8_t struct_id;
+	uint8_t command;
 };
 
 struct power_board_command

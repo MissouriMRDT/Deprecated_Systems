@@ -69,7 +69,6 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 
             while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
 
-            /*
             //uint8_t struct_id;
             //bool fix;
             //uint8_t fix_quality;
@@ -88,15 +87,15 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             ((struct gps_telem*)(&messageInBuffer))->altitude = 123.456;
             ((struct gps_telem*)(&messageInBuffer))->speed = 234.567;
             ((struct gps_telem*)(&messageInBuffer))->angle = 345.678;
-*/
+/*
             printf("\nStruct_id: %d\n", messageInBuffer.id);
 
 
             //debugging only:
             //i = 0;
-
+*/
             messageSize = getStructSize(messageInBuffer.id);
-
+/*
             printf("\nTelemCntrl Just Sent %d: messageSize \n", messageSize);
 
             printf(" struct_id %d ",((struct gps_telem*)(&messageInBuffer))->struct_id);
@@ -108,12 +107,8 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             printf(" altitude %d ",((struct gps_telem*)(&messageInBuffer))->altitude);
             printf(" speed %d ",((struct gps_telem*)(&messageInBuffer))->speed);
             printf(" angle %d \n",((struct gps_telem*)(&messageInBuffer))->angle);
-
-
-
+*/
             Mailbox_post(toBaseStationMailbox, &messageInBuffer,BIOS_WAIT_FOREVER);
-
-
 
         //} //endfor
 

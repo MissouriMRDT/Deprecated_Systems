@@ -18,8 +18,8 @@ int getStructSize(char structId) {
     case (char) motor_right_id:
         return sizeof(struct motor_control_struct);
 
-    case bms_emergency_stop_command_id:
-        return sizeof(struct bms_emergency_stop_command);
+    case bms_command_id:
+        return sizeof(struct bms_command);
 
     case bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
         return sizeof(struct power_board_bms_telem);

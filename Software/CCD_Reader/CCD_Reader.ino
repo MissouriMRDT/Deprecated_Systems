@@ -12,6 +12,7 @@
 // A lot of low-level SAM3X8E code was required, so
 // this can't be considered "true" arduino code.
 //
+// Datasheet: 
 //-------------------------------------
 
 #include <Arduino.h>
@@ -62,8 +63,15 @@ const int DATA_FREQUENCY = 300000;
 
 
 //This must be volatile and at least 32 bits or timing messes up
-volatile uint32_t data_counter = 0;                      
-const uint32_t MAX_DATA_COUNT = 900000; //Approx. 3 seconds
+volatile uint32_t data_counter = 0;   
+
+//Time between reading
+//const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
+const uint32_t MAX_DATA_COUNT = 100000;   //Third of a second
+
+
+uint32_t shutter_time;
+
     
 //Realtime cycles to wait before grabbing another sample. Gives us time to send data out.
 const int PRE_SAMPLE_CYCLES = 5000;
@@ -97,14 +105,19 @@ void setup() {
   
   pinMode(ICG, OUTPUT);
   pinMode(SH, OUTPUT);
+  
+  //ICG is active low
   digitalWrite(ICG, HIGH);
-  digitalWrite(SH, LOW);
+  
+  //Enable the shutter when not in use
+  digitalWrite(SH, HIGH);
   
   Serial.begin(115200);
 }
  
 void loop() 
 {
+  
   while(data_counter < PRE_SAMPLE_CYCLES); //Wait to clear out the remaining data
 
   //--------------------
@@ -124,6 +137,21 @@ void loop()
   REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
   //  digitalWrite(ICG, HIGH);
   
+  //------------------------
+  // Data Collecting Phase
+  //------------------------
+  shutter_time = data_counter + 1;
+  while(shutter_time < LAST_ELEMENT_TIME)
+  {
+    while(data_counter < shutter_time);
+    REG_PIOC_ODSR = SH_LOW_ICG_HIGH;
+    shutter_time ++;
+    
+    while(data_counter < shutter_time);
+    REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
+    shutter_time ++;
+  }
+  
   //---------------------
   // Send the integration stop signal
   //---------------------
@@ -135,6 +163,17 @@ void loop()
   while(data_counter < LAST_ELEMENT_TIME + 2);
   REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
   
+  //-----------------------
+  // Finished with cycle.
+  //
+  // Clock will continue to run, but 
+  // timing requirements are relaxed 
+  // until we start another data 
+  // collection phase.
+  //-----------------------
+  
+  //Shutter the device when we aren't using it.
+  digitalWrite(SH, HIGH);
   
   while(data_counter < MAX_DATA_COUNT - 1);
 }

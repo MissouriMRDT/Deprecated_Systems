@@ -66,8 +66,8 @@ const int DATA_FREQUENCY = 300000;
 volatile uint32_t data_counter = 0;   
 
 //Time between reading
-//const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
-const uint32_t MAX_DATA_COUNT = 100000;   //Third of a second
+const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
+//const uint32_t MAX_DATA_COUNT = 100000;   //Third of a second
 
 
 uint32_t shutter_time;
@@ -93,9 +93,12 @@ void setUpClocks();
 
 void dataInterrupt();
  
+void setUpADC(); 
+ 
 void setup() {
   
   startClockPWM();
+  setUpADC();
   
   //Get next unused timer on the Due as the data timer
   DueTimer dataTimer = DueTimer(6);
@@ -110,13 +113,15 @@ void setup() {
   digitalWrite(ICG, HIGH);
   
   //Enable the shutter when not in use
-  digitalWrite(SH, HIGH);
+  digitalWrite(SH, LOW);
   
   Serial.begin(115200);
 }
  
 void loop() 
 {
+  int element; 
+  uint16_t ADC_data[PIXEL_COUNT];
   
   while(data_counter < PRE_SAMPLE_CYCLES); //Wait to clear out the remaining data
 
@@ -141,15 +146,29 @@ void loop()
   // Data Collecting Phase
   //------------------------
   shutter_time = data_counter + 1;
-  while(shutter_time < LAST_ELEMENT_TIME)
+  element = 0;
+  while(shutter_time < LAST_DATA_ELEMENT_TIME)
   {
+    //Wait for next data element and pulse the shutter
     while(data_counter < shutter_time);
     REG_PIOC_ODSR = SH_LOW_ICG_HIGH;
-    shutter_time ++;
     
+    //Analog Reading
+    while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
+    ADC_data[element]=ADC->ADC_CDR[7]; //get values
+    
+    shutter_time ++;
+    element++;
+    
+    //Repeat with inverted shutter phase.
     while(data_counter < shutter_time);
     REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
+
+    while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
+    ADC_data[element]=ADC->ADC_CDR[7]; //get values
+    
     shutter_time ++;
+    element++;
   }
   
   //---------------------
@@ -173,7 +192,18 @@ void loop()
   //-----------------------
   
   //Shutter the device when we aren't using it.
-  digitalWrite(SH, HIGH);
+  digitalWrite(SH, LOW);
+  
+  Serial.println("Finished read cycle");
+  Serial.print("Elements Read: ");
+  Serial.print(element, DEC);
+  Serial.println("Showing samples");
+  
+  for(int i = 0; i < PIXEL_COUNT; i+= 20)
+  {
+    Serial.println(ADC_data[i]);
+  }
+  
   
   while(data_counter < MAX_DATA_COUNT - 1);
 }
@@ -208,4 +238,10 @@ void startClockPWM()
   PWMC_SetDutyCycle(PWM_INTERFACE, channel, 1);
  
   //pmc_mck_set_prescaler(2);
+}
+
+void setUpADC()
+{
+  ADC->ADC_MR |= 0x80;  //set free running mode on ADC
+  ADC->ADC_CHER = 0x80; //enable ADC on pin A0
 }

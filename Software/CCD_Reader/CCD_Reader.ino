@@ -66,9 +66,9 @@ const int DATA_FREQUENCY = 300000;
 volatile uint32_t data_counter = 0;   
 
 //Time between reading
-const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
+//const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
 //const uint32_t MAX_DATA_COUNT = 100000;   //Third of a second
-
+const uint32_t MAX_DATA_COUNT = 10000;
 
 uint32_t shutter_time;
 
@@ -101,7 +101,7 @@ void setup() {
   setUpADC();
   
   //Get next unused timer on the Due as the data timer
-  DueTimer dataTimer = DueTimer(6);
+  DueTimer dataTimer = DueTimer(1);
   dataTimer.attachInterrupt(dataInterrupt);
   dataTimer.setFrequency(DATA_FREQUENCY);
   dataTimer.start();
@@ -120,101 +120,116 @@ void setup() {
  
 void loop() 
 {
-  int element; 
-  uint16_t ADC_data[PIXEL_COUNT];
-  
-  while(data_counter < PRE_SAMPLE_CYCLES); //Wait to clear out the remaining data
-
-  //--------------------
-  // Send the Integration start signal
-  //--------------------
-  
-  //  digitalWrite(ICG, LOW);
-  //  digitalWrite(SH, HIGH);
-  REG_PIOC_ODSR = SH_HIGH_ICG_LOW;
-  
-  while(data_counter < PRE_SAMPLE_CYCLES + 1);
-  //  digitalWrite(SH, LOW);
-  REG_PIOC_ODSR = SH_LOW_ICG_LOW;
-  
-  while(data_counter < PRE_SAMPLE_CYCLES + 2);
-  
-  REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
-  //  digitalWrite(ICG, HIGH);
-  
-  //------------------------
-  // Data Collecting Phase
-  //------------------------
-  shutter_time = data_counter + 1;
-  element = 0;
-  while(shutter_time < LAST_DATA_ELEMENT_TIME)
+  //Something I did broke the looping built into arduino
+  //So I have to write my own loop
+  while(1)
   {
-    //Wait for next data element and pulse the shutter
-    while(data_counter < shutter_time);
-    REG_PIOC_ODSR = SH_LOW_ICG_HIGH;
+    int element; 
+    uint16_t ADC_data[PIXEL_COUNT];
+    //Serial.print('{');
+    while(data_counter < PRE_SAMPLE_CYCLES); //Wait to clear out the remaining data
+  
+    //--------------------
+    // Send the Integration start signal
+    //--------------------
     
-    //Analog Reading
-    while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
-    ADC_data[element]=ADC->ADC_CDR[7]; //get values
+    //  digitalWrite(ICG, LOW);
+    //  digitalWrite(SH, HIGH);
+    REG_PIOC_ODSR = SH_HIGH_ICG_LOW;
     
-    shutter_time ++;
-    element++;
+    while(data_counter < PRE_SAMPLE_CYCLES + 1);
+    //  digitalWrite(SH, LOW);
+    REG_PIOC_ODSR = SH_LOW_ICG_LOW;
     
-    //Repeat with inverted shutter phase.
-    while(data_counter < shutter_time);
+    while(data_counter < PRE_SAMPLE_CYCLES + 2);
+    
     REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
-
-    while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
-    ADC_data[element]=ADC->ADC_CDR[7]; //get values
+    //  digitalWrite(ICG, HIGH);
     
-    shutter_time ++;
-    element++;
-  }
+    //------------------------
+    // Data Collecting Phase
+    //------------------------
+    shutter_time = data_counter + 1;
+    element = 0;
+    while(shutter_time < LAST_DATA_ELEMENT_TIME)
+    {
+      //Wait for next data element and pulse the shutter
+      while(data_counter < shutter_time);
+      REG_PIOC_ODSR = SH_LOW_ICG_HIGH;
+      
+      //Analog Reading
+      while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
+      ADC_data[element]=ADC->ADC_CDR[7]; //get values
+      
+      shutter_time ++;
+      element++;
+      
+      //Repeat with inverted shutter phase.
+      while(data_counter < shutter_time);
+      REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
   
-  //---------------------
-  // Send the integration stop signal
-  //---------------------
-  while(data_counter < LAST_ELEMENT_TIME); //Wait for last element to clock through
-  REG_PIOC_ODSR = SH_HIGH_ICG_LOW;
-  
-  while(data_counter < LAST_ELEMENT_TIME + 1);
-  REG_PIOC_ODSR = SH_LOW_ICG_LOW;
-  while(data_counter < LAST_ELEMENT_TIME + 2);
-  REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
-  
-  //-----------------------
-  // Finished with cycle.
-  //
-  // Clock will continue to run, but 
-  // timing requirements are relaxed 
-  // until we start another data 
-  // collection phase.
-  //-----------------------
-  
-  //Shutter the device when we aren't using it.
-  digitalWrite(SH, LOW);
-  
-  Serial.println("Finished read cycle");
-  Serial.print("Elements Read: ");
-  Serial.print(element, DEC);
-  Serial.println("Showing samples");
-  
-  for(int i = 0; i < PIXEL_COUNT; i+= 20)
-  {
-    Serial.println(ADC_data[i]);
-  }
-  
-  
-  while(data_counter < MAX_DATA_COUNT - 1);
-}
+      while((ADC->ADC_ISR & 0x80)==0); // wait for conversion
+      ADC_data[element]=ADC->ADC_CDR[7]; //get values
+      
+      shutter_time ++;
+      element++;
+    }
+    
+    //---------------------
+    // Send the integration stop signal
+    //---------------------
+    while(data_counter < LAST_ELEMENT_TIME); //Wait for last element to clock through
+      
+    REG_PIOC_ODSR = SH_HIGH_ICG_LOW;
+    
+    while(data_counter < LAST_ELEMENT_TIME + 1);
+    REG_PIOC_ODSR = SH_LOW_ICG_LOW;
+    while(data_counter < LAST_ELEMENT_TIME + 2);
+    REG_PIOC_ODSR = SH_HIGH_ICG_HIGH;
+    
+    //-----------------------
+    // Finished with cycle.
+    //
+    // Clock will continue to run, but 
+    // timing requirements are relaxed 
+    // until we start another data 
+    // collection phase.
+    //-----------------------
+    
+    //Shutter the device when we aren't using it.
+    digitalWrite(SH, LOW);
+    
+    /*
+    Serial.println("Finished read cycle");
+    Serial.print("Elements Read: ");
+    Serial.println(element, DEC);
+    Serial.println("Showing samples");
+    */
+    
+    for(int i = 0; i < PIXEL_COUNT; i+= 20)
+    {
+      Serial.print(ADC_data[i]);
+      Serial.print(", ");
+    }
+    Serial.println();
+    //Serial.println("}");
+    /*
+    Serial.println("Waiting to restart");
+    Serial.println(data_counter, DEC);
+    while(data_counter < MAX_DATA_COUNT);
+    Serial.println(data_counter, DEC);
+    Serial.println("Restarting");
+    */
+    
+    delay(300);
+    //Reset data counter
+    data_counter = 0;
+  } //end while(1)
+}   //end loop()
 
 void dataInterrupt()
 {
-  data_counter++;
-  
-  //Wrap around and restart on overflow
-  data_counter %= MAX_DATA_COUNT;
-  
+  data_counter++; 
 }
 
 void startClockPWM()

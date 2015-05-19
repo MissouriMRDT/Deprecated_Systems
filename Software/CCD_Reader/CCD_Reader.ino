@@ -19,6 +19,16 @@
 #include "DueTimer.h"
 
 //---------------------------------------
+// User configurable settings
+//---------------------------------------
+
+//Number of times to take a complete image per second
+const uint32_t SAMPLE_RATE_HZ = 2;
+
+//Sends one out of every (RESOLUTION_DIVIDER) data points
+const uint32_t RESOLUTION_DIVIDER = 5;
+
+//---------------------------------------
 // CCD Master Clock. Too fast to bit-bang
 //---------------------------------------
 
@@ -68,7 +78,7 @@ volatile uint32_t data_counter = 0;
 //Time between reading
 //const uint32_t MAX_DATA_COUNT = 900000; //3 seconds 
 //const uint32_t MAX_DATA_COUNT = 100000;   //Third of a second
-const uint32_t MAX_DATA_COUNT = 10000;
+const uint32_t MAX_DATA_COUNT = DATA_FREQUENCY / SAMPLE_RATE_HZ;
 
 uint32_t shutter_time;
 
@@ -206,7 +216,7 @@ void loop()
     Serial.println("Showing samples");
     */
     
-    for(int i = 0; i < PIXEL_COUNT; i+= 20)
+    for(int i = 0; i < PIXEL_COUNT; i+= RESOLUTION_DIVIDER)
     {
       Serial.print(ADC_data[i]);
       Serial.print(", ");

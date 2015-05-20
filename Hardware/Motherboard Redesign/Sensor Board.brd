@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -672,11 +672,8 @@ Please make sure your boards conform to these design rules.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
-<param name="AutoGrid" value="1"/>
-<param name="Efforts" value="0"/>
-<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
-<param name="PrefDir.1" value="a"/>
+<param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
 <param name="PrefDir.3" value="0"/>
 <param name="PrefDir.4" value="0"/>
@@ -691,7 +688,7 @@ Please make sure your boards conform to these design rules.</description>
 <param name="PrefDir.13" value="0"/>
 <param name="PrefDir.14" value="0"/>
 <param name="PrefDir.15" value="0"/>
-<param name="PrefDir.16" value="a"/>
+<param name="PrefDir.16" value="-"/>
 <param name="cfVia" value="8"/>
 <param name="cfNonPref" value="5"/>
 <param name="cfChangeDir" value="2"/>
@@ -779,12 +776,12 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R40" library="SparkFun-Passives" package="1206" value="1K" x="24.765" y="2.54" rot="R180"/>
 <element name="C27" library="SparkFun-Passives" package="1206" value=".01uF" x="35.56" y="22.86"/>
 <element name="U1" library="MRDT-2015-General" package="QFN-24-NP" value="" x="30.48" y="31.115"/>
-<element name="C1" library="SparkFun-Capacitors" package="1206" value="" x="35.56" y="31.115" rot="R270"/>
-<element name="C2" library="SparkFun-Capacitors" package="1206" value="" x="25.4" y="31.115" rot="R270"/>
-<element name="C3" library="SparkFun-Capacitors" package="1206" value="" x="31.75" y="37.465" rot="R90"/>
-<element name="C4" library="SparkFun-Capacitors" package="1206" value="" x="34.29" y="37.465" rot="R90"/>
-<element name="R1" library="SparkFun-Resistors" package="1206" value="" x="26.67" y="37.465" rot="R90"/>
-<element name="R2" library="SparkFun-Resistors" package="1206" value="" x="29.21" y="37.465" rot="R90"/>
+<element name="C1" library="SparkFun-Capacitors" package="1206" value="0.1uF" x="35.56" y="31.115" rot="R270"/>
+<element name="C2" library="SparkFun-Capacitors" package="1206" value="0.1uF" x="25.4" y="31.115" rot="R270"/>
+<element name="C3" library="SparkFun-Capacitors" package="1206" value="2.2nF" x="31.75" y="37.465" rot="R90"/>
+<element name="C4" library="SparkFun-Capacitors" package="1206" value="0.1uF" x="34.29" y="37.465" rot="R90"/>
+<element name="R1" library="SparkFun-Resistors" package="1206" value="1kohm" x="26.67" y="37.465" rot="R90"/>
+<element name="R2" library="SparkFun-Resistors" package="1206" value="1kohm" x="29.21" y="37.465" rot="R90"/>
 <element name="SJ3" library="SparkFun-Retired" package="SJ_3" value="" x="30.48" y="26.3525"/>
 <element name="RS-485-2" library="MAX3077" package="MAX3070E" value="MAX3077" x="45.085" y="22.225" rot="R180"/>
 <element name="U$2" library="SparkFun-Connectors" package="RJ45-8" value="RJ45-8PTH" x="47.625" y="3.81"/>

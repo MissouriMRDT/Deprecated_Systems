@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3759,12 +3759,12 @@ Pad size and stop size allow for a #4 Phillips pan screw head to make a solid co
 <part name="U1" library="MRDT-2015-General" deviceset="MPU-9150" device="QFN-24-NP"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
-<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="1206"/>
-<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="1206"/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="1206"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206"/>
-<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="2.2nF"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="0.1uF"/>
+<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1kohm"/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1kohm"/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>

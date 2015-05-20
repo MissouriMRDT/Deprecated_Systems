@@ -195,6 +195,8 @@
 
 #define gripper_open 208
 
+#define drill_forward 209
+
 // telem_device_id
 
 #define	telem_req_id 254

@@ -201,7 +201,7 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 
 		} else //Nothing to go out
 		{
-			printf("No data to send\n");
+//			printf("No data to send\n");
 
 		}//end if
 

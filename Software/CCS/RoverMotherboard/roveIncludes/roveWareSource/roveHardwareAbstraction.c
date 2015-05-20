@@ -34,7 +34,7 @@ int getDeviceJack(int device) {
     case power_board_command_id ... power_board_telem_main_battery_voltage_id:
         return POWER_BOARD;
 
-    case wrist_clock_wise ... gripper_open:
+    case wrist_clock_wise ... drill_forward:
         return ONBOARD_ROVECOMM;
 
     case gps_telem_reply:

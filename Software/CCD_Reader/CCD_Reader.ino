@@ -26,10 +26,10 @@
 //---------------------------------------
 
 //Number of times to take a complete image per second
-const uint32_t SAMPLE_RATE_HZ = 2;
+const uint32_t SAMPLE_RATE_HZ = 30;
 
 //Sends one out of every (RESOLUTION_DIVIDER) data points
-const uint32_t RESOLUTION_DIVIDER = 5;
+const uint32_t RESOLUTION_DIVIDER = 20;
 
 //---------------------------------------
 // CCD Clocking. Uses PWM generators
@@ -104,7 +104,7 @@ void loop()
 {
   while(1)
   {
-    delay(300);
+    delay(1000 / SAMPLE_RATE_HZ);
     
     sh_gate_rise = 0;
     
@@ -151,8 +151,6 @@ void loop()
       Serial.print(", ");
     }
     Serial.println();
-    
-    delay(300);
 
   } //end while(1)
 }   //end loop()

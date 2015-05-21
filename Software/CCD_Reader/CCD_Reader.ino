@@ -26,10 +26,11 @@
 //---------------------------------------
 
 //Number of times to take a complete image per second
+// This dramatically affects the sensitivity
 const uint32_t SAMPLE_RATE_HZ = 3;
 
 //Sends one out of every (RESOLUTION_DIVIDER) data points
-const uint32_t RESOLUTION_DIVIDER = 5;
+const uint32_t RESOLUTION_DIVIDER = 1;
 
 //---------------------------------------
 // CCD Clocking. Uses PWM generators

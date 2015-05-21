@@ -26,10 +26,10 @@
 //---------------------------------------
 
 //Number of times to take a complete image per second
-const uint32_t SAMPLE_RATE_HZ = 30;
+const uint32_t SAMPLE_RATE_HZ = 3;
 
 //Sends one out of every (RESOLUTION_DIVIDER) data points
-const uint32_t RESOLUTION_DIVIDER = 20;
+const uint32_t RESOLUTION_DIVIDER = 5;
 
 //---------------------------------------
 // CCD Clocking. Uses PWM generators
@@ -48,6 +48,12 @@ const int ICG =         4; //PC26
 const int SH =          9; 
 const int OS =          0; //Analog
 
+//This is kind of a weird workaround, but I don't know how 
+// to tell when the PWM lines go high, so I'm 
+// watching the PWM signals with another pin and using
+// it to sync up timers
+const int SH_TRIGGER =  7; //Wire into SH
+
 //Bitmasks for quick direct port manipulation. This gets ugly fast
 const uint32_t ICG_LOW = 0x00000000;
 const uint32_t ICG_HIGH = 0x04000000;
@@ -56,6 +62,7 @@ const uint32_t ICG_HIGH = 0x04000000;
 // CCD Data parameters
 //---------------------------
 
+const int PRE_SAMPLE_DATA_CLOCKS = 20;
 const int JUNK_ELEMENTS_PRE  = 32;
 const int SIGNAL_ELEMENTS    = 3648;
 const int JUNK_ELEMENTS_POST = 14;
@@ -68,6 +75,7 @@ const int TOTAL_ELEMENTS     = 3694;
 int data[SIGNAL_ELEMENTS];
 int current_pixel;
 volatile uint32_t sh_gate_rise;
+DueTimer dataTimer(1);
 
 //---------------------------
 // Main Program
@@ -76,9 +84,11 @@ volatile uint32_t sh_gate_rise;
 
 void startClockPWM();
 void startSH_PWM();
+void stopSH_PWM();
 void dataInterrupt(); 
 void setUpADC(); 
 void waitForDataClock();
+inline int digitalReadDirect(int pin);
  
 void setup() {
   
@@ -87,12 +97,11 @@ void setup() {
   setUpADC();
   
   //Get next unused timer on the Due as the data timer
-  DueTimer dataTimer = DueTimer(1);
   dataTimer.attachInterrupt(dataInterrupt);
   dataTimer.setFrequency(CLOCK_FREQUENCY / CLOCKS_PER_SH_PULSE);
-  dataTimer.start();
   
   pinMode(ICG, OUTPUT);
+  pinMode(SH_TRIGGER, INPUT);
   
   //ICG is active low
   digitalWrite(ICG, HIGH);
@@ -106,9 +115,16 @@ void loop()
   {
     delay(1000 / SAMPLE_RATE_HZ);
     
-    sh_gate_rise = 0;
+    startSH_PWM();
     
+    //Sync the data timer up with the PWM generator
+    //Ugly and hacky, but it works
+    while(!digitalReadDirect(SH_TRIGGER));
+    dataTimer.start();
+
+    sh_gate_rise = 0;
     //Start integration
+    waitForDataClock();
     REG_PIOC_ODSR = ICG_LOW;
     waitForDataClock();
     waitForDataClock();
@@ -140,7 +156,9 @@ void loop()
     waitForDataClock();
     waitForDataClock();    
     REG_PIOC_ODSR = ICG_HIGH;
-    
+    waitForDataClock();
+    stopSH_PWM();
+    dataTimer.stop();
     //----------------
     // Output to UART
     //----------------
@@ -208,8 +226,18 @@ void startSH_PWM()
   PWMC_SetDutyCycle(PWM_INTERFACE, channel, 2 * CLOCKS_PER_SH_PULSE);
 }
 
+void stopSH_PWM()
+{
+  uint32_t channel = g_APinDescription[SH].ulPWMChannel;
+  PWMC_SetDutyCycle(PWM_INTERFACE, channel, 0);
+}
+
 void setUpADC()
 {
   ADC->ADC_MR |= 0x80;  //set free running mode on ADC
   ADC->ADC_CHER = 0x80; //enable ADC on pin A0
 }
+
+inline int digitalReadDirect(int pin){
+ return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
+};

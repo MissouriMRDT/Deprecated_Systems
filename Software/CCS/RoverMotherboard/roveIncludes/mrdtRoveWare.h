@@ -74,9 +74,10 @@
 #define U7TX uart7
 
 // special devices
+#define ARM_JACK 7
 
-#define POWER_BOARD 18
-#define ONBOARD_ROVECOMM 19
+#define POWER_BOARD_ON_MOB 18
+#define GPS_ON_MOB 19
 
 // PWM Lines init as handles
 

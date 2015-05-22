@@ -20,25 +20,25 @@ int getDeviceJack(int device) {
         System_flush();
         return -1;
 
-    case test_device_id:
+ /*   case test_device_id:
 
-        return ONBOARD_ROVECOMM;
+        return TEST_JACK;
 
     case motor_left_id:
 
-        return ONBOARD_ROVECOMM;
+        return TEST_JACK;
 
     case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:
-        return ONBOARD_ROVECOMM;
-
+        return TEST_JACK;
+*/
     case power_board_command_id ... power_board_telem_main_battery_voltage_id:
-        return POWER_BOARD;
+        return POWER_BOARD_ON_MOB;
 
     case wrist_clock_wise ... drill_forward:
-        return ONBOARD_ROVECOMM;
+        return ARM_JACK;
 
     case gps_telem_reply:
-            return ONBOARD_ROVECOMM;
+        return GPS_ON_MOB;
 
     default:
         //Tried to get jack for an \ invalid device
@@ -266,7 +266,7 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
          bytes_wrote = UART_write(uart7, buffer, bytes_to_write);
          break;
          */
-    case 7:
+    case ARM_JACK:
         digitalWrite(U7_MUX_S0, LOW);
         digitalWrite(U7_MUX_S1, HIGH);
         bytes_wrote = UART_write(uart7, buffer, bytes_to_write);
@@ -321,12 +321,12 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
         digitalWrite(U4_MUX_S1, LOW);
         bytes_wrote = UART_write(uart4, buffer, bytes_to_write);
         break;
-    case POWER_BOARD:
+    case POWER_BOARD_ON_MOB:
         digitalWrite(U6_MUX_S0, HIGH);
         digitalWrite(U6_MUX_S1, HIGH);
         bytes_wrote = UART_write(uart6, buffer, bytes_to_write);
         break;
-    case ONBOARD_ROVECOMM:
+    case GPS_ON_MOB:
         bytes_wrote = UART_write(uart2, buffer, bytes_to_write);
         break;
     default:
@@ -410,6 +410,7 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout) {
     // we have to include case 0 to get TI's compiler to build a jump table
     // if we leave this out, mux performance goes from O(1) to O(n) (That's bad)
     switch (rs485jack) {
+ /* Deprecated Non Blocking (Never found other telemetry
     case 0:
     case 1:
         //Configure the mux pins
@@ -517,23 +518,24 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout) {
         bytes_read = UART_read_nonblocking(uart4, buffer, bytes_to_read,
                 timeout);
         break;
-    case POWER_BOARD:
+    case POWER_BOARD_ON_JACK:
         digitalWrite(U6_MUX_S0, HIGH);
         digitalWrite(U6_MUX_S1, HIGH);
         bytes_read = UART_read_nonblocking(uart6, buffer, bytes_to_read,
                 timeout);
         break;
-/*    case ONBOARD_ROVECOMM:
+    case ONBOARD_ROVECOMM:
         bytes_read = UART_read_nonblocking(uart2, buffer, bytes_to_read,
                 timeout);
         break;*/
 
-    case ONBOARD_ROVECOMM:
+//One Device Full Blocking Only
+    case GPS_ON_MOB:
           bytes_read = UART_read(uart2, buffer, bytes_to_read);
         break;
     default:
         //Tried to write to invalid device
-        System_printf("DeviceWrite passed invalid device %d\n", rs485jack);
+        System_printf("DeviceWrite passed invalid device! We only use GPS_ON_MOB %d\n", rs485jack);
         System_flush();
         return -1;
         //etc.

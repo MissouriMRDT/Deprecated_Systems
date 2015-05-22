@@ -27,7 +27,7 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
 
     base_station_msg_struct messageInBuffer;
 
-    char messageOutBuffer[MAX_TELEM_SIZE];
+    //char messageOutBuffer[MAX_TELEM_SIZE];
 
     int messageSize;
     int deviceJack;
@@ -65,20 +65,19 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             //    i++;
             //} //end while
 
-            deviceJack = ONBOARD_ROVECOMM;
+            //deviceJack = GPS_ON_MOB;
 
-            while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
+            //while(!recvSerialStructMessage(deviceJack, &messageInBuffer));
 
-            /*
-            //uint8_t struct_id;
-            //bool fix;
-            //uint8_t fix_quality;
-            //uint8_t satellites;
-            //int32_t latitude_fixed;
-            //int32_t longitude_fixed;
-            //float altitude;
-            //float speed;
-            //float angle;
+            uint8_t struct_id;
+            bool fix;
+            uint8_t fix_quality;
+            uint8_t satellites;
+            int32_t latitude_fixed;
+            int32_t longitude_fixed;
+            float altitude;
+            float speed;
+            float angle;
             ((struct gps_telem*)(&messageInBuffer))->struct_id = 140;
             ((struct gps_telem*)(&messageInBuffer))->fix = 1;
             ((struct gps_telem*)(&messageInBuffer))->fix_quality = 2;
@@ -88,12 +87,12 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             ((struct gps_telem*)(&messageInBuffer))->altitude = 123.456;
             ((struct gps_telem*)(&messageInBuffer))->speed = 234.567;
             ((struct gps_telem*)(&messageInBuffer))->angle = 345.678;
-*/
-            printf("\nStruct_id: %d\n", messageInBuffer.id);
-
 
             //debugging only:
-            //i = 0;
+            /*i = 0;
+
+            printf("\nStruct_id: %d\n", messageInBuffer.id);
+
 
             messageSize = getStructSize(messageInBuffer.id);
 
@@ -109,13 +108,12 @@ Void roveTelemCntrl(UArg arg0, UArg arg1) {
             printf(" speed %d ",((struct gps_telem*)(&messageInBuffer))->speed);
             printf(" angle %d \n",((struct gps_telem*)(&messageInBuffer))->angle);
 
-
-
+*/
             Mailbox_post(toBaseStationMailbox, &messageInBuffer,BIOS_WAIT_FOREVER);
 
 
 
-        //} //endfor
+       // } //endfor
 
     } //endwhile:   (1)
 

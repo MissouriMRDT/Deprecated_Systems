@@ -30,10 +30,10 @@ int getDeviceJack(int device) {
 
     case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:
         return TEST_JACK;
-*/
+
     case power_board_command_id ... power_board_telem_main_battery_voltage_id:
         return POWER_BOARD_ON_MOB;
-
+*/
     case wrist_clock_wise ... drill_forward:
         return ARM_JACK;
 

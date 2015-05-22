@@ -20,7 +20,7 @@ int getStructSize(char structId) {
 
     case bms_emergency_stop_command_id:
         return sizeof(struct bms_emergency_stop_command);
-
+/*
     case bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
         return sizeof(struct power_board_bms_telem);
 
@@ -30,13 +30,13 @@ int getStructSize(char structId) {
     case power_board_telem_motor1_current_id
             ... power_board_telem_main_battery_voltage_id:
         return sizeof(struct power_board_bms_telem);
-
+*/
     case (char) wrist_clock_wise ... drill_forward:
         return sizeof(struct base_station_robot_arm_command);
-
+/*
     case (char) robot_arm_constant_speed_id:
         return sizeof(struct robot_arm_command);
-
+*/
     case (char) gps_telem_reply:
             return sizeof(struct gps_telem);
 

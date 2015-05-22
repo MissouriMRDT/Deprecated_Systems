@@ -152,6 +152,8 @@
 #define gps_telem_reply                                 140
 
 #define	bms_emergency_stop_command_id					150
+
+/*
 #define bms_cell1_voltage_telem_id						151
 #define bms_cell2_voltage_telem_id						152
 #define bms_cell3_voltage_telem_id						153
@@ -181,7 +183,7 @@
 
 //deprecated in favor of variable speed
 #define	robot_arm_constant_speed_id 200
-
+*/
 // clockwise is positive, counter clockwise is negative
 
 #define wrist_clock_wise 201
@@ -199,7 +201,7 @@
 #define drill_forward 209
 
 // telem_device_id
-
+/*
 #define	telem_req_id 254
 
 #define	robot_arm_telem_req_id 0
@@ -207,7 +209,7 @@
 #define	drill_telem_req_id 2
 #define	bms_telem_req_id 3
 #define	power_board_telem_req_id 4
-
+*/
 // Custom Drivers
 
 //MRDesign Team:: 	roveWare::		roveCom cmnd || telem :: data structures

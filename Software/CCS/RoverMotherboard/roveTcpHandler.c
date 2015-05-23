@@ -68,7 +68,7 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 				System_abort(
 						"Error: Failed to create new roveTcpSender Task\n");
 			}
-			Task_setPri(taskHandle, 3);
+			Task_setPri(taskHandle, 2);
 
             //Check to see if memory could not be allocated for the task
             if (taskHandle == NULL) {

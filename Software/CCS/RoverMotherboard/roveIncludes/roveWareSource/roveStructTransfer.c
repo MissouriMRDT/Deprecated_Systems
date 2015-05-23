@@ -22,9 +22,8 @@ int buildSerialStructMessage(void* my_struct, char* buffer) {
 
     if (size <= 0) {
 
-        System_printf(
+        printf(
                 "Error in function: buildSerialStructMessage() - struct size is not valid");
-        System_flush();
         return -1;
 
     } //endif

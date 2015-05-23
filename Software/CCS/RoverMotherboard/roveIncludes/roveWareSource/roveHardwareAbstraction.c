@@ -16,8 +16,7 @@ int getDeviceJack(int device) {
     switch (device) {
     case 0:
         //Tried to get jack for an null device
-        System_printf("getDeviceJack passed null device %d\n", device);
-        System_flush();
+        printf("getDeviceJack passed null device %d\n", device);
         return -1;
 
  /*   case test_device_id:
@@ -42,8 +41,7 @@ int getDeviceJack(int device) {
 
     default:
         //Tried to get jack for an \ invalid device
-        System_printf("getDeviceJack passed invalid device %d\n", device);
-        System_flush();
+        printf("getDeviceJack passed invalid device %d\n", device);
         return -1;
 
     } //endswitch (device)
@@ -98,8 +96,7 @@ void digitalWrite(int pin, int val) {
             break;
         default:
             //Tried to write to invalid device
-            System_printf("DigitalWrite passed invalid pin %d\n", pin);
-            System_flush();
+            printf("DigitalWrite passed invalid pin %d\n", pin);
             return;
         }	//endswitch
 
@@ -139,8 +136,7 @@ void digitalWrite(int pin, int val) {
             break;
         default:
             //Tried to write to invalid device
-            System_printf("DigitalWrite passed invalid pin %d\n", pin);
-            System_flush();
+            printf("DigitalWrite passed invalid pin %d\n", pin);
             return;
 
         }	//endswitch
@@ -227,10 +223,9 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
     case 0:
         break;
     case 1 ... 6:
-     System_printf(
+     printf(
                 "deviceWrite was called with a deprecated jack! Pin %d is now used for PWM!\n",
                 rs485jack);
-        System_flush();
         break;
         /*
          case 1:
@@ -331,8 +326,7 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
         break;
     default:
         //Tried to write to invalid device
-        System_printf("DeviceWrite passed invalid device %d\n", rs485jack);
-        System_flush();
+        printf("DeviceWrite passed invalid device %d\n", rs485jack);
         return -1;
         //etc.
     }    //end switch(rs485jack)
@@ -535,8 +529,7 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout) {
         break;
     default:
         //Tried to write to invalid device
-        System_printf("DeviceWrite passed invalid device! We only use GPS_ON_MOB %d\n", rs485jack);
-        System_flush();
+        printf("DeviceWrite passed invalid device! We only use GPS_ON_MOB %d\n", rs485jack);
         return -1;
         //etc.
 

@@ -13,20 +13,43 @@
 #define CCD_RX            4 //Digital Pin D4 -- Real Pin 6
 #define CCD_TX            5 //Digital Pin D5 -- Real Pin 11
 #define LASER_CTR         6 //Digital Pin D6 -- Real Pin 12
-#define CCD_ELEMENTS      3684 //Shit needs checking ***NO FUCKING CLUE***
+#define CCD_ELEMENTS      3694 //Number of Samples needed
 #define LASER_WARMUP_TIME 3000 //3 second warmup
-#define LASER_ON_TIME     1000 //3 seconds ***TENTATIVE***
+#define LASER_ON_TIME     1000 //1 second runtime
+#define PH_STRUC_ID       210 //***FILLER NEEDS CONFIRM***
 
+//-----------------------------------
+// Software Serial Declares 
+//-----------------------------------
 
 SoftwareSerial PHSerial(PH_SENS_RX, PH_SENS_TX); // RX, TX
-
 SoftwareSerial CCDSerial(CCD_RX, CCD_TX); // RX, TX
 
+//-----------------------------------
+// Mobo Variables  
+//-----------------------------------
+
+science_telem_request Req_data_from_Mobo;
+
+//-----------------------------------
+// PH Variables  
+//-----------------------------------
+PH_telem PH_data_to_Mobo;
+
+char ph_rec_data[20]; //Data Buffer for data coming off of the pH Sensor
+float ph = 0;             //Floating point number being sent to the MOBO
+byte received_from_sensor = 0;
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(LASER_CTR, OUTPUT);  
   Serial.begin(115200);
+  
+  //Take the PH sensor out of continuous mode
+  PHSerial.print("c,0\r"); 
+  delay(50); 
+  PHSerial.print("c,0\r"); 
+  delay(50);
   
   //Open software serial on PH sensor
   PHSerial.begin(9600);
@@ -35,27 +58,43 @@ void setup() {
   
 }
 
-void loop() {
+void loop() 
+{
   // put your main code here, to run repeatedly:
 
-  //if(recieve science_telem_request)
+  if(Serial.available() > 0 && Req_data_from_Mobo.requestType != 0)
   {
-  //    switch(science_telem_request.requestType)
-  //    {
-  ///      case PH_type:
+      switch(Req_data_from_Mobo.requestType)
+      {
+        case PH_TYPE:
   //        Read PH data (Software Serial);
+         PHSerial.print("R\r"); //Request data from sensor
+         delay(50); //Delay? Don't know if needed
+         if(PHSerial.available()>0) //Read if data is there
+         {
+           received_from_sensor=PHSerial.readBytesUntil(13,ph_rec_data,20); //Read until carriage return
+           
+           ph_rec_data[received_from_sensor]=0; //Add null to end of array
+           
+           ph = atof(ph_rec_data); //Convert to floating
+         
+           PH_data_to_Mobo.struct_id = PH_STRUC_ID; //Fill in the struct with id
+           PH_data_to_Mobo.PH = ph; //Fill in the struct with data
+           
+         }
+         
   //        Send PH data;
-  //        break
-  //      case moisture_type:
+          break;
+        case MOIST_TYPE:
   //        Read Moisture Data (analog input);
   //        Send moisture data;
-  //        break;
-  //      case CCD_type:
-  //        digitalWrite(LASER_CTR);
-      //    delay(LASER_WARMUP_TIME);
+          break;
+        case CCD_TYPE:
+          digitalWrite(LASER_CTR, HIGH);
+          delay(LASER_WARMUP_TIME);
         //  send CCD read request;
-         // delay(LASER_ON_TIME);
-          //digitalWrite(LASER_CTR, LOW);
+          delay(LASER_ON_TIME);
+          digitalWrite(LASER_CTR, LOW);
           for(int i = 0; i < CCD_ELEMENTS; i++)
           {
             //request element from due
@@ -63,12 +102,13 @@ void loop() {
             //if(struct full)
                //send struct 
           }
-        //break;
-        //default:
+          break;
+        default:
           //Error
+          break;
       }
           
           
-    
+  }
   
 }

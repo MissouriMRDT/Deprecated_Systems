@@ -1,4 +1,10 @@
 #include "Arduino.h"
+
+//request types
+#define PH_TYPE    1
+#define MOIST_TYPE 2
+#define CCD_TYPE   3
+
 //-------------------------
 //Comes in from motherboard
 //-------------------------
@@ -10,9 +16,6 @@ struct science_telem_request
 };
 
 //request types
-const int PH_type = 1;
-const int moisture_type = 2;
-const int CCD_type = 3;
 
 //-----------------------
 //Goes out to motherboard

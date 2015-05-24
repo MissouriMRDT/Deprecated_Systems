@@ -68,12 +68,15 @@ const int JUNK_ELEMENTS_PRE  = 32;
 const int SIGNAL_ELEMENTS    = 3648;
 const int JUNK_ELEMENTS_POST = 14;
 const int TOTAL_ELEMENTS     = 3694;
+const int AVERAGING_READINGS = 25;
+const int SENSITIVITY_DELAY = 15; //milliseconds
 
 //----------------------------
 // Global Variables
 //----------------------------
 
 int data[SIGNAL_ELEMENTS];
+int averagedData[SIGNAL_ELEMENTS];
 int current_pixel;
 volatile uint32_t sh_gate_rise;
 DueTimer dataTimer(1);
@@ -121,52 +124,72 @@ void loop()
     //-------------------------------
     // Start timing critical code
     //-------------------------------
-    startSH_PWM();
-    
-    //Sync the data timer up with the PWM generator
-    //Ugly and hacky, but it works
-    while(!digitalReadDirect(SH_TRIGGER));
-    dataTimer.start();
-
-    sh_gate_rise = 0;
-    //Start integration
-    waitForDataClock();
-    REG_PIOC_ODSR = ICG_LOW;
-    waitForDataClock();
-    waitForDataClock();
-    REG_PIOC_ODSR = ICG_HIGH;
-    
-    current_pixel = 0;
-    while(current_pixel < JUNK_ELEMENTS_PRE)
+    for(int i = 0; i < SIGNAL_ELEMENTS; I++)
     {
-      current_pixel++;
+      averagedData[i] = 0;
+    }
+    
+    for(int i = 0; i < AVERAGING_READINGS; i++)
+    {
+      startSH_PWM();
+      
+      //Sync the data timer up with the PWM generator
+      //Ugly and hacky, but it works
+      while(!digitalReadDirect(SH_TRIGGER));
+      dataTimer.start();
+  
+      sh_gate_rise = 0;
+      //Start integration
       waitForDataClock();
-    }
-    
-    current_pixel = 0;
-    while(current_pixel < SIGNAL_ELEMENTS)
-    {
-      data[current_pixel] = ADC->ADC_CDR[7];
-      current_pixel++;
+      REG_PIOC_ODSR = ICG_LOW;
       waitForDataClock();
-    }
+      waitForDataClock();
+      REG_PIOC_ODSR = ICG_HIGH;
+      
+      current_pixel = 0;
+      while(current_pixel < JUNK_ELEMENTS_PRE)
+      {
+        current_pixel++;
+        waitForDataClock();
+      }
+      
+      current_pixel = 0;
+      while(current_pixel < SIGNAL_ELEMENTS)
+      {
+        data[current_pixel] = ADC->ADC_CDR[7];
+        current_pixel++;
+        waitForDataClock();
+      }
+      
+      current_pixel = 0;
+      while(current_pixel < JUNK_ELEMENTS_POST)
+      {
+        current_pixel++;
+        waitForDataClock();  
+      }
+      
+      REG_PIOC_ODSR = ICG_LOW;
+      waitForDataClock();
+      waitForDataClock();    
+      REG_PIOC_ODSR = ICG_HIGH;
+      waitForDataClock();
+      stopSH_PWM();
+      dataTimer.stop();
+      
+      //------------------
+      // Data averaging
+      //------------------
+      
+      for(int j = 0; j < SIGNAL_ELEMENTS; j++)
+      {
+        averagedData[j] += data[j];
+      }
+    } 
     
-    current_pixel = 0;
-    while(current_pixel < JUNK_ELEMENTS_POST)
+    for(int i = 0; i < SIGNAL_ELEMENTS; i++)
     {
-      current_pixel++;
-      waitForDataClock();  
+      averagedData[j] /= AVERAGING_READINGS;
     }
-    
-    REG_PIOC_ODSR = ICG_LOW;
-    waitForDataClock();
-    waitForDataClock();    
-    REG_PIOC_ODSR = ICG_HIGH;
-    waitForDataClock();
-    stopSH_PWM();
-    dataTimer.stop();
-    
-    
     //----------------
     // End timing critical code
     //----------------

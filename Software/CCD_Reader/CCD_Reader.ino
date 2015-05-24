@@ -116,6 +116,11 @@ void loop()
   {
     delay(1000 / SAMPLE_RATE_HZ);
     
+    //Wait for read request
+    
+    //-------------------------------
+    // Start timing critical code
+    //-------------------------------
     startSH_PWM();
     
     //Sync the data timer up with the PWM generator
@@ -160,8 +165,10 @@ void loop()
     waitForDataClock();
     stopSH_PWM();
     dataTimer.stop();
+    
+    
     //----------------
-    // Output to UART
+    // End timing critical code
     //----------------
     
     for(int i = 0; i < SIGNAL_ELEMENTS; i+= RESOLUTION_DIVIDER)

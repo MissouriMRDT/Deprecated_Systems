@@ -74,7 +74,12 @@
 #define U7TX uart7
 
 // special devices
-#define ARM_JACK 7
+#define ARM_JACK 			7   //UART 7
+#define SCIENCE_BAY 	9   //UART 5
+#define PTZ_CAM_0			14  //UART 4
+#define PTZ_CAM_1			15
+#define PTZ_CAM_2			16
+#define PTZ_CAM_3			17
 
 #define POWER_BOARD_ON_MOB 18
 #define GPS_ON_MOB 19

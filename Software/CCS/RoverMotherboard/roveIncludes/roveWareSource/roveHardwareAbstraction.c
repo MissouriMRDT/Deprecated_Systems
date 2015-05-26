@@ -273,7 +273,7 @@ int deviceWrite(int rs485jack, char* buffer, int bytes_to_write) {
          bytes_wrote = UART_write(uart7, buffer, bytes_to_write);
          break;
          */
-    case ARM_JACK:
+    case 7:
         digitalWrite(U7_MUX_S0, LOW);
         digitalWrite(U7_MUX_S1, HIGH);
         bytes_wrote = UART_write(uart7, buffer, bytes_to_write);

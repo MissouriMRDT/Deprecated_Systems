@@ -33,6 +33,18 @@ int getDeviceJack(int device) {
     case power_board_command_id ... power_board_telem_main_battery_voltage_id:
         return POWER_BOARD_ON_MOB;
 */
+    case PTZ_Cam_id_0:
+    		return PTZ_CAM_0;
+
+    case PTZ_Cam_id_1:
+    		return PTZ_CAM_1;
+
+    case PTZ_Cam_id_2:
+    		return PTZ_CAM_2;
+
+    case PTZ_Cam_id_3:
+    		return PTZ_CAM_3;
+
     case wrist_clock_wise ... drill_forward:
         return ARM_JACK;
 

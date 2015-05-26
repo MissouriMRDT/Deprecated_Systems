@@ -163,4 +163,12 @@ struct rovecom_id_cast{
 
 }__attribute__((packed));
 
+struct PTZ_Cam_Ctrl{
+
+	uint8_t struct_id;
+	uint8_t pan;
+	uint8_t tilt;
+
+}__attribute__((packed));
+
 #endif // ROVESTRUCTS_H_

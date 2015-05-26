@@ -154,6 +154,18 @@
 #define	motor_left_id 									100
 #define	motor_right_id 									101
 
+#define PTZ_Cam_id_0                   110
+#define PTZ_Cam_id_1                   111
+#define PTZ_Cam_id_2                   112
+#define PTZ_Cam_id_3                   113
+#define PTZ_Cam_id_4                   114
+#define PTZ_Cam_id_5                   115
+#define PTZ_Cam_id_6                   116
+#define PTZ_Cam_id_7                   117
+#define PTZ_Cam_id_8                   118
+#define PTZ_Cam_id_9                   119
+#define PTZ_Cam_id_10                  120
+
 #define gps_telem_reply                                 140
 
 #define	bms_emergency_stop_command_id					150

@@ -92,6 +92,14 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
             //end drive motor_left_id
 
+        case bms_emergency_command_id:
+        	if((((struct bms_emergency_command*) (&fromBaseMsg)) -> command)
+        			== 1)
+        	{
+        		digitalWrite(SOFT_RESET_GPIO_PIN, HIGH);
+        	}
+        	break;
+
         default:
             deviceJack = getDeviceJack(fromBaseMsg.id);
             // flag for invalid struct size

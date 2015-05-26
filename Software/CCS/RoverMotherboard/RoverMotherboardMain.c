@@ -116,8 +116,10 @@ int main(void) {
 
 	motor_5 = (PWM_Handle) rovePWMInit(6, 20000);
 
-// start TI BIOS
+	//Initialize soft reset capability
+	digitalWrite(SOFT_RESET_GPIO_PIN, LOW);
 
+// start TI BIOS
 	ms_delay(1);
 
 	System_printf("roveMotherboardMain init \n");

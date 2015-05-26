@@ -34,6 +34,7 @@
 // U7_MUX_S1 PE1
 
 #define U3_MUX_S0 0
+#define SOFT_RESET_GPIO_PIN 0
 #define U3_MUX_S1 1
 #define U4_MUX_S0 2
 #define U4_MUX_S1 3
@@ -168,7 +169,7 @@
 
 #define gps_telem_reply                                 140
 
-#define	bms_emergency_stop_command_id					150
+#define	bms_emergency_command_id					150
 
 /*
 #define bms_cell1_voltage_telem_id						151

@@ -43,6 +43,8 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
     printf("\n");
     printf("\n");
 
+    Task_sleep(45000);
+
     while (FOREVER) {
 
         printf("Attempting to connect\n");

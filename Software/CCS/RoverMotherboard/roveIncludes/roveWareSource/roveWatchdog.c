@@ -25,9 +25,8 @@ Watchdog_Handle rove_init_watchdog(int index)
 	return watchdog;
 }
 
-void watchdog_callback()
+void watchdog_callback(UArg handle)
 {
-	printf("A critical error occurred. Watchdog is activating.\n");
 	return;
 }
 

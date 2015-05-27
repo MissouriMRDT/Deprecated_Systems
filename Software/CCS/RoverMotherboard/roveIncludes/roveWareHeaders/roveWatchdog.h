@@ -11,6 +11,6 @@
 
 Watchdog_Handle rove_init_watchdog(int index);
 
-void watchdog_callback();
+void watchdog_callback(UArg handle);
 
 #endif /* ROVEWATCHDOG_H_ */

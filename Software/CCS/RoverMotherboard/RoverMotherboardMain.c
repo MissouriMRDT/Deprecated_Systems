@@ -62,6 +62,7 @@ int main(void) {
 	Board_initGeneral();
 	Board_initGPIO();
 	Board_initEMAC();
+	Board_initWatchdog();
 
 	System_printf("Init uarts\n");
 	System_flush();

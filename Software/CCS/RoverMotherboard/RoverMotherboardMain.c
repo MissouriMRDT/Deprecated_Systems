@@ -119,6 +119,8 @@ int main(void) {
 
 	motor_5 = (PWM_Handle) rovePWMInit(6, 20000);
 
+
+	watchdog = rove_init_watchdog(Board_WATCHDOG0);
 	//Initialize soft reset capability
 	digitalWrite(SOFT_RESET_GPIO_PIN, LOW);
 

@@ -222,6 +222,8 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 static int roveRecv(struct NetworkConnection* connection, char* buffer,
         int bytes) {
 
+	extern Watchdog_Handle watchdog;
+
 	static int bytesRecvd;
 	if (connection->isConnected) {
 
@@ -237,6 +239,7 @@ static int roveRecv(struct NetworkConnection* connection, char* buffer,
         } else {
 
             // recv'd correctly
+          	Watchdog_clear(watchdog);
             return bytesRecvd;
 
         }
@@ -252,6 +255,8 @@ static int roveSend(struct NetworkConnection* connection, char* buffer,
         int bytes) {
     static int bytesSent;
 
+    extern Watchdog_Handle watchdog;
+
     if (connection->isConnected) {
 
         bytesSent = send(connection->socketFileDescriptor, buffer, bytes,
@@ -265,7 +270,8 @@ static int roveSend(struct NetworkConnection* connection, char* buffer,
             return -1;
         } else {
 
-            // recv'd correctly
+            // sent correctly
+        		Watchdog_clear(watchdog);
             return bytesSent;
 
         }
@@ -280,6 +286,8 @@ static bool attemptToConnect(struct NetworkConnection* connection) {
 
     struct sockaddr_in server_addr;
     struct timeval timeout;
+    uint32_t error_code;
+    extern Watchdog_Handle watchdog;
 
     connection->socketFileDescriptor = socket(AF_INET, SOCK_STREAM,
     IPPROTO_TCP);
@@ -319,10 +327,14 @@ static bool attemptToConnect(struct NetworkConnection* connection) {
     if (connect(connection->socketFileDescriptor, (PSA) &server_addr,
             sizeof(server_addr)) < 0) {
 
-		connection->isConnected = false;
-		printf("Fderror: %d\n", fdError());
-
-		return false;
+			connection->isConnected = false;
+			error_code = fdError();
+			printf("Fderror: %d\n", error_code);
+			if((error_code == ETIMEDOUT) || (error_code == EHOSTDOWN))
+			{
+    		Watchdog_clear(watchdog);
+			}
+			return false;
 
     } else {
 

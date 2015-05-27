@@ -330,7 +330,9 @@ static bool attemptToConnect(struct NetworkConnection* connection) {
 			connection->isConnected = false;
 			error_code = fdError();
 			printf("Fderror: %d\n", error_code);
-			if((error_code == ETIMEDOUT) || (error_code == EHOSTDOWN))
+
+			//We're not in an error state if RED actively rejected us
+			if(error_code == ETIMEDOUT)
 			{
     		Watchdog_clear(watchdog);
 			}

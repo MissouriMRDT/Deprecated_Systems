@@ -108,7 +108,7 @@
 
 // sending timeout in seconds
 
-#define NETWORK_TIMEOUT 6
+#define NETWORK_TIMEOUT 2
 
 // hardcodes the IP of the base station
 #define RED_IP "192.168.1.2"
@@ -253,6 +253,10 @@
 //MRDesign Team:: 	roveWare::		roveNet convert json to and from roveCom formatting
 
 #include "roveWareHeaders/roveJson.h"
+
+//MRDesign Team:: 	roveWare::		lets the rover make its own decisions
+
+//#include "roveWareHeaders/roveAutonomy.h"
 
 //DON'T INCLUDE SYS BIOS THREADS in ROVEWARE:
 

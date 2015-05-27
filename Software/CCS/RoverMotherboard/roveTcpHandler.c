@@ -153,8 +153,9 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 
         }						//endwhile isConnected
 
-        printf("Connection Lost\n\n");
+		printf("Connection Lost\n\n");
 
+		emergencyStop();
 		// if execution reaches this point, then the connection has broken and we will attempt a new socket
 		fdClose(RED_socket.socketFileDescriptor);
 

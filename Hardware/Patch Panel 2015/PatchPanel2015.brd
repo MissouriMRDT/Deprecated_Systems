@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -179,6 +179,8 @@
 <wire x1="90.7415" y1="75.438" x2="143.0655" y2="75.184" width="0.4064" layer="25"/>
 <wire x1="143.0655" y1="75.184" x2="140.2715" y2="83.058" width="0.4064" layer="25"/>
 <wire x1="140.2715" y1="83.058" x2="92.71" y2="83.058" width="0.4064" layer="25"/>
+<dimension x1="0" y1="127" x2="0" y2="0" x3="-23.114" y3="63.5" textsize="5.08" layer="48" unit="inch" visible="yes"/>
+<dimension x1="209.55" y1="127" x2="0" y2="127" x3="104.775" y3="133.35" textsize="5.08" layer="48" unit="inch" visible="yes"/>
 </plain>
 <libraries>
 <library name="PCB0M1">
@@ -438,6 +440,9 @@ Please make sure your boards conform to these design rules.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>

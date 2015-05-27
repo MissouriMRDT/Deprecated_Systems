@@ -107,8 +107,6 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
                 messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
                         commandBuffer);
 
-//                System_printf("Rovecomm Message Size: %d\n", messageSize);
-//                System_flush();
                 deviceWrite(deviceJack, commandBuffer, messageSize);
             }
             break;

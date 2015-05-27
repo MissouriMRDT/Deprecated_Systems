@@ -62,5 +62,6 @@
 //TI Mailbox() BIOS software routine support
 
 #include <ti/sysbios/knl/Mailbox.h>
+#include <ti/drivers/Watchdog.h>
 
 #endif // ROVERMOTHERBOARDMAIN_H_

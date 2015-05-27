@@ -254,6 +254,8 @@
 
 #include "roveWareHeaders/roveJson.h"
 
+#include "roveWareHeaders/roveWatchdog.h"
+
 //MRDesign Team:: 	roveWare::		lets the rover make its own decisions
 
 //#include "roveWareHeaders/roveAutonomy.h"

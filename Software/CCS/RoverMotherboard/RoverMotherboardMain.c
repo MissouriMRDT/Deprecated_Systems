@@ -46,6 +46,9 @@ PWM_Handle motor_3;
 PWM_Handle motor_4;
 PWM_Handle motor_5;
 
+// globally create Watchdog
+Watchdog_Handle watchdog;
+
 // hack to kill 'unreachable statement' for task error clause in CCS
 
 const uint8_t FOREVER = 1;

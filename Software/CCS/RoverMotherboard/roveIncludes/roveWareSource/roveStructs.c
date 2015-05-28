@@ -43,6 +43,18 @@ int getStructSize(char structId) {
     case gps_telem_reply:
             return sizeof(struct gps_telem);
 
+    case science_telem_request_id:
+    				return sizeof(struct science_telem_request);
+
+    case PH_telem_id:
+    				return sizeof(struct PH_telem);
+
+    case moisture_telem_id:
+    				return sizeof(struct moisture_telem);
+
+    case CCD_telem_packet_id:
+    				return sizeof(struct CCD_telem_packet);
+
     } //endswitch:		(structId)
 
     return -1;

@@ -51,6 +51,9 @@ int getDeviceJack(int device) {
     case gps_telem_reply:
         return GPS_ON_MOB;
 
+    case science_telem_request_id ... CCD_telem_packet_id:
+    		return SCIENCE_BAY;
+
     default:
         //Tried to get jack for an \ invalid device
         printf("getDeviceJack passed invalid device %d\n", device);

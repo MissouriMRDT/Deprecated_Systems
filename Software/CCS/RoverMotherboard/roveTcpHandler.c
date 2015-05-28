@@ -238,6 +238,7 @@ static int roveRecv(struct NetworkConnection* connection, char* buffer,
 
             // recv'd correctly
           	Watchdog_clear(watchdog);
+          	printf("Watchdog cleared - roveRecv\n");
             return bytesRecvd;
 
         }
@@ -270,6 +271,7 @@ static int roveSend(struct NetworkConnection* connection, char* buffer,
 
             // sent correctly
         		Watchdog_clear(watchdog);
+        		printf("Watchdog cleared - roveSend\n");
             return bytesSent;
 
         }
@@ -333,6 +335,8 @@ static bool attemptToConnect(struct NetworkConnection* connection) {
 			if(error_code == ETIMEDOUT)
 			{
     		Watchdog_clear(watchdog);
+    		printf("Watchdog cleared - attemptToConnect\n");
+
 			}
 			return false;
 

@@ -920,7 +920,7 @@ const WatchdogTiva_HWAttrs watchdogTivaHWAttrs[EK_TM4C1294XL_WATCHDOGCOUNT] = {
      * 10 seconds - If the error is not resolved by this point, reset
      *  ^----- Defined here
      */
-    {WATCHDOG0_BASE, INT_WATCHDOG, 1200000000},
+    {WATCHDOG0_BASE, INT_WATCHDOG, 800000000},
 };
 
 const Watchdog_Config Watchdog_config[] = {

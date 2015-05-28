@@ -473,12 +473,13 @@ int deviceRead(int rs485jack, char* buffer, int bytes_to_read, int timeout) {
         bytes_read = UART_read_nonblocking(uart7, buffer, bytes_to_read,
                 timeout);
         break;
+        */
     case 9:
         digitalWrite(U5_MUX_S0, LOW);
         digitalWrite(U5_MUX_S1, LOW);
-        bytes_read = UART_read_nonblocking(uart5, buffer, bytes_to_read,
-                timeout);
+        bytes_read = UART_read(uart5, buffer, bytes_to_read);
         break;
+        /*
     case 10:
         digitalWrite(U5_MUX_S0, LOW);
         digitalWrite(U5_MUX_S1, HIGH);

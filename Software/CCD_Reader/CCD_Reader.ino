@@ -1,21 +1,21 @@
 //----------------------------------
 // CCD Reader for TCD1304DG CCD and Arduino Due
-// 
+//
 // Missouri S&T Mars Rover Design Team 2015
 // author: Owen Chiaventone
 //
-// Reads data from the TCD1304DG linear CCD and reports it 
+// Reads data from the TCD1304DG linear CCD and reports it
 // over UART.
 //
 // This is a challenge because of the very tight clocking
-// requirements and ADC work invovled. 
+// requirements and ADC work invovled.
 // A lot of low-level SAM3X8E code was required, so
 // this can't be considered "true" arduino code.
 //
 // Clocking is provided by the PWM generator on lines 8 and 9
 // A timer is used to keep the software in sync with the PWM
 //
-// Datasheet: 
+// Datasheet:
 //-------------------------------------
 
 #include <Arduino.h>
@@ -46,11 +46,11 @@ const int CLOCKS_PER_SH_PULSE = 4;
 
 const int CLOCK_PIN   = 8;
 const int ICG =         4; //PC26
-const int SH =          9; 
+const int SH =          9;
 const int OS =          0; //Analog
 
-//This is kind of a weird workaround, but I don't know how 
-// to tell when the PWM lines go high, so I'm 
+//This is kind of a weird workaround, but I don't know how
+// to tell when the PWM lines go high, so I'm
 // watching the PWM signals with another pin and using
 // it to sync up timers
 const int SH_TRIGGER =  7; //Wire into SH
@@ -89,187 +89,177 @@ DueTimer dataTimer(1);
 void startClockPWM();
 void startSH_PWM();
 void stopSH_PWM();
-void dataInterrupt(); 
-void setUpADC(); 
+void dataInterrupt();
+void setUpADC();
 void waitForDataClock();
 inline int digitalReadDirect(int pin);
- 
+
 void setup() {
-  
+
   startClockPWM();
   startSH_PWM();
   setUpADC();
-  
+
   //Get next unused timer on the Due as the data timer
   dataTimer.attachInterrupt(dataInterrupt);
   dataTimer.setFrequency(CLOCK_FREQUENCY / CLOCKS_PER_SH_PULSE);
-  
+
   pinMode(ICG, OUTPUT);
   pinMode(SH_TRIGGER, INPUT);
-  
+
   //ICG is active low
   digitalWrite(ICG, HIGH);
-  
+
   Serial.begin(115200);
 }
- 
-void loop() 
+
+void loop()
 {
-  while(1)
+  while (1)
   {
-    delay(1000 / SAMPLE_RATE_HZ);
-    
-    //Wait for read request
-    
-    //-------------------------------
-    // Start timing critical code
-    //-------------------------------
-    for(int i = 0; i < SIGNAL_ELEMENTS; i++)
+    if (Serial.available)
     {
-      averagedData[i] = 0;
+      switch (Serial.read())
+      {
+        case 'S':
+
+          //-------------------------------
+          // Start timing critical code
+          //-------------------------------
+
+          startSH_PWM();
+
+          //Sync the data timer up with the PWM generator
+          //Ugly and hacky, but it works
+          while (!digitalReadDirect(SH_TRIGGER));
+          dataTimer.start();
+
+          //Clear excess charge on CCD
+          for (int i = 0; i < PRE_SAMPLE_DATA_CLOCKS; i++)
+          {
+            waitForDataClock();
+          }
+
+          sh_gate_rise = 0;
+          //Start integration
+          waitForDataClock();
+          REG_PIOC_ODSR = ICG_LOW;
+          waitForDataClock();
+          waitForDataClock();
+          REG_PIOC_ODSR = ICG_HIGH;
+
+          current_pixel = 0;
+          while (current_pixel < JUNK_ELEMENTS_PRE)
+          {
+            current_pixel++;
+            waitForDataClock();
+          }
+
+          current_pixel = 0;
+          while (current_pixel < SIGNAL_ELEMENTS)
+          {
+            data[current_pixel] = ADC->ADC_CDR[7];
+            current_pixel++;
+            waitForDataClock();
+          }
+
+          current_pixel = 0;
+          while (current_pixel < JUNK_ELEMENTS_POST)
+          {
+            current_pixel++;
+            waitForDataClock();
+          }
+
+          REG_PIOC_ODSR = ICG_LOW;
+          waitForDataClock();
+          waitForDataClock();
+          REG_PIOC_ODSR = ICG_HIGH;
+          waitForDataClock();
+          stopSH_PWM();
+          dataTimer.stop();
+
+          //----------------
+          // End timing critical code
+          //----------------
+          break;
+        case 'O':
+
+          for (int i = 0; i < SIGNAL_ELEMENTS; i += RESOLUTION_DIVIDER)
+          {
+            Serial.write(&data[i], 2);
+          }
+          Serial.println();
+          break;
+
+      } //end while(1)
+    }   //end loop()
+
+    void dataInterrupt()
+    {
+      sh_gate_rise++;
     }
-    
-    for(int i = 0; i < AVERAGING_READINGS; i++)
+
+    void waitForDataClock()
     {
-      startSH_PWM();
-      
-      //Sync the data timer up with the PWM generator
-      //Ugly and hacky, but it works
-      while(!digitalReadDirect(SH_TRIGGER));
-      dataTimer.start();
-  
+      while (!sh_gate_rise); //Wait for next rising edge
       sh_gate_rise = 0;
-      //Start integration
-      waitForDataClock();
-      REG_PIOC_ODSR = ICG_LOW;
-      waitForDataClock();
-      waitForDataClock();
-      REG_PIOC_ODSR = ICG_HIGH;
-      
-      current_pixel = 0;
-      while(current_pixel < JUNK_ELEMENTS_PRE)
-      {
-        current_pixel++;
-        waitForDataClock();
-      }
-      
-      current_pixel = 0;
-      while(current_pixel < SIGNAL_ELEMENTS)
-      {
-        data[current_pixel] = ADC->ADC_CDR[7];
-        current_pixel++;
-        waitForDataClock();
-      }
-      
-      current_pixel = 0;
-      while(current_pixel < JUNK_ELEMENTS_POST)
-      {
-        current_pixel++;
-        waitForDataClock();  
-      }
-      
-      REG_PIOC_ODSR = ICG_LOW;
-      waitForDataClock();
-      waitForDataClock();    
-      REG_PIOC_ODSR = ICG_HIGH;
-      waitForDataClock();
-      stopSH_PWM();
-      dataTimer.stop();
-      
-      //------------------
-      // Data averaging
-      //------------------
-      
-      for(int j = 0; j < SIGNAL_ELEMENTS; j++)
-      {
-        averagedData[j] += data[j];
-      }
-    } 
-    
-    for(int i = 0; i < SIGNAL_ELEMENTS; i++)
-    {
-      averagedData[i] /= AVERAGING_READINGS;
     }
-    //----------------
-    // End timing critical code
-    //----------------
-    
-    for(int i = 0; i < SIGNAL_ELEMENTS; i+= RESOLUTION_DIVIDER)
+
+    void startClockPWM()
     {
-      Serial.print(data[i]);
-      Serial.print(", ");
+      //Enable PWM controller peripheral
+      pmc_enable_periph_clk(PWM_INTERFACE_ID);
+      PWMC_ConfigureClocks(CLOCK_FREQUENCY * CLOCK_MAX_DUTY, 0, VARIANT_MCK);
+
+      PIO_Configure(
+        g_APinDescription[CLOCK_PIN].pPort,
+        g_APinDescription[CLOCK_PIN].ulPinType,
+        g_APinDescription[CLOCK_PIN].ulPin,
+        g_APinDescription[CLOCK_PIN].ulPinConfiguration);
+
+      uint32_t channel = g_APinDescription[CLOCK_PIN].ulPWMChannel;
+
+      //Enable this channel and set parameters
+      PWMC_ConfigureChannel(PWM_INTERFACE, channel , PWM_CMR_CPRE_CLKA, 0, 0);
+      PWMC_SetPeriod(PWM_INTERFACE, channel, CLOCK_MAX_DUTY);
+      PWMC_EnableChannel(PWM_INTERFACE, channel);
+      PWMC_SetDutyCycle(PWM_INTERFACE, channel, 1);
+
     }
-    Serial.println();
 
-  } //end while(1)
-}   //end loop()
+    void startSH_PWM()
+    {
+      pmc_enable_periph_clk(PWM_INTERFACE_ID);
+      PWMC_ConfigureClocks(CLOCK_FREQUENCY * CLOCK_MAX_DUTY, 0, VARIANT_MCK);
 
-void dataInterrupt()
-{
-  sh_gate_rise++;
-}
+      PIO_Configure(
+        g_APinDescription[SH].pPort,
+        g_APinDescription[SH].ulPinType,
+        g_APinDescription[SH].ulPin,
+        g_APinDescription[SH].ulPinConfiguration);
 
-void waitForDataClock()
-{
-  while(!sh_gate_rise); //Wait for next rising edge
-  sh_gate_rise = 0;
-}
+      uint32_t channel = g_APinDescription[SH].ulPWMChannel;
 
-void startClockPWM()
-{
-  //Enable PWM controller peripheral
-  pmc_enable_periph_clk(PWM_INTERFACE_ID);
-  PWMC_ConfigureClocks(CLOCK_FREQUENCY * CLOCK_MAX_DUTY, 0, VARIANT_MCK);
- 
-  PIO_Configure(
-    g_APinDescription[CLOCK_PIN].pPort,
-    g_APinDescription[CLOCK_PIN].ulPinType,
-    g_APinDescription[CLOCK_PIN].ulPin,
-    g_APinDescription[CLOCK_PIN].ulPinConfiguration);
- 
-  uint32_t channel = g_APinDescription[CLOCK_PIN].ulPWMChannel;
-  
-  //Enable this channel and set parameters
-  PWMC_ConfigureChannel(PWM_INTERFACE, channel , PWM_CMR_CPRE_CLKA, 0, 0);
-  PWMC_SetPeriod(PWM_INTERFACE, channel, CLOCK_MAX_DUTY); 
-  PWMC_EnableChannel(PWM_INTERFACE, channel);
-  PWMC_SetDutyCycle(PWM_INTERFACE, channel, 1);
- 
-}
+      //Enable this channel and set parameters
+      PWMC_ConfigureChannel(PWM_INTERFACE, channel , PWM_CMR_CPRE_CLKA, 0, 0);
+      PWMC_SetPeriod(PWM_INTERFACE, channel, CLOCK_MAX_DUTY * 2 * CLOCKS_PER_SH_PULSE);
+      PWMC_EnableChannel(PWM_INTERFACE, channel);
+      PWMC_SetDutyCycle(PWM_INTERFACE, channel, 2 * CLOCKS_PER_SH_PULSE);
+    }
 
-void startSH_PWM()
-{
-  pmc_enable_periph_clk(PWM_INTERFACE_ID);
-  PWMC_ConfigureClocks(CLOCK_FREQUENCY * CLOCK_MAX_DUTY, 0, VARIANT_MCK);
-  
-  PIO_Configure(
-    g_APinDescription[SH].pPort,
-    g_APinDescription[SH].ulPinType,
-    g_APinDescription[SH].ulPin,
-    g_APinDescription[SH].ulPinConfiguration);
- 
-  uint32_t channel = g_APinDescription[SH].ulPWMChannel;
-  
-  //Enable this channel and set parameters
-  PWMC_ConfigureChannel(PWM_INTERFACE, channel , PWM_CMR_CPRE_CLKA, 0, 0);
-  PWMC_SetPeriod(PWM_INTERFACE, channel, CLOCK_MAX_DUTY * 2 * CLOCKS_PER_SH_PULSE); 
-  PWMC_EnableChannel(PWM_INTERFACE, channel);
-  PWMC_SetDutyCycle(PWM_INTERFACE, channel, 2 * CLOCKS_PER_SH_PULSE);
-}
+    void stopSH_PWM()
+    {
+      uint32_t channel = g_APinDescription[SH].ulPWMChannel;
+      PWMC_SetDutyCycle(PWM_INTERFACE, channel, 0);
+    }
 
-void stopSH_PWM()
-{
-  uint32_t channel = g_APinDescription[SH].ulPWMChannel;
-  PWMC_SetDutyCycle(PWM_INTERFACE, channel, 0);
-}
+    void setUpADC()
+    {
+      ADC->ADC_MR |= 0x80;  //set free running mode on ADC
+      ADC->ADC_CHER = 0x80; //enable ADC on pin A0
+    }
 
-void setUpADC()
-{
-  ADC->ADC_MR |= 0x80;  //set free running mode on ADC
-  ADC->ADC_CHER = 0x80; //enable ADC on pin A0
-}
-
-inline int digitalReadDirect(int pin){
- return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
-};
+    inline int digitalReadDirect(int pin) {
+      return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
+    };
 

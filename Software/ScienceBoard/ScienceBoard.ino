@@ -52,17 +52,17 @@ bool recvStruct(science_telem_request* telem_req);
 void setup() {
   // put your setup code here, to run once:
   pinMode(LASER_CTR, OUTPUT);
-  
+
   Req_data_from_Mobo.struct_id = science_telem_request_id;
   PH.struct_id = PH_telem_id;
-  moisture.struct_id=moisture_telem_id;
-  ccddata.struct_id=CCD_telem_packet_id;
-  
+  moisture.struct_id = moisture_telem_id;
+  ccddata.struct_id = CCD_telem_packet_id;
+
   Serial.begin(115200);
   Mobo_incoming.begin(details(Req_data_from_Mobo), &Serial);
   PH_comm.begin(details(PH), &Serial);
   Moisture_comm.begin(details(moisture), &Serial);
-  CCD_comm.begin(details(ccddata),&Serial);
+  CCD_comm.begin(details(ccddata), &Serial);
 
 
   //Take the PH sensor out of continuous mode
@@ -100,33 +100,30 @@ void loop()
           PH_comm.sendData();
         }
         break;
-        
+
       case MOIST_TYPE:
         moisture.moisture = analogRead(MOIS_SENSOR);
         //        Send moisture data;
         Moisture_comm.sendData();
         break;
-        
+
       case CCD_TYPE:
         //Sample
         CCDSerial.print('S');
-        
+
         //Output
         CCDSerial.print('O');
-        
+        CCDSerial.flush();
         for (int i = 0; i < CCD_BLOCKS; i++)
         {
           ccddata.packetIndex = i;
-          for(int j = 0; j < 12; j++)
+          for (int j = 0; j < 12; j++)
           {
             ccddata.data[j] = ((CCDSerial.read() << 8) & CCDSerial.read()) ;
           }
-          
+
           //Check that we're still in sync with CCD
-          if(CCDSerial.read() == '\n')
-          {
-            CCD_comm.sendData();
-          }
+          CCD_comm.sendData();
         }
         break;
       case LASER_ON:

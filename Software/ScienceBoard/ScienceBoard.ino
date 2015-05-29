@@ -14,9 +14,11 @@
 #define CCD_RX            4 //Digital Pin D4 -- Real Pin 6
 #define CCD_TX            5 //Digital Pin D5 -- Real Pin 11
 #define LASER_CTR         6 //Digital Pin D6 -- Real Pin 12
-#define CCD_ELEMENTS      3694 //Number of Samples needed
+
+#define BLOCK_SIZE      12
+#define CCD_BLOCKS      304 //Number of Samples needed
 #define LASER_WARMUP_TIME 3000 //3 second warmup
-#define LASER_ON_TIME     1000 //1 second runtime
+#define LASER_PRE_ON_TIME     1000 //1 second runtime
 #define PH_STRUC_ID       210 //***FILLER NEEDS CONFIRM***
 
 //-----------------------------------
@@ -106,19 +108,32 @@ void loop()
         break;
         
       case CCD_TYPE:
-        digitalWrite(LASER_CTR, HIGH);
-        delay(LASER_WARMUP_TIME);
-        //  send CCD read request;
-        delay(LASER_ON_TIME);
-        digitalWrite(LASER_CTR, LOW);
-        for (int i = 0; i < CCD_ELEMENTS; i++)
+        //Sample
+        CCDSerial.print('S');
+        
+        //Output
+        CCDSerial.print('O');
+        
+        for (int i = 0; i < CCD_BLOCKS; i++)
         {
-          //request element from due
-          //write into struct
-          //if(struct full)
-          //send struct
-          CCD_comm.sendData();
+          ccddata.packetIndex = i;
+          for(int j = 0; j < 12; j++)
+          {
+            ccddata.data[j] = ((CCDSerial.read() << 8) & CCDSerial.read()) ;
+          }
+          
+          //Check that we're still in sync with CCD
+          if(CCDSerial.read() == '\n')
+          {
+            CCD_comm.sendData();
+          }
         }
+        break;
+      case LASER_ON:
+        digitalWrite(LASER_CTR, HIGH);
+        break;
+      case LASER_OFF:
+        digitalWrite(LASER_CTR, LOW);
         break;
       default:
         //Error

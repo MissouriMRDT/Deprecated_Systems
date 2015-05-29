@@ -8,6 +8,9 @@
 #define PH_TYPE    1
 #define MOIST_TYPE 2
 #define CCD_TYPE   3
+#define LASER_ON   4
+#define LASER_OFF  5
+
 
 //-------------------------
 //Comes in from motherboard

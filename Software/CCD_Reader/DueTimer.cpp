@@ -303,3 +303,4 @@ void TC8_Handler(void){
 	TC_GetStatus(TC2, 2);
 	DueTimer::callbacks[8]();
 }
+

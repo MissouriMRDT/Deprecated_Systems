@@ -1,5 +1,6 @@
 #include "structs.h"
 #include <SoftwareSerial.h>
+#include "EasyTransfer.h"
 
 //----------------------
 // Pin assignments
@@ -19,96 +20,111 @@
 #define PH_STRUC_ID       210 //***FILLER NEEDS CONFIRM***
 
 //-----------------------------------
-// Software Serial Declares 
+// Software Serial Declares
 //-----------------------------------
 
 SoftwareSerial PHSerial(PH_SENS_RX, PH_SENS_TX); // RX, TX
 SoftwareSerial CCDSerial(CCD_RX, CCD_TX); // RX, TX
 
 //-----------------------------------
-// Mobo Variables  
+// Mobo Variables
 //-----------------------------------
 
 science_telem_request Req_data_from_Mobo;
 
-//-----------------------------------
-// PH Variables  
-//-----------------------------------
-PH_telem PH_data_to_Mobo;
+PH_telem PH;
+moisture_telem moisture;
+CCD_telem_packet ccddata;
+
+EasyTransfer Mobo_incoming;
+EasyTransfer PH_comm;
+EasyTransfer Moisture_comm;
+EasyTransfer CCD_comm;
 
 char ph_rec_data[20]; //Data Buffer for data coming off of the pH Sensor
 float ph = 0;             //Floating point number being sent to the MOBO
 byte received_from_sensor = 0;
 
+bool recvStruct(science_telem_request* telem_req);
+
 void setup() {
   // put your setup code here, to run once:
-  pinMode(LASER_CTR, OUTPUT);  
+  pinMode(LASER_CTR, OUTPUT);
+  
+  Req_data_from_Mobo.struct_id = science_telem_request_id;
+  PH.struct_id = PH_telem_id;
+  moisture.struct_id=moisture_telem_id;
+  ccddata.struct_id=CCD_telem_packet_id;
+  
   Serial.begin(115200);
-  
+  Mobo_incoming.begin(details(Req_data_from_Mobo), &Serial);
+  PH_comm.begin(details(PH), &Serial);
+  Moisture_comm.begin(details(moisture), &Serial);
+  CCD_comm.begin(details(ccddata),&Serial);
+
+
   //Take the PH sensor out of continuous mode
-  PHSerial.print("c,0\r"); 
-  delay(50); 
-  PHSerial.print("c,0\r"); 
+  PHSerial.print("c,0\r");
   delay(50);
-  
+  PHSerial.print("c,0\r");
+  delay(50);
+
   //Open software serial on PH sensor
   PHSerial.begin(9600);
   //Open software serial on CCD at 115200 baud
   CCDSerial.begin(115200);
-  
+
 }
 
-void loop() 
+void loop()
 {
   // put your main code here, to run repeatedly:
 
-  if(Serial.available() > 0 && Req_data_from_Mobo.requestType != 0)
+  if (Mobo_incoming.receiveData())
   {
-      switch(Req_data_from_Mobo.requestType)
-      {
-        case PH_TYPE:
-  //        Read PH data (Software Serial);
-         PHSerial.print("R\r"); //Request data from sensor
-         delay(50); //Delay? Don't know if needed
-         if(PHSerial.available()>0) //Read if data is there
-         {
-           received_from_sensor=PHSerial.readBytesUntil(13,ph_rec_data,20); //Read until carriage return
-           
-           ph_rec_data[received_from_sensor]=0; //Add null to end of array
-           
-           ph = atof(ph_rec_data); //Convert to floating
-         
-           PH_data_to_Mobo.struct_id = PH_STRUC_ID; //Fill in the struct with id
-           PH_data_to_Mobo.PH = ph; //Fill in the struct with data
-           
-         }
-         
-  //        Send PH data;
-          break;
-        case MOIST_TYPE:
-  //        Read Moisture Data (analog input);
-  //        Send moisture data;
-          break;
-        case CCD_TYPE:
-          digitalWrite(LASER_CTR, HIGH);
-          delay(LASER_WARMUP_TIME);
+    switch (Req_data_from_Mobo.requestType) {
+      case PH_TYPE:
+        //        Read PH data (Software Serial);
+        PHSerial.print("R\r"); //Request data from sensor
+        delay(50); //Delay? Don't know if needed
+        if (PHSerial.available() > 0) //Read if data is there
+        {
+          received_from_sensor = PHSerial.readBytesUntil(13, ph_rec_data, 20); //Read until carriage return
+
+          ph_rec_data[received_from_sensor] = 0; //Add null to end of array
+
+          PH.PH = atof(ph_rec_data); //Convert to floating
+
+          PH_comm.sendData();
+        }
+        break;
+        
+      case MOIST_TYPE:
+        moisture.moisture = analogRead(MOIS_SENSOR);
+        //        Send moisture data;
+        Moisture_comm.sendData();
+        break;
+        
+      case CCD_TYPE:
+        digitalWrite(LASER_CTR, HIGH);
+        delay(LASER_WARMUP_TIME);
         //  send CCD read request;
-          delay(LASER_ON_TIME);
-          digitalWrite(LASER_CTR, LOW);
-          for(int i = 0; i < CCD_ELEMENTS; i++)
-          {
-            //request element from due
-            //write into struct
-            //if(struct full)
-               //send struct 
-          }
-          break;
-        default:
-          //Error
-          break;
-      }
-          
-          
+        delay(LASER_ON_TIME);
+        digitalWrite(LASER_CTR, LOW);
+        for (int i = 0; i < CCD_ELEMENTS; i++)
+        {
+          //request element from due
+          //write into struct
+          //if(struct full)
+          //send struct
+          CCD_comm.sendData();
+        }
+        break;
+      default:
+        //Error
+        break;
+    }
   }
-  
+
+
 }

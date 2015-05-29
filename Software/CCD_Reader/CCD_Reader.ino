@@ -124,7 +124,7 @@ void loop()
     //-------------------------------
     // Start timing critical code
     //-------------------------------
-    for(int i = 0; i < SIGNAL_ELEMENTS; I++)
+    for(int i = 0; i < SIGNAL_ELEMENTS; i++)
     {
       averagedData[i] = 0;
     }
@@ -188,7 +188,7 @@ void loop()
     
     for(int i = 0; i < SIGNAL_ELEMENTS; i++)
     {
-      averagedData[j] /= AVERAGING_READINGS;
+      averagedData[i] /= AVERAGING_READINGS;
     }
     //----------------
     // End timing critical code
@@ -272,3 +272,4 @@ void setUpADC()
 inline int digitalReadDirect(int pin){
  return !!(g_APinDescription[pin].pPort -> PIO_PDSR & g_APinDescription[pin].ulPin);
 };
+

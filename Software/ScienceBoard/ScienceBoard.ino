@@ -47,6 +47,12 @@ char ph_rec_data[20]; //Data Buffer for data coming off of the pH Sensor
 float ph = 0;             //Floating point number being sent to the MOBO
 byte received_from_sensor = 0;
 
+bool tryToRecvCCD = false;
+bool startCCDrecv = false;
+byte CCDinByte[2];
+uint16_t CCD_element = 0;
+uint16_t CCD_frame = 0;
+
 bool recvStruct(science_telem_request* telem_req);
 
 void setup() {
@@ -81,62 +87,115 @@ void setup() {
 void loop()
 {
   // put your main code here, to run repeatedly:
-
-  if (Mobo_incoming.receiveData())
+  if (Serial.available())
   {
-    switch (Req_data_from_Mobo.requestType) {
-      case PH_TYPE:
-        //        Read PH data (Software Serial);
-        PHSerial.print("R\r"); //Request data from sensor
-        delay(50); //Delay? Don't know if needed
-        if (PHSerial.available() > 0) //Read if data is there
-        {
-          received_from_sensor = PHSerial.readBytesUntil(13, ph_rec_data, 20); //Read until carriage return
-
-          ph_rec_data[received_from_sensor] = 0; //Add null to end of array
-
-          PH.PH = atof(ph_rec_data); //Convert to floating
-
-          PH_comm.sendData();
-        }
-        break;
-
-      case MOIST_TYPE:
-        moisture.moisture = analogRead(MOIS_SENSOR);
-        //        Send moisture data;
-        Moisture_comm.sendData();
-        break;
-
-      case CCD_TYPE:
-        //Sample
-        CCDSerial.print('S');
-
-        //Output
-        CCDSerial.print('O');
-        CCDSerial.flush();
-        for (int i = 0; i < CCD_BLOCKS; i++)
-        {
-          ccddata.packetIndex = i;
-          for (int j = 0; j < 12; j++)
+    if (Mobo_incoming.receiveData())
+    {
+      switch (Req_data_from_Mobo.requestType) {
+        case PH_TYPE:
+          //        Read PH data (Software Serial);
+          PHSerial.listen();
+          PHSerial.print("R\r"); //Request data from sensor
+          delay(50); //Delay? Don't know if needed
+          if (PHSerial.available() > 0) //Read if data is there
           {
-            ccddata.data[j] = ((CCDSerial.read() << 8) & CCDSerial.read()) ;
-          }
+            received_from_sensor = PHSerial.readBytesUntil(13, ph_rec_data, 20); //Read until carriage return
 
-          //Check that we're still in sync with CCD
+            ph_rec_data[received_from_sensor] = 0; //Add null to end of array
+
+            PH.PH = atof(ph_rec_data); //Convert to floating
+
+            PH_comm.sendData();
+          }
+          break;
+
+        case MOIST_TYPE:
+          moisture.moisture = analogRead(MOIS_SENSOR);
+          //        Send moisture data;
+          Moisture_comm.sendData();
+          break;
+
+        case CCD_TYPE:
+          CCDSerial.listen();
+          tryToRecvCCD = true;
+          startCCDrecv = false;
+          CCD_element = 0;
+          
+          break;
+        case LASER_ON:
+          digitalWrite(LASER_CTR, HIGH);
+          break;
+        case LASER_OFF:
+          digitalWrite(LASER_CTR, LOW);
+          break;
+        default:
+          //Error
+          break;
+      }
+    }
+  } if (CCDSerial.available())
+  {
+
+    //Waiting to start getting data
+    if (tryToRecvCCD == true)
+    {
+
+      //Watch for start of sequence
+      if (!startCCDrecv)
+      {
+        //Check for start byte sequence
+        if (CCDSerial.read() == '\n')
+        {
+          //Wait for next byte
+          while(!CCDSerial.available());
+          if (CCDSerial.read() == '\n')
+          {
+            startCCDrecv = true;
+            CCD_element = 0;
+            CCD_frame = 0;
+          }
+        }
+      }
+
+      //Pulling data in
+      else
+      {
+        CCDinByte[0] = CCDSerial.read();
+        while (!CCDSerial.available());
+        CCDinByte[1] = CCDSerial.read();
+
+        //This tricky cast converts the raw bytes into 16 bit ints
+        ccddata.data[CCD_element % BLOCK_SIZE] = *((uint16_t*)(CCDinByte));
+
+        CCD_element++;
+        //Finish a frame
+        if (CCD_element % BLOCK_SIZE == 0)
+        {
+          CCD_frame ++;
+          ccddata.packetIndex = CCD_frame;
           CCD_comm.sendData();
         }
-        break;
-      case LASER_ON:
-        digitalWrite(LASER_CTR, HIGH);
-        break;
-      case LASER_OFF:
-        digitalWrite(LASER_CTR, LOW);
-        break;
-      default:
-        //Error
-        break;
+
+        //Check if we read the entire data set
+        if (CCD_frame >= CCD_BLOCKS)
+        {
+          tryToRecvCCD = false;
+          startCCDrecv = false;
+          CCD_element = 0;
+          CCD_frame = 0;
+        }
+
+      }
+
+    } else
+    {
+
+      //Discard data when we're not listening
+      while (CCDSerial.available())
+      {
+        CCDSerial.read(); //Do nothing with the data, just get it out of the buffer
+      }
     }
   }
-
 
 }

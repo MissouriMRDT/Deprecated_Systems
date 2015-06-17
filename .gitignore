@@ -38,14 +38,17 @@
 *.epf
 *.pro
 
-# Ignore build files
-Software/CCS/Debug/
-Software/CCS/Release/
-Software/CCS/.launches/
-Software/CCS/.config/
-
 # Ignore Windows .db files
 *.db
 
 # Office Temp Files
 ~$*
+
+#CodeComposer binaries and local config
+# http://processors.wiki.ti.com/index.php/Source_control_with_CCS
+Debug/
+.xdchelp/
+.config/
+.launches/
+*.obj
+*.aem4f

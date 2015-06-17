@@ -1,4 +1,10 @@
-// roveArmTester.h
+// roveArmTester.h MST MRDT 2015
+//
+// Owen Chiaventone omc8db@mst.edu
+//
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -15,4 +21,4 @@
 
 void roveArmTester(UArg arg0, UArg arg1);
 
-#endif /* ROVEARMTESTER_H_ */
+#endif // ROVEARMTESTER_H_

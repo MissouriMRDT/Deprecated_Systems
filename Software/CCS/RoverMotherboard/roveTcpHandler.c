@@ -1,63 +1,62 @@
-// roveTcpHandler.c
+// roveTcpHandler.c MST MRDT
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone omc8db@mst.edu
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
+// Judah Schad_jrs6w7@mst.edu
 //
-// 04_07_2015_Judah Schad_jrs6w7@mst.edu
-//
-// this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveTcpHandlerTask handle
+// this implements a single function BIOS thread
+// that acts as the RoverMotherboard.cfg roveTcpHandlerTask handle
 //
 // recieves base station commands and send device telemetry using tcp ip bsd sockets
+//
+// BIOS_start in main inits this as the roveTcpHandlerTask Thread
+//
+// this is a RoverMotherboard.cfg object::roveTcpHandlerTask::
+//
+// priority 2, vital_flag = t, 2048 persistent private stack
 
 #include "roveIncludes/roveWareHeaders/roveTcpHandler.h"
 
-// BIOS_start in main inits this as the roveTcpHandlerTask Thread
-
-// this is a RoverMotherboard.cfg object::roveTcpHandlerTask::		priority 2, vital_flag = t, 2048 persistent private stack
-
 Void roveTcpHandler(UArg arg0, UArg arg1) {
 
-	//init socket file environment
+    //init socket file environment
 
-	extern const uint8_t FOREVER;
+    extern const uint8_t FOREVER;
 
-	fdOpenSession((void*) TaskSelf());
+    fdOpenSession((void*) TaskSelf());
 
-	struct NetworkConnection RED_socket;
-	RED_socket.isConnected = false;
+    struct NetworkConnection RED_socket;
+    RED_socket.isConnected = false;
 
-	static char messageType = NULL;
+    static char messageType = NULL;
 
-	//Sending Task Parameters
-	Task_Handle taskHandle;
-	Task_Params taskParams;
-	Error_Block eb;
+    //Sending Task Parameters
+    Task_Handle taskHandle;
+    Task_Params taskParams;
+    Error_Block eb;
 
-	//the task loops for ever and only exits from BIOS_start, on error state
+    //the task loops for ever and only exits from BIOS_start, on error state
 
-	System_printf("roveTCPHandler 		init! \n");
-	System_printf("\n");
-	System_printf("\n");
-	System_flush();
+    printf("roveTCPHandler 		init! \n");
+    printf("\n");
+    printf("\n");
 
-	while (FOREVER) {
+    while (FOREVER) {
 
-		System_printf("Attempting to connect\n");
-		System_flush();
+        printf("Attempting to connect\n");
 
-		attemptToConnect(&RED_socket);
+        attemptToConnect(&RED_socket);
 
-		//Create sending thread
-		if (RED_socket.isConnected) {
-			//Spawn sending thread
+        //Create sending thread
+        if (RED_socket.isConnected) {
+
+            //Spawn sending thread
+
+            printf("Spawning roveTcpSender\n");
 
 			Error_init(&eb);
-
-			System_printf("Spawning roveTcpSender\n");
-			System_flush();
 			Task_Params_init(&taskParams);
 			taskParams.arg0 = (UArg) (RED_socket.socketFileDescriptor);
 			taskParams.stackSize = 1280;
@@ -69,82 +68,88 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 				System_abort(
 						"Error: Failed to create new roveTcpSender Task\n");
 			}
-			Task_setPri(taskHandle, 3);
+			Task_setPri(taskHandle, 2);
+
+            //Check to see if memory could not be allocated for the task
+            if (taskHandle == NULL) {
+                printf(
+                        "Error: Failed to create new roveTcpSender Task\n");
+
+            }//end if taskHandle
+
+        }//end if isConnected
+
+        printf("Finished attempt. Result: ");
+
+        // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
+
+        while (RED_socket.isConnected == true) {
+
+            //printf("Connected, entering roveRecv\n");
 
 
-		}
+            // get Message Type, check for connection errors
 
-		System_printf("Finished attempt. Result: ");
+            if (roveRecv(&RED_socket, &messageType, 1) != -1) {
 
-		// loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
+                switch (messageType) {
 
-		while (RED_socket.isConnected == true) {
+                case CONSOLE_COMMAND:
+                    break;
 
-			//System_printf("Connected\n");
-			//System_flush();
+                case SYNCHRONIZE_STATUS:
+                    break;
 
-			// get Message Type, check for connection errors
+                case COMMAND_METADATA:
+                    break;
 
-			if (roveRecv(&RED_socket, &messageType, 1) != -1) {
+                case TELEM_METADATA:
+                    break;
 
-				switch (messageType) {
+                case ERROR_METADATA:
+                    break;
 
-				case CONSOLE_COMMAND:
-					break;
+                    // defined 5
+                case ROVER_COMMAND:
 
-				case SYNCHRONIZE_STATUS:
-					break;
+                    //printf("Got rover command. Passing control.\n");
+                    //System_flush;
 
-				case COMMAND_METADATA:
-					break;
+                    parseRoverCommandMessage(&RED_socket);
 
-				case TELEM_METADATA:
-					break;
+                    break;
 
-				case ERROR_METADATA:
-					break;
+                case ROVER_TELEM:
+                    break;
 
-					// defined 5
-				case ROVER_COMMAND:
+                case ROVER_ERROR:
+                    break;
 
-					//System_printf("Got rover command. Passing control.\n");
-					//System_flush;
+                    // defined {
+                case JSON_START_BYTE:
 
-					parseRoverCommandMessage(&RED_socket);
+                    printf(
+                            "Got JSON start byte. Error, unable to Parse\n");
 
-					break;
+                    break;
 
-				case ROVER_TELEM:
-					break;
+                default:
 
-				case ROVER_ERROR:
-					break;
+                    printf("Command identifier not recognized: %c\n",
+                            messageType);
 
-					// defined {
-				case JSON_START_BYTE:
+                    break;
 
-					System_printf(
-							"Got JSON start byte. Error, unable to Parse\n");
+                }						//endswitch(messageType)
 
-					break;
+            } else {
 
-				default:
+                printf("Connection has been closed\n");
 
-					System_printf("Command identifier not recognized: %c\n",
-							messageType);
 
-					break;
+            }			//endif roveRecv
 
-				}						//endswitch(messageType)
-
-			} else {
-
-				System_printf("Connection has been closed\n");
-				System_flush();
-
-			}			//endif(roveRecv(&RED_socket, &messageType, 1) != -1)
-
-		}						//endwhile(RED_socket.isConnected == true)
+        }						//endwhile isConnected
 
 		printf("Connection Lost\n\n");
 
@@ -152,27 +157,30 @@ Void roveTcpHandler(UArg arg0, UArg arg1) {
 		// if execution reaches this point, then the connection has broken and we will attempt a new socket
 		fdClose(RED_socket.socketFileDescriptor);
 
-	}						//endwhile (FOREVER)
+    }						//endwhile FOREVER
 
-	//postcondition: execution will not reach this state unless a serious error occurs
+    //postcondition: execution will not reach this state unless a serious error occurs
 
-	//close the socket file environment
+    //close the socket file environment
 
-	fdCloseSession((void*) TaskSelf());
+    fdCloseSession((void*) TaskSelf());
 
-	System_printf("Tcp Handler Task Error: Forced Exit\n");
-	System_flush();
+    printf("Tcp Handler Task Error: Forced Exit\n");
 
-	//exit Task
 
-	Task_exit();
+    //exit Task
+
+    Task_exit();
 
 }						//endfnctnTask roveTcpHandler Thread
 
 Void roveTcpSender(UArg arg0, UArg arg1) {
+
 	struct NetworkConnection RED_socket;
 	RED_socket.socketFileDescriptor = arg0;
 	RED_socket.isConnected = true;
+	char message_type[] = {ROVER_TELEM};
+
 	fdOpenSession(TaskSelf());
 	fdShare(RED_socket.socketFileDescriptor);
 	base_station_msg_struct toBaseTelem;
@@ -181,202 +189,208 @@ Void roveTcpSender(UArg arg0, UArg arg1) {
 	//Loop: Wait on mailbox, send keepalive otherwise
 	while (RED_socket.isConnected) {
 		//Check if there's data in the outgoing mailbox. This will block for a number of system ticks.
-		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,
-		SEND_KEEPALIVE_DELAY_TICKS)) {
+		if (Mailbox_pend(toBaseStationMailbox, &toBaseTelem,SEND_KEEPALIVE_DELAY_TICKS))
+		{
 
-			//System_printf("Passed the Pend in TCP!! Success!!!\n");
-			//System_flush();
-			roveSend(&RED_socket, (char *) &(toBaseTelem.value[0]),
+			//Send the message type
+			roveSend(&RED_socket, message_type, 1);
+
+			//Send the message contents
+			roveSend(&RED_socket, (char *) &toBaseTelem,
 					getStructSize(toBaseTelem.id));
 			printf("Sent data\n");
 
 		} else //Nothing to go out
 		{
-			printf("No data to send\n");
-			//System_flush();
-		}
+//			printf("No data to send\n");
 
-	}
+		}//end if
+
+	}//end while
 
 	printf("SendTask has detected a closed connection. Cleaning up\n");
 	//Cleanup: Connection has broken
 	fdClose(RED_socket.socketFileDescriptor);
 	fdCloseSession((void*) TaskSelf());
 	Task_exit();
-}
+}// end fnct roveTcpSender
 
 // Network Abstraction Layer
 
 static int roveRecv(struct NetworkConnection* connection, char* buffer,
-		int bytes) {
+        int bytes) {
+
+	extern Watchdog_Handle watchdog;
 
 	static int bytesRecvd;
 	if (connection->isConnected) {
 
-		bytesRecvd = recv(connection->socketFileDescriptor, buffer, bytes,
-		MSG_WAITALL);
+        bytesRecvd = recv(connection->socketFileDescriptor, buffer, bytes,
+        MSG_WAITALL);
 
-		if (bytesRecvd <= 0) {
+        if (bytesRecvd <= 0) {
 
-			connection->isConnected = false;
+            connection->isConnected = false;
 
-			// connection broke
-			return -1;
-		} else {
+            // connection broke
+            return -1;
+        } else {
 
-			// recv'd correctly
-			return bytesRecvd;
+            // recv'd correctly
+          	Watchdog_clear(watchdog);
+            return bytesRecvd;
 
-		}
-	} else {
+        }
+    } else {
 
-		// not connected
-		return -1;
-	}			//endif
+        // not connected
+        return -1;
+    }			//endif
 
 }			//endfnctn roveRecv
 
 static int roveSend(struct NetworkConnection* connection, char* buffer,
-		int bytes) {
-	static int bytesSent;
+        int bytes) {
+    static int bytesSent;
 
-	if (connection->isConnected) {
+    extern Watchdog_Handle watchdog;
 
-		bytesSent = send(connection->socketFileDescriptor, buffer, bytes,
-		MSG_WAITALL);
+    if (connection->isConnected) {
 
-		if (bytesSent <= 0) {
+        bytesSent = send(connection->socketFileDescriptor, buffer, bytes,
+        MSG_WAITALL);
 
-			connection->isConnected = false;
+        if (bytesSent <= 0) {
 
-			// connection broke
-			return -1;
-		} else {
+            connection->isConnected = false;
 
-			// recv'd correctly
-			return bytesSent;
+            // connection broke
+            return -1;
+        } else {
 
-		}
-	} else {
+            // sent correctly
+        		Watchdog_clear(watchdog);
+            return bytesSent;
 
-		// not connected
-		return -1;
-	}			//endif
-}
-/*
+        }
+    } else {
 
- static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes)
- {
- return 0;
- }
+        // not connected
+        return -1;
+    }			//endif
+}// end fnctn roveSend
 
- */
 static bool attemptToConnect(struct NetworkConnection* connection) {
 
-	struct sockaddr_in server_addr;
-	struct timeval timeout;
+    struct sockaddr_in server_addr;
+    struct timeval timeout;
+    uint32_t error_code;
+    extern Watchdog_Handle watchdog;
 
-	connection->socketFileDescriptor = socket(AF_INET, SOCK_STREAM,
-	IPPROTO_TCP);
+    connection->socketFileDescriptor = socket(AF_INET, SOCK_STREAM,
+    IPPROTO_TCP);
 
-	//flag for bad socket
+    //flag for bad socket
 
-	if (connection->socketFileDescriptor == -1) {
+    if (connection->socketFileDescriptor == -1) {
 
-		System_printf("Failed Socket() create serverfd (src = socket()) (%d)\n",
-				fdError());
-		System_flush();
+        printf("Failed Socket() create serverfd (src = socket()) (%d)\n",
+                fdError());
 
-	}			//endif:	(serverfd == -1)
 
-	//init bsd socket config struct
+    }			//endif:	(serverfd == -1)
 
-	memset(&server_addr, 0, sizeof(server_addr));
+    //init bsd socket config struct
 
-	//config the socket
+    memset(&server_addr, 0, sizeof(server_addr));
 
-	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(TCPPORT);
-	inet_pton(AF_INET, RED_IP, &server_addr.sin_addr);
+    //config the socket
 
-	timeout.tv_sec = NETWORK_TIMEOUT;
-	timeout.tv_usec = 0;
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(TCPPORT);
+    inet_pton(AF_INET, RED_IP, &server_addr.sin_addr);
+
+    timeout.tv_sec = NETWORK_TIMEOUT;
+    timeout.tv_usec = 0;
+
 
 	//setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_SNDTIMEO, &timeout, sizeof(timeout) );
-	setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
+	  setsockopt(connection->socketFileDescriptor, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout) );
 
-	//connect to Red
 
-	//connect the socket
+    //connect to Red
 
-	if (connect(connection->socketFileDescriptor, (PSA) &server_addr,
-			sizeof(server_addr)) < 0) {
+    //connect the socket
 
-		connection->isConnected = false;
-		System_printf("Fderror: %d\n", fdError());
-		System_flush();
-		return false;
+    if (connect(connection->socketFileDescriptor, (PSA) &server_addr,
+            sizeof(server_addr)) < 0) {
 
-	} else {
+			connection->isConnected = false;
+			error_code = fdError();
+			printf("Fderror: %d\n", error_code);
 
-		connection->isConnected = true;
-		return true;
+			//We're not in an error state if RED actively rejected us
+			if(error_code == ETIMEDOUT)
+			{
+    		Watchdog_clear(watchdog);
+    		printf("Watchdog cleared - attemptToConnect\n");
 
-	}	//endif
+			}
+			return false;
 
-	//Share the socket
-	//fdShare()
+    } else {
+
+        connection->isConnected = true;
+        return true;
+
+    }	//endif
+
+    //Share the socket
+    //fdShare()
 
 }	//endfnctn attemptToConnect(struct NetworkConnection* connection)
 
 static bool parseRoverCommandMessage(struct NetworkConnection* connection) {
 
-	int size;
-	static base_station_msg_struct messagebuffer;
+    int size;
+    static base_station_msg_struct messagebuffer;
 
-	//System_printf("Entering parseRoverCommandMessage\n");
-	//System_flush();
+    //printf("Entering parseRoverCommandMessage\n");
 
-	// get type of message
+    // get type of message
+    if (!roveRecv(connection, &(messagebuffer.id), 1)) {
 
-	if (!roveRecv(connection, &(messagebuffer.id), 1)) {
+        return false;
 
-		return false;
+    }	//endif
 
-	}	//endif
+    // get size of message. Subtract one because we already got the ID byte
+    size = getStructSize((char) messagebuffer.id) - 1;
 
-	//TODO: Not really sure about the best way to do this. We should probably
-	//      have a lookup function that takes message type and outputs
-
-	//System_printf("Getting struct size\n");
-	//System_flush();
-
-	// get size of message
-
-	size = getStructSize((char) messagebuffer.id) - 1;
+    //TODO 169-D remove the address operator for second paramenter to return char* instead of char**
 
 	if(size <= 0)
 	{
-		System_printf("Invalid struct ID recieved: %d, skipping", messagebuffer.id);
-		System_flush();
+		printf("Invalid struct ID recieved: %d, skipping", messagebuffer.id);
+
 	}
 
 	//TODO 169-D remove the address operator for second paramenter to return char* instead of char**
 
-	// get message contents
-	if (!roveRecv(connection, &(messagebuffer.value), size)) {
+    // get message contents
+    if (!roveRecv(connection, &(messagebuffer.value), size)) {
 
-		return false;
+        return false;
 
-	}					//endif
+    }					//endif
 
-	//System_printf("Recieved data. Posting to mailbox\n");
-	//System_flush();
+    //printf("Recieved data. Posting to mailbox\n");
 
-	// post message to maibox. The mailbox is defined as a global by the config script
 
-	Mailbox_post(fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
+    // post message to maibox. The mailbox is defined as a global by the config script
 
-	return true;
+    Mailbox_post(fromBaseStationMailbox, &messagebuffer, BIOS_WAIT_FOREVER);
+
+    return true;
 
 }	//endfnctn parseRoverCommandMessage(struct NetworkConnection* connection)

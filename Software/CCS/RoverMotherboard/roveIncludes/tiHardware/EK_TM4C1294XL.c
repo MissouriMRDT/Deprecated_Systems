@@ -913,8 +913,14 @@ WatchdogTiva_Object watchdogTivaObjects[EK_TM4C1294XL_WATCHDOGCOUNT];
 
 /* Watchdog configuration structure */
 const WatchdogTiva_HWAttrs watchdogTivaHWAttrs[EK_TM4C1294XL_WATCHDOGCOUNT] = {
-    /* EK_LM4F120XL_WATCHDOG0 with 1 sec period at default CPU clock freq */
-    {WATCHDOG0_BASE, INT_WATCHDOG, 80000000},
+    /* Error management timeline
+     *
+     * 0 seconds - RTOS picks up basic stuff
+     * 2 seconds - We attempt to repair connection and E-stop
+     * 10 seconds - If the error is not resolved by this point, reset
+     *  ^----- Defined here
+     */
+    {WATCHDOG0_BASE, INT_WATCHDOG, 800000000},
 };
 
 const Watchdog_Config Watchdog_config[] = {

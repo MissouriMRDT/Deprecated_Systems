@@ -1,124 +1,50 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
+// roveTelemCnrtl.c MST MRDT
 //
-// roveTelemCnrtl.c
+// Owen Chiaventone omc8db@mst.edu
 //
-// first created:
+// Connor Walsh cwd8d@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone
+// Judah Schad_jrs6w7@mst.edu
 //
-// last edited:
+// this implements a single function BIOS thread
+// that acts as the RoverMotherboard.cfg roveTelemCnrtlTask handle
 //
-//02_28_2015_Judah Schad_jrs6w7@mst.edu
-
-//	this implements a single function BIOS thread that acts as the RoverMotherboard.cfg roveTelemCntrl handle
+// recieves telemetry from Devices in roveCom protocol via uart
 //
-//	recieves a request for telem from the command thread,
+// sends telemetry to TCPHandler via roveCom protocol using TI.Mailbox.from objecm
 //
-//	requests telem from the device,
+// BIOS_start in main inits this as the roveTelemCntrlTask Thread
 //
-//	recieves telem from the device,
+// this is a RoverMotherboard.cfg object::roveTelemCntrlTask::
 //
-//	and posts telem to the roveTCPHandler thread
+// priority 3, vital_flag = t, 2048 persistent private stack
 
 #include "roveIncludes/roveWareHeaders/roveTelemCntrl.h"
 
-//BIOS_start inits this as the roveTelemCntrlTask Thread
-
-//This is a RoverMotherboard.cfg object::		roveTelemCntrlTask		::		priority 1, vital_flag = t, 2048 persistent private stack
-
 Void roveTelemCntrl(UArg arg0, UArg arg1) {
 
-	extern UART_Handle uart2;
+    const uint8_t FOREVER = 1;
 
-//	int bytes_to_read = 11;
-	char buffer[40] = {140, 1, 3, 4, 255, 255, 255, 255, 255, 255, 255 , 255,  255, 255, 255 , 255,  255, 255, 255 , 255,  255, 255, 255 , 255, };
-//	int bytes_read;
-	int device = ONBOARD_ROVECOMM;
+    char messageBuffer[MAX_TELEM_SIZE];
 
-	System_printf("Enter roveTelemCntrl\n");
-		System_flush();
+    int deviceJack;
 
-	while (1) {
-		/*		memset(buffer, '\0', 20);
-		 bytes_read = deviceRead(device, buffer, bytes_to_read, 2000);
-		 System_printf("Bytes read: %d\n", bytes_read);
-		 if (bytes_read > 0)
-		 System_printf("%s\n", buffer);
-		 System_flush();
-		 */
-		//printf("I hope that someone gets my\nI hope that someone gets my\n");
-		Mailbox_post(toBaseStationMailbox, &buffer,
-							BIOS_WAIT_FOREVER);
-		//printf("Message in a buffer\n");
-		Task_sleep(100);
-	}
+    deviceJack = GPS_ON_MOB;
 
-	const uint8_t FOREVER = 1;
+    while (FOREVER) {
 
-	struct device_telem_req deviceTelemReq;
+        while(!recvSerialStructMessage(deviceJack, messageBuffer));
 
-	int poll_telem_array_idx = 2;
-	char poll_telem_device[poll_telem_array_idx];
+        Mailbox_post(toBaseStationMailbox, messageBuffer, BIOS_WAIT_FOREVER);
 
-//	poll_telem_device[0] = bms_id;
-//	poll_telem_device[1] = power_board_id;
+    } //endwhile
 
-	base_station_msg_struct messageInBuffer;
+    //postcondition: execution will not reach this state unless a serious error occurs
 
-	char messageOutBuffer[MAX_TELEM_SIZE];
+    printf("Rove Telem Cntrl Task Error: Forced Exit\n");
 
-	int messageSize;
+    //exit Task
 
-	int i;
-/*
-	while (FOREVER) {
+    Task_exit();
 
-		for (i = 0; i < poll_telem_array_idx; i++) {
-
-			int deviceJack = getDeviceJack(poll_telem_device[i]);
-
-			//populate device id into the telem request
-
-			deviceTelemReq.struct_id = telem_req_id;
-			deviceTelemReq.telem_device_req_id = poll_telem_device[i];
-
-			System_printf("Telem Entering build Serial\n");
-			System_flush();
-
-			messageSize = buildSerialStructMessage((void *) &deviceTelemReq,
-					messageOutBuffer);
-
-			System_printf("Message Size: %d\n", messageSize);
-			System_flush();
-
-			deviceWrite(deviceJack, messageOutBuffer, messageSize);
-
-			//looping through RecvSerial until it becomes valid, which tells us we have a full message to post to base
-
-			while (!RecvSerialStructMessage(deviceJack, &messageInBuffer))
-				;
-
-			System_printf("Struct_id: %d\n", &(messageInBuffer.id));
-			System_flush();
-
-			System_printf("Value: %d\n", &(messageInBuffer.value[0]));
-			System_flush();
-
-			Mailbox_post(toBaseStationMailbox, &messageInBuffer,
-					BIOS_WAIT_FOREVER);
-
-		} //endfor
-
-	} //endwhile:	(1)
-
-	//postcondition: execution will not reach this state unless a serious error occurs
-
-	System_printf("Rove Telem Cntrl Task Error: Forced Exit\n");
-	System_flush();
-
-	//exit Task
-
-	Task_exit();
-*/
-
-} //endfnctn:		roveTelemContoller() Task Thread
+} //endfnctn:       roveTelemContoller() Task Thread

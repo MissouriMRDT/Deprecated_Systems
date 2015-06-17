@@ -1,8 +1,10 @@
-// roveHardwareTester
+// roveHardwareTester.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 03_03_2015_Owen_Chiaventone
+// Connor Walsh cwd8d@mst.edu
+//
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 

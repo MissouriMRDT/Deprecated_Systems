@@ -34,6 +34,7 @@
 // U7_MUX_S1 PE1
 
 #define U3_MUX_S0 0
+#define SOFT_RESET_GPIO_PIN 0
 #define U3_MUX_S1 1
 #define U4_MUX_S0 2
 #define U4_MUX_S1 3
@@ -74,9 +75,15 @@
 #define U7TX uart7
 
 // special devices
+#define ARM_JACK 			7   //UART 7
+#define SCIENCE_BAY 	9   //UART 5
+#define PTZ_CAM_0			14  //UART 4
+#define PTZ_CAM_1			15
+#define PTZ_CAM_2			16
+#define PTZ_CAM_3			17
 
-#define POWER_BOARD 18
-#define ONBOARD_ROVECOMM 19
+#define POWER_BOARD_ON_MOB 18
+#define GPS_ON_MOB 19
 
 // PWM Lines init as handles
 
@@ -124,8 +131,11 @@
 
 // TCP Sending Parameters
 
-#define SEND_TASK_PRIORITY 2
-#define SEND_KEEPALIVE_DELAY_TICKS 50 //Can also be set to BIOS_WAIT_FOREVER or BIOS_NO_WAIT
+#define SEND_TCP_TASK_PRIORITY 2
+
+#define RECV_UART_NONBLOCK_TASK_PRIORITY 2
+
+#define SEND_KEEPALIVE_DELAY_TICKS BIOS_WAIT_FOREVER //Can also be set to BIOS_WAIT_FOREVER or BIOS_NO_WAIT
 
 // hardware
 
@@ -145,7 +155,23 @@
 #define	motor_left_id 									100
 #define	motor_right_id 									101
 
-#define	bms_emergency_stop_command_id					150
+#define PTZ_Cam_id_0                   110
+#define PTZ_Cam_id_1                   111
+#define PTZ_Cam_id_2                   112
+#define PTZ_Cam_id_3                   113
+#define PTZ_Cam_id_4                   114
+#define PTZ_Cam_id_5                   115
+#define PTZ_Cam_id_6                   116
+#define PTZ_Cam_id_7                   117
+#define PTZ_Cam_id_8                   118
+#define PTZ_Cam_id_9                   119
+#define PTZ_Cam_id_10                  120
+
+#define gps_telem_reply                                 140
+
+#define	bms_emergency_command_id					150
+
+/*
 #define bms_cell1_voltage_telem_id						151
 #define bms_cell2_voltage_telem_id						152
 #define bms_cell3_voltage_telem_id						153
@@ -175,7 +201,7 @@
 
 //deprecated in favor of variable speed
 #define	robot_arm_constant_speed_id 200
-
+*/
 // clockwise is positive, counter clockwise is negative
 
 #define wrist_clock_wise 201
@@ -186,12 +212,14 @@
 #define e_stop_arm 206
 #define actuator_forward 207
 
-// gripper values
+// gripper value
 
 #define gripper_open 208
 
-// telem_device_id
+#define drill_forward 209
 
+// telem_device_id
+/*
 #define	telem_req_id 254
 
 #define	robot_arm_telem_req_id 0
@@ -199,7 +227,7 @@
 #define	drill_telem_req_id 2
 #define	bms_telem_req_id 3
 #define	power_board_telem_req_id 4
-
+*/
 // Custom Drivers
 
 //MRDesign Team:: 	roveWare::		roveCom cmnd || telem :: data structures
@@ -225,6 +253,8 @@
 //MRDesign Team:: 	roveWare::		roveNet convert json to and from roveCom formatting
 
 #include "roveWareHeaders/roveJson.h"
+
+#include "roveWareHeaders/roveWatchdog.h"
 
 //MRDesign Team:: 	roveWare::		lets the rover make its own decisions
 

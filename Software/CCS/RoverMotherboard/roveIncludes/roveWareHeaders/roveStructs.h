@@ -1,14 +1,10 @@
-// roveStructs.h
+// roveStructs.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 04_20_2014_Keenan Johnson
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
-//
-// 03_08_2015 Connor Walsh cwd8d@mst.edu ~ add stubs for RoveComm structs
-//
-// 04_07_2015_Judah Schad_jrs6w7@mst.edu
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -110,31 +106,11 @@ struct robot_arm_command{
 
 // sent from mobo to gripper to control the peripheral
 
-// sent from mobo to drill to control the peripheral
 
-struct drill_command{
-
-	uint8_t struct_id;
-	//drill ctrl
-	uint8_t goalSpeed;
-	uint8_t direction;
-
-	//thermo ctrl
-	uint8_t heaterPower;
-	uint8_t thermoReadings;
-
-	//gas ctrl
-	uint8_t sensorPower;
-
-	//readings will only be updated when true
-	uint8_t gasReadings;
-
-}__attribute__((packed));
-
-
-struct bms_emergency_stop_command
+struct bms_emergency_command
 {
 	uint8_t struct_id;
+	uint8_t command;
 };
 
 struct power_board_command
@@ -149,9 +125,34 @@ struct power_board_bms_telem
 	float value;
 };
 
+/* Keenans:
+struct gps_data_struct
+{
+  uint8_t fix;
+  uint16_t latitude_whole;
+  uint16_t latitude_frac;
+  uint16_t longitude_whole;
+  uint16_t longitude_frac;
+  uint16_t altitude_whole;
+  uint16_t altitude_frac;
+  uint8_t lat_dir;
+  uint8_t lon_dir;
+  uint8_t satellites;
+}__attribute__((packed));
+*/
 
-
-
+struct gps_telem
+{
+    uint8_t struct_id;
+    bool fix;
+    uint8_t fix_quality;
+    uint8_t satellites;
+    int32_t latitude_fixed;
+    int32_t longitude_fixed;
+    float altitude;
+    float speed;
+    float angle;
+}__attribute__((packed));
 
 // this struct should only be used for type casting as it does not have a corresponding id
 
@@ -160,6 +161,14 @@ struct power_board_bms_telem
 struct rovecom_id_cast{
 
 	uint8_t struct_id;
+
+}__attribute__((packed));
+
+struct PTZ_Cam_Ctrl{
+
+	uint8_t struct_id;
+	uint8_t pan;
+	uint8_t tilt;
 
 }__attribute__((packed));
 

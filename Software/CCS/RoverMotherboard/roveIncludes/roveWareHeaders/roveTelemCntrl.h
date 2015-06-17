@@ -1,14 +1,10 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
-
-// roveTcpHandler.h
+// roveTcpHandler.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
-//
-//02_28_2015_Judah Schad_jrs6w7@mst.edu
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -22,8 +18,6 @@
 //MRDesign Team::roveWare::		roveCom and RoveNet services headers
 
 #include "../mrdtRoveWare.h"
-
-//TODO
 
 Void roveTelemCntrl(UArg arg0, UArg arg1);
 

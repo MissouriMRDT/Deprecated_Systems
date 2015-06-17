@@ -1,12 +1,10 @@
-// roveTcpHandler.h
+// roveTcpHandler.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 01_22_2015_Owen_Chiaventone omc8db@mst.edu
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
-//
-// 04_07_2015_Judah Schad_jrs6w7@mst.edu
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -17,7 +15,7 @@
 
 #include "../RoverMotherboardMain.h"
 
-//MRDesign Team::roveWare::		roveCom and RoveNet services headers
+//MRDesign Team::roveWare::	roveCom and RoveNet services headers
 
 #include "../mrdtRoveWare.h"
 
@@ -36,10 +34,10 @@ Void roveTcpSender(UArg arg0, UArg arg1);
 
 // if a function needs to access the network, it should go through this abstraction layer
 
-struct NetworkConnection{
+struct NetworkConnection {
 
-	int socketFileDescriptor;
-	bool isConnected;
+    int socketFileDescriptor;
+    bool isConnected;
 
 } NetworkConnection;
 
@@ -55,9 +53,11 @@ struct NetworkConnection{
 //        -1 returned
 //
 
-static int roveRecv(struct NetworkConnection* connection, char* buffer, int bytes);
+static int roveRecv(struct NetworkConnection* connection, char* buffer,
+        int bytes);
 
-static int roveSend(struct NetworkConnection* connection, char* buffer, int bytes);
+static int roveSend(struct NetworkConnection* connection, char* buffer,
+        int bytes);
 
 static bool roveCloseConnection(struct NetworkConnection*);
 

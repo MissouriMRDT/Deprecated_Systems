@@ -1,14 +1,10 @@
-//	TODO: Port To Fresh Build (using TI example:			This version educational practice not for distro)
-
-// roveJson.h
+// roveJson.h MST MRDT 2015
 //
-// first created:
+// Owen Chiaventone omc8db@mst.edu
 //
-// 04_20_2015_Keenan_Johnson
+// Connor Walsh cwd8d@mst.edu
 //
-// last edited:
-//
-//02_25_2015_Judah_Schad_jrs6w7@mst.edu
+// Judah Schad jrs6w7@mst.edu
 
 #pragma once
 
@@ -45,11 +41,13 @@ void generate_json_float(char *string_buf, const char *id, const float value);
 
 //generates a json string to send to base station for gps (lat & long) data
 
-void generate_gps_json(char *string_buf, const char *id, const int whole_number, const int frac_number, const uint8_t direction);
+void generate_gps_json(char *string_buf, const char *id, const int whole_number,
+        const int frac_number, const uint8_t direction);
 
 //generates a json string to send to base station for altitude data
 
-void generate_altitude_json(char *string_buf, const char *id, const int whole_number, const int frac_number);
+void generate_altitude_json(char *string_buf, const char *id,
+        const int whole_number, const int frac_number);
 
 //writes json string out a given uart
 

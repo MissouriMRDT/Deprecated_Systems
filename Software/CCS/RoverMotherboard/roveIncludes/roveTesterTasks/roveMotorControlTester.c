@@ -1,14 +1,23 @@
+// roveMotorControlTester.c MST MRDT
 //
-// roveMotorControlTester.c
+// Owen Chiaventone omc8db@mst.edu
 //
-//  Created on: Mar 25, 2015
-//      Author: Judah
+// Connor Walsh cwd8d@mst.edu
 //
-// Task that will test MC functionality
-// Should be disabled most of the time. Only run it when you want to
-// do Motor Control testing.
+// Judah Schad_jrs6w7@mst.edu
+//
+// this implements a single function BIOS thread
+// that acts as the RoverMotherboard.cfg roveMotorControlTester handle
+//
+// This task would need to be activated in RoverMotherbaordMain.cfg gui with high pri
+//
+// BIOS_start in would then init this as the roveMotorControlTester Thread
+//
+// this is a RoverMotherboard.cfg object::roveMotorControlTester::
+//
+// priority 15, vital_flag = t, 2048 persistent private stack
 
-#include "roveIncludes/roveWareHeaders/roveMotorControlTester.h"
+#include "../roveWareHeaders/roveMotorControlTester.h"
 
 Void roveMotorControlTester(UArg arg0, UArg arg1) {
 
@@ -22,8 +31,8 @@ Void roveMotorControlTester(UArg arg0, UArg arg1) {
 
 	int loopCount = 0;
 
-	extern UART_Handle uart0;
-	extern UART_Handle uart1;
+	//extern UART_Handle uart0;
+	//extern UART_Handle uart1;
 	extern UART_Handle uart2;
 	extern UART_Handle uart3;
 	extern UART_Handle uart4;
@@ -53,7 +62,7 @@ Void roveMotorControlTester(UArg arg0, UArg arg1) {
 
 	int configMessageSize = sizeof(configMessageBuffer);
 
-	deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
+	//deviceWrite(ONBOARD_ROVECOMM, configMessageBuffer, configMessageSize);
 
 	while (FOREVER) {
 
@@ -81,7 +90,7 @@ Void roveMotorControlTester(UArg arg0, UArg arg1) {
 		//	#define ONBOARD_ROVECOMM 19
 		//	UART2		U2TX PA7
 
-		deviceWrite(ONBOARD_ROVECOMM, messageBuffer, (messageSize - 1));
+		//deviceWrite(ONBOARD_ROVECOMM, messageBuffer, (messageSize - 1));
 
 		ms_delay(100);
 

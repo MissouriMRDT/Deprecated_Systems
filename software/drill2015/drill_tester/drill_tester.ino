@@ -27,8 +27,7 @@ int DELAY = 4000;
 
 void setup() {
   // Serial with xbee
-  Serial.begin(9600);
-  moboSerial.begin(57600);
+  Serial.begin(57600);
   
   // config motor driver select pins
   pinMode(pin_M1EN, OUTPUT);
@@ -50,27 +49,30 @@ void loop() {
 }
 
 void motor_forw(){
-  motorCmd_M1EN = 1;
-  motorCmd_M1INA = 1;
-  motorCmd_M1INB = 0;
-  motorCmd_M1PWM = 1;
-  write_cmd();
+  Serial.write(FORW);
+//  motorCmd_M1EN = 1;
+//  motorCmd_M1INA = 1;
+//  motorCmd_M1INB = 0;
+//  motorCmd_M1PWM = 1;
+//  write_cmd();
 }
 
 void motor_rev(){
-  motorCmd_M1EN = 1;
-  motorCmd_M1INA = 0;
-  motorCmd_M1INB = 1;
-  motorCmd_M1PWM = 1;
-  write_cmd();
+  Serial.write(REV);
+//  motorCmd_M1EN = 1;
+//  motorCmd_M1INA = 0;
+//  motorCmd_M1INB = 1;
+//  motorCmd_M1PWM = 1;
+//  write_cmd();
 }
 
 void motor_stop(){
-  motorCmd_M1EN = 1;
-  motorCmd_M1INA = 0;
-  motorCmd_M1INB = 0; 
-  motorCmd_M1PWM = 0;
-  write_cmd();
+  Serial.write(STOP);
+//  motorCmd_M1EN = 1;
+//  motorCmd_M1INA = 0;
+//  motorCmd_M1INB = 0; 
+//  motorCmd_M1PWM = 0;
+//  write_cmd();
 }
 
 void write_cmd(){

@@ -7,7 +7,7 @@
 EasyTransfer ET;
 
 // create SoftwareSerial streams
-SoftwareSerial moboSerial(2, 3); // (Rx from mobo, Tx to mobo)
+SoftwareSerial moboSerial(0, 1); // (Rx from mobo, Tx to mobo)
 SoftwareSerial gpsSerial(9, 10); // (Rx from GPS, Tx to GPS)
 
 // create Adafruit_GPS object
@@ -19,7 +19,7 @@ Adafruit_GPS GPS(&gpsSerial);
 
 // Set TOSTRING to 'false' to turn off printing of parsed GPS data in GPS_Data struct to Serial console
 // Set to 'true' to print parsed data to Serial console
-#define TOSTRING false
+#define TOSTRING true
 
 // Collect data from GPS every [data_delay] milliseconds
 #define data_delay 500

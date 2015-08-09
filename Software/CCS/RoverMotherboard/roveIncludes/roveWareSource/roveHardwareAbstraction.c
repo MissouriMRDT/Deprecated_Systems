@@ -48,7 +48,7 @@ int getDeviceJack(int device) {
     case wrist_clock_wise ... drill_forward:
         return ARM_JACK;
 
-    case gps_telem_reply:
+    case gps_telem_reply...sensor_voltage_telem_reply:
         return GPS_ON_MOB;
 
     default:

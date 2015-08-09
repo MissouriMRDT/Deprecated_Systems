@@ -167,7 +167,12 @@
 #define PTZ_Cam_id_9                   119
 #define PTZ_Cam_id_10                  120
 
-#define gps_telem_reply                                 140
+#define gps_telem_reply                140
+#define sensor_heading_telem_reply     141
+#define sensor_ultrasonic_telem_reply  142
+#define sensor_voltage_telem_reply     143
+
+
 
 #define	bms_emergency_command_id					150
 
@@ -217,6 +222,10 @@
 #define gripper_open 208
 
 #define drill_forward 209
+
+// erc drill and actuator
+
+#define erc_drill_actuator 210
 
 // telem_device_id
 /*

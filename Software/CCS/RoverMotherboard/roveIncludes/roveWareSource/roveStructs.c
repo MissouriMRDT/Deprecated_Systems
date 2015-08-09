@@ -55,6 +55,9 @@ int getStructSize(char structId) {
     case sensor_voltage_telem_reply:
                     return sizeof(struct sensor_voltage_telem);
 
+    case all_sensor_telem_reply:
+                        return sizeof(struct all_sensor_telem);
+
 
     } //endswitch:		(structId)
 

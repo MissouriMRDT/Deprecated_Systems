@@ -184,6 +184,23 @@ struct sensor_voltage_telem
 
 }__attribute__((packed));
 
+struct all_sensor_telem
+{
+    uint8_t struct_id;
+    bool fix;
+    uint8_t fix_quality;
+    uint8_t satellites;
+    int32_t latitude_fixed;
+    int32_t longitude_fixed;
+    float altitude;
+    float speed;
+    float angle;
+    float heading;
+    uint8_t sensor;
+    uint8_t distance;
+    int16_t voltage;
+}__attribute__((packed));
+
 // this struct should only be used for type casting as it does not have a corresponding id
 
 // may not work with non void pointer casts

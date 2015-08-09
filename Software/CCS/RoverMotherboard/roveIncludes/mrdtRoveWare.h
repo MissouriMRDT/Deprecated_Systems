@@ -146,8 +146,8 @@
 
 // size in bytes of longest command that can be recieved from the base station
 
-#define MAX_COMMAND_SIZE 30
-#define MAX_TELEM_SIZE 30
+#define MAX_COMMAND_SIZE 40
+#define MAX_TELEM_SIZE  40
 
 // struct id
 
@@ -171,6 +171,8 @@
 #define sensor_heading_telem_reply     141
 #define sensor_ultrasonic_telem_reply  142
 #define sensor_voltage_telem_reply     143
+
+#define all_sensor_telem_reply         144
 
 
 

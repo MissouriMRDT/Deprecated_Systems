@@ -1,0 +1,227 @@
+/*
+ ===============================================================================
+ Name        : main.c
+ Author      : $(author)
+ Version     :
+ Copyright   : $(copyright)
+ Description : main definition
+ ===============================================================================
+ */
+
+#include <stdlib.h>
+#include <string.h>
+#include "board.h"
+#include "LSM9DS1.h"
+
+/*****************************************************************************
+ * Private types/enumerations/variables
+ ****************************************************************************/
+
+#define DEFAULT_I2C          I2C0
+
+#define SPEED_100KHZ         100000
+#define SPEED_400KHZ         400000
+#define I2C_DEFAULT_SPEED    SPEED_400KHZ
+#define I2C_FASTPLUS_BIT     0
+
+#if (I2C_DEFAULT_SPEED > SPEED_400KHZ)
+#undef  I2C_FASTPLUS_BIT
+#define I2C_FASTPLUS_BIT IOCON_FASTI2C_EN
+#endif
+
+static int mode_poll;	// Poll/Interrupt mode flag
+static I2C_ID_T i2cDev = DEFAULT_I2C;	// Currently active I2C device
+
+// SLAVE data
+#define I2C_SLAVE_IOX_ADDR          0x5B
+
+// Xfer structure for slave operations
+static I2C_XFER_T iox_xfer;
+
+// Data area for slave operations
+static uint8_t buffer[2][256];
+static uint8_t iox_data[2];	// PORT0 input port, PORT1 Output port
+static volatile uint32_t tick_cnt;
+
+/*****************************************************************************
+ * Public types/enumerations/variables
+ ****************************************************************************/
+
+/*****************************************************************************
+ * Private functions
+ ****************************************************************************/
+
+static void Init_I2C_PinMux(void) {
+#if (defined(BOARD_NXP_XPRESSO_11U14) || defined(BOARD_NGX_BLUEBOARD_11U24))
+	Chip_SYSCTL_PeriphReset(RESET_I2C0);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 4, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 5, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+#elif (defined(BOARD_NXP_XPRESSO_11C24) || defined(BOARD_MCORE48_1125))
+	Chip_SYSCTL_PeriphReset(RESET_I2C0);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_4, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_5, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+#else
+#error "No Pin Muxing defined for I2C operation"
+#endif
+}
+
+// State machine handler for I2C0 and I2C1
+static void i2c_state_handling(I2C_ID_T id) {
+	if (Chip_I2C_IsMasterActive(id)) {
+		Chip_I2C_MasterStateHandler(id);
+	} else {
+		Chip_I2C_SlaveStateHandler(id);
+	}
+}
+
+// Set I2C mode to polling/interrupt
+static void i2c_set_mode(I2C_ID_T id, int polling) {
+	if (!polling) { // Set mode to interrupt
+		mode_poll &= ~(1 << id);
+		Chip_I2C_SetMasterEventHandler(id, Chip_I2C_EventHandler);
+		NVIC_EnableIRQ(I2C0_IRQn);
+	} else { // Set mode to polling
+		mode_poll |= 1 << id;
+		NVIC_DisableIRQ(I2C0_IRQn);
+		Chip_I2C_SetMasterEventHandler(id, Chip_I2C_EventHandlerPolling);
+	}
+}
+
+// Initialize the I2C bus
+static void i2c_app_init(I2C_ID_T id, int speed) {
+	Init_I2C_PinMux();
+
+	// Initialize I2C
+	Chip_I2C_Init(id);
+	Chip_I2C_SetClockRate(id, speed);
+
+	// Set default mode to interrupt
+	i2c_set_mode(id, 0);
+}
+
+/*--------- IO Expansion slave device implementation ----------*/
+
+// Update IN/OUT port states to real devices
+void i2c_iox_update_regs(int ops) {
+	if (ops & 1) {	// update out port
+		Board_LED_Set(0, iox_data[1] & 1);
+		Board_LED_Set(1, iox_data[1] & 2);
+		Board_LED_Set(2, iox_data[1] & 4);
+		Board_LED_Set(3, iox_data[1] & 8);
+	}
+
+#ifndef CHIP_LPC11CXX
+	if (ops & 2) {	// update in port
+		iox_data[0] = (uint8_t) Buttons_GetStatus();
+	}
+#endif
+}
+
+// Slave event handler for simulated EEPROM
+static void i2c_iox_events(I2C_ID_T id, I2C_EVENT_T event) {
+	switch (event) {
+	case I2C_EVENT_DONE:
+		iox_xfer.rxBuff = &iox_data[1];
+		iox_xfer.rxSz = sizeof(iox_data);
+		iox_xfer.txBuff = (const uint8_t *) iox_data;
+		iox_xfer.txSz = sizeof(iox_data) + 1;
+		break;
+
+	case I2C_EVENT_SLAVE_RX:
+		iox_xfer.rxBuff = &iox_data[1];
+		iox_xfer.rxSz = sizeof(iox_data);
+		i2c_iox_update_regs(1);
+		break;
+
+	case I2C_EVENT_SLAVE_TX:
+		if (iox_xfer.txSz == 1) {
+			iox_xfer.txBuff = (const uint8_t *) iox_data[0];
+			iox_xfer.txSz = sizeof(iox_data) + 1;
+		}
+		break;
+	}
+}
+
+// Simulate an IO Expansion slave device
+static void i2c_iox_init(I2C_ID_T id) {
+#ifndef CHIP_LPC11CXX
+	Board_Buttons_Init();
+#endif
+	iox_xfer.slaveAddr = (I2C_SLAVE_IOX_ADDR << 1);
+	i2c_iox_events(id, I2C_EVENT_DONE);
+	Chip_I2C_SlaveSetup(id, I2C_SLAVE_1, &iox_xfer, i2c_iox_events, 0);
+	i2c_iox_update_regs(3);
+	// Setup SysTick timer to get the button status updated at regular intervals
+	SysTick_Config(Chip_Clock_GetSystemClockRate() / 50);
+}
+
+/*-------------------- End of IO Expansion slave device ----------------------*/
+
+/*****************************************************************************
+ * Public functions
+ ****************************************************************************/
+
+/**
+ * @brief	SysTick Interrupt Handler
+ * @return	Nothing
+ * @note	Systick interrupt handler updates the button status
+ */
+void SysTick_Handler(void) {
+	i2c_iox_update_regs(2);
+	tick_cnt++;
+}
+
+/**
+ * @brief	I2C Interrupt Handler
+ * @return	None
+ */
+void I2C_IRQHandler(void) {
+	i2c_state_handling(I2C0);
+}
+
+/**
+ * @brief	Main program body
+ * @return	int
+ */
+int main(void) {
+	static I2C_XFER_T xfer;
+	LSM9DS1 dof(I2C_SLAVE_AG_ADDR, I2C_SLAVE_M_ADDR);
+	float gx, gy, gz, ax, ay, az, mx, my, mz;
+
+	// Read clock settings and update SystemCoreClock variable
+	SystemCoreClockUpdate();
+	// Set up and initialize all required blocks and
+	// functions related to the board hardware
+	Board_Init();
+	// Set the LED to the state of "On"
+	Board_LED_Set(0, true);
+	i2c_app_init(I2C0, I2C_DEFAULT_SPEED);
+
+	// Simulate an IO Expansion slave in I2C0
+	i2c_iox_init(DEFAULT_I2C);
+
+	// Initialize LSM9DS1 object
+	uint16_t status = dof.begin(dof.G_SCALE_245DPS, dof.A_SCALE_2G, dof.M_SCALE_4GS,
+			dof.G_ODR_119_BW_14, dof.A_ODR_50, dof.M_ODR_40);
+
+	// Wait until successful communication
+	while (status != WHO_AM_I) {
+	};
+
+	// Calibrate sensors
+	dof.calibrate();
+
+	while (1) { // do stuff
+		dof.update(gx, gy, gz, ax, ay, az, mx, my, mz);
+	}
+
+	Chip_I2C_DeInit(I2C0);
+
+	// Force the counter to be placed into memory
+	volatile static int i = 0;
+	// Enter an infinite loop, just incrementing a counter
+	while (1) {
+		i++;
+	}
+	return 0;
+}

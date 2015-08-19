@@ -1,0 +1,32 @@
+08:31:57 **** Build of configuration Debug for project headingsensor-v1 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+../src/LSM9DS1.cpp: In member function 'unsigned char LSM9DS1::agReadByte(unsigned char)':
+../src/LSM9DS1.cpp:595:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+../src/LSM9DS1.cpp: In member function 'unsigned char LSM9DS1::mReadByte(unsigned char)':
+../src/LSM9DS1.cpp:613:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Finished building: ../src/LSM9DS1.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/chip.h:232:0,
+                 from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc/board.h:35,
+                 from ../src/main.cpp:18:
+C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+../src/main.cpp:24:17: fatal error: i2c.h: No such file or directory
+ #include "i2c.h"
+                 ^
+compilation terminated.
+make: *** [src/main.o] Error 1
+
+08:31:58 Build Finished (took 431ms)
+

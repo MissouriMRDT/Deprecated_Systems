@@ -1,0 +1,27 @@
+15:42:18 **** Incremental Build of configuration Debug for project helloworld ****
+make -r all 
+Building file: ../src/helloworld.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -MT"src/helloworld.d" -o "src/helloworld.o" "../src/helloworld.cpp"
+In file included from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/chip.h:232:0,
+                 from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc/board.h:35,
+                 from ../src/helloworld.cpp:15:
+C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../src/helloworld.cpp
+ 
+Building target: helloworld.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="helloworld.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "helloworld_Debug.ld" -o "helloworld.axf"  ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/helloworld.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: helloworld.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "helloworld.axf"; # arm-none-eabi-objcopy -v -O binary "helloworld.axf" "helloworld.bin" ; # checksum -p LPC11C24_301 -d "helloworld.bin";
+   text	   data	    bss	    dec	    hex	filename
+   2788	      0	     32	   2820	    b04	helloworld.axf
+ 
+
+15:42:18 Build Finished (took 430ms)
+

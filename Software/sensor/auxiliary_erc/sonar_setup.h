@@ -3,6 +3,8 @@
 
 #include "auxiliary_erc.h"
 
+#define PULSE_DELAY 1 // ms to hold pulse pin high to prompt for reading
+
 struct Sonar_Data{
   uint8_t struct_id;
   uint8_t sonar_id;
@@ -13,20 +15,27 @@ Sonar_Data son0_data;
 Sonar_Data son1_data;
 Sonar_Data son2_data;
 
-SoftwareSerial sonar0_ser(SON0_RX, SON0_TX);
-SoftwareSerial sonar1_ser(SON1_RX, SON1_TX);
-SoftwareSerial sonar2_ser(SON2_RX, SON2_TX);
+SoftwareSerial son0_ser(SON0_RX, SON0_TX);
+SoftwareSerial son1_ser(SON1_RX, SON1_TX);
+SoftwareSerial son2_ser(SON2_RX, SON2_TX);
 
 void sonar_setup(Sonar_Data &son0_data, Sonar_Data &son1_data, Sonar_Data &son2_data);
 void sonar_setup_solo(Sonar_Data &sonar_data, uint8_t sonar_id);
 void sonar_update(Sonar_Data &son0_data, Sonar_Data &son1_data, Sonar_Data &son2_data);
 void sonar_update_solo(Sonar_Data &sonar_data);
-int8_t sonar_read(uint8_t sonar_id);
-int8_t sonar_read_solo(int pulse_pin, SoftwareSerial &ser);
+uint8_t sonar_read(uint8_t sonar_id);
+uint8_t sonar_read_solo(int pulse_pin, SoftwareSerial &ser);
 void sonar_send();
 
 void sonar_setup(Sonar_Data &son0_data, Sonar_Data &son1_data, Sonar_Data &son2_data){
-  //setting default values for sonar sensor data
+//  digitalWrite(SON0_PULSE, LOW);
+//  digitalWrite(SON1_PULSE, LOW);
+//  digitalWrite(SON2_PULSE, LOW);
+  
+  son0_ser.begin(9600); delay(10);
+  son1_ser.begin(9600); delay(10);
+  son2_ser.begin(9600); delay(10);
+  
   sonar_setup_solo(son0_data, 0);
   sonar_setup_solo(son1_data, 1);
   sonar_setup_solo(son2_data, 2);
@@ -35,30 +44,10 @@ void sonar_setup(Sonar_Data &son0_data, Sonar_Data &son1_data, Sonar_Data &son2_
 }
 
 void sonar_setup_solo(Sonar_Data &sonar_data, uint8_t sonar_id){
-  delay(500);
-  
-  digitalWrite(SON0_PULSE, LOW);
-  digitalWrite(SON1_PULSE, LOW);
-  digitalWrite(SON2_PULSE, LOW);
-  
   sonar_data.struct_id = SONAR_STRUCT_ID;
   sonar_data.sonar_id = sonar_id;
   sonar_data.dist = 0;
   
-  switch(sonar_id){
-    case 0:
-      sonar0_ser.begin(9600);
-      break;
-    case 1:
-      sonar1_ser.begin(9600);
-      break;
-    case 2:
-      sonar2_ser.begin(9600);
-      break;
-    default:
-      break;
-  }
-      
   return;
 }
 
@@ -81,18 +70,18 @@ void sonar_update_solo(Sonar_Data &sonar_data){
   return;
 }
 
-int8_t sonar_read(uint8_t sonar_id){
-  int8_t data;
+uint8_t sonar_read(uint8_t sonar_id){
+  uint8_t data;
   
   switch(sonar_id){
     case 0:
-      data = sonar_read_solo(SON0_PULSE, sonar0_ser);
+      data = sonar_read_solo(SON0_PULSE, son0_ser);
       break;
     case 1:
-      data = sonar_read_solo(SON1_PULSE, sonar1_ser);
+      data = sonar_read_solo(SON1_PULSE, son1_ser);
       break;
     case 2:
-      data = sonar_read_solo(SON2_PULSE, sonar2_ser);
+      data = sonar_read_solo(SON2_PULSE, son2_ser);
       break;
     default:
       break;
@@ -101,25 +90,30 @@ int8_t sonar_read(uint8_t sonar_id){
   return data;
 }
 
-int8_t sonar_read_solo(int pulse_pin, SoftwareSerial &ser){
+uint8_t sonar_read_solo(int pulse_pin, SoftwareSerial &ser){
   uint8_t reading[5];
-  int8_t value = 0;
+  uint8_t value = 0;
+  char c = 0;
   
-  digitalWrite(pulse_pin, HIGH);
-  delay(pulse_delay);
-  digitalWrite(pulse_pin, LOW);
-  delay(send_delay);
+//  digitalWrite(pulse_pin, HIGH);
+//  delay(PULSE_DELAY);
+//  digitalWrite(pulse_pin, LOW);
+//  delay(send_delay);
+  
+  c = ser.read();
+  Serial.println(c);
+  return 0;
   
 //  for(int i=0; i<5; i++){
 //    reading[i] = ser.read();
 //  }
-  
+//  
 //  if(reading[0] != 'R'){
 //    return -1;
 //  }
-  
-  value = ( ( reading[1] - 48 ) * 100 ) + ( ( reading[2] - 48 ) * 10 ) + ( reading[3] - 48 );
-  return value;
+//  
+//  value = ( ( reading[1] - 48 ) * 100 ) + ( ( reading[2] - 48 ) * 10 ) + ( reading[3] - 48 );
+//  return value;
 }
 
 #endif

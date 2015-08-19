@@ -40,7 +40,7 @@ void setup()
 }
 
 void loop(){
-//  update_data(GPS, gps_data, me, imu_data, son0_data, son1_data, son2_data, volt_data);
+  update_data(GPS, gps_data, me, imu_data, son0_data, son1_data, son2_data, volt_data);
   combine_data(sensor_data, gps_data, imu_data, son0_data, son1_data, son2_data, volt_data);
   send_data(ET);
   if(PRINT_TO_SERIAL)

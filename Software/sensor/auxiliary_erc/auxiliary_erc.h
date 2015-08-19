@@ -25,10 +25,10 @@ volt ref pin ----- GND/AREF?
 //#include "Arduino.h"
 
 // enable sensors
-#define ENABLE_GPS    true
+#define ENABLE_GPS    false
 #define ENABLE_IMU    false
 #define ENABLE_SONAR  true
-#define ENABLE_VOLT   true
+#define ENABLE_VOLT   false
 
 // sensor struct ids
 #define SENSOR_STRUCT_ID     144;
@@ -38,31 +38,32 @@ volt ref pin ----- GND/AREF?
 #define VOLT_STRUCT_ID       143;
 
 // Arduino to sensor pinout
-#define DUMMY_PIN   10    // dummy pin - DNC
 #define MOBO_RX      5    // brd <- mobo, software serial digital pin
 #define MOBO_TX     13    // brd -> mobo, software serial digital pin
-#define GPS_RX       2    // brd <- gps, software serial digital pin
-#define GPS_TX       0    // brd -> gps, software serial digital pin
+#define GPS_RX       7    // brd <- gps, software serial digital pin
+#define GPS_TX      11   // brd -> gps, software serial digital pin
+#define IMU_SDA      2
+#define IMU_SCL      3
 #define SON0_TX      DUMMY_PIN 
-#define SON0_RX      1    // brd <- sonar, software serial digital pin
-#define SON0_PULSE   4    // brd -> sonar, digital pin
+#define SON0_RX      0    // brd <- sonar, software serial digital pin
+#define SON0_PULSE   1    // brd -> sonar, digital pin
 #define SON1_TX      DUMMY_PIN     
 #define SON1_RX     12    // brd <- sonar, software serial digital pin
 #define SON1_PULSE   6    // brd -> sonar, digital pin
 #define SON2_TX      DUMMY_PIN    
 #define SON2_RX      8    // brd <- sonar, software serial digital pin
 #define SON2_PULSE   9    // brd -> sonar, digital pin
-#define VOLT_PIN     0    // brd <- voltmeter, analog pin
+#define VOLT_PIN    A0    // brd <- voltmeter, analog pin
+#define DUMMY_PIN    4    // dummy pin - DNC - purpose is to create one-way software serial
 
 //#define PRINT
 #define send_delay 100 // ms between transmitting ET data
-#define pulse_delay 200 // ms to hold pulse pin high to prompt for reading
 
 // gps-specific setup
 // Set GPSECHO to 'false' to turn off echoing the GPS data to the Serial console
 // Set to 'true' if you want to debug and listen to the raw GPS sentences
 #define GPSECHO false
-#define PRINT_TO_SERIAL true
+#define PRINT_TO_SERIAL false
 
 struct Sensor_Data
 {

@@ -1,31 +1,33 @@
-- Name: Sarah Ward
+- Name: Alyssa McCarthy
   Position: Chief Executive Officer
   Abbreviation: CEO
   SubTeams: Public Relations
   Image: img/ceo.jpg
   Logo: fa-group
   Inquiries: Sponsorships, Membership, General
-  Email: sewt33@mst.edu
+  Email: Alyssa.McCarthy@mst.edu
 
-- Name: Josh Jetter
+- Name: Katelyn Brinker
   Position: Chief Technical Officer
   Abbreviation: CTO
   SubTeams: Electrical, Mechanical, Science, Telemetry/Controls
   Image: img/cto.jpg
   Logo: fa-cogs
   Inquiries: Technical
-  Email: jpjwxc@mst.edu
+  Email: Katelyn.Brinker@mst.edu
 
-- Name: Andrew Willard
+- Name: Spencer Vogel
   Position: Chief Financial Officer
   Abbreviation: CFO
   SubTeams: Procurement, Inventory
   Image: img/cfo.jpg
   Logo: fa-money
+  Email: Vogel.Spencer@mst.edu
 
-- Name: Hailey Tipton
+- Name: Brianna De Groot
   Position: Chief Administrative Officer
   Abbreviation: CAO
   SubTeams:
   Image: img/cao.jpg
   Logo: fa-file-o
+  Email: bedky2@mst.edu

@@ -1,7 +1,7 @@
 - Name: Alyssa McCarthy
   Position: Chief Executive Officer
   Abbreviation: CEO
-  SubTeams: Public Relations
+  SubTeams: Public Relations, Outreach
   Image: img/ceo.jpg
   Logo: fa-group
   Inquiries: Sponsorships, Membership, General
@@ -10,7 +10,7 @@
 - Name: Katelyn Brinker
   Position: Chief Technical Officer
   Abbreviation: CTO
-  SubTeams: Electrical, Mechanical, Science, Telemetry/Controls
+  SubTeams: Power, Mechanical, Science, Telemetry and Controls
   Image: img/cto.jpg
   Logo: fa-cogs
   Inquiries: Technical

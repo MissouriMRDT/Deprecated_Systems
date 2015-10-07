@@ -9,6 +9,7 @@ $(GEN_CMDS__FLAG) \
 "./roveBIOS_Init.obj" \
 "./roveDeviceTemplate_Thread.obj" \
 "./roveWare/roveTCPSocket.obj" \
+"./roveWare/roveWare_NewMemberUtils.obj" \
 "./roveWare/roveWare_tivaWrappers.obj" \
 "./roveTargetConfigs/EK_TM4C1294XL.obj" \
 "../roveTargetConfigs/EK_TM4C1294XL.cmd" \
@@ -116,32 +117,32 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-roveDeviceTemplate.out \
+HorizonDeviceTemplate.out \
 
 EXE_OUTPUTS__QUOTED += \
-"roveDeviceTemplate.out" \
+"HorizonDeviceTemplate.out" \
 
 BIN_OUTPUTS += \
-roveDeviceTemplate.hex \
+HorizonDeviceTemplate.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"roveDeviceTemplate.hex" \
+"HorizonDeviceTemplate.hex" \
 
 
 # All Target
-all: roveDeviceTemplate.out
+all: HorizonDeviceTemplate.out
 
 # Tool invocations
-roveDeviceTemplate.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+HorizonDeviceTemplate.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"roveDeviceTemplate.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="roveDeviceTemplate_linkInfo.xml" --rom_model -o "roveDeviceTemplate.out" $(ORDERED_OBJS)
+	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"HorizonDeviceTemplate.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="HorizonDeviceTemplate_linkInfo.xml" --rom_model -o "HorizonDeviceTemplate.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-roveDeviceTemplate.hex: $(EXE_OUTPUTS)
+HorizonDeviceTemplate.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: ARM Hex Utility'
-	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armhex"  -o "roveDeviceTemplate.hex" $(EXE_OUTPUTS__QUOTED)
+	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armhex"  -o "HorizonDeviceTemplate.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -149,8 +150,8 @@ roveDeviceTemplate.hex: $(EXE_OUTPUTS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "roveBIOS_Init.pp" "roveDeviceTemplate_Thread.pp" "roveWare/roveTCPSocket.pp" "roveWare/roveWare_tivaWrappers.pp" "roveTargetConfigs/EK_TM4C1294XL.pp" 
-	-$(RM) "roveBIOS_Init.obj" "roveDeviceTemplate_Thread.obj" "roveWare/roveTCPSocket.obj" "roveWare/roveWare_tivaWrappers.obj" "roveTargetConfigs/EK_TM4C1294XL.obj" 
+	-$(RM) "roveBIOS_Init.pp" "roveDeviceTemplate_Thread.pp" "roveWare/roveTCPSocket.pp" "roveWare/roveWare_NewMemberUtils.pp" "roveWare/roveWare_tivaWrappers.pp" "roveTargetConfigs/EK_TM4C1294XL.pp" 
+	-$(RM) "roveBIOS_Init.obj" "roveDeviceTemplate_Thread.obj" "roveWare/roveTCPSocket.obj" "roveWare/roveWare_NewMemberUtils.obj" "roveWare/roveWare_tivaWrappers.obj" "roveTargetConfigs/EK_TM4C1294XL.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -46,7 +46,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
         while (rove_tcp_socket.connected_flag == CONNECTED) {
 
-            printf("while CONNECTED with socket_fd: %d \n\n" , rove_tcp_socket.socket_fd);
+            //printf("while CONNECTED with socket_fd: %d \n\n" , rove_tcp_socket.socket_fd);
 
             command_msg.post_recv_byte_cnt = roveHorizon_Recv(&rove_tcp_socket, &command_msg, command_msg_buffer);
 

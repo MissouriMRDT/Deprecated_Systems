@@ -22,9 +22,6 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     //init Horizon tcp socket
     rove_tcp_socket rove_tcp_socket;
 
-    //TODO dbg
-    rove_tcp_socket.dbg_recv_cnt = 0;
-
     //handle tcp connection state
     rove_tcp_socket.connected_flag = false;
 
@@ -59,12 +56,12 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 
 
-///////////////BEGIN HORIZON SEND COMMANDS//////////////
+///////////////BEGIN HORIZON SEND COMMANDS/////////
 
 
 
 
-//                rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
+                rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
 
             }//endif
 

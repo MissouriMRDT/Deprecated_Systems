@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 //CCS TI config
 #include <xdc/std.h>
@@ -33,25 +34,22 @@
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 #include <ti/drivers/Watchdog.h>
-
+/*
 //TI BIOS hardware drivers
-#include "driverlib/gpio.h"
-#include "driverlib/uart.h"
-#include "driverlib/pwm.h"
+//#include "driverlib/gpio.h"
+//#include "driverlib/uart.h"
+//#include "driverlib/pwm.h"
 
 //CCS TI TIVA NDK BSD support
-//#include <sys/socket.h>
-
-//TI TIVA Mailbox() BIOS software routine support
-//#include <ti/sysbios/knl/Mailbox.h>
-
+#include <sys/socket.h>
+*/
 //global Watchdog
 //Watchdog_Handle watchdog;
 
 //Tiva HW IO Module Initialization Wrappers
-PWM_Handle rovePWM_Init(PWM_Handle pwm_index, uint16_t period_in_microseconds);
+PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds);
 
-UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate);//TODO
+UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate);
 
 //global UARTs
 
@@ -77,7 +75,7 @@ PWM_Handle pwm_6;
 
 
 //Tiva HW IO Module Initialization Wrappers
-PWM_Handle rovePWM_Init(PWM_Handle pwm_index, uint16_t period_in_microseconds) {
+PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwm_handle;
 
@@ -86,7 +84,7 @@ PWM_Handle rovePWM_Init(PWM_Handle pwm_index, uint16_t period_in_microseconds) {
     PWM_Params_init(&pwmParams);
 
     pwmParams.period = period_in_microseconds;
-    pwm_handle = (PWM_Handle)PWM_open(pwm_index, &pwmParams);
+    pwm_handle = PWM_open(pwm_index, &pwmParams);
 
     if (pwm_handle == NULL) {
 

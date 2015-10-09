@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 //CCS TI config
 #include <xdc/std.h>
@@ -30,6 +31,8 @@
 
 //CCS TI NDK BSD support
 #include <sys/socket.h>
+
+#include <arpa/inet.h>
 
 //hardcode the timeout in seconds
 #define TCP_SOCKET_TIMEOUT_SEC 3

@@ -30,8 +30,14 @@
 #ifndef ROVEDEVICETEMPLATETHREAD_H_
 #define ROVEDEVICETEMPLATETHREAD_H_
 
-#include "roveWare/roveTCPSocket.h"
+//TI TIVA Mailbox() BIOS software routine support
+//#include <ti/sysbios/knl/Mailbox.h>
 
+//TODO wtf
+//#include <ti/ndk/inc/os/osif.h>
+
+//MRDT definitions
+#include "roveWare/roveTCPSocket.h"
 #include "roveWare/roveWare_tivaWrappers.h"
 
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg

@@ -84,15 +84,6 @@ int16_t roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int16_
 
 int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer) {
 
-   //TODO dbg
-    printf("\n\nBEGIN roveHorizon_Recv \n\n");
-    rove_tcp_socket->dbg_recv_cnt = ( (rove_tcp_socket->dbg_recv_cnt) + 1);
-
-    //TODO dbg
-    printf("ENTER roveHorizon_Recv message_id \n");
-    rovePrintf_MessageCfg(recv_cfg);
-    rovePrintf_RoveTCPSocket(rove_tcp_socket );
-
     if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->message_id), SINGLE_BYTE)) < ZERO_BYTES) {
 
         rove_tcp_socket->error_code = fdError();
@@ -105,14 +96,7 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
 
     }//endif
 
-    //TODO dbg
-    printf("ENTER roveHorizon_Recv struct_id \n");
-    rovePrintf_MessageCfg(recv_cfg);
-    rovePrintf_RoveTCPSocket(rove_tcp_socket );
-
     if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->struct_id), SINGLE_BYTE) ) < ZERO_BYTES){
-
-        //recv_cfg->struct_id = recv_buffer[0];
 
         rove_tcp_socket->error_code = fdError();
         roveCatch_NdkErrors(rove_tcp_socket->error_code);
@@ -124,11 +108,6 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
 
     }//endif
 
-    //TODO dbg
-    printf("ENTER roveGetStructId_ByteCnt struct_id \n");
-    rovePrintf_MessageCfg(recv_cfg);
-    rovePrintf_RoveTCPSocket(rove_tcp_socket );
-
     //get the byte count for the message (- SINGLE_BYTE work around for old command protocol)
     recv_cfg->to_recv_byte_cnt = roveGetStructId_ByteCnt((char)recv_cfg->struct_id) - SINGLE_BYTE;
 
@@ -139,11 +118,6 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
         return STRUCTID_BYTECNT_ERR;
 
     }else{
-
-        //TODO dbg
-        printf("ENTER roveHorizon_Recv roveTCP_Recv \n\n");
-        rovePrintf_MessageCfg(recv_cfg);
-        rovePrintf_RoveTCPSocket(rove_tcp_socket );
 
         //recv_buffer[0] workaround for old command protocol
         recv_buffer[0] = recv_cfg->struct_id;
@@ -162,11 +136,6 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
             return DISCONNECTED_SOCKET;
 
         }//endif
-
-        //TODO dbg
-        printf("RETURN roveHorizon_Recv \n\n");
-        rovePrintf_MessageCfg(recv_cfg);
-        rovePrintf_RoveTCPSocket(rove_tcp_socket);
 
         printf("\n\nFINISH roveHorizon_Recv \n\n");
 
@@ -212,24 +181,23 @@ void rovePrintf_MessageCfg(message_cfg* message_cfg) {
 
     printf("post_recv_byte_cnt : %d\n\n", message_cfg->post_recv_byte_cnt);
 
-    //printf("post_recv_byte_cnt : %d\n\n to_send_byte_cnt : %d\n\n post_send_byte_cnt : %d\n\n", message_cfg->post_recv_byte_cnt, message_cfg->to_send_byte_cnt, message_cfg->post_send_byte_cnt );
-
 }//end fnctn void rovePrintf_MessageCfg
 
 void rovePrintf_RoveTCPSocket(rove_tcp_socket* rove_tcp_socket ) {
 
-    //char temp_ntop_buffer[ sizeof(struct in_addr) ];
+    /*TODO how to access human readable printf IP address and PORT
+    char temp_ntop_buffer[ sizeof(struct in_addr) ];
 
-    //inet_ntop(AF_INET, (void*)&(rove_tcp_socket->server_addr.sin_addr), temp_ntop_buffer, sizeof(struct in_addr) );
+    inet_ntop(AF_INET, (void*)&(rove_tcp_socket->server_addr.sin_addr), temp_ntop_buffer, sizeof(struct in_addr) );
 
-    //printf("socket_fd : %d\n\n", rove_tcp_socket->socket_fd );
+    printf("socket_fd : %d\n\n", rove_tcp_socket->socket_fd );
 
-    //printf("sin_addr : ");
+    printf("sin_addr : ");
 
-    //rovePrintf_ByteBuffer(temp_ntop_buffer, sizeof(struct in_addr) );
+    rovePrintf_ByteBuffer(temp_ntop_buffer, sizeof(struct in_addr) );
 
-    //printf("sin_port : %d\n\n tcp_timeout : %d\n\n", ntohs(rove_tcp_socket->server_addr.sin_port), rove_tcp_socket->tcp_timeout );
-
+    printf("sin_port : %d\n\n tcp_timeout : %d\n\n", rove_tcp_socket->server_addr.sin_port, rove_tcp_socket->tcp_timeout );
+*/
     printf("connected_flag : %d error_code : %d roveRecv Count : %d\n\n", rove_tcp_socket->connected_flag, rove_tcp_socket->error_code, rove_tcp_socket->dbg_recv_cnt);
 
 }//end fnctn void rovePrintf_RoveTCPSocket

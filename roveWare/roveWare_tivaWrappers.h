@@ -10,9 +10,10 @@
 #define ROVEWARETIVAWRAPPERS_H_
 
 //C lib
-#include <stdint.h>
-#include <string.h>
-#include <stdbool.h>
+//#include <stdint.h>
+//#include <string.h>
+//#include <stdbool.h>
+#include <stdio.h>
 
 //CCS TI config
 #include <xdc/std.h>
@@ -30,29 +31,13 @@
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
-
+/*
 //TI BIOS hardware drivers//TODO
 #include "driverlib/gpio.h"
 #include "driverlib/uart.h"
 #include "driverlib/pwm.h"
 #include "inc/hw_memmap.h"
-
-//defines target device
-
-//#include "tiHardware/Board.h"
-
-//CCS TI NDK BSD support
-
-//#include <sys/socket.h>
-
-//TI Mailbox() BIOS software routine support
-
-//#include <ti/sysbios/knl/Mailbox.h>
-//#include <ti/drivers/Watchdog.h>
-
-//TI target device
-//#include "HardwareResources/Board.h"
-
+*/
 // mrdt::rovWare
 
 #include "roveWare_tivaWrappers.h"

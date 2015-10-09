@@ -6,8 +6,8 @@
 //
 // mrdt::rovWare
 
-#ifndef ROVETCPSOCKET_H_
-#define ROVETCPSOCKET_H_
+#ifndef ROVEWARETCPSOCKET_H_
+#define ROVEWARETCPSOCKET_H_
 
 #include "roveWare_tivaWrappers.h"
 
@@ -31,7 +31,6 @@
 
 //CCS TI NDK BSD support
 #include <sys/socket.h>
-
 #include <arpa/inet.h>
 
 //hardcode the timeout in seconds
@@ -106,7 +105,7 @@ void rovePrintf_MessageCfg(message_cfg* message_cfg);
 
 void rovePrintf_RoveTCPSocket(rove_tcp_socket* rove_tcp_socket );
 
-/*?
+/*
 extern int    fdStatus( SOCKET s, int request, int *results );
 #define FDSTATUS_TYPE           0   // get socket type
 #define FDSTATUS_TYPE_SOCKET    1
@@ -115,4 +114,4 @@ extern int    fdStatus( SOCKET s, int request, int *results );
 #define FDSTATUS_SEND           2   // get socket snd status
 */
 
-#endif /* ROVETCPSOCKET_H_ */
+#endif //ROVEWARETCPSOCKET_H_

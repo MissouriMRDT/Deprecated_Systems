@@ -8,8 +8,8 @@ ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
 "./roveBIOS_Init.obj" \
 "./roveDeviceTemplate_Thread.obj" \
-"./roveWare/roveTCPSocket.obj" \
 "./roveWare/roveWare_NewMemberUtils.obj" \
+"./roveWare/roveWare_TCPSocket.obj" \
 "./roveWare/roveWare_tivaWrappers.obj" \
 "./roveTargetConfigs/EK_TM4C1294XL.obj" \
 "../roveTargetConfigs/EK_TM4C1294XL.cmd" \
@@ -150,8 +150,8 @@ roveDeviceTemplate.hex: $(EXE_OUTPUTS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "roveBIOS_Init.pp" "roveDeviceTemplate_Thread.pp" "roveWare/roveTCPSocket.pp" "roveWare/roveWare_NewMemberUtils.pp" "roveWare/roveWare_tivaWrappers.pp" "roveTargetConfigs/EK_TM4C1294XL.pp" 
-	-$(RM) "roveBIOS_Init.obj" "roveDeviceTemplate_Thread.obj" "roveWare/roveTCPSocket.obj" "roveWare/roveWare_NewMemberUtils.obj" "roveWare/roveWare_tivaWrappers.obj" "roveTargetConfigs/EK_TM4C1294XL.obj" 
+	-$(RM) "roveBIOS_Init.pp" "roveDeviceTemplate_Thread.pp" "roveWare/roveWare_NewMemberUtils.pp" "roveWare/roveWare_TCPSocket.pp" "roveWare/roveWare_tivaWrappers.pp" "roveTargetConfigs/EK_TM4C1294XL.pp" 
+	-$(RM) "roveBIOS_Init.obj" "roveDeviceTemplate_Thread.obj" "roveWare/roveWare_NewMemberUtils.obj" "roveWare/roveWare_TCPSocket.obj" "roveWare/roveWare_tivaWrappers.obj" "roveTargetConfigs/EK_TM4C1294XL.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

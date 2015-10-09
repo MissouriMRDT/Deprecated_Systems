@@ -6,7 +6,7 @@
 //
 // mrdt::rovWare
 
-#include "roveTCPSocket.h"
+#include "roveWare_TCPSocket.h"
 
 int16_t roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 

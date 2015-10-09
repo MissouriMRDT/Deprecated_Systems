@@ -37,8 +37,8 @@
 //#include <ti/ndk/inc/os/osif.h>
 
 //MRDT definitions
-#include "roveWare/roveTCPSocket.h"
-#include "roveWare/roveWare_tivaWrappers.h"
+#include "roveWare/roveWare_TCPSocket.h"
+#include "roveWare/roveWare_NewMemberUtils.h"
 
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 void roveDeviceTemplateThread(UArg arg0, UArg arg1);

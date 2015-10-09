@@ -40,8 +40,6 @@
 */
 // mrdt::rovWare
 
-#include "roveWare_tivaWrappers.h"
-
 //MRDT shorthand
 #define ERROR -1
 
@@ -81,10 +79,6 @@ struct test_device_struct {
 //hardware parameters
 
 #define TEST_DEVICE_PIN 0
-
-//roveWare Servo Control Routines
-
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
 
 //Tiva Get/Set Wrappers
 

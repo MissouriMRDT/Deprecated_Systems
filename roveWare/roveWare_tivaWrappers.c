@@ -11,36 +11,6 @@
 #include "roveWare_tivaWrappers.h"
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
-
-    int16_t microseconds;
-
-    //scale down to the final range to be between 1000 and 2000
-    microseconds = speed / 2;
-
-    //offset so that 1500 is neutral
-    microseconds += 1500;
-
-    //protect the upper bound on motor pulse width
-    if (microseconds > 2000) {
-
-        microseconds = 2000;
-
-    }//endif
-
-    //protect the lower bound on motor pulse width
-    if (microseconds < 1000) {
-
-        microseconds = 1000;
-
-    }//endif
-
-    rovePWM_Write(motor, microseconds);
-
-    return;
-
-} //endfnct roveDriveMotor_ByPWM
-
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
 
     PWM_setDuty(tiva_pin, duty_in_microseconds);

@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker Unix v5.1.6                    
 ******************************************************************************
->> Linked Fri Oct  9 10:48:21 2015
+>> Linked Fri Oct  9 11:07:40 2015
 
 OUTPUT FILE NAME:   <roveDeviceTemplate.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00011175
@@ -64,7 +64,7 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   0000390c    000002d4     rtsv7M4_T_le_v4SPD16_eabi.lib : trgdrv.obj (.text)
                   00003be0    000002c0     sysbios.aem4f : BIOS.obj (.text:ti_sysbios_knl_Task_Instance_finalize__E)
                   00003ea0    00000274     stk.aem4f : sock.oem4f (.text:SockSet)
-                  00004114    0000026d     roveTCPSocket.obj (.text:roveHorizon_Recv)
+                  00004114    0000026d     roveWare_TCPSocket.obj (.text:roveHorizon_Recv)
                   00004381    00000001     --HOLE-- [fill = 0]
                   00004382    00000002     hal_userled_stub.aem4f : llled.oem4f (.text:LED_TOGGLE)
                   00004384    0000024c     stk.aem4f : ipfrag.oem4f (.text:IPReasm)
@@ -123,11 +123,11 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   00009014    00000120     sysbios.aem4f : BIOS.obj (.text:ti_sysbios_knl_Swi_run__I)
                   00009134    00000120     ti.targets.arm.rtsarm.aem4f : Error.oem4f (.text:xdc_runtime_Error_policyDefault__E)
                   00009254    0000011c     sysbios.aem4f : BIOS.obj (.text:ti_sysbios_knl_Clock_Instance_init__E)
-                  00009370    0000011b     roveTCPSocket.obj (.text:roveTCP_Connect)
+                  00009370    0000011b     roveWare_TCPSocket.obj (.text:roveTCP_Connect)
                   0000948b    00000001     --HOLE-- [fill = 0]
                   0000948c    00000118     stk.aem4f : sockint.oem4f (.text:SockNotify)
                   000095a4    00000118               : tcpout.oem4f (.text:TcpGenPacket)
-                  000096bc    00000117     roveTCPSocket.obj (.text:roveCatch_NdkErrors)
+                  000096bc    00000117     roveWare_TCPSocket.obj (.text:roveCatch_NdkErrors)
                   000097d3    00000001     --HOLE-- [fill = 0]
                   000097d4    00000110     stk.aem4f : nimu.oem4f (.text:NIMUIoctl)
                   000098e4    00000110               : node.oem4f (.text:NodeTreeFree)
@@ -406,7 +406,7 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   00011c58    00000048               : tcpprot.oem4f (.text:TcpDrop)
                   00011ca0    00000048               : lli.oem4f (.text:_LLIExpListInsert)
                   00011ce8    00000048               : rtable.oem4f (.text:_RtExpListInsert)
-                  00011d30    00000048     roveTCPSocket.obj (.text:roveTCP_Recv)
+                  00011d30    00000048     roveWare_TCPSocket.obj (.text:roveTCP_Recv)
                   00011d78    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.obj (.text)
                   00011dc0    00000048     sysbios.aem4f : BIOS.obj (.text:ti_sysbios_family_arm_m3_Hwi_excReserved__I)
                   00011e08    00000048                   : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_getStats__E)
@@ -607,7 +607,7 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   00014398    00000022     driverlib.lib : pwm.obj (.text:PWMGenConfigure)
                   000143ba    00000022     drivers_tivaware.aem4f : PWMTiva.oem4f (.text:PWMTiva_getPeriodCounts)
                   000143dc    00000022     stk.aem4f : vlan.oem4f (.text:VLANFindNode)
-                  000143fe    00000022     roveTCPSocket.obj (.text:setsockopt)
+                  000143fe    00000022     roveWare_TCPSocket.obj (.text:setsockopt)
                   00014420    00000022     tivaRTSC_JS_pem4f.oem4f (.text:xdc_runtime_SysMin_output__I)
                   00014442    00000002     --HOLE-- [fill = 0]
                   00014444    00000020     stk.aem4f : bind.oem4f (.text:BindFindByHost)
@@ -630,7 +630,7 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   00014662    0000001e     drivers_tivaware.aem4f : PWMTiva.oem4f (.text:PWMTiva_getPeriodMicroSecs)
                   00014680    0000001e     stk.aem4f : fileuser.oem4f (.text:fdError)
                   0001469e    0000001e               : listlib.oem4f (.text:list_remove)
-                  000146bc    0000001e     roveTCPSocket.obj (.text:recv)
+                  000146bc    0000001e     roveWare_TCPSocket.obj (.text:recv)
                   000146da    0000001e     sysbios.aem4f : m3_Hwi_asm_switch.obj (.text:ti_sysbios_family_xxx_Hwi_switchAndRunFunc)
                   000146f8    0000001c     stk.aem4f : bind.oem4f (.text:BindFindByIF)
                   00014714    0000001c     drivers_tivaware.aem4f : EMACSnow.oem4f (.text:EMACSnow_init)
@@ -716,10 +716,10 @@ xdc.meta   0    00000000    00000108     COPY SECTION
                   00014e98    00000014     driverlib.lib : sysctl.obj (.text:SysCtlPWMClockSet)
                   00014eac    00000014     stk.aem4f : timer.oem4f (.text:TimerFree)
                   00014ec0    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
-                  00014ed4    00000014     roveTCPSocket.obj (.text:connect)
+                  00014ed4    00000014     roveWare_TCPSocket.obj (.text:connect)
                   00014ee8    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
                   00014efc    00000014                                   : strlen.obj (.text)
-                  00014f10    00000014     roveTCPSocket.obj (.text:socket)
+                  00014f10    00000014     roveWare_TCPSocket.obj (.text:socket)
                   00014f24    00000014     tivaRTSC_JS_pem4f.oem4f (.text:ti_ndk_config_global_taskExitHook)
                   00014f38    00000014     tivaRTSC_JS_pem4f.oem4f (.text:ti_sysbios_family_arm_m3_Hwi_Object__get__S)
                   00014f4c    00000014     sysbios.aem4f : BIOS.obj (.text:ti_sysbios_family_arm_m3_Hwi_switchFromBootStack__E)

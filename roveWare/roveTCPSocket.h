@@ -43,6 +43,7 @@
 //MRDT shorthand
 #define FOREVER 1
 
+#define ZERO_BYTES 0
 #define SINGLE_BYTE 1
 
 #define CONNECTED 1

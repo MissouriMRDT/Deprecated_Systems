@@ -93,7 +93,7 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
     rovePrintf_MessageCfg(recv_cfg);
     rovePrintf_RoveTCPSocket(rove_tcp_socket );
 
-    if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->message_id), SINGLE_BYTE)) < 0) {
+    if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->message_id), SINGLE_BYTE)) < ZERO_BYTES) {
 
         rove_tcp_socket->error_code = fdError();
         roveCatch_NdkErrors(rove_tcp_socket->error_code);
@@ -110,7 +110,7 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
     rovePrintf_MessageCfg(recv_cfg);
     rovePrintf_RoveTCPSocket(rove_tcp_socket );
 
-    if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->struct_id), SINGLE_BYTE) ) < 0){
+    if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->struct_id), SINGLE_BYTE) ) < ZERO_BYTES){
 
         //recv_cfg->struct_id = recv_buffer[0];
 
@@ -129,8 +129,8 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
     rovePrintf_MessageCfg(recv_cfg);
     rovePrintf_RoveTCPSocket(rove_tcp_socket );
 
-    //get the byte count for the message
-    recv_cfg->to_recv_byte_cnt = ( (roveGetStructId_ByteCnt(recv_cfg->struct_id) ));
+    //get the byte count for the message (- SINGLE_BYTE work around for old command protocol)
+    recv_cfg->to_recv_byte_cnt = roveGetStructId_ByteCnt((char)recv_cfg->struct_id) - SINGLE_BYTE;
 
     if( recv_cfg->to_recv_byte_cnt < 0 ) {
 
@@ -145,10 +145,13 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
         rovePrintf_MessageCfg(recv_cfg);
         rovePrintf_RoveTCPSocket(rove_tcp_socket );
 
-        //get the message vaue payload using Horizon Protocol
-        recv_cfg->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, recv_buffer, recv_cfg->to_recv_byte_cnt);
+        //recv_buffer[0] workaround for old command protocol
+        recv_buffer[0] = recv_cfg->struct_id;
 
-        if( recv_cfg->post_recv_byte_cnt < 0 ) {
+        //get the message vaue payload using Horizon Protocol recv_buffer[1] workaround for old command protocol
+        recv_cfg->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &(recv_buffer[1]), recv_cfg->to_recv_byte_cnt);
+
+        if( recv_cfg->post_recv_byte_cnt < ZERO_BYTES ) {
 
             rove_tcp_socket->error_code = fdError();
             roveCatch_NdkErrors(rove_tcp_socket->error_code);

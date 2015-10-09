@@ -69,7 +69,7 @@
 struct motor_control_struct{
 
     char id;
-    int16_t speed;
+    int speed;
 
 }__attribute__((packed));
 
@@ -79,7 +79,7 @@ struct motor_control_struct{
 struct test_control_struct{
 
     char id;
-    int16_t test_value;
+    int test_value;
 
 }__attribute__((packed));
 

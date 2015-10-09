@@ -15,9 +15,17 @@
 
 ////////////////////////////////////////////////////////////////////////
 
-//BEGIN HORIZON COMMANDS
-
 //NEW MEMBER CHALLENGE:
+
+// watch these video:  https://www.youtube.com/watch?v=GzTPa0UL6vo
+
+
+
+
+
+
+//EXPERT MEMBER CODE BONUS CHALLENGE (optional, not required):
+
 
 //MAKE A NEW GIT BRANCH OF THIS REPO (git checkout -b <whatever_you_call_your-branch>)
 
@@ -28,6 +36,8 @@
 //THIS FUNCTION SHOULD SPIN THESE VAUES THROUGH SOME COMBINATION OF ALL SIX MOTORS IN ANY LOGIC/MATH/OR COUNTING PATTERN OF YOUR CHOICE
 
 //AND ALSO PRINTS OUT THE VALUES TO THE CONSOLE
+
+// THIS CAN ADDED AT BEGIN HORIZON COMMANDS IN roveDeviceTemplate_Thread.c
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -91,6 +101,18 @@ void rovePrintf_ByteBuffer(char* buffer, int buffer_size) {
  *
 
 rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
+
+// Double Super Secret Bonus:
+
+// Add a RED_TcpMock_Tester_Thread.h and RED_TcpMock_Tester_Thread.c files and bind the function to a rtos Thread  
+
+// Add a TCP_Mock_command_msg_mailbox
+
+// Post to the mailbox in RED_TcpMock_Tester_Thread with the logic to fill the command_msg_buffer with the command data algorithm from your function
+
+// (hint: use tivaRTSC.cfg to add an Tiva rtos TASK handle and a Tiva rtos MAILBOX handle)
+
+// Your task should generate a fake message from base station, your output should be the THE PATTERN OF YOUR CHOICE, RANGING FROM MAX PWM TO MIN PWM
 
 
 */

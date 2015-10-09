@@ -35,6 +35,8 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     char command_msg_buffer[MAX_CMD_BYTE_CNT];
 
 
+//BEGIN NEW EXPERT MEMBER CHALLENGE:
+
     //Horizon is a forever Client and she calls RED Base Station server forever repeatedly on disconnects
     while (FOREVER) {
 
@@ -43,10 +45,9 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
         roveTCP_Connect(&rove_tcp_socket);
 
         // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
+       while (rove_tcp_socket.connected_flag == CONNECTED) {
 
-        while (rove_tcp_socket.connected_flag == CONNECTED) {
-
-            //printf("while CONNECTED with socket_fd: %d \n\n" , rove_tcp_socket.socket_fd);
+            printf("while inside CONNECTED with socket_fd: %d \n\n" , rove_tcp_socket.socket_fd);
 
             command_msg.post_recv_byte_cnt = roveHorizon_Recv(&rove_tcp_socket, &command_msg, command_msg_buffer);
 
@@ -63,9 +64,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 
 
-                //BEGIN NEW MEMBER CHALLENGE:
-
-                rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
+//                rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
 
             }//endif
 

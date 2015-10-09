@@ -117,32 +117,32 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-HorizonDeviceTemplate.out \
+roveDeviceTemplate.out \
 
 EXE_OUTPUTS__QUOTED += \
-"HorizonDeviceTemplate.out" \
+"roveDeviceTemplate.out" \
 
 BIN_OUTPUTS += \
-HorizonDeviceTemplate.hex \
+roveDeviceTemplate.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"HorizonDeviceTemplate.hex" \
+"roveDeviceTemplate.hex" \
 
 
 # All Target
-all: HorizonDeviceTemplate.out
+all: roveDeviceTemplate.out
 
 # Tool invocations
-HorizonDeviceTemplate.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+roveDeviceTemplate.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"HorizonDeviceTemplate.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="HorizonDeviceTemplate_linkInfo.xml" --rom_model -o "HorizonDeviceTemplate.out" $(ORDERED_OBJS)
+	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE --display_error_number --diag_warning=225 --diag_wrap=off --gen_func_subsections=on -z -m"roveDeviceTemplate.map" --heap_size=0 --stack_size=512 -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/lib" -i"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="roveDeviceTemplate_linkInfo.xml" --rom_model -o "roveDeviceTemplate.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-HorizonDeviceTemplate.hex: $(EXE_OUTPUTS)
+roveDeviceTemplate.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: ARM Hex Utility'
-	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armhex"  -o "HorizonDeviceTemplate.hex" $(EXE_OUTPUTS__QUOTED)
+	"/opt/ti/ccsv6/tools/compiler/arm_5.1.6/bin/armhex"  -o "roveDeviceTemplate.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

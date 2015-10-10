@@ -40,8 +40,6 @@
 */
 // mrdt::rovWare
 
-#include "roveWare_tivaWrappers.h"
-
 //MRDT shorthand
 #define ERROR -1
 
@@ -53,7 +51,7 @@
 
 struct motor_control_struct{
 
-    char id;
+    char struct_id;
     int speed;
 
 }__attribute__((packed));
@@ -63,7 +61,7 @@ struct motor_control_struct{
 
 struct test_control_struct{
 
-    char id;
+    char struct_id;
     int test_value;
 
 }__attribute__((packed));
@@ -73,8 +71,8 @@ struct test_control_struct{
 
 struct test_device_struct {
 
-    char id;
-    int16_t test_value;
+    char struct_id;
+    int test_value;
 
 }__attribute__((packed));
 
@@ -82,23 +80,21 @@ struct test_device_struct {
 
 #define TEST_DEVICE_PIN 0
 
-//roveWare Servo Control Routines
-
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
-
 //Tiva Get/Set Wrappers
 
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
 
-int16_t roveUART_Write(int16_t tiva_pin, char* write_buffer, int16_t bytes_to_write);
+int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
 
-int16_t roveUART_Read(int16_t tiva_pin, char* read_buffer, int16_t bytes_to_read);
+int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read);
 
-void rovePrintf_ByteBuffer(char* printf_buffer, int16_t bytes_to_printf);
+void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf);
 
-int16_t roveGetDeviceId_PinNum(int16_t struct_id);
+int roveGetDeviceId_PinNum(char struct_id);
 
-int16_t roveGetStructId_ByteCnt(char struct_id);
+int roveGetStructId_ByteCnt(char struct_id);
+
+void rovePrintf_RoveStructs(char* printf_buffer, char struct_id);
 
 
 /* Physicl Pin Outs:

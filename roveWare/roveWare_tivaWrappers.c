@@ -11,43 +11,13 @@
 #include "roveWare_tivaWrappers.h"
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
-
-    int16_t microseconds;
-
-    //scale down to the final range to be between 1000 and 2000
-    microseconds = speed / 2;
-
-    //offset so that 1500 is neutral
-    microseconds += 1500;
-
-    //protect the upper bound on motor pulse width
-    if (microseconds > 2000) {
-
-        microseconds = 2000;
-
-    }//endif
-
-    //protect the lower bound on motor pulse width
-    if (microseconds < 1000) {
-
-        microseconds = 1000;
-
-    }//endif
-
-    rovePWM_Write(motor, microseconds);
-
-    return;
-
-} //endfnct roveDriveMotor_ByPWM
-
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
 
     PWM_setDuty(tiva_pin, duty_in_microseconds);
 
 }//endfnctn pwmWrite
 
-int16_t roveUART_Read(int16_t tiva_pin, char* read_buffer, int16_t bytes_to_read) {
+int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 
     extern UART_Handle uart_2;
     extern UART_Handle uart_3;
@@ -75,12 +45,13 @@ int16_t roveUART_Read(int16_t tiva_pin, char* read_buffer, int16_t bytes_to_read
 
     }//endswitch
 
+    //now holds the number of bytes actually read
     return bytes_to_read;
 
 }//endfnctn roveUARTRead
 
 
-int16_t roveUART_Write(int16_t tiva_pin, char* write_buffer, int16_t bytes_to_write) {
+int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
     extern UART_Handle uart2;
     extern UART_Handle uart3;
@@ -113,9 +84,9 @@ int16_t roveUART_Write(int16_t tiva_pin, char* write_buffer, int16_t bytes_to_wr
 }//endfnctn roveUARTWrite
 
 
-void rovePrintf_ByteBuffer(char* printf_buffer, int16_t bytes_to_printf) {
+void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf) {
 
-    uint16_t printf_cnt = 0;
+    int printf_cnt = 0;
 
     printf("Buffer holds: ");
 
@@ -134,7 +105,7 @@ void rovePrintf_ByteBuffer(char* printf_buffer, int16_t bytes_to_printf) {
 }//endfnctn rovePrintfBuffer
 
 
-int16_t roveGetDeviceId_PinNum(int16_t struct_id) {
+int roveGetDeviceId_PinNum(char struct_id) {
 
     switch (struct_id) {
 
@@ -154,7 +125,7 @@ int16_t roveGetDeviceId_PinNum(int16_t struct_id) {
 }//endfnctn roveGetDevicePin
 
 
-int16_t roveGetStructId_ByteCnt(char struct_id) {
+int roveGetStructId_ByteCnt(char struct_id) {
 
     switch (struct_id) {
 
@@ -183,3 +154,25 @@ int16_t roveGetStructId_ByteCnt(char struct_id) {
     }//endswitch
 
 } //endfnctn roveGetStructSize
+
+void rovePrintf_RoveStructs(char* printf_buffer, char struct_id) {
+
+    switch(struct_id){
+
+    case motor_drive_right_id:
+
+        printf("Rover Drive Right : struct_id %d : speed %d\n"
+                ,((struct motor_control_struct*)(&printf_buffer[0]))->struct_id, ((struct motor_control_struct*)(&printf_buffer[0]))->speed);
+
+        return;
+
+    case motor_drive_left_id:
+
+        printf("Rover Drive Left : struct_id %d : speed %d\n"
+                ,((struct motor_control_struct*)(&printf_buffer[0]))->struct_id, ((struct motor_control_struct*)(&printf_buffer[0]))->speed);
+
+        return;
+
+    }//endswitch
+
+}//endfnctn rovePrintf_RoveStructs

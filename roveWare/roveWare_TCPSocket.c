@@ -6,9 +6,9 @@
 //
 // mrdt::rovWare
 
-#include "roveTCPSocket.h"
+#include "roveWare_TCPSocket.h"
 
-int16_t roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
+int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
     rove_tcp_socket->socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
@@ -61,7 +61,7 @@ int16_t roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
 }//endfnctn
 
-int16_t roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int16_t recv_byte_cnt) {
+int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt) {
 
     if (rove_tcp_socket->connected_flag == CONNECTED) {
 
@@ -82,7 +82,7 @@ int16_t roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int16_
 
 }//endfnctn roveTCP_Connect
 
-int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer) {
+int roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer) {
 
     if( (roveTCP_Recv(rove_tcp_socket, &(recv_cfg->message_id), SINGLE_BYTE)) < ZERO_BYTES) {
 
@@ -109,7 +109,7 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
     }//endif
 
     //get the byte count for the message (- SINGLE_BYTE work around for old command protocol)
-    recv_cfg->to_recv_byte_cnt = roveGetStructId_ByteCnt((char)recv_cfg->struct_id) - SINGLE_BYTE;
+    recv_cfg->to_recv_byte_cnt = roveGetStructId_ByteCnt(recv_cfg->struct_id) - SINGLE_BYTE;
 
     if( recv_cfg->to_recv_byte_cnt < 0 ) {
 
@@ -137,7 +137,9 @@ int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg
 
         }//endif
 
-        printf("\n\nFINISH roveHorizon_Recv \n\n");
+        //TODO
+        printf("FINISH roveHorizon_Recv\n");
+        rovePrintf_RoveStructs(recv_buffer, recv_cfg->struct_id );
 
         return recv_cfg->to_recv_byte_cnt;
 

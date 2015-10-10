@@ -6,8 +6,8 @@
 //
 // mrdt::rovWare
 
-#ifndef ROVETCPSOCKET_H_
-#define ROVETCPSOCKET_H_
+#ifndef ROVEWARETCPSOCKET_H_
+#define ROVEWARETCPSOCKET_H_
 
 #include "roveWare_tivaWrappers.h"
 
@@ -31,7 +31,6 @@
 
 //CCS TI NDK BSD support
 #include <sys/socket.h>
-
 #include <arpa/inet.h>
 
 //hardcode the timeout in seconds
@@ -70,11 +69,11 @@ typedef struct rove_tcp_socket {
     struct timeval tcp_timeout;
 
     //socket state
-    int16_t connected_flag;
-    int16_t error_code;
+    int connected_flag;
+    int error_code;
 
     //TODO dbg
-    int16_t dbg_recv_cnt;
+    int dbg_recv_cnt;
 
 } rove_tcp_socket;
 
@@ -85,8 +84,8 @@ typedef struct message_cfg {
     char message_id;
     char struct_id;
 
-    int16_t to_recv_byte_cnt;
-    int16_t post_recv_byte_cnt;
+    int to_recv_byte_cnt;
+    int post_recv_byte_cnt;
 
 } message_cfg;
 
@@ -94,11 +93,11 @@ typedef struct message_cfg {
 #define MAX_CMD_BYTE_CNT 40
 
 //rove ndk_socket wrappers
-int16_t roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
+int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
 
-int16_t roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer);
+int roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer);
 
-int16_t roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int16_t recv_byte_cnt);
+int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt);
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error);
 
@@ -106,7 +105,7 @@ void rovePrintf_MessageCfg(message_cfg* message_cfg);
 
 void rovePrintf_RoveTCPSocket(rove_tcp_socket* rove_tcp_socket );
 
-/*?
+/*
 extern int    fdStatus( SOCKET s, int request, int *results );
 #define FDSTATUS_TYPE           0   // get socket type
 #define FDSTATUS_TYPE_SOCKET    1
@@ -115,4 +114,4 @@ extern int    fdStatus( SOCKET s, int request, int *results );
 #define FDSTATUS_SEND           2   // get socket snd status
 */
 
-#endif /* ROVETCPSOCKET_H_ */
+#endif //ROVEWARETCPSOCKET_H_

@@ -9,8 +9,11 @@
 #ifndef ROVEWARE_NEWMEMBERUTILS_H_
 #define ROVEWARE_NEWMEMBERUTILS_H_
 
+#include "roveWare_tivaWrappers.h"
+
+//roveWare Servo Control Routines
+void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
+
 //TODO
-
-
 
 #endif /* ROVEWARE_NEWMEMBERUTILS_H_ */

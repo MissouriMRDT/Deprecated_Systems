@@ -44,7 +44,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
         // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
        while (rove_tcp_socket.connected_flag == CONNECTED) {
 
-            printf("while inside CONNECTED with socket_fd: %d \n\n" , rove_tcp_socket.socket_fd);
+            printf("Connected\n");
 
             command_msg.post_recv_byte_cnt = roveHorizon_Recv(&rove_tcp_socket, &command_msg, command_msg_buffer);
 
@@ -58,16 +58,13 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
-
-
-
                 rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
 
             }//endif
 
         }//endwhile
 
-        printf("Connection Lost\n\n");
+        printf("Connection Lost\n");
 
         close(rove_tcp_socket.socket_fd);
 

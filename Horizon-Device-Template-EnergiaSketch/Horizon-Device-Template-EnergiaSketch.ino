@@ -1,29 +1,19 @@
-// Missouri Science and Technology Mars Rover Design Team 2015
-//
-// roveDeviceTemplate
-//
-// Using Energia mspgcc compiler by Peter Bigot and is based on the Wiring and Arduino framework
-//
-// first created:
-//
-// 10_05_2015       V1 - URC Horizon IP TCP Client / UART/ PWM Controller Template
-//
-// Judah Schad jrs6w7@mst.edu
-//
-// mrdt::roveWare
-
 void setup()
 {
-  //This is analagous to the file BiosInit.main in Horizon-Device-Template-CCS-Software on the TIVA platform
+  // put your setup code here, to run once:
   
-  //https://github.com/MST-MRDT/Horizon-Device-Template-CCS-Software/blob/master/roveBIOS_Init.c
+  Serial.begin(9600);
   
-}//end setup
+}//endsetup
 
 void loop()
 {
-  // This is analagous to the file roveDeviceTemplate_Thread.c in Horizon-Device-Template-CCS-Software on the TIVA platform
+  // put your main code here, to run repeatedly:
   
-  //https://github.com/MST-MRDT/Horizon-Device-Template-CCS-Software/blob/master/roveDeviceTemplate_Thread.c
+  // wait for a thousnad milliseconds second
+  delay(1000);  
+
+  //Printf a debug message
+  Serial.println("Rove So Hard");
   
-}//end loop
+}//endloop

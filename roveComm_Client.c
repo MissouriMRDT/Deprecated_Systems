@@ -13,9 +13,11 @@ int main(void)
   int sock;
   struct sockaddr_in sa;
   int bytes_sent, fromlen;
-  char buffer[1024];
+//  char buffer[1024];
  
-  strcpy(buffer, "hello world!");
+//  strcpy(buffer, "hello world!\n");
+  char buffer[] = "ABC";
+
  
   /* create an Internet, datagram, socket using UDP */
   sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -34,8 +36,8 @@ int main(void)
   /* sockets are unsigned shorts, htons(x) ensures x is in network byte order, set the port to 7654 */
   sa.sin_port = htons(7654);
  
-  bytes_sent = sendto(sock, buffer, strlen(buffer), 0,(struct sockaddr*)&sa, sizeof sa);
-  printf ("Sent %d bytes: %s", bytes_sent, buffer);
+  bytes_sent = sendto(sock, buffer, strlen(buffer) + 1, 0,(struct sockaddr*)&sa, sizeof sa);
+  printf ("Sent %d bytes: %s\n", bytes_sent, buffer);
   if (bytes_sent < 0) {
     printf("Error sending packet: %s\n", strerror(errno));
     exit(EXIT_FAILURE);

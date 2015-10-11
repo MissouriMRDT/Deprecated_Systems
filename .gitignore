@@ -4,6 +4,9 @@
 *.obj
 *.elf
 
+server
+client
+
 # Precompiled Headers
 *.gch
 *.pch

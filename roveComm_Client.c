@@ -42,6 +42,9 @@ int main(void)
     printf("Error sending packet: %s\n", strerror(errno));
     exit(EXIT_FAILURE);
   }
+	
+	fromlen = sizeof(sa);
+	
   bytes_sent = recvfrom(sock, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sa, &fromlen);
   printf("%s\n", buffer);
  

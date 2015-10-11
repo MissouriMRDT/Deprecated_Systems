@@ -6,13 +6,11 @@
 #include <netinet/in.h>
 #include <unistd.h> /* for close() for socket */ 
 #include <stdlib.h>
-
 /*When you call recv(), it will block until there is some data to 
 read. If you want to not block, set the socket to non-blocking 
 or check with select() or poll() to see if there is incoming data 
 before calling recv() or recvfrom().
 */
-
 int main(void)
 {
   // Create a UDP Socket
@@ -35,14 +33,18 @@ int main(void)
   }
 
   for (;;) {
+
     recsize = recvfrom(sock, (void*)buffer, sizeof buffer, 0, (struct sockaddr*)&sa, &fromlen);
+
     if (recsize < 0) {
       fprintf(stderr, "%s\n", strerror(errno));
       exit(EXIT_FAILURE);
     }
-    sendsize = sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr*)&sa, sizeof(sa));
-    printf("recsize: %d\n ", recsize);
+    
+    printf("datagram: %.*s\n",(int)recsize, buffer);
+    printf("recsize: %d\n", (int)recsize);
+    sendsize = sendto(sock, buffer, recsize, 0, (struct sockaddr*)&sa, sizeof(sa));
+    printf("Sent %d bytes\n", (int)sendsize);
     sleep(1);
-    printf("datagram: %.*s\n", (int)recsize, buffer);
   }
 }

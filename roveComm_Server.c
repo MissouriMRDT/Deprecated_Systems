@@ -41,7 +41,7 @@ int main(void)
       exit(EXIT_FAILURE);
     }
     sendsize = sendto(sock, buffer, strlen(buffer), 0, (struct sockaddr*)&sa, sizeof(sa));
-    printf("recsize: %d\n ", recsize);
+    printf("recsize: %d\n ", (int)recsize);
     sleep(1);
     printf("datagram: %.*s\n", (int)recsize, buffer);
   }

@@ -13,7 +13,7 @@ int main(void)
   int sock;
   struct sockaddr_in sa;
   int bytes_sent, fromlen;
-  char buffer[200];
+  char buffer[1024];
  
   strcpy(buffer, "hello world!");
  
@@ -27,21 +27,20 @@ int main(void)
  
   /* Zero out socket address */
   memset(&sa, 0, sizeof sa);
-  
   /* The address is IPv4 */
   sa.sin_family = AF_INET;
- 
    /* IPv4 adresses is a uint32_t, convert a string representation of the octets to the appropriate value */
   sa.sin_addr.s_addr = inet_addr("127.0.0.1");
-  
   /* sockets are unsigned shorts, htons(x) ensures x is in network byte order, set the port to 7654 */
   sa.sin_port = htons(7654);
  
   bytes_sent = sendto(sock, buffer, strlen(buffer), 0,(struct sockaddr*)&sa, sizeof sa);
+  printf ("Sent %d bytes: %s", bytes_sent, buffer);
   if (bytes_sent < 0) {
     printf("Error sending packet: %s\n", strerror(errno));
     exit(EXIT_FAILURE);
   }
+
   bytes_sent = recvfrom(sock, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sa, &fromlen);
   printf("%s\n", buffer);
  

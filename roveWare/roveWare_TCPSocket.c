@@ -20,9 +20,7 @@ int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
         roveCatch_NdkErrors( fdError() );
 
-        rove_tcp_socket->connected_flag = DISCONNECTED;
-
-        return DISCONNECTED_SOCKET;
+        return DISCONNECTED;
 
     }//endif
 
@@ -47,15 +45,11 @@ int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
         roveCatch_NdkErrors( fdError() );
 
-        rove_tcp_socket->connected_flag = DISCONNECTED;
-
-        return DISCONNECTED_SOCKET;
+        return DISCONNECTED;
 
     } else {
 
-        rove_tcp_socket->connected_flag = CONNECTED;
-
-        return CONNECTED_SOCKET;
+        return CONNECTED;
 
     }//endif
 
@@ -65,6 +59,7 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
     if (rove_tcp_socket->connected_flag == CONNECTED) {
 
+        //TODO
         recv_byte_cnt = recv(rove_tcp_socket->socket_fd, recv_buffer, recv_byte_cnt, MSG_WAITALL);
 
         if (recv_byte_cnt < ZERO_BYTES) {
@@ -74,8 +69,7 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
             printf("RETURN roveHorizon_Recv : Failed roveTCP_Recv(message_id) with socket_fd: %d \n\n" , rove_tcp_socket->message_id);
 
-            rove_tcp_socket->connected_flag = DISCONNECTED;
-            return DISCONNECTED_SOCKET;
+            return DISCONNECTED;
 
         }//endif
 
@@ -83,7 +77,7 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
     }//endif
 
-    return DISCONNECTED_SOCKET;
+    return DISCONNECTED;
 
 }//endfnctn roveTCP_Connect
 
@@ -131,7 +125,7 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     case motor_drive_left_id:
 
-        printf("Rover Drive Right : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
+        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
 
         break;
 
@@ -143,7 +137,7 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     }//endswitch
 
-    printf("Bytes Recieved: to_recv_byte_cnt %d : post_recv_byte_cnt\n",rove_tcp_socket->to_recv_byte_cnt, rove_tcp_socket->post_recv_byte_cnt);
+    printf("Bytes Recieved: post_recv_byte_cnt %d :\n", rove_tcp_socket->post_recv_byte_cnt);
 
     printf("Socket State: connected_flag %d : error_code %d\n",rove_tcp_socket->connected_flag, rove_tcp_socket->error_code);
 

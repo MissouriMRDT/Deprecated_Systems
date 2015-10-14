@@ -45,16 +45,15 @@
 //MRDT shorthand
 #define FOREVER 1
 
+#define ERROR_FREE 1
+
+//#define ERROR -1
+
 #define ZERO_BYTES 0
 #define SINGLE_BYTE 1
 
 #define CONNECTED 1
-#define DISCONNECTED 0
-
-#define CONNECTED_SOCKET 1
-#define DISCONNECTED_SOCKET -1
-
-#define STRUCTID_BYTECNT_ERR 1
+#define DISCONNECTED -1
 
 //fdOpenSession->TaskSelf
 //

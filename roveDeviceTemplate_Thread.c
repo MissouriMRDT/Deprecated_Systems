@@ -23,7 +23,13 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     rove_tcp_socket command_msg;
 
     //handle tcp connection state
-    command_msg.connected_flag = false;
+    command_msg.connected_flag = DISCONNECTED;
+    command_msg.error_code = ERROR_FREE;
+
+    //HORIZON command protocol
+    command_msg.message_id = 0;
+    command_msg.struct_id = 0;
+    command_msg.command_value = 0;
 
 //BEGIN NEW EXPERT MEMBER CHALLENGE:
 
@@ -32,7 +38,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
         printf("Attempting to connect\n\n");
 
-        roveTCP_Connect(&command_msg);
+        command_msg.connected_flag = roveTCP_Connect(&command_msg);
 
         // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
        while (command_msg.connected_flag == CONNECTED) {
@@ -41,9 +47,19 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
             command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.message_id, SINGLE_BYTE);
 
-            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.struct_id, SINGLE_BYTE);
+            //Horizon message_id = 5 for a command, except Horizon only ever implemented commands
+            if(command_msg.message_id > 0){
 
-            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
+                command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.struct_id, SINGLE_BYTE);
+
+            }//endif
+
+            //Horizon used struct_id as the instruction set switch statement identifiers from base station
+            if(command_msg.struct_id > 0){
+
+                command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
+
+            }//endif
 
             //TODO
             printf("FINISH roveHorizon_Recv\n");
@@ -54,13 +70,19 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
-            rovePrintf_TCP_CmdMsg(&command_msg);
+            if(command_msg.command_value > 0){
+
+                rovePrintf_TCP_CmdMsg(&command_msg);
+
+            }//endif
 
         }//endwhile
 
         printf("Connection Lost\n");
 
         close(command_msg.socket_fd);
+
+        command_msg.message_id = 0;
 
         command_msg.struct_id = 0;
 

@@ -64,10 +64,10 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
         if (recv_byte_cnt < ZERO_BYTES) {
 
-            rove_tcp_socket->error_code = fdError();
-            roveCatch_NdkErrors(rove_tcp_socket->error_code);
+            printf("RETURN DISCONNECTED: Failed roveTCP_Recv");
 
-            printf("RETURN roveHorizon_Recv : Failed roveTCP_Recv(message_id) with socket_fd: %d \n\n" , rove_tcp_socket->message_id);
+            rove_tcp_socket->error_code = fdError();
+                      roveCatch_NdkErrors(rove_tcp_socket->error_code);
 
             return DISCONNECTED;
 
@@ -81,6 +81,27 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
 }//endfnctn roveTCP_Connect
 
+int roveTCP_HorizonProtocol_Recv(rove_tcp_socket* rove_tcp_socket){
+
+    rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &rove_tcp_socket->message_id, SINGLE_BYTE);
+
+    //Horizon message_id = 5 for a command, except Horizon only ever implemented commands
+    if(rove_tcp_socket->message_id > 0){
+
+        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &rove_tcp_socket->struct_id, SINGLE_BYTE);
+
+    }//endif
+
+    //Horizon used struct_id as the instruction set switch statement identifiers from base station
+    if(rove_tcp_socket->struct_id > 0){
+
+        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, (char*)&rove_tcp_socket->command_value, sizeof(rove_tcp_socket->command_value) );
+
+    }//endif
+
+    return rove_tcp_socket->post_recv_byte_cnt;
+
+}//endfunction
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error) {
 

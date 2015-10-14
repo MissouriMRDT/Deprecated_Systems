@@ -66,10 +66,7 @@ typedef struct rove_tcp_socket {
     struct timeval tcp_timeout;
 
     //TCP overhead
-    int to_recv_byte_cnt;
     int post_recv_byte_cnt;
-
-    //socket state
     int connected_flag;
     int error_code;
 
@@ -78,11 +75,13 @@ typedef struct rove_tcp_socket {
     char struct_id;
     int command_value;
 
-} rove_tcp_socket;
+}__attribute__((packed)) rove_tcp_socket, *rove_tcp_socket_ptr;
 
 
 //rove ndk_socket wrappers
 int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
+
+int roveTCP_HorizonProtocol_Recv(rove_tcp_socket* rove_tcp_socket);
 
 int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt);
 

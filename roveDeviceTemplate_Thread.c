@@ -31,6 +31,9 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     command_msg.struct_id = 0;
     command_msg.command_value = 0;
 
+    //TODO debug
+    int dbg_zero_recv_byte_cnt = 0;
+
 //BEGIN NEW EXPERT MEMBER CHALLENGE:
 
     //Horizon is a forever Client and she calls RED Base Station server forever repeatedly on disconnects
@@ -45,24 +48,28 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
             printf("Connected\n");
 
-            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.message_id, SINGLE_BYTE);
+            //TODO debug
+            while( (roveTCP_HorizonProtocol_Recv(&command_msg)) < SINGLE_BYTE ) {
 
-            //Horizon message_id = 5 for a command, except Horizon only ever implemented commands
-            if(command_msg.message_id > 0){
+                printf("ZERO bytes from roveTCP_HorizonProtocol_Recv : %d\n", dbg_zero_recv_byte_cnt);
 
-                command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.struct_id, SINGLE_BYTE);
+                dbg_zero_recv_byte_cnt++;
 
-            }//endif
-
+            }//endwhile
+/*
             //Horizon used struct_id as the instruction set switch statement identifiers from base station
             if(command_msg.struct_id > 0){
 
-                command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
+               command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
 
             }//endif
-
+*/
             //TODO
-            printf("FINISH roveHorizon_Recv\n");
+
+            dbg_zero_recv_byte_cnt++;
+
+            printf("roveTCP_HorizonProtocol_Recv cnt: %d\n", dbg_zero_recv_byte_cnt);
+
 
 ///////////////END HORIZON RECIEVE/////////////////
 
@@ -70,11 +77,11 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
-            if(command_msg.command_value > 0){
+           // if(command_msg.command_value > 0){
 
                 rovePrintf_TCP_CmdMsg(&command_msg);
 
-            }//endif
+           // }//endif
 
         }//endwhile
 

@@ -29,7 +29,6 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     //HORIZON command protocol
     command_msg.message_id = 0;
     command_msg.struct_id = 0;
-    command_msg.command_value = 0;
 
     //TODO debug
     int dbg_zero_recv_byte_cnt = 0;
@@ -49,7 +48,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
             printf("Connected\n");
 
             //TODO debug
-            while( (roveTCP_HorizonProtocol_Recv(&command_msg)) < SINGLE_BYTE ) {
+            if( (roveTCP_HorizonProtocol_Recv(&command_msg)) < SINGLE_BYTE ) {
 
                 printf("ZERO bytes from roveTCP_HorizonProtocol_Recv : %d\n", dbg_zero_recv_byte_cnt);
 

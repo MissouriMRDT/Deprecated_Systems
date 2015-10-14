@@ -8,6 +8,12 @@
 
 #include "roveWare_TCPSocket.h"
 
+struct motor_control_struct {
+
+    int speed;
+
+};
+
 int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
     rove_tcp_socket->socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -95,7 +101,7 @@ int roveTCP_HorizonProtocol_Recv(rove_tcp_socket* rove_tcp_socket){
     //Horizon used struct_id as the instruction set switch statement identifiers from base station
     if(rove_tcp_socket->struct_id > 0){
 
-        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, (char*)&rove_tcp_socket->command_value, sizeof(rove_tcp_socket->command_value) );
+        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, rove_tcp_socket->command_value, sizeof(rove_tcp_socket->command_value) );
 
     }//endif
 
@@ -140,13 +146,13 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     case motor_drive_right_id:
 
-        printf("Rover Drive Right : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
+        printf("Rover Drive Right : struct_id %d : speed %s\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
 
         break;
 
     case motor_drive_left_id:
 
-        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
+        printf("Rover Drive Left : struct_id %d : speed %s\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
 
         break;
 

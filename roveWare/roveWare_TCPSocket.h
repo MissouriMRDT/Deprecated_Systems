@@ -42,6 +42,9 @@
 //hardcode the TCP port
 #define TCPPORT 11000
 
+//hardcode command payload size
+#define COMMAND_BYTE_CNT 4
+
 //MRDT shorthand
 #define FOREVER 1
 
@@ -73,7 +76,7 @@ typedef struct rove_tcp_socket {
     //HORIZON command protocol
     char message_id;
     char struct_id;
-    int command_value;
+    char command_value[COMMAND_BYTE_CNT];
 
 }__attribute__((packed)) rove_tcp_socket, *rove_tcp_socket_ptr;
 

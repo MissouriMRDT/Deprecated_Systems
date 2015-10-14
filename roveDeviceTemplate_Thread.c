@@ -19,18 +19,11 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     //open a tiva ndk socket session in this task stack
     fdOpenSession((void*) TaskSelf());
 
-    //init Horizon tcp socket
-    rove_tcp_socket rove_tcp_socket;
+    //init Horizon protocol for command_msg_buffer
+    rove_tcp_socket command_msg;
 
     //handle tcp connection state
-    rove_tcp_socket.connected_flag = false;
-
-    //init Horizon protocol for command_msg_buffer
-    message_cfg command_msg;
-
-    //temp working memory slot for commands while recv/send
-    char command_msg_buffer[MAX_CMD_BYTE_CNT];
-
+    command_msg.connected_flag = false;
 
 //BEGIN NEW EXPERT MEMBER CHALLENGE:
 
@@ -39,18 +32,21 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
         printf("Attempting to connect\n\n");
 
-        roveTCP_Connect(&rove_tcp_socket);
+        roveTCP_Connect(&command_msg);
 
         // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
-       while (rove_tcp_socket.connected_flag == CONNECTED) {
+       while (command_msg.connected_flag == CONNECTED) {
 
             printf("Connected\n");
 
-            command_msg.post_recv_byte_cnt = roveHorizon_Recv(&rove_tcp_socket, &command_msg, command_msg_buffer);
+            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.message_id, SINGLE_BYTE);
 
-            if(command_msg.post_recv_byte_cnt > 0 ) {
+            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, &command_msg.struct_id, SINGLE_BYTE);
 
+            command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
 
+            //TODO
+            printf("FINISH roveHorizon_Recv\n");
 
 ///////////////END HORIZON RECIEVE/////////////////
 
@@ -58,15 +54,15 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
-                rovePrintf_ByteBuffer(command_msg_buffer, command_msg.post_recv_byte_cnt);
-
-            }//endif
+            rovePrintf_TCP_CmdMsg(&command_msg);
 
         }//endwhile
 
         printf("Connection Lost\n");
 
-        close(rove_tcp_socket.socket_fd);
+        close(command_msg.socket_fd);
+
+        command_msg.struct_id = 0;
 
     }//endwhile FOREVER
 

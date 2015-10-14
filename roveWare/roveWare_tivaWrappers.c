@@ -84,27 +84,6 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 }//endfnctn roveUARTWrite
 
 
-void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf) {
-
-    int printf_cnt = 0;
-
-    printf("Buffer holds: ");
-
-    while (printf_cnt < bytes_to_printf) {
-
-        printf(" %d", printf_buffer[printf_cnt]);
-
-        printf_cnt++;
-
-    } //end while
-
-    printf("\n\n");
-
-    return;
-
-}//endfnctn rovePrintfBuffer
-
-
 int roveGetDeviceId_PinNum(char struct_id) {
 
     switch (struct_id) {
@@ -131,19 +110,9 @@ int roveGetStructId_ByteCnt(char struct_id) {
 
         case test_device_id:
 
-           return sizeof(struct test_device_struct);
+            printf("Testing");
 
-        case motor_drive_left_id:
-
-            return sizeof(struct motor_control_struct);
-
-        case motor_drive_right_id:
-
-            return sizeof(struct motor_control_struct);
-
-        case test_command_id:
-
-             return sizeof(struct test_control_struct);
+            return NULL;
 
         default:
 
@@ -155,24 +124,22 @@ int roveGetStructId_ByteCnt(char struct_id) {
 
 } //endfnctn roveGetStructSize
 
-void rovePrintf_RoveStructs(char* printf_buffer, char struct_id) {
+void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf) {
 
-    switch(struct_id){
+    int printf_cnt = 0;
 
-    case motor_drive_right_id:
+    printf("Buffer holds: ");
 
-        printf("Rover Drive Right : struct_id %d : speed %d\n"
-                ,((struct motor_control_struct*)(&printf_buffer[0]))->struct_id, ((struct motor_control_struct*)(&printf_buffer[0]))->speed);
+    while (printf_cnt < bytes_to_printf) {
 
-        return;
+        printf(" %d", printf_buffer[printf_cnt]);
 
-    case motor_drive_left_id:
+        printf_cnt++;
 
-        printf("Rover Drive Left : struct_id %d : speed %d\n"
-                ,((struct motor_control_struct*)(&printf_buffer[0]))->struct_id, ((struct motor_control_struct*)(&printf_buffer[0]))->speed);
+    } //end while
 
-        return;
+    printf("\n\n");
 
-    }//endswitch
+    return;
 
-}//endfnctn rovePrintf_RoveStructs
+}//endfnctn rovePrintfBuffer

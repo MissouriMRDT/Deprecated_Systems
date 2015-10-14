@@ -61,49 +61,35 @@
 //therefore persist socket args by &
 typedef struct rove_tcp_socket {
 
-    //socket handle
-    int socket_fd;
-
     //socket config
+    int socket_fd;
     struct sockaddr_in server_addr;
     struct timeval tcp_timeout;
+
+    //TCP overhead
+    int to_recv_byte_cnt;
+    int post_recv_byte_cnt;
 
     //socket state
     int connected_flag;
     int error_code;
 
-    //TODO dbg
-    int dbg_recv_cnt;
+    //HORIZON command protocol
+    char message_id;
+    char struct_id;
+    int command_value;
 
 } rove_tcp_socket;
 
-//Working set
-typedef struct message_cfg {
-
-    //Horizon 2015 protocol
-    char message_id;
-    char struct_id;
-
-    int to_recv_byte_cnt;
-    int post_recv_byte_cnt;
-
-} message_cfg;
-
-//hardcode the working buffer limit
-#define MAX_CMD_BYTE_CNT 40
 
 //rove ndk_socket wrappers
 int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
-
-int roveHorizon_Recv(rove_tcp_socket* rove_tcp_socket, message_cfg* recv_cfg, char* recv_buffer);
 
 int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt);
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error);
 
-void rovePrintf_MessageCfg(message_cfg* message_cfg);
-
-void rovePrintf_RoveTCPSocket(rove_tcp_socket* rove_tcp_socket );
+void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
 
 /*
 extern int    fdStatus( SOCKET s, int request, int *results );

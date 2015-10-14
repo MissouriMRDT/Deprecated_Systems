@@ -45,39 +45,15 @@
 
 //These struct_id and payload definitions are how messages get version coupled to Base Station
 
-//motor command struct_id and struct
+//HORIZON command CONFIG protocol
 #define motor_drive_right_id 100
 #define motor_drive_left_id 101
 
-struct motor_control_struct{
-
-    char struct_id;
-    int speed;
-
-}__attribute__((packed));
-
-//test command struct_id and struct
 #define test_command_id 206
 
-struct test_control_struct{
-
-    char struct_id;
-    int test_value;
-
-}__attribute__((packed));
-
-//test telemetry struct_id and struct
-#define test_device_id 0
-
-struct test_device_struct {
-
-    char struct_id;
-    int test_value;
-
-}__attribute__((packed));
+#define test_device_id 251
 
 //hardware parameters
-
 #define TEST_DEVICE_PIN 0
 
 //Tiva Get/Set Wrappers
@@ -93,8 +69,6 @@ void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf);
 int roveGetDeviceId_PinNum(char struct_id);
 
 int roveGetStructId_ByteCnt(char struct_id);
-
-void rovePrintf_RoveStructs(char* printf_buffer, char struct_id);
 
 
 /* Physicl Pin Outs:

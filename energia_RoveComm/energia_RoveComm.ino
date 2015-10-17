@@ -11,14 +11,19 @@ This project multitasks a client and a server for our chip
 #define ROVECOMM_PORT 3500
 
 //device MAC Adress
-byte mac[] = {0xae, 0x00, 0x00, 0x00, 0x00, 0x00};
+byte mac[] = {0x00, 0x1a, 0xb6, 0x02, 0xe7, 0x50};
 
 //device assigned IP address
-IPAddress ip(192,168,0,2);
+//IPAddress ip(192,168,0,2);
 
 void setup() {
-  Ethernet.begin(mac, ip);
   Serial.begin(9600);
+  if (!Ethernet.begin(mac)) {
+    for (;;) {
+      Serial.print("Connection Failed");
+      delay(1000);
+    }
+  }
 }
 
 void loop() {

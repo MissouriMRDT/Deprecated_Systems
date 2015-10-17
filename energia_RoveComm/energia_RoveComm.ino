@@ -14,7 +14,7 @@ This project multitasks a client and a server for our chip
 byte mac[] = {0xae, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 //device assigned IP address
-IPAddress ip(192,168,0,1);
+IPAddress ip(192,168,0,2);
 
 void setup() {
   Ethernet.begin(mac, ip);

@@ -33,18 +33,18 @@ void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size){
   Serial.println("Msg Sent");
 }
 
-void sendMsgTo(uint16_t data_Id, uint8_t* data, uint16_t size, IPAddress dest)
+void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest)
 {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
   buffer[0] = VERSION_NO;
   buffer[1] = SEQ >> 8;
   buffer[2] = SEQ & 0x00FF;
-  buffer[3] = data_Id >> 8;
-  buffer[4] = data_Id & 0x00FF;
+  buffer[3] = dataId >> 8;
+  buffer[4] = dataId & 0x00FF;
   buffer[5] = (size) >> 8;
   buffer[6] = (size) & 0x00FF;
   for (int i = 0; i<size; i++) {
-    buffer[i+7] = data[i];
+    buffer[i + HEADER_BYTES] = data[i];
   }
   sendPacket(dest, ROVECOMM_PORT, buffer, size + HEADER_BYTES);
 }
@@ -103,11 +103,11 @@ void setup() {
 
 void loop() {
   uint8_t toSend[]= { 0xaa, 0xbb, 0xcc };
-  uint16_t size;
-  uint16_t dataID;
+  uint16_t size = sizeof(toSend);
+  uint16_t dataID = 0x0AF3;
   uint8_t receivedMsg[UDP_TX_PACKET_MAX_SIZE];
   
-  sendMsgTo(0x0AF3, toSend, sizeof(toSend), IPAddress(192,168,1,102));
+  sendMsgTo(dataID, toSend, size, IPAddress(192,168,1,102));
   getUdpMsg(&dataID, &size, receivedMsg);
   
   Serial.print("dataID: ");

@@ -23,7 +23,7 @@ int main(void)
   memset(&sa, 0, sizeof sa);
   sa.sin_family = AF_INET;
   sa.sin_addr.s_addr = htonl(INADDR_ANY);
-  sa.sin_port = htons(7654);
+  sa.sin_port = htons(3500);
   fromlen = sizeof(sa);
 
   if (-1 == bind(sock, (struct sockaddr *)&sa, sizeof sa)) {
@@ -41,8 +41,13 @@ int main(void)
       exit(EXIT_FAILURE);
     }
     
-    printf("datagram: %.*s\n",(int)recsize, buffer);
+    int i = 0;
+    for (i=0; i<recsize; i++){
+      printf("%X ", (uint8_t)buffer[i]);
+    }
+    printf("\n");
     printf("recsize: %d\n", (int)recsize);
+    sa.sin_port = htons(3500);
     sendsize = sendto(sock, buffer, recsize, 0, (struct sockaddr*)&sa, sizeof(sa));
     printf("Sent %d bytes\n", (int)sendsize);
     sleep(1);

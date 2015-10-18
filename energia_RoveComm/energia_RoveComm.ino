@@ -9,6 +9,8 @@ This file has some client and server functions for our devices
 #include <EthernetUdp.h>
 
 #define ROVECOMM_PORT 3500
+#define VERSION_NO 0x01
+#define SEQ 0x0F0F
 
 //device MAC Adress
 byte mac[] = {0x00, 0x1a, 0xb6, 0x02, 0xe7, 0x50};
@@ -16,16 +18,32 @@ byte mac[] = {0x00, 0x1a, 0xb6, 0x02, 0xe7, 0x50};
 EthernetUDP udpServer;
 char serverBuffer[UDP_TX_PACKET_MAX_SIZE];
 
-void sendMsg(IPAddress ip, int port, char* msg){
-  Serial.print("Sending Msg: ");
-  Serial.println(msg);
-  EthernetUDP udpClient;
-  while (!udpClient.begin(random(30000,35000)));
-  udpClient.beginPacket(ip,port);
-    udpClient.write(msg);
-  udpClient.endPacket();
-  udpClient.stop();
+uint8_t ver = VERSION_NO;
+
+void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size){
+  Serial.print("Sending Msg...");
+  EthernetUDP udpSender;
+  while (!udpSender.begin(random(30000,35000)));
+  udpSender.beginPacket(ip,port);
+    udpSender.write(msg, size);
+  udpSender.endPacket();
+  udpSender.stop();
   Serial.println("Msg Sent");
+}
+
+void sendMsgTo(uint16_t data_Id, uint8_t* data, uint16_t size, IPAddress* dest)
+{
+  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
+  buffer[0] = VERSION_NO;
+  buffer[1] = (size + 4) >> 8;
+  buffer[2] = (size + 4) & 0x00FF;
+  buffer[3] = SEQ >> 8;
+  buffer[4] = SEQ & 0x00FF;
+  buffer[5] = data_Id >> 8;
+  buffer[6] = data_Id & 0x00FF;
+  for (int i = 0; i<size; i++) {
+    buffer[i+7] = data[i];
+  }
 }
 
 void getAllMsg() {
@@ -62,7 +80,7 @@ void setup() {
 
 void loop() {
   char saying[] = "Hello";
-  sendMsg(IPAddress(192,168,1,102), ROVECOMM_PORT, saying);
+  //sendPacket(IPAddress(192,168,1,102), ROVECOMM_PORT, (char*)&ver);
   getAllMsg();
   delay(5000);
 }

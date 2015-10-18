@@ -32,9 +32,9 @@ int main(void)
   /* The address is IPv4 */
   sa.sin_family = AF_INET;
    /* IPv4 adresses is a uint32_t, convert a string representation of the octets to the appropriate value */
-  sa.sin_addr.s_addr = inet_addr("127.0.0.1");
+  sa.sin_addr.s_addr = inet_addr("192.168.1.103");
   /* sockets are unsigned shorts, htons(x) ensures x is in network byte order, set the port to 7654 */
-  sa.sin_port = htons(7654);
+  sa.sin_port = htons(3500);
  
   bytes_sent = sendto(sock, buffer, strlen(buffer) + 1, 0,(struct sockaddr*)&sa, sizeof sa);
   printf ("Sent %d bytes: %s\n", bytes_sent, buffer);

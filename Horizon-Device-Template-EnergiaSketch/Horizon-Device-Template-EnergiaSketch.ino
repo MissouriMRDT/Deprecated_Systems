@@ -27,6 +27,8 @@ IPAddress BaseStation_IP_ADDR(REDS_IP_ADDR);
  
 EthernetClient BaseStation;
 
+boolean connected_flag;
+
 char message_cntrl_id;
 
 char struct_id;
@@ -55,9 +57,19 @@ void loop(){
   delay(1000);  
   
   //printf a debug message
-  Serial.println("Attenpt to Connect");
+  Serial.println("Attempt to Connect");
   
-  while(BaseStation.connect(BaseStation_IP_ADDR, REDS_IP_PORT) ) {
+  if(BaseStation.connect(BaseStation_IP_ADDR, REDS_IP_PORT) ){
+    
+    connected_flag = true;
+    
+  }else{
+    
+    connected_flag = false;
+   
+  }//endif  
+  
+  while(connected_flag == true) {
     
     //printf a debug message
     Serial.println("Connected");
@@ -67,7 +79,13 @@ void loop(){
       //work around from the old protocol
       message_cntrl_id = BaseStation.read();
       
+      Serial.print("message_cntrl_id:");
+      Serial.println(message_cntrl_id);
+      
       struct_id = BaseStation.read();
+      
+      Serial.print("struct_id:");
+      Serial.println(struct_id);
       
       motor_speed = BaseStation.read();
       
@@ -102,6 +120,12 @@ void loop(){
     }//end while
     
     Serial.println("No message available");
+    
+    if(!BaseStation.connected() ){
+    
+      connected_flag = false;
+    
+    }//endif
     
   }//end while
     

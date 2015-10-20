@@ -10,11 +10,12 @@
 //hardcode base stations IP address
 #define HORIZONS_IP_ADDR 192,168,1,22
 
+//hardcode max base station message size
+#define MOTOR_SPEED_BYTE_CNT 5
+
 //horizon struct_id protocol
 #define motor_drive_left_cmd 100
 #define motor_drive_right_cmd 101
-
-//void roveDriveMotor_ByPWM(PWM_Handle tivaPin, int motor_speed);
 
 //change this to your own shields mac address from the back sticker labeled MAC ADDR
 byte judahs_TivaC_MAC_ADDR[] = { 0x00, 0x1A, 0xB6, 0x02, 0xE7, 0x50 }; 
@@ -29,13 +30,14 @@ EthernetClient BaseStation;
 
 boolean connected_flag;
 
+char motor_speed_buffer[MOTOR_SPEED_BYTE_CNT];
+
 char message_cntrl_id;
 
 char struct_id;
 
-int motor_speed;
+int32_t motor_speed;
   
-
 //execute once
 void setup(){
   
@@ -52,7 +54,7 @@ void setup(){
 
 //loop forever
 void loop(){
-  
+   
   // wait for a thousand milliseconds (one second)
   delay(1000);  
   
@@ -67,60 +69,55 @@ void loop(){
     
     connected_flag = false;
    
-  }//endif  
-  
+  }//endif 
+ 
   while(connected_flag == true) {
     
     //printf a debug message
     Serial.println("Connected");
     
-    while( BaseStation.available() ){
+    message_cntrl_id = 0;
+    struct_id = 0;
+    
+    if( BaseStation.available() ){
+      
+      Serial.println("Available");
       
       //work around from the old protocol
       message_cntrl_id = BaseStation.read();
       
-      Serial.print("message_cntrl_id:");
-      Serial.println(message_cntrl_id);
-      
+      Serial.print("message_cntrl_id byte: ");
+      Serial.println(message_cntrl_id, DEC);
+            
+      //work around from the old protocol
       struct_id = BaseStation.read();
       
-      Serial.print("struct_id:");
-      Serial.println(struct_id);
+      Serial.print("struct_id byte: ");
+      Serial.println(struct_id, DEC);
       
-      motor_speed = BaseStation.read();
-      
-      switch(struct_id){
-      
-        case motor_drive_left_cmd:
-        
-          Serial.print("Motor drive left at:");
-          Serial.println(motor_speed, DEC);
-        
-          break;
-      
-        case motor_drive_right_cmd: 
-        
-          Serial.print("Motor drive right at:");
-          Serial.println(motor_speed, DEC);
+      motor_speed_buffer[0]= BaseStation.read();
+      motor_speed_buffer[1]= BaseStation.read();
+      motor_speed_buffer[2]= BaseStation.read();
+      motor_speed_buffer[3]= BaseStation.read();
+      motor_speed_buffer[4]= '\0';
           
-          break; 
-        
-        default:
-         
-          Serial.print("Not a motor command:");
-          Serial.println(struct_id, DEC);
- 
-   
-          break;
-        
-      }//endswitch
+      //BaseStation.read((unit8_t*)motor_speed_buffer;
+      //motor_speed = atoi((char*)motor_speed_buffer);
       
-      struct_id = NULL;
+      Serial.print("motor_speed_buffer bytes: ");
+      Serial.println(motor_speed_buffer);
+      
+      motor_speed = (motor_speed_buffer[0] << 24) | (motor_speed_buffer[1] << 16) | (motor_speed_buffer[2] << 8) | motor_speed_buffer[3];
+
+      //BaseStation.read((unit8_t*)motor_speed_buffer;
+      //motor_speed = atoi((char*)motor_speed_buffer);
+      
+      Serial.print("motor_speed: ");
+      Serial.println(motor_speed, DEC);
   
-    }//end while
-    
-    Serial.println("No message available");
-    
+  
+    }//end if
+       
     if(!BaseStation.connected() ){
     
       connected_flag = false;
@@ -135,6 +132,9 @@ void loop(){
   
 }//endloop
 /*
+
+//void roveDriveMotor_ByPWM(PWM_Handle tivaPin, int motor_speed);
+
 void roveDriveMotor_ByPWM(PWM_Handle tivaPin, int motor_speed){
   
     int16_t microseconds;

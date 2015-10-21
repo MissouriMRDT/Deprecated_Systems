@@ -11,7 +11,7 @@
 #define HORIZONS_IP_ADDR 192,168,1,22
 
 //hardcode max base station message size
-#define MOTOR_SPEED_BYTE_CNT 5
+#define MOTOR_SPEED_BYTE_CNT 4
 
 //horizon struct_id protocol
 #define motor_drive_left_cmd 100
@@ -81,13 +81,23 @@ void loop(){
     
     if( BaseStation.available() ){
       
-      Serial.println("Available");
+      Serial.println("Struct_id Available");
       
       //work around from the old protocol
       message_cntrl_id = BaseStation.read();
       
       Serial.print("message_cntrl_id byte: ");
       Serial.println(message_cntrl_id, DEC);
+      
+    }else{
+      
+      Serial.println("NO Struct_id Available");
+      
+    }//end if
+    
+    if( (BaseStation.available()) && (message_cntrl_id > 0) ){
+      
+      Serial.println("Struct_id Available");
             
       //work around from the old protocol
       struct_id = BaseStation.read();
@@ -95,30 +105,43 @@ void loop(){
       Serial.print("struct_id byte: ");
       Serial.println(struct_id, DEC);
       
-      motor_speed_buffer[0]= BaseStation.read();
-      motor_speed_buffer[1]= BaseStation.read();
-      motor_speed_buffer[2]= BaseStation.read();
-      motor_speed_buffer[3]= BaseStation.read();
-      motor_speed_buffer[4]= '\0';
-          
-      //BaseStation.read((unit8_t*)motor_speed_buffer;
-      //motor_speed = atoi((char*)motor_speed_buffer);
+    }else{
       
-      Serial.print("motor_speed_buffer bytes: ");
-      Serial.println(motor_speed_buffer);
+      Serial.println("NO Struct_id Available");
       
-      motor_speed = (motor_speed_buffer[0] << 24) | (motor_speed_buffer[1] << 16) | (motor_speed_buffer[2] << 8) | motor_speed_buffer[3];
-
-      //BaseStation.read((unit8_t*)motor_speed_buffer;
-      //motor_speed = atoi((char*)motor_speed_buffer);
+    }//end if
+        
+    if( (BaseStation.available()) && (struct_id > 0) ){
       
-      Serial.print("motor_speed: ");
-      Serial.println(motor_speed, DEC);
+        motor_speed_buffer[0]= BaseStation.read();
+        motor_speed_buffer[1]= BaseStation.read();
+        motor_speed_buffer[2]= BaseStation.read();
+        motor_speed_buffer[3]= BaseStation.read();
+            
+        //BaseStation.read((unit8_t*)motor_speed_buffer;
+        //motor_speed = atoi((char*)motor_speed_buffer);
+        
+        Serial.print("motor_speed_buffer bytes: ");
+        Serial.println(motor_speed_buffer[0]);
+        Serial.println(motor_speed_buffer[1]);
+        Serial.println(motor_speed_buffer[2]);
+        Serial.println(motor_speed_buffer[3]);
+        
+        //motor_speed = (motor_speed_buffer[0] << 24) | (motor_speed_buffer[1] << 16) | (motor_speed_buffer[2] << 8) | motor_speed_buffer[3];
   
-  
+        //BaseStation.read((unit8_t*)motor_speed_buffer;
+        //motor_speed = atoi((char*)motor_speed_buffer);
+        
+        //Serial.print("motor_speed: ");
+        //Serial.println(motor_speed, DEC);
+        
+    }else{
+      
+      Serial.println("NO Struct_id Available");
+      
     }//end if
        
-    if(!BaseStation.connected() ){
+    if( !BaseStation.connected() ){
     
       connected_flag = false;
     

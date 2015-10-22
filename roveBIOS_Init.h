@@ -9,47 +9,24 @@
 
 //EK_1294XL dev shield target device
 #include "../roveTargetConfigs/Board.h"
-#include "inc/hw_memmap.h"
 
 //C lib
-#include <stdint.h>
-#include <string.h>
-#include <stdbool.h>
 #include <stdio.h>
 
 //CCS TI config
-#include <xdc/std.h>
-
-#include <xdc/cfg/global.h>
-
-#include <xdc/runtime/Error.h>
 #include <xdc/runtime/System.h>
 
 //CCS TI operating system
 #include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Task.h>
 
 //TI hardware access routines
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
-#include <ti/drivers/Watchdog.h>
-/*
-//TI BIOS hardware drivers
-//#include "driverlib/gpio.h"
-//#include "driverlib/uart.h"
-//#include "driverlib/pwm.h"
+//#include <ti/drivers/Watchdog.h>
 
-//CCS TI TIVA NDK BSD support
-#include <sys/socket.h>
-*/
 //global Watchdog
 //Watchdog_Handle watchdog;
-
-//Tiva HW IO Module Initialization Wrappers
-PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds);
-
-UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate);
 
 //global UARTs
 
@@ -73,53 +50,9 @@ PWM_Handle pwm_4;
 PWM_Handle pwm_5;
 PWM_Handle pwm_6;
 
-
 //Tiva HW IO Module Initialization Wrappers
-PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds) {
+PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds);
 
-    PWM_Handle pwm_handle;
-
-    PWM_Params pwmParams;
-
-    PWM_Params_init(&pwmParams);
-
-    pwmParams.period = period_in_microseconds;
-    pwm_handle = PWM_open(pwm_index, &pwmParams);
-
-    if (pwm_handle == NULL) {
-
-        System_abort("Error opening the PWM\n");
-
-    }   //endif
-
-    return pwm_handle;
-
-}   //endfnctn rovePWMInit
-
-
-
-UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate) {
-
-    UART_Handle uart_handle;
-    UART_Params uartParams;
-
-    UART_Params_init(&uartParams);
-
-    uartParams.readReturnMode = UART_RETURN_FULL;
-    uartParams.readMode = UART_MODE_BLOCKING;
-    uartParams.readEcho = UART_ECHO_OFF;
-    uartParams.baudRate = baud_rate;
-
-    uart_handle = (UART_Handle)UART_open(uart_index, &uartParams);
-
-    if (uart_handle == NULL) {
-
-        System_abort("Error opening the UART\n");
-
-    } //endif
-
-    return uart_handle;
-
-} //endfnct init_uart(UInt uart_index, UInt baud_rate)
+UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate);
 
 #endif // ROVEBIOSINIT_H_

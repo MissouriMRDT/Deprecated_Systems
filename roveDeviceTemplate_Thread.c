@@ -55,16 +55,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
                 dbg_zero_recv_byte_cnt++;
 
             }//endwhile
-/*
-            //Horizon used struct_id as the instruction set switch statement identifiers from base station
-            if(command_msg.struct_id > 0){
-
-               command_msg.post_recv_byte_cnt = roveTCP_Recv(&command_msg, (char*)&command_msg.command_value, sizeof(command_msg.command_value) );
-
-            }//endif
-*/
             //TODO
-
             dbg_zero_recv_byte_cnt++;
 
             printf("roveTCP_HorizonProtocol_Recv cnt: %d\n", dbg_zero_recv_byte_cnt);
@@ -76,11 +67,8 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
-           // if(command_msg.command_value > 0){
 
-                rovePrintf_TCP_CmdMsg(&command_msg);
-
-           // }//endif
+            rovePrintf_TCP_CmdMsg(&command_msg);
 
         }//endwhile
 

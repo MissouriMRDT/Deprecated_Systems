@@ -8,12 +8,6 @@
 
 #include "roveWare_TCPSocket.h"
 
-struct motor_control_struct {
-
-    int speed;
-
-};
-
 int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
     rove_tcp_socket->socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);

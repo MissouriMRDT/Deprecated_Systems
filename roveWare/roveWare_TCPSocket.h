@@ -9,29 +9,15 @@
 #ifndef ROVEWARETCPSOCKET_H_
 #define ROVEWARETCPSOCKET_H_
 
-#include "roveWare_tivaWrappers.h"
-
 //C lib
 #include <stdint.h>
 #include <string.h>
-#include <stdbool.h>
 #include <stdio.h>
-
-//CCS TI config
-#include <xdc/std.h>
-
-#include <xdc/cfg/global.h>
-
-#include <xdc/runtime/Error.h>
-#include <xdc/runtime/System.h>
-
-//CCS TI operating system
-#include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Task.h>
 
 //CCS TI NDK BSD support
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <socketndk.h>
 
 //hardcode the timeout in seconds
 #define TCP_SOCKET_TIMEOUT_SEC 3
@@ -90,7 +76,7 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error);
 
-void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
+//void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
 
 /*
 extern int    fdStatus( SOCKET s, int request, int *results );

@@ -133,7 +133,7 @@ void roveCatch_NdkErrors(int16_t ndk_tcp_error) {
 
 }//endfnctn roveCatch_NdkErrors
 
-
+/*
 void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     switch(rove_tcp_socket->struct_id){
@@ -164,5 +164,5 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
         return;
 
-}//endfnctn rovePrintf_RoveStructs
+}//endfnctn rovePrintf_RoveStructs*/
 

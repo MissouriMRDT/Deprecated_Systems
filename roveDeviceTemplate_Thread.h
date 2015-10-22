@@ -36,6 +36,12 @@
 //TODO wtf
 //#include <ti/ndk/inc/os/osif.h>
 
+//C lib
+#include <stdio.h>
+
+//CCS TI operating system
+#include <ti/sysbios/knl/Task.h>
+
 //MRDT definitions
 #include "roveWare/roveWare_TCPSocket.h"
 #include "roveWare/roveWare_NewMemberUtils.h"

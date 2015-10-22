@@ -10,34 +10,13 @@
 #define ROVEWARETIVAWRAPPERS_H_
 
 //C lib
-//#include <stdint.h>
-//#include <string.h>
-//#include <stdbool.h>
 #include <stdio.h>
 
-//CCS TI config
-#include <xdc/std.h>
-
-#include <xdc/cfg/global.h>
-
-#include <xdc/runtime/Error.h>
-#include <xdc/runtime/System.h>
-
-//CCS TI operating system
-#include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Task.h>
-
-//TI hardware access routines//TODO
+//TI hardware access routines
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
-/*
-//TI BIOS hardware drivers//TODO
-#include "driverlib/gpio.h"
-#include "driverlib/uart.h"
-#include "driverlib/pwm.h"
-#include "inc/hw_memmap.h"
-*/
+
 // mrdt::rovWare
 
 //MRDT shorthand
@@ -71,34 +50,32 @@ int roveGetDeviceId_PinNum(char struct_id);
 int roveGetStructId_ByteCnt(char struct_id);
 
 
-/* Physicl Pin Outs:
+// Physicl Pin Outs:
 
-//GPIO pins
-#define PH0_GPIO_PIN 0
-#define PH1_GPIO_PIN 1
-#define PM6_GPIO_PIN 2
-#define PM7_GPIO_PIN 3
-#define PL0_GPIO_PIN 4
-#define PL1_GPIO_PIN 5
-#define PK2_GPIO_PIN 6
-#define PK3_GPIO_PIN 7
-#define PE0_GPIO_PIN 8
-#define PE1_GPIO_PIN 9
+// GPIO pins
+// PH0_GPIO_PIN 0
+// PH1_GPIO_PIN 1
+// PM6_GPIO_PIN 2
+// PM7_GPIO_PIN 3
+// PL0_GPIO_PIN 4
+// PL1_GPIO_PIN 5
+// PK2_GPIO_PIN 6
+// PK3_GPIO_PIN 7
+// PE0_GPIO_PIN 8
+// PE1_GPIO_PIN 9
 
 // UART pins
-#define U2RX PA6_UART_2
-#define U2TX PA7_UART_2
-#define U3RX PA4_UART_3
-#define U3TX PA5_UART_3
-#define U4RX PK0_UART_4
-#define U4TX PK1_UART_4
-#define U5RX PC6_UART_5
-#define U5TX PC7_UART_5
-#define U6RX PP0_UART_6
-#define U6TX PP1_UART_6
-#define U7RX PC4_UART_7
-#define U7TX PC5_UART_7
+// U2RX PA6_UART_2
+// U2TX PA7_UART_2
+// U3RX PA4_UART_3
+// U3TX PA5_UART_3
+// U4RX PK0_UART_4
+// U4TX PK1_UART_4
+// U5RX PC6_UART_5
+// U5TX PC7_UART_5
+// U6RX PP0_UART_6
+// U6TX PP1_UART_6
+// U7RX PC4_UART_7
+// U7TX PC5_UART_7
 
-*/
-
-#endif /* ROVEWAREWRAPPERS_H_ */
+#endif //ROVEWAREWRAPPERS_H_

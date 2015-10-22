@@ -17,7 +17,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     printf("Init roveDevice_TemplateThread\n\n\n");
 
     //open a tiva ndk socket session in this task stack
-    fdOpenSession((void*) TaskSelf());
+    fdOpenSession(  TaskSelf() );
 
     //init Horizon protocol for command_msg_buffer
     rove_tcp_socket command_msg;
@@ -68,7 +68,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
 
-            rovePrintf_TCP_CmdMsg(&command_msg);
+           // rovePrintf_TCP_CmdMsg(&command_msg);
 
         }//endwhile
 

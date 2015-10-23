@@ -55,12 +55,12 @@ int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket) {
 
 }//endfnctn
 
-int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt) {
+int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_buffer_byte_cnt) {
 
     if (rove_tcp_socket->connected_flag == CONNECTED) {
 
         //TODO
-        recv_byte_cnt = recv(rove_tcp_socket->socket_fd, recv_buffer, recv_byte_cnt, MSG_WAITALL);
+        int recv_byte_cnt = recv(rove_tcp_socket->socket_fd, recv_buffer, recv_buffer_byte_cnt, MSG_WAITALL);
 
         if (recv_byte_cnt < ZERO_BYTES) {
 
@@ -83,12 +83,12 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
 int roveTCP_HorizonProtocol_Recv(rove_tcp_socket* rove_tcp_socket){
 
-    rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &rove_tcp_socket->message_id, SINGLE_BYTE);
+    rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &(rove_tcp_socket->message_id), SINGLE_BYTE);
 
     //Horizon message_id = 5 for a command, except Horizon only ever implemented commands
     if(rove_tcp_socket->message_id > 0){
 
-        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &rove_tcp_socket->struct_id, SINGLE_BYTE);
+        rove_tcp_socket->post_recv_byte_cnt = roveTCP_Recv(rove_tcp_socket, &(rove_tcp_socket->struct_id), SINGLE_BYTE);
 
     }//endif
 
@@ -133,20 +133,20 @@ void roveCatch_NdkErrors(int16_t ndk_tcp_error) {
 
 }//endfnctn roveCatch_NdkErrors
 
-/*
+
 void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     switch(rove_tcp_socket->struct_id){
 
     case motor_drive_right_id:
 
-        printf("Rover Drive Right : struct_id %d : speed %s\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
+        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, *((int*)rove_tcp_socket->command_value));
 
         break;
 
     case motor_drive_left_id:
 
-        printf("Rover Drive Left : struct_id %d : speed %s\n",rove_tcp_socket->struct_id, rove_tcp_socket->command_value);
+        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, *((int*)rove_tcp_socket->command_value));
 
         break;
 
@@ -164,5 +164,5 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
         return;
 
-}//endfnctn rovePrintf_RoveStructs*/
+}//endfnctn rovePrintf_RoveStructs
 

@@ -72,11 +72,11 @@ int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
 
 int roveTCP_HorizonProtocol_Recv(rove_tcp_socket* rove_tcp_socket);
 
-int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_byte_cnt);
+int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_buffer_byte_cnt);
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error);
 
-//void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
+void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
 
 /*
 extern int    fdStatus( SOCKET s, int request, int *results );

@@ -133,20 +133,19 @@ void roveCatch_NdkErrors(int16_t ndk_tcp_error) {
 
 }//endfnctn roveCatch_NdkErrors
 
-
-void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
+void rovePrintf_TCPCmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     switch(rove_tcp_socket->struct_id){
 
     case motor_drive_right_id:
 
-        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, *((int*)rove_tcp_socket->command_value));
+        printf("Rover Drive Right : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, (*((int*)rove_tcp_socket->command_value)) );
 
         break;
 
     case motor_drive_left_id:
 
-        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, *((int*)rove_tcp_socket->command_value));
+        printf("Rover Drive Left : struct_id %d : speed %d\n",rove_tcp_socket->struct_id, (*((int*)rove_tcp_socket->command_value)) );
 
         break;
 
@@ -158,11 +157,6 @@ void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket) {
 
     }//endswitch
 
-    printf("Bytes Recieved: post_recv_byte_cnt %d :\n", rove_tcp_socket->post_recv_byte_cnt);
-
-    printf("Socket State: connected_flag %d : error_code %d\n",rove_tcp_socket->connected_flag, rove_tcp_socket->error_code);
-
         return;
 
 }//endfnctn rovePrintf_RoveStructs
-

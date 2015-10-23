@@ -1,13 +1,18 @@
-// roveWare_StructIdProtocol.h MST MRDT 2015
+// roveWare_StructId_Protocol.h MST MRDT 2015
 //
 // Judah Schad jrs6w7@mst.edu
 //
-// module for utlity wrapper access to Texas Instruments TivaWare
+// Horizon struct_id based protocol definitions
 //
 // mrdt::rovWare
 
 #ifndef ROVEWARE_STRUCTID_PROTOCOL_H_
 #define ROVEWARE_STRUCTID_PROTOCOL_H_
+
+//MRDT shorthand
+#define FOREVER 1
+#define ERROR_FREE 1
+#define ERROR -1
 
 //These struct_id and payload definitions are how messages get version coupled to Base Station
 

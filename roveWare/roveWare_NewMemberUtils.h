@@ -11,9 +11,9 @@
 
 #include "roveWare_tivaWrappers.h"
 
-//roveWare Servo Control Routines
+//roveWare Control Routines
 void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
 
-//TODO
+//TODO Add New Member Functions (Dynamixel and Polulo Wrappers)
 
-#endif /* ROVEWARE_NEWMEMBERUTILS_H_ */
+#endif // ROVEWARE_NEWMEMBERUTILS_H_

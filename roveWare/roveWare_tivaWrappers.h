@@ -6,8 +6,11 @@
 //
 // mrdt::rovWare
 
-#ifndef ROVEWARETIVAWRAPPERS_H_
-#define ROVEWARETIVAWRAPPERS_H_
+#ifndef ROVEWARE_TIVAWRAPPERS_H_
+#define ROVEWARE_TIVAWRAPPERS_H_
+
+//mrdt::rovWare Horizon Protocol Definitions
+#include "roveWare_StructId_Protocol.h"
 
 //C lib
 #include <stdio.h>
@@ -17,13 +20,7 @@
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 
-// mrdt::rovWare
-
-//MRDT shorthand
-#define ERROR -1
-
 //Tiva Get/Set Wrappers
-
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
 
 int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
@@ -35,7 +32,6 @@ void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf);
 int roveGetDeviceId_PinNum(char struct_id);
 
 int roveGetStructId_ByteCnt(char struct_id);
-
 
 // Physicl Pin Outs:
 
@@ -65,4 +61,4 @@ int roveGetStructId_ByteCnt(char struct_id);
 // U7RX PC4_UART_7
 // U7TX PC5_UART_7
 
-#endif //ROVEWAREWRAPPERS_H_
+#endif //ROVEWARE_TIVAWRAPPERS_H_

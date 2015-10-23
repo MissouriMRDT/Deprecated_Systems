@@ -68,7 +68,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
 
-            rovePrintf_TCP_CmdMsg(&command_msg);
+            rovePrintf_TCPCmdMsg(&command_msg);
 
         }//endwhile
 

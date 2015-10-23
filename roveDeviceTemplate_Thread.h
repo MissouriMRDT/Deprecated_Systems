@@ -33,7 +33,7 @@
 //TI TIVA Mailbox() BIOS software routine support
 //#include <ti/sysbios/knl/Mailbox.h>
 
-//TODO wtf
+//TODO wtf TaskSelf Warning?
 //#include <ti/ndk/inc/os/osif.h>
 
 //C lib

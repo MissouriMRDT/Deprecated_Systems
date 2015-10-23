@@ -6,8 +6,11 @@
 //
 // mrdt::rovWare
 
-#ifndef ROVEWARETCPSOCKET_H_
-#define ROVEWARETCPSOCKET_H_
+#ifndef ROVEWARE_TCPSOCKET_H_
+#define ROVEWARE_TCPSOCKET_H_
+
+//mrdt::rovWare Horizon Protocol Definitions
+#include "roveWare_StructId_Protocol.h"
 
 //C lib
 #include <stdint.h>
@@ -32,21 +35,13 @@
 #define COMMAND_BYTE_CNT 4
 
 //MRDT shorthand
-#define FOREVER 1
-
-#define ERROR_FREE 1
-
-//#define ERROR -1
-
 #define ZERO_BYTES 0
 #define SINGLE_BYTE 1
 
 #define CONNECTED 1
 #define DISCONNECTED -1
 
-//fdOpenSession->TaskSelf
-//
-//therefore persist socket args by &
+//fdOpenSession->TaskSelf -> therefore -> need to persist socket args by &
 typedef struct rove_tcp_socket {
 
     //socket config
@@ -66,7 +61,6 @@ typedef struct rove_tcp_socket {
 
 }__attribute__((packed)) rove_tcp_socket, *rove_tcp_socket_ptr;
 
-
 //rove ndk_socket wrappers
 int roveTCP_Connect(rove_tcp_socket* rove_tcp_socket);
 
@@ -76,15 +70,6 @@ int roveTCP_Recv(rove_tcp_socket* rove_tcp_socket, char* recv_buffer, int recv_b
 
 void roveCatch_NdkErrors(int16_t ndk_tcp_error);
 
-void rovePrintf_TCP_CmdMsg(rove_tcp_socket* rove_tcp_socket);
+void rovePrintf_TCPCmdMsg(rove_tcp_socket* rove_tcp_socket);
 
-/*
-extern int    fdStatus( SOCKET s, int request, int *results );
-#define FDSTATUS_TYPE           0   // get socket type
-#define FDSTATUS_TYPE_SOCKET    1
-#define FDSTATUS_TYPE_PIPE      2
-#define FDSTATUS_RECV           1   // get socket rcv status
-#define FDSTATUS_SEND           2   // get socket snd status
-*/
-
-#endif //ROVEWARETCPSOCKET_H_
+#endif //ROVEWARE_TCPSOCKET_H_

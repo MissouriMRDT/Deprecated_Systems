@@ -118,22 +118,9 @@ void loop(){
         motor_speed_buffer[2]= BaseStation.read();
         motor_speed_buffer[3]= BaseStation.read();
             
-        //BaseStation.read((unit8_t*)motor_speed_buffer;
-        //motor_speed = atoi((char*)motor_speed_buffer);
         
-        Serial.print("motor_speed_buffer bytes: ");
-        Serial.println(motor_speed_buffer[0]);
-        Serial.println(motor_speed_buffer[1]);
-        Serial.println(motor_speed_buffer[2]);
-        Serial.println(motor_speed_buffer[3]);
-        
-        //motor_speed = (motor_speed_buffer[0] << 24) | (motor_speed_buffer[1] << 16) | (motor_speed_buffer[2] << 8) | motor_speed_buffer[3];
-  
-        //BaseStation.read((unit8_t*)motor_speed_buffer;
-        //motor_speed = atoi((char*)motor_speed_buffer);
-        
-        //Serial.print("motor_speed: ");
-        //Serial.println(motor_speed, DEC);
+        Serial.print("motor_speed:: ");
+        Serial.println( (*(int*)motor_speed_buffer), DEC);
         
     }else{
       

@@ -11,11 +11,12 @@ This file has some client and server functions for our devices
 
 
 //device MAC Adress
-byte mac[] = {0x00, 0x1a, 0xb6, 0x02, 0xe7, 0x50};
+byte deviceMAC[] = {0x00, 0x1A, 0xB6, 0x02, 0xF0, 0xDF};
+IPAddress deviceIP(192,168,1,103);
 
 void setup() {
   Serial.begin(9600);
-  rovecommInit(mac);
+  rovecommInit(deviceMAC, deviceIP);
 }
 
 void loop() {

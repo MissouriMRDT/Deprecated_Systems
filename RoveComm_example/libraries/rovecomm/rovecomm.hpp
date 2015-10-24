@@ -1,10 +1,5 @@
-void rovecommInit(byte mac[]){
-  if (!Ethernet.begin(mac)) {
-    for (;;) {
-      Serial.println("Connection Failed");
-      delay(1000);
-    }
-  }
+void rovecommInit(byte mac[], IPAddress ip){
+  Ethernet.begin(mac, ip);
   udpReceiver.begin(ROVECOMM_PORT);
 }
 

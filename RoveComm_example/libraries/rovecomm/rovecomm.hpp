@@ -1,3 +1,4 @@
+// This function starts networking and sets up our listening port
 void rovecommInit(byte mac[], IPAddress ip){
   Ethernet.begin(mac, ip);
   udpReceiver.begin(ROVECOMM_PORT);
@@ -5,18 +6,20 @@ void rovecommInit(byte mac[], IPAddress ip){
 
 void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size){
   Serial.print("Sending Msg...");
-  EthernetUDP udpSender;
-  while (!udpSender.begin(random(30000,35000)));
+  EthernetUDP udpSender; //Create a new temporary port for sending messages. If we need verification, it's important that it doesn't interfere with the regular listening port
+  while (!udpSender.begin(random(30000,35000))); //keep trying to open a port on a socket until it gets one
   udpSender.beginPacket(ip,port);
     udpSender.write(msg, size);
   udpSender.endPacket();
-  udpSender.stop();
+  udpSender.stop(); //close socket
   Serial.println("Msg Sent");
 }
 
 void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest)
 {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
+
+  //setup the packet header
   buffer[0] = VERSION_NO;
   buffer[1] = SEQ >> 8;
   buffer[2] = SEQ & 0x00FF;
@@ -24,6 +27,7 @@ void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest)
   buffer[4] = dataId & 0x00FF;
   buffer[5] = (size) >> 8;
   buffer[6] = (size) & 0x00FF;
+  //copy the message into the packet
   for (int i = 0; i<size; i++) {
     buffer[i + HEADER_BYTES] = data[i];
   }
@@ -35,10 +39,10 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
   *size = 0;
   
   Serial.println("Checking messages");
-  int packetSize = udpReceiver.parsePacket();
+  int packetSize = udpReceiver.parsePacket(); //check if there is a packet
   Serial.print("Packet Size: ");
   Serial.println(packetSize);
-  if (packetSize > 0){
+  if (packetSize > 0){ //if there is a packet
     IPAddress remote_ip = udpReceiver.remoteIP();
     int remote_port = udpReceiver.remotePort();
     Serial.print("Message from ");
@@ -52,12 +56,12 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
     udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
     parseUdpMsg(receiverBuffer, dataID, size, data);
     Serial.println();
-    
-  } 
+  }
 }
 
 void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* data) {
-  uint8_t proto_version = packet[0];
+  uint8_t proto_version = packet[0]; //get Protocol Version
+  //Switch based on protocol version
   if (proto_version == 1) {
     uint8_t dataIDUpper = packet[3];
     *dataID = dataIDUpper;

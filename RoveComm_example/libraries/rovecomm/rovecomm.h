@@ -6,9 +6,11 @@
 #define HEADER_BYTES 7
 #define SEQ 0x0F0F
 
+//declare our receiving server and a buffer for it globally
 EthernetUDP udpReceiver;
 uint8_t receiverBuffer[UDP_TX_PACKET_MAX_SIZE];
 
+//function prototypes
 void rovecommInit(byte mac[]);
 void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
 void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint16_t* data);

@@ -3,6 +3,8 @@ Distributed Internet Protocol for Embedded Device
 
 Inside the C folder is a bit of C code for communicating with UDP so we only need one board. The energia folder has our communications template for communuicating on the TI boards.
 
+To use the RoveComm library, open energia and change File -> Preferences -> sketchbook location to the location of your project, then copy libraries/rovecomm/ to your project directory  
+
 #### Communications Protocol
 The bytes of the packet message are ordered like this:
 

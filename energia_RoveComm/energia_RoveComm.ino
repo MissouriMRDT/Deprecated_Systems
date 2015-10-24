@@ -15,13 +15,7 @@ byte mac[] = {0x00, 0x1a, 0xb6, 0x02, 0xe7, 0x50};
 
 void setup() {
   Serial.begin(9600);
-  if (!Ethernet.begin(mac)) {
-    for (;;) {
-      Serial.println("Connection Failed");
-      delay(1000);
-    }
-  }
-  udpReceiver.begin(ROVECOMM_PORT);
+  rovecommInit(mac);
 }
 
 void loop() {

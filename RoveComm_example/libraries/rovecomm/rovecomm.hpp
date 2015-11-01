@@ -80,5 +80,19 @@ void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* dat
 }
 
 void rovecommControl(uint16_t* dataID, uint16_t* size, uint8_t* data, IPAddress remote_ip, int remote_port) {
-  return;
+  switch (*dataID) {
+    case 1: //Add subscriber
+      rovecommAddSubscriber(remote_ip);
+  }
+}
+
+bool rovecommAddSubscriber(IPAddress address) {
+  int i = 0;
+  Serial.println("Adding Subsrciber");
+  while(i < 5 && !(rovecommSubscribers[i] == INADDR_NONE || rovecommSubscribers[i] == address))
+    i++;
+  if (i == 5) //If we have exceeded the subscribers array
+    return false;
+  rovecommSubscribers[i] = address;
+  return true;
 }

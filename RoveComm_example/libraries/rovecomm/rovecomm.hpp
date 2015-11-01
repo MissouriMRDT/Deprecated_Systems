@@ -1,7 +1,13 @@
 // This function starts networking and sets up our listening port
 void rovecommInit(byte mac[], IPAddress ip) {
+  uint16_t dataID = 0, size = 0;
+  uint8_t tempData[UDP_TX_PACKET_MAX_SIZE];
+  
   Ethernet.begin(mac, ip);
   udpReceiver.begin(ROVECOMM_PORT);
+  Serial.println("Waiting for Base Station");
+  while (rovecommSubscribers[0] = IPADDR_NONE)
+    getUdpMsg(&dataID, &size, tempData);
 }
 
 void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {

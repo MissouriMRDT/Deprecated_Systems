@@ -1,10 +1,10 @@
 // This function starts networking and sets up our listening port
-void rovecommInit(byte mac[], IPAddress ip){
+void rovecommInit(byte mac[], IPAddress ip) {
   Ethernet.begin(mac, ip);
   udpReceiver.begin(ROVECOMM_PORT);
 }
 
-void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size){
+void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
   Serial.print("Sending Msg...");
   EthernetUDP udpSender; //Create a new temporary port for sending messages. If we need verification, it's important that it doesn't interfere with the regular listening port
   while (!udpSender.begin(random(30000,35000))); //keep trying to open a port on a socket until it gets one
@@ -15,8 +15,7 @@ void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size){
   Serial.println("Msg Sent");
 }
 
-void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest)
-{
+void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest) {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 
   //setup the packet header
@@ -55,6 +54,11 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
     Serial.println(remote_port);
     udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
     parseUdpMsg(receiverBuffer, dataID, size, data);
+    if (*dataID < 100) {
+      Serial.println("RoveComm function received");
+      rovecommControl(dataID, size, data, remote_ip, remote_port);
+      getUdpMsg(dataID, size, data);
+    }
     Serial.println();
   }
 }
@@ -73,4 +77,8 @@ void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* dat
       data[i] = packet[i+HEADER_BYTES];
     }
   }
+}
+
+void rovecommControl(uint16_t* dataID, uint16_t* size, uint8_t* data, IPAddress remote_ip, int remote_port) {
+  return;
 }

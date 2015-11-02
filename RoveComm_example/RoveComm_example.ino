@@ -15,7 +15,7 @@ This file has some client and server functions for our devices
 void setup() {
   //define device MAC Address and IP for networking
   byte deviceMAC[] = {0x00, 0x1A, 0xB6, 0x02, 0xF0, 0xDF};
-  IPAddress deviceIP(192,168,1,103);
+  IPAddress deviceIP(192,168,1,51);
   
   //Start serial for debugging
   Serial.begin(9600);

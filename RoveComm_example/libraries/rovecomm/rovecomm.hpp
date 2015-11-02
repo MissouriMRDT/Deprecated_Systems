@@ -6,7 +6,7 @@ void rovecommInit(byte mac[], IPAddress ip) {
   Ethernet.begin(mac, ip);
   udpReceiver.begin(ROVECOMM_PORT);
   Serial.println("Waiting for Base Station");
-  while (rovecommSubscribers[0] = IPADDR_NONE)
+  while (rovecommSubscribers[0] == INADDR_NONE)
     getUdpMsg(&dataID, &size, tempData);
 }
 
@@ -60,8 +60,9 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
     Serial.println(remote_port);
     udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
     parseUdpMsg(receiverBuffer, dataID, size, data);
-    if (*dataID < 100) {
-      Serial.println("RoveComm function received");
+    if (*dataID < 0x65) {
+      Serial.print("RoveComm function received with dataID: ");
+      Serial.println(*dataID, HEX);
       rovecommControl(dataID, size, data, remote_ip, remote_port);
       getUdpMsg(dataID, size, data);
     }

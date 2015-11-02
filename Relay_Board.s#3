@@ -2476,24 +2476,24 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
 <part name="Q1" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
-<part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
+<part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="Q3" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="Q4" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
-<part name="JP2" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP3" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP4" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
+<part name="JP2" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP3" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP4" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="Q5" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="Q6" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
-<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
+<part name="JP6" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="Q7" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="Q8" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="Q9" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
-<part name="JP7" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP8" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP9" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
-<part name="JP10" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
+<part name="JP7" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP8" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP9" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP10" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="Q10" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -2506,7 +2506,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$1" library="SparkFun-PowerIC" deviceset="V_REG_MIC2920" device=""/>
-<part name="JP11" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
+<part name="JP11" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="22uF"/>

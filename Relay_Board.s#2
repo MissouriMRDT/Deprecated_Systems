@@ -2506,7 +2506,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$1" library="SparkFun-PowerIC" deviceset="V_REG_MIC2920" device=""/>
-<part name="JP11" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="JP11" library="SparkFun-Connectors" deviceset="M02" device="3.5MM" value="M023.5MM"/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value="22uF"/>
@@ -2817,7 +2817,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="25.4" y1="17.78" x2="93.98" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$24" class="0">
+<net name="12V" class="0">
 <segment>
 <pinref part="JP11" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="106.68" x2="101.6" y2="99.06" width="0.1524" layer="91"/>

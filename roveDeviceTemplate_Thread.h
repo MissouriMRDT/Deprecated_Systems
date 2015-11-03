@@ -45,6 +45,7 @@
 //MRDT definitions
 #include "roveWare/roveWare_TCPSocket.h"
 #include "roveWare/roveWare_NewMemberUtils.h"
+#include "roveWare/roveWare_dynamixelWrappers.h"
 
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 void roveDeviceTemplateThread(UArg arg0, UArg arg1);

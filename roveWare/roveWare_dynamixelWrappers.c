@@ -9,7 +9,7 @@
 #include "roveWare_dynamixelWrappers.h"
 
 //TODO
-void roveDynamixel_DualCommand(int tiva_pin, int16_t command_type, uint8_t dynamixel_id, int16_t first_command_value, int16_t second_command_value) {
+void roveDynamixel_Command(int tiva_pin, int16_t command_type, uint8_t dynamixel_id, int16_t first_command_value, int16_t second_command_value) {
 
     rove_dynamixel_struct dynamixel;
 
@@ -37,6 +37,54 @@ void roveDynamixel_DualCommand(int tiva_pin, int16_t command_type, uint8_t dynam
     return;
 
 }//end fnctn buildDynamixelStructMessage
+
+int16_t roveConverRedProtocol_toDynamixelSpeed(int16_t dynamixel_rotate_at_speed){
+
+    if(dynamixel_rotate_at_speed < DYNAMIXEL_SPEED_MIN) {
+
+        dynamixel_rotate_at_speed = DYNAMIXEL_SPEED_MIN;
+
+    }//end if
+
+    if(dynamixel_rotate_at_speed > DYNAMIXEL_SPEED_MAX) {
+
+        dynamixel_rotate_at_speed = DYNAMIXEL_SPEED_MAX;
+
+    }//end if
+
+    //dynamixel internal protocol
+    if(dynamixel_rotate_at_speed < 0) {
+
+        //0 to 1024 is counterclockwise speed
+        dynamixel_rotate_at_speed = -dynamixel_rotate_at_speed;
+
+    }else{
+
+        //1024 to 2048 is clockwise speed
+        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed + 1024;
+
+    }//endif
+
+    return dynamixel_rotate_at_speed;
+
+}//end fnctn
+
+int16_t roveReverseDynamixelSpeed(int16_t dynamixel_rotate_at_speed){
+
+    if(dynamixel_rotate_at_speed < 1024) {
+
+        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed -1024;
+
+    }else{
+
+        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed + 1024;
+
+    }//end if
+
+    return dynamixel_rotate_at_speed;
+
+}//end fnctn
+
 
 /*   AX   12 Savage Electronics
 // EEPROM AREA  ///////////////////////////////////////////////////////////

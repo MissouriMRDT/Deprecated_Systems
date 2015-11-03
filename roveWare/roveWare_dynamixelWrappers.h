@@ -32,8 +32,55 @@ typedef struct rove_dynamixel_struct {
 
     uint8_t check_sum;
 
-} rove_dynamixel_struct, *rove_dynamixel_struct_ptr;
+}__attribute__((packed)) rove_dynamixel_struct, *rove_dynamixel_struct_ptr;
 
+//Left Over from Horizon protocol//positive is clockwise, negative is counterclockwise
+#define wrist_rotate 201
+#define wrist_vertical 202
+#define elbow_rotate 203
+#define elbow_vertical 204
+#define base_rotate 205
+#define e_stop_arm 206
+#define gripper_open 208
+
+#define WRIST_A_ID  0x01
+#define WRIST_B_ID  0x02
+#define ELBOW_A_ID  0x03
+#define ELBOW_B_ID  0x04
+#define BASE_ID     0x05
+#define LIN_ACT_ID  0x06
+
+#define GRIPPER_ID  0x08
+
+#define ZERO_SPEED 0
+
+//TODO
+#define ENDLESS_ROTATION 359
+
+#define DYNAMIXEL_SPEED_MIN -1022
+#define DYNAMIXEL_SPEED_MAX 1022
+
+#define WRIST_UART      TEST_DEVICE_PIN
+#define ELBOW_UART      TEST_DEVICE_PIN
+#define ELBOW_UART      TEST_DEVICE_PIN
+#define BASE_UART       TEST_DEVICE_PIN
+#define GRIPPER_UART    TEST_DEVICE_PIN
+#define LIN_ACT_UART    TEST_DEVICE_PIN
+
+//PINMAP for 123G:
+
+// GPIO: SET_TRI_ST_BUF_Tx                  PB3
+// GPIO: MOTOR_CONTROLLER_ENABLE            PD2
+// GPIO: MOTOR_CONTROLLER_INPUT_1           PD3
+// GPIO: MOTOR_CONTROLLER_INPUT_2           PE2
+//UART 0:   TX PA1, RX PA0
+//UART 1:   TX PB1, RX PB0
+//UART 2:   TX PD7, RX PD6  MOTHERBOARD_UART
+//UART 3:   TX PC7, RX PC6  END_EFFECTOR_UART
+//UART 4:   TX PC5, RX PC4  DYNAMIXEL_UART
+//UART 5:   TX PE5, RX PE4
+//UART 6:   TX PD5, RX PD4
+//UART 7:   TX PE1, RX PE0  LINEAR_ACTUATOR_UART
 
 //TODO wtf
 #define FOUR_BYTES 4
@@ -75,6 +122,10 @@ typedef struct rove_dynamixel_struct {
 //#define DYNAMIXEL_RESET                             6
 //#define DYNAMIXEL_SYNC_WRITE                        131
 
-void roveDynamixel_DualCommand(int tiva_pin, int16_t command_type, uint8_t dynamixel_id, int16_t first_command_value, int16_t second_command_value);
+void roveDynamixel_SendCommand(int tiva_pin, int16_t command_type, uint8_t dynamixel_id, int16_t first_command_value, int16_t second_command_value);
+
+int16_t roveConverRedProtocol_toDynamixelSpeed(int16_t dynamixel_rotate_at_speed);
+
+int16_t roveReverseDynamixelSpeed(int16_t dynamixel_rotate_at_speed);
 
 #endif // ROVEWARE_DYNAMIXELWRAPPERS_H_

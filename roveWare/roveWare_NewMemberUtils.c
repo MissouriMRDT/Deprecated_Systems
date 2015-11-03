@@ -37,3 +37,27 @@ void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
     return;
 
 } //endfnct roveDriveMotor_ByPWM
+
+void roveDrivePolulu_LinActCmd(int tiva_pin, int16_t speed){
+
+    linear_actuator_struct linear_actuator;
+
+    if( speed > 0 ){
+
+        linear_actuator.command_byte = LIN_ACT_FORWARD;
+
+    }else{
+
+        linear_actuator.command_byte = LIN_ACT_REVERSE;
+
+    }//end if
+
+
+    //bit of an ugly hack b/c of the truncate a neg 2's compliment thing
+    linear_actuator.speed = (uint8_t)speed;
+
+    roveUART_Write(tiva_pin, (char*)&linear_actuator, sizeof(linear_actuator) );
+
+    return;
+
+}//endfnctn roveDrivePolulu_LinActCmd

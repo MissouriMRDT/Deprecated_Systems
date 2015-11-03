@@ -76,7 +76,7 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
     }//end switch
 
-    //roveUARTWrite timing issue?
+    //TODO roveUARTWrite timing issue?
     //ms_delay(1);
 
     return bytes_to_write;

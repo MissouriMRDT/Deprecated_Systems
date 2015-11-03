@@ -27,8 +27,8 @@
 //
 // mrdt::roveWare
 
-#ifndef ROVEDEVICETEMPLATETHREAD_H_
-#define ROVEDEVICETEMPLATETHREAD_H_
+#ifndef ROVEDEVICETEMPLATE_THREAD_H_
+#define ROVEDEVICETEMPLATE_THREAD_H_
 
 //TI TIVA Mailbox() BIOS software routine support
 //#include <ti/sysbios/knl/Mailbox.h>
@@ -49,4 +49,4 @@
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 void roveDeviceTemplateThread(UArg arg0, UArg arg1);
 
-#endif // ROVEDEVICETEMPLATETHREAD_H_
+#endif // ROVEDEVICETEMPLATE_THREAD_H_

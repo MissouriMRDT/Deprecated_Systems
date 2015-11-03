@@ -16,6 +16,14 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
     printf("Init roveDevice_TemplateThread\n\n\n");
 
+    //access the global pwm handles
+    extern PWM_Handle pwm_1;
+    extern PWM_Handle pwm_2;
+    extern PWM_Handle pwm_3;
+    extern PWM_Handle pwm_4;
+    extern PWM_Handle pwm_5;
+    extern PWM_Handle pwm_6;
+
     //open a tiva ndk socket session in this task stack
     fdOpenSession(  TaskSelf() );
 
@@ -31,7 +39,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     command_msg.struct_id = 0;
 
     //TODO debug
-    int dbg_zero_recv_byte_cnt = 0;
+    int16_t motor_speed = 0;
 
 //BEGIN NEW EXPERT MEMBER CHALLENGE:
 
@@ -50,25 +58,41 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
             //TODO debug
             if( (roveTCP_HorizonProtocol_Recv(&command_msg)) < SINGLE_BYTE ) {
 
-                printf("ZERO bytes from roveTCP_HorizonProtocol_Recv : %d\n", dbg_zero_recv_byte_cnt);
-
-                dbg_zero_recv_byte_cnt++;
+                printf("ZERO bytes from roveTCP_HorizonProtocol_Recv\n");
 
             }//endwhile
-            //TODO
-            dbg_zero_recv_byte_cnt++;
-
-            printf("roveTCP_HorizonProtocol_Recv cnt: %d\n", dbg_zero_recv_byte_cnt);
 
 
 ///////////////END HORIZON RECIEVE/////////////////
 
-
+            rovePrintf_TCPCmdMsg(&command_msg);
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
 
-            rovePrintf_TCPCmdMsg(&command_msg);
+            switch (command_msg.struct_id) {
+
+                case motor_drive_right_id:
+
+                    //the right motors must be negative the left motors. Their phase is backwards, but we also wired one of THOSE backwards
+                    motor_speed = -(*((int16_t*)command_msg.command_value));
+
+                    roveDriveMotor_ByPWM(pwm_1, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_2, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_3, -motor_speed);
+
+                    break;
+
+                case motor_drive_left_id:
+
+                    //the right motors must be opposite the right motors. Their phase is backwards, but we also wired one of THOSE backwards
+                    motor_speed = (*((int16_t*)command_msg.command_value));
+
+                    roveDriveMotor_ByPWM(pwm_4, -motor_speed);
+                    roveDriveMotor_ByPWM(pwm_5, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_6, -motor_speed);
+
+                    break;
 
         }//endwhile
 

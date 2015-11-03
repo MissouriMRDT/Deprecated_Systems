@@ -15,11 +15,12 @@ IPAddress rovecommSubscribers[5] = {INADDR_NONE};
 void rovecommInit(byte mac[], IPAddress ip);
 void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
 void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint16_t* data);
-void sendMsgTo(uint16_t dataId, uint8_t* data, uint16_t size, IPAddress dest);
+void sendMsgTo(uint16_t dataID, uint8_t* data, uint16_t size, IPAddress dest);
 void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data);
 void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* data);
 void rovecommControl(uint16_t* dataID, uint16_t* size, uint8_t* data, IPAddress remote_ip, int remote_port);
 bool rovecommAddSubscriber(IPAddress address);
+void sendMsg(uint16_t dataID, uint8_t* data, uint16_t size);
 #include <rovecomm.hpp>
 
 #endif

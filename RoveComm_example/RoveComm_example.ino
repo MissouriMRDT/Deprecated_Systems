@@ -31,7 +31,7 @@ void loop() {
   uint8_t receivedMsg[UDP_TX_PACKET_MAX_SIZE];
   
   //send a message to the test server
-  sendMsgTo(dataID, toSend, size, IPAddress(192,168,1,102));
+  sendMsg(dataID, toSend, size);
   //get a reply from the test server
   getUdpMsg(&dataID, &size, receivedMsg);
   

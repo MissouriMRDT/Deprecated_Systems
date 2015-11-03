@@ -63,8 +63,12 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
     if (*dataID < 0x65) {
       Serial.print("RoveComm function received with dataID: ");
       Serial.println(*dataID, HEX);
-      rovecommControl(dataID, size, data, remote_ip, remote_port);
-      getUdpMsg(dataID, size, data);
+      if (rovecommSubscribers[0] == INADDR_NONE) { //if this is running during rovecommInit();
+        rovecommControl(dataID, size, data, remote_ip, remote_port);
+      } else {
+        rovecommControl(dataID, size, data, remote_ip, remote_port);
+        getUdpMsg(dataID, size, data);
+      }
     }
     Serial.println();
   }

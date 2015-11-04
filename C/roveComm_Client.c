@@ -19,10 +19,10 @@ int main(int argc, char* argv[])
   uint16_t dataID, dataSize, seqNum = 0x0000;
   char destinationIP[15] = "192.168.1.51";
   char hexData[512];
-  int destinationPort = 11000, sendingPort = 0;
+  int destinationPort = 11000;
   
-  if(argc < 3 || argc > 7) {
-    printf("Usage: %s DataID Data [Dest_IP [Dest_Port [Send_Port [Sequence Number]]]]\n", argv[0]);
+  if(argc < 3 || argc > 6) {
+    printf("Usage: %s DataID Data [Dest_IP [Dest_Port [Sequence Number]]]\n", argv[0]);
     printf("Check the RoveComm readme for more info\n");
     exit(EXIT_FAILURE);
   }
@@ -40,11 +40,7 @@ int main(int argc, char* argv[])
   }
 
   if(argc > 5) {
-    sscanf(argv[5], "%d", &sendingPort);
-  }
-  
-  if(argc > 6) {
-    sscanf(argv[6], "%X", (int*)&seqNum);
+    sscanf(argv[5], "%X", (int*)&seqNum);
   }
   
   

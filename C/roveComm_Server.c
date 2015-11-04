@@ -47,7 +47,7 @@ int main(void)
     }
     printf("\n");
     printf("recsize: %d\n", (int)recsize);
-    sa.sin_port = htons(3500);
+    sa.sin_port = htons(11000);
     sendsize = sendto(sock, buffer, recsize, 0, (struct sockaddr*)&sa, sizeof(sa));
     printf("Sent %d bytes\n", (int)sendsize);
     sleep(1);

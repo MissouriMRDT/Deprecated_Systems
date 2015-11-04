@@ -1,10 +1,8 @@
 /*
-
-This file has some client and server functions for our devices
-
+This is an example use of the RoveComm Library
 */
 
-//These three includes are required for RoveComm
+//These three libraries are required for RoveComm to function
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
@@ -12,21 +10,30 @@ This file has some client and server functions for our devices
 //Include Rovecomm itself
 #include <rovecomm.h>
 
-
-//Including stuff for this example, could be anywhere above
+//Including stuff for this example
 #include <string.h>
 
+//You can send any kind of data, even structs
+//Be prepared to receive various kinds of data as well
 struct Rover {
-  char name[16];
-  int competitionYear;
-  bool isActive;
+  char name[16];            //The name of our Rover
+  int competitionYear;      //What year it signed up for competition
+  bool isActive;            //True if the Rover still runs
   
-  Rover(){strcpy(name,"N/A"); competitionYear=0; isActive=false;}
+  Rover(){                  //Default Constructor
+    memset(name, 0, 16);
+    strcpy(name,"N/A");
+    competitionYear=0;
+    isActive=false;
+  }
+  
+  //Constructor for known Rover
   Rover(char* n, int y, bool b):competitionYear(y),isActive(b){
-    memset(&name, 0, 16);
+    memset(name, 0, 16);
     strcpy(name,n);
   }
   
+  //Prints Rover to Serial
   void printout(){
     Serial.print("Hi, I'm ");
     Serial.print(name);
@@ -44,14 +51,20 @@ void setup() {
   //Start serial for debugging
   Serial.begin(9600);
   
-  //Setup and Start communications 
+  //Setup and Start communications
+  //this function waits for a basestation to connect before it
+  // returns. For testing you can use the Udp Client in the C
+  // folder to simulate it.
   rovecommInit(deviceMAC, deviceIP);
 }
 
 void loop() {
+  //Set Variables for a packet to send
   Rover toSend("Horizon", 2015, true);
   short unsigned int size = sizeof(toSend);
   short unsigned int dataID = 1569;
+  
+  //A place to store data that was received
   byte receivedMsg[100];
   
   //send a message to the test server
@@ -59,7 +72,7 @@ void loop() {
   //get a reply from the test server
   getUdpMsg(&dataID, &size, receivedMsg);
   
-  //Print our reply
+  //Print the bytes of the received Data
   Serial.print("dataID: ");
   Serial.println(dataID, HEX);
   Serial.print("size: ");
@@ -71,12 +84,16 @@ void loop() {
   Serial.println();
   Serial.println();
   
+  //Act on the received data based on the dataID
   switch (dataID) {
+    //If a Rover was received
     case 1569: //0x0621
       Serial.println("This is a Rover");
       ((Rover*)receivedMsg) -> printout();
       break;
-    case 0x0300: // 768 in Decimal
+      
+    //If a character array was received
+    case 0x0300: //768 in Decimal
       Serial.println("This is just a text message");
       Serial.println((char*)receivedMsg);
       break;

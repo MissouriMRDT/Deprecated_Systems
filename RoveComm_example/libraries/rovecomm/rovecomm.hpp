@@ -21,7 +21,7 @@ void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
   Serial.println("Msg Sent");
 }
 
-void sendMsgTo(uint16_t dataID, uint8_t* data, uint16_t size, IPAddress dest) {
+void sendMsgTo(uint16_t dataID, void* data, uint16_t size, IPAddress dest) {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 
   //setup the packet header
@@ -34,12 +34,14 @@ void sendMsgTo(uint16_t dataID, uint8_t* data, uint16_t size, IPAddress dest) {
   buffer[6] = (size) & 0x00FF;
   //copy the message into the packet
   for (int i = 0; i<size; i++) {
-    buffer[i + HEADER_BYTES] = data[i];
+    buffer[i + HEADER_BYTES] = ((uint8_t*)data)[i];
   }
   sendPacket(dest, ROVECOMM_PORT, buffer, size + HEADER_BYTES);
 }
 
-void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
+void getUdpMsg(uint16_t* dataID, uint16_t* size, void* data) {
+  uint8_t receiverBuffer[UDP_TX_PACKET_MAX_SIZE];
+  
   *dataID = 0;
   *size = 0;
   
@@ -74,7 +76,7 @@ void getUdpMsg(uint16_t* dataID, uint16_t* size, uint8_t* data) {
   }
 }
 
-void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* data) {
+void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data) {
   uint8_t proto_version = packet[0]; //get Protocol Version
   //Switch based on protocol version
   if (proto_version == 1) {
@@ -85,12 +87,12 @@ void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, uint8_t* dat
     *size = sizeUpper;
     *size = (*size << 8) | packet[6];
     for( int i = 0; i<(*size); i++) {
-      data[i] = packet[i+HEADER_BYTES];
+      ((uint8_t*)data)[i] = packet[i+HEADER_BYTES];
     }
   }
 }
 
-void rovecommControl(uint16_t* dataID, uint16_t* size, uint8_t* data, IPAddress remote_ip, int remote_port) {
+void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port) {
   switch (*dataID) {
     case 1: //Add subscriber
       rovecommAddSubscriber(remote_ip);
@@ -108,9 +110,11 @@ bool rovecommAddSubscriber(IPAddress address) {
   return true;
 }
 
-void sendMsg(uint16_t dataID, uint8_t* data, uint16_t size) {
+void sendMsg(uint16_t dataID, void* data, uint16_t size) {
+  Serial.println("Sending to Basestations");
   int i=0;
-  while(i<5 && !(rovecommSubscribers[i] == INADDR_NONE))
-    sendMsgTo(dataID, data, size, rovecommSubscribers[i]);
-  
+  while(i<5 && !(rovecommSubscribers[i] == INADDR_NONE)) {
+    sendMsgTo(dataID, data, size, rovecommSubscribers[i]); 
+    i++;
+  }
 }

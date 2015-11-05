@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1529,7 +1529,9 @@ Same package as Sparkfun&gt;Connectors&gt;1x10_NO_SILK but with 0.06 in diameter
 <text x="18.415" y="0.635" size="1.27" layer="49">USB</text>
 </package>
 <package name="TIVA-C-CONNECTED">
-<description>Package for Tiva C Connected development board</description>
+<description>Package for Tiva C Connected development board
+
+WARNING: The mounting holes on this board are only for reference. They will not add holes to your design. Add mounting holes at the indicated locations to make holes in your board at these locations.</description>
 <wire x1="0" y1="0" x2="0" y2="27.94" width="0.127" layer="49"/>
 <wire x1="0" y1="27.94" x2="0" y2="55.88" width="0.127" layer="49"/>
 <wire x1="0" y1="55.88" x2="122.301" y2="55.88" width="0.127" layer="49"/>
@@ -2440,19 +2442,16 @@ Same package as Sparkfun&gt;Connectors&gt;1x10_NO_SILK but with 0.06 in diameter
 <circle x="21.59" y="17.78" radius="3.048" width="2.032" layer="43"/>
 <circle x="21.59" y="17.78" radius="3.048" width="2.032" layer="39"/>
 <circle x="21.59" y="17.78" radius="3.048" width="2.032" layer="40"/>
-<hole x="82.55" y="52.07" drill="3.2"/>
 <circle x="82.55" y="52.07" radius="1.7" width="0.2032" layer="21"/>
 <circle x="82.55" y="52.07" radius="3.429" width="0.1524" layer="21"/>
 <circle x="82.55" y="52.07" radius="0.762" width="0.4572" layer="51"/>
 <wire x1="80.391" y1="52.07" x2="82.55" y2="49.911" width="2.4892" layer="51" curve="90" cap="flat"/>
 <wire x1="84.709" y1="52.07" x2="82.55" y2="54.229" width="2.4892" layer="51" curve="90" cap="flat"/>
-<hole x="95.25" y="21.59" drill="3.2"/>
 <circle x="95.25" y="21.59" radius="1.7" width="0.2032" layer="21"/>
 <circle x="95.25" y="21.59" radius="3.429" width="0.1524" layer="21"/>
 <circle x="95.25" y="21.59" radius="0.762" width="0.4572" layer="51"/>
 <wire x1="93.091" y1="21.59" x2="95.25" y2="19.431" width="2.4892" layer="51" curve="90" cap="flat"/>
 <wire x1="97.409" y1="21.59" x2="95.25" y2="23.749" width="2.4892" layer="51" curve="90" cap="flat"/>
-<hole x="21.59" y="16.51" drill="3.2"/>
 <circle x="21.59" y="16.51" radius="1.7" width="0.2032" layer="21"/>
 <circle x="21.59" y="16.51" radius="3.429" width="0.1524" layer="21"/>
 <circle x="21.59" y="16.51" radius="0.762" width="0.4572" layer="51"/>

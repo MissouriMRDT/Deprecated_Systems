@@ -1,9 +1,25 @@
 # RoveComm-Software
 Distributed Internet Protocol for Embedded Device 
 
-Inside the C folder is a bit of C code for communicating with UDP so we only need one board. The energia folder has our communications template for communuicating on the TI boards.
+#### About this Repo
 
-To use the RoveComm library, open energia and change File -> Preferences -> sketchbook location to the location of your project, then copy libraries/rovecomm/ to your project directory  
+This repository contains the RoveComm library, an example sketch for it's use,
+and source files for a UDP client and server for testing messages send over the
+RoveComm Protocol. The C folder has a readme of it's own that explains its usage.  
+
+#### Installing the library
+1. Open Energia
+2. Select File -> Preferences
+3. Change the sketchbook location to the .ino directory for the sketch you are
+     working on. Click OK
+4. Copy RoveComm_example/libraries/rovecomm to [sketchbook location]/libraries/
+5. Restart Energia
+6. Include these libraries in your sketch in order:
+  - SPI.h
+  - Ethernet.h
+  - EthernetUdp.h
+  - rovecomm.h
+  
 
 #### Communications Protocol
 The bytes of the packet message are ordered like this:

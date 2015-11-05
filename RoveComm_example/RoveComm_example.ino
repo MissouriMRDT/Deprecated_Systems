@@ -68,7 +68,7 @@ void loop() {
   byte receivedMsg[100];
   
   //send a message to the test server
-  sendMsg(dataID, &toSend, size);
+  sendMsg(dataID, size, &toSend);
   //get a reply from the test server
   getUdpMsg(&dataID, &size, receivedMsg);
   

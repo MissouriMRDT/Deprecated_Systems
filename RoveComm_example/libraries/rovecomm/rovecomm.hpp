@@ -21,7 +21,7 @@ void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
   Serial.println("Msg Sent");
 }
 
-void sendMsgTo(uint16_t dataID, void* data, uint16_t size, IPAddress dest) {
+void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest) {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 
   //setup the packet header
@@ -110,11 +110,11 @@ bool rovecommAddSubscriber(IPAddress address) {
   return true;
 }
 
-void sendMsg(uint16_t dataID, void* data, uint16_t size) {
+void sendMsg(uint16_t dataID, uint16_t size, void* data) {
   Serial.println("Sending to Basestations");
   int i=0;
   while(i<5 && !(rovecommSubscribers[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, data, size, rovecommSubscribers[i]); 
+    sendMsgTo(dataID, size, data, rovecommSubscribers[i]); 
     i++;
   }
 }

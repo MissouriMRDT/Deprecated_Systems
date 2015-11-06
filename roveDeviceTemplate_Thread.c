@@ -6,7 +6,7 @@
 //
 // mrdt::rovWare
 
-// BEGIN TCP HORIZON RECIEVE
+// BEGIN 2016 DEVICE RECIEVE
 
 // DEVICE TEAM : YOU MAY START THIS CHALLENG BY SKIPPING PAST THIS TCP LOGIC ON DOWN TO LINE 50ish : "BEGIN HORIZON COMMANDS"
 
@@ -17,92 +17,76 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     printf("Init roveDevice_TemplateThread\n\n\n");
 
     //access the global pwm handles
-    extern PWM_Handle pwm_1;
-    extern PWM_Handle pwm_2;
-    extern PWM_Handle pwm_3;
-    extern PWM_Handle pwm_4;
-    extern PWM_Handle pwm_5;
-    extern PWM_Handle pwm_6;
+    //TODO pwm_1 motor_1
+    extern PWM_Handle motor_1;
+    extern PWM_Handle motor_2;
+    extern PWM_Handle motor_3;
+    extern PWM_Handle motor_4;
+    extern PWM_Handle motor_5;
+    extern PWM_Handle motor_6;
 
     //open a tiva ndk socket session in this task stack
     fdOpenSession(  TaskSelf() );
 
-    //init Horizon protocol for command_msg_buffer
-    rove_tcp_socket command_msg;
+    //init roveComm
+    rove_udp_socket base_station;
 
-    //handle tcp connection state
-    command_msg.connected_flag = DISCONNECTED;
-    command_msg.error_code = ERROR_FREE;
+    //TODO base_station.socket_fd = rovecommInit(LISTEN_PORT, LOCAL_IP_ADDRESS, &base_station);
+    base_station.socket_fd = rovecommInit(LISTEN_PORT, &base_station);
 
-    //HORIZON command protocol
-    command_msg.message_id = 0;
-    command_msg.struct_id = 0;
+    //commands
+    int16_t speed;
 
-    //TODO debug
-    int16_t motor_speed = 0;
-
-//BEGIN NEW EXPERT MEMBER CHALLENGE:
-
-    //Horizon is a forever Client and she calls RED Base Station server forever repeatedly on disconnects
+    //2016 is a forever UDP server and she listens for RED Base Station Datagrams
     while (FOREVER) {
 
-        printf("Attempting to connect\n\n");
+            //TODO
+            if( getUdpMsg(&base_station.data_id, &base_station.data_byte_cnt, &base_station) < SINGLE_BYTE ) {
 
-        command_msg.connected_flag = roveTCP_Connect(&command_msg);
+                printf("ZERO bytes from getUdpMsg\n");
 
-        // loop to recieve cmds and send telem from and to the base station: if socket breaks, loop breaks and we attempt to reconnect
-       while (command_msg.connected_flag == CONNECTED) {
-
-            printf("Connected\n");
-
-            //TODO debug
-            if( (roveTCP_HorizonProtocol_Recv(&command_msg)) < SINGLE_BYTE ) {
-
-                printf("ZERO bytes from roveTCP_HorizonProtocol_Recv\n");
-
-            }//endwhile
-
+            }//endif
 
 ///////////////END HORIZON RECIEVE/////////////////
 
-            rovePrintf_TCPCmdMsg(&command_msg);
+            rovePrintf_IPMessage(&base_station);
 
 ///////////////BEGIN HORIZON SEND COMMANDS/////////
 
 
-            switch (command_msg.struct_id) {
+            switch (base_station.data_id) {
 
                 case motor_drive_right_id:
 
                     //the right motors must be negative the left motors. Their phase is backwards, but we also wired one of THOSE backwards
-                    motor_speed = -(*((int16_t*)command_msg.command_value));
+                    speed = -(*((int16_t*)base_station.data_buffer));
 
-                    roveDriveMotor_ByPWM(pwm_1, motor_speed);
-                    roveDriveMotor_ByPWM(pwm_2, motor_speed);
-                    roveDriveMotor_ByPWM(pwm_3, -motor_speed);
+                    roveDriveMotor_ByPWM(motor_1, speed);
+                    roveDriveMotor_ByPWM(motor_2, speed);
+                    roveDriveMotor_ByPWM(motor_3, -speed);
 
                     break;
 
                 case motor_drive_left_id:
 
-                    //the right motors must be opposite the right motors. Their phase is backwards, but we also wired one of THOSE backwards
-                    motor_speed = (*((int16_t*)command_msg.command_value));
+                    //the right motors must be opposite the right motors. Their phase is backwards, but we also wired two of THOSE backwards
+                    speed = (*((int16_t*)base_station.data_buffer));
 
-                    roveDriveMotor_ByPWM(pwm_4, -motor_speed);
-                    roveDriveMotor_ByPWM(pwm_5, motor_speed);
-                    roveDriveMotor_ByPWM(pwm_6, -motor_speed);
+                    roveDriveMotor_ByPWM(motor_4, -speed);
+                    roveDriveMotor_ByPWM(motor_5, speed);
+                    roveDriveMotor_ByPWM(motor_6, -speed);
 
                     break;
 
-        }//endwhile
+                default:
 
-        printf("Connection Lost\n");
+                    printf("Not a drive command\n");
 
-        close(command_msg.socket_fd);
+                    break;
 
-        command_msg.message_id = 0;
+            }//endswitch
 
-        command_msg.struct_id = 0;
+
 
     }//endwhile FOREVER
 

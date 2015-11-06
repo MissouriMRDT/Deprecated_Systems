@@ -11,8 +11,6 @@
 
 //MRDT shorthand
 #define FOREVER 1
-#define ERROR_FREE 1
-#define ERROR -1
 
 //These struct_id and payload definitions are how messages get version coupled to Base Station
 

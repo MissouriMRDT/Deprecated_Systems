@@ -1,14 +1,25 @@
 // Missouri Science and Technology Mars Rover Design Team 2015
 //
-// roveDeviceTemplate.c
+// roveBIOS_Init.c
 //
 // Using Texas Instruments Code Composer Studio RTOS stack
 //
-// first created:
+// TODO FALL_2015
 //
-// 09_01_2015       V1 - URC Horizon IP TCP Client / UART/ PWM Controller Template
+// TODO V1 - for URC 2016 IP Server -> (PWM / UART) Device Controller Template
 //
 // Judah Schad jrs6w7@mst.edu
+//
+// get global handles
+// initializes Texas Instruments drivers
+// configs hardware interface
+// begins the scheduler
+//
+// Texas Instruments:
+//
+// SYS/BIOS Kernel
+// RTOS operating system
+// TIVA RTSC config
 //
 // mrdt::roveWare
 
@@ -16,6 +27,10 @@
 
 //init main
 int main(void) {
+
+
+///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG//////////
+
 
     //init TI board driver routines
     Board_initGeneral();
@@ -31,12 +46,12 @@ int main(void) {
 //DO NOT INIT UART_0 or UART_1-> hardware support conflict: HardwareResourecs/EK_TM4C1294XL.h
 
     //hardcoding a 115,200 Baud Rate in Tiva UART module
-    uart_2 = (UART_Handle) roveUART_Init(2, 115200);
-    uart_3 = (UART_Handle) roveUART_Init(3, 115200);
-    uart_4 = (UART_Handle) roveUART_Init(4, 115200);
-    uart_5 = (UART_Handle) roveUART_Init(5, 115200);
-    uart_6 = (UART_Handle) roveUART_Init(6, 115200);
-    uart_7 = (UART_Handle) roveUART_Init(7, 115200);
+    uart_2 = (UART_Handle) roveUART_Init(2, 9600);
+    uart_3 = (UART_Handle) roveUART_Init(3, 9600);
+    uart_4 = (UART_Handle) roveUART_Init(4, 9600);
+    uart_5 = (UART_Handle) roveUART_Init(5, 9600);
+    uart_6 = (UART_Handle) roveUART_Init(6, 9600);
+    uart_7 = (UART_Handle) roveUART_Init(7, 9600);
 
     printf("Init UARTS\n\n");
 
@@ -63,7 +78,14 @@ int main(void) {
 
 }//endmain RoverMotherboardMain
 
-//Tiva HW IO Module Initialization Wrappers
+
+///////////////END   2016//////MAIN/////////////////////////
+
+
+
+///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG//////
+
+//Tiva HW IO Module Initialization Wrapper
 PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwm_handle;
@@ -85,6 +107,8 @@ PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds) {
 
 }   //endfnctn rovePWMInit
 
+
+//Tiva HW IO Module Initialization Wrapper
 UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate) {
 
     UART_Handle uart_handle;
@@ -108,3 +132,6 @@ UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate) {
     return uart_handle;
 
 } //endfnct init_uart(UInt uart_index, UInt baud_rate)
+
+
+///////////////END 2016//////PRE BIOS CONFIG//////

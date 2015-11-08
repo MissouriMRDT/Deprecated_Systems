@@ -53,7 +53,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
     //command work variable
     int16_t speed = 0;
-
+/*
     //only write one way device to the dynamixel forever globally
     digitalWrite(TRI_STATE_BUFFER, HIGH);
 
@@ -68,7 +68,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     roveDynamixel_SetWheelMode(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
     roveDynamixel_SetWheelMode(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
 
-
+*/
 ///////////////END   2016//////COMMAND/////////////////////
 
 
@@ -88,7 +88,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
 ///////////////END   2016//////RECIEVE/////////////////
 
-                rovePrintf_IPMessage(&base_station);
+                //rovePrintf_IPMessage(&base_station);
 
 ///////////////BEGIN 2016//////COMMAND//////////////////
 
@@ -97,7 +97,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
                 switch (base_station.data_id) {
 
-                    case DRIVE_RIGHT_MOTORS:
+                    case DRIVE_LEFT_MOTORS:
 
                         //the right motors must be opposite the left motors. Their phase is backwards, but we also wired one of THOSE backwards
                         speed = -speed;
@@ -108,7 +108,8 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
                         break;
 
-                    case DRIVE_LEFT_MOTORS:
+                    //DRIVE_RIGHT_MOTORS
+                    case DRIVE_RIGHT_MOTORS:
 
                         //the left motors must be opposite the right motors. Their phase is backwards, but we also wired TWO of THOSE backwards
                         roveDriveMotor_ByPWM(pwm_4, -speed);
@@ -116,7 +117,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
                         roveDriveMotor_ByPWM(pwm_6, -speed);
 
                         break;
-
+/*
                     //differential gears, motors would move opposite, except we have them wired backwards, so opposite in hardware is together in software
                     case WRIST_ROTATE:
 
@@ -186,7 +187,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
                         speed = roveDynamixel_ConvertSpeed(speed);
                         roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
                         break;
-
+*/
                     default:
 
                         printf("Unrecognized Data_id : %d\n", base_station.data_id);

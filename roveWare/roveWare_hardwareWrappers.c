@@ -34,10 +34,7 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 
             //uart 2 is just the only muxless 485 Jack wired to a uart onboard Horizon's MOB pcb
             bytes_to_read = UART_read(uart_2, read_buffer, bytes_to_read);
-
-            //see the Mob Eagle file for details)
-
-        break;
+            break;
 
         default:
 
@@ -67,8 +64,25 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
         case TEST_DEVICE_PIN:
 
             bytes_to_write = UART_write(uart_2, write_buffer, bytes_to_write);
+            break;
 
-        break;
+        case ARM_UART:
+            //U3TX PA5_UART_3
+            //123G = TX PC5 DYNAMIXEL_UART
+            bytes_to_write = UART_write(uart_3, write_buffer, bytes_to_write);
+            break;
+
+        case END_EFFECTOR_UART:
+            //U4TX PK1_UART_4
+            //123G  = TX PC7 END_EFFECTOR_UART
+            bytes_to_write = UART_write(uart_4, write_buffer, bytes_to_write);
+            break;
+
+        case LIN_ACT_UART:
+            //U5TX PC7_UART_5
+            //123G  = TX PE1 LINEAR_ACTUATOR_UART
+            bytes_to_write = UART_write(uart_5, write_buffer, bytes_to_write);
+            break;
 
         default:
 
@@ -79,7 +93,7 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
     }//end switch
 
     //roveUARTWrite timing issue?
-    //ms_delay(1);
+    ms_delay(1);
 
     return bytes_to_write;
 
@@ -92,10 +106,6 @@ void digitalWrite(int tiva_pin, int high_or_low) {
         switch(tiva_pin) {
 
             case TRI_STATE_BUFFER:
-
-                //TODO
-                //GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3, (0));
-                break;
 
             default:
 
@@ -110,8 +120,9 @@ void digitalWrite(int tiva_pin, int high_or_low) {
 
             case TRI_STATE_BUFFER:
 
-                //~0 implies write without calling GPIO_PIN_3 lookup
-                //GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3, (~0));
+                //TODO
+                //123G = PB3
+                GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, GPIO_PIN_0);
                 break;
 
             default:
@@ -187,3 +198,9 @@ void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf) {
     return;
 
 }//endfnctn rovePrintfBuffer
+
+void ms_delay(int milliseconds) {
+
+    SysCtlDelay(milliseconds * (SysCtlClockGet() / 100));
+
+} //endfnctn ms_delay( int milliseconds )

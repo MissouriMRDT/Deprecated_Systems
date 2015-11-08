@@ -58,7 +58,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     digitalWrite(TRI_STATE_BUFFER, HIGH);
 
     //make sure and stop all arm motors when powering up, set command all speeds zero
-    rovePolulu_DriveLinAct(LIN_ACT_ID, speed);
+    rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
     roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
     roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
     roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
@@ -163,7 +163,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
                         speed = 0;
 
-                        rovePolulu_DriveLinAct(LIN_ACT_ID, speed);
+                        rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
                         roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
                         roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
                         roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
@@ -175,7 +175,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
                     //positive is forward, negative is reverse, only 8 bit low_byte is speed
                     case ACTUATOR_INCREMENT:
 
-                        rovePolulu_DriveLinAct(LIN_ACT_ID, speed);
+                        rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
                         break;
 
                     //single dynamixel at gripper, gear ratio rotates incredibly slow

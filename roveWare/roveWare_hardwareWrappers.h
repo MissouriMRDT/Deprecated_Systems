@@ -17,10 +17,19 @@
 //C lib
 #include <stdio.h>
 
+
 //TI hardware access routines
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
+
+//TODO wtf
+#include <stdbool.h>
+#include "inc/hw_memmap.h"
+#include "driverlib/gpio.h"
+#include "driverlib/sysctl.h"
+
+
 
 //mrdt shorthand
 #define ERROR -1
@@ -41,5 +50,8 @@ void rovePrintf_ByteBuffer(char* printf_buffer, int bytes_to_printf);
 int roveGetDeviceId_PinNum(char data_id);
 
 int roveGetStructId_ByteCnt(char data_id);
+
+//get the system clock for the delay
+void ms_delay(int milliseconds);
 
 #endif //ROVEWARE_TIVAWRAPPERS_H_

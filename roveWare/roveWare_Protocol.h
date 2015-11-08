@@ -66,16 +66,24 @@
 #define ELBOW_A_ID  0x03
 #define ELBOW_B_ID  0x04
 #define BASE_ID     0x05
-#define LIN_ACT_ID  0x06
+//#define LIN_ACT_ID  0x06
 
 #define GRIPPER_ID  0x08
 
 //TODO
-#define WRIST_UART      TEST_DEVICE_PIN
-#define ELBOW_UART      TEST_DEVICE_PIN
-#define BASE_UART       TEST_DEVICE_PIN
-#define GRIPPER_UART    TEST_DEVICE_PIN
-#define LIN_ACT_UART    TEST_DEVICE_PIN
+
+#define TEST_DEVICE_PIN 0
+
+#define ARM_UART 1
+
+#define WRIST_UART      ARM_UART
+#define ELBOW_UART      ARM_UART
+#define BASE_UART       ARM_UART
+
+#define GRIPPER_UART END_EFFECTOR_UART
+
+#define END_EFFECTOR_UART    2
+#define LIN_ACT_UART    3
 
 //These struct_id and payload definitions are how messages get version coupled to Base Station
 
@@ -95,7 +103,5 @@
 
 #define TEST_DEVICE_ID 251
 
-//hardware parameters
-#define TEST_DEVICE_PIN 0
 
 #endif // ROVEWARE_PROTOCOL_H_

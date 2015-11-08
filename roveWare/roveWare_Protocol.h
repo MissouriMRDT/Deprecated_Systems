@@ -60,31 +60,35 @@
 // U6TX PP1_UART_6
 // U7RX PC4_UART_7
 // U7TX PC5_UART_7
-/*
-#define WRIST_A_ID  0x01
-#define WRIST_B_ID  0x02
-#define ELBOW_A_ID  0x03
-#define ELBOW_B_ID  0x04
-#define BASE_ID     0x05
-//#define LIN_ACT_ID  0x06
 
-#define GRIPPER_ID  0x08
+//#define WRIST_A_ID  0x01
+//#define WRIST_B_ID  0x02
+//#define ELBOW_A_ID  0x03
+//#define ELBOW_B_ID  0x04
+//#define BASE_ID     0x05
+//#define LIN_ACT_ID  0x06
+//#define GRIPPER_ID  0x08
 
 //TODO
 
 #define TEST_DEVICE_PIN 0
 
-#define ARM_UART 1
-
+//decouple
 #define WRIST_UART      ARM_UART
 #define ELBOW_UART      ARM_UART
 #define BASE_UART       ARM_UART
+#define GRIPPER_UART    END_EFX_UART
 
-#define GRIPPER_UART END_EFFECTOR_UART
-
-#define END_EFFECTOR_UART    2
+//hardware
+#define ARM_UART        1
+#define END_EFX_UART    2
 #define LIN_ACT_UART    3
 
+
+#define TEST_DEVICE_ID 251
+
+//TODO
+/*
 //These struct_id and payload definitions are how messages get version coupled to Base Station
 
 //HORIZON command CONFIG protocol
@@ -101,7 +105,5 @@
 #define ACTUATOR_INCREMENT 207
 #define GRIPPER_OPEN 208
 */
-#define TEST_DEVICE_ID 251
-
 
 #endif // ROVEWARE_PROTOCOL_H_

@@ -56,16 +56,6 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 
     //only write one way device to the dynamixel forever globally
     digitalWrite(TRI_STATE_BUFFER, HIGH);
-    /*
-    //make sure and stop all arm motors when powering up, set command all speeds zero
-    rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
-    roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
-*/
 
     //init all motors to zero
     dynamixelSetEndlessCmd(WRIST_A_ID);
@@ -124,7 +114,98 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
                 speed = (*((int16_t*)base_station.data_buffer));
 
                 switch (base_station.data_id) {
-/*
+
+                    case wrist_clock_wise...elbow_up:
+
+                    if(speed < SPEED_MIN)
+                    {
+                        speed = SPEED_MIN;
+                    }//end if
+
+                    if(speed > SPEED_MAX)
+                    {
+                        speed = SPEED_MAX;
+                    }//end if
+
+                    if(speed < 0)
+                    {
+                        roboArmReverseCmd(base_station.data_id, (-speed));
+
+                    }else{
+
+                        roboArmForwardCmd(base_station.data_id, speed);
+
+                    }//endif
+                    break;
+
+                    case base_clock_wise:
+
+                    if(speed < BASE_SPEED_MIN)
+                    {
+                        speed = BASE_SPEED_MIN;
+                    }//end if
+
+                    if(speed > BASE_SPEED_MAX)
+                    {
+                        speed = BASE_SPEED_MAX;
+                    }//end if
+
+                    if(speed < 0)
+                    {
+                        roboArmReverseCmd(base_station.data_id, (-speed));
+
+                    }else{
+
+                        roboArmForwardCmd(base_station.data_id, speed);
+
+                    }//endif
+                    break;
+
+                    case e_stop_arm:
+
+                    dynamixelSetSpeedLeftCmd(WRIST_A_ID, ZERO_SPEED);
+                    do_nothing();
+                    dynamixelSetSpeedLeftCmd(WRIST_B_ID, ZERO_SPEED);
+                    do_nothing();
+                    dynamixelSetSpeedLeftCmd(ELBOW_A_ID, ZERO_SPEED);
+                    do_nothing();
+                    dynamixelSetSpeedLeftCmd(ELBOW_B_ID, ZERO_SPEED);
+                    do_nothing();
+                    dynamixelSetSpeedLeftCmd(BASE_ID, ZERO_SPEED);
+                    do_nothing();
+                    dynamixelSetSpeedLeftCmd(GRIPPER_ID, ZERO_SPEED);
+                    do_nothing();
+                    setDrillCmd(DRILL_ID, ZERO_SPEED);
+                    do_nothing();
+                    setLinActuatorCmd(LIN_ACT_ID, ZERO_SPEED);
+                    break;
+
+                    case actuator_increment:
+
+                    setLinActuatorCmd(LIN_ACT_ID, speed);
+                    break;
+
+                    case gripper_open:
+
+                    if(speed < 0)
+                    {
+                        roboArmReverseCmd(base_station.data_id, (-speed));
+
+                    }else{
+
+                        roboArmForwardCmd(base_station.data_id, speed);
+
+                    }//endif
+                    break;
+
+                    case drill_forward:
+
+                    setDrillCmd(DRILL_ID, speed);
+                    break;
+
+//////////////////////////////END HORIZON ARM CMD
+
+                    /*
                     case DRIVE_RIGHT_MOTORS:
 
                         //the right motors must be opposite the left motors. Their phase is backwards, but we also wired one of THOSE backwards
@@ -215,130 +296,6 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
                         roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
                         break;
 */
-
-                case wrist_clock_wise...elbow_up:
-
-                                    //Scale and Cap speed from roveWare.h
-                                    //speed = (speed/SPEED_STEP_DOWN);
-
-                                    if(speed < SPEED_MIN)
-                                    {
-                                        speed = SPEED_MIN;
-                                    }//end if
-
-                                    if(speed > SPEED_MAX)
-                                    {
-                                        speed = SPEED_MAX;
-                                    }//end if
-
-
-                                    if(speed < 0)
-                                    {
-                                        roboArmReverseCmd(buffer_struct.struct_id, (-speed));
-
-                                    }else{
-
-                                        roboArmForwardCmd(buffer_struct.struct_id, speed);
-
-                                    }//endif
-
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                break;
-
-                                case base_clock_wise:
-
-                                    //Scale and Cap speed from roveWare.h
-                                   // speed = (speed/BASE_SPEED_STEP_DOWN);
-
-                                    if(speed < BASE_SPEED_MIN)
-                                    {
-                                        speed = BASE_SPEED_MIN;
-                                    }//end if
-
-                                    if(speed > BASE_SPEED_MAX)
-                                    {
-                                        speed = BASE_SPEED_MAX;
-                                    }//end if
-
-                                    if(speed < 0)
-                                    {
-                                        roboArmReverseCmd(buffer_struct.struct_id, (-speed));
-
-                                    }else{
-
-                                        roboArmForwardCmd(buffer_struct.struct_id, speed);
-
-                                    }//endif
-
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                    break;
-
-                                case e_stop_arm:
-
-                                    //System_printf("RobotArm.c case e_stop_arm speed: %d\n", SPEED_STRUCT->speed);
-                                    //System_flush();
-
-                                    //dynamixelSetSpeedLeftCmd(WRIST_A_ID, 0);
-                                    //dynamixelSetSpeedLeftCmd(WRIST_B_ID, 0);
-                                    //dynamixelSetSpeedLeftCmd(ELBOW_A_ID, 0);
-                                    //dynamixelSetSpeedLeftCmd(ELBOW_B_ID, 0);
-                                    //dynamixelSetSpeedLeftCmd(BASE_ID, 0);
-                                    //lin_act_cur_posit = setLinActuatorCmd(LIN_ACT_ID, lin_act_cur_posit, 0);
-                                    dynamixelSetSpeedLeftCmd(WRIST_A_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    dynamixelSetSpeedLeftCmd(WRIST_B_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    dynamixelSetSpeedLeftCmd(ELBOW_A_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    dynamixelSetSpeedLeftCmd(ELBOW_B_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    dynamixelSetSpeedLeftCmd(BASE_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    dynamixelSetSpeedLeftCmd(GRIPPER_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    setDrillCmd(DRILL_ID, ZERO_SPEED);
-                                    do_nothing();
-                                    setLinActuatorCmd(LIN_ACT_ID, ZERO_SPEED);
-
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                break;
-
-                                case actuator_increment:
-
-                                    setLinActuatorCmd(LIN_ACT_ID, speed);
-
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                    ////_printf("Actuator increment:  %d     lin_act_current_position:      %d = setLinActuatorCmd();\n", lin_act_cur_posit, speed);
-                                    ////_flush();
-
-                                break;
-
-                                case gripper_open:
-
-                                    if(speed < 0)
-                                    {
-                                        roboArmReverseCmd(buffer_struct.struct_id, (-speed));
-
-                                    }else{
-
-                                        roboArmForwardCmd(buffer_struct.struct_id, speed);
-
-                                    }//endif
-
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                break;
-
-                                case drill_forward:
-
-                                    setDrillCmd(DRILL_ID, speed);
-                                    //Watchdog_clear( (Watchdog_Handle) arm_watchdog_handle);
-
-                                break;
 
 
 ////////////////////////////////////////////////////

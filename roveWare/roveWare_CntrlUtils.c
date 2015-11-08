@@ -10,6 +10,414 @@
 
 #include "roveWare_CntrlUtils.h"
 
+void do_nothing(){
+
+    int i = 0;
+
+    while(i < DO_NOTHING_CNT){
+
+        i++;
+
+    }//endwhile
+
+    return;
+
+}//end fnctn
+
+int getDevicePort(uint8_t device_id)
+{
+    switch(device_id)
+    {
+        case WRIST_A_ID...BASE_ID:
+
+        //return DYNAMIXEL_UART;
+        return ARM_UART;
+
+        case LIN_ACT_ID:
+
+        //return LINEAR_ACTUATOR_UART;
+        return LIN_ACT_UART;
+
+        case GRIPPER_ID:
+
+        //return END_EFFECTOR_UART;
+        return END_EFX_UART;
+
+        case DRILL_ID:
+
+        //return END_EFFECTOR_UART;
+        return END_EFX_UART;
+
+        default:
+            printf("getDevicePort passed invalid device_id %d\n", device_id);;
+        return -1;
+
+    }//endswitch (device)
+
+}//endfnctn getDevicePort
+
+int getStructSize(uint8_t struct_id)
+{
+    switch(struct_id)
+    {
+        case SET_ENDLESS_CMD:
+
+            return sizeof(set_dyna_endless_struct);
+
+        case SET_SPEED_LEFT_CMD...SET_SPEED_RIGHT_CMD:
+
+            return sizeof(set_dyna_speed_struct);
+
+        case SET_LIN_ACTUATOR_CMD:
+
+            return sizeof(linear_actuator_struct);
+
+        case GET_DRILL_CMD:
+
+            return sizeof(drill_struct);
+
+        default:
+            printf("getStructSize passed invalid struct_id %d\n", struct_id);
+        return -1;
+
+    }//endswitch
+
+}//endfnctn getDevicePort
+
+//right is forward
+void roboArmForwardCmd(uint8_t struct_id, int16_t speed)
+{
+    switch(struct_id)
+    {
+        case wrist_clock_wise:
+
+            dynamixelSetSpeedRightCmd(WRIST_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
+            break;
+
+        case wrist_up:
+
+            dynamixelSetSpeedRightCmd(WRIST_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
+            break;
+
+        case elbow_clock_wise:
+
+            dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
+            break;
+
+        case elbow_up:
+
+            dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
+            break;
+
+        case base_clock_wise:
+
+            dynamixelSetSpeedRightCmd(BASE_ID, speed);
+            break;
+
+        case gripper_open:
+
+            dynamixelSetSpeedRightCmd(GRIPPER_ID, speed);
+            break;
+
+        default:
+            printf("\nERROR in RoboticArm.c!   roboArmForwardCmd struct_id %d cannot be handled \n", struct_id);
+            return;
+
+    }//endswitch struct_id
+
+    return;
+
+}//endfnctn roboArmForwardCmd
+
+//left is reverse
+void roboArmReverseCmd(uint8_t struct_id, int16_t speed)
+{
+    switch(struct_id)
+    {
+        //reverse (left) clockwise is counterclockwise
+        case wrist_clock_wise:
+
+            dynamixelSetSpeedLeftCmd(WRIST_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
+            break;
+
+        case wrist_up:
+
+            dynamixelSetSpeedLeftCmd(WRIST_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
+            break;
+
+        //reverse (left) clockwise is counterclockwise
+        case elbow_clock_wise:
+
+            dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
+            break;
+
+        //reverse (left) up is down
+        case elbow_up:
+
+            dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
+            do_nothing();
+            dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
+            break;
+
+        //reverse (left) clockwise is counterclockwise
+        case base_clock_wise:
+
+            dynamixelSetSpeedLeftCmd(BASE_ID, speed);
+            break;
+
+        case gripper_open:
+
+            dynamixelSetSpeedLeftCmd(GRIPPER_ID, speed);
+            break;
+
+        default:
+
+            printf("\nERROR in RoboticArm.c!  roboArmReverseCmd  struct_id %d cannot be handled \n", struct_id);
+
+            return;
+
+    }//endswitch struct_id
+
+    return;
+
+}//endfnctn roboArmReverseCmd
+
+void dynamixelSetEndlessCmd(uint8_t dynamixel_id)
+{
+        char write_buffer[BUFFER_SIZE];
+
+        int device_port;
+        int bytes_to_write;
+
+        // get the uart
+        device_port = getDevicePort(dynamixel_id);
+
+        // size of message
+        bytes_to_write = getStructSize(SET_ENDLESS_CMD);
+
+        // populate the buffer_struct for dynamixel format frame, command_value not used
+        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_ENDLESS_CMD, NULL_COMAND_VALUE);
+
+        bytes_to_write = deviceWrite(device_port, write_buffer, bytes_to_write);
+
+        return;
+
+}//endfnctn  dynamixelSetEndless
+
+void dynamixelSetSpeedLeftCmd(uint8_t dynamixel_id, int16_t speed)
+{
+        char write_buffer[BUFFER_SIZE];
+
+        int device_port;
+        int bytes_to_write;
+
+        //get the uart
+        device_port = getDevicePort(dynamixel_id);
+
+        //size of message
+        bytes_to_write = getStructSize(SET_SPEED_LEFT_CMD);
+
+        // populate the buffer_struct for dynamixel format frame
+        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_SPEED_LEFT_CMD, speed);
+
+        bytes_to_write = deviceWrite(device_port, write_buffer, bytes_to_write);
+
+        return;
+
+}//endfnctn  dynamixelSetSpeedLeftCmd
+
+void dynamixelSetSpeedRightCmd(uint8_t dynamixel_id, int16_t speed)
+{
+        char write_buffer[BUFFER_SIZE];
+
+        int device_port;
+        int bytes_to_write;
+
+        //get the uart
+        device_port = getDevicePort(dynamixel_id);
+
+        //size of message
+        bytes_to_write = getStructSize(SET_SPEED_RIGHT_CMD);
+
+        // populate the buffer_struct for dynamixel format frame
+        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_SPEED_RIGHT_CMD, speed);
+
+        bytes_to_write = deviceWrite(device_port, write_buffer, bytes_to_write);
+
+        return;
+
+}//endfnctn  dynamixelSetSpeedRightCmd
+
+void setLinActuatorCmd(uint8_t device_id, int16_t speed)
+{
+        char write_buffer[BUFFER_SIZE];
+
+        int device_port;
+        int bytes_to_write;
+
+        // get the uart
+        device_port = getDevicePort(device_id);
+
+        // size of message
+        bytes_to_write = getStructSize(SET_LIN_ACTUATOR_CMD);
+
+        // populate the buffer_struct for dynamixel format frame
+        buildLinActuatorStructMessage(write_buffer, SET_LIN_ACTUATOR_CMD, speed);
+
+        bytes_to_write = deviceWrite(device_port, write_buffer, bytes_to_write);
+
+        return;
+
+}//endfnctn  setActuatorCmd
+
+void setDrillCmd(uint8_t device_id, int16_t command)
+{
+        char write_buffer[BUFFER_SIZE];
+
+        int device_port;
+        int bytes_to_write;
+
+        // get the uart
+        device_port = getDevicePort(device_id);
+
+        // size of message
+        bytes_to_write = getStructSize(GET_DRILL_CMD);
+
+        //populate message stop = 0x00, forward = 0x01, reverse = 0x02
+        SET_DRILL_STRUCT->command_byte = command;
+
+        bytes_to_write = deviceWrite(device_port, write_buffer, bytes_to_write);
+
+        return;
+
+}//endfnctn  setActuatorCmd
+
+//see roveStructs.h and rovWare.h for config
+void buildDynamixelStructMessage(char* write_buffer, uint8_t dynamixel_id, uint8_t struct_id, int16_t command_value)
+{
+    uint8_t speed_low_byte = (uint8_t)command_value;
+    uint8_t speed_high_byte = (uint8_t)(command_value >> 8);
+
+    switch(struct_id)
+    {
+        case SET_ENDLESS_CMD:
+
+            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
+            SET_ENDLESS_STRUCT->start_byte1 = AX_START;
+            SET_ENDLESS_STRUCT->start_byte2 = AX_START;
+            SET_ENDLESS_STRUCT->dynamixel_id = dynamixel_id;
+            SET_ENDLESS_STRUCT->msg_size = AX_GOAL_LENGTH;
+            SET_ENDLESS_STRUCT->read_write_flag = AX_WRITE_DATA;
+            SET_ENDLESS_STRUCT->ccw_angle_limit_reg_addr = AX_CCW_ANGLE_LIMIT_L;
+            SET_ENDLESS_STRUCT->ccw_angle_limit_low_byte = 0x00;
+            SET_ENDLESS_STRUCT->ccw_angle_limit_high_byte = 0x00;
+
+            SET_ENDLESS_STRUCT->check_sum = ( ~(dynamixel_id + AX_GOAL_LENGTH + AX_WRITE_DATA + AX_CCW_ANGLE_LIMIT_L) ) & 0xFF;
+            break;
+
+        case SET_SPEED_LEFT_CMD:
+
+            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
+            SET_DYNA_SPEED_STRUCT->start_byte1 = AX_START;
+            SET_DYNA_SPEED_STRUCT->start_byte2 = AX_START;
+            SET_DYNA_SPEED_STRUCT->dynamixel_id = dynamixel_id;
+            SET_DYNA_SPEED_STRUCT->msg_size = AX_SPEED_LENGTH;
+            SET_DYNA_SPEED_STRUCT->read_write_flag = AX_WRITE_DATA;
+            SET_DYNA_SPEED_STRUCT->speed_low_byte_reg_addr = AX_GOAL_SPEED_L;
+            SET_DYNA_SPEED_STRUCT->speed_low_byte = speed_low_byte;
+            SET_DYNA_SPEED_STRUCT->speed_high_byte = speed_high_byte;
+
+            SET_DYNA_SPEED_STRUCT->check_sum  = ( ~(dynamixel_id + AX_SPEED_LENGTH + AX_WRITE_DATA + AX_GOAL_SPEED_L + speed_low_byte + speed_high_byte) ) & 0xFF;
+            break;
+
+        case SET_SPEED_RIGHT_CMD:
+
+            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
+            SET_DYNA_SPEED_STRUCT ->start_byte1 = AX_START;
+            SET_DYNA_SPEED_STRUCT ->start_byte2 = AX_START;
+            SET_DYNA_SPEED_STRUCT ->dynamixel_id = dynamixel_id;
+            SET_DYNA_SPEED_STRUCT ->msg_size = AX_SPEED_LENGTH;
+            SET_DYNA_SPEED_STRUCT ->read_write_flag = AX_WRITE_DATA;
+            SET_DYNA_SPEED_STRUCT ->speed_low_byte_reg_addr = AX_GOAL_SPEED_L;
+            SET_DYNA_SPEED_STRUCT ->speed_low_byte = speed_low_byte;
+            SET_DYNA_SPEED_STRUCT ->speed_high_byte = (speed_high_byte + 4);
+
+            SET_DYNA_SPEED_STRUCT->check_sum = ( ~(dynamixel_id + AX_SPEED_LENGTH + AX_WRITE_DATA + AX_GOAL_SPEED_L + speed_low_byte + speed_high_byte + 4) ) & 0xFF;
+            break;
+
+        default:
+                printf("Error in function: buildDynamixelStructMessage() - struct_id is not valid\n");
+
+        }//endswitch
+
+    return;
+
+}//end fnctn buildDynamixelStructMessage
+
+//current_position = buildLinActuatorMessage((void*)(&buffer_struct), write_buffer, device_id, current_position, target_increment);
+
+void buildLinActuatorStructMessage(char* write_buffer, uint8_t struct_id, int16_t speed)
+{
+    switch(struct_id)
+    {
+        case SET_LIN_ACTUATOR_CMD:
+
+            if (speed > MAX_LIN_ACT_SPEED)
+            {
+                speed = MAX_LIN_ACT_SPEED;
+
+            }//endif
+
+            if (speed < MIN_LIN_ACT_SPEED)
+            {
+                speed = MIN_LIN_ACT_SPEED;
+
+            }//endif
+
+            SET_LIN_ACT_STRUCT->command_byte = LIN_ACT_FORWARD;
+
+            if (speed < 0)
+            {
+                speed = -speed;
+                SET_LIN_ACT_STRUCT->command_byte = LIN_ACT_REVERSE;
+
+            }//endif
+
+            SET_LIN_ACT_STRUCT->speed = (uint8_t)speed;
+        break;
+        default:
+            printf("Error in function: buildDynamixelStructMessage() - struct_id is not valid");
+
+    }//endswitch
+
+    return;
+
+}//end fnctn buildLinActuatorStructMessage
+
+
+
+
+/////////////////////////////////END RoboArmHoroizon
+
+
+
+/////////////////////////////////BEGIN RoboArm2016
+
+/*
 void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
 
     int16_t microseconds;
@@ -41,7 +449,7 @@ void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
 } //endfnct roveDriveMotor_ByPWM
 
 //TODO
-/*
+
 void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value) {
 
     rove_dynamixel_struct dynamixel;
@@ -151,626 +559,5 @@ void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed){
 
 //Runtime Command to turn on and off endless rotation ( maaaybeee feeels a bit liiike Open Loop emulation)
 
-void dynamixelSetEndlessCmd(uint8_t dynamixel_id)
-{
-        char write_buffer[BUFFER_SIZE];
 
-        int device_port;
-        int bytes_to_write;
-        int bytes_wrote;
 
-        //_printf("Testing dynamixelSetEndlessCmd dynamixel_id %d\n", dynamixel_id);
-        //_flush();
-
-        // get the uart
-        device_port = getDevicePort(dynamixel_id);
-
-        // size of message
-        bytes_to_write = getStructSize(SET_ENDLESS_CMD);
-
-        // populate the buffer_struct for dynamixel format frame, command_value not used
-        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_ENDLESS_CMD, NULL_COMAND_VALUE);
-
-        // set tristate buffer to transmit
-        //digitalWrite(SET_TRI_ST_BUF_Tx, HIGH);
-
-        bytes_wrote = deviceWrite(device_port, write_buffer, bytes_to_write);
-
-        //ms_delay(1);
-
-        //debugging only:
-        //_printf("dynamixelSetEndlessCmd just wrote: \n");
-        //int i = 0;
-        //while( i <( bytes_wrote ) )
-        //{
-        //  System_printf(" : %d\n", write_buffer[i]);
-        //  System_flush();
-//
-        //  i++;
-        //}//end while
-
-        // set tri state buffer back for read
-        //digitalWrite(SET_TRI_ST_BUF_Tx, LOW);
-
-        return;
-
-}//endfnctn  dynamixelSetEndless
-
-
-void dynamixelSetSpeedLeftCmd(uint8_t dynamixel_id, int16_t speed)
-{
-        char write_buffer[BUFFER_SIZE];
-
-        int device_port;
-        int bytes_to_write;
-        int bytes_wrote;
-
-        //_printf("Testing dynamixelSetSpeedLeftCmd dynamixel_id %d, speed %d\n", dynamixel_id, speed);
-        //_flush();
-
-        //get the uart
-        device_port = getDevicePort(dynamixel_id);
-
-        //size of message
-        bytes_to_write = getStructSize(SET_SPEED_LEFT_CMD);
-
-        // set tristate buffer to transmit
-        //digitalWrite(SET_TRI_ST_BUF_Tx, HIGH);
-
-        // populate the buffer_struct for dynamixel format frame
-        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_SPEED_LEFT_CMD, speed);
-
-        bytes_wrote = deviceWrite(device_port, write_buffer, bytes_to_write);
-
-        //ms_delay(1);
-
-        //debugging only
-        //_printf("dynamixelSetSpeedLeftCmd just wrote: \n");
-        //int i = 0;
-        //while( i <( bytes_wrote ) )
-        //{
-            //_printf(" : %d\n", write_buffer[i]);
-            //_flush();
-
-        //  i++;
-        //}//end while
-
-        //set tri state buffer back for read
-        //digitalWrite(SET_TRI_ST_BUF_Tx, LOW);
-
-        return;
-
-}//endfnctn  dynamixelSetSpeedLeftCmd
-
-void dynamixelSetSpeedRightCmd(uint8_t dynamixel_id, int16_t speed)
-{
-        char write_buffer[BUFFER_SIZE];
-
-        int device_port;
-        int bytes_to_write;
-        int bytes_wrote;
-
-        //System_printf("Testing dynamixelSetSpeedRightCmd dynamixel_id %d, speed %d\n", dynamixel_id, speed);
-        //System_flush();
-
-        //get the uart
-        device_port = getDevicePort(dynamixel_id);
-
-        //size of message
-        bytes_to_write = getStructSize(SET_SPEED_RIGHT_CMD);
-
-        // set tristate buffer to transmit
-        //digitalWrite(SET_TRI_ST_BUF_Tx, HIGH);
-
-        // populate the buffer_struct for dynamixel format frame
-        buildDynamixelStructMessage(write_buffer, dynamixel_id, SET_SPEED_RIGHT_CMD, speed);
-
-        bytes_wrote = deviceWrite(device_port, write_buffer, bytes_to_write);
-
-        //ms_delay(1);
-
-        //debugging only
-        //_printf("dynamixelSetSpeedRightCmd just wrote: \n");
-        //int i = 0;
-        //while( i <( bytes_wrote ) )
-        //{
-            //_printf(" : %d\n", write_buffer[i]);
-            //_flush();
-
-        //  i++;
-        //}//end while
-
-        //set tri state buffer back for read
-        //digitalWrite(SET_TRI_ST_BUF_Tx, LOW);
-
-        return;
-
-}//endfnctn  dynamixelSetSpeedRightCmd
-
-
-void setLinActuatorCmd(uint8_t device_id, int16_t speed)
-{
-        char write_buffer[BUFFER_SIZE];
-
-        int device_port;
-        int bytes_to_write;
-        int bytes_wrote;
-
-        //_printf("Testing setLinActuatorCmd dynamixel_id %d, current_position %d, target_increment %d\n"
-                        //, device_id, current_position, target_increment);
-        //_flush();
-
-        // get the uart
-        device_port = getDevicePort(device_id);
-
-        // size of message
-        bytes_to_write = getStructSize(SET_LIN_ACTUATOR_CMD);
-
-        // populate the buffer_struct for dynamixel format frame
-        buildLinActuatorStructMessage(write_buffer, SET_LIN_ACTUATOR_CMD, speed);
-
-        bytes_wrote = deviceWrite(device_port, write_buffer, bytes_to_write);
-
-        //ms_delay(1);
-
-        //debugging only
-        //_printf("dynamixelSetSpeedRightCmd just wrote: \n");
-        //int i = 0;
-        //while( i <( bytes_wrote ) )
-        //{
-            //_printf(" : %d\n", write_buffer[i]);
-            //_flush();
-
-        //  i++;
-        //}//end while
-
-        return;
-
-}//endfnctn  setActuatorCmd
-
-void setDrillCmd(uint8_t device_id, int16_t command)
-{
-        char write_buffer[BUFFER_SIZE];
-
-        int device_port;
-        int bytes_to_write;
-        int bytes_wrote;
-
-        //_printf("Testing setLinActuatorCmd dynamixel_id %d, current_position %d, target_increment %d\n"
-                        //, device_id, current_position, target_increment);
-        //_flush();
-
-        // get the uart
-        device_port = getDevicePort(device_id);
-
-        // size of message
-        bytes_to_write = getStructSize(GET_DRILL_CMD);
-
-        //populate message stop = 0x00, forward = 0x01, reverse = 0x02
-        SET_DRILL_STRUCT->command_byte = command;
-
-        bytes_wrote = deviceWrite(device_port, write_buffer, bytes_to_write);
-
-        //ms_delay(1);
-/*
-        //debugging only
-        printf("setDrillCmd just wrote: \n");
-        int i = 0;
-        while( i <( bytes_wrote ) )
-        {
-        printf(" : %d\n", write_buffer[i]);
-        i++;
-        }//end while
-*/
-        return;
-
-}//endfnctn  setActuatorCmd
-
-
-//see roveStructs.h and rovWare.h for config
-void buildDynamixelStructMessage(char* write_buffer, uint8_t dynamixel_id, uint8_t struct_id, int16_t command_value)
-{
-    uint8_t speed_low_byte = (uint8_t)command_value;
-    uint8_t speed_high_byte = (uint8_t)(command_value >> 8);
-
-    //System_printf("Testing buildDynamixelStructMessage speed_high_byte %d, speed_low_byte %d\n", speed_high_byte, speed_low_byte);
-    //System_flush();
-
-    switch(struct_id)
-    {
-        case SET_ENDLESS_CMD:
-
-            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
-            SET_ENDLESS_STRUCT->start_byte1 = AX_START;
-            SET_ENDLESS_STRUCT->start_byte2 = AX_START;
-            SET_ENDLESS_STRUCT->dynamixel_id = dynamixel_id;
-            SET_ENDLESS_STRUCT->msg_size = AX_GOAL_LENGTH;
-            SET_ENDLESS_STRUCT->read_write_flag = AX_WRITE_DATA;
-            SET_ENDLESS_STRUCT->ccw_angle_limit_reg_addr = AX_CCW_ANGLE_LIMIT_L;
-            SET_ENDLESS_STRUCT->ccw_angle_limit_low_byte = 0x00;
-            SET_ENDLESS_STRUCT->ccw_angle_limit_high_byte = 0x00;
-
-            SET_ENDLESS_STRUCT->check_sum = ( ~(dynamixel_id + AX_GOAL_LENGTH + AX_WRITE_DATA + AX_CCW_ANGLE_LIMIT_L) ) & 0xFF;
-
-            //System_printf("Testing buildDynamixelStructMessage SET_ENDLESS_CMD %d \n", SET_ENDLESS_STRUCT->check_sum);
-            //System_flush();
-
-        break;
-
-        case SET_SPEED_LEFT_CMD:
-
-            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
-            SET_DYNA_SPEED_STRUCT->start_byte1 = AX_START;
-            SET_DYNA_SPEED_STRUCT->start_byte2 = AX_START;
-            SET_DYNA_SPEED_STRUCT->dynamixel_id = dynamixel_id;
-            SET_DYNA_SPEED_STRUCT->msg_size = AX_SPEED_LENGTH;
-            SET_DYNA_SPEED_STRUCT->read_write_flag = AX_WRITE_DATA;
-            SET_DYNA_SPEED_STRUCT->speed_low_byte_reg_addr = AX_GOAL_SPEED_L;
-            SET_DYNA_SPEED_STRUCT->speed_low_byte = speed_low_byte;
-            SET_DYNA_SPEED_STRUCT->speed_high_byte = speed_high_byte;
-
-            SET_DYNA_SPEED_STRUCT->check_sum  = ( ~(dynamixel_id + AX_SPEED_LENGTH + AX_WRITE_DATA + AX_GOAL_SPEED_L + speed_low_byte + speed_high_byte) ) & 0xFF;
-
-            //System_printf("Testing buildDynamixelStructMessage SET_SPEED_LEFT_CMD\n");
-            //System_flush();
-
-        break;
-
-        case SET_SPEED_RIGHT_CMD:
-
-            // macro casting the buffer_struct instance see roveWare.h and roveStruct.h
-            SET_DYNA_SPEED_STRUCT ->start_byte1 = AX_START;
-            SET_DYNA_SPEED_STRUCT ->start_byte2 = AX_START;
-            SET_DYNA_SPEED_STRUCT ->dynamixel_id = dynamixel_id;
-            SET_DYNA_SPEED_STRUCT ->msg_size = AX_SPEED_LENGTH;
-            SET_DYNA_SPEED_STRUCT ->read_write_flag = AX_WRITE_DATA;
-            SET_DYNA_SPEED_STRUCT ->speed_low_byte_reg_addr = AX_GOAL_SPEED_L;
-            SET_DYNA_SPEED_STRUCT ->speed_low_byte = speed_low_byte;
-            SET_DYNA_SPEED_STRUCT ->speed_high_byte = (speed_high_byte + 4);
-
-        /*  if(command_value == 0)
-            {
-                SET_DYNA_SPEED_STRUCT ->speed_high_byte = speed_high_byte;
-            }
-            else
-            {
-                SET_DYNA_SPEED_STRUCT ->speed_high_byte = (speed_high_byte + 4);
-            }
-*/
-            SET_DYNA_SPEED_STRUCT->check_sum = ( ~(dynamixel_id + AX_SPEED_LENGTH + AX_WRITE_DATA + AX_GOAL_SPEED_L + speed_low_byte + speed_high_byte + 4) ) & 0xFF;
-
-            //System_printf("TestingCASE SET_SPEED_RIGHT_CMD speed_high_byte %d, speed_low_byte %d\n", SET_DYNA_SPEED_STRUCT ->speed_high_byte, SET_DYNA_SPEED_STRUCT ->speed_low_byte);
-            //System_flush();
-
-        break;
-
-        default:
-
-            return;
-                //System_printf("Error in function: buildDynamixelStructMessage() - struct_id is not valid\n");
-                //System_flush();
-
-        }//endswitch
-
-    //System_printf("Testing %d speed_high_byte %d, speed_low_byte %d\n", SET_DYNA_SPEED_STRUCT ->speed_high_byte, SET_DYNA_SPEED_STRUCT ->speed_low_byte);
-    //System_flush();
-
-
-    //memcpy( write_buffer, buffer_struct, sizeof(set_dyna_speed_struct) );
-
-    return;
-
-}//end fnctn buildDynamixelStructMessage
-
-//current_position = buildLinActuatorMessage((void*)(&buffer_struct), write_buffer, device_id, current_position, target_increment);
-
-void buildLinActuatorStructMessage(char* write_buffer, uint8_t struct_id, int16_t speed)
-{
-
-    //System_printf("Testing buildLinActuatorStructMessage struct_id %d, \n", struct_id);
-    //System_flush();
-
-    switch(struct_id)
-    {
-        case SET_LIN_ACTUATOR_CMD:
-
-            if (speed > MAX_LIN_ACT_SPEED)
-            {
-                speed = MAX_LIN_ACT_SPEED;
-
-            }//endif
-
-            if (speed < MIN_LIN_ACT_SPEED)
-            {
-                speed = MIN_LIN_ACT_SPEED;
-
-            }//endif
-
-            SET_LIN_ACT_STRUCT->command_byte = LIN_ACT_FORWARD;
-
-            if (speed < 0)
-            {
-                speed = -speed;
-                SET_LIN_ACT_STRUCT->command_byte = LIN_ACT_REVERSE;
-
-            }//endif
-
-            SET_LIN_ACT_STRUCT->speed = (uint8_t)speed;
-        break;
-        default:
-
-            return;
-            //System_printf("Error in function: buildDynamixelStructMessage() - struct_id is not valid");
-            //System_flush();
-
-    }//endswitch
-
-    return;
-
-}//end fnctn buildLinActuatorStructMessage
-
-int getDevicePort(uint8_t device_id)
-{
-    switch(device_id)
-    {
-        case WRIST_A_ID...BASE_ID:
-
-        return DYNAMIXEL_UART;
-
-        case LIN_ACT_ID:
-
-        return LINEAR_ACTUATOR_UART;
-
-        case MOB_ID:
-
-        return MOTHERBOARD_UART;
-
-        case GRIPPER_ID:
-
-        return END_EFFECTOR_UART;
-
-        case DRILL_ID:
-
-        return END_EFFECTOR_UART;
-
-        default:
-
-            //System_printf("getDevicePort passed invalid device_id %d\n", device_id);
-            //System_flush();
-
-        return -1;
-    }//endswitch (device)
-
-}//endfnctn getDevicePort
-
-int getStructSize(uint8_t struct_id)
-{
-    switch(struct_id)
-    {
-        case SET_ENDLESS_CMD:
-
-            return sizeof(set_dyna_endless_struct);
-
-        case SET_SPEED_LEFT_CMD...SET_SPEED_RIGHT_CMD:
-
-            return sizeof(set_dyna_speed_struct);
-
-        case SET_LIN_ACTUATOR_CMD:
-
-            return sizeof(linear_actuator_struct);
-
-        case GET_DRILL_CMD:
-
-            return sizeof(drill_struct);
-
-        default:
-
-            //System_printf("getStructSize passed invalid struct_id %d\n", struct_id);
-            //System_flush();
-
-        return -1;
-
-    }//endswitch
-
-}//endfnctn getDevicePort
-
-
-//right is forward
-void roboArmForwardCmd(uint8_t struct_id, int16_t speed)
-{
-
-    //System_printf("roboArmForwardCmd Thinks struct_id %d, speed %d" struct_id, speed);
-    //System_flush;
-    switch(struct_id)
-    {
-        case wrist_clock_wise:
-
-            ////_printf("Testing wrist_clock_wise speed %d\n");
-            ////_flush();
-
-            dynamixelSetSpeedRightCmd(WRIST_A_ID, speed);
-            //dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
-
-        break;
-
-        case wrist_up:
-
-            ////_printf("Testing wrist_up speed %d\n", speed);
-            ////_flush();
-
-            dynamixelSetSpeedRightCmd(WRIST_A_ID, speed);
-            //dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
-
-        break;
-
-        case elbow_clock_wise:
-
-            //_printf("Testing elbow_clock_wise speed %d\n", speed);
-            //_flush();
-
-                //dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
-            //dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-                //dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-
-            dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-
-        break;
-
-        case elbow_up:
-
-            //_printf("Testing elbow_up speed %d\n", speed);
-            //_flush();
-
-                //dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
-            //dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-                //dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-
-            dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-
-        break;
-
-        case base_clock_wise:
-
-                //_printf("Testing base_clock_wise speed %d\n", speed);
-                //_flush();
-
-                dynamixelSetSpeedRightCmd(BASE_ID, speed);
-
-        break;
-
-        case gripper_open:
-
-            dynamixelSetSpeedRightCmd(GRIPPER_ID, speed);
-
-        break;
-
-        default:
-
-            //ms_delay(2);
-
-            return;
-            //_printf("\nERROR in RoboticArm.c!   roboArmForwardCmd struct_id %d cannot be handled \n", struct_id);
-            //_flush();
-
-    }//endswitch struct_id
-
-    return;
-
-}//endfnctn roboArmForwardCmd
-
-//left is reverse
-void roboArmReverseCmd(uint8_t struct_id, int16_t speed)
-{
-    //System_printf("roboArmReverseCmd Thinks struct_id %d, speed %d" struct_id, speed);
-    //System_flush;
-    switch(struct_id)
-    {
-        //reverse (left) clockwise is counterclockwise
-        case wrist_clock_wise:
-
-            //_printf("Testing wrist_counter_clock_wise speed %d\n", speed);
-            //_flush();
-
-            dynamixelSetSpeedLeftCmd(WRIST_A_ID, speed);
-            //dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
-
-        break;
-
-        case wrist_up:
-
-            //reverse (left) up is down
-            //_printf("Testing wrist_down_speed %d\n", speed);
-            //_flush();
-
-            dynamixelSetSpeedLeftCmd(WRIST_A_ID, speed);
-            //dynamixelSetSpeedLeftCmd(WRIST_B_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedRightCmd(WRIST_B_ID, speed);
-
-        break;
-
-        //reverse (left) clockwise is counterclockwise
-        case elbow_clock_wise:
-
-            //_printf("Testing elbow_counter_clock_wise speed %d\n", speed);
-            //_flush();
-
-                //dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
-            //dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-                //dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-
-            dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-
-        break;
-
-        //reverse (left) up is down
-        case elbow_up:
-
-            //_printf("Testing elbow_down speed %d\n", speed);
-            //_flush();
-
-                //dynamixelSetSpeedLeftCmd(ELBOW_A_ID, speed);
-            //dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-                //dynamixelSetSpeedRightCmd(ELBOW_B_ID, speed);
-
-            dynamixelSetSpeedRightCmd(ELBOW_A_ID, speed);
-            do_nothing();
-            dynamixelSetSpeedLeftCmd(ELBOW_B_ID, speed);
-
-        break;
-
-        //reverse (left) clockwise is counterclockwise
-        case base_clock_wise:
-
-            //_printf("Testing base_counter_clock_wise speed %d\n", speed);
-            //_flush();
-
-            dynamixelSetSpeedLeftCmd(BASE_ID, speed);
-
-        break;
-
-        case gripper_open:
-
-            dynamixelSetSpeedLeftCmd(GRIPPER_ID, speed);
-
-        break;
-
-        default:
-
-            //ms_delay(2);
-
-            return;
-            //_printf("\nERROR in RoboticArm.c!  roboArmReverseCmd  struct_id %d cannot be handled \n", struct_id);
-            //_flush();
-
-    }//endswitch struct_id
-
-    return;
-
-}//endfnctn roboArmReverseCmd
-
-void do_nothing(){
-
-    int i = 0;
-
-    while(i < DO_NOTHING_CNT){
-
-        i++;
-
-    }//endwhile
-
-    return;
-
-}//end fnctn

@@ -60,7 +60,7 @@
 // U6TX PP1_UART_6
 // U7RX PC4_UART_7
 // U7TX PC5_UART_7
-
+/*
 #define WRIST_A_ID  0x01
 #define WRIST_B_ID  0x02
 #define ELBOW_A_ID  0x03
@@ -100,7 +100,7 @@
 #define E_STOP_ARM 206
 #define ACTUATOR_INCREMENT 207
 #define GRIPPER_OPEN 208
-
+*/
 #define TEST_DEVICE_ID 251
 
 

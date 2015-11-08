@@ -49,7 +49,7 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 
 }//endfnctn roveUARTRead
 
-
+/*
 int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
     extern UART_Handle uart_2;
@@ -98,7 +98,61 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
     return bytes_to_write;
 
 }//endfnctn roveUARTWrite
+*/
 
+int deviceWrite(int device_port, char* write_buffer,  int bytes_to_write)
+{
+    int bytes_wrote;
+
+    // give us access to the uart handles defined at the global scope in main
+    extern UART_Handle uart2;
+    extern UART_Handle uart3;
+    extern UART_Handle uart4;
+    extern UART_Handle uart7;
+
+    //System_printf("deviceWrite called\n");
+    //System_flush();
+
+    if(bytes_to_write < 0)
+    {
+        return -1;
+    }//end if
+
+    switch(device_port)
+    {
+        case DYNAMIXEL_UART:
+
+            bytes_wrote = UART_write(uart3, write_buffer, bytes_to_write);
+
+        break;
+        case LINEAR_ACTUATOR_UART:
+
+            bytes_wrote = UART_write(uart5, write_buffer, bytes_to_write);
+
+        break;
+
+        case END_EFFECTOR_UART:
+
+             bytes_wrote = UART_write(uart4, write_buffer, bytes_to_write);
+
+        break;
+
+        default:
+
+            return -1;
+            //System_printf("DeviceWrite passed invalid device %d\n", device_port);
+            //System_flush();
+
+        //etc.
+    }//end switch(jack)
+
+    // make sure the message is fully written before leaving the function
+
+    //ms_delay(1);
+
+    return bytes_wrote;
+
+}//endfnctn deviceWrite
 void digitalWrite(int tiva_pin, int high_or_low) {
 
     if(high_or_low == LOW){

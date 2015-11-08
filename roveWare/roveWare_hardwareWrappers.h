@@ -51,6 +51,8 @@ int roveGetDeviceId_PinNum(char data_id);
 
 int roveGetStructId_ByteCnt(char data_id);
 
+int deviceWrite(int device_port, char* write_buffer, int bytes_to_write);
+
 //get the system clock for the delay
 void ms_delay(int milliseconds);
 

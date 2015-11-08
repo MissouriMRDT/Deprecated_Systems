@@ -57,14 +57,16 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     //only write one way device to the dynamixel forever globally
     digitalWrite(TRI_STATE_BUFFER, HIGH);
 
+    ms_delay(5);
+
     //make sure and stop all arm motors when powering up, set command all speeds zero
     rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
-    roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
+    roveDynamixel_SetWheelMode(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
 
 
 ///////////////END   2016//////COMMAND/////////////////////

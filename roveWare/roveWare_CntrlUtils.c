@@ -51,25 +51,59 @@ void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_comm
     dynamixel.dynamixel_id = dynamixel_id;
 
     //TODO
-    dynamixel.message_byte_count = FOUR_BYTES;
+    dynamixel.message_byte_count = 5;
     dynamixel.read_write_flag = DYNAMIXEL_WRITE_DATA;
 
     //TODO
-    dynamixel.dynamixel_register_address = ROTATE_TO_POSITION_CMD_REG_ADDR;
+    dynamixel.dynamixel_register_address = DYNAMIXEL_ROTATE_AT_SPEED_COMMAND;
 
-    dynamixel.register1_low_byte = (uint8_t)first_command_value;
-    dynamixel.register1_high_byte = (uint8_t)(first_command_value >> 8);
+    //dynamixel.register1_low_byte = (uint8_t)first_command_value;
+    //dynamixel.register1_high_byte = (uint8_t)(first_command_value >> 8);
 
     dynamixel.register2_low_byte = (uint8_t)second_command_value;
     dynamixel.register2_high_byte = (uint8_t)(second_command_value >> 8);
 
-    dynamixel.check_sum  = ( ~(dynamixel_id + FOUR_BYTES + DYNAMIXEL_WRITE_DATA + dynamixel.dynamixel_register_address + dynamixel.register1_low_byte + dynamixel.register1_high_byte + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
+    //dynamixel.check_sum  = ( ~(dynamixel_id + SIX_BYTES + DYNAMIXEL_WRITE_DATA + dynamixel.dynamixel_register_address + dynamixel.register1_low_byte + dynamixel.register1_high_byte + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
+
+    dynamixel.check_sum  = ( ~(dynamixel_id + dynamixel.message_byte_count + dynamixel.read_write_flag + dynamixel.dynamixel_register_address + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
 
     roveUART_Write(tiva_pin, (char*)&dynamixel, sizeof(dynamixel) );
 
     return;
 
 }//end fnctn buildDynamixelStructMessage
+
+//TODO
+void roveDynamixel_SetWheelMode(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value) {
+
+    rove_dynamixel_struct dynamixel;
+
+    dynamixel.protocol_start_byte1 = DYMAMIXEL_MSG_START_BYTE;
+    dynamixel.protocol_start_byte2 = DYMAMIXEL_MSG_START_BYTE;
+
+    dynamixel.dynamixel_id = dynamixel_id;
+
+    //TODO
+    dynamixel.message_byte_count = 5;
+    dynamixel.read_write_flag = DYNAMIXEL_WRITE_DATA;
+
+    //TODO
+    dynamixel.dynamixel_register_address = SET_WHEEL_MODE_CMD_REG_ADDR;
+
+    //dynamixel.register1_low_byte = (uint8_t)first_command_value;
+    //dynamixel.register1_high_byte = (uint8_t)(first_command_value >> 8);
+
+    dynamixel.register2_low_byte = (uint8_t)first_command_value;
+    dynamixel.register2_high_byte = (uint8_t)(first_command_value >> 8);
+
+    dynamixel.check_sum  = ( ~(dynamixel_id + dynamixel.message_byte_count + dynamixel.read_write_flag + dynamixel.dynamixel_register_address + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
+
+    roveUART_Write(tiva_pin, (char*)&dynamixel, sizeof(dynamixel) );
+
+    return;
+
+}//end fnctn buildDynamixelStructMessage
+
 
 int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed){
 

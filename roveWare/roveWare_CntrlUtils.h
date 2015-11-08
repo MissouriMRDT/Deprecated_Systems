@@ -19,7 +19,7 @@
 
 //TODO
 #define ZERO_SPEED 0
-#define ENDLESS_ROTATION 359
+#define ENDLESS_ROTATION 0
 
 #define DYNAMIXEL_SPEED_MIN -1022
 #define DYNAMIXEL_SPEED_MAX 1022
@@ -28,7 +28,11 @@
 #define LIN_ACT_REVERSE 0xE0
 
 //TODO
-#define FOUR_BYTES 4
+#define SIX_BYTES 6
+
+#define FOUR__BYTES 4
+
+#define SET_WHEEL_MODE_CMD_REG_ADDR 8
 
 //Dynamixel Commands
 #define ROTATE_TO_POSITION_CMD_REG_ADDR             30
@@ -75,8 +79,8 @@ typedef struct rove_dynamixel_struct {
 
     uint8_t dynamixel_register_address;
 
-    uint8_t register1_low_byte;
-    uint8_t register1_high_byte;
+    //uint8_t register1_low_byte;
+    //uint8_t register1_high_byte;
 
     uint8_t register2_low_byte;
     uint8_t register2_high_byte;
@@ -101,6 +105,8 @@ void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
 
 //0 is full speed reverse : 2048 is stop : 4096 is full speed forward
 void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value);
+
+void roveDynamixel_SetWheelMode(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value);
 
 //base_station protocol : -1000 is reverse : 0 stop : 1000 is full speed forward : must scale to dynamixel proto
 int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed);

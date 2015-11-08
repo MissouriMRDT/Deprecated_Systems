@@ -15,7 +15,7 @@
 #include <stdint.h>
 
 //MRDT definitions
-#include "roveWare_tivaWrappers.h"
+#include "roveWare_hardwareWrappers.h"
 
 //TODO
 #define ZERO_SPEED 0

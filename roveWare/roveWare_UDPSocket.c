@@ -13,7 +13,7 @@
 #include "roveWare_UDPSocket.h"
 
 // initialize and config a udp listening port
-void rovecommInit(uint32_t port, rove_udp_socket* rove_socket) {
+void rovecommInit(rove_udp_socket* rove_socket) {
 
     rove_socket->socket_fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
@@ -28,9 +28,10 @@ void rovecommInit(uint32_t port, rove_udp_socket* rove_socket) {
     //TODO VALIDATE CONFIG
         memset(&rove_socket->local_addr, 0, sizeof(struct sockaddr_in));
         rove_socket->local_addr.sin_family = AF_INET;
-        rove_socket->local_addr.sin_port = htons(port);
-        inet_pton(AF_INET, LOCAL_IP_ADDRESS, &(rove_socket->local_addr.sin_addr));
-    //TODO ADD ARG1 LOCAL_IP_ADDRESS
+        rove_socket->local_addr.sin_port = htons(LISTEN_PORT);
+        rove_socket->local_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+        //rove_socket->local_addr.sin_addr = SOME_BYTES
 
     if ( bind(rove_socket->socket_fd, (PSA) &(rove_socket->local_addr), sizeof(struct sockaddr_in) ) < 0) {
 
@@ -190,7 +191,7 @@ void rovePrintf_IPMessage(rove_udp_socket* rove_socket) {
            break;
 
         default:
-            printf("Unknown Command Error");
+            printf("Unknown Command Error\n");
             break;
 
     }//endswitch

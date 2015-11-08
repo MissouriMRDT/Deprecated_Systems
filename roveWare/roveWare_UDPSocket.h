@@ -31,7 +31,7 @@
 
 //#define ROVECOMM_PORT 11000
 //#define VERSION_NO 0x01
-#define VERSION_ONE 1
+#define VERSION_ONE 0x01
 #define LISTEN_PORT 11000
 #define HEADER_BYTE_COUNT 7
 #define SEQ 0x0F0F
@@ -71,7 +71,7 @@ uint16_t getUdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* 
 
 void parseUdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
 
-void rovecommInit(uint32_t port, rove_udp_socket* rove_socket);
+void rovecommInit(rove_udp_socket* rove_socket);
 
 void roveCatch_NdkErrors(int16_t ndk_error);
 

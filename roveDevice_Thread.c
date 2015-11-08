@@ -44,8 +44,8 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     //init roveComm
     rove_udp_socket base_station;
 
-    //TODO base_station.local_ip_addr = rovecommInit(LISTEN_PORT, LOCAL_IP_ADDRESS, &base_station);
-    rovecommInit(LISTEN_PORT, &base_station);
+    //TODO base_station.local_ip_addr = rovecommInit(LOCAL_IP_ADDRESS, &base_station);
+    rovecommInit(&base_station);
 
 
 ///////////////BEGIN 2016//////COMMAND////////////////////

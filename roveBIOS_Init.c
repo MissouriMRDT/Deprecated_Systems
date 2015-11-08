@@ -29,8 +29,7 @@
 int main(void) {
 
 
-///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG//////////
-
+///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG/////////
 
     //init TI board driver routines
     Board_initGeneral();

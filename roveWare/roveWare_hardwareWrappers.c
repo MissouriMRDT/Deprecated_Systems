@@ -10,7 +10,7 @@
 //
 // mrdt::rovWare
 
-#include "roveWare_tivaWrappers.h"
+#include "roveWare_hardwareWrappers.h"
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {

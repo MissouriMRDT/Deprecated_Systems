@@ -27,8 +27,8 @@ int main(int argc, char* argv[])
     exit(EXIT_FAILURE);
   }
   
-  sscanf(argv[1], "%X", (int*)&dataID);
-  sscanf(argv[2], "%X", (int*)hexData);
+  sscanf(argv[1], "%i", (int*)&dataID);
+  sscanf(argv[2], "%lX", (long*)hexData);
   dataSize = (strlen(argv[2])+1) /2; //the number of bytes of data should be have of what was entered
   
   if(argc > 3) {

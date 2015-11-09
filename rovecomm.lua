@@ -15,7 +15,7 @@ function roveProtocol.dissector(buffer,pinfo,tree)
 		subtree:add(fieldDataId,buffer(3,2))
 		subtree:add(fieldDataSize,buffer(5,2))
 		
-		--Dissector.get("data"):call(buffer(2):tvb(),pkt,root)
+		Dissector.get("data"):call(buffer(7):tvb(),pinfo,tree)
 end
 
 local udp_encap_table = DissectorTable.get("udp.port")

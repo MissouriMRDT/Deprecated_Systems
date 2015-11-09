@@ -8,7 +8,7 @@ This is an example use of the RoveComm Library
 #include <EthernetUdp.h>
 
 //Include Rovecomm itself
-#include <rovecomm.h>
+#include <RoveComm.h>
 
 //Including stuff for this example
 #include <string.h>

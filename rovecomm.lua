@@ -12,7 +12,9 @@ function roveProtocol.dissector(buffer,pinfo,tree)
 		
 		pinfo.cols['info'] = 'DataId: ' .. buffer:range(3,2):uint() .. ' Seq: ' .. buffer:range(1,2):uint()
 		
-        local subtree = tree:add(roveProtocol,buffer(),"MRDT RoveComm Protocol")
+        local subtree = tree:add(roveProtocol,buffer(),"MRDT RoveComm Protocol"
+			.. ', DataId: ' .. buffer:range(3,2):uint()
+			.. ', Seq: ' .. buffer:range(1,2):uint())
         subtree:add(fieldVersion,buffer(0,1))
         subtree:add(fieldSequenceNum,buffer(1,2))
 		subtree:add(fieldDataId,buffer(3,2))

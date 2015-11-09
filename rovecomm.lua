@@ -1,9 +1,9 @@
 local roveProtocol = Proto("ROVE","MRDT RoveComm");
 
-local fieldVersion = ProtoField.uint8("rove.version","Version",base.BASE_DEC_HEX)
-local fieldSequenceNum = ProtoField.uint16("rove.seq","Sequence Number",base.BASE_DEC_HEX)
-local fieldDataId = ProtoField.uint16("rove.dataid","DataId",base.BASE_DEC_HEX)
-local fieldDataSize = ProtoField.uint16("rove.datasize","Size",base.BASE_DEC_HEX)
+local fieldVersion = ProtoField.uint8("rove.version","Version",base.DEC)
+local fieldSequenceNum = ProtoField.uint16("rove.seq","Sequence Number",base.DEC_HEX)
+local fieldDataId = ProtoField.uint16("rove.dataid","DataId",base.DEC_HEX)
+local fieldDataSize = ProtoField.uint16("rove.datasize","Size",base.DEC)
 
 roveProtocol.fields = { fieldVersion, fieldSequenceNum, fieldDataId, fieldDataSize }
 

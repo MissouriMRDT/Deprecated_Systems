@@ -5,11 +5,11 @@ EthernetUDP udpReceiver;
 IPAddress rovecommSubscribers[5] = {INADDR_NONE};
 
 // This function starts networking and sets up our listening port
-void rovecommInit(byte mac[], IPAddress ip) {
+void rovecommInit(IPAddress ip) {
   uint16_t dataID = 0, size = 0;
   uint8_t tempData[UDP_TX_PACKET_MAX_SIZE];
   
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(0, ip); //MAC Address is set by hardware
   udpReceiver.begin(ROVECOMM_PORT);
   Serial.println("Waiting for Base Station");
   while (rovecommSubscribers[0] == INADDR_NONE)

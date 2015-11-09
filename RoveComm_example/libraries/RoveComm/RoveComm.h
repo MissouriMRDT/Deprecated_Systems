@@ -12,7 +12,7 @@
 #include <EthernetUdp.h>
 
 //function prototypes
-void rovecommInit(byte mac[], IPAddress ip);
+void rovecommInit(IPAddress ip);
 void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
 void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data);
 void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest);

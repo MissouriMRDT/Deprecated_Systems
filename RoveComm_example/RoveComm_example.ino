@@ -44,8 +44,7 @@ struct Rover {
 };
 
 void setup() {
-  //define device MAC Address and IP for networking
-  byte deviceMAC[] = {0x00, 0x1A, 0xB6, 0x02, 0xF0, 0xDF};
+  //define device IP for networking
   IPAddress deviceIP(192,168,1,51);
   
   //Start serial for debugging
@@ -55,7 +54,7 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  rovecommInit(deviceMAC, deviceIP);
+  rovecommInit(deviceIP);
 }
 
 void loop() {

@@ -7,6 +7,10 @@ local fieldDataSize = ProtoField.uint16("rove.datasize","Size",base.DEC)
 
 roveProtocol.fields = { fieldVersion, fieldSequenceNum, fieldDataId, fieldDataSize }
 
+local expertBadLength = ProtoExpert.new("BadLength", "The encoded length does not equal the actual length", expert.group.MALFORMED, expert.severity.ERROR)
+
+roveProtocol.experts = { expertBadLength }
+
 function roveProtocol.dissector(buffer,pinfo,tree)
         pinfo.cols.protocol = "ROVE"
 		
@@ -19,6 +23,10 @@ function roveProtocol.dissector(buffer,pinfo,tree)
         subtree:add(fieldSequenceNum,buffer(1,2))
 		subtree:add(fieldDataId,buffer(3,2))
 		subtree:add(fieldDataSize,buffer(5,2))
+		
+		local actualLength = buffer:reported_length_remaining()-7
+		local expectedLength = buffer:range(5,2):uint()
+		if (actualLength - expectedLength ~= 0) then subtree:add_proto_expert_info(expertBadLength) end
 		
 		Dissector.get("data"):call(buffer(7):tvb(),pinfo,tree)
 end

@@ -54,7 +54,7 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  RoveComm.rovecommInit(deviceIP);
+  RoveComm.begin(deviceIP);
 }
 
 void loop() {
@@ -69,7 +69,7 @@ void loop() {
   //send a message to the test server
   RoveComm.sendMsg(dataID, size, &toSend);
   //get a reply from the test server
-  RoveComm.getUdpMsg(&dataID, &size, receivedMsg);
+  RoveComm.getMsg(&dataID, &size, receivedMsg);
   
   //Print the bytes of the received Data
   Serial.print("dataID: ");

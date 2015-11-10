@@ -9,7 +9,7 @@ void RoveCommClass::begin(IPAddress ip) {
   udpReceiver.begin(ROVECOMM_PORT);
   Serial.println("Waiting for Base Station");
   while (subscriberList[0] == INADDR_NONE)
-    getUdpMsg(&dataID, &size, tempData);
+    getMsg(&dataID, &size, tempData);
 }
 
 void RoveCommClass::sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
@@ -71,7 +71,7 @@ void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
         rovecommControl(dataID, size, data, remote_ip, remote_port);
       } else {
         rovecommControl(dataID, size, data, remote_ip, remote_port);
-        getUdpMsg(dataID, size, data);
+        getMsg(dataID, size, data);
       }
     }
     Serial.println();

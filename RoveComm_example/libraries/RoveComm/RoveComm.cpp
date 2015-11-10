@@ -1,14 +1,14 @@
 #include "RoveComm.h"
 
 // This function starts networking and sets up our listening port
-void RoveCommClass::rovecommInit(IPAddress ip) {
+void RoveCommClass::begin(IPAddress ip) {
   uint16_t dataID = 0, size = 0;
   uint8_t tempData[UDP_TX_PACKET_MAX_SIZE];
   
   Ethernet.begin(0, ip); //MAC Address is set by hardware
   udpReceiver.begin(ROVECOMM_PORT);
   Serial.println("Waiting for Base Station");
-  while (rovecommSubscribers[0] == INADDR_NONE)
+  while (subscriberList[0] == INADDR_NONE)
     getUdpMsg(&dataID, &size, tempData);
 }
 
@@ -41,7 +41,7 @@ void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddr
   sendPacket(dest, ROVECOMM_PORT, buffer, size + HEADER_BYTES);
 }
 
-void RoveCommClass::getUdpMsg(uint16_t* dataID, uint16_t* size, void* data) {
+void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
   uint8_t receiverBuffer[UDP_TX_PACKET_MAX_SIZE];
   
   *dataID = 0;
@@ -67,7 +67,7 @@ void RoveCommClass::getUdpMsg(uint16_t* dataID, uint16_t* size, void* data) {
     if (*dataID < 0x65) {
       Serial.print("RoveComm function received with dataID: ");
       Serial.println(*dataID, HEX);
-      if (rovecommSubscribers[0] == INADDR_NONE) { //if this is running during rovecommInit();
+      if (subscriberList[0] == INADDR_NONE) { //if this is running during rovecommInit();
         rovecommControl(dataID, size, data, remote_ip, remote_port);
       } else {
         rovecommControl(dataID, size, data, remote_ip, remote_port);
@@ -97,26 +97,26 @@ void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* siz
 void RoveCommClass::rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port) {
   switch (*dataID) {
     case 1: //Add subscriber
-      rovecommAddSubscriber(remote_ip);
+      addSubscriber(remote_ip);
   }
 }
 
-bool RoveCommClass::rovecommAddSubscriber(IPAddress address) {
+bool RoveCommClass::addSubscriber(IPAddress address) {
   int i = 0;
   Serial.println("Adding Subsrciber");
-  while(i < 5 && !(rovecommSubscribers[i] == INADDR_NONE || rovecommSubscribers[i] == address))
+  while(i < 5 && !(subscriberList[i] == INADDR_NONE || subscriberList[i] == address))
     i++;
   if (i == 5) //If we have exceeded the subscribers array
     return false;
-  rovecommSubscribers[i] = address;
+  subscriberList[i] = address;
   return true;
 }
 
 void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data) {
   Serial.println("Sending to Basestations");
   int i=0;
-  while(i<5 && !(rovecommSubscribers[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, size, data, rovecommSubscribers[i]); 
+  while(i<5 && !(subscriberList[i] == INADDR_NONE)) {
+    sendMsgTo(dataID, size, data, subscriberList[i]); 
     i++;
   }
 }

@@ -16,20 +16,20 @@ class RoveCommClass {
   
   //declare our receiving server and a subscriber buffer
   EthernetUDP udpReceiver;
-  IPAddress rovecommSubscribers[5] = {INADDR_NONE};
+  IPAddress subscriberList[5] = {INADDR_NONE};
   
   //function prototypes
   void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
   void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data);
   void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest);
   void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port);
-  bool rovecommAddSubscriber(IPAddress address);
+  bool addSubscriber(IPAddress address);
 
   
   public:
-  void rovecommInit(IPAddress ip);
+  void begin(IPAddress ip);
   void sendMsg(uint16_t dataID, uint16_t size, void* data);
-  void getUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
+  void getMsg(uint16_t* dataID, uint16_t* size, void* data);
 };
 
 extern RoveCommClass RoveComm;

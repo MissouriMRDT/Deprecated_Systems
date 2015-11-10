@@ -11,15 +11,23 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-//function prototypes
-void rovecommInit(IPAddress ip);
-void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
-void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data);
-void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest);
-void getUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
-void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data);
-void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port);
-bool rovecommAddSubscriber(IPAddress address);
-void sendMsg(uint16_t dataID, uint16_t size, void* data);
 
+class RoveCommClass {
+  
+  
+  //function prototypes
+  void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
+  void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data);
+  void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest);
+  void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port);
+  bool rovecommAddSubscriber(IPAddress address);
+
+  
+  public:
+  void rovecommInit(IPAddress ip);
+  void sendMsg(uint16_t dataID, uint16_t size, void* data);
+  void getUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
+};
+
+extern RoveCommClass RoveComm;
 #endif

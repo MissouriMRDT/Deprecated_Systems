@@ -14,6 +14,9 @@
 
 class RoveCommClass {
   
+  //declare our receiving server and a subscriber buffer
+  EthernetUDP udpReceiver;
+  IPAddress rovecommSubscribers[5] = {INADDR_NONE};
   
   //function prototypes
   void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);

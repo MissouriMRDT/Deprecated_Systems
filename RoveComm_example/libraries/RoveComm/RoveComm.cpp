@@ -1,9 +1,5 @@
 #include "RoveComm.h"
 
-//declare our receiving server and a buffer for it globally
-EthernetUDP udpReceiver;
-IPAddress rovecommSubscribers[5] = {INADDR_NONE};
-
 // This function starts networking and sets up our listening port
 void RoveCommClass::rovecommInit(IPAddress ip) {
   uint16_t dataID = 0, size = 0;

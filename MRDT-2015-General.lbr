@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2872,6 +2872,18 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <rectangle x1="120.396" y1="8.636" x2="120.904" y2="9.144" layer="48"/>
 <rectangle x1="122.936" y1="8.636" x2="123.444" y2="9.144" layer="48"/>
 <rectangle x1="122.936" y1="11.176" x2="123.444" y2="11.684" layer="48"/>
+<text x="33.02" y="53.975" size="1.27" layer="21">A2</text>
+<text x="33.02" y="51.435" size="1.27" layer="21">B2</text>
+<text x="33.02" y="10.795" size="1.27" layer="21">C2</text>
+<text x="33.02" y="8.255" size="1.27" layer="21">D2</text>
+<text x="96.52" y="53.975" size="1.27" layer="21">A1</text>
+<text x="96.52" y="51.435" size="1.27" layer="21">B1</text>
+<text x="96.52" y="10.795" size="1.27" layer="21">C1</text>
+<text x="96.52" y="8.255" size="1.27" layer="21">D1</text>
+<text x="35.8775" y="49.2125" size="1.27" layer="21">10</text>
+<text x="35.8775" y="6.0325" size="1.27" layer="21">10</text>
+<text x="99.3775" y="6.0325" size="1.27" layer="21">10</text>
+<text x="99.3775" y="49.2125" size="1.27" layer="21">10</text>
 </package>
 </packages>
 <symbols>

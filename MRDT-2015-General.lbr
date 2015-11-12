@@ -2458,11 +2458,6 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <wire x1="121.539" y1="10.16" x2="121.92" y2="9.779" width="0.127" layer="49"/>
 <wire x1="121.92" y1="9.779" x2="122.301" y2="10.16" width="0.127" layer="49"/>
 <wire x1="122.301" y1="10.16" x2="124.46" y2="10.16" width="0.127" layer="49"/>
-<circle x="95.25" y="21.59" radius="3.048" width="2.032" layer="41"/>
-<circle x="95.25" y="21.59" radius="3.048" width="2.032" layer="42"/>
-<circle x="95.25" y="21.59" radius="3.048" width="2.032" layer="43"/>
-<circle x="95.25" y="21.59" radius="3.048" width="2.032" layer="39"/>
-<circle x="95.25" y="21.59" radius="3.048" width="2.032" layer="40"/>
 <circle x="82.55" y="52.07" radius="1.7" width="0.2032" layer="21"/>
 <circle x="82.55" y="52.07" radius="3.429" width="0.1524" layer="21"/>
 <circle x="82.55" y="52.07" radius="0.762" width="0.4572" layer="51"/>
@@ -2877,16 +2872,6 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <rectangle x1="120.396" y1="8.636" x2="120.904" y2="9.144" layer="48"/>
 <rectangle x1="122.936" y1="8.636" x2="123.444" y2="9.144" layer="48"/>
 <rectangle x1="122.936" y1="11.176" x2="123.444" y2="11.684" layer="48"/>
-<circle x="21.59" y="16.51" radius="3.048" width="2.032" layer="41"/>
-<circle x="21.59" y="16.51" radius="3.048" width="2.032" layer="42"/>
-<circle x="21.59" y="16.51" radius="3.048" width="2.032" layer="43"/>
-<circle x="21.59" y="16.51" radius="3.048" width="2.032" layer="39"/>
-<circle x="21.59" y="16.51" radius="3.048" width="2.032" layer="40"/>
-<circle x="82.55" y="52.07" radius="3.048" width="2.032" layer="41"/>
-<circle x="82.55" y="52.07" radius="3.048" width="2.032" layer="42"/>
-<circle x="82.55" y="52.07" radius="3.048" width="2.032" layer="43"/>
-<circle x="82.55" y="52.07" radius="3.048" width="2.032" layer="39"/>
-<circle x="82.55" y="52.07" radius="3.048" width="2.032" layer="40"/>
 </package>
 </packages>
 <symbols>

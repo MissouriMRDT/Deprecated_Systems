@@ -2884,6 +2884,8 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <text x="35.8775" y="6.0325" size="1.27" layer="21">10</text>
 <text x="99.3775" y="6.0325" size="1.27" layer="21">10</text>
 <text x="99.3775" y="49.2125" size="1.27" layer="21">10</text>
+<dimension x1="84.15" y1="52.07" x2="80.95" y2="52.07" x3="80.95" y3="52.07" textsize="0.8128" layer="20" dtype="diameter" unit="inch" precision="5" visible="yes"/>
+<dimension x1="85.979" y1="52.07" x2="79.121" y2="52.07" x3="82.55" y3="46.99" textsize="0.8128" layer="20" dtype="diameter" unit="inch" precision="5" visible="yes"/>
 </package>
 </packages>
 <symbols>

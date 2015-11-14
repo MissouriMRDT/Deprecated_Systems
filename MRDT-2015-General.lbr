@@ -3177,8 +3177,7 @@ Breakout</text>
 <pin name="10" x="10.16" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 <symbol name="TM4C123G">
-<description>TM4C123G TIVA C DEV BOARD
-This is the pinout on the Tiva C dev board (non-Connected). 3V3 &lt; VBUS &lt; 6V</description>
+<description>TM4C123G TIVA C (NON-CONNECTED) DEV BOARD</description>
 <wire x1="-10.16" y1="35.56" x2="10.16" y2="35.56" width="0.254" layer="94"/>
 <wire x1="10.16" y1="35.56" x2="10.16" y2="-27.94" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-27.94" x2="-10.16" y2="-27.94" width="0.254" layer="94"/>
@@ -3199,8 +3198,8 @@ This is the pinout on the Tiva C dev board (non-Connected). 3V3 &lt; VBUS &lt; 6
 <pin name="PE3" x="-15.24" y="-5.08" length="middle"/>
 <pin name="PE4" x="-15.24" y="-7.62" length="middle"/>
 <pin name="PE5" x="-15.24" y="-10.16" length="middle"/>
-<pin name="3.3V" x="-15.24" y="-22.86" length="middle" direction="pwr"/>
-<pin name="VBUS" x="-15.24" y="-25.4" length="middle" direction="pwr"/>
+<pin name="+3V3" x="-15.24" y="-22.86" length="middle" direction="pwr"/>
+<pin name="+5V" x="-15.24" y="-25.4" length="middle" direction="pwr"/>
 <pin name="PB0" x="15.24" y="33.02" length="middle" rot="R180"/>
 <pin name="PB1" x="15.24" y="30.48" length="middle" rot="R180"/>
 <pin name="PB2" x="15.24" y="27.94" length="middle" rot="R180"/>
@@ -3945,16 +3944,15 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </devices>
 </deviceset>
 <deviceset name="TIVA-C">
-<description>TIVA-C DEV BOARD (NON-CONNECTED).
-
-VBUS: 3V3 -  6V</description>
+<description>TIVA-C DEV BOARD (NON-CONNECTED)</description>
 <gates>
 <gate name="G$1" symbol="TM4C123G" x="10.16" y="27.94"/>
 </gates>
 <devices>
 <device name="" package="TIVA-C">
 <connects>
-<connect gate="G$1" pin="3.3V" pad="+3V3"/>
+<connect gate="G$1" pin="+3V3" pad="+3V3"/>
+<connect gate="G$1" pin="+5V" pad="+5V"/>
 <connect gate="G$1" pin="GND" pad="GND1 GND2"/>
 <connect gate="G$1" pin="PA2" pad="PA2"/>
 <connect gate="G$1" pin="PA3" pad="PA3"/>
@@ -3992,7 +3990,6 @@ VBUS: 3V3 -  6V</description>
 <connect gate="G$1" pin="PF3" pad="PF3"/>
 <connect gate="G$1" pin="PF4" pad="PF4"/>
 <connect gate="G$1" pin="RST" pad="RST"/>
-<connect gate="G$1" pin="VBUS" pad="+5V"/>
 </connects>
 <technologies>
 <technology name=""/>

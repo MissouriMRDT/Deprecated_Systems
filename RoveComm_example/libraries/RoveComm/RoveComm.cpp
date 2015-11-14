@@ -113,13 +113,17 @@ bool RoveCommClass::addSubscriber(IPAddress address) {
   return true;
 }
 
-void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data) {
+void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data, uint8_t flags) {
   Serial.println("Sending to Basestations");
   int i=0;
   while(i<5 && !(subscriberList[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, size, data, subscriberList[i],0); 
+    sendMsgTo(dataID, size, data, subscriberList[i],flags); 
     i++;
   }
+}
+
+void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data) {
+  sendMsg(dataID, size, data, 0);
 }
 
 RoveCommClass RoveComm;

@@ -3,7 +3,7 @@
 
 #define ROVECOMM_PORT 11000
 #define VERSION_NO 0x01
-#define HEADER_BYTES 7
+#define HEADER_BYTES 8
 #define SEQ 0x0F0F
 
 #include <Energia.h>

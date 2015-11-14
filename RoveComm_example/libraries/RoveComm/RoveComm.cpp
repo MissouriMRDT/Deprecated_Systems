@@ -23,17 +23,18 @@ void RoveCommClass::sendPacket(IPAddress ip, int port, byte* msg, uint16_t size)
   Serial.println("Msg Sent");
 }
 
-void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest) {
+void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, uint8_t flags) {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 
   //setup the packet header
   buffer[0] = VERSION_NO;
   buffer[1] = SEQ >> 8;
   buffer[2] = SEQ & 0x00FF;
-  buffer[3] = dataID >> 8;
-  buffer[4] = dataID & 0x00FF;
-  buffer[5] = (size) >> 8;
-  buffer[6] = (size) & 0x00FF;
+  buffer[3] = flags;
+  buffer[4] = dataID >> 8;
+  buffer[5] = dataID & 0x00FF;
+  buffer[6] = size >> 8;
+  buffer[7] = size & 0x00FF;
   //copy the message into the packet
   for (int i = 0; i<size; i++) {
     buffer[i + HEADER_BYTES] = ((uint8_t*)data)[i];
@@ -116,7 +117,7 @@ void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data) {
   Serial.println("Sending to Basestations");
   int i=0;
   while(i<5 && !(subscriberList[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, size, data, subscriberList[i]); 
+    sendMsgTo(dataID, size, data, subscriberList[i],0); 
     i++;
   }
 }

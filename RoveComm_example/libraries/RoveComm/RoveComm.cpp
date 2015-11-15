@@ -10,6 +10,7 @@ void RoveCommClass::begin(IPAddress ip) {
   Serial.println("Waiting for Base Station");
   while (subscriberList[0] == INADDR_NONE)
     getMsg(&dataID, &size, tempData);
+  initialized = true;
 }
 
 void RoveCommClass::sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
@@ -68,12 +69,9 @@ void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
     if (*dataID < 0x65) {
       Serial.print("RoveComm function received with dataID: ");
       Serial.println(*dataID, HEX);
-      if (subscriberList[0] == INADDR_NONE) { //if this is running during rovecommInit();
-        rovecommControl(dataID, size, data, remote_ip, remote_port);
-      } else {
-        rovecommControl(dataID, size, data, remote_ip, remote_port);
+      rovecommControl(dataID, size, data, remote_ip, remote_port);
+      if (initialized == true)
         getMsg(dataID, size, data);
-      }
     }
     Serial.println();
   }

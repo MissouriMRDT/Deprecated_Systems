@@ -13,20 +13,23 @@ void RoveCommClass::begin(IPAddress ip) {
   initialized = true;
 }
 
-void RoveCommClass::sendPacket(IPAddress ip, int port, byte* msg, uint16_t size) {
+bool RoveCommClass::sendPacket(IPAddress ip, int port, int source_port, byte* msg, uint16_t size) {
   Serial.print("Sending Msg...");
   EthernetUDP udpSender; //Create a new temporary port for sending messages. If we need verification, it's important that it doesn't interfere with the regular listening port
-  while (!udpSender.begin(random(30000,35000))); //keep trying to open a port on a socket until it gets one
-  udpSender.beginPacket(ip,port);
-    udpSender.write(msg, size);
-  udpSender.endPacket();
-  udpSender.stop(); //close socket
-  Serial.println("Msg Sent");
+  if (udpSender.begin(source_port)) { 
+    udpSender.beginPacket(ip,port);
+      udpSender.write(msg, size);
+    udpSender.endPacket();
+    udpSender.stop(); //close socket
+    Serial.println("Msg Sent");
+    return true;
+  }
+  return false;
 }
 
-void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, uint8_t flags) {
+void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, int dest_port, uint8_t flags) {
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
-
+  int source_port;
   //setup the packet header
   buffer[0] = VERSION_NO;
   buffer[1] = SEQ >> 8;
@@ -40,7 +43,9 @@ void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddr
   for (int i = 0; i<size; i++) {
     buffer[i + HEADER_BYTES] = ((uint8_t*)data)[i];
   }
-  sendPacket(dest, ROVECOMM_PORT, buffer, size + HEADER_BYTES);
+  
+  source_port = random(30000, 35000);
+  sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES);
 }
 
 void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
@@ -151,7 +156,7 @@ void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data, uint8_t 
   Serial.println("Sending to Basestations");
   int i=0;
   while(i<5 && !(subscriberList[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, size, data, subscriberList[i],flags); 
+    sendMsgTo(dataID, size, data, subscriberList[i], ROVECOMM_PORT,flags); 
     i++;
   }
 }

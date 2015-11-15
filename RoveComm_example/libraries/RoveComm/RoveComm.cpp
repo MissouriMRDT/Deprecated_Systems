@@ -44,7 +44,7 @@ void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddr
 
 void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
   uint8_t receiverBuffer[UDP_TX_PACKET_MAX_SIZE];
-  
+  uint8_t flags;
   *dataID = 0;
   *size = 0;
   
@@ -64,7 +64,7 @@ void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
     Serial.print(":");
     Serial.println(remote_port);
     udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
-    parseUdpMsg(receiverBuffer, dataID, size, data);
+    parseUdpMsg(receiverBuffer, dataID, size, data, &flags);
     if (*dataID < 0x65) {
       Serial.print("RoveComm function received with dataID: ");
       Serial.println(*dataID, HEX);
@@ -79,16 +79,17 @@ void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
   }
 }
 
-void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data) {
+void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags) {
   uint8_t proto_version = packet[0]; //get Protocol Version
   //Switch based on protocol version
   if (proto_version == 1) {
-    uint8_t dataIDUpper = packet[3];
+    *flags = packet[3];
+    uint8_t dataIDUpper = packet[4];
     *dataID = dataIDUpper;
-    *dataID = (*dataID << 8) | packet[4];
-    uint8_t sizeUpper = packet[5];
+    *dataID = (*dataID << 8) | packet[5];
+    uint8_t sizeUpper = packet[6];
     *size = sizeUpper;
-    *size = (*size << 8) | packet[6];
+    *size = (*size << 8) | packet[7];
     for( int i = 0; i<(*size); i++) {
       ((uint8_t*)data)[i] = packet[i+HEADER_BYTES];
     }

@@ -13,6 +13,7 @@
 
 
 class RoveCommClass {
+  bool initialized = false;
   
   //declare our receiving server and a subscriber buffer
   EthernetUDP udpReceiver;

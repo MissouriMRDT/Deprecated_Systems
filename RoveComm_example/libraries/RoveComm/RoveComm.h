@@ -23,7 +23,7 @@ class RoveCommClass {
   void sendPacket(IPAddress ip, int port, byte* msg, uint16_t size);
   void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags);
   void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, uint8_t flags);
-  void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port);
+  bool rovecommControl(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags, IPAddress & remote_ip, int & remote_port);
   bool addSubscriber(IPAddress address);
 
   

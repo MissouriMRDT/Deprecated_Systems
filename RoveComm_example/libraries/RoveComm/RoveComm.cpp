@@ -66,13 +66,9 @@ void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
     Serial.println(remote_port);
     udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
     parseUdpMsg(receiverBuffer, dataID, size, data, &flags);
-    if (*dataID < 0x65) {
-      Serial.print("RoveComm function received with dataID: ");
-      Serial.println(*dataID, HEX);
-      rovecommControl(dataID, size, data, remote_ip, remote_port);
+    if (rovecommControl(dataID, size, data, &flags, remote_ip, remote_port))
       if (initialized == true)
         getMsg(dataID, size, data);
-    }
     Serial.println();
   }
 }
@@ -94,11 +90,50 @@ void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* siz
   }
 }
 
-void RoveCommClass::rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port) {
+bool RoveCommClass::rovecommControl(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags, IPAddress & remote_ip, int & remote_port) {
+  if (*flags & 1 == 1) {
+  
+  }
+
+  if (*flags & 2 == 2) {
+  
+  }
+
+  if (*flags & 4 == 4) {
+  
+  }
+
+  if (*flags & 8 == 8) {
+  
+  }
+
+  if (*flags & 16 == 16) {
+  
+  }
+
+  if (*flags & 32 == 32) {
+  
+  }
+
+  if (*flags & 64 == 64) {
+  
+  }
+
+  if (*flags & 128 == 128) {
+  
+  }
+
+  if (*dataID < 0x65) {
+    Serial.print("RoveComm function received with dataID: 0x");
+    Serial.println(*dataID, HEX);
+  } else return false;
+  
   switch (*dataID) {
     case 1: //Add subscriber
       addSubscriber(remote_ip);
   }
+  
+  return true;
 }
 
 bool RoveCommClass::addSubscriber(IPAddress address) {

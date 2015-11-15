@@ -44,8 +44,9 @@ void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddr
     buffer[i + HEADER_BYTES] = ((uint8_t*)data)[i];
   }
   
+  do { //send message on an open port from this pool
   source_port = random(30000, 35000);
-  sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES);
+  } while(sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES));
 }
 
 void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
@@ -96,8 +97,8 @@ void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* siz
 }
 
 bool RoveCommClass::rovecommControl(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags, IPAddress & remote_ip, int & remote_port) {
-  if (*flags & 1 == 1) {
-  
+  if (*flags & 1 == 1) { //Acknowledge Flag: Send reply to remote port
+    sendMsgTo(0x0000,0,0,remote_ip, remote_port, 0);
   }
 
   if (*flags & 2 == 2) {

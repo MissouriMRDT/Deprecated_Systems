@@ -11,6 +11,7 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
+#define ROVECOMM_ACKNOWLEDGE_FLAG 1
 
 class RoveCommClass {
   bool initialized = false;

@@ -47,28 +47,11 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     //TODO base_station.local_ip_addr = rovecommInit(LOCAL_IP_ADDRESS, &base_station);
     rovecommInit(&base_station);
 
-
 ///////////////BEGIN 2016//////COMMAND////////////////////
-
 
     //command work variable
     int16_t speed = 0;
-/*
-    //only write one way device to the dynamixel forever globally
-    digitalWrite(TRI_STATE_BUFFER, HIGH);
 
-    ms_delay(5);
-
-    //make sure and stop all arm motors when powering up, set command all speeds zero
-    rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
-    roveDynamixel_SetWheelMode(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_SetWheelMode(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_SetWheelMode(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_SetWheelMode(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_SetWheelMode(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
-    roveDynamixel_SetWheelMode(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
-
-*/
 ///////////////END   2016//////COMMAND/////////////////////
 
 
@@ -78,132 +61,52 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     //2016 is a forever UDP server and she listens for RED Base Station Datagrams
     while (FOREVER) {
 
-            //TODO
-            if( getUdpMsg(&base_station.data_id, &base_station.data_byte_cnt, &base_station) < SINGLE_BYTE ) {
+///////////////BEGIN 2016//////MOTOR TEST//////////////////
 
-                printf("ZERO bytes from getUdpMsg\n");
+    for (speed = 0; speed < 1000; speed += 50) {
 
-            } else {
+        roveDriveMotor_ByPWM(pwm_1, speed);
+        roveDriveMotor_ByPWM(pwm_2, speed);
+        roveDriveMotor_ByPWM(pwm_3, -speed);
+        roveDriveMotor_ByPWM(pwm_4, -speed);
+        roveDriveMotor_ByPWM(pwm_5, speed);
+        roveDriveMotor_ByPWM(pwm_6, -speed);
+
+        ms_delay(500);
+
+    } //end for
+
+    for (speed = 1000; speed > -1000; speed -= 50) {
+
+        roveDriveMotor_ByPWM(pwm_1, speed);
+        roveDriveMotor_ByPWM(pwm_2, speed);
+        roveDriveMotor_ByPWM(pwm_3, -speed);
+        roveDriveMotor_ByPWM(pwm_4, -speed);
+        roveDriveMotor_ByPWM(pwm_5, speed);
+        roveDriveMotor_ByPWM(pwm_6, -speed);
+
+        ms_delay(500);
+
+    } //end for
 
 
-///////////////END   2016//////RECIEVE/////////////////
+    for (speed = -1000; speed < 0; speed += 50) {
 
-                //rovePrintf_IPMessage(&base_station);
+        roveDriveMotor_ByPWM(pwm_1, speed);
+        roveDriveMotor_ByPWM(pwm_2, speed);
+        roveDriveMotor_ByPWM(pwm_3, -speed);
+        roveDriveMotor_ByPWM(pwm_4, -speed);
+        roveDriveMotor_ByPWM(pwm_5, speed);
+        roveDriveMotor_ByPWM(pwm_6, -speed);
 
-///////////////BEGIN 2016//////COMMAND//////////////////
+        ms_delay(500);
 
+    } //end for
 
-                speed = (*((int16_t*)base_station.data_buffer));
+    ms_delay(20000);
 
-                switch (base_station.data_id) {
-
-                    case DRIVE_LEFT_MOTORS:
-
-                        //the right motors must be opposite the left motors. Their phase is backwards, but we also wired one of THOSE backwards
-                        speed = -speed;
-
-                        roveDriveMotor_ByPWM(pwm_1, speed);
-                        roveDriveMotor_ByPWM(pwm_2, speed);
-                        roveDriveMotor_ByPWM(pwm_3, -speed);
-
-                        break;
-
-                    //DRIVE_RIGHT_MOTORS
-                    case DRIVE_RIGHT_MOTORS:
-
-                        //the left motors must be opposite the right motors. Their phase is backwards, but we also wired TWO of THOSE backwards
-                        roveDriveMotor_ByPWM(pwm_4, -speed);
-                        roveDriveMotor_ByPWM(pwm_5, speed);
-                        roveDriveMotor_ByPWM(pwm_6, -speed);
-
-                        break;
-/*
-                    //differential gears, motors would move opposite, except we have them wired backwards, so opposite in hardware is together in software
-                    case WRIST_ROTATE:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //differential gears, motors would move opposite, except we have them wired backwards, so opposite in hardware is together in software
-                    case WRIST_VERTICAL:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-
-                        speed = roveDynamixel_ReverseSpeed(speed);
-                        roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //differential gears, motors would move opposite, except we have them wired backwards, so opposite in hardware is together in software
-                    case ELBOW_ROTATE:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //differential gears, motors would move opposite, except we have them wired backwards, so opposite in hardware is together in software
-                    case ELBOW_VERTICAL:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-
-                        speed = roveDynamixel_ReverseSpeed(speed);
-                        roveDynamixel_Rotate(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //single dynamixel at base, gear ratio rotates incredibly fast
-                    case BASE_ROTATE:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //stop all arm motors, set all speeds zero
-                    case E_STOP_ARM:
-
-                        speed = 0;
-
-                        rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
-                        roveDynamixel_Rotate(WRIST_A_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(WRIST_B_ID, WRIST_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(ELBOW_A_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(ELBOW_B_ID, ELBOW_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(BASE_ID, BASE_UART, ENDLESS_ROTATION, speed);
-                        roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
-                        break;
-
-                    //positive is forward, negative is reverse, only 8 bit low_byte is speed
-                    case ACTUATOR_INCREMENT:
-
-                        rovePolulu_DriveLinAct(LIN_ACT_UART, speed);
-                        break;
-
-                    //single dynamixel at gripper, gear ratio rotates incredibly slow
-                    case GRIPPER_OPEN:
-
-                        speed = roveDynamixel_ConvertSpeed(speed);
-                        roveDynamixel_Rotate(GRIPPER_ID, GRIPPER_UART, ENDLESS_ROTATION, speed);
-                        break;
-*/
-                    default:
-
-                        printf("Unrecognized Data_id : %d\n", base_station.data_id);
-                        break;
-
-                }//endswitch
-
-            }//endif
-
-///////////////END   2016//////COMMAND/////////////////
-
+///////////////END   2016//////MOTOR TEST/////////////////
 
     }//endwhile FOREVER
-
-
-///////////////END   2016//////RECIEVE/////////////////
-
 
 }//endfnctnTask roveDeviceTemplateThread

@@ -46,7 +46,14 @@ void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddr
   
   do { //send message on an open port from this pool
   source_port = random(30000, 35000);
-  } while(sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES));
+  } while(!sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES));
+  
+  if (flags & ROVECOMM_ACKNOWLEDGE_FLAG == ROVECOMM_ACKNOWLEDGE_FLAG) {
+    EthernetUDP udpReply;
+    udpReply.begin(source_port);
+    udpReply.read();
+    udpReply.stop();
+  }
 }
 
 void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {

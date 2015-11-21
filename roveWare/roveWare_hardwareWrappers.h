@@ -37,7 +37,7 @@
 #define LOW 0
 
 //Tiva Get/Set Wrappers
-void digitalWrite(int tiva_pin, int high_or_low);
+void roveDigitalWrite(int tiva_pin, int high_or_low);
 
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
 
@@ -51,7 +51,9 @@ int roveGetDeviceId_PinNum(char data_id);
 
 int roveGetStructId_ByteCnt(char data_id);
 
-//get the system clock for the delay
-void ms_delay(int milliseconds);
+//TODO ?? get the system clock for the delay
+void roveDelay_MilliSec(int milliseconds);
+
+void roveDelay_MicroSec(int microseconds);
 
 #endif //ROVEWARE_TIVAWRAPPERS_H_

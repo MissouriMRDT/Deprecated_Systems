@@ -67,11 +67,11 @@ typedef struct rove_udp_socket {
 }__attribute__((packed)) rove_udp_socket, *rove_udp_socket_ptr;
 
 //function prototypes
-uint16_t getUdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
+uint16_t roveGet_UdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
 
-void parseUdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
+void roveParse_UdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
 
-void rovecommInit(rove_udp_socket* rove_socket);
+void roveComm_Init(rove_udp_socket* rove_socket);
 
 void roveCatch_NdkErrors(int16_t ndk_error);
 

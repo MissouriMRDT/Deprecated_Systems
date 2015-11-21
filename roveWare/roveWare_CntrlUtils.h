@@ -16,7 +16,13 @@
 
 //MRDT definitions
 #include "roveWare_hardwareWrappers.h"
+/*
+void roveDynamixel_SendByte(int tiva_pin, char* data_byte);
 
+int roveDynamixel_SendPacket(uint8_t dynamixel_id, char* data_buffer, int data_byte_count);
+
+
+/*
 //TODO
 #define ZERO_SPEED 0
 #define ENDLESS_ROTATION 0
@@ -116,5 +122,5 @@ int16_t roveDynamixel_ReverseSpeed(int16_t dynamixel_rotate_at_speed);
 void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed);
 
 //TODO Add New Member Functions (Dynamixel and Polulo Wrappers)
-
+*/
 #endif // ROVEWARE_CNTRLUTILS_H_

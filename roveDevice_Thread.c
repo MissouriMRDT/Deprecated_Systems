@@ -45,7 +45,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     rove_udp_socket base_station;
 
     //TODO base_station.local_ip_addr = rovecommInit(LOCAL_IP_ADDRESS, &base_station);
-    rovecommInit(&base_station);
+    roveComm_Init(&base_station);
 
 ///////////////BEGIN 2016//////COMMAND////////////////////
 
@@ -72,7 +72,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
         roveDriveMotor_ByPWM(pwm_5, speed);
         roveDriveMotor_ByPWM(pwm_6, -speed);
 
-        ms_delay(500);
+        roveDelay_MilliSec(500);
 
     } //end for
 
@@ -85,7 +85,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
         roveDriveMotor_ByPWM(pwm_5, speed);
         roveDriveMotor_ByPWM(pwm_6, -speed);
 
-        ms_delay(500);
+        roveDelay_MilliSec(500);
 
     } //end for
 
@@ -99,11 +99,11 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
         roveDriveMotor_ByPWM(pwm_5, speed);
         roveDriveMotor_ByPWM(pwm_6, -speed);
 
-        ms_delay(500);
+        roveDelay_MilliSec(500);
 
     } //end for
 
-    ms_delay(20000);
+    roveDelay_MilliSec(20000);
 
 ///////////////END   2016//////MOTOR TEST/////////////////
 

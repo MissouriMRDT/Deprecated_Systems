@@ -13,7 +13,7 @@
 #include "roveWare_UDPSocket.h"
 
 // initialize and config a udp listening port
-void rovecommInit(rove_udp_socket* rove_socket) {
+void roveComm_Init(rove_udp_socket* rove_socket) {
 
     rove_socket->socket_fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
@@ -44,7 +44,7 @@ void rovecommInit(rove_udp_socket* rove_socket) {
 
  }//endfnctn
 
-uint16_t getUdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket) {
+uint16_t roveGet_UdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket) {
 
     //temporary work buffer to include header parsing
     uint8_t recv_buffer[MAX_DATA_BYTE_CNT + HEADER_BYTE_COUNT];
@@ -61,14 +61,14 @@ uint16_t getUdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* 
 
     }//endif
 
-    parseUdpMsg(recv_buffer, data_id, data_byte_cnt, rove_socket);
+    roveParse_UdpMsg(recv_buffer, data_id, data_byte_cnt, rove_socket);
 
     return *data_byte_cnt;
 
 }//end fnctn rovecommInit
 
 //remove header bytes and populate rovecomm control bytes, fill rove_socket->data_buffer with the command data payload
-void parseUdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket) {
+void roveParse_UdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket) {
 
     uint8_t proto_version = recv_buffer[0];
 

@@ -14,15 +14,146 @@
 //C lib
 #include <stdint.h>
 
-//MRDT definitions
+//mrdt definitions
 #include "roveWare_hardwareWrappers.h"
+
+//mrdt Shorthand
+#define SINGLE_BYTE 1
+#define NO_ERRORS 1
+#define ERROR -1
+#define CLOCKWISE 1
+#define COUNTERCLOCKWISE 0
+#define ZERO_SPEED 0
+
+//TODO
+//roveWare Control Routines
+#define TRI_STATE_PIN                   0x01
+#define TX_HIGH                         0x01
+#define RX_LOW                          0x00
+
+//dynamixel Config
+#define DYNAMIXEL_TX_DELAY_MICRO_SEC    100
+
+//dynamixel Protocol
+#define DYNAMIXEL_PACKET_START_BYTE     255
+
+#define AX12_IMMEDIATE_CMD              3
+#define AX12_SET_MODE                   8
+#define AX12_TARGET_POSITN_REG          30
+#define AX12_TARGET_SPEED_REG           32
+
+//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
+void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
+
+void roveDynamixel_SendByteMSG(uint8_t tiva_pin, uint8_t data_byte);
+
+int8_t roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
+
+int8_t roveDynamixel_CatchErrorMSG();
+
+//////////////////////////////////////////TODO
+
 /*
-void roveDynamixel_SendByte(int tiva_pin, char* data_byte);
 
-int roveDynamixel_SendPacket(uint8_t dynamixel_id, char* data_buffer, int data_byte_count);
+// EEPROM AREA  ///////////////////////////////////////////////////////////
+#define AX_MODEL_NUMBER_L           0
+#define AX_MODEL_NUMBER_H           1
+#define AX_VERSION                  2
+#define AX_ID                       3
+#define AX_BAUD_RATE                4
+#define AX_RETURN_DELAY_TIME        5
+#define AX_CW_ANGLE_LIMIT_L         6
+#define AX_CW_ANGLE_LIMIT_H         7
+#define AX_CCW_ANGLE_LIMIT_L        8
+#define AX_CCW_ANGLE_LIMIT_H        9
+#define AX_SYSTEM_DATA2             10
+#define AX_LIMIT_TEMPERATURE        11
+#define AX_DOWN_LIMIT_VOLTAGE       12
+#define AX_UP_LIMIT_VOLTAGE         13
+#define AX_MAX_TORQUE_L             14
+#define AX_MAX_TORQUE_H             15
+#define AX_RETURN_LEVEL             16
+#define AX_ALARM_LED                17
+#define AX_ALARM_SHUTDOWN           18
+#define AX_OPERATING_MODE           19
+#define AX_DOWN_CALIBRATION_L       20
+#define AX_DOWN_CALIBRATION_H       21
+#define AX_UP_CALIBRATION_L         22
+#define AX_UP_CALIBRATION_H         23
 
+// RAM AREA  //////////////////////////////////////////////////////////////
+#define AX_TORQUE_ENABLE            24
+#define AX_LED                      25
+#define AX_CW_COMPLIANCE_MARGIN     26
+#define AX_CCW_COMPLIANCE_MARGIN    27
+#define AX_CW_COMPLIANCE_SLOPE      28
+#define AX_CCW_COMPLIANCE_SLOPE     29
+#define AX_GOAL_POSITION_L          30
+#define AX_GOAL_POSITION_H          31
+#define AX_GOAL_SPEED_L             32
+#define AX_GOAL_SPEED_H             33
+#define AX_TORQUE_LIMIT_L           34
+#define AX_TORQUE_LIMIT_H           35
+#define AX_PRESENT_POSITION_L       36
+#define AX_PRESENT_POSITION_H       37
+#define AX_PRESENT_SPEED_L          38
+#define AX_PRESENT_SPEED_H          39
+#define AX_PRESENT_LOAD_L           40
+#define AX_PRESENT_LOAD_H           41
+#define AX_PRESENT_VOLTAGE          42
+#define AX_PRESENT_TEMPERATURE      43
+#define AX_REGISTERED_INSTRUCTION   44
+#define AX_PAUSE_TIME               45
+#define AX_MOVING                   46
+#define AX_LOCK                     47
+#define AX_PUNCH_L                  48
+#define AX_PUNCH_H                  49
 
-/*
+// Instruction Set ///////////////////////////////////////////////////////////////
+#define AX_PING                     1
+#define AX_READ_DATA                2
+#define AX_WRITE_DATA               3
+#define AX_REG_WRITE                4
+#define AX_ACTION                   5
+#define AX_RESET                    6
+#define AX_SYNC_WRITE               131
+
+// Specials ///////////////////////////////////////////////////////////////
+#define AX_BYTE_READ_ONE            1
+#define AX_BYTE_READ_TWO            2
+#define BROADCAST_ID                254
+#define AX_START_BYTE               255
+
+#define AX_CCW_AL_L                 255
+#define AX_CCW_AL_H                 3
+#define LOCK                        1
+
+#define TIME_OUT                    10         // This parameter depends on the speed of transmission
+#define TX_DELAY_TIME               400        // This parameter depends on the speed of transmission - but can be changed to a higher speed.
+
+#define Tx_MODE                     1
+#define Rx_MODE                     0
+
+typedef enum {
+    AX_OFF = 0,
+    AX_ON = 1
+} dynamixel_errors;
+
+typedef enum {
+    AX_COUNTERCLOCKWISE = 0,
+    AX_CLOCKWISE = 1
+} DynamixelDirection;
+
+typedef enum {
+    AX_RETURN_NONE = 0,
+    AX_RETURN_READ = 1,
+    AX_RETURN_ALL = 2
+} DynamixelStatusReturnLevel;
+
+#include <inttypes.h>
+
+unsigned char Direction_Pin;
+
 //TODO
 #define ZERO_SPEED 0
 #define ENDLESS_ROTATION 0
@@ -104,10 +235,7 @@ typedef struct linear_actuator_struct {
 
 }__attribute__((packed)) linear_actuator_struct, *linear_actuator_struct_ptr;
 
-//roveWare Control Routines
 
-//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
 
 //0 is full speed reverse : 2048 is stop : 4096 is full speed forward
 void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value);

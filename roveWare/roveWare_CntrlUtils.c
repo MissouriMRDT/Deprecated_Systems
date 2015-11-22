@@ -10,7 +10,204 @@
 
 #include "roveWare_CntrlUtils.h"
 
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
+//roveWare 2015 Horizon Robot Arm Dynamixel Ax and Mx series control routines
+
+//currently Nov_2016 Dev
+
+//dynamixel servos have different configurable "modes" of operation depending on series
+//check the maximum rpm of relevant model in Joint Mode, if the motor gets set to more than max rpm, it still cannot generate the torque for more than the max rpm
+
+
+////////////////////////////////////////////////////////////////////TODO
+
+//AX12 specs:
+
+    //AX12 has two modes
+        //10bit Wheel -> 0-1023 CCW, 1024 - 2047 CW
+        //no amperage control
+
+//MX12 specs
+
+    //MX12 has three modes
+        //12bit Wheel -> 0-2047 CCW, 2048 - 4095 CW
+        //Goal_punch_reg and acceleration_reg control provides amperage control
+
+
+//CW/CCW Angle Limit control registers allow the motion to be restrained
+//position and speed command range and unit scale vary with operation mode
+//The range and the unit of the Angle Limit value clamps the "go to Goal Position" command register written to at address 30 and 31
+//CW Angle Limit will clamp the motor Goal Position at a minimum value
+//CCW Angle Limit will clamp the motor Goal Position at a maximum value
+
+
+
+//dynamixel sigle pin uart serial messaging protocol overhead
+int8_t roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count){
+
+    //dynamixel check_sum begin to add all the bytes including the id
+    uint16_t current_byte_count = 0;
+    uint8_t check_sum = dynamixel_id;
+
+    //check_sum with each byte in the data_buffer
+    while(current_byte_count < data_byte_count){
+        check_sum += data_buffer[current_byte_count];
+    }//endwhile
+
+    //last step in the check_sum is to complement the sum, and mask with 255 (max num 8 bits)
+    check_sum = (~check_sum) & 0xFF;
+
+    //TODO I don't like this hard coded here like this tho...dont love args
+    roveDigital_Write(TRI_STATE_BUFFER, TX_HIGH);
+
+    roveDynamixel_SendByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
+    roveDynamixel_SendByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
+    roveDynamixel_SendByteMSG(dynamixel_id, dynamixel_id);
+    roveDynamixel_SendByteMSG(dynamixel_id, data_byte_count+1);
+
+    //send each byte in the data_buffer
+    while(current_byte_count < data_byte_count){
+        roveDynamixel_SendByteMSG(dynamixel_id, data_buffer[current_byte_count]);
+    }//endwhile
+
+    roveDynamixel_SendByteMSG(dynamixel_id, check_sum);
+
+    //wait for uart_write
+    roveDelay_MicroSec(DYNAMIXEL_TX_DELAY_MICRO_SEC);
+    roveDigital_Write(TRI_STATE_PIN, RX_LOW);
+    return (roveDynamixel_CatchErrorMSG());
+
+}//end fnctn roveDynamixel_SendPacketMSG
+
+void roveDynamixel_SendByteMSG(uint8_t dynamixel_id, uint8_t data_byte) {
+
+    uint8_t tiva_pin = roveGetPinNum_ByDeviceId(dynamixel_id);
+
+    //(char*)&  casts low level roveWare stdint _t types to high level char, int, etc ecosystem
+    roveUART_Write(tiva_pin, (char*)&data_byte, SINGLE_BYTE);
+
+}//end fnctn roveDynamixel_SendByteMSG
+
+///////////////////////////////////////////////////////Begin Wheel Mode
+
+//wheel mode can be used for wheel-type operation robots since motors of the robot will spin infinitely at angle zero
+//Wheel Mode : set to both Angle Limits to zero. The motor spins endlessly
+int8_t roveDynamixel_SetWheelModeCFG(uint8_t dynamixel_id) {
+
+    //wheel Mode both are 0
+    uint8_t angle_limit_low_byte = 0;
+    uint8_t angle_limit_high_byte = 0;
+    uint8_t data[]={AX12_IMMEDIATE_CMD, AX12_SET_MODE, angle_limit_low_byte, angle_limit_high_byte};
+    return roveDynamixel_SendPacketMSG(dynamixel_id, data, sizeof(data));
+
+}//end fnctn roveDynamixel_WheelModeCFG
+
+//Schema
+
+//range: 0~2047( 0X7FF)
+//unit:  0.1%.
+
+//If a value in the range of 0~1023 is used, "Full Stop" by setting to 0 while rotating to CCW direction
+//If a value in the range of 1024~2047 is used, "Full Stop" by setting to 1024 while rotating to CW direction
+//the 10th bit is the direction bit to control the CW /CCW rotation direction
+//technically wheel mode sets control of the motor output, not the 'actual' speed of the wheel
+
+//i.e. 512 means 50% of max motor output
+
+//TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
+int8_t roveDynamixel_SpinWheelCMD(uint8_t dynamixel_id, uint8_t spin_wheel_direction, uint16_t wheel_speed) {
+
+    if(spin_wheel_direction == CLOCKWISE) {
+        wheel_speed += (1 >> 10);
+    }//end if
+
+    uint8_t speed_low_byte = wheel_speed;
+    uint8_t speed_high_byte = wheel_speed >> 8;
+    uint8_t data[]={AX12_IMMEDIATE_CMD, AX12_TARGET_SPEED_REG, speed_low_byte, speed_high_byte};
+    return roveDynamixel_SendPacketMSG(dynamixel_id , data,sizeof(data));
+
+}//end fnctn roveDynamixel_RotateWHEELSpeedCMD
+
+
+///////////////////////////////////////////////////////End Wheel Mode
+
+
+/////////////////////////////////////////////////////Begin Joint Mode
+
+//joint mode can be used for multi-joint robot since the joint mode can be controlled to go at specific speed to specific angles
+
+//range: 0~1023 (0X3FF)
+//unit  0.111rpm
+
+//0, is actually max rpm of the motor is used without controlling the speed
+//If it is 1023, it is about 114rpm
+//For example, if it is set to 300, it is about 33.3 rpm.
+
+//Joint Mode : set to Angle Limit anything other than zero??
+int8_t roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id) {
+
+    //set speed zero? homing function function goal rotation to zero?
+    roveDynamixel_SpinWheelCMD(dynamixel_id, COUNTERCLOCKWISE, ZERO_SPEED);
+
+    //SetEndless goal rotation...wheel mode is from TODO 0 to 4096? Multi Turn mode on the MX?
+    uint8_t angle_limit_low_byte = 255;
+    uint8_t angle_limit_high_byte = 3;
+    uint8_t data[]={AX12_IMMEDIATE_CMD, AX12_SET_MODE, angle_limit_low_byte, angle_limit_high_byte};
+    return roveDynamixel_SendPacketMSG(dynamixel_id, data, sizeof(data));
+
+}//end fnctn roveDynamixel_WheelModeCFG
+
+            //TODO JOSH REED
+            //by only ever writing position WITH speed at the same time...I think this "bug" fixes the savage elect API use case where
+            //we keep accidentally ONLY using "SavageElectronics.move()" when in wheel mode...not realizing it has no effect??
+
+//WARNING!! in Wheel Mode, the move() function has no effect!! : joint_position in "wheel mode" is always seen as zero = infinite and ONLY the goal speed matters
+//ERROR_STATE: Angle Limit Error Bit (Bit1) staus response set 1 = "Destination Out of Range" and triggers "Alarm LED/Shutdown"
+
+//joint_position (Goal Position): 0 to 1023 (0x3FF) at 0.29 degree
+int8_t roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction , uint16_t joint_position, uint16_t joint_speed) {
+    if(rotate_direction == CLOCKWISE) {
+        joint_speed += (1 >> 10);
+    }//end if
+
+    //shift split two bytes
+    uint8_t position_low_byte = joint_position;
+    uint8_t position_high_byte = joint_position >> 8;
+    uint8_t speed_low_byte = joint_speed;
+    uint8_t speed_high_byte = joint_speed >> 8;
+    uint8_t data[]={AX12_IMMEDIATE_CMD, AX12_TARGET_POSITN_REG, position_low_byte, position_high_byte, AX12_TARGET_SPEED_REG, speed_low_byte, speed_high_byte};
+    return roveDynamixel_SendPacketMSG(dynamixel_id, data, sizeof(data));
+
+}//end fnctn roveDynamixel_RotateWHEELSpeedCMD
+
+
+//TODO NEXT : this still stubs out empty success always
+int8_t roveDynamixel_CatchErrorMSG() {
+
+    /* Todo: roveAvailable(); UART.h
+    int Time_Counter = 0;
+    while((availableData() < 5) & (Time_Counter < TIME_OUT)) {
+        // Wait for Data
+        Time_Counter++;
+        delayus(1000);
+    }//end while
+    while (availableData() > 0) {
+        unsigned char Incoming_Byte = readData();
+        if ( (Incoming_Byte == 255) & (peekData() == 255) ){
+            readData();                                    // Start Bytes
+            readData();                                    // Ax-12 ID
+            readData();                                    // Length
+            unsigned char Error_Byte = readData();                       // Error
+            return (Error_Byte);
+        }
+    }
+*/
+    // Error Response
+    return NO_ERRORS;
+
+}//end fnctn roveDynamixel_CatchErrorMSG
+
+//roveWare 2015 Horizon Drive Motors Robotech slb1300 series
+void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed) {
 
     int16_t microseconds;
 
@@ -22,100 +219,22 @@ void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed){
 
     //protect the upper bound on motor pulse width
     if (microseconds > 2000) {
-
         microseconds = 2000;
-
     }//endif
 
     //protect the lower bound on motor pulse width
     if (microseconds < 1000) {
-
         microseconds = 1000;
-
     }//endif
 
     rovePWM_Write(motor, microseconds);
-
     return;
 
 } //endfnct roveDriveMotor_ByPWM
 
 
 
-
-/*
-
-#define sendData(args)  (Serial1.write(args))    // Write Over Serial
-#define availableData() (Serial1.available())    // Check Serial Data Available
-#define readData()      (Serial1.read())         // Read Serial Data
-#define peekData()      (Serial1.peek())         // Peek Serial Data
-#define beginCom(args)  (Serial1.begin(args))    // Begin Serial Comunication
-#define endCom()        (Serial1.end())          // End Serial Comunication
-
-// Macro for Timing
-
-#define delayus(args) (delayMicroseconds(args))  // Delay Microseconds
-
-// Macro for Comunication Flow Control
-
-#define setDPin(DirPin,Mode)   (pinMode(DirPin,Mode))       // Select the Switch to TX/RX Mode Pin
-#define switchCom(DirPin,Mode) (digitalWrite(DirPin,Mode))  // Switch to TX/RX Mode
-
-*/
-// Private Methods //////////////////////////////////////////////////////////////
-/*
-void roveDynamixel_SendByte(int tiva_pin, char* data_byte){
-
-    roveUART_Write(tiva_pin, data_byte, SINGLE_BYTE);
-
-}//end fnctn roveDynamixel_SendByte
-
-int roveDynamixel_SendPacket(uint8_t dynamixel_id, char* data_buffer, int data_byte_count){
-
-    //work variable
-    int current_byte_count = 0;
-
-    //Dynamixel check_sum : add all the bytes including the id
-    char check_sum = dynamixel_id;
-
-    //sum each byte in the data_buffer
-    while(current_byte_count < data_byte_count){
-
-        check_sum += data_buffer[current_byte_count];
-
-    }//endwhile
-
-    //last step in the check_sum is to complement the sum, and mask with 255 (max byte
-    check_sum = (~check_sum) & 0xFF;
-
-    //TODO I don't like this hard coded
-    roveDigitalWrite(TRI_STATE_PIN, TX_HIGH);
-
-    roveDynamixel_SendByte(DYNAMIXEL_START_BYTE);
-    roveDynamixel_SendByte(DYNAMIXEL_START_BYTE);
-    roveDynamixel_SendByte(dynamixel_id);
-
-    //TODO wait why +1 ??
-    roveDynamixel_SendByte(data_byte_count+1);
-
-    //send each byte in the data_buffer
-    while(current_byte_count < data_byte_count){
-
-        roveDynamixel_SendByte(data_buffer[current_byte_count];
-
-    }//endwhile
-
-    roveDynamixel_SendByte(check_sum);
-
-    //wait for uart_write
-    roveDelay_MicroSec(DYNA_TX_DELAY_MICRO_SEC);
-
-    roveDigitalWrite(TRI_STATE_PIN, RX_LOW);
-
-    return ( roveCatch_DynamixelErrors() );
-
-}//end fnctn roveDynamixel_SendPacket
-
+///////////////////////////TODO NEXT
 
 /*
 static int receivePacket(unsigned char numBytes)
@@ -148,45 +267,6 @@ static int receivePacket(unsigned char numBytes)
     return result;
 }
 
-static int read_error(void)
-{
-    int Time_Counter = 0;
-    while((availableData() < 5) & (Time_Counter < TIME_OUT)){  // Wait for Data
-        Time_Counter++;
-        delayus(1000);
-    }
-
-    while (availableData() > 0){
-        unsigned char Incoming_Byte = readData();
-        if ( (Incoming_Byte == 255) & (peekData() == 255) ){
-            readData();                                    // Start Bytes
-            readData();                                    // Ax-12 ID
-            readData();                                    // Length
-            unsigned char Error_Byte = readData();                       // Error
-            return (Error_Byte);
-        }
-    }
-    return (-1);                                             // No Ax Response
-}
-
-// Public Methods //////////////////////////////////////////////////////////////
-
-void beginDirectionPin(long baud, unsigned char directionPin)
-{
-    Direction_Pin = directionPin;
-    setDPin(Direction_Pin,OUTPUT);
-}
-
-void beginBaud(long baud)
-{
-    beginCom(baud);
-}
-
-void end()
-{
-    endCom();
-}
-
 int reset(unsigned char ID)
 {
     char data[]={AX_RESET};
@@ -209,72 +289,6 @@ int setBD(unsigned char ID, long baud)
 {
     unsigned char Baud_Rate = (2000000/baud) - 1;
     char data[]={AX_WRITE_DATA, AX_BAUD_RATE, Baud_Rate};
-    return sendPacket(ID,data,sizeof(data));
-}
-
-int move(unsigned char ID, int Position)
-{
-    char Position_H,Position_L;
-    Position_H = Position >> 8;
-    Position_L = Position;
-
-    char data[]={AX_WRITE_DATA, AX_GOAL_POSITION_L, Position_L, Position_H};
-    return sendPacket(ID,data,sizeof(data));
-}
-
-int moveSpeed(unsigned char ID, int Position, int Speed)
-{
-    char Position_H,Position_L,Speed_H,Speed_L;
-    Position_H = Position >> 8;
-    Position_L = Position;
-    Speed_H = Speed >> 8;
-    Speed_L = Speed;
-
-    char data[]={AX_WRITE_DATA, AX_GOAL_POSITION_L, Position_L, Position_H, Speed_L, Speed_H};
-    return sendPacket(ID,data,sizeof(data));
-}
-
-int setEndless(unsigned char ID, DynamixelStatus Status)
-{
-    if ( Status == AX_ON ) { //Wheel Mode
-        char AX_CCW_AL_LT = 0;     // Changing the CCW Angle Limits for Full Rotation.
-        char data[]={AX_WRITE_DATA, AX_CCW_ANGLE_LIMIT_L, AX_CCW_AL_LT, AX_CCW_AL_LT};
-        return sendPacket(ID,data,sizeof(data));
-    }
-    else //Joint Mode
-    {
-        turn(ID,0,0);
-        char data[]={AX_WRITE_DATA, AX_CCW_ANGLE_LIMIT_L, AX_CCW_AL_L, AX_CCW_AL_H};
-        return sendPacket(ID,data,sizeof(data));
-    }
-}
-
-int turn(unsigned char ID, DynamixelDirection Direction, int Speed)
-{
-    if(Direction == AX_CLOCKWISE) Speed += (1 >> 10);
-    char Speed_H = Speed >> 8;
-    char Speed_L = Speed;
-    char data[]={AX_WRITE_DATA, AX_GOAL_SPEED_L, Speed_L, Speed_H};
-    return sendPacket(ID,data,sizeof(data));
-}
-
-int moveRW(unsigned char ID, int Position)
-{
-    char Position_H,Position_L;
-    Position_H = Position >> 8;
-    Position_L = Position;
-    char data[]={AX_REG_WRITE, AX_GOAL_POSITION_L, Position_L, Position_H};
-    return sendPacket(ID,data,sizeof(data));
-}
-
-int moveSpeedRW(unsigned char ID, int Position, int Speed)
-{
-    char Position_H,Position_L,Speed_H,Speed_L;
-    Position_H = Position >> 8;
-    Position_L = Position;
-    Speed_H = Speed >> 8;
-    Speed_L = Speed;
-    char data[]={AX_REG_WRITE, AX_GOAL_POSITION_L, Position_L, Position_H, Speed_L, Speed_H};
     return sendPacket(ID,data,sizeof(data));
 }
 
@@ -437,105 +451,11 @@ int readLoad(unsigned char ID)
     return receivePacket(2);
 }
 
-// EEPROM AREA  ///////////////////////////////////////////////////////////
-#define AX_MODEL_NUMBER_L           0
-#define AX_MODEL_NUMBER_H           1
-#define AX_VERSION                  2
-#define AX_ID                       3
-#define AX_BAUD_RATE                4
-#define AX_RETURN_DELAY_TIME        5
-#define AX_CW_ANGLE_LIMIT_L         6
-#define AX_CW_ANGLE_LIMIT_H         7
-#define AX_CCW_ANGLE_LIMIT_L        8
-#define AX_CCW_ANGLE_LIMIT_H        9
-#define AX_SYSTEM_DATA2             10
-#define AX_LIMIT_TEMPERATURE        11
-#define AX_DOWN_LIMIT_VOLTAGE       12
-#define AX_UP_LIMIT_VOLTAGE         13
-#define AX_MAX_TORQUE_L             14
-#define AX_MAX_TORQUE_H             15
-#define AX_RETURN_LEVEL             16
-#define AX_ALARM_LED                17
-#define AX_ALARM_SHUTDOWN           18
-#define AX_OPERATING_MODE           19
-#define AX_DOWN_CALIBRATION_L       20
-#define AX_DOWN_CALIBRATION_H       21
-#define AX_UP_CALIBRATION_L         22
-#define AX_UP_CALIBRATION_H         23
+*/
 
-// RAM AREA  //////////////////////////////////////////////////////////////
-#define AX_TORQUE_ENABLE            24
-#define AX_LED                      25
-#define AX_CW_COMPLIANCE_MARGIN     26
-#define AX_CCW_COMPLIANCE_MARGIN    27
-#define AX_CW_COMPLIANCE_SLOPE      28
-#define AX_CCW_COMPLIANCE_SLOPE     29
-#define AX_GOAL_POSITION_L          30
-#define AX_GOAL_POSITION_H          31
-#define AX_GOAL_SPEED_L             32
-#define AX_GOAL_SPEED_H             33
-#define AX_TORQUE_LIMIT_L           34
-#define AX_TORQUE_LIMIT_H           35
-#define AX_PRESENT_POSITION_L       36
-#define AX_PRESENT_POSITION_H       37
-#define AX_PRESENT_SPEED_L          38
-#define AX_PRESENT_SPEED_H          39
-#define AX_PRESENT_LOAD_L           40
-#define AX_PRESENT_LOAD_H           41
-#define AX_PRESENT_VOLTAGE          42
-#define AX_PRESENT_TEMPERATURE      43
-#define AX_REGISTERED_INSTRUCTION   44
-#define AX_PAUSE_TIME               45
-#define AX_MOVING                   46
-#define AX_LOCK                     47
-#define AX_PUNCH_L                  48
-#define AX_PUNCH_H                  49
 
-// Instruction Set ///////////////////////////////////////////////////////////////
-#define AX_PING                     1
-#define AX_READ_DATA                2
-#define AX_WRITE_DATA               3
-#define AX_REG_WRITE                4
-#define AX_ACTION                   5
-#define AX_RESET                    6
-#define AX_SYNC_WRITE               131
 
-// Specials ///////////////////////////////////////////////////////////////
-#define AX_BYTE_READ_ONE            1
-#define AX_BYTE_READ_TWO            2
-#define BROADCAST_ID                254
-#define AX_START_BYTE               255
-
-#define AX_CCW_AL_L                 255
-#define AX_CCW_AL_H                 3
-#define LOCK                        1
-
-#define TIME_OUT                    10         // This parameter depends on the speed of transmission
-#define TX_DELAY_TIME               400        // This parameter depends on the speed of transmission - but can be changed to a higher speed.
-
-#define Tx_MODE                     1
-#define Rx_MODE                     0
-
-typedef enum {
-    AX_OFF = 0,
-    AX_ON = 1
-} DynamixelStatus;
-
-typedef enum {
-    AX_COUNTERCLOCKWISE = 0,
-    AX_CLOCKWISE = 1
-} DynamixelDirection;
-
-typedef enum {
-    AX_RETURN_NONE = 0,
-    AX_RETURN_READ = 1,
-    AX_RETURN_ALL = 2
-} DynamixelStatusReturnLevel;
-
-#include <inttypes.h>
-
-unsigned char Direction_Pin;
-
+/*
 static int sendPacket(unsigned char ID, char* data, int dataByteCount);
 static int receivePacket(unsigned char numBytes);
 static int read_error(void);
@@ -583,132 +503,8 @@ int readLoad(unsigned char ID);
 
 int torqueStatus(unsigned char ID, DynamixelStatus Status);
 int ledStatus(unsigned char ID, DynamixelStatus Status);
-*/
 
-
-
-//ME
-
-
-
-
-
-
-
-
-/*
-//TODO
-void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value) {
-
-    rove_dynamixel_struct dynamixel;
-
-    dynamixel.protocol_start_byte1 = DYMAMIXEL_MSG_START_BYTE;
-    dynamixel.protocol_start_byte2 = DYMAMIXEL_MSG_START_BYTE;
-
-    dynamixel.dynamixel_id = dynamixel_id;
-
-    //TODO
-    dynamixel.message_byte_count = 5;
-    dynamixel.read_write_flag = DYNAMIXEL_WRITE_DATA;
-
-    //TODO
-    dynamixel.dynamixel_register_address = DYNAMIXEL_ROTATE_AT_SPEED_COMMAND;
-
-    //dynamixel.register1_low_byte = (uint8_t)first_command_value;
-    //dynamixel.register1_high_byte = (uint8_t)(first_command_value >> 8);
-
-    dynamixel.register2_low_byte = (uint8_t)second_command_value;
-    dynamixel.register2_high_byte = (uint8_t)(second_command_value >> 8);
-
-    //dynamixel.check_sum  = ( ~(dynamixel_id + SIX_BYTES + DYNAMIXEL_WRITE_DATA + dynamixel.dynamixel_register_address + dynamixel.register1_low_byte + dynamixel.register1_high_byte + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
-
-    dynamixel.check_sum  = ( ~(dynamixel_id + dynamixel.message_byte_count + dynamixel.read_write_flag + dynamixel.dynamixel_register_address + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
-
-    roveUART_Write(tiva_pin, (char*)&dynamixel, sizeof(dynamixel) );
-
-    return;
-
-}//end fnctn buildDynamixelStructMessage
-
-//TODO
-void roveDynamixel_SetWheelMode(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value) {
-
-    rove_dynamixel_struct dynamixel;
-
-    dynamixel.protocol_start_byte1 = DYMAMIXEL_MSG_START_BYTE;
-    dynamixel.protocol_start_byte2 = DYMAMIXEL_MSG_START_BYTE;
-
-    dynamixel.dynamixel_id = dynamixel_id;
-
-    //TODO
-    dynamixel.message_byte_count = 5;
-    dynamixel.read_write_flag = DYNAMIXEL_WRITE_DATA;
-
-    //TODO
-    dynamixel.dynamixel_register_address = SET_WHEEL_MODE_CMD_REG_ADDR;
-
-    //dynamixel.register1_low_byte = (uint8_t)first_command_value;
-    //dynamixel.register1_high_byte = (uint8_t)(first_command_value >> 8);
-
-    dynamixel.register2_low_byte = (uint8_t)first_command_value;
-    dynamixel.register2_high_byte = (uint8_t)(first_command_value >> 8);
-
-    dynamixel.check_sum  = ( ~(dynamixel_id + dynamixel.message_byte_count + dynamixel.read_write_flag + dynamixel.dynamixel_register_address + dynamixel.register2_low_byte + dynamixel.register2_high_byte) ) & 0xFF;
-
-    roveUART_Write(tiva_pin, (char*)&dynamixel, sizeof(dynamixel) );
-
-    return;
-
-}//end fnctn buildDynamixelStructMessage
-
-
-int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed){
-
-    if(dynamixel_rotate_at_speed < DYNAMIXEL_SPEED_MIN) {
-
-        dynamixel_rotate_at_speed = DYNAMIXEL_SPEED_MIN;
-
-    }//end if
-
-    if(dynamixel_rotate_at_speed > DYNAMIXEL_SPEED_MAX) {
-
-        dynamixel_rotate_at_speed = DYNAMIXEL_SPEED_MAX;
-
-    }//end if
-
-    //dynamixel internal protocol
-    if(dynamixel_rotate_at_speed < 0) {
-
-        //0 to 1024 is counterclockwise speed
-        dynamixel_rotate_at_speed = -dynamixel_rotate_at_speed;
-
-    }else{
-
-        //TODO 1024 to 2048 is clockwise speed
-        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed + 1024;
-
-    }//endif
-
-    return dynamixel_rotate_at_speed;
-
-}//end fnctn
-
-int16_t roveDynamixel_ReverseSpeed(int16_t dynamixel_rotate_at_speed){
-
-    if(dynamixel_rotate_at_speed < 1024) {
-
-        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed -1024;
-
-    }else{
-
-        dynamixel_rotate_at_speed = dynamixel_rotate_at_speed + 1024;
-
-    }//end if
-
-    return dynamixel_rotate_at_speed;
-
-}//end fnctn
-
+//roveWare 2015 Horizon Robot Arm Shoulder Prismatic Joint TODO series
 void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed){
 
     linear_actuator_struct linear_actuator;
@@ -731,7 +527,4 @@ void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed){
 
     return;
 
-}//endfnctn roveDrivePolulu_LinActCmd
-
-*/
-
+}//endfnctn roveDrivePolulu_LinActCmd*/

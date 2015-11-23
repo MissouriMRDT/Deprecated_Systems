@@ -41,9 +41,21 @@ void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id);
 void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction , uint16_t joint_position, uint16_t joint_speed);
 
 //Handle Dyna Serial Comms
-void roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
-void roveDynamixel_SendByteMSG(uint8_t tiva_pin, uint8_t data_byte);
-void roveDynamixel_CatchReplyMSG();
+void roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
+void roveDynamixel_WriteByteMSG(uint8_t tiva_pin, uint8_t data_byte);
+
+//HERE
+int32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id);
+
+/////////////////////////////////////////////////////End MSG Handling
+
+
+//////////////////////////////////////////Begin telem REQUEST Handling
+
+int32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id);
+int32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id);
+
+//END HERE
 
 //mrdt Shorthand
 #define NO_ERRORS 1
@@ -70,7 +82,7 @@ void roveDynamixel_CatchReplyMSG();
 
 //////////////////////////////////////////TODO->::EEPROM AREA
 
-/*///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 #define AX_MODEL_NUMBER_L           0
 #define AX_MODEL_NUMBER_H           1
 #define AX_VERSION                  2
@@ -142,7 +154,7 @@ void roveDynamixel_CatchReplyMSG();
 #define AX_CCW_AL_L                 255
 #define AX_CCW_AL_H                 3
 #define LOCK                        1
-
+/*
 #define TIME_OUT                    10         // This parameter depends on the speed of transmission
 #define TX_DELAY_TIME               400        // This parameter depends on the speed of transmission - but can be changed to a higher speed.
 

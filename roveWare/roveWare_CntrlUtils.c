@@ -9,6 +9,7 @@
 // mrdt::rovWare
 #include "roveWare_CntrlUtils.h"
 
+
 //roveWare 2015 Horizon Robot Arm Dynamixel Ax and Mx series control routines
 //currently Nov_2016 Dev
 //dynamixel servos have different configurable "modes" of operation depending on series
@@ -16,6 +17,8 @@
 //check the maximum rpm of JOINT mode on relevant model
 
 ////////////////////////////////////////////////////////////////////TODO Finish Mode Specs
+
+//http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/ax_series/dxl_ax_actuator.htm
 
     //TODO AX12 SOME specs:
         //AX12 has two modes
@@ -54,7 +57,7 @@ void roveDynamixel_SetWheelModeCFG(uint8_t dynamixel_id) {
         , ccw_angle_limit_low_byte
         , ccw_angle_limit_high_byte};
 
-    roveDynamixel_SendPacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
     return;
 }//end fnctn roveDynamixel_WheelModeCFG
 
@@ -85,7 +88,7 @@ void roveDynamixel_SpinWheelCMD(uint8_t dynamixel_id, uint8_t spin_wheel_directi
         , speed_low_byte
         , speed_high_byte};
 
-    roveDynamixel_SendPacketMSG(dynamixel_id , msg_data, sizeof(msg_data));
+    roveDynamixel_WritePacketMSG(dynamixel_id , msg_data, sizeof(msg_data));
     return;
 }//end fnctn roveDynamixel_RotateWHEELSpeedCMD
 
@@ -119,11 +122,11 @@ void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id) {
         , ccw_angle_limit_low_byte
         , ccw_angle_limit_high_byte};
 
-    roveDynamixel_SendPacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
     return;
 }//end fnctn roveDynamixel_WheelModeCFG
 
-//TODO JOSH REED
+//TODO
 //by only ever writing position WITH speed at the same time...I think this "bug" fixes the savage elect API use case where
 //we keep accidentally ONLY using "SavageElectronics.move()" when in wheel mode...not realizing it has no effect??
 //WARNING!! in Wheel Mode, the move() function has no effect!! : joint_position in "wheel mode" is always seen as zero = infinite and ONLY the goal speed matters
@@ -159,7 +162,7 @@ void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction
         , speed_low_byte
         , speed_high_byte};
 
-    roveDynamixel_SendPacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
     return;
 }//end fnctn roveDynamixel_RotateWHEELSpeedCMD
 
@@ -172,7 +175,7 @@ void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction
 /////////////////////////////////////////////////////Begin MSG Handling
 
 //dynamixel sigle pin uart serial messaging protocol overhead
-void roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count){
+void roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count){
 
     //dynamixel check_sum begin to add all the bytes including the id
     uint16_t current_byte_count = 0;
@@ -190,63 +193,85 @@ void roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uin
     roveDigital_Write(TRI_STATE_PIN, TX_HIGH);
 
     //start dyna msg, id the dyna, tell dyna the msg data size (+ check_sum)
-    roveDynamixel_SendByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
-    roveDynamixel_SendByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
-    roveDynamixel_SendByteMSG(dynamixel_id, dynamixel_id);
-    roveDynamixel_SendByteMSG(dynamixel_id, data_byte_count+1);
+    roveDynamixel_WriteByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
+    roveDynamixel_WriteByteMSG(dynamixel_id, DYNAMIXEL_PACKET_START_BYTE);
+    roveDynamixel_WriteByteMSG(dynamixel_id, dynamixel_id);
+    roveDynamixel_WriteByteMSG(dynamixel_id, data_byte_count+1);
 
     //send each byte in the data_buffer
     while(current_byte_count < data_byte_count){
-        roveDynamixel_SendByteMSG(dynamixel_id, data_buffer[current_byte_count]);
+        roveDynamixel_WriteByteMSG(dynamixel_id, data_buffer[current_byte_count]);
     }//endwhile
 
     //send check sum
-    roveDynamixel_SendByteMSG(dynamixel_id, check_sum);
+    roveDynamixel_WriteByteMSG(dynamixel_id, check_sum);
 
     //wait for uart_write
     roveDelay_MicroSec(DYNAMIXEL_TX_DELAY_MICRO_SEC);
     roveDigital_Write(TRI_STATE_PIN, RX_LOW);
 
     //delay poll listen for dyna error repsonse
-    roveDynamixel_CatchReplyMSG();
+    roveDynamixel_ReadPacketMSG(dynamixel_id);
     return;
 }//end fnctn roveDynamixel_SendPacketMSG
 
-void roveDynamixel_SendByteMSG(uint8_t dynamixel_id, uint8_t data_byte) {
+void roveDynamixel_WriteByteMSG(uint8_t dynamixel_id, uint8_t data_byte) {
 
     //which pin is this device //TODO I dunno I like this in a struct instance maybe tho
     uint8_t tiva_pin = roveGetPinNum_ByDeviceId(dynamixel_id);
 
     //(char*)&  casts low level roveWare stdint _t types to high level char, int, etc ecosystem
     roveUART_Write(tiva_pin, (char*)&data_byte, SINGLE_BYTE);
-}//end fnctn roveDynamixel_SendByteMSG
+}//end fnctn roveDynamixel_WriteByteMSG
 
+
+
+//HERE
+
+#define MAX_BYTES_DYNA_REPLY 20
 //TODO NEXT : this still stubs out empty success always
-void roveDynamixel_CatchReplyMSG() {
-    /* Todo: roveAvailable(); UART.h
-    int Time_Counter = 0;
-    while((availableData() < 5) & (Time_Counter < TIME_OUT)) {
-        // Wait for Data
-        Time_Counter++;
-        delayus(1000);
-    }//end while
-    while (availableData() > 0) {
-        unsigned char Incoming_Byte = readData();
-        if ( (Incoming_Byte == 255) & (peekData() == 255) ){
-            readData();                                    // Start Bytes
-            readData();                                    // Ax-12 ID
-            readData();                                    // Length
-            unsigned char Error_Byte = readData();                       // Error
-            return (Error_Byte);
-        }
-    }
-*/
-    // Error Response
-    return;
-}//end fnctn roveDynamixel_CatchErrorMSG
+int32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id) {
+
+    //Todo:
+    int32_t reply = 0;
+
+    uint8_t* data_buffer[MAX_BYTES_DYNA_REPLY];
+
+    //2015 MOB Device Read????
+
+    //Try/Catch Error REPLY???
+
+    return reply;
+}//end fnctn roveDynamixel_ReadPacketMSG
 
 /////////////////////////////////////////////////////End MSG Handling
 
+//////////////////////////////////////////Begin telem REQUEST Handling
+
+int32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id) {
+
+    uint8_t msg_data[]=
+        {AX_READ_DATA
+        , AX_PRESENT_SPEED_L
+        , AX_BYTE_READ_TWO};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn roveDynamixel_ReadPositionREQ
+
+int32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id) {
+
+    uint8_t msg_data[]=
+        {AX_READ_DATA
+        , AX_PRESENT_POSITION_L
+        , AX_BYTE_READ_TWO};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn roveDynamixel_ReadPositionREQ
+
+
+//END HERE
 
 
 /////////////////////////////////////////////////////Begin 2015 Horizon Motors CFG/CMD

@@ -37,9 +37,9 @@
 
 //Tiva Get/Set Wrappers
 void roveDigital_Write(int tiva_pin, int high_or_low);
-void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
-int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
-int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read);
+void rovePwm_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
+int roveUart_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
+int roveUart_Read(int tiva_pin, char* read_buffer, int bytes_to_read);
 
 //TODO ?? get the system clock for the delay
 void roveDelay_MilliSec(uint32_t milliseconds);

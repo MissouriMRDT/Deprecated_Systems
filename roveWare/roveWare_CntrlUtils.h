@@ -41,19 +41,24 @@ void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id);
 void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction , uint16_t joint_position, uint16_t joint_speed);
 
 //Handle Dyna Serial Comms
-void roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
-void roveDynamixel_WriteByteMSG(uint8_t tiva_pin, uint8_t data_byte);
+void roveDynamixel_WriteByteMSG(uint8_t dynamixel_id, uint8_t tx_data_byte);
+uint32_t roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
 
 //HERE
-int32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id);
+
+uint8_t roveDynamixel_ReadByteMSG(uint8_t dynamixel_id);
+uint32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id);
+
+uint32_t roveDynamixel_ParseReplyMSG(uint8_t* data_buffer);
+
 
 /////////////////////////////////////////////////////End MSG Handling
 
 
 //////////////////////////////////////////Begin telem REQUEST Handling
 
-int32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id);
-int32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id);
+uint32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id);
+uint32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id);
 
 //END HERE
 

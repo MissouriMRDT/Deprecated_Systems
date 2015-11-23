@@ -9,7 +9,6 @@
 // mrdt::rovWare
 #include "roveWare_CntrlUtils.h"
 
-
 //roveWare 2015 Horizon Robot Arm Dynamixel Ax and Mx series control routines
 //currently Nov_2016 Dev
 //dynamixel servos have different configurable "modes" of operation depending on series
@@ -35,6 +34,7 @@
     //The range and the unit of the Angle Limit value clamps the "go to Goal Position" command register written to at address 30 and 31
     //CW Angle Limit will clamp the motor Goal Position at a minimum value
     //CCW Angle Limit will clamp the motor Goal Position at a maximum value
+
 
 ///////////////////////////////////////////////////////Begin WHEEL Mode CFG/CMD
 //wheel mode can be used for wheel-type operation robots since motors of the robot will spin infinitely at angle zero
@@ -122,7 +122,10 @@ void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id) {
         , ccw_angle_limit_low_byte
         , ccw_angle_limit_high_byte};
 
-    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    if( !roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data)) ){
+
+         //roveDynamixel_HandleErrorMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    }//end if
     return;
 }//end fnctn roveDynamixel_WheelModeCFG
 
@@ -140,9 +143,6 @@ void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id) {
 
 //joint_position (Goal Position): 0 to 1023 (0x3FF) at 0.29 degree
 void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction, uint16_t joint_position, uint16_t joint_speed) {
-    if(rotate_direction == CLOCKWISE) {
-        joint_speed += (1 >> 10);
-    }//end if
 
     //shift split two bytes
     uint8_t position_low_byte = joint_position;
@@ -162,7 +162,11 @@ void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction
         , speed_low_byte
         , speed_high_byte};
 
-    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    if( !roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data)) ){
+
+        //roveDynamixel_HandleErrorMSG(dynamixel_id, msg_data, sizeof(msg_data));
+
+    }//end if
     return;
 }//end fnctn roveDynamixel_RotateWHEELSpeedCMD
 
@@ -174,8 +178,18 @@ void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction
 
 /////////////////////////////////////////////////////Begin MSG Handling
 
+void roveDynamixel_WriteByteMSG(uint8_t dynamixel_id, uint8_t tx_data_byte) {
+
+    //which pin is this device //TODO I dunno I like this in a struct instance maybe tho
+    int tiva_pin = roveGetPinNum_ByDeviceId(dynamixel_id);
+
+    //(char*)&  casts low level roveWare stdint _t types to high level char, int, etc ecosystem
+    roveUart_Write(tiva_pin, (char*)&tx_data_byte, SINGLE_BYTE);
+}//end fnctn roveDynamixel_WriteByteMSG
+
+
 //dynamixel sigle pin uart serial messaging protocol overhead
-void roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count){
+uint32_t roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count){
 
     //dynamixel check_sum begin to add all the bytes including the id
     uint16_t current_byte_count = 0;
@@ -211,44 +225,113 @@ void roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, ui
     roveDigital_Write(TRI_STATE_PIN, RX_LOW);
 
     //delay poll listen for dyna error repsonse
-    roveDynamixel_ReadPacketMSG(dynamixel_id);
-    return;
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
 }//end fnctn roveDynamixel_SendPacketMSG
-
-void roveDynamixel_WriteByteMSG(uint8_t dynamixel_id, uint8_t data_byte) {
-
-    //which pin is this device //TODO I dunno I like this in a struct instance maybe tho
-    uint8_t tiva_pin = roveGetPinNum_ByDeviceId(dynamixel_id);
-
-    //(char*)&  casts low level roveWare stdint _t types to high level char, int, etc ecosystem
-    roveUART_Write(tiva_pin, (char*)&data_byte, SINGLE_BYTE);
-}//end fnctn roveDynamixel_WriteByteMSG
-
 
 
 //HERE
 
+#define NO_PACKET 0
+#define PACKET 1
+
+#define SINGLE_BYTE 1
 #define MAX_BYTES_DYNA_REPLY 20
+#define MAX_DYNA_READ_ATTEMPT_COUNT 10
+
+#define NO_INSTRUCTION   0x00
+
+#define TEST_INSTRUCTION 0x01
+#define TEST_ERROR       0x02
+
+uint8_t roveDynamixel_ReadByteMSG(uint8_t dynamixel_id) {
+
+    uint8_t rx_data_byte;
+    int tiva_pin = roveGetPinNum_ByDeviceId(dynamixel_id);
+
+    roveUart_Read(tiva_pin, (char*)&rx_data_byte, SINGLE_BYTE);
+    return rx_data_byte;
+}//end fnctn
+
 //TODO NEXT : this still stubs out empty success always
-int32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id) {
+uint32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id) {
 
     //Todo:
-    int32_t reply = 0;
+    //2015 MOB Device Read???? //UART_Params.readTimeout
+    //plug into Uart_READ
+    uint8_t data_rx_byte_cnt = 0;
 
-    uint8_t* data_buffer[MAX_BYTES_DYNA_REPLY];
+    uint8_t data_buffer[MAX_BYTES_DYNA_REPLY];
 
-    //2015 MOB Device Read????
+    // This is used to decide how much pre-data to discard before quitting
+    uint8_t rx_attempts = 0;
 
-    //Try/Catch Error REPLY???
+    while(rx_attempts < MAX_DYNA_READ_ATTEMPT_COUNT){
 
-    return reply;
-}//end fnctn roveDynamixel_ReadPacketMSG
+        if(DYNAMIXEL_PACKET_START_BYTE == roveDynamixel_ReadByteMSG(dynamixel_id)) {
+
+            if(DYNAMIXEL_PACKET_START_BYTE == roveDynamixel_ReadByteMSG(dynamixel_id)) {
+
+                if(dynamixel_id == roveDynamixel_ReadByteMSG(dynamixel_id)) {
+
+                    data_rx_byte_cnt = roveDynamixel_ReadByteMSG(dynamixel_id);
+
+                    int current_byte_count = 0;
+                    while(current_byte_count < data_rx_byte_cnt){
+
+                        data_buffer[current_byte_count] = roveDynamixel_ReadByteMSG(dynamixel_id);
+                        current_byte_count++;
+                    }//endwhile
+
+                    //dynamixel check_sum begin to add all the bytes including the id
+                    current_byte_count = 0;
+                    uint8_t check_sum = dynamixel_id;
+
+                    while(current_byte_count < data_rx_byte_cnt){
+                        check_sum += data_buffer[current_byte_count];
+                    }//endwhile
+
+                    //last step in the check_sum is to complement the sum, and mask with 255 (max num 8 bits)
+                    check_sum = (~check_sum) & 0xFF;
+
+                    if(check_sum == data_buffer[data_rx_byte_cnt] ){
+
+                       return roveDynamixel_ParseReplyMSG(data_buffer);
+                    }//endif
+                }//endif
+            }//endif
+        }//endif
+
+        rx_attempts++;
+    }//endwhile
+
+    return NO_PACKET;
+}//end fnctn
+
+uint32_t roveDynamixel_ParseReplyMSG(uint8_t* data_buffer) {
+
+    uint32_t return_uint32_always = 0;
+
+    switch( data_buffer[0] ){
+
+        case TEST_INSTRUCTION:
+
+            return return_uint32_always + (uint16_t)data_buffer[1];
+
+        case TEST_ERROR:
+
+            return return_uint32_always + (uint8_t)data_buffer[1];
+
+        default :
+            return NO_INSTRUCTION;
+    }//end switch
+}//end fnctn
+
 
 /////////////////////////////////////////////////////End MSG Handling
 
 //////////////////////////////////////////Begin telem REQUEST Handling
 
-int32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id) {
+uint32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id) {
 
     uint8_t msg_data[]=
         {AX_READ_DATA
@@ -259,7 +342,7 @@ int32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id) {
     return roveDynamixel_ReadPacketMSG(dynamixel_id);
 }//end fnctn roveDynamixel_ReadPositionREQ
 
-int32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id) {
+uint32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id) {
 
     uint8_t msg_data[]=
         {AX_READ_DATA
@@ -297,7 +380,7 @@ void roveDriveMotor_ByPwmCMD(PWM_Handle motor, int16_t speed) {
         microseconds = 1000;
     }//endif
 
-    rovePWM_Write(motor, microseconds);
+    rovePwm_Write(motor, microseconds);
     return;
 } //endfnct roveDriveMotor_ByPWM
 

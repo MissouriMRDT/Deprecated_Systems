@@ -13,7 +13,7 @@
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
 
-int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
+int roveUart_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
     extern UART_Handle uart_2;
     extern UART_Handle uart_3;
@@ -56,7 +56,7 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
     return bytes_to_write;
 }//endfnctn roveUARTWrite
 
-int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
+int roveUart_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 
     extern UART_Handle uart_2;
     extern UART_Handle uart_3;
@@ -80,7 +80,7 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
     return bytes_to_read;
 }//endfnctn roveUARTRead
 
-void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
+void rovePwm_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
 
     PWM_setDuty(tiva_pin, duty_in_microseconds);
     return;

@@ -6,8 +6,7 @@
 //
 // Control Utilities for URC 2016
 //
-// mrdt::rovWare
-
+//:://::mrdt//:://::rovWare
 #ifndef ROVEWARE_CNTRLUTILS_H_
 #define ROVEWARE_CNTRLUTILS_H_
 
@@ -15,47 +14,63 @@
 #include <stdint.h>
 
 //mrdt definitions
-#include "roveWare_hardwareWrappers.h"
+#include "roveWare_HwWrappersTiva129.h"
+
+///////////////////////////////////////////////////////->::Begin 2015 Deployed
+//std rcservo: fullforward:2000uS/ fullstop:1500uS/ fullreverse:1000uS/
+void roveDriveMotor_ByPwmCMD(PWM_Handle motor, int16_t speed);
+//:://::End 2015 Deployed
+
+///////////////////////////////////////////////////////->::Begin 2015 Developing
+//base_station protocol : -1000 is reverse : 0 stop : 1000 is full speed forward : must scale to dynamixel proto
+//int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed);
+//int16_t roveDynamixel_ReverseSpeed(int16_t dynamixel_rotate_at_speed);
+//->::End 2015 Developing
+
+///////////////////////////////////////////////////////->::Begin 2016 Developing
+//TODO->::Wheel Mode->..set to "AngleLimit" to double zero??:
+//TODO->::remove 'spin_wheel_direction' arg1??
+//TODO->::arg2 could be negative and eliminate roveDynamixel_ConvertSpeed, roveDynamixel_ReverseSpeed??
+void roveDynamixel_SetWheelModeCFG(uint8_t dynamixel_id);
+void roveDynamixel_SpinWheelCMD(uint8_t dynamixel_id, uint8_t spin_wheel_direction, uint16_t wheel_speed);
+
+//TODO->::Joint Mode : set to "AngleLimit" to anything other than zero??:
+//TODO->::remove 'rotate_direction' arg1??
+//TODO->::arg2 could be negative and eliminate roveDynamixel_ConvertSpeed, roveDynamixel_ReverseSpeed??
+void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id);
+void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction , uint16_t joint_position, uint16_t joint_speed);
+
+//Handle Dyna Serial Comms
+void roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
+void roveDynamixel_SendByteMSG(uint8_t tiva_pin, uint8_t data_byte);
+void roveDynamixel_CatchReplyMSG();
 
 //mrdt Shorthand
-#define SINGLE_BYTE 1
 #define NO_ERRORS 1
 #define ERROR -1
 #define CLOCKWISE 1
 #define COUNTERCLOCKWISE 0
 #define ZERO_SPEED 0
+#define SINGLE_BYTE 1
 
-//TODO
-//roveWare Control Routines
-#define TRI_STATE_PIN                   0x01
+//////////////////TODO MOVE to roveWare_protocol
+#define LEFT_WRIST                      0x00
+#define RIGHT_WRIST                     0x01
+
+////Dynamixel Protocol
 #define TX_HIGH                         0x01
 #define RX_LOW                          0x00
-
-//dynamixel Config
 #define DYNAMIXEL_TX_DELAY_MICRO_SEC    100
-
-//dynamixel Protocol
 #define DYNAMIXEL_PACKET_START_BYTE     255
-
 #define AX12_IMMEDIATE_CMD              3
 #define AX12_SET_MODE                   8
 #define AX12_TARGET_POSITN_REG          30
 #define AX12_TARGET_SPEED_REG           32
+//::End 2016 Developing
 
-//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
+//////////////////////////////////////////TODO->::EEPROM AREA
 
-void roveDynamixel_SendByteMSG(uint8_t tiva_pin, uint8_t data_byte);
-
-int8_t roveDynamixel_SendPacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
-
-int8_t roveDynamixel_CatchErrorMSG();
-
-//////////////////////////////////////////TODO
-
-/*
-
-// EEPROM AREA  ///////////////////////////////////////////////////////////
+/*///////////////////////////////////////////////////////////
 #define AX_MODEL_NUMBER_L           0
 #define AX_MODEL_NUMBER_H           1
 #define AX_VERSION                  2
@@ -154,21 +169,23 @@ typedef enum {
 
 unsigned char Direction_Pin;
 
-//TODO
+//////////////////////////////////////////END->::EEPROM AREA
+
+
+
+
+//TODO->::DEPRECATED 2016 Developement
+
 #define ZERO_SPEED 0
 #define ENDLESS_ROTATION 0
-
 #define DYNAMIXEL_SPEED_MIN -1022
 #define DYNAMIXEL_SPEED_MAX 1022
-
 #define LIN_ACT_FORWARD 0xE1
 #define LIN_ACT_REVERSE 0xE0
 
 //TODO
 #define SIX_BYTES 6
-
 #define FOUR__BYTES 4
-
 #define SET_WHEEL_MODE_CMD_REG_ADDR 8
 
 //Dynamixel Commands
@@ -210,37 +227,24 @@ typedef struct rove_dynamixel_struct {
     uint8_t protocol_start_byte2;
 
     uint8_t dynamixel_id;
-
     uint8_t message_byte_count;
     uint8_t read_write_flag;
-
     uint8_t dynamixel_register_address;
 
     //uint8_t register1_low_byte;
     //uint8_t register1_high_byte;
-
     uint8_t register2_low_byte;
     uint8_t register2_high_byte;
 
     uint8_t check_sum;
-
 }__attribute__((packed)) rove_dynamixel_struct, *rove_dynamixel_struct_ptr;
-
 
 //command_byte : forward /reverse
 typedef struct linear_actuator_struct {
 
     uint8_t command_byte;
     uint8_t speed;
-
 }__attribute__((packed)) linear_actuator_struct, *linear_actuator_struct_ptr;
-
-
-
-//0 is full speed reverse : 2048 is stop : 4096 is full speed forward
-void roveDynamixel_Rotate(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value);
-
-void roveDynamixel_SetWheelMode(uint8_t dynamixel_id, int tiva_pin, int16_t first_command_value, int16_t second_command_value);
 
 //base_station protocol : -1000 is reverse : 0 stop : 1000 is full speed forward : must scale to dynamixel proto
 int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed);

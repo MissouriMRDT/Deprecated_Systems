@@ -22,7 +22,6 @@ void roveComm_Init(rove_udp_socket* rove_socket) {
         printf("Failed socket() with socket_fd: %d \n\n" , rove_socket->socket_fd);
         roveCatch_NdkErrors( fdError() );
         return;
-
     }//endif
 
     //TODO VALIDATE CONFIG
@@ -30,19 +29,15 @@ void roveComm_Init(rove_udp_socket* rove_socket) {
         rove_socket->local_addr.sin_family = AF_INET;
         rove_socket->local_addr.sin_port = htons(LISTEN_PORT);
         rove_socket->local_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-
         //rove_socket->local_addr.sin_addr = SOME_BYTES
 
     if ( bind(rove_socket->socket_fd, (PSA) &(rove_socket->local_addr), sizeof(struct sockaddr_in) ) < 0) {
 
         printf("Failed bind() with socket_fd: %d \n\n" , rove_socket->socket_fd);
         roveCatch_NdkErrors( fdError() );
-
     }//endif
-
     return;
-
- }//endfnctn
+}//endfnctn roveComm_Init
 
 uint16_t roveGet_UdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket) {
 
@@ -58,13 +53,10 @@ uint16_t roveGet_UdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_soc
         printf("Failed recvfrom() with socket_fd: %d data_byte_cnt: %d\n\n", rove_socket->socket_fd, *data_byte_cnt);
         roveCatch_NdkErrors( fdError() );
         return ZERO_BYTES;
-
     }//endif
 
     roveParse_UdpMsg(recv_buffer, data_id, data_byte_cnt, rove_socket);
-
     return *data_byte_cnt;
-
 }//end fnctn rovecommInit
 
 //remove header bytes and populate rovecomm control bytes, fill rove_socket->data_buffer with the command data payload
@@ -76,12 +68,10 @@ void roveParse_UdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_by
     if(proto_version == VERSION_ONE) {
 
         uint8_t data_id_high_byte = recv_buffer[3];
-
         *data_id = data_id_high_byte;
         *data_id = (*data_id << 8) | recv_buffer[4];
 
         uint8_t byte_count_high = recv_buffer[5];
-
         *data_byte_cnt = byte_count_high;
         *data_byte_cnt = (*data_byte_cnt << 8) | recv_buffer[6];
 
@@ -90,15 +80,10 @@ void roveParse_UdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_by
         while( packet_byte_count < (*data_byte_cnt) ) {
 
             rove_socket->data_buffer[packet_byte_count] = recv_buffer[packet_byte_count + HEADER_BYTE_COUNT];
-
             packet_byte_count++;
-
         }//endwhile
-
     }//endif
-
     return;
-
 }//endfnctn parseUdpMsg
 
 void roveCatch_NdkErrors(int16_t ndk_error) {
@@ -124,11 +109,8 @@ void roveCatch_NdkErrors(int16_t ndk_error) {
         default:
             printf("NDK unknown error %d\n\n", ndk_error);
             break;
-
     } //endswitch
-
     return;
-
 }//endfnctn roveCatch_NdkErrors
 
 //HORIZON command CONFIG protocol
@@ -144,7 +126,6 @@ void roveCatch_NdkErrors(int16_t ndk_error) {
 #define E_STOP_ARM 206
 #define ACTUATOR_INCREMENT 207
 #define GRIPPER_OPEN 208
-
 
 void rovePrintf_IPMessage(rove_udp_socket* rove_socket) {
 
@@ -193,11 +174,8 @@ void rovePrintf_IPMessage(rove_udp_socket* rove_socket) {
         default:
             printf("Unknown Command Error\n");
             break;
-
     }//endswitch
-
     return;
-
 }//endfnctn rovePrintf_RoveStructs
 
 

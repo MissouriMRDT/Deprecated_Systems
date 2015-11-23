@@ -9,55 +9,9 @@
 // roveWare 1294XL Access Routines
 //
 // mrdt::rovWare
-
-#include "roveWare_hardwareWrappers.h"
+#include "roveWare_HwWrappersTiva129.h"
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-
-void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
-
-    PWM_setDuty(tiva_pin, duty_in_microseconds);
-
-}//endfnctn pwmWrite
-
-void roveDigital_Write(int tiva_pin, int high_or_low) {
-
-    if(high_or_low == LOW){
-
-        switch(tiva_pin) {
-
-            case TRI_STATE_BUFFER:
-
-            default:
-
-                printf("digitalWrite passed invalid pin %d\n", tiva_pin);
-                return;
-
-        }//endswitch
-
-    } else {
-
-        switch(tiva_pin){
-
-            case TRI_STATE_BUFFER:
-
-                //TODO
-                //123G = PB3
-                GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, GPIO_PIN_0);
-                break;
-
-            default:
-
-                printf("roveDigital_Write passed invalid pin %d\n", tiva_pin);
-                return;
-
-        }//endswitch
-
-    }//endif
-
-    return;
-
-}//endfnctn roveDigital_Write
 
 int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
@@ -74,7 +28,7 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
             bytes_to_write = UART_write(uart_2, write_buffer, bytes_to_write);
             break;
-
+/*TODO
         case ARM_UART:
             //U3TX PA5_UART_3
             //123G = TX PC5 DYNAMIXEL_UART
@@ -92,20 +46,14 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
             //123G  = TX PE1 LINEAR_ACTUATOR_UART
             bytes_to_write = UART_write(uart_5, write_buffer, bytes_to_write);
             break;
-
+*/
         default:
-
             printf("roveUARTWrite passed invalid device: %d\n", tiva_pin);
-
-        return ERROR;
-
+            return ERROR;
     }//end switch
-
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
-
     return bytes_to_write;
-
 }//endfnctn roveUARTWrite
 
 int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
@@ -120,28 +68,55 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
     switch (tiva_pin) {
 
         case TEST_DEVICE_PIN:
-
             //uart 2 is just the only muxless 485 Jack wired to a uart onboard Horizon's MOB pcb
             bytes_to_read = UART_read(uart_2, read_buffer, bytes_to_read);
             break;
 
         default:
-
             printf("roveUARTRead was passed invalid UART: %d\n", tiva_pin);
-
-        return ERROR;
-
+            return ERROR;
     }//endswitch
-
     //now holds the number of bytes actually read
     return bytes_to_read;
-
 }//endfnctn roveUARTRead
 
-//TODO sysctl.h
+void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
 
+    PWM_setDuty(tiva_pin, duty_in_microseconds);
+    return;
+}//endfnctn pwmWrite
+
+void roveDigital_Write(int tiva_pin, int high_or_low) {
+
+    if(high_or_low == LOW){
+
+        switch(tiva_pin) {
+
+/*TODO            case TRI_STATE_PIN:
+*/
+            default:
+                printf("roveDigital_Write passed invalid pin %d\n", tiva_pin);
+                return;
+        }//endswitch
+    } else {
+
+        switch(tiva_pin){
+
+            case TRI_STATE_PIN:
+                //TODO
+                //123G = PB3
+                GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, GPIO_PIN_0);
+                break;
+
+            default:
+                printf("roveDigital_Write passed invalid pin %d\n", tiva_pin);
+        }//endswitch
+    }//endif
+    return;
+}//endfnctn roveDigital_Write
+
+//TODO sysctl.h
 //*****************************************************************************
-//
 //! Gets the processor clock rate.
 //!
 //! This function determines the clock rate of the processor clock, which is
@@ -160,25 +135,21 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 //! clock frequency.
 //!
 //! \return The processor clock rate for TM4C123 devices only.
-//
 //*****************************************************************************
 
 void roveDelay_MilliSec(uint32_t milliseconds) {
 
     //SysCtlDelay(milliseconds * (SysCtlClockGet() / 100));
-
-} //endfnctn roveDelay_MilliSec
+}//endfnctn roveDelay_MilliSec
 
 void roveDelay_MicroSec(uint32_t microseconds) {
 
     //SysCtlDelay(microseconds * (SysCtlClockGet() / 100000));
-
-} //endfnctn roveDelay_MilliSec
+}//endfnctn roveDelay_MilliSec
 
 //roveWare 2016
-
-
-int16_t rovePinNum_ByDeviceId(uint8_t data_id) {
+//TODO this function is maintenence hardcoded hardware cfg paradigm tho-> put in cfg file?
+int16_t roveGetPinNum_ByDeviceId(uint8_t data_id){
 
     switch (data_id) {
 
@@ -187,40 +158,28 @@ int16_t rovePinNum_ByDeviceId(uint8_t data_id) {
         return TEST_DEVICE_PIN;
 
     default:
-
         printf("roveGetDevicePin passed invalid device %d\n", data_id);
-
         return ERROR;
-
     }//endswitch
-
-
 }//endfnctn roveGetDevicePin
 
 
 void rovePrintf_ByteBuffer(uint8_t* printf_buffer, uint16_t bytes_to_printf) {
 
     int printf_cnt = 0;
-
     printf("Buffer holds: ");
 
     while (printf_cnt < bytes_to_printf) {
-
         printf(" %d", printf_buffer[printf_cnt]);
-
         printf_cnt++;
-
-    } //end while
+    }//end while
 
     printf("\n\n");
-
     return;
-
 }//endfnctn rovePrintfBuffer
 
 
 //roveWare 2015
-
 int16_t roveGetByteCnt_ByStructId(uint8_t struct_id) {
 
     switch (struct_id) {
@@ -228,15 +187,103 @@ int16_t roveGetByteCnt_ByStructId(uint8_t struct_id) {
         case TEST_DEVICE_ID:
 
             printf("Testing");
-
             return NULL;
 
         default:
-
             printf("roveGetByteCnt_ByStructId passed invalid struct %d\n", struct_id);
-
             return ERROR;
-
     }//endswitch
+}//endfnctn roveGetStructSize
 
-} //endfnctn roveGetStructSize
+/*
+uint8_t roveDynamixel_GetUartMessage(int deviceJack, char* buffer) {
+
+    uint8_t rx_len = 0;
+    uint8_t startByte = 0x06;
+    uint8_t secondByte = 0x85;
+
+    int bytesRead = 0;
+    char receiveBuffer[40];
+
+    // This is used to decide how much pre-data to discard before quitting
+    uint8_t garbageCount = 10;
+    bool startReceived = false;
+
+    //testing
+    //int debug_rx_cnt = 0;
+
+    if (rx_len == 0) {
+
+        while (!startReceived) {
+            bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500);
+            if (bytesRead == 1) {
+               // if (receiveBuffer[0] == startByte) {
+               //     startReceived = true;
+                } else {
+                    garbageCount--;
+                    if (garbageCount <= 0)
+                        return false;
+                } //endif
+            } //endif
+              //debug_rx_cnt++;
+        } //endwhile
+
+//      System_printf("Looped through the rx debug_rx_cnt: %d\n", debug_rx_cnt);
+//      System_flush();
+
+        if ((bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500)) == 1) {
+            if (receiveBuffer[0] != secondByte) {
+                return false;
+            } else {
+                bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500);
+                if (bytesRead == 1) {
+                    rx_len = receiveBuffer[0];
+                    if (rx_len == 0) {
+                        return false;
+                    } //endif
+                } else {
+                    return false;
+                }
+            } //endif
+
+        } //endif
+        else {
+            return false;
+        }
+
+//      System_printf("bytesRead: %d\n", bytesRead);
+//      System_flush();
+
+    } //end if (rx_len == 0)
+
+    if (rx_len > 0) {
+        bytesRead = deviceRead(deviceJack, receiveBuffer, rx_len + 1, 2000);
+        //rx_len + 1 for the checksum byte at the end
+        if (bytesRead != (rx_len + 1))
+            return false;
+
+        uint8_t calcCS = calcCheckSum(receiveBuffer, rx_len);
+
+        if (calcCS != receiveBuffer[rx_len]) {
+            // Checksum error
+            return false;
+        } //end if
+
+        memcpy(buffer, receiveBuffer, rx_len);
+        return true;
+    } //end if
+
+    return false;
+} //end recvSerialStructMessage
+
+uint8_t roveGetCheckSum_ByStructPtr(const void* my_struct, uint8_t struct_byte_cnt) {
+
+    uint8_t checkSum = size;
+    uint8_t i;
+
+    for (i = 0; i < size; i++)
+        checkSum ^= *((char*) my_struct + i);
+
+    return checkSum;
+
+} //end fnctn*/

@@ -38,6 +38,8 @@ extern "C" {
 #endif
 
 #include "EK_TM4C1294XL.h"
+/*TODO
+Kill this file:
 
 #define Board_initEMAC              EK_TM4C1294XL_initEMAC
 #define Board_initGeneral           EK_TM4C1294XL_initGeneral
@@ -52,7 +54,7 @@ extern "C" {
 #define Board_initWatchdog          EK_TM4C1294XL_initWatchdog
 #define Board_initWiFi              EK_TM4C1294XL_initWiFi
 
-/*
+
 #define Board_LED_ON                EK_TM4C1294XL_LED_ON
 #define Board_LED_OFF               EK_TM4C1294XL_LED_OFF
 #define Board_LED0                  EK_TM4C1294XL_D1
@@ -60,10 +62,10 @@ extern "C" {
 #define Board_LED2                  EK_TM4C1294XL_D2
 #define Board_BUTTON0               EK_TM4C1294XL_USR_SW1
 #define Board_BUTTON1               EK_TM4C1294XL_USR_SW2
-*/
+
 
 // Muxing pins
-/*
+
 #define U3_MUX_S0 					EK_TM4C1294XL_PH0
 #define U3_MUX_S1 					EK_TM4C1294XL_PH1
 #define U4_MUX_S0 					EK_TM4C1294XL_PM6
@@ -75,7 +77,7 @@ extern "C" {
 #define U6_MUX_S1 					EK_TM4C1294XL_PK3
 #define U7_MUX_S0 					EK_TM4C1294XL_PE0
 #define U7_MUX_S1 					EK_TM4C1294XL_PE1
-*/
+
 #define Board_I2C0                  EK_TM4C1294XL_I2C7
 #define Board_I2C1                  EK_TM4C1294XL_I2C8
 #define Board_I2C_TMP               EK_TM4C1294XL_I2C7
@@ -97,7 +99,7 @@ extern "C" {
 #define Board_USBHOST               EK_TM4C1294XL_USBHOST
 #define Board_USBDEVICE             EK_TM4C1294XL_USBDEVICE
 
-/*
+
 #define Board_UART0                 EK_TM4C1294XL_UART0
 #define Board_UART1                 EK_TM4C1294XL_UART1
 #define Board_UART2                 EK_TM4C1294XL_UART2
@@ -106,7 +108,7 @@ extern "C" {
 #define Board_UART5                 EK_TM4C1294XL_UART5
 #define Board_UART6                 EK_TM4C1294XL_UART6
 #define Board_UART7                 EK_TM4C1294XL_UART7
-*/
+
 
 #define Board_WATCHDOG0             EK_TM4C1294XL_WATCHDOG0
 
@@ -115,11 +117,11 @@ extern "C" {
 #define Board_gpioCallbacks0        EK_TM4C1294XL_gpioPortJCallbacks
 #define Board_gpioCallbacks1        EK_TM4C1294XL_gpioPortJCallbacks
 
-/* Board specific I2C addresses */
+//Board specific I2C addresses
 #define Board_TMP006_ADDR           (0x40)
 #define Board_RF430CL330_ADDR       (0x28)
 #define Board_TPL0401_ADDR          (0x40)
-
+*/
 #ifdef __cplusplus
 }
 #endif

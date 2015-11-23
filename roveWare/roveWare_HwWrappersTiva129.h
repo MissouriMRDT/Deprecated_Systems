@@ -7,7 +7,6 @@
 // module for utlity wrapper access to Texas Instruments TivaWare
 //
 // mrdt::rovWare
-
 #ifndef ROVEWARE_TIVAWRAPPERS_H_
 #define ROVEWARE_TIVAWRAPPERS_H_
 
@@ -16,7 +15,6 @@
 
 //C lib
 #include <stdio.h>
-
 
 //TI hardware access routines
 #include <ti/drivers/GPIO.h>
@@ -29,45 +27,32 @@
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
 
-
-
 //mrdt shorthand
 #define ERROR -1
-
 #define HIGH 1
 #define LOW 0
 
+#define TEST_DEVICE_PIN 0
+#define TRI_STATE_PIN   1
+
 //Tiva Get/Set Wrappers
 void roveDigital_Write(int tiva_pin, int high_or_low);
-
-int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
-
-int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read);
-
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
-
+int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write);
+int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read);
 
 //TODO ?? get the system clock for the delay
 void roveDelay_MilliSec(uint32_t milliseconds);
-
 void roveDelay_MicroSec(uint32_t microseconds);
-
-
 
 //roveWare 2016
 int16_t roveGetPinNum_ByDeviceId(uint8_t data_id);
-
 void rovePrintf_ByByteBuffer(uint8_t* printf_buffer, int16_t bytes_to_printf);
-
 
 //roveWare 2015
 int16_t roveGetByteCnt_ByStructId(uint8_t struct_id);
-
-
 //TODO sysctl.h
-
 //*****************************************************************************
-//
 //! Gets the processor clock rate.
 //!
 //! This function determines the clock rate of the processor clock, which is
@@ -86,7 +71,5 @@ int16_t roveGetByteCnt_ByStructId(uint8_t struct_id);
 //! clock frequency.
 //!
 //! \return The processor clock rate for TM4C123 devices only.
-//
 //*****************************************************************************
-
 #endif //ROVEWARE_TIVAWRAPPERS_H_

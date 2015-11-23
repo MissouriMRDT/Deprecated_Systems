@@ -11,6 +11,9 @@
 #ifndef ROVEWARE_PROTOCOL_H_
 #define ROVEWARE_PROTOCOL_H_
 
+//TODO
+#define TEST_DEVICE_ID 251
+
 //MRDT shorthand
 #define FOREVER 1
 
@@ -28,8 +31,5 @@
 #define E_STOP_ARM 206
 #define ACTUATOR_INCREMENT 207
 #define GRIPPER_OPEN 208
-
-//TODO
-#define TEST_DEVICE_ID 251
 
 #endif // ROVEWARE_PROTOCOL_H_

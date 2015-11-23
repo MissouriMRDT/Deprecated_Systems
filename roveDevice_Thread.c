@@ -19,9 +19,11 @@
 
 ///////////////BEGIN 2016//////DEVICE THREAD//////////////
 void roveDeviceThread(UArg arg0, UArg arg1) {
+
     printf("Init roveDevice_TemplateThread\n\n\n");
 
 ///////////////BEGIN 2016//////NETWORKING/////////////////
+
     //open a tiva ndk socket session in this task stack
     fdOpenSession( TaskSelf() );
 
@@ -32,21 +34,43 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
     roveComm_Init(&base_station);
 
 ///////////////BEGIN 2016//////COMMAND Args//////////////////
+
     //BOTH wheel AND joint mode AX12:(WHEEL GoalSpeed :0~2047/0X7FF unit:0.1%):(JOINT GoalSpeed: 0~1023/0X3FF unit: 0.111rpm)
     int16_t speed = 0;
 
     //ONLY joint mode AX12:(JOINT GoalPosition:0~1023/0x3FF) at 0.29 degree
-    //int16_t angle = 0;
+    int16_t angle = 0;
+
 ///////////////END   2016//////COMMAND Args///////////////////
 
 ///////////////BEGIN 2016//////MOTOR TEST ROUTINE/////////////
+
     //2016 is a forever UDP server and she listens for RED Base Station Datagrams
     while (FOREVER) {
 
+//ERROR_STATE: Angle Limit Error Bit (Bit1) staus response set 1 = "Destination Out of Range" and triggers "Alarm LED/Shutdown"
+
 //TEST WHEEL mode
-        //Wheel::if(spin_wheel_direction == CLOCKWISE) wheel_speed += (1 >> 10);
+
+        //WARNING!! in Wheel Mode, the savage_electronics::Dynamixel.move() function has no effect only Dynamixel.turn() works
+        //joint_position goal angle in "wheel mode" is always seen as zero = infinite and ONLY the goal speed matters
+
+//////////speed schema -> rpm
+
+        //range: 0~2047( 0X7FF)
+        //unit:  0.1%.
+
+        //speed = 0 Full Reverse
+        //speed = 1023 = 1024 Full Stop
+        //speed = 1025~2047 Full forward
+
+        //angle schema = undefined -> has no affect
+
+        //i.e. speed = 512 means 50% of max motor output in reverse
         roveDynamixel_SetWheelModeCFG(LEFT_WRIST);
         roveDynamixel_SetWheelModeCFG(RIGHT_WRIST);
+
+        //roveDynamixel_SpinWheelCMD::->if(spin_wheel_direction == CLOCKWISE) wheel_speed += (1 >> 10);
 
         //ramp up from zero to max forward
         for (speed = 0; speed < 1000; speed += 50) {
@@ -54,7 +78,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
             //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
             roveDynamixel_SpinWheelCMD(LEFT_WRIST, CLOCKWISE, speed);
             roveDynamixel_SpinWheelCMD(RIGHT_WRIST, CLOCKWISE, speed);
-            //roveDelay_MilliSec(500);
+            roveDelay_MilliSec(500);
         } //end for
 
         //ramp back from max forward through zero to max reverse
@@ -63,7 +87,7 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
             //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
             roveDynamixel_SpinWheelCMD(LEFT_WRIST, CLOCKWISE, speed);
             roveDynamixel_SpinWheelCMD(RIGHT_WRIST, CLOCKWISE, speed);
-            //roveDelay_MilliSec(500);
+            roveDelay_MilliSec(500);
         } //end for
 
         //ramp back from max reverse landing on zero
@@ -72,48 +96,63 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
             //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
             roveDynamixel_SpinWheelCMD(LEFT_WRIST, CLOCKWISE, speed);
             roveDynamixel_SpinWheelCMD(RIGHT_WRIST, CLOCKWISE, speed);
-            //roveDelay_MilliSec(500);
+            roveDelay_MilliSec(500);
         } //end for
 
 //TODO:  #define and scale speed < 1000; speed += 50
 
 //END TEST WHEEL mode
         roveDelay_MilliSec(20000);
-/*
+
 //TEST JOINT mode
-        //if(rotate_direction == CLOCKWISE) joint_speed += (1 >> 10);
+
+//////////speed schema-> rpm
+
+        //range:  0~1023 (0X3FF)
+        //unit:   0.111rpm
+
+        //speed =  0 = 1024 is max rpm of the motor (114rpm)
+        //speed =  1~1023 (up to 114rpm)
+
+        //ie: speed = 300 is about 33.3 rpm
+
+//////////angle schema -> 10 bit absolute joint position (Goal Position): dead band at 300-360 degrees
+
+        //range:   0~1023 (0x3FF)
+        //unit:    0.29 degree
+
+        //ie: angle = 1024 is 300 degree
         roveDynamixel_SetJointModeCFG(LEFT_WRIST);
         roveDynamixel_SetJointModeCFG(RIGHT_WRIST);
 
-        for (speed = 0; speed < 1000; speed += 50) {
+        //very slowly now
+        speed = 10;
 
-            //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
-            roveDynamixel_RotateJointCMD(LEFT_WRIST, CLOCKWISE, angle, speed);
-            roveDynamixel_RotateJointCMD(RIGHT_WRIST, CLOCKWISE, angle, speed);
-            //roveDelay_MilliSec(500);
+        for (angle = 0; angle < 1000; angle += 50) {
+
+            roveDynamixel_RotateJointCMD(LEFT_WRIST, angle, speed);
+            roveDynamixel_RotateJointCMD(RIGHT_WRIST, angle, speed);
+            roveDelay_MilliSec(500);
         } //end for
 
-        for (speed = 1000; speed > -1000; speed -= 50) {
+        for (angle = 1000; angle > 0; speed -= 50) {
 
-            //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
-            roveDynamixel_RotateJointCMD(LEFT_WRIST, CLOCKWISE, angle, speed);
-            roveDynamixel_RotateJointCMD(RIGHT_WRIST, CLOCKWISE, angle, speed);
-            //roveDelay_MilliSec(500);
+            roveDynamixel_RotateJointCMD(LEFT_WRIST, angle, speed);
+            roveDynamixel_RotateJointCMD(RIGHT_WRIST, angle, speed);
+            roveDelay_MilliSec(500);
         } //end for
 
-        for (speed = -1000; speed < 0; speed += 50) {
+        for (speed = 0; speed < 500; speed += 50) {
 
-            //TODO remove 'spin_wheel_direction' arg1??   ->...arg2 could be negative??
-            roveDynamixel_RotateJointCMD(LEFT_WRIST, CLOCKWISE, angle, speed);
-            roveDynamixel_RotateJointCMD(RIGHT_WRIST, CLOCKWISE, angle, speed);
-            //roveDelay_MilliSec(500);
+            roveDynamixel_RotateJointCMD(LEFT_WRIST, angle, speed);
+            roveDynamixel_RotateJointCMD(RIGHT_WRIST, angle, speed);
+            roveDelay_MilliSec(500);
         } //end for
 
         //END TEST JOINT mode
-        roveDelay_MilliSec(20000);*/
+        roveDelay_MilliSec(20000);
 
 /////////////////END 2016//////MOTOR TEST ROUTINE/////////////
-
 
 //////////////REPEAT 2016//////MOTOR TEST FOREVER/////////////
 
@@ -121,8 +160,6 @@ void roveDeviceThread(UArg arg0, UArg arg1) {
 }//endfnctnTask roveDeviceTemplateThread
 
 ///////////////////////////////END THREAD/////////////////////
-
-
 
 ///////////////////////////////ADDENDUM///////// NOTES :TODO??
 //access the global pwm handles

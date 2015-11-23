@@ -21,73 +21,94 @@
 void roveDriveMotor_ByPwmCMD(PWM_Handle motor, int16_t speed);
 //:://::End 2015 Deployed
 
-///////////////////////////////////////////////////////->::Begin 2015 Developing
-//base_station protocol : -1000 is reverse : 0 stop : 1000 is full speed forward : must scale to dynamixel proto
-//int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed);
-//int16_t roveDynamixel_ReverseSpeed(int16_t dynamixel_rotate_at_speed);
-//->::End 2015 Developing
-
 ///////////////////////////////////////////////////////->::Begin 2016 Developing
-//TODO->::Wheel Mode->..set to "AngleLimit" to double zero??:
 //TODO->::remove 'spin_wheel_direction' arg1??
 //TODO->::arg2 could be negative and eliminate roveDynamixel_ConvertSpeed, roveDynamixel_ReverseSpeed??
 void roveDynamixel_SetWheelModeCFG(uint8_t dynamixel_id);
 void roveDynamixel_SpinWheelCMD(uint8_t dynamixel_id, uint8_t spin_wheel_direction, uint16_t wheel_speed);
 
 //TODO->::Joint Mode : set to "AngleLimit" to anything other than zero??:
-//TODO->::remove 'rotate_direction' arg1??
-//TODO->::arg2 could be negative and eliminate roveDynamixel_ConvertSpeed, roveDynamixel_ReverseSpeed??
 void roveDynamixel_SetJointModeCFG(uint8_t dynamixel_id);
-void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint8_t rotate_direction , uint16_t joint_position, uint16_t joint_speed);
+void roveDynamixel_RotateJointCMD(uint8_t dynamixel_id, uint16_t joint_position, uint16_t joint_speed);
 
 //Handle Dyna Serial Comms
 void roveDynamixel_WriteByteMSG(uint8_t dynamixel_id, uint8_t tx_data_byte);
 uint32_t roveDynamixel_WritePacketMSG(uint8_t dynamixel_id, uint8_t* data_buffer, uint16_t data_byte_count);
 
-//HERE
-
 uint8_t roveDynamixel_ReadByteMSG(uint8_t dynamixel_id);
 uint32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id);
-
 uint32_t roveDynamixel_ParseReplyMSG(uint8_t* data_buffer);
 
-
-/////////////////////////////////////////////////////End MSG Handling
-
+void roveDynamixel_HandleErrorMSG(uint8_t dynamixel_id, uint8_t* data_buffer);
+//::End MSG Handling
 
 //////////////////////////////////////////Begin telem REQUEST Handling
-
 uint32_t roveDynamixel_ReadSpeedREQ(uint8_t dynamixel_id);
 uint32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id);
 
-//END HERE
-
 //mrdt Shorthand
-#define NO_ERRORS 1
-#define ERROR -1
-#define CLOCKWISE 1
-#define COUNTERCLOCKWISE 0
-#define ZERO_SPEED 0
-#define SINGLE_BYTE 1
+#define TX_HIGH             0x01
+#define RX_LOW              0x00
+
+#define NO_PACKET           0
+#define PACKET              1
+#define SINGLE_BYTE         1
+
+#define NO_ERRORS           1
+#define ERROR               -1
+
+#define CLOCKWISE           1
+#define COUNTERCLOCKWISE    0
+
+#define ZERO_SPEED          0
+
+//////////////////TODO TEST
+#define NO_INSTRUCTION   0x00
+#define TEST_INSTRUCTION 0x01
+#define TEST_ERROR       0x02
 
 //////////////////TODO MOVE to roveWare_protocol
-#define LEFT_WRIST                      0x00
-#define RIGHT_WRIST                     0x01
+#define LEFT_WRIST                          0x00
+#define RIGHT_WRIST                         0x01
 
 ////Dynamixel Protocol
-#define TX_HIGH                         0x01
-#define RX_LOW                          0x00
-#define DYNAMIXEL_TX_DELAY_MICRO_SEC    100
-#define DYNAMIXEL_PACKET_START_BYTE     255
-#define AX12_IMMEDIATE_CMD              3
-#define AX12_SET_MODE                   8
-#define AX12_TARGET_POSITN_REG          30
-#define AX12_TARGET_SPEED_REG           32
+#define DYNAMIXEL_TX_DELAY_MICRO_SEC        100
+#define DYNAMIXEL_PACKET_START_BYTE         255
+
+//Dynamixel Commands
+#define WRITE_AX12_CMD                      3
+#define WRITE_TARGET_POSITN_AX12_CMD        30
+#define WRITE_TARGET_SPEED_AX12_CMD         32
+
+//Dynamixel Telemetry Requests
+#define READ_TELEM_AX12_REQ                 2
+
+#define READ_ONE_BYTE_AX12_REQ              1
+#define READ_TWO_BYTES_AX12_REQ             2
+
+#define MAX_BYTES_AX12_REPLY                20
+#define MAX_READ_AX12_ATTEMPT_COUNT         10
+
+#define READ_PRESENT_POSITION_AX12_REQ      36
+#define READ_PRESENT_SPEED_AX12_REQ         38
+#define READ_PRESENT_VOLTAGE_AX12_REQ       42
+#define READ_PRESENT_CURRENT_AX12_REQ       68
+#define READ_PRESENT_TEMPERATURE_AX12_REQ   43
+#define READ_PRESENT_LOAD_AX12_REQ          40
+
+//Dynamixel Run Time Config
+#define SET_MODE_AX12_CFG                   8
+#define SET_TORQUE_ENABLE_AX12_CFG          24
+#define SET_TORQUE_LIMIT_AX12_CFG           34
+
+//TODO??
+//#define AX12_ROTATE_AT_TORQUE             71
+//#define AX12_ROTATE_AT_ACCELERATION       73
 //::End 2016 Developing
 
 //////////////////////////////////////////TODO->::EEPROM AREA
 
-////////////////////////////////////////////////////////////
+/*//////////////////////////////////////////////////////////
 #define AX_MODEL_NUMBER_L           0
 #define AX_MODEL_NUMBER_H           1
 #define AX_VERSION                  2
@@ -159,7 +180,7 @@ uint32_t roveDynamixel_ReadAngleREQ(uint8_t dynamixel_id);
 #define AX_CCW_AL_L                 255
 #define AX_CCW_AL_H                 3
 #define LOCK                        1
-/*
+
 #define TIME_OUT                    10         // This parameter depends on the speed of transmission
 #define TX_DELAY_TIME               400        // This parameter depends on the speed of transmission - but can be changed to a higher speed.
 
@@ -192,7 +213,6 @@ unsigned char Direction_Pin;
 
 
 //TODO->::DEPRECATED 2016 Developement
-
 #define ZERO_SPEED 0
 #define ENDLESS_ROTATION 0
 #define DYNAMIXEL_SPEED_MIN -1022
@@ -200,61 +220,6 @@ unsigned char Direction_Pin;
 #define LIN_ACT_FORWARD 0xE1
 #define LIN_ACT_REVERSE 0xE0
 
-//TODO
-#define SIX_BYTES 6
-#define FOUR__BYTES 4
-#define SET_WHEEL_MODE_CMD_REG_ADDR 8
-
-//Dynamixel Commands
-#define ROTATE_TO_POSITION_CMD_REG_ADDR             30
-#define DYNAMIXEL_ROTATE_AT_SPEED_COMMAND           32
-
-//Dynamixel Telemetry Requests
-#define DYNAMIXEL_PRESENT_POSITION_REQUEST          36
-#define DYNAMIXEL_PRESENT_SPEED_REQUEST             38
-#define DYNAMIXEL_PRESENT_VOLTAGE_REQUEST           42
-#define DYNAMIXEL_CONSUMING_CURRENT_REQUEST         68
-#define DYNAMIXEL_PRESENT_TEMPERATURE_REQUEST       43
-#define DYNAMIXEL_PRESENT_LOAD_REQUEST              40
-
-//Dynamixel Run Time Config
-#define DYNAMIXEL_TORQUE_ENABLE_SETTING             24
-#define DYNAMIXEL_TORQUE_LIMIT_SETTING              34
-#define DYNAMIXEL_ROTATE_AT_TORQUE_SETTING          71
-#define DYNAMIXEL_ROTATE_AT_ACCELERATION_SETTING    73
-
-//Dynamixel Instruction Set
-#define DYMAMIXEL_MSG_START_BYTE                    255
-
-//Immediate Actions
-//#define DYNAMIXEL_PING                              1
-//#define DYNAMIXEL_READ_DATA                         2
-#define DYNAMIXEL_WRITE_DATA                          3
-
-//Delayed Actions
-//#define DYNAMIXEL_REG_WRITE                         4
-//#define DYNAMIXEL_ACTION                            5
-//#define DYNAMIXEL_RESET                             6
-//#define DYNAMIXEL_SYNC_WRITE                        131
-
-//persist
-typedef struct rove_dynamixel_struct {
-
-    uint8_t protocol_start_byte1;
-    uint8_t protocol_start_byte2;
-
-    uint8_t dynamixel_id;
-    uint8_t message_byte_count;
-    uint8_t read_write_flag;
-    uint8_t dynamixel_register_address;
-
-    //uint8_t register1_low_byte;
-    //uint8_t register1_high_byte;
-    uint8_t register2_low_byte;
-    uint8_t register2_high_byte;
-
-    uint8_t check_sum;
-}__attribute__((packed)) rove_dynamixel_struct, *rove_dynamixel_struct_ptr;
 
 //command_byte : forward /reverse
 typedef struct linear_actuator_struct {
@@ -263,13 +228,9 @@ typedef struct linear_actuator_struct {
     uint8_t speed;
 }__attribute__((packed)) linear_actuator_struct, *linear_actuator_struct_ptr;
 
-//base_station protocol : -1000 is reverse : 0 stop : 1000 is full speed forward : must scale to dynamixel proto
-int16_t roveDynamixel_ConvertSpeed(int16_t dynamixel_rotate_at_speed);
-int16_t roveDynamixel_ReverseSpeed(int16_t dynamixel_rotate_at_speed);
 
 //positive is forward, negative is reverse, only 8 bit low_byte is speed
 void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed);
 
-//TODO Add New Member Functions (Dynamixel and Polulo Wrappers)
 */
 #endif // ROVEWARE_CNTRLUTILS_H_

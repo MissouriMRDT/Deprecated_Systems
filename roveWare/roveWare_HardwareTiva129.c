@@ -9,7 +9,7 @@
 // roveWare 1294XL Access Routines
 //
 // mrdt::rovWare
-#include "roveWare_HwWrappersTiva129.h"
+#include "roveWare_HardwareTiva129.h"
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
 

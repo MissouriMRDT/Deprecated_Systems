@@ -67,6 +67,7 @@ void roveParse_UdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_by
     //handle the protocol versioning
     if(proto_version == VERSION_ONE) {
 
+        //TODO add comments
         uint8_t data_id_high_byte = recv_buffer[3];
         *data_id = data_id_high_byte;
         *data_id = (*data_id << 8) | recv_buffer[4];
@@ -113,6 +114,57 @@ void roveCatch_NdkErrors(int16_t ndk_error) {
     return;
 }//endfnctn roveCatch_NdkErrors
 
+
+
+//TODO
+/*
+    if (*dataID < 0x65) {
+      Serial.print("RoveComm function received with dataID: ");
+      Serial.println(*dataID, HEX);
+      if (rovecommSubscribers[0] == INADDR_NONE) { //if this is running during rovecommInit();
+        rovecommControl(dataID, size, data, remote_ip, remote_port);
+      } else {
+       rovecommControl(dataID, size, data, remote_ip, remote_port);
+        getUdpMsg(dataID, size, data);
+      }
+    }
+    Serial.println();
+  }
+}
+
+void rovecommControl(uint16_t* data_id, uint16_t* data_byte_count, uint32_t remote_ip_address, int remote_port, rove_udp_socket* rove_udp_socket,) {
+
+  switch (*data_id) {
+    case ADD_SUBSCRIBER:
+        rovecommAddSubscribers(rove_udp_socket->subscribers[0].remote_ip_addr);
+        return;
+    default:
+        printf("Failed rovecommControl remote_ip_addr: %d \n\n" , rove_udp_socket->subscribers[0].remote_ip_addr);
+       return;
+  }//endswitch
+}//endfnctn rovecommControl
+
+int rovecommAddSubscribers(char* remote_ip_address, rove_udp_socket* rove_udp_socket) {
+
+  int added_subscribers_count = 0;
+  while(added_subscribers_count < MAX_SUBSCRIBER_CNT
+          && !(rove_udp_socket->subscribers[added_subscribers_count] == INADDR_NONE
+                  || rove_udp_socket->subscribers[added_subscribers_count] == remote_ip_address)) {
+      added_subscribers_count++;
+  }//endwhile
+
+  //handle exceed the subscribers array
+  if (added_subscribers_count == MAX_SUBSCRIBER_CNT) {
+    printf("Subscriber failed");
+    return false;
+  }//endif
+  rove_udp_socket->subscribers[added_subscribers_count] == remote_ip_address;
+  printf("Subscriber added");
+  return true;
+}//end fnctn rovecommAddSubscriber
+
+*/
+////////////////////////////////////////////////////////////////////////Judah Debugging ONLY:
 //HORIZON command CONFIG protocol
 #define DRIVE_RIGHT_MOTORS 100
 #define DRIVE_LEFT_MOTORS 101
@@ -177,52 +229,3 @@ void rovePrintf_IPMessage(rove_udp_socket* rove_socket) {
     }//endswitch
     return;
 }//endfnctn rovePrintf_RoveStructs
-
-
-//TODO
-/*
-    if (*dataID < 0x65) {
-      Serial.print("RoveComm function received with dataID: ");
-      Serial.println(*dataID, HEX);
-      if (rovecommSubscribers[0] == INADDR_NONE) { //if this is running during rovecommInit();
-        rovecommControl(dataID, size, data, remote_ip, remote_port);
-      } else {
-       rovecommControl(dataID, size, data, remote_ip, remote_port);
-        getUdpMsg(dataID, size, data);
-      }
-    }
-    Serial.println();
-  }
-}
-
-void rovecommControl(uint16_t* data_id, uint16_t* data_byte_count, uint32_t remote_ip_address, int remote_port, rove_udp_socket* rove_udp_socket,) {
-
-  switch (*data_id) {
-    case ADD_SUBSCRIBER:
-        rovecommAddSubscribers(rove_udp_socket->subscribers[0].remote_ip_addr);
-        return;
-    default:
-        printf("Failed rovecommControl remote_ip_addr: %d \n\n" , rove_udp_socket->subscribers[0].remote_ip_addr);
-       return;
-  }//endswitch
-}//endfnctn rovecommControl
-
-int rovecommAddSubscribers(char* remote_ip_address, rove_udp_socket* rove_udp_socket) {
-
-  int added_subscribers_count = 0;
-  while(added_subscribers_count < MAX_SUBSCRIBER_CNT
-          && !(rove_udp_socket->subscribers[added_subscribers_count] == INADDR_NONE
-                  || rove_udp_socket->subscribers[added_subscribers_count] == remote_ip_address)) {
-      added_subscribers_count++;
-  }//endwhile
-
-  //handle exceed the subscribers array
-  if (added_subscribers_count == MAX_SUBSCRIBER_CNT) {
-    printf("Subscriber failed");
-    return false;
-  }//endif
-  rove_udp_socket->subscribers[added_subscribers_count] == remote_ip_address;
-  printf("Subscriber added");
-  return true;
-}//end fnctn rovecommAddSubscriber
-*/

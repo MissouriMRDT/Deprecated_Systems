@@ -11,7 +11,7 @@
 #define ROVEWARE_TIVAWRAPPERS_H_
 
 //mrdt::rovWare Horizon Protocol Definitions
-#include "roveWare_Protocol.h"
+#include "roveWare_ProtocolDEV2016.h"
 
 //C lib
 #include <stdio.h>

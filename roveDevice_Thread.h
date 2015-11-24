@@ -25,7 +25,7 @@
 //#include "roveWare/roveWare_TCPSocket.h"
 #include "roveWare/roveWare_UDPSocket.h"
 
-#include "roveWare/roveWare_CntrlUtils.h"
+#include "roveWare/roveWare_DynamixelAX12.h"
 
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 void roveDeviceThread(UArg arg0, UArg arg1);

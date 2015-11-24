@@ -14,7 +14,7 @@
 #define ROVEWARE_UDPSOCKET_H_
 
 //mrdt::rovWare Horizon Protocol Definitions
-#include "roveWare_Protocol.h"
+#include "roveWare_ProtocolDEV2016.h"
 
 //C lib
 #include <stdint.h>
@@ -59,10 +59,12 @@ typedef struct rove_udp_socket {
     struct sockaddr_in remote_addr;
     socklen_t          remote_addr_length;
 
+///////////////////////////////////////////TODO
     //2016 command protocol
     uint16_t data_id;
     uint16_t data_byte_cnt;
     uint8_t  data_buffer[MAX_DATA_BYTE_CNT];
+    /////////////////////////////////////////END TODO
 
 }__attribute__((packed)) rove_udp_socket, *rove_udp_socket_ptr;
 

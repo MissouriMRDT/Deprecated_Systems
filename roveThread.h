@@ -1,33 +1,26 @@
 // Missouri Science and Technology Mars Rover Design Team 2015_2016
-//
-// roveDevice_Thread.c
-//
 // jrs6w7@mst.edu
-//
 // instatiates the roveDevice_Thread.c as TI RTOS backed TASK
 //
 // mrdt::roveWare
+#ifndef ROVETHREAD_H_
+#define ROVETHREAD_H_
 
-#ifndef ROVEDEVICE_THREAD_H_
-#define ROVEDEVICE_THREAD_H_
+//MRDT definitions
+#include "roveWare/roveComm.h"
+#include "roveWare/roveControl.h"
+#include "roveWare/roveProtocol.h"
+enum RoveThreadShorthand { FOREVER = 0x01 };
 
 //C lib
 #include <stdio.h>
-
 //CCS TI operating system
 #include <ti/sysbios/knl/Task.h>
-//#include <ti/sysbios/knl/Mailbox.h>
 
 //TODO wtf TaskSelf Warning?
 //#include <ti/ndk/inc/os/osif.h>
-
-//MRDT definitions
-//#include "roveWare/roveWare_TCPSocket.h"
-#include "roveWare/roveWare_UDPSocket.h"
-
-#include "roveWare/roveWare_DynamixelAX12.h"
-
+//#include <ti/sysbios/knl/Mailbox.h>
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
-void roveDeviceThread(UArg arg0, UArg arg1);
+void roveThread(UArg arg0, UArg arg1);
 
-#endif // ROVEDEVICE_THREAD_H_
+#endif // ROVETHREAD_H_

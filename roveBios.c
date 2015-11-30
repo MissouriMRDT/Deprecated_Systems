@@ -1,33 +1,23 @@
 // Missouri Science and Technology Mars Rover Design Team 2015
-//
-// roveBIOS_Init.c
-//
-// Using Texas Instruments Code Composer Studio RTOS stack
-//
-// TODO FALL_2015
-//
-// TODO V1 - for URC 2016 IP Server -> (PWM / UART) Device Controller Template
-//
 // Judah Schad jrs6w7@mst.edu
 //
-// get global handles
-// initializes Texas Instruments drivers
-// configs hardware interface
-// begins the scheduler
-//
-// Texas Instruments:
-//
+// Using Texas Instruments Code Composer Studio RTOS stack
 // SYS/BIOS Kernel
 // RTOS operating system
-// TIVA RTSC config
+// tivaRTSC_JS.cfg
+//
+// initializes Texas Instruments drivers
+// configs hardware interface
+// get global handles
+// begins the scheduler
 //
 // mrdt::roveWare
-#include "roveBIOS_Init.h"
+#include "roveBios.h"
 
 //init main
 int main(void) {
 
-///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG/////////
+/////////////////////////////////////////////BEGIN PRE BIOS STARTUP CONFIG/////////
     //init TI board driver routines
     EK_TM4C1294XL_initGeneral();
     EK_TM4C1294XL_initGPIO();
@@ -72,15 +62,10 @@ int main(void) {
     BIOS_start();
 
     return (0);
-}//endmain RoverMotherboardMain
+}//end main
+//END::PRE BIOS CFG
 
-///////////////END   2016//////MAIN/////////////////////////
-
-
-
-///////////////BEGIN 2016//////PRE BIOS STARTUP CONFIG//////
-
-//Tiva HW IO Module Initialization Wrapper
+/////////////////////////////////////////////////////Tiva HW IO Module Initialization Wrappers
 PWM_Handle rovePwm_Init(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwmHandle;
@@ -97,7 +82,6 @@ PWM_Handle rovePwm_Init(UInt pwm_index, UInt period_in_microseconds) {
     return pwmHandle;
 }//endfnctn rovePwm_Init
 
-//Tiva HW IO Module Initialization Wrapper
 UART_Handle roveUart_Init(UInt uart_index, UInt baud_rate) {
 
     UART_Handle uartHandle;
@@ -115,8 +99,7 @@ UART_Handle roveUart_Init(UInt uart_index, UInt baud_rate) {
 
     return uartHandle;
 }//endfnct roveUart_Init
-
-/*TODO Tiva HW IO Module Initialization Wrapper
+/*TODO
 UInt roveAdc_Init(UInt adc_index, UInt adc_cfg) {
 
     //TODO
@@ -129,5 +112,4 @@ UInt roveAdc_Init(UInt adc_index, UInt adc_cfg) {
 
     return adcHandle;
 }//endfnct roveAdc_Init*/
-
-///////////////END 2016//////PRE BIOS CONFIG//////
+//END::Tiva Hw IO Init Wrappres

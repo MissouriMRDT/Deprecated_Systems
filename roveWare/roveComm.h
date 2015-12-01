@@ -46,7 +46,6 @@ enum RoveCommErrNo {
     , COMMS_PRINTF_NDK_ERRNO = 0x02
 };//end enum
 
-//TODO rove_tcp_socket Socket??
 //fdOpenSession->TaskSelf -> therefore -> need to persist socket args by &
 typedef struct rove_udp_socket {
 
@@ -55,6 +54,7 @@ typedef struct rove_udp_socket {
     struct sockaddr_in local_addr;
     struct sockaddr_in remote_addr;
     socklen_t          remote_addr_length;
+    int32_t fd_error;
 }__attribute__((packed)) rove_udp_socket, *rove_udp_socket_ptr;
 
 typedef struct rovecomm_protocol {
@@ -68,47 +68,6 @@ typedef struct rovecomm_protocol {
 int32_t roveComm_Init(rove_udp_socket* rove_socket);
 int32_t roveGet_UdpMsg(rove_protocol* rove_data, rove_udp_socket* rove_socket);
 int32_t roveParse_UdpMsg(rove_protocol* rove_data, rove_udp_socket* rove_socket);
-
-
-
-
-//TODO Move to HArdwareTiva Utils combine PRINTF_ERRNO and ndk_error or extend errno.h??
-int32_t rovePrintf_Errno(int32_t ndk_error);
-//void rovePrintf_Protocol(rove_protocol* rove_protocol);
-
-
-
-
-//TODO UDP multicast overhead
-//remote subscribers[MAX_SUBSCRIBER_CNT];
-//subscribe to remote ip addresses
-//typedef struct remote {
-//
-//    struct sockaddr_in remote_addr;
-//    socklen_t          remote_addr_length;
-//
-//} __attribute__((packed)) remote, *remote_ptr;
-//bool rovecommAddSubscriber(IPAddress address);
-//void rovecommControl(uint16_t* dataID, uint16_t* size, void* data, IPAddress remote_ip, int remote_port);
-
-
-
-/////////////////////////////////////////BEGIN Custom Library Distributed IP Embedded Network Handler
-//class RoveComm {
-/////////////////////////////////////////BEGIN Advanced Member CCS API Hooks
-//    private:
-        //RoveComm();
-        //~RoveComm();
-        //RoveComm private functions
-//::END CCS API Hooks
-/////////////////////////////////////////BEGIN Beginner Member Arduino Library API
-       //TODO public:
-       // void begin();
-       // void read();
-       // void write();
-       //rove_udp_socket rove_comm;
-//};//end class
-
-
+int32_t roveCatch_NdkErrno(int32_t ndk_error);
 
 #endif // ROVEWARE_ROVECOMM_H_

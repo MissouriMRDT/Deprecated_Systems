@@ -8,14 +8,6 @@
 //
 // mrdt::rovWare
 #include "roveThread.h"
-///////////////BEGIN 2016//////DEVICE THREAD//////////////
-void roveThread(UArg arg0, UArg arg1) {
-
-    //developement notes:
-    //TODO eliminate struct patterns in favor of local variables?
-    //Or just go other way and add C++ Wrappers Inside of CCS?
-    //straight embedded static function jump table lookups?
-
 
 //TEST WHEEL mode
     //////////speed schema -> rpm
@@ -39,57 +31,59 @@ void roveThread(UArg arg0, UArg arg1) {
             //unit:    0.29 degree
             //ie: angle = 1024 is 300 degree
 
+//Judah Dev16 Shorthand
+#define LOCAL_DEVICE_IP_ADDRESS "192.168.1.2"
 
-//DEV16 notes
-    //WARNING!! in Wheel Mode, the savage_electronics::Dynamixel.move() function has no effect only Dynamixel.turn() works
-    //joint_position goal angle in "wheel mode" is always seen as zero = infinite and ONLY the goal speed matters
+enum JudahDev16ThreadCfg {
+
+    LEFT_WRIST_ID = 0x00
+    , LWRST_TIVA_PIN = 0x00
+    , RIGHT_WRIST_ID = 0x01
+    , RWRST_TIVA_PIN = 0x01
+    , DYNA_WRITE_ONLY = 0
+};//end enum
+
+///////////////BEGIN 2016//////DEVICE THREAD//////////////
+void roveThread(UArg arg0, UArg arg1) {
+
     printf("Init roveThread Arm Dyna Tester\n\n\n");
 
 ///////////////BEGIN 2016//////NETWORKING///////////////////
+
     //open a tiva ndk socket session in this task stack
     fdOpenSession( TaskSelf() );
 
-/////////////////TODO base_station.local_ip_addr.port.subscribers[ip_addrs++] = rovecommInit(LOCAL_IP_ADDRESS, PORT, &base_station, state);
-
-//Judah Dev16 Shorthand
-#define LOCAL_DEVICE_IP_ADDRESS "192.168.1.2"
-#define LEFT_WRIST_ID 0x00
-#define LWRST_TIVA_PIN 0x00
-#define RIGHT_WRIST_ID 0x01
-#define RWRST_TIVA_PIN 0x01
-#define DYNA_WRITE_ONLY 0
-
+/////////////////TODO:
+    rove_udp_socket rove_comm_dev16;
     //TODO args :: init roveComm
-    rove_udp_socket roveCommDev16;
-    roveComm_Init(&roveCommDev16);
+    roveComm_Init(&rove_comm_dev16);
+    //TODO base_station.local_ip_addr.port.subscribers[ip_addrs++] = rovecommInit(LOCAL_IP_ADDRESS, PORT, &base_station, state);
 
 ///////////////BEGIN 2016//////Dynamixel Serial//////////////
-    //init device protocol
-    rove_protocol roboWristDev16;
 
     rove_dyna_serial left_wrist;
     left_wrist.error_flag = roveDynamixel_Init(&left_wrist, LEFT_WRIST_ID, LWRST_TIVA_PIN, DYNA_WRITE_ONLY);
+
     if(left_wrist.error_flag){
-        //system abort
+        printf("Dev16 Error roveDynamixel_Init left_wrist!");
     }//end if
 
     rove_dyna_serial right_wrist;
-    left_wrist.error_flag = roveDynamixel_Init(&left_wrist, RIGHT_WRIST_ID, RWRST_TIVA_PIN, DYNA_WRITE_ONLY);
-    if(left_wrist.error_flag){
-       //system abort
+    right_wrist.error_flag = roveDynamixel_Init(&right_wrist, RIGHT_WRIST_ID, RWRST_TIVA_PIN, DYNA_WRITE_ONLY);
+
+    if(right_wrist.error_flag){
+        printf("Dev16 Error roveDynamixel_Init right_wrist!");
     }//end if
 
-    //BOTH wheel AND joint mode AX12:(WHEEL GoalSpeed :0~2047/0X7FF unit:0.1%):(JOINT GoalSpeed: 0~1023/0X3FF unit: 0.111rpm)
     int16_t speed = 0;
-
-    //ONLY joint mode AX12:(JOINT GoalPosition:0~1023/0x3FF) at 0.29 degree
     int16_t angle = 0;
+    rove_protocol rove_control_dev16;
 
 ///////////////BEGIN 2016//////MOTOR TEST ROUTINE/////////////
     while (FOREVER) {
 
 //TODO Base Station define Data Id's Cmd Proto Integration
-        if( roveGet_UdpMsg(&roboWristDev16, &roveCommDev16) < COMMS_SINGLE_BYTE ) {
+        if( roveGet_UdpMsg(&rove_control_dev16, &rove_comm_dev16) < COMMS_SINGLE_BYTE ) {
             printf("ZERO bytes from getUdpMsg\n");
         }//end if
 
@@ -208,12 +202,3 @@ void roveThread(UArg arg0, UArg arg1) {
 
 }//endfnctnTask
 //::END THREAD
-
-///////////////////////////////ADDENDUM///////// NOTES :TODO??
-//access the global pwm handles
-//extern PWM_Handle pwm_1;
-//extern PWM_Handle pwm_2;
-//extern PWM_Handle pwm_3;
-//extern PWM_Handle pwm_4;
-//extern PWM_Handle pwm_5;
-//extern PWM_Handle pwm_6;

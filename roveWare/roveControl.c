@@ -3,12 +3,16 @@
 //
 // Control Utilities for URC 2016
 //
+// speed used in BOTH wheel AND joint mode AX12:(WHEEL GoalSpeed :0~2047/0X7FF unit:0.1%):(JOINT GoalSpeed: 0~1023/0X3FF unit: 0.111rpm)
+//
+// angle ONLY used in joint mode AX12:(JOINT GoalPosition:0~1023/0x3FF) at 0.29 degree
+//
 // mrdt::rovWare
 #include "roveControl.h"
 
+//construct a motor
 int32_t roveDynamixel_Init(rove_dyna_serial* dynamixel, uint8_t dyna_id, int32_t tiva_pin, uint8_t write_only_flag ){
 
-    //constructor fnctn
     dynamixel->dynamixel_id = dyna_id;
     dynamixel->tiva_pin = tiva_pin;
     dynamixel->write_only_flag = write_only_flag;
@@ -24,10 +28,13 @@ int32_t roveDynamixel_HandleAxREPLY(rove_dyna_serial* dynamixel, uint8_t* data_b
     //TODO system_abort :: delay for sys abort console logging?
     printf("Undhandled error reply: %d dynamixel_id: %d tiva_pin: %d", dynamixel->read_reply, dynamixel->dynamixel_id, dynamixel->tiva_pin);
 
-    //currently tis fnctn debug prints console error but fnctn still return success stub
+//currently tis fnctn debug prints console error but fnctn still return success stub
     return dynamixel->read_reply = AX_ERROR_FREE;
 }//end_if
 
+
+
+//TODO REED:
 int32_t roveDynamixel_ParseReplyInt32MSG(uint8_t* data_buffer) {
 
     switch( data_buffer[0] ){
@@ -42,36 +49,10 @@ int32_t roveDynamixel_ParseReplyInt32MSG(uint8_t* data_buffer) {
             return DEV16_NO_INSTRUCTION;
     }//end switch
 }//end fnctn
-//::End Quick Dev utilities:
-//end TODO REED
 
 
 
-
-
-//TODO Satterfield/Bischoff:  TODO-> Proofread/Edit/Maintain Model Differences: Specs
-
-    //dynamixel servos have different configurable "modes" of operation depending on series
-    //the range and unit of CW/CCW Angle Limits dictate how positon and speed are interperted by operation mode
-    //position and speed command range and unit scale will vary or have no effect with different operation mode
-
-
-    //TODO AX12 SOME specs:
-        //AX12 has two modes
-            //10bit Wheel -> 0-1023 CCW, 1024 - 2047 CW
-            //no amperage control??
-
-    //TODO MX12 SOME specs
-        //MX12 has three modes
-            //12bit Wheel -> 0-2047 CCW, 2048 - 4095 CW
-            //Goal_punch_reg and acceleration_reg control provides amperage control??
-
-//TODO Satterfield/Bischof Validate Modes: HERE:
-    //http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/ax_series/dxl_ax_actuator.htm
-
-///////////////////////////////////////////////////////Begin WHEEL Mode CFG/CMD
-//wheel mode can be used for wheel-type operation robots since motors of the robot will spin infinitely at angle zero
-//Wheel Mode : set to both Angle Limits to zero. The motor spins endlessly
+//Wheel Mode: set to both Angle Limits to zero. The motor spins endlessly
 int32_t roveDynamixel_SetWheelModeCFG(rove_dyna_serial* dynamixel) {
 
     //wheel Mode both are 0
@@ -99,6 +80,9 @@ int32_t roveDynamixel_SetWheelModeCFG(rove_dyna_serial* dynamixel) {
     return roveDynamixel_HandleAxREPLY(dynamixel, write_msg_data);
 }//end fnctn
 
+
+
+//10bit Wheel -> 0-1023 CCW, 1024 - 2047 CW
 int32_t roveDynamixel_SpinWheelCMD(rove_dyna_serial* dynamixel, int16_t wheel_speed) {
 
     //handle negative speed scale to absolute value
@@ -134,13 +118,10 @@ int32_t roveDynamixel_ReadWheelREQ(rove_dyna_serial* dynamixel) {
     //return_roveDynamixel_ReadRegistersREQ(dynamixel_id->dynamixel_id, AX12_SPEED_REGISTER, TWO_BYTES);
     return AX_ERROR;
 }//end fnctn
-//::End WHEEL Mode
 
 
-/////////////////////////////////////////////////////Begin JOINT Mode CFG/CMD
 
-//joint mode can be used for multi-joint robot since the joint mode can be controlled to go at specific speed to specific angles
-//Joint Mode : set to Angle Limit anything other than zero??
+//Joint Mode : set to Angle Limits anything other than zero
 int32_t roveDynamixel_SetJointModeCFG(rove_dyna_serial* dynamixel) {
 
     //TOD how to ctually set set speed zero? homing function function goal rotation to zero?
@@ -175,6 +156,8 @@ int32_t roveDynamixel_SetJointModeCFG(rove_dyna_serial* dynamixel) {
     }//end if
     return dynamixel->error_flag;
 }//end fnctn
+
+
 
 int32_t roveDynamixel_RotateJointCMD(rove_dyna_serial* dynamixel, uint16_t joint_position, uint16_t joint_speed) {
 

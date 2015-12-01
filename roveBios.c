@@ -18,16 +18,19 @@
 int main(void) {
 
 /////////////////////////////////////////////BEGIN PRE BIOS STARTUP CONFIG/////////
+
     //init TI board driver routines
     EK_TM4C1294XL_initGeneral();
     EK_TM4C1294XL_initGPIO();
     EK_TM4C1294XL_initEMAC();
     EK_TM4C1294XL_initUART();
     EK_TM4C1294XL_initPWM();
-    //Board_initWatchdog();
+
+    //TODO Board_initWatchdog();
     printf("\n\nInit TIVA EK_1294_XL\n\n");
 
 //DO NOT INIT UART_0 or UART_1-> hardware support conflict: HardwareResourecs/EK_TM4C1294XL.h
+
     //hardcoding a 57600 Baud Rate in Tiva UART module for dynamixel
     uart_2 = roveUart_Init(2, 57600);
     uart_3 = roveUart_Init(3, 57600);
@@ -38,6 +41,7 @@ int main(void) {
     printf("Init UARTS\n\n");
 
 //DO NOT INIT PWM_0 -> ethernet support conflict: HardwareResourecs/EK_TM4C1294XL.h
+
     //hardcoding 20,000 Period for Tiva PWM module
     pwm_1 = rovePwm_Init(1, 20000);
     pwm_2 = rovePwm_Init(2, 20000);
@@ -48,7 +52,7 @@ int main(void) {
     printf("Init PWM\n\n");
 
 //TODO watchdog = rove_init_watchdog(Board_WATCHDOG0);
-    //hardcoding ? Tiva ADC module
+    //TODO Tiva ADC module
     //adc_1 = roveAdc_Init(1, ?);
     //adc_2 = roveAdc_Init(2, ?);
     //adc_3 = roveAdc_Init(3, ?);
@@ -99,6 +103,7 @@ UART_Handle roveUart_Init(UInt uart_index, UInt baud_rate) {
 
     return uartHandle;
 }//endfnct roveUart_Init
+
 /*TODO
 UInt roveAdc_Init(UInt adc_index, UInt adc_cfg) {
 

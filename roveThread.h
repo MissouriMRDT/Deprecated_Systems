@@ -11,7 +11,9 @@
 #include "roveWare/roveControl.h"
 #include "roveWare/roveProtocol.h"
 
-enum RoveThreadShorthand { FOREVER = 0x01 };
+enum RoveThreadShorthand {
+    FOREVER = 0x01
+};//end enum
 
 //C lib
 #include <stdio.h>
@@ -22,6 +24,7 @@ enum RoveThreadShorthand { FOREVER = 0x01 };
 //#include <ti/ndk/inc/os/osif.h>
 //#include <ti/sysbios/knl/Mailbox.h>
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
-void roveThread(UArg arg0, UArg arg1);
+
+void roveThread(UArg arg0 , UArg arg1);//end fnctn
 
 #endif // ROVETHREAD_H_

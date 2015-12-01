@@ -13,6 +13,7 @@
 //mrdt definitions
 #include "roveTiva1294.h"
 
+//TODO REED?:
 //TODO MRDT shorthand
 #define INTERFACE_PROTOCOL_SPEEDS 1024
 
@@ -22,6 +23,7 @@ enum RoveWristDev16ShortHand {
     , DEV16_TEST_INSTRUCTION =  0x01
     , DEV16_TEST_ERROR =        0x02
 };//end enum
+
 
 enum RoveDynaAxSerialMsgCfg {
 
@@ -72,8 +74,9 @@ typedef struct rove_dyna_serial {
 
     //Dynamixel AX12
     uint8_t dynamixel_id;
-    uint8_t tiva_pin;
-    uint8_t error_flag;
+    roveUart_Handle uart;
+    roveGpio_Handle tri_state_buffer;
+    int32_t error_flag;
 
     //request/reply: tossin robotics dynamixel serial response model
     uint8_t write_only_flag;
@@ -82,25 +85,63 @@ typedef struct rove_dyna_serial {
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
 
 //constructor
-int32_t roveDynamixel_Init(rove_dyna_serial* dynamixel, uint8_t dyna_id, int32_t tiva_pin, uint8_t read_reply_flag );
+int32_t roveDynamixel_Init(
+
+        rove_dyna_serial* dynamixel
+        , uint8_t dyna_id
+        , roveUart_Handle serial_port
+        , roveGpio_Handle* tri_state_pin
+        , uint8_t write_only_flag
+);//end fnctn
 
 //WHEEL Mode : set to "AngleLimit" to anything other than zero
-int32_t roveDynamixel_SetWheelModeCFG(rove_dyna_serial* dynamixel);
-int32_t roveDynamixel_SpinWheelCMD(rove_dyna_serial* dynamixel, int16_t wheel_speed);
+int32_t roveDynamixel_SetWheelModeCFG( rove_dyna_serial* dynamixel);
+
+int32_t roveDynamixel_SpinWheelCMD(
+
+        rove_dyna_serial* dynamixel
+        , int16_t wheel_speed
+);//end fnctn
+
 int32_t roveDynamixel_ReadWheelREQ(rove_dyna_serial* dynamixel);
 
 //JOINT Mode : set to "AngleLimit" to anything other than zero
 int32_t roveDynamixel_SetJointModeCFG(rove_dyna_serial* dynamixel);
-int32_t roveDynamixel_RotateJointCMD(rove_dyna_serial* dynamixel, uint16_t joint_position, uint16_t joint_speed);
+
+int32_t roveDynamixel_RotateJointCMD(
+
+        rove_dyna_serial* dynamixel
+        , uint16_t joint_position
+        , uint16_t joint_speed
+);//end fnctn
+
 int32_t roveDynamixel_ReadJointREQ(rove_dyna_serial* dynamixel);
 
 //Handle Dyna Serial Comms
-int32_t roveDynamixel_WritePacketMSG(rove_dyna_serial* dynamixel, uint8_t* write_msg_data, int32_t msg_data_byte_count, uint8_t read_reply_flag);
-int32_t roveDynamixel_ReadPacketMSG(uint8_t dynamixel_id);
+int32_t roveDynamixel_WritePacketMSG(
+
+        rove_dyna_serial* dynamixel
+        , uint8_t* write_msg_data
+        , int32_t msg_data_byte_count
+        , uint8_t read_reply_flag
+);//end fnctn
+
+int32_t roveDynamixel_ReadPacketMSG(rove_dyna_serial* dynamixel);
+
 int32_t roveDynamixel_ParseReplyInt32MSG(uint8_t* data_buffer);
 
 //developement hook for empty stub debug:
-int32_t roveDynamixel_HandleDynaREPLY(rove_dyna_serial* dynamixel_id, uint8_t* data_buffer);
-int32_t roveDynamixel_ReadRegistersREQ(rove_dyna_serial* dynamixel_id, uint8_t dyna_registers_addr, uint8_t dyna_registers_byte_cnt);
+int32_t roveDynamixel_HandleDynaREPLY(
+
+        rove_dyna_serial* dynamixel_id
+        , uint8_t* data_buffer
+);//end fnctn
+
+int32_t roveDynamixel_ReadRegistersREQ(
+
+        rove_dyna_serial* dynamixel_id
+        , uint8_t dyna_registers_addr
+        , uint8_t dyna_registers_byte_cnt
+);//end fnctn
 
 #endif // ROVEWARE_CNTRLUTILS_H_

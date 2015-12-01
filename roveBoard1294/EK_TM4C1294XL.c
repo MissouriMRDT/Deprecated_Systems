@@ -262,32 +262,17 @@ void gpioButtonFxn1(void);
 
 /* GPIO configuration structure */
 const GPIO_HWAttrs gpioHWAttrs[EK_TM4C1294XL_GPIOCOUNT] = {
-	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
-	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
 
-	// EK_TM4C1294XL_PH0 : U3_MUX_S0
+    //roveWare16 Custom Cfg
 	{GPIO_PORTH_BASE, GPIO_PIN_0, GPIO_OUTPUT},
-	// EK_TM4C1294XL_PH1 : U3_MUX_S1
 	{GPIO_PORTH_BASE, GPIO_PIN_1, GPIO_OUTPUT},
-
-	// EK_TM4C1294XL_PM6 : U4_MUX_S0
 	{GPIO_PORTM_BASE, GPIO_PIN_6, GPIO_OUTPUT},
-	// EK_TM4C1294XL_PM7 : U4_MUX_S1
 	{GPIO_PORTM_BASE, GPIO_PIN_7, GPIO_OUTPUT},
-
-	// EK_TM4C1294XL_PL0 : U5_MUX_S0
 	{GPIO_PORTL_BASE, GPIO_PIN_0, GPIO_OUTPUT},
-	// EK_TM4C1294XL_PL1 : U5_MUX_S1
 	{GPIO_PORTL_BASE, GPIO_PIN_1, GPIO_OUTPUT},
-
-	// EK_TM4C1294XL_PK2 : U6_MUX_S0
 	{GPIO_PORTK_BASE, GPIO_PIN_2, GPIO_OUTPUT},
-	// EK_TM4C1294XL_PK3 : U6_MUX_S1
 	{GPIO_PORTK_BASE, GPIO_PIN_3, GPIO_OUTPUT},
-
-	// EK_TM4C1294XL_PE0 : U7_MUX_S0
 	{GPIO_PORTE_BASE, GPIO_PIN_0, GPIO_OUTPUT},
-	// EK_TM4C1294XL_PE1 : U7_MUX_S1
 	{GPIO_PORTE_BASE, GPIO_PIN_1, GPIO_OUTPUT},
 };
 
@@ -300,6 +285,8 @@ const GPIO_Callbacks EK_TM4C1294XL_gpioPortJCallbacks = {
 };
 
 const GPIO_Config GPIO_config[] = {
+
+    //roveWare16 Custom Cfg
     {&gpioHWAttrs[0]},
     {&gpioHWAttrs[1]},
 	{&gpioHWAttrs[2]},
@@ -318,23 +305,11 @@ const GPIO_Config GPIO_config[] = {
  */
 void EK_TM4C1294XL_initGPIO(void)
 {
-	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
-	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
-
-	// EK_TM4C1294XL_PH0 : U3_MUX_S0
-	// EK_TM4C1294XL_PH1 : U3_MUX_S1
+    //roveWare16 Custom Cfg
 	GPIOPinTypeGPIOOutput(GPIO_PORTH_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-	// EK_TM4C1294XL_PM6 : U4_MUX_S0
-	// EK_TM4C1294XL_PM7 : U4_MUX_S1
 	GPIOPinTypeGPIOOutput(GPIO_PORTM_BASE, GPIO_PIN_6 | GPIO_PIN_7);
-	// EK_TM4C1294XL_PL0 : U5_MUX_S0
-	// EK_TM4C1294XL_PL1 : U5_MUX_S1
 	GPIOPinTypeGPIOOutput(GPIO_PORTL_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-	// EK_TM4C1294XL_PK2 : U6_MUX_S0
-	// EK_TM4C1294XL_PK3 : U6_MUX_S1
 	GPIOPinTypeGPIOOutput(GPIO_PORTK_BASE, GPIO_PIN_2 | GPIO_PIN_3);
-	// EK_TM4C1294XL_PE0 : U7_MUX_S0
-	// EK_TM4C1294XL_PE1 : U7_MUX_S1
 	GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 
     /* Once GPIO_init is called, GPIO_config cannot be changed */
@@ -413,10 +388,9 @@ PWMTiva_Object pwmTivaObjects[EK_TM4C1294XL_PWMCOUNT];
 
 /* PWM configuration structure */
 const PWMTiva_HWAttrs pwmTivaHWAttrs[EK_TM4C1294XL_PWMCOUNT] = {
+
+    //roveWare16 Custom Cfg
     {PWM0_BASE, PWM_OUT_0, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN}
-
-    //Judah Thinks add the below 1-6:
-
     ,{PWM0_BASE, PWM_OUT_1, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN}
     ,{PWM0_BASE, PWM_OUT_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN}
     ,{PWM0_BASE, PWM_OUT_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_DBG_RUN}
@@ -429,8 +403,7 @@ const PWMTiva_HWAttrs pwmTivaHWAttrs[EK_TM4C1294XL_PWMCOUNT] = {
 const PWM_Config PWM_config[] = {
     {&PWMTiva_fxnTable, &pwmTivaObjects[0], &pwmTivaHWAttrs[0]},
 
-    //Judah Thinks to add the below 1-6:
-
+    //roveWare16 Custom Cfg
     {&PWMTiva_fxnTable, &pwmTivaObjects[1], &pwmTivaHWAttrs[1]},
     {&PWMTiva_fxnTable, &pwmTivaObjects[2], &pwmTivaHWAttrs[2]},
     {&PWMTiva_fxnTable, &pwmTivaObjects[3], &pwmTivaHWAttrs[3]},
@@ -460,26 +433,20 @@ void EK_TM4C1294XL_initPWM(void)
      * below will disable Ethernet functionality.
      */
 
+    //roveWare16 Custom Cfg
     //Judah thinks uncomment the PF0 just DON'T UNLOCK
-
-//    GPIOPinConfigure(GPIO_PF0_M0PWM0);
-//    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_0);
-
+    GPIOPinConfigure(GPIO_PF0_M0PWM0);
+    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_0);
     GPIOPinConfigure(GPIO_PF1_M0PWM1);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1);
-
     GPIOPinConfigure(GPIO_PF2_M0PWM2);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_2);
-
     GPIOPinConfigure(GPIO_PF3_M0PWM3);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_3);
-
     GPIOPinConfigure(GPIO_PG0_M0PWM4);
     GPIOPinTypePWM(GPIO_PORTG_BASE, GPIO_PIN_0);
-
     GPIOPinConfigure(GPIO_PG1_M0PWM5);
     GPIOPinTypePWM(GPIO_PORTG_BASE, GPIO_PIN_1);
-
     GPIOPinConfigure(GPIO_PK4_M0PWM6);
     GPIOPinTypePWM(GPIO_PORTK_BASE, GPIO_PIN_4);
 
@@ -721,17 +688,21 @@ UARTTiva_Object uartTivaObjects[EK_TM4C1294XL_UARTCOUNT];
 
 /* UART configuration structure */
 const UARTTiva_HWAttrs uartTivaHWAttrs[EK_TM4C1294XL_UARTCOUNT] = {
-    {UART0_BASE, INT_UART0}, /* EK_TM4C1294XL_UART0 */
-    {UART1_BASE, INT_UART1}, /* EK_TM4C1294XL_UART1 */
-	{UART2_BASE, INT_UART2}, /* EK_TM4C1294XL_UART1 */
-	{UART3_BASE, INT_UART3}, /* EK_TM4C1294XL_UART1 */
-	{UART4_BASE, INT_UART4}, /* EK_TM4C1294XL_UART1 */
-	{UART5_BASE, INT_UART5}, /* EK_TM4C1294XL_UART1 */
-	{UART6_BASE, INT_UART6}, /* EK_TM4C1294XL_UART1 */
-	{UART7_BASE, INT_UART7}, /* EK_TM4C1294XL_UART1 */
+
+    //roveWare16 Custom Cfg
+    {UART0_BASE, INT_UART0},
+    {UART1_BASE, INT_UART1},
+	{UART2_BASE, INT_UART2},
+	{UART3_BASE, INT_UART3},
+	{UART4_BASE, INT_UART4},
+	{UART5_BASE, INT_UART5},
+	{UART6_BASE, INT_UART6},
+	{UART7_BASE, INT_UART7},
 };
 
 const UART_Config UART_config[] = {
+
+    //roveWare16 Custom Cfg
     {&UARTTiva_fxnTable, &uartTivaObjects[0], &uartTivaHWAttrs[0]},
     {&UARTTiva_fxnTable, &uartTivaObjects[1], &uartTivaHWAttrs[1]},
 	{&UARTTiva_fxnTable, &uartTivaObjects[2], &uartTivaHWAttrs[2]},
@@ -749,49 +720,35 @@ const UART_Config UART_config[] = {
  */
 void EK_TM4C1294XL_initUART(void)
 {
-    /* Enable and configure the peripherals used by the UART0 */
+    //roveWare16 Custom Cfg
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
     GPIOPinConfigure(GPIO_PA0_U0RX);
     GPIOPinConfigure(GPIO_PA1_U0TX);
     GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-
-    /* UART1 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART1);
 	GPIOPinConfigure(GPIO_PB0_U1RX);
 	GPIOPinConfigure(GPIO_PB1_U1TX);
 	GPIOPinTypeUART(GPIO_PORTB_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-
-	/* UART2 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART2);
 	GPIOPinConfigure(GPIO_PA6_U2RX);
 	GPIOPinConfigure(GPIO_PA7_U2TX);
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_6 | GPIO_PIN_7);
-
-	/* UART3 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART3);
 	GPIOPinConfigure(GPIO_PA4_U3RX);
 	GPIOPinConfigure(GPIO_PA5_U3TX);
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_4 | GPIO_PIN_5);
-
-	/* UART4 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART4);
 	GPIOPinConfigure(GPIO_PK0_U4RX);
 	GPIOPinConfigure(GPIO_PK1_U4TX);
 	GPIOPinTypeUART(GPIO_PORTK_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-
-	/* UART5 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART5);
 	GPIOPinConfigure(GPIO_PC6_U5RX);
 	GPIOPinConfigure(GPIO_PC7_U5TX);
 	GPIOPinTypeUART(GPIO_PORTC_BASE, GPIO_PIN_6 | GPIO_PIN_7);
-
-	/* UART6 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART6);
 	GPIOPinConfigure(GPIO_PP0_U6RX);
 	GPIOPinConfigure(GPIO_PP1_U6TX);
 	GPIOPinTypeUART(GPIO_PORTP_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-
-	/* UART7 */
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7);
 	GPIOPinConfigure(GPIO_PC4_U7RX);
 	GPIOPinConfigure(GPIO_PC5_U7TX);
@@ -913,13 +870,8 @@ WatchdogTiva_Object watchdogTivaObjects[EK_TM4C1294XL_WATCHDOGCOUNT];
 
 /* Watchdog configuration structure */
 const WatchdogTiva_HWAttrs watchdogTivaHWAttrs[EK_TM4C1294XL_WATCHDOGCOUNT] = {
-    /* Error management timeline
-     *
-     * 0 seconds - RTOS picks up basic stuff
-     * 2 seconds - We attempt to repair connection and E-stop
-     * 10 seconds - If the error is not resolved by this point, reset
-     *  ^----- Defined here
-     */
+
+     //roveWare16 Custom Cfg
     {WATCHDOG0_BASE, INT_WATCHDOG, 800000000},
 };
 

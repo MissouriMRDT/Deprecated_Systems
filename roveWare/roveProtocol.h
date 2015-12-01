@@ -535,3 +535,243 @@ int16_t RoveComm:: write(){
 //extern PWM_Handle pwm_4;
 //extern PWM_Handle pwm_5;
 //extern PWM_Handle pwm_6;*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*BEGIN JUDAH DEV////////////////////////Begin Dynamixel Runtime CFG and Telem REQUEST ROUTINES
+void roveDynamixel_PingREQ(uint8_t dynamixel_id) {
+
+    char msg_data[]={AX12_PING_REQUEST};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn roveDynamixel_PingREQ
+
+int moving(unsigned char ID){
+
+    char data[]={AX_READ_DATA, AX_MOVING, AX_BYTE_READ_ONE};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int readVoltage(unsigned char ID){
+
+    char data[]={AX_READ_DATA, AX_PRESENT_VOLTAGE, AX_BYTE_READ_ONE};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int readLoad(unsigned char ID){
+
+    char data[]={AX_READ_DATA, AX_PRESENT_LOAD_L, AX_BYTE_READ_TWO};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int readTemperature(unsigned char ID){
+
+    char data[]={AX_READ_DATA, AX_PRESENT_TEMPERATURE, AX_BYTE_READ_ONE};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int RWStatus(unsigned char ID)
+{
+    char data[]={AX_READ_DATA, AX_REGISTERED_INSTRUCTION, AX_BYTE_READ_ONE};
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void roveDynamixel_TorqueStatusREQ(uint8_t dynamixel_id) {
+    char msg_data[]=
+
+        {AX_WRITE_DATA
+        , AX_TORQUE_ENABLE
+        WHAT?, (char)Status};
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void roveDynamixel_LedStatusREQ(uint8_t dynamixel_id) {
+    char data[]={AX_WRITE_DATA, AX_LED, (char)Status};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+//Begin Runtime Set Dynamixel Config
+
+//What does this one do??
+void reset(uint8_t dynamixel_id) {
+
+    uint8_t data[]={AX_RESET};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void action() {
+
+    char data[]={AX_ACTION};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void roveDynamixel_SetIdCFG(uint8_t old_dynamixel_id, uint8_t new_dynamixel_id) {
+
+    char msg_data[]=
+        {AX_WRITE_DATA
+        , old_dynamixel_id
+        , new_dynamixel_id};
+
+     roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void roveDynamixel_SetBaudRateCFG(uint8_t old_dynamixel_id, uint8_t new_dynamixel_id) {
+
+    unsigned char Baud_Rate = (2000000/baud) - 1;
+    char data[]={AX_WRITE_DATA, AX_BAUD_RATE, Baud_Rate};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setTempLimit(unsigned char ID, unsigned char Temperature){
+
+    char data[]={AX_WRITE_DATA, AX_LIMIT_TEMPERATURE, Temperature};
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setVoltageLimit(unsigned char ID, unsigned char DVoltage, unsigned char UVoltage){
+
+    char data[]={AX_WRITE_DATA, AX_DOWN_LIMIT_VOLTAGE, DVoltage, UVoltage};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setAngleLimit(unsigned char ID, int CWLimit, int CCWLimit) {
+
+    char CW_H,CW_L,CCW_H,CCW_L;
+    CW_H = CWLimit >> 8;
+    CW_L = CWLimit;
+    CCW_H = CCWLimit >> 8;
+    CCW_L = CCWLimit;
+    //TODO: Not sure if the first byte should be AX_CCW_CW_LENGTH or AX_VL_LENGTH
+
+    char data[]={AX_WRITE_DATA, AX_CW_ANGLE_LIMIT_L, CW_L, CW_H, AX_CCW_ANGLE_LIMIT_L, CCW_L, CCW_H};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setMaxTorque(unsigned char ID, int MaxTorque) {
+    char MaxTorque_H,MaxTorque_L;
+    MaxTorque_H = MaxTorque >> 8;
+    MaxTorque_L = MaxTorque;
+    char data[]={AX_WRITE_DATA, AX_MAX_TORQUE_L, MaxTorque_L, MaxTorque_H};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setSRL(unsigned char ID, DynamixelStatusReturnLevel SRL) {
+
+    char data[]={AX_WRITE_DATA, AX_RETURN_LEVEL, (char)SRL};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setRDT(unsigned char ID, unsigned char RDT) {
+
+    char data[]={AX_WRITE_DATA, AX_RETURN_DELAY_TIME, (RDT/2)};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+
+int setLEDAlarm(unsigned char ID, unsigned char LEDAlarm) {
+
+    char data[]={AX_WRITE_DATA, AX_ALARM_LED, LEDAlarm};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setShutdownAlarm(unsigned char ID, unsigned char SALARM) {
+
+    //TODO: Not sure of packet structure with AX_ALARM_LED and AX_WRITE_DATA
+    char data[]={AX_WRITE_DATA, AX_ALARM_SHUTDOWN, SALARM};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setCMargin(unsigned char ID, unsigned char CWCMargin, unsigned char CCWCMargin) {
+
+    char data[]={AX_WRITE_DATA, AX_CW_COMPLIANCE_MARGIN, CWCMargin, AX_CCW_COMPLIANCE_MARGIN, CCWCMargin};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setCSlope(unsigned char ID, unsigned char CWCSlope, unsigned char CCWCSlope) {
+
+    char data[]={AX_WRITE_DATA, AX_CW_COMPLIANCE_SLOPE, CWCSlope, CCWCSlope};// AX_CCW_COMPLIANCE_SLOPE
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int setPunch(unsigned char ID, int Punch) {
+
+    char Punch_H,Punch_L;
+    Punch_H = Punch >> 8;
+    Punch_L = Punch;
+    char data[]={AX_WRITE_DATA, AX_PUNCH_L, Punch_L, Punch_H};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+int lockRegister(unsigned char ID) {
+
+    char data[]={AX_WRITE_DATA, AX_LOCK, LOCK};
+
+    roveDynamixel_WritePacketMSG(dynamixel_id, msg_data, sizeof(msg_data));
+    return roveDynamixel_ReadPacketMSG(dynamixel_id);
+}//end fnctn
+
+void rovePrintf_ByteBuffer(uint8_t* printf_buffer, int32_t bytes_to_printf) {
+
+    int printf_cnt = 0;
+    printf("Buffer holds: ");
+
+    while (printf_cnt < bytes_to_printf) {
+        printf(" %d", printf_buffer[printf_cnt]);
+        printf_cnt++;
+    }//end while
+
+    printf("\n\n");
+    return;
+}//endfnctn*/

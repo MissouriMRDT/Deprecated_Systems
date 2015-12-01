@@ -34,14 +34,15 @@
 //Judah Dev16 Shorthand
 #define LOCAL_DEVICE_IP_ADDRESS "192.168.1.2"
 
-enum JudahDev16ThreadCfg {
+#define LEFT_WRIST_ID 0x00
+#define RIGHT_WRIST_ID 0x00
 
-    LEFT_WRIST_ID = 0x00
-    , LWRST_TIVA_PIN = 0x00
-    , RIGHT_WRIST_ID = 0x01
-    , RWRST_TIVA_PIN = 0x01
-    , DYNA_WRITE_ONLY = 0
-};//end enum
+#define DYNA_WRITE_ONLY = 0
+
+roveUart_Handle FAKE_UART;
+roveGpio_Handle* FAKE_GPIO;
+
+
 
 ///////////////BEGIN 2016//////DEVICE THREAD//////////////
 void roveThread(UArg arg0, UArg arg1) {
@@ -54,45 +55,45 @@ void roveThread(UArg arg0, UArg arg1) {
     fdOpenSession( TaskSelf() );
 
 /////////////////TODO:
-    rove_udp_socket rove_comm_dev16;
+    rove_udp_socket RoveCommDec16;
     //TODO args :: init roveComm
-    roveComm_Init(&rove_comm_dev16);
+    roveComm_Init(&RoveCommDec16);
     //TODO base_station.local_ip_addr.port.subscribers[ip_addrs++] = rovecommInit(LOCAL_IP_ADDRESS, PORT, &base_station, state);
 
 ///////////////BEGIN 2016//////Dynamixel Serial//////////////
 
-    rove_dyna_serial left_wrist;
-    left_wrist.error_flag = roveDynamixel_Init(&left_wrist, LEFT_WRIST_ID, LWRST_TIVA_PIN, DYNA_WRITE_ONLY);
+    rove_dyna_serial LeftWrist;
+    LeftWrist.error_flag = roveDynamixel_Init(&LeftWrist, LEFT_WRIST_ID, FAKE_UART, FAKE_GPIO, DYNA_WRITE_ONLY);
 
-    if(left_wrist.error_flag){
-        printf("Dev16 Error roveDynamixel_Init left_wrist!");
+    if(LeftWrist.error_flag){
+        printf("Dev16 Error roveDynamixel_Init LeftWrist!");
     }//end if
 
-    rove_dyna_serial right_wrist;
-    right_wrist.error_flag = roveDynamixel_Init(&right_wrist, RIGHT_WRIST_ID, RWRST_TIVA_PIN, DYNA_WRITE_ONLY);
+    rove_dyna_serial RightWrist;
+    RightWrist.error_flag = roveDynamixel_Init(&RightWrist, RIGHT_WRIST_ID, FAKE_UART, FAKE_GPIO, DYNA_WRITE_ONLY);
 
-    if(right_wrist.error_flag){
-        printf("Dev16 Error roveDynamixel_Init right_wrist!");
+    if(RightWrist.error_flag){
+        printf("Dev16 Error roveDynamixel_Init RightWrist!");
     }//end if
 
     int16_t speed = 0;
     int16_t angle = 0;
-    rove_protocol rove_control_dev16;
+    rove_protocol RoveControlDec16;
 
 ///////////////BEGIN 2016//////MOTOR TEST ROUTINE/////////////
     while (FOREVER) {
 
 //TODO Base Station define Data Id's Cmd Proto Integration
-        if( roveGet_UdpMsg(&rove_control_dev16, &rove_comm_dev16) < COMMS_SINGLE_BYTE ) {
+        if( roveGet_UdpMsg(&RoveControlDec16, &RoveCommDec16) < COMMS_SINGLE_BYTE ) {
             printf("ZERO bytes from getUdpMsg\n");
         }//end if
 
 //TEST WHEEL mode
-        if( roveDynamixel_SetWheelModeCFG(&left_wrist)) {
+        if( roveDynamixel_SetWheelModeCFG(&LeftWrist)) {
             printf("Dev16 Error roveDynamixel_SetWheelModeCFG left_wrist!");
         }//endif
 
-        if(roveDynamixel_SetWheelModeCFG(&right_wrist)) {
+        if(roveDynamixel_SetWheelModeCFG(&RightWrist)) {
             printf("Dev16 Error roveDynamixel_SetWheelModeCFG left_wrist!");
         }//endif
 
@@ -101,11 +102,11 @@ void roveThread(UArg arg0, UArg arg1) {
         for (speed = 0; speed < 1000; speed += 50) {
 
             //TODO arg2 could be negative??
-            if(roveDynamixel_SpinWheelCMD(&left_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_SpinWheelCMD(&right_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 
@@ -115,11 +116,11 @@ void roveThread(UArg arg0, UArg arg1) {
         //ramp back from max forward through zero to max reverse
         for (speed = 1000; speed > -1000; speed -= 50) {
 
-            if(roveDynamixel_SpinWheelCMD(&left_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_SpinWheelCMD(&right_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 
@@ -129,11 +130,11 @@ void roveThread(UArg arg0, UArg arg1) {
         //ramp back from max reverse landing on zero
         for (speed = -1000; speed < 0; speed += 50) {
 
-            if(roveDynamixel_SpinWheelCMD(&left_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_SpinWheelCMD(&right_wrist, speed)){
+            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 
@@ -144,11 +145,11 @@ void roveThread(UArg arg0, UArg arg1) {
         roveDelay_MilliSec(20000);
 
 //TEST JOINT mode
-        if( roveDynamixel_SetJointModeCFG(&left_wrist)) {
+        if( roveDynamixel_SetJointModeCFG(&LeftWrist)) {
             printf("Dev16 Error roveDynamixel_SetJointModeCFG left_wrist!");
         }//endif
 
-        if(roveDynamixel_SetJointModeCFG(&right_wrist)) {
+        if(roveDynamixel_SetJointModeCFG(&RightWrist)) {
             printf("Dev16 Error roveDynamixel_SetJointModeCFG left_wrist!");
         }//endif
         //very slowly now
@@ -156,11 +157,11 @@ void roveThread(UArg arg0, UArg arg1) {
         for (angle = 0; angle < 1000; angle += 50) {
 
             //TODO arg2 could be negative??
-            if(roveDynamixel_RotateJointCMD(&left_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_RotateJointCMD(&right_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 
@@ -169,11 +170,11 @@ void roveThread(UArg arg0, UArg arg1) {
 
         for (angle = 1000; angle > 0; speed -= 50) {
 
-            if(roveDynamixel_RotateJointCMD(&left_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_RotateJointCMD(&right_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 
@@ -182,11 +183,11 @@ void roveThread(UArg arg0, UArg arg1) {
 
         for (speed = 0; speed < 500; speed += 50) {
 
-            if(roveDynamixel_RotateJointCMD(&left_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
             }//endif
 
-            if(roveDynamixel_RotateJointCMD(&right_wrist, angle, speed)){
+            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
                 printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
             }//endif
 

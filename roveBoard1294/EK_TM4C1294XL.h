@@ -73,32 +73,17 @@ typedef enum EK_TM4C1294XL_EMACName {
  *  @brief  Enum of LED names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_GPIOName {
-	//Pin labels taken from Schematic: Motherboard.sch / 3:Launchpad
-	//Note they are not labeled correctly in Motherboard.brd as of 02_14_15
 
-	//U3_MUX_S0
+    //roveWare16 Custom Cfg
 	EK_TM4C1294XL_PH0 = 0,
-	//U3_MUX_S1
 	EK_TM4C1294XL_PH1,
-
-	//U4_MUX_S0
 	EK_TM4C1294XL_PM6,
-	//U4_MUX_S1
 	EK_TM4C1294XL_PM7,
-
-	//U5_MUX_S0
 	EK_TM4C1294XL_PL0,
-	//U5_MUX_S1
 	EK_TM4C1294XL_PL1,
-
-	//U6_MUX_S0
 	EK_TM4C1294XL_PK2,
-	//U6_MUX_S1
 	EK_TM4C1294XL_PK3,
-
-	//U7_MUX_S0
 	EK_TM4C1294XL_PE0,
-	//U7_MUX_S1
 	EK_TM4C1294XL_PE1,
 
     EK_TM4C1294XL_GPIOCOUNT
@@ -120,25 +105,14 @@ typedef enum EK_TM4C1294XL_I2CName {
  *  @brief  Enum of PWM names on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_PWMName {
-	//DO NOT USE - conflicts with ethernet support
+
+    //roveWare16 Custom Cfg
     EK_TM4C1294XL_PWM0 = 0,
-
-    //Motor 0
     EK_TM4C1294XL_PWM1,
-
-    //Motor 1
     EK_TM4C1294XL_PWM2,
-
-    //Motor 2
     EK_TM4C1294XL_PWM3,
-
-    //Motor 3
     EK_TM4C1294XL_PWM4,
-
-    //Motor 4
     EK_TM4C1294XL_PWM5,
-
-    //Motor 5
     EK_TM4C1294XL_PWM6,
 
     EK_TM4C1294XL_PWMCOUNT
@@ -171,14 +145,16 @@ typedef enum EK_TM4C1294XL_SPIName {
  *  @brief  Enum of UARTs on the EK_TM4C1294XL dev board
  */
 typedef enum EK_TM4C1294XL_UARTName {
+
+    //roveWare16 Custom Cfg
     EK_TM4C1294XL_UART0 = 0,
-    EK_TM4C1294XL_UART1 = 1,
-	EK_TM4C1294XL_UART2 = 2,
-	EK_TM4C1294XL_UART3 = 3,
-	EK_TM4C1294XL_UART4 = 4,
-	EK_TM4C1294XL_UART5 = 5,
-	EK_TM4C1294XL_UART6 = 6,
-	EK_TM4C1294XL_UART7 = 7,
+    EK_TM4C1294XL_UART1,
+	EK_TM4C1294XL_UART2,
+	EK_TM4C1294XL_UART3,
+	EK_TM4C1294XL_UART4,
+	EK_TM4C1294XL_UART5,
+	EK_TM4C1294XL_UART6,
+	EK_TM4C1294XL_UART7,
     EK_TM4C1294XL_UARTCOUNT
 } EK_TM4C1294XL_UARTName;
 

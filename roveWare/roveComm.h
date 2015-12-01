@@ -19,7 +19,7 @@
 #include <arpa/inet.h>
 #include <socketndk.h>
 
-//TODO MRDT shorthand
+//TODO REED?? MRDT shorthand
 enum RoveCommShortHand {
 
     COMMS_ZERO_BYTES = 0x00
@@ -66,8 +66,19 @@ typedef struct rovecomm_protocol {
 }__attribute__((packed)) rove_protocol, *rove_protocol_ptr;
 
 int32_t roveComm_Init(rove_udp_socket* rove_socket);
-int32_t roveGet_UdpMsg(rove_protocol* rove_data, rove_udp_socket* rove_socket);
-int32_t roveParse_UdpMsg(rove_protocol* rove_data, rove_udp_socket* rove_socket);
+
+int32_t roveGet_UdpMsg(
+
+        rove_protocol* rove_data
+        , rove_udp_socket* rove_socket
+);//end fnctn
+
+int32_t roveParse_UdpMsg(
+
+        rove_protocol* rove_data
+        , rove_udp_socket* rove_socket
+);//end fnctn
+
 int32_t roveCatch_NdkErrno(int32_t ndk_error);
 
 #endif // ROVEWARE_ROVECOMM_H_

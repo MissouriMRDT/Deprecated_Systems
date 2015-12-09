@@ -5,19 +5,37 @@
 // roveWare 1294XL Access Routines
 //
 // mrdt::rovWare
-#include "roveTiva1294.h"
+#include "roveBOARD_TIVA1294.h"
 
-roveGpio_Handle* roveGpio_Init(roveGpio_Handle* gpio, uint32_t gpio_port, uint8_t gpio_pin) {
+
+
+/*TODO Reed, Connor, Owen Advice??
+roveGPIO_Handle* roveBoard_InitGpioCFG(roveGPIO_Handle* gpio, uint32_t gpio_port, uint8_t gpio_pin) {
 
     gpio->port = gpio_port;
     gpio->pin = gpio_pin;
-
-    return &gpio;
+//TODO
+    return gpio;
 };//end fnctn
 
+//TODO Reed, Judah, Drue, Drew, Gbenga, Ian, Clayton, David use case Config choices
+roveADC_Handle roveAdc_Init(UInt adc_index, UInt adc_cfg) {
+
+    //TODO
+    UInt roveADC_Handle = NULL;
+
+    //UInt adcParams;
+    if (roveADC_Handle == NULL) {
+        System_abort("Error opening the ADC\n");
+    } //endif
+
+    return roveADC_Handle;
+}//endfnct*/
 
 
-PWM_Handle rovePwm_Init(UInt pwm_index, UInt period_in_microseconds) {
+
+//TODO Connor, Drue, Jetter Hbridge use case Config choices
+PWM_Handle roveBoard_InitPwmCFG(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwmHandle;
     PWM_Params pwmParams;
@@ -35,7 +53,7 @@ PWM_Handle rovePwm_Init(UInt pwm_index, UInt period_in_microseconds) {
 
 
 
-UART_Handle roveUart_Init(UInt uart_index, UInt baud_rate) {
+UART_Handle roveBoard_InitUartCFG(UInt uart_index, UInt baud_rate) {
 
     UART_Handle uartHandle;
     UART_Params uartParams;
@@ -55,31 +73,15 @@ UART_Handle roveUart_Init(UInt uart_index, UInt baud_rate) {
 
 
 
-/*TODO
-UInt roveAdc_Init(UInt adc_index, UInt adc_cfg) {
-
-    //TODO
-    UInt adcHandle = NULL;
-
-    //UInt adcParams;
-    if (adcHandle == NULL) {
-        System_abort("Error opening the ADC\n");
-    } //endif
-
-    return adcHandle;
-}//endfnct*/
-
-
-
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-int32_t roveUart_Write(roveUart_Handle uart, uint8_t* write_buffer, int32_t bytes_to_write) {
+int32_t roveBoard_UartWrite(roveUART_Handle uart, uint8_t* write_buffer, int32_t bytes_to_write) {
 
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
     return UART_write(uart, (char*)&write_buffer, bytes_to_write);
 }//endfnctn
 
-int32_t roveUart_Read(roveUart_Handle uart, uint8_t* read_buffer, int32_t bytes_to_read) {
+int32_t roveBoard_UartRead(roveUART_Handle uart, uint8_t* read_buffer, int32_t bytes_to_read) {
 
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
@@ -88,33 +90,33 @@ int32_t roveUart_Read(roveUart_Handle uart, uint8_t* read_buffer, int32_t bytes_
 
 
 
-void rovePwm_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
+void roveBoard_PwmWrite(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
 
     PWM_setDuty(tiva_pin, duty_in_microseconds);
     return;
 }//endfnctn
 
-void roveDigital_Write(roveGpio_Handle* gpio_pin, uint8_t high_or_low) {
+void roveBoard_DigitalWrite(roveGPIO_Handle* gpio_pin, uint8_t digital_value) {
 
-    if(high_or_low){
+    if(digital_value){
 
         GPIOPinWrite(gpio_pin->port, gpio_pin->pin, gpio_pin->pin);
         return;
     }//end if
 
-    GPIOPinWrite(gpio_pin->port, gpio_pin->pin, ~gpio_pin->pin);
+    GPIOPinWrite(gpio_pin->port, gpio_pin->pin, ~(gpio_pin->pin) );
     return;
 }//endfnctn
 
 
 
-//TODO REED?? 123G used SysCtlClockGet 1294 doesn't even have that?? needs global return value for roveSetClockMicroSec_Init??
-void roveDelay_MilliSec(uint32_t milliseconds) {
-
+//TODO Reed, Connor, Owen Advice?? 123G used SysCtlClockGet 1294 doesn't even have that?? needs global return value for roveSetClockMicroSec_Init
+//We should explicitly init the clock juuuust to get the return global??? It's being Init in Rtsc already? that global hides an rtos handle??
+void roveBoard_DelayMilliSec(uint32_t milliseconds) {
     //SysCtlDelay(milliseconds * (SysCtlClockGet() / 100));
 }//endfnctn
 
-void roveDelay_MicroSec(uint32_t microseconds) {
+void roveBoard_DelayMicroSec(uint32_t microseconds) {
 
-    //SysCtlDelay(microseconds * (SysCtlClockGet() / 100000));
+   //SysCtlDelay(microseconds * (SysCtlClockGet() / 100000));
 }//endfnctn

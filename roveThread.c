@@ -9,197 +9,112 @@
 // mrdt::rovWare
 #include "roveThread.h"
 
-//TEST WHEEL mode
-    //////////speed schema -> rpm
-            //range: 0~2047( 0X7FF)
-            //unit:  0.1%.
-            //speed = 0 Full Reverse
-            //speed = 1023 = 1024 Full Stop
-            //speed = 1025~2047 Full forward
-            //i.e. speed = 512 means 50% of max motor output in reverse
-    //angle schema = undefined -> has no affect
+//RoveWare Naming Convention : loosely adapted from crnrPMcore Scripting Convention
 
-//TEST JOINT mode
-    //////////speed schema-> rpm
-            //range:  0~1023 (0X3FF)
-            //unit:   0.111rpm
-            //speed =  0 = 1024 is max rpm of the motor (114rpm)
-            //speed =  1~1023 (up to 114rpm)
-            //ie: speed = 300 is about 33.3 rpm
-    //angle schema -> 10 bit absolute joint position (Goal Position): dead band at 300-360 degrees
-            //range:   0~1023 (0x3FF)
-            //unit:    0.29 degree
-            //ie: angle = 1024 is 300 degree
+//roveSquadName _ <Do Action> <On Noun> (optional ATTRIBUTE)
+//ie. roveComm_ParseUdpMSG
+//ie. roveDynmxl_SetWheelModeCFG
 
-//Judah Dev16 Shorthand
-#define LOCAL_DEVICE_IP_ADDRESS "192.168.1.2"
-
-#define LEFT_WRIST_ID 0x00
-#define RIGHT_WRIST_ID 0x00
-
-#define DYNA_WRITE_ONLY = 0
-
-roveUart_Handle FAKE_UART;
-roveGpio_Handle* FAKE_GPIO;
+//Judah dev16 shorthand
+//extern roveUart_Handle UART_2;
+//extern roveGpio_Handle PE_1;
+roveUART_Handle FAKE_UART;
+roveGPIO_Handle FAKE_GPIO;
 
 
-
-///////////////BEGIN 2016//////DEVICE THREAD//////////////
-void roveThread(UArg arg0, UArg arg1) {
+///////////////::BEGIN//////RoveThread Device Tiva Task//////////////
+void roveThread_TivaTask(UArg arg0, UArg arg1) {
 
     printf("Init roveThread Arm Dyna Tester\n\n\n");
 
-///////////////BEGIN 2016//////NETWORKING///////////////////
+///////////////::BEGIN 2016//////RoveComm IP NETWORKING///////////////////
 
     //open a tiva ndk socket session in this task stack
     fdOpenSession( TaskSelf() );
 
-/////////////////TODO:
-    rove_udp_socket RoveCommDec16;
-    //TODO args :: init roveComm
-    roveComm_Init(&RoveCommDec16);
-    //TODO base_station.local_ip_addr.port.subscribers[ip_addrs++] = rovecommInit(LOCAL_IP_ADDRESS, PORT, &base_station, state);
+    //Gbenga Thread Advice TODO:
+    //1) I'd like to be able to pass in the local Ip on init from the thread
+    //rovecomm_local ip local_device_ip;
+    //local_device_ip.sin_addr.s_addr = htonl(LOCAL_DEVICE_IP_ADDRESS);
+    //2) I'd like to be able to handle remote subscribers
+    //RoveCommDec16.rovecomm_ip_subscribers[remote_ip_addrs++];
 
-///////////////BEGIN 2016//////Dynamixel Serial//////////////
+    //Judah Dev16 Shorthand
+    #define LOCAL_DEVICE_IP_ADDRESS "192.168.1.2"
+    #define LOCAL_DEVICE_PORT 11000
 
+    //ip networking socket instance cfg and state struct
+    rovecomm_socket RoveCommDec16;
+
+    //Reed Thread Advice TODO:
+    //I would like to cleanly hanlde errors that bubble up to the thread level
+    //1) Protocol Integration Base Station define Data_Id, Data_Byte_Cnt definitions as int32_t to keep public interface consistent in Energia int
+    //2) I can't decide on roveComm vs roveControl error bubble implementations...I would like these to match
+    //I'm using data_byte_cnt >= 0 as no error and -1 as error roveComm_GetUdpMSG
+    //thread_error = roveComm_UdpInit(&RoveCommDec16, &local_device_ip, LOCAL_DEVICE_PORT);
+
+    //3)roveThread_CatchERRNO is just an empty stub in roveThread.h
+    int32_t thread_error = THREAD_ERROR_FREE;
+    thread_error = roveComm_InitUdpCFG(&RoveCommDec16, LOCAL_DEVICE_PORT);
+    roveThread_CatchERRNO(thread_error);
+
+///////////////::BEGIN //////RoveControl DYNAMIXEL SERIAL//////////////
+
+    //Judah Dev16 shorthand
+    #define LEFT_WRIST_ID 0x00
+    #define RIGHT_WRIST_ID 0x00
+    #define DYNA_WRITE_ONLY = 0
+
+    //dynamixel ax12 smart servo instance cfg and state struct
     rove_dyna_serial LeftWrist;
-    LeftWrist.error_flag = roveDynamixel_Init(&LeftWrist, LEFT_WRIST_ID, FAKE_UART, FAKE_GPIO, DYNA_WRITE_ONLY);
+    thread_error = roveDynmxl_InitCFG(&LeftWrist, LEFT_WRIST_ID, FAKE_UART, FAKE_GPIO);
+    roveThread_CatchERRNO(thread_error);
 
-    if(LeftWrist.error_flag){
-        printf("Dev16 Error roveDynamixel_Init LeftWrist!");
-    }//end if
-
+    //dynamixel ax12 smart servo instance cfg and state struct
     rove_dyna_serial RightWrist;
-    RightWrist.error_flag = roveDynamixel_Init(&RightWrist, RIGHT_WRIST_ID, FAKE_UART, FAKE_GPIO, DYNA_WRITE_ONLY);
+    thread_error = roveDynmxl_InitCFG(&RightWrist, RIGHT_WRIST_ID, FAKE_UART, FAKE_GPIO);
+    roveThread_CatchERRNO(thread_error);
 
-    if(RightWrist.error_flag){
-        printf("Dev16 Error roveDynamixel_Init RightWrist!");
-    }//end if
+    //ip networking protocol version metrics and details config
+    rovecomm_protocol RoveProtocolDec16;
 
-    int16_t speed = 0;
-    int16_t angle = 0;
-    rove_protocol RoveControlDec16;
+    //Judah Dev16 Shorthand
+    uint32_t pause_test_microseconds;
 
-///////////////BEGIN 2016//////MOTOR TEST ROUTINE/////////////
+///////////////::BEGIN //////MOTOR TEST ROUTINE////////////
+
     while (FOREVER) {
 
-//TODO Base Station define Data Id's Cmd Proto Integration
-        if( roveGet_UdpMsg(&RoveControlDec16, &RoveCommDec16) < COMMS_SINGLE_BYTE ) {
-            printf("ZERO bytes from getUdpMsg\n");
-        }//end if
+        //lisetn for udp from base station
+        RoveProtocolDec16.data_byte_cnt = roveComm_GetUdpMSG(&RoveCommDec16, &RoveProtocolDec16);
+        roveThread_CatchERRNO(RoveProtocolDec16.data_byte_cnt);
 
-//TEST WHEEL mode
-        if( roveDynamixel_SetWheelModeCFG(&LeftWrist)) {
-            printf("Dev16 Error roveDynamixel_SetWheelModeCFG left_wrist!");
-        }//endif
+        //test dynamixel in wheel mode
+        thread_error = roveDynmxl_TestWheelMode(&RightWrist, pause_test_microseconds);
+        roveThread_CatchERRNO(thread_error);
 
-        if(roveDynamixel_SetWheelModeCFG(&RightWrist)) {
-            printf("Dev16 Error roveDynamixel_SetWheelModeCFG left_wrist!");
-        }//endif
+        thread_error = roveDynmxl_TestWheelMode(&LeftWrist, pause_test_microseconds);
+        roveThread_CatchERRNO(thread_error);
+        //end test wheel mode
 
-        //roveDynamixel_SpinWheelCMD::->if(spin_wheel_direction > 0) wheel_speed += (1 >> 10);
-        //ramp up from zero to max forward
-        for (speed = 0; speed < 1000; speed += 50) {
 
-            //TODO arg2 could be negative??
-            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
 
-            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
+        //test dynamixel in joint mode
+        thread_error = roveDynmxl_TestJointMode(&RightWrist, pause_test_microseconds);
+        roveThread_CatchERRNO(thread_error);
 
-            roveDelay_MilliSec(500);
-        } //end for
+        thread_error = roveDynmxl_TestJointMode(&LeftWrist, pause_test_microseconds);
+        roveThread_CatchERRNO(thread_error);
+        //end test joint mode
 
-        //ramp back from max forward through zero to max reverse
-        for (speed = 1000; speed > -1000; speed -= 50) {
+//::END MOTOR TEST ROUTINE
 
-            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
+//////////////::REPEAT//////MOTOR TEST FOREVER/////////////
 
-            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
-
-            roveDelay_MilliSec(500);
-        } //end for
-
-        //ramp back from max reverse landing on zero
-        for (speed = -1000; speed < 0; speed += 50) {
-
-            if(roveDynamixel_SpinWheelCMD(&LeftWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
-
-            if(roveDynamixel_SpinWheelCMD(&RightWrist, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
-
-            roveDelay_MilliSec(500);
-        } //end for
-//TODO:  #define and scale speed < 1000; speed += 50
-//::END TEST WHEEL mode
-        roveDelay_MilliSec(20000);
-
-//TEST JOINT mode
-        if( roveDynamixel_SetJointModeCFG(&LeftWrist)) {
-            printf("Dev16 Error roveDynamixel_SetJointModeCFG left_wrist!");
-        }//endif
-
-        if(roveDynamixel_SetJointModeCFG(&RightWrist)) {
-            printf("Dev16 Error roveDynamixel_SetJointModeCFG left_wrist!");
-        }//endif
-        //very slowly now
-        speed = 10;
-        for (angle = 0; angle < 1000; angle += 50) {
-
-            //TODO arg2 could be negative??
-            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
-
-            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
-
-            roveDelay_MilliSec(500);
-        } //end for
-
-        for (angle = 1000; angle > 0; speed -= 50) {
-
-            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
-
-            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
-
-            roveDelay_MilliSec(500);
-        } //end for
-
-        for (speed = 0; speed < 500; speed += 50) {
-
-            if(roveDynamixel_RotateJointCMD(&LeftWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD left_wrist!");
-            }//endif
-
-            if(roveDynamixel_RotateJointCMD(&RightWrist, angle, speed)){
-                printf("Dev16 Error roveDynamixel_SpinWheelCMD right_wrist!");
-            }//endif
-
-            roveDelay_MilliSec(500);
-        } //end for
-//END TEST JOINT mode
-
-        roveDelay_MilliSec(20000);
-//::END2016 MOTOR TEST ROUTINE
-
-//////////////REPEAT 2016//////MOTOR TEST FOREVER/////////////
     }//endwhile FOREVER
 
 }//endfnctnTask
 //::END THREAD
+
+
+

@@ -19,66 +19,79 @@
 #include <arpa/inet.h>
 #include <socketndk.h>
 
-//TODO REED?? MRDT shorthand
-enum RoveCommShortHand {
 
-    COMMS_ZERO_BYTES = 0x00
-    , COMMS_SINGLE_BYTE = 0x01
-    , COMMS_ERROR = -1
-    , COMMS_ERROR_FREE = 1
-    , COMMS_NDK_DEFAULTS_FLAG = 0
-};//end enum
 
-//hardcode the local device ip address
-enum RoveCommRelease {
-
+//TODO Not sure I like to hardcode the port or max message size with version, header, sequence?
+typedef enum RoveCommRelease {
     COMMS_VERSION_ONE = 0x01
     , COMMS_PORT_11000 = 11000
     , COMMS_HEADER_BYTE_COUNT = 7
     , COMMS_SEQ = 0x0F0F
     , COMMS_MAX_BUFF_BYTE_CNT = 40
-};//end enum
+} RoveCommRelease;
 
-//TODO errno codes
-enum RoveCommErrNo {
 
-    COMMS_PARSE_UDP_ERRNO = 0x01
-    , COMMS_PRINTF_NDK_ERRNO = 0x02
-};//end enum
 
-//fdOpenSession->TaskSelf -> therefore -> need to persist socket args by &
-typedef struct rove_udp_socket {
-
-    //socket config
-    int socket_fd;
-    struct sockaddr_in local_addr;
-    struct sockaddr_in remote_addr;
-    socklen_t          remote_addr_length;
-    int32_t fd_error;
-}__attribute__((packed)) rove_udp_socket, *rove_udp_socket_ptr;
-
+//defines base station/rovecomm packet and instruction set
 typedef struct rovecomm_protocol {
 
         //TODO 2016 protocol
         int32_t data_id;
         int32_t data_byte_cnt;
-        uint8_t  data_buffer[COMMS_MAX_BUFF_BYTE_CNT];
-}__attribute__((packed)) rove_protocol, *rove_protocol_ptr;
 
-int32_t roveComm_Init(rove_udp_socket* rove_socket);
+        uint8_t data_buffer[COMMS_MAX_BUFF_BYTE_CNT];
 
-int32_t roveGet_UdpMsg(
+        int32_t recv_byte_cnt;
+        int32_t data_error;
 
-        rove_protocol* rove_data
-        , rove_udp_socket* rove_socket
-);//end fnctn
+}__attribute__((packed)) rovecomm_protocol, *rovcomm_protocol_ptr;
 
-int32_t roveParse_UdpMsg(
 
-        rove_protocol* rove_data
-        , rove_udp_socket* rove_socket
-);//end fnctn
 
-int32_t roveCatch_NdkErrno(int32_t ndk_error);
+//TODO should we just typedef roveIP_HANDLE instead of local / remote
+//local device
+typedef struct rovecomm_local_ip {
 
-#endif // ROVEWARE_ROVECOMM_H_
+    unsigned char  sin_family;
+    unsigned short sin_port;
+    struct         in_addr sin_addr;
+    char           sin_zero[8];
+
+}__attribute__((packed)) rovecomm_local_ip, *rovecomm_local_ip_ptr;
+
+
+
+//is this a waste? just binding in_addr to socklen_t to hold remote devices/base stations subscriber
+#define ROVECOMM_MAX_SUBSCRIBERS 1
+typedef struct rovecomm_remote_ip {
+    struct    in_addr sin_addr;
+    socklen_t addr_len;
+}__attribute__((packed)) rovecomm_remote_ip, *rovecomm_remote_ip_ptr;
+
+
+
+//udp socket config
+typedef struct rovecomm_socket {
+
+    //allocate socket file descriptor
+    int socket_fd;
+
+    //allocate local rover ip address pointer
+    rovecomm_local_ip* local_ip;
+
+    //allocate max array of remote ip address subscribers
+    rovecomm_remote_ip* rovecomm_ip_subscribers[ROVECOMM_MAX_SUBSCRIBERS];
+
+    //handle network developement kit errors
+    int32_t ndk_fd_error;
+
+}__attribute__((packed)) rovecomm_socket, *rovecomm_socket_ptr;
+
+
+
+//int32_t roveComm_Init(rovecomm_udp_socket* socket, struct in_addr *local_ip_addr,  unsigned short local_port);
+int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket,  unsigned short local_port);
+
+int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
+
+#endif // ROVECOMM_H_

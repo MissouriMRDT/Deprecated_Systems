@@ -6,11 +6,11 @@
 #ifndef ROVEBIOS_H_
 #define ROVEBIOS_H_
 
+//roveware hardware abstraction
+#include "roveWare/roveBoard/roveBOARD_TIVA1294.h"
+
 //C lib
 #include <stdio.h>
-
-//roveware hardware abstraction
-#include "roveWare/roveTiva1294.h"
 
 //CCS TI operating system
 #include <ti/sysbios/BIOS.h>

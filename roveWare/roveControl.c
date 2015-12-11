@@ -10,74 +10,70 @@
 // mrdt::rovWare
 #include "roveControl.h"
 
+// TODO Judah Factor Out Dev Shorthand
 //Private
+typedef enum ROVECNTRL_AX_12 {
 
-//BEGIN JUDAH TODO factor MRDT shorthand
-#define INTERFACE_PROTOCOL_SPEEDS 1024
-typedef enum RoveWristDev16ShortHand {
-    DEV16_NO_INSTRUCTION =      0x00
-    , DEV16_TEST_INSTRUCTION =  0x01
-    , DEV16_TEST_ERROR =        0x02
-} RoveWristDev16ShortHand;
-typedef enum RoveDynaAxSerialMsgCfg {
-    AX_PACKET =                 1
-    , AX_NO_PACKET =            0
-    , AX_MSG_MAX_BYTES =        20
-    , AX_READ_REPLY =           1
-    , AX_MAX_READ_ATTMPT_CNT =  10
-    , AX_ERROR_FREE =           1
-    , AX_ERROR =                -1
-} RoveDynaAxSerialMsgCfg;
-typedef enum RoveDynaAxRegMsgHeaderCfg {
-    PACKET_AX_START_BYTE  =   255
-    , TX_DELAY_AX_MICRO_SEC = 100
-    , WRITE_AX_CMD =            1
-    , READ_AX_REQ =             2
-    , READ_ONE_BYTE_AX_REQ =    1
-    , READ_TWO_BYTES_AX_REQ =   2
-} RoveDynaAxRegMsgHeaderCfg;
-typedef enum RoveDynaAxRegCfg {
-    JOINT_MODE_AX_CFG =         8
-    , WHEEL_MODE_AX_CFG =       8
-    , TORQUE_MODE_AX_CFG =      24
-    , TORQUE_LIMIT_AX_CFG =     34
-} RoveDynaAxRegCfg;
-typedef enum RoveDynaAxRegCmd {
+//TODO RoveDev16 Cntrl vals for dyna ax motor series cfg (factor to ax/mx/rx series/model flag):
+    AX_12_SCALE_REG_MSB =           10
+    , AX_12_SCALE_SPEED_REG_BIAS =  1023
+    , AX_12_SCALE_JOINT_REG_BIAS =  1023
+    , AX_PACKET_START_BYTE  =       255
+    , AX_DELAY_TX_uSEC =            100
 
-    GO_ANGLE_AX_REG =           30
-    , GO_SPEED_AX_REG =         32
-} RoveDynaAxRegCmd;
-typedef enum RoveDynaAxRegTelemReq {
-    READ_ANGLE_AX_REQ =         36
-    , READ_SPEED_AX_REQ =       38
-    , READ_LOAD_AX_REQ =        40
-    , READ_VOLTAGE_AX_REQ =     42
-    , READ_TEMPERATURE_AX_REQ = 43
-    , READ_CURRENT_AX_REQ =     68
-} RoveDynaAxRegTelemReq;
+//Runtime Dynamixel Ax_12 Regs
+    //Message response behavior control regs
+    , WRITE_AX_CMD =                1
+    , READ_AX_REQ =                 2
+
+    //Motor control modes regs
+    , JOINT_MODE_AX_CFG =           8
+    , WHEEL_MODE_AX_CFG =           8
+    , TORQUE_MODE_AX_CFG =          24
+
+    //Motor operating limits reg
+    , TORQUE_LIMIT_AX_CFG =         34
+
+    //Control command regs
+    , GO_ANGLE_AX_REG =             30
+    , GO_SPEED_AX_REG =             32
+
+    //Telemetry request regs
+    , READ_ANGLE_AX_REQ =           36
+    , READ_SPEED_AX_REQ =           38
+    , READ_LOAD_AX_REQ =            40
+    , READ_VOLTAGE_AX_REQ =         42
+    , READ_TEMPERATURE_AX_REQ =     43
+    , READ_CURRENT_AX_REQ =         68
+
+} ROVECNTRL_AX_12;
+
+int16_t roveDynmxAx_ScaleReg_ByAngleDegrees(int16_t joint_angle_degrees, int16_t scale_joint_reg_bias);
 //END factor TODO
+
 
 
 ///////////////::BEGIN//////RoveDyna Private Functions//////////////
 
 //General Atomic Telemetry Request
-int32_t roveDynmxl_ReadRegisterREQ( rove_dyna_serial* dynmxl_id, uint8_t dyna_reg_addr, uint8_t dyna_reg_byte_cnt);
+static int32_t roveDynmxAx_ReadRegsREQ(rove_dyna_serial* dynmxl_id, uint8_t dyna_reg_addr, uint8_t dyna_reg_byte_cnt);
 
 //developement hook for empty stub debug:
-int32_t roveDynmxl_CatchERRNO(rove_dyna_serial* dynmxl_id);
+static int32_t roveDynmxAx_CatchERRNO(rove_dyna_serial* dynmxl_id);
 
 //Handle Dyna Serial Comms
-int32_t roveDynmxl_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_data, int32_t msg_data_byte_count);
-int32_t roveDynmxl_ReadPacketMSG(rove_dyna_serial* dynmxl);
-int32_t roveDynmxl_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer);
+static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_data, int32_t msg_data_byte_count);
+static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl);
+static int32_t roveDynmxAx_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer);
 
 
 
 ///////////////::BEGIN//////RoveDyna Implementation//////////////
 
 //construct a motor
-int32_t roveDynmxl_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle uart_port, roveGPIO_Handle tri_state_pin){
+int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle uart_port, roveGPIO_Handle tri_state_pin){
 
+    //TODO Data Validation? roveDynmxAx_ValidateCfg(dynmxl, dyna_id, tri_state_pin, uart_port);
     dynmxl->dynmxl_id = dyna_id;
     dynmxl->tri_state_buffer = tri_state_pin;
     dynmxl->uart = uart_port;
@@ -86,13 +82,14 @@ int32_t roveDynmxl_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_H
     dynmxl->reply_id = AX_NO_PACKET;
     dynmxl->reply = AX_NO_PACKET;
 
+    //TODO? roveDynmxAx_CatchERRNO(dynmxl);
     return dynmxl->err_no = AX_ERROR_FREE;
 };//end fnctn
 
 
 
 //Wheel Mode: set to both Angle Limits to zero. The motor spins endlessly
-int32_t roveDynmxl_SetWheelModeCFG(rove_dyna_serial* dynmxl){
+int32_t roveDynmxAx_SetWheelModeCFG(rove_dyna_serial* dynmxl){
 
     //wheel Mode both are 0
     uint8_t cw_angle_limit_low_byte = 0;
@@ -114,29 +111,30 @@ int32_t roveDynmxl_SetWheelModeCFG(rove_dyna_serial* dynmxl){
     //write a message (and wait for dynmxl reply when asked to)
     dynmxl->err_no =
 
-        roveDynmxl_WritePacketMSG(
+        roveDynmxAx_WritePacketMSG(
 
             dynmxl
             , write_msg_data
             , sizeof(write_msg_data));
 
     //Immediate return zero was read suceess
-    return roveDynmxl_CatchERRNO(dynmxl);
+    return roveDynmxAx_CatchERRNO(dynmxl);
 }//end fnctn
 
 
 
-//10bit Wheel -> 0-1023 CCW, 1024 - 2047 CW
-int32_t roveDynmxl_SpinWheelCMD(rove_dyna_serial* dynmxl , int16_t wheel_speed){
+int32_t roveDynmxAx_SpinWheelCMD(rove_dyna_serial* dynmxl , int16_t wheel_speed){
 
     //handle negative speed scale to absolute value
-    wheel_speed =+ INTERFACE_PROTOCOL_SPEEDS;
+    //AX12 - 10bit Wheel -> 0-1023 CCW, 1024 - 2047 CW
+    wheel_speed =+ AX_12_SCALE_SPEED_REG_BIAS;
 
     //scale direction by shift operations
-    if(wheel_speed > INTERFACE_PROTOCOL_SPEEDS) {
+    if(wheel_speed > AX_12_SCALE_SPEED_REG_BIAS) {
 
-        //clockwise direction is the 10th bit
-        wheel_speed += (1 >> 10);
+// TODO to 12 bit for MX
+// AX_12_SCALE_REG_MSB = 1023 clockwise direction is the 10th bit
+        wheel_speed += (1 >> AX_12_SCALE_REG_MSB);
     }//end if
 
     uint8_t speed_low_byte = wheel_speed;
@@ -155,30 +153,99 @@ int32_t roveDynmxl_SpinWheelCMD(rove_dyna_serial* dynmxl , int16_t wheel_speed){
     //write a message (and wait for dynmxl reply when asked to)
     dynmxl->err_no =
 
-        roveDynmxl_WritePacketMSG(
+        roveDynmxAx_WritePacketMSG(
 
             dynmxl
             , write_msg_data
             , sizeof(write_msg_data));
 
-    return roveDynmxl_CatchERRNO(dynmxl);
+    return roveDynmxAx_CatchERRNO(dynmxl);
 }//end fnctn
 
 
 
-int32_t roveDynmxl_ReadWheelREQ(rove_dyna_serial* dynmxl){
-    //TODO GBENGA:
-    //return_roveDynmxl_ReadregistersREQ(dynmxl_id->dynmxl_id, AX12_SPEED_REGISTER, TWO_BYTES);
-    return AX_ERROR;
+int32_t roveDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl){
+    //TODO GBENGA: (see roveDynmxAx_ReadJointREQ implementation)
+    //return roveDynmxAx_ReadRegsREQ(dynmxl , dyna_reg_addr, dyna_reg_byte_cnt)
+
+    return CNTRLS_CUR_TODO_BOOKMRK_RET_ERRNO;
 }//end fnctn
+
+
+
+int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test){
+
+    if( roveDynmxAx_SetWheelModeCFG(dynmxl) ) {
+        printf("Dev16 Error roveDynmxAx_SetWheelModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        return AX_ERROR;
+    }//endif
+
+    if( roveDynmxAx_SetWheelModeCFG(dynmxl) ) {
+        printf("Dev16 Error roveDynmxAx_SetWheelModeCFG ldynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        return AX_ERROR;
+    }//endif
+
+    int16_t speed = 0;
+
+    //ramp up from zero to max forward
+    for (speed = 0; speed < test->max_speed; speed += test->speed_increment) {
+
+        //TODO arg2 could be negative??
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            return AX_ERROR;
+        }//endif
+
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            return AX_ERROR;
+        }//endif
+
+        roveBoard_DelayMilliSec(test->pause_microseconds);
+    } //end for
+
+    //ramp back from max forward through zero to max reverse
+    for (speed = test->max_speed; speed > test->min_speed; speed -= test->speed_increment) {
+
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            return AX_ERROR;
+        }//endif
+
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            return AX_ERROR;
+        }//endif
+
+        roveBoard_DelayMilliSec(test->pause_microseconds);
+    } //end for
+
+    //ramp back from max reverse landing on zero
+    for (speed = test->min_speed; speed < 0; speed += test->speed_increment) {
+
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        }//endif
+
+        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
+            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            return AX_ERROR;
+        }//endif
+
+        roveBoard_DelayMilliSec(test->pause_microseconds);
+    } //end for
+
+    roveBoard_DelayMilliSec(4*test->pause_microseconds);
+    return AX_ERROR_FREE;
+};//end fnctn
 
 
 
 //Joint Mode : set to Angle Limits anything other than zero
-int32_t roveDynmxl_SetJointModeCFG(rove_dyna_serial* dynmxl){
+int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl){
 
     //TOD how to ctually set set speed zero? homing function function goal rotation to zero?
-    roveDynmxl_SpinWheelCMD(dynmxl, 0);
+    roveDynmxAx_SpinWheelCMD(dynmxl, 0);
 
     //SetEndless goal rotation...wheel mode is from TODO 0 to 4095 for the MX SERIES?
     //Multi Turn mode on the MX?
@@ -202,16 +269,16 @@ int32_t roveDynmxl_SetJointModeCFG(rove_dyna_serial* dynmxl){
     //write a message (and wait for dynmxl reply when asked to)
     dynmxl->err_no =
 
-        roveDynmxl_WritePacketMSG(
+        roveDynmxAx_WritePacketMSG(
 
             dynmxl
             , write_msg_data
             , sizeof(write_msg_data));
 
-    //no errors -> ::roveDynmxl_WritePacketMSG set dynmxl_id->error_flag
+    //no errors -> ::roveDynmxAx_WritePacketMSG set dynmxl_id->error_flag
     if(dynmxl->err_no){
 
-        return roveDynmxl_CatchERRNO(dynmxl);
+        return roveDynmxAx_CatchERRNO(dynmxl);
     }//end if
 
     return dynmxl->err_no;
@@ -219,7 +286,14 @@ int32_t roveDynmxl_SetJointModeCFG(rove_dyna_serial* dynmxl){
 
 
 
-int32_t roveDynmxl_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_angle , uint16_t joint_speed){
+//TODO __Judah__ hmmmmm I don't like this path
+int16_t roveDynmxAx_ScaleReg_ByAngleDegrees(int16_t joint_angle_degrees, int16_t scale_joint_reg_bias) {
+    return CNTRLS_CUR_TODO_BOOKMRK_RET_ERRNO;
+}//edn fnctn
+
+int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_angle , uint16_t joint_speed){
+
+    joint_angle = roveDynmxAx_ScaleReg_ByAngleDegrees(joint_angle, AX_12_SCALE_JOINT_REG_BIAS);
 
     //shift split two bytes
     uint8_t angle_low_byte = joint_angle;
@@ -245,33 +319,31 @@ int32_t roveDynmxl_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_angl
     //write a message (and wait for dynmxl reply when asked to)
     dynmxl->reply =
 
-        roveDynmxl_WritePacketMSG(
+        roveDynmxAx_WritePacketMSG(
 
             dynmxl
             , write_msg_data
             , sizeof(write_msg_data));
 
-//no errors -> ::roveDynmxl_WritePacketMSG set dynmxl_id->error_flag
+//no errors -> ::roveDynmxAx_WritePacketMSG set dynmxl_id->error_flag
     if(dynmxl->err_no){
-        return roveDynmxl_CatchERRNO(dynmxl);
+        return roveDynmxAx_CatchERRNO(dynmxl);
     }//end if
 
     return dynmxl->err_no;
 }//end fnctn
 
-int32_t roveDynmxl_ReadJointREQ(rove_dyna_serial* dynmxl){
 
-    int16_t joint_angle =
 
-        roveDynmxl_ReadRegisterREQ(
+int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl){
+
+    int16_t joint_angle = roveDynmxAx_ReadRegsREQ(
 
             dynmxl
             , READ_ANGLE_AX_REQ
             , READ_TWO_BYTES_AX_REQ);
 
-    int16_t joint_speed =
-
-        roveDynmxl_ReadRegisterREQ(
+    int16_t joint_speed = roveDynmxAx_ReadRegsREQ(
 
             dynmxl
             , READ_SPEED_AX_REQ
@@ -283,9 +355,115 @@ int32_t roveDynmxl_ReadJointREQ(rove_dyna_serial* dynmxl){
 
 
 
+int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test){
+
+    if( roveDynmxAx_SetJointModeCFG(dynmxl)) {
+        printf("Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        return AX_ERROR;
+    }//endif
+
+    if(roveDynmxAx_SetJointModeCFG(dynmxl)) {
+        printf("Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        return AX_ERROR;
+    }//endif
+
+    //catch dynamixel joint api confusion
+    if(test->min_speed > test->max_speed) {
+
+        printf("test->min_speed > test->max_speed Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+        return AX_ERROR;
+      }//end if
+
+    //joint mode only takes positive speeds
+    if(test->min_speed < 0) {
+
+        test->min_speed = 0;
+    }//end if
+
+    //joint mode only takes positive speeds
+    if(test->max_speed > AX_12_MAX_JOINT_SPEED) {
+
+       test->max_speed = AX_12_MAX_JOINT_SPEED;
+    }//end if
+
+
+    uint16_t speed = 0;
+
+    for (speed = test->min_speed; speed < test->max_speed; speed += test->speed_increment) {
+
+        uint16_t angle = 0;
+
+        for (angle = test->min_angle; angle < test->max_angle; angle += test->angle_increment) {
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+                return AX_ERROR;
+            }//endif
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+                return AX_ERROR;
+            }//endif
+
+            roveBoard_DelayMilliSec(test->pause_microseconds);
+        } //end for
+
+        for (angle = test->max_angle; angle > test->min_angle; angle -= test->angle_increment) {
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            }//endif
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            }//endif
+
+            roveBoard_DelayMilliSec(test->pause_microseconds);
+        } //end for
+
+        for (angle = test->min_angle; angle < test->max_angle; angle += test->angle_increment) {
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            }//endif
+
+            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
+                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
+            }//endif
+
+            roveBoard_DelayMilliSec(test->pause_microseconds);
+        } //end for
+
+    } //end for
+
+    roveBoard_DelayMilliSec(4*test->pause_microseconds);
+    return AX_ERROR_FREE;
+};//end fnctn
+
+
+
+//TODO refactor to aggregate functions How to couple with multiple lookup calls by Model lookup table??
+//How to bind Registers by by Model Number (ie MX has extra regs... (enum cfg? lookup table?)
+//https://gist.github.com/joshreed13/639117cbaefd505f0093
+static int32_t roveDynmxAx_ReadRegsREQ(rove_dyna_serial* dynmxl , uint8_t dyna_reg_addr, uint8_t dyna_reg_byte_cnt) {
+
+    dynmxl->read_reply_flag = AX_READ_REPLY;
+
+    uint8_t write_msg_data[]={
+
+        READ_AX_REQ
+
+        , dyna_reg_addr
+        , dyna_reg_byte_cnt };
+
+    return roveDynmxAx_WritePacketMSG(dynmxl, write_msg_data, sizeof(write_msg_data));
+}//end fnctn
+
+
+
 /////////////////////////////////////////////////////Begin MSG Handling
 //dynmxl sigle pin uart serial messaging protocol overhead
-int32_t roveDynmxl_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_data, int32_t msg_data_byte_count) {
+static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_data, int32_t msg_data_byte_count) {
 
     //dynmxl check_sum begin to add all the bytes including the id
     uint8_t header_byte = 0;
@@ -304,10 +482,10 @@ int32_t roveDynmxl_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_d
     roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 1);
 
     //start dyna msg, id the dyna, tell dyna the msg data size (+ check_sum)
-    header_byte = PACKET_AX_START_BYTE;
+    header_byte = AX_PACKET_START_BYTE;
     roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
 
-    header_byte = PACKET_AX_START_BYTE;
+    header_byte = AX_PACKET_START_BYTE;
     roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
 
     header_byte = dynmxl->dynmxl_id;
@@ -324,13 +502,13 @@ int32_t roveDynmxl_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_d
     //send check sum
     roveBoard_UartWrite(dynmxl->uart, &check_sum, 1);
     //wait for uart_write
-    roveBoard_DelayMicroSec(TX_DELAY_AX_MICRO_SEC);
+    roveBoard_DelayMicroSec(AX_DELAY_TX_uSEC);
     //set tristate buffer to uart_rx read status
     roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 0);
 
     if(dynmxl->read_reply_flag) {
         //delay poll listen for dyna reply (uart read on polling timeout delay with error_status) :: we return 0 on success
-        return roveDynmxl_ReadPacketMSG(dynmxl);
+        return roveDynmxAx_ReadPacketMSG(dynmxl);
     }//end if
 
     //no reply needed (implies read_reply_flag = 0) :: we return 0 as success
@@ -339,7 +517,7 @@ int32_t roveDynmxl_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_d
 
 
 
-int32_t roveDynmxl_ReadPacketMSG(rove_dyna_serial* dynmxl) {
+static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl) {
 
     //Todo:
     //UART_Params.readTimeout
@@ -354,12 +532,12 @@ int32_t roveDynmxl_ReadPacketMSG(rove_dyna_serial* dynmxl) {
     while(rx_attempts < AX_MAX_READ_ATTMPT_CNT){
 
         roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
-        if(PACKET_AX_START_BYTE == data_buffer[data_rx_byte_cnt]) {
+        if(AX_PACKET_START_BYTE == data_buffer[data_rx_byte_cnt]) {
 
             //qual and discard header bytes
             data_rx_byte_cnt++;
             roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
-            if(PACKET_AX_START_BYTE == data_buffer[data_rx_byte_cnt]) {
+            if(AX_PACKET_START_BYTE == data_buffer[data_rx_byte_cnt]) {
 
                 data_rx_byte_cnt++;
                 roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
@@ -385,7 +563,7 @@ int32_t roveDynmxl_ReadPacketMSG(rove_dyna_serial* dynmxl) {
                     if(check_sum == data_buffer[data_rx_byte_cnt] ){
 
                        //return a single int32 reply payload
-                       return dynmxl->err_no = roveDynmxl_ParseREPLY(dynmxl, data_buffer);
+                       return dynmxl->err_no = roveDynmxAx_ParseREPLY(dynmxl, data_buffer);
                     }//endif
                 }//endif
             }//endif
@@ -400,7 +578,7 @@ int32_t roveDynmxl_ReadPacketMSG(rove_dyna_serial* dynmxl) {
 
 
 //TODO JUDAH REFACTOR
-roveDynmxl_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer){
+static roveDynmxAx_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer){
 
     dynmxl->reply_id = data_buffer[0];
 
@@ -425,162 +603,10 @@ roveDynmxl_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer){
 }//end fnctn
 
 //TODO Reed, Connor, Owen Advice??
-int32_t roveDynmxl_CatchERRNO(rove_dyna_serial* dynmxl){
+static int32_t roveDynmxAx_CatchERRNO(rove_dyna_serial* dynmxl){
     //TODO currently fnctn still pas through
-    return dynmxl->reply;
+    return CNTRLS_CUR_TODO_BOOKMRK_RET_ERRNO;
 }//end_if
-
-
-//TODO refactor to aggregate functions How to couple with multiple lookup calls by Model lookup table??
-
-//How to bind Registers by by Model Number (ie MX has extra regs... (enum cfg? lookup table?)
-
-//https://gist.github.com/joshreed13/639117cbaefd505f0093
-int32_t roveDynmxl_ReadRegistersREQ(rove_dyna_serial* dynmxl , uint8_t dyna_reg_addr, uint8_t dyna_reg_byte_cnt) {
-
-    dynmxl->read_reply_flag = AX_READ_REPLY;
-
-    uint8_t write_msg_data[]={
-
-        READ_AX_REQ
-
-        , dyna_reg_addr
-        , dyna_reg_byte_cnt };
-
-    return roveDynmxl_WritePacketMSG(dynmxl, write_msg_data, sizeof(write_msg_data));
-}//end fnctn
-
-
-
-int32_t roveDynmxl_TestWheelMode(rove_dyna_serial* dynmxl, uint32_t pause_microseconds){
-
-    if( roveDynmxl_SetWheelModeCFG(dynmxl)) {
-        printf("Dev16 Error roveDynmxl_SetWheelModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    if(roveDynmxl_SetWheelModeCFG(dynmxl)) {
-        printf("Dev16 Error roveDynmxl_SetWheelModeCFG ldynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    int16_t speed = 0;
-    //ramp up from zero to max forward
-    for (speed = 0; speed < 1000; speed += 50) {
-
-        //TODO arg2 could be negative??
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    //ramp back from max forward through zero to max reverse
-    for (speed = 1000; speed > -1000; speed -= 50) {
-
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    //ramp back from max reverse landing on zero
-    for (speed = -1000; speed < 0; speed += 50) {
-
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        if(roveDynmxl_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    roveBoard_DelayMilliSec(4*pause_microseconds);
-    return AX_ERROR_FREE;
-};//end fnctn
-
-
-
-int32_t roveDynmxl_TestJointMode(rove_dyna_serial* dynmxl, uint32_t pause_microseconds){
-
-    if( roveDynmxl_SetJointModeCFG(dynmxl)) {
-        printf("Dev16 Error roveDynmxl_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    if(roveDynmxl_SetJointModeCFG(dynmxl)) {
-        printf("Dev16 Error roveDynmxl_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    //very slowly now
-    int16_t speed = 10;
-    int16_t angle = 0;
-
-    for (angle = 0; angle < 1000; angle += 50) {
-
-        //TODO arg2 could be negative??
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    for (angle = 1000; angle > 0; angle -= 50) {
-
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    for (angle = 0; angle < 500; angle += 50) {
-
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        if(roveDynmxl_RotateJointCMD(dynmxl, angle, speed)){
-            printf("Dev16 Error roveDynmxl_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        roveBoard_DelayMilliSec(pause_microseconds);
-    } //end for
-
-    roveBoard_DelayMilliSec(4*pause_microseconds);
-    return AX_ERROR_FREE;
-};//end fnctn
-
 
 
 

@@ -70,8 +70,6 @@ int main(void) {
     rovePWM_Handle PWM_6 = roveBoard_InitPwmCFG(6, 20000);
     printf("Init PWM\n\n");
 
-
-
     //TODO watchdog = rove_init_watchdog(Board_WATCHDOG0);
     //TODO Tiva ADC module
     //roveADC_Handle adc_1 = roveAdc_Init(1, ?);
@@ -81,7 +79,6 @@ int main(void) {
     //roveADC_Handle adc_5 = roveAdc_Init(5, ?);
     //roveADC_Handle adc_6 = roveAdc_Init(6, ?);
     //printf("Init ADC\n\n");
-
 
     printf("Init BIOS\n\n");
 

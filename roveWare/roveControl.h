@@ -13,6 +13,41 @@
 //mrdt definitions
 #include "roveBoard/roveBOARD_TIVA1294.h"
 
+// TODO Judah Factor Out Dev Shorthand
+//Public
+// 12 bit for MX
+// AX_12_SCALE_REG_MSB = 1023 clockwise direction is the 10th bit
+// Which is likely why most savage electronics control schemes fail out erratically on the 12 bit mx series btw
+typedef enum ROVECNTRL_DEV_16 {
+
+    CNTRLS_CUR_TODO_BOOKMRK_RET_ERRNO = 777
+
+    , DEV16_NO_INSTRUCTION =          0x00
+    , DEV16_TEST_INSTRUCTION =      0x01
+    , DEV16_TEST_ERROR =            0x02
+
+    //Dyna cntrl Flags
+    , AX_ERROR =                    -1
+    , AX_NO_PACKET =                0
+    , AX_ERROR_FREE =               1
+    , AX_PACKET =                   1
+
+    , AX_READ_REPLY =               1
+    , READ_ONE_BYTE_AX_REQ =        1
+    , READ_TWO_BYTES_AX_REQ =       2
+
+     //Dyna cfg
+    , AX_MAX_READ_ATTMPT_CNT =      10
+    , AX_MSG_MAX_BYTES =            20
+
+    , AX_12_MAX_WHEEL_SPEED =       2047
+    , AX_12_MAX_JOINT_SPEED =       1023
+
+} ROVECNTRL_DEV_16;
+int16_t roveDynmxAx_ScaleReg_ByAngleDegrees(int16_t joint_angle_degrees, int16_t scale_joint_reg_bias);
+//end TODO
+
+
 //instance defintion
 typedef struct rove_dyna_serial {
 
@@ -29,9 +64,7 @@ typedef struct rove_dyna_serial {
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
 
 //config constructor
-int32_t roveDynmxl_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
-
-
+int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
 
 //WHEEL mode
     //////////speed schema -> rpm
@@ -44,12 +77,9 @@ int32_t roveDynmxl_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_H
     //angle schema = undefined -> has no affect
 
 //WHEEL Mode : set to "AngleLimit" to anything other than zero
-int32_t roveDynmxl_SetWheelModeCFG( rove_dyna_serial* dynmxl);
-int32_t roveDynmxl_SpinWheelCMD(rove_dyna_serial* dynmxl, int16_t wheel_speed);
-int32_t roveDynmxl_ReadWheelREQ(rove_dyna_serial* dynmxl);
-int32_t roveDynmxl_TestWheelMode(rove_dyna_serial* dynmxl, uint32_t pause_microseconds);
-
-
+int32_t roveDynmxAx_SetWheelModeCFG( rove_dyna_serial* dynmxl);
+int32_t roveAxDynmxAx_SpinWheelCMD(rove_dyna_serial* dynmxl, int16_t wheel_speed);
+int32_t roveAxDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl);
 
 //JOINT mode
     //////////speed schema-> rpm
@@ -64,9 +94,28 @@ int32_t roveDynmxl_TestWheelMode(rove_dyna_serial* dynmxl, uint32_t pause_micros
             //ie: angle = 1024 is 300 degree
 
 //JOINT Mode : set to "AngleLimit" to anything other than zero
-int32_t roveDynmxl_SetJointModeCFG(rove_dyna_serial* dynmxl);
-int32_t roveDynmxl_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
-int32_t roveDynmxl_ReadJointREQ(rove_dyna_serial* dynmxl);
-int32_t roveDynmxl_TestJointMode(rove_dyna_serial* dynmxl, uint32_t pause_microseconds);
+int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
+int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
+int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
+
+//BEGIN JUDAH TODO factor MRDT shorthand
+typedef struct rovecntrl_test_metrics {
+
+    //negative sign cntrl values allowed
+    int16_t min_speed;
+
+    //negative sign cntrl values not allowed
+    uint16_t max_speed;
+    uint16_t speed_increment;
+
+    uint16_t min_angle;
+    uint16_t max_angle;
+    uint16_t angle_increment;
+
+    uint32_t pause_microseconds;
+} rovecntrl_test_metrics;
+
+int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
+int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
 
 #endif // ROVECONTROL_H_

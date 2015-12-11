@@ -8,6 +8,8 @@
 
 //MRDT definitions
 #include "roveWare/roveComm.h"
+//#include "roveWare/roveEnergia.h"
+
 #include "roveWare/roveControl.h"
 #include "roveWare/roveProtocol.h"
 
@@ -20,28 +22,6 @@
 //#include <ti/sysbios/knl/Mailbox.h>
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 
-
-
-//TODO Reed Advice?
-enum RoveThreadShorthand {
-    FOREVER = 0x01
-};//end enum
-enum rove_thread_error {
-    THREAD_ERROR_FREE = 0
-    , THREAD_UNKNOWN_ERROR = 1
-};//end enum
-void roveThread_CatchERRNO(int32_t thread_error);
-void roveThread_CatchERRNO(int32_t thread_error){
-    switch(thread_error) {
-        case -1:
-            printf("Unknown Thread Error");
-        default:
-        printf("Error Free");
-    }//endswitch
-};//end fnctn
-//end Reed Advice
-
-
-
 void roveThread_TivaTask(UArg arg0 , UArg arg1);
+
 #endif // ROVETHREAD_H_

@@ -35,6 +35,7 @@ typedef struct roveGPIO_Handle {
     uint32_t port;
     uint8_t pin;
 } roveGPIO_Handle, *roveGPIO_HandlePtr;
+
 enum RoveHwDev16ShortHand {
     HW_ERROR_FREE = 1
     , HW_ERROR = -1

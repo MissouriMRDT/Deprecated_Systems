@@ -1,9 +1,19 @@
-- Name: Missouri S&T
-  Level: 
+- Name: Missouri S&T SDELC
+  Level: Galactic Explorer
   Website: http://www.mst.edu
   Logo: img/logo-mst.png
 
-- Name: Advanced Circuits
-  Level: 
-  Website: http://www.4pcb.com
-  Logo: img/AdvancedCircuits.png
+- Name: Missouri S&T SAFB
+  Level: Interstellar Aviator
+  Website: http://stuco.mst.edu/safb/
+  Logo: img/StuCo.jpg
+
+- Name: Asian Circuits Inc.
+  Level: Mission Control
+  Website: http://www.7pcbassembly.com/
+  Logo: img/AsianCircuits.jpg
+
+- Name: Bittele Electronics Inc.
+  Level: Mission Control
+  Website: http://www.7pcb.com/
+  Logo: img/Bittele.jpg

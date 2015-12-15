@@ -152,6 +152,3 @@ DEPENDENCIES
   pry
   safe_yaml
   therubyracer
-
-BUNDLED WITH
-   1.10.6

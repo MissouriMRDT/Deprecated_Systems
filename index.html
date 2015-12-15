@@ -2,6 +2,9 @@
 layout: base
 title: Missouri S&amp;T Mars Rover
 ---
+
+{% include donate.html %}
+
 <div class="full-width-image-1">
   <div class="logo-wrapper">
     <img class="img-responsive center-block" src="img/logo-small.png" style="padding-left: 35px"/>
@@ -83,27 +86,25 @@ title: Missouri S&amp;T Mars Rover
         In the past, donations-in-kind have come in the form of tools, materials, and consultancy.
         Monetary donations are used by the team to acquire needed tools and materials for prototyping and fabrication.
         They also cover cover administrative costs for public relations and travel.
-        If you are interested in donating, please see our
-        <button class="btn btn-primary btn-link" data-toggle="modal" data-target="#donateModal"
-        style="padding: 0; margin: 0; border: 0;">
-        Donation Instructions
-      </button>.
-    </p>
-    <p class="lead section-lead">
-      Here are some of our sponsors:
-    </p>
-    <div class="row">
-      {% for sponsor in site.data.Sponsors %}
-      <div class="col-md-4 col-sm-6">
-        {% include sponsor.html %}
+        If you are interested in donating, please see our donation instructions. <br /> <br />
+        <button class="btn btn-default btn-sm"
+                data-toggle="modal" data-target="#donateModal">
+          Donation Instructions
+        </button>
+      </p>
+      <p class="lead section-lead">
+        Here are some of our sponsors:
+      </p>
+      <div class="row">
+        {% for sponsor in site.data.Sponsors %}
+        <div class="col-md-4 col-sm-6">
+          {% include sponsor.html %}
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>
-</div>
-
-{% include donate.html %}
 
 <div class="full-width-image-4"></div>
 

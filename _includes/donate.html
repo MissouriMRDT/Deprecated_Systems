@@ -1,54 +1,47 @@
 <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"></button>
-        <span aria-hidden="true">&times;</span>
-        <span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span></button>
+        </button>
         <h4 class="modal-title" id="myModalLabel">Donation Instructions</h4>
       </div>
       <div class="modal-body">
-        <h4 class="lead">
-          Becoming a sponsor is very simple and can be accomplished in one of two ways:
-        </h4>
-        <p class="lead">
-          <strong>Option 1 - Mail</strong>
-        </p>
-        <p class="section-paragraph">
-          Sending a check is as easy as making it out to Missouri S&amp;T with Mars Rover Design Team in the memo line.
-          The checks can then be mailed to:<br>
-          <address class="well">
-            <strong>Susan Robison</strong><br>
-            Administrative Assistant<br>
-            Student Design and Experiential Learning Center<br>
-            Missouri University of Science &amp; Technology<br>
-            1051 N. Bishop<br>
-            116 Kummer Student Design Center<br>
-            Rolla, Missouri 65409-1410
-          </address>
-        </p>
-        <p class="lead">
-          <strong>Option 2 - Online</strong>
-        </p>
-        <p class="section-paragraph" style="margin-bottom: 15px">
-          To make a donation online, please visit:
-          <a href="https://givingtomst.missouri.edu/">givingtomst.missouri.edu</a><br>
-          The form can be filled out using the following steps:
-          <ol>
-            <li>Select the 'Miners by Design' option from drop-down selection</li>
-            <li>Enter the amount of the donation</li>
-            <li>Enter 'Mars Rover Design Team' into the text dialogue </li>
-            <li>Continue to payment information</li>
-          </ol>
-        </p>
-        <img class="img-thumbnail" src="{{ site.baseurl }}img/donate-figure.png" alt="Missing Figure">
-        <br><br>
-        <div class="alert alert-info" role="alert">
-          <strong>Questions?</strong> Please see our <a href="{{ site.baseurl }}#contact">contacts</a>.
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>Becoming a sponsor is very simple and can be accomplished in one of two ways:</h4>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="row">
+          <div class="col-md-6">
+            <h4><span class="label label-default">1</span> Mail </h4>
+            <p>
+              Sending a check is as easy as making it out to Missouri S&amp;T with Mars Rover Design Team in the memo line.
+              The checks can then be mailed to:<br>
+              <address class="well">
+                <strong>Susan Robison</strong><br>
+                Administrative Assistant<br>
+                Student Design and Experiential Learning Center<br>
+                Missouri University of Science &amp; Technology<br>
+                1051 N. Bishop<br>
+                116 Kummer Student Design Center<br>
+                Rolla, Missouri 65409-1410
+              </address>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4><span class="label label-default">2</span> Online </h4>
+            <p>
+              To make a donation online, please visit: <br /> <br />
+              <a href="https://givingtomst.missouri.edu/"
+                 class="btn btn-success">
+                givingtomst.missouri.edu
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

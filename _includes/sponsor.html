@@ -1,18 +1,18 @@
 <div class="media" style="margin-bottom: 10px">
-{% if sponsor.Logo %}
+  {% if sponsor.Logo %}
   <div class="media-left">
     <a href="{{ sponsor.Website }}" target="_blank">
       <img class="media-object img-rounded" width="75" height="75" alt="No Logo"
            src="{{ site.baseurl }}{{ sponsor.Logo }}">
     </a>
   </div>
-{% endif %}
+  {% endif %}
   <div class="media-body">
     <h3 class="media-heading">
       <a href="{{ sponsor.Website }}">{{ sponsor.Name }}</a>
     </h3>
-  {% if sponsor.Level %}
-     Level: <strong>{{ sponsor.Level }}</strong> <br/>
-  {% endif %}
+    {% if sponsor.Level %}
+    Level: <strong>{{ sponsor.Level }}</strong> <br/>
+    {% endif %}
   </div>
 </div>

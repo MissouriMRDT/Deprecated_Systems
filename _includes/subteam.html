@@ -1,15 +1,13 @@
 <div class="media well">
   <div class="media-left">
-  {% if subteam.Logo %}
-    <i class="fa {{ subteam.Logo }}"
-       style="font-size:2em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
-  {% endif %}
-  </div>  
+    {% if subteam.Logo %}
+    <i class="fa {{ subteam.Logo }}" style="font-size:2em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
+    {% endif %}
+  </div>
   <div class="media-body">
     <h3 class="media-heading">{{ subteam.Name }}</h3>
-  {% if subteam.Description %}	
+    {% if subteam.Description %}
     Description: {{ subteam.Description }}
-  {% endif %}
+    {% endif %}
   </div>
 </div>
-

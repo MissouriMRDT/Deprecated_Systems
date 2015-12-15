@@ -1,22 +1,22 @@
 <div class="media well">
-{% if contact.Image %}
+  {% if contact.Image %}
   <div class="media-left">
     <img class="media-object img-rounded" width="75" height="75" alt="No Picture"
          src="{{ site.baseurl }}{{ contact.Image }}">
   </div>
-{% endif %}
+  {% endif %}
   <div class="media-body">
     <h3 class="media-heading">
       {{ contact.Name }}
-    {% if contact.Position %}
+      {% if contact.Position %}
       <small>{{ contact.Abbreviation }}</small>
-    {% endif %}
+      {% endif %}
     </h3>
-  {% if contact.Inquiries %}
+    {% if contact.Inquiries %}
     Inquiries: <strong>{{ contact.Inquiries }}</strong> <br/>
-  {% endif %}
-  {% if contact.Email %}
+    {% endif %}
+    {% if contact.Email %}
     Email: <strong> <a href="mailto:{{ contact.Email }}">{{ contact.Email }}</a></strong> <br/>
-  {% endif %}
+    {% endif %}
   </div>
 </div>

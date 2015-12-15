@@ -1,27 +1,26 @@
 <div class="media" style="margin-bottom:10px">
-{% if leader.Image %}
+  {% if leader.Image %}
   <div class="media-left">
     <a>
       <img class="media-object img-rounded" width="75" height="75"
-	   src="{{ site.baseurl }}{{ leader.Image }}" alt="No Picture">
+           src="{{ site.baseurl }}{{ leader.Image }}" alt="No Picture">
     </a>
   </div>
-{% endif %}
+  {% endif %}
   <div class="media-body">
     <h3 class="media-heading">
       {{ leader.Name}} <br class="visible-xs"/>
-    {% if leader.Position %}  
+      {% if leader.Position %}
       <small>{{ leader.Position }}</small>
-    {% endif %}
+      {% endif %}
     </h3>
-  {% if leader.SubTeams %}
+    {% if leader.SubTeams %}
     Sub-teams: <strong>{{ leader.SubTeams }}</strong>
-  {% endif %}
+    {% endif %}
   </div>
-{% if leader.Logo %}
+  {% if leader.Logo %}
   <div class="media-right">
-    <i class="fa {{ leader.Logo }}"
-       style="font-size:3em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
+    <i class="fa {{ leader.Logo }}" style="font-size:3em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
   </div>
-{% endif %}
+  {% endif %}
 </div>

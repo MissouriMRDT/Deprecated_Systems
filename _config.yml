@@ -1,9 +1,9 @@
 # Site settings
 title: Missouri S&T Mars Rover
-email: tjm6f4@mst.edu
+email: 
 description: ""
 baseurl:
-url: 
+url:
 encoding: ISO-8859-1
 
 # Build settings

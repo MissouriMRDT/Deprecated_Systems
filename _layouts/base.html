@@ -4,28 +4,23 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Missouri S&amp;T Mars Rover Design Team" />
-  <meta name="keywords" content="Mars Rover, Misssouri S&amp;T, RoveSoHard,
-  Description" />
+  <meta name="keywords" content="Mars Rover, Missouri S&amp;T, RoveSoHard" />
   <meta name="author" content="Missouri S&amp;T Mars Rover">
 
   <title>{{ page.title }}</title>
   <link href="{{ site.baseurl }}/img/mrdt-favicon.ico" rel="shortcut icon" type="image/x-icon">
-  <!-- Bootstrap core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha256-Ay17X/itZzhUFkDfLB9MICE7tbVwtPuFhcwDpABdbEA= sha512-eTtl6Aa3v8DrTCYWH7cAfXt6QW8DpsFn0hdCcYIWe6VDMyPMikXBWd/9bZR5YZNrmHBBu4KGdVgfPs1aEEgVIw==" crossorigin="anonymous">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-target="#navbar">
   {% include nav.html %}
   {{ content }}
   {% include footer.html %}
   <!-- JavaScript -->
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="{{ site.baseurl }}/js/jquery-1.10.2.js"></script>
+  <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 </body>
-
 </html>

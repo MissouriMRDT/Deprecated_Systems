@@ -10,4 +10,11 @@
     Description: {{ subteam.Description }}
     {% endif %}
   </div>
+  {% if subteam.ModalName %}
+  <div class="media-right">
+    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{ subteam.ModalName }}Modal">
+      <i class="fa fa-info-circle fa-lg"></i>
+    </button>
+  </div>
+  {% endif %}
 </div>

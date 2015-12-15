@@ -3,7 +3,12 @@ layout: base
 title: Missouri S&amp;T Mars Rover
 ---
 
-{% include donate.html %}
+
+{% for subteam in site.data.SubTeams %}
+  {% if subteam.ModalName %}
+    {% include modal-{{ subteam.ModalName }}.html %}
+  {% endif %}
+{% endfor %}
 
 <div class="full-width-image-1">
   <div class="logo-wrapper">
@@ -87,8 +92,7 @@ title: Missouri S&amp;T Mars Rover
         Monetary donations are used by the team to acquire needed tools and materials for prototyping and fabrication.
         They also cover cover administrative costs for public relations and travel.
         If you are interested in donating, please see our donation instructions. <br /> <br />
-        <button class="btn btn-danger btn-sm"
-                data-toggle="modal" data-target="#donateModal">
+        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#donateModal">
           Donation Instructions
         </button>
       </p>

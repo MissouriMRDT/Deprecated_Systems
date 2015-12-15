@@ -1,31 +1,39 @@
 - Name: Public Relations
+  ModalName: pr
   Description:
   Logo: fa-group
-  
+
 - Name: Outreach
+  ModalName: outreach
   Description:
   Logo: fa-group
 
 - Name: Power
+  ModalName:
   Description:
   Logo: fa-cogs
 
 - Name: Mechanical
+  ModalName:
   Description:
   Logo: fa-cogs
 
 - Name: Science
+  ModalName:
   Description:
   Logo: fa-cogs
 
 - Name: Telemetry and Controls
+  ModalName:
   Description:
   Logo: fa-cogs
 
 - Name: Procurement
+  ModalName:
   Description:
   Logo: fa-money
 
 - Name: Inventory
+  ModalName:
   Description:
   Logo: fa-money

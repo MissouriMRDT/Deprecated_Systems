@@ -1,41 +1,22 @@
-<div class="hidden-xs">
-  <div class="media well">
-    {% if contact.Image %}
-      <img class="media-object pull-left img-rounded" width="120" height="120" alt="No Logo"
-           src="{{ site.baseurl }}{{ contact.Image }}">
-    {% endif %}
-    <div class="media-body">
-      <h3 class="media-heading">
-        {{ contact.Name }}
-        {% if contact.Position %}
-          <small>{{ contact.Abbreviation }}</small>
-        {% endif %}
-      </h3>
-      <p>
-        {% if contact.Inquiries %}
-          Inquiries: <strong>{{ contact.Inquiries }}</strong> <br/>
-        {% endif %}
-        {% if contact.Email %}
-          Email: <strong> <a href="mailto:{{ contact.Email }}">{{ contact.Email }}</a></strong> <br/>
-        {% endif %}
-      </p>
-    </div>
+<div class="media well">
+{% if contact.Image %}
+  <div class="media-left">
+    <img class="media-object img-rounded" width="75" height="75" alt="No Picture"
+         src="{{ site.baseurl }}{{ contact.Image }}">
   </div>
-</div>
-
-<div class="visible-xs">
-    <h4>
+{% endif %}
+  <div class="media-body">
+    <h3 class="media-heading">
       {{ contact.Name }}
-      {% if contact.Position %}
-        <small>{{ contact.Abbreviation }}</small>
-      {% endif %}
-    </h4>
-    <p>
-      {% if contact.Inquiries %}
-        Inquiries: <strong>{{ contact.Inquiries }}</strong> <br/>
-      {% endif %}
-      {% if contact.Email %}
-        Email: <strong> <a href="mailto:{{ contact.Email }}">{{ contact.Email }}</a></strong> <br/>
-      {% endif %}
-    </p>
+    {% if contact.Position %}
+      <small>{{ contact.Abbreviation }}</small>
+    {% endif %}
+    </h3>
+  {% if contact.Inquiries %}
+    Inquiries: <strong>{{ contact.Inquiries }}</strong> <br/>
+  {% endif %}
+  {% if contact.Email %}
+    Email: <strong> <a href="mailto:{{ contact.Email }}">{{ contact.Email }}</a></strong> <br/>
+  {% endif %}
+  </div>
 </div>

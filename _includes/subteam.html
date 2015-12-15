@@ -1,33 +1,15 @@
-<div class="hidden-xs">
-  <div class="media well">
-    {% if subteam.Logo %}
-      <i class="fa {{ subteam.Logo }} media-object pull-right"
-         style="font-size:3em; color:rgba(0, 0, 0, 0.8)"></i>
-    {% endif %}
-    <div class="media-body">
-      <h3 class="media-heading">
-        {{ subteam.Name }}
-      </h3>
-      <p>
-        {% if subteam.Description %}
-          Description: {{ subteam.Description }}
-        {% endif %}
-      </p>
-    </div>
+<div class="media well">
+  <div class="media-left">
+  {% if subteam.Logo %}
+    <i class="fa {{ subteam.Logo }}"
+       style="font-size:2em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
+  {% endif %}
+  </div>  
+  <div class="media-body">
+    <h3 class="media-heading">{{ subteam.Name }}</h3>
+  {% if subteam.Description %}	
+    Description: {{ subteam.Description }}
+  {% endif %}
   </div>
 </div>
 
-<div class="visible-xs">
-  {% if subteam.Logo %}
-    <i class="fa {{ subteam.Logo }} pull-left"
-       style="font-size:1em; color:rgba(0, 0, 0, 0.8)"></i>
-  {% endif %}
-  <h5>
-    {{ subteam.Name }}
-  </h5>
-  <p>
-    {% if subteam.Description %}
-      Description: {{ subteam.Description }}
-    {% endif %}
-  </p>
-</div>

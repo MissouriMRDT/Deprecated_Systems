@@ -1,48 +1,27 @@
-<div class="hidden-xs">
-  <div class="media well">
-    {% if leader.Image %}
-      <img class="media-object pull-left img-rounded" width="120" height="120" alt="No Picture"
-           src="{{ site.baseurl }}{{ leader.Image }}">
-    {% endif %}
-    {% if leader.Logo %}
-      <i class="fa {{ leader.Logo }} media-object pull-right visible-md visible-lg"
-         style="font-size:5em; color:rgba(0, 0, 0, 0.8)"></i>
-    {% endif %}
-    <div class="media-body">
-      <h3 class="media-heading">
-        {{ leader.Name }}
-        {% if leader.Position %}
-          <br>
-          <small>{{ leader.Position }}</small>
-        {% endif %}
-      </h3>
-      <p>
-        {% if leader.SubTeams %}
-          Sub-teams: <strong>{{ leader.SubTeams }}</strong><br/>
-        {% endif %}
-      </p>
-    </div>
+<div class="media" style="margin-bottom:10px">
+{% if leader.Image %}
+  <div class="media-left">
+    <a>
+      <img class="media-object img-rounded" width="75" height="75"
+	   src="{{ site.baseurl }}{{ leader.Image }}" alt="No Picture">
+    </a>
   </div>
-</div>
-
-<div class="visible-xs">
-    {% if leader.Image %}
-      <img class="img-rounded pull-left" width="45" height="45" alt="No Picture"
-           src="{{ site.baseurl }}{{ leader.Image }}" style="margin-right: 5px;">
+{% endif %}
+  <div class="media-body">
+    <h3 class="media-heading">
+      {{ leader.Name}} <br class="visible-xs"/>
+    {% if leader.Position %}  
+      <small>{{ leader.Position }}</small>
     {% endif %}
-    <h5>
-      {{ leader.Name }}
-      {% if leader.Position %}
-        <br>
-        <small>
-          {% if leader.Logo %}
-            <i class="fa {{ leader.Logo }} media-object"
-               style="font-size:1em; color:rgba(0, 0, 0, 0.8)"></i>
-          {% endif %}
-          {% if leader.Abbreviation %}
-            {{ leader.Abbreviation }}
-          {% endif %}
-        </small>
-      {% endif %}
-    </h5>
+    </h3>
+  {% if leader.SubTeams %}
+    Sub-teams: <strong>{{ leader.SubTeams }}</strong>
+  {% endif %}
+  </div>
+{% if leader.Logo %}
+  <div class="media-right">
+    <i class="fa {{ leader.Logo }}"
+       style="font-size:3em; color:rgba(0, 0, 0, 0.8); padding-top:5px"></i>
+  </div>
+{% endif %}
 </div>

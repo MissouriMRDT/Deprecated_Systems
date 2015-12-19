@@ -9,31 +9,31 @@
   Logo: fa-group
 
 - Name: Power
-  ModalName:
+  ModalName: power
   Description:
   Logo: fa-cogs
 
 - Name: Mechanical
-  ModalName:
+  ModalName: mechanical
   Description:
   Logo: fa-cogs
 
 - Name: Science
-  ModalName:
+  ModalName: science
   Description:
   Logo: fa-cogs
 
-- Name: Telemetry and Controls
-  ModalName:
+- Name: Telemetry &amp; Controls
+  ModalName: telecon
   Description:
   Logo: fa-cogs
 
 - Name: Procurement
-  ModalName:
+  ModalName: procure
   Description:
   Logo: fa-money
 
 - Name: Inventory
-  ModalName:
+  ModalName: inventory
   Description:
   Logo: fa-money

@@ -27,13 +27,3 @@
   ModalName: telecon
   Description:
   Logo: fa-cogs
-
-- Name: Procurement
-  ModalName: procure
-  Description:
-  Logo: fa-money
-
-- Name: Inventory
-  ModalName: inventory
-  Description:
-  Logo: fa-money

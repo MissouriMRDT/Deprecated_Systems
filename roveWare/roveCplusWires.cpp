@@ -6,7 +6,11 @@
 
 //c++ thread public
 RoveComm::begin();
+*/
 
+#include "roveCplusWires.h"
+
+/*
 RoveComm::writeIpMsg();
 RoveComm::readIpMsg();
 

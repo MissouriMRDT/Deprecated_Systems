@@ -201,7 +201,7 @@ int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
             return AX_ERROR;
         }//endif
 
-        roveBoard_DelayMilliSec(test->pause_microseconds);
+        //roveBoard_DelayMilliSec(test->pause_microseconds);
     } //end for
 
     //ramp back from max forward through zero to max reverse
@@ -217,7 +217,7 @@ int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
             return AX_ERROR;
         }//endif
 
-        roveBoard_DelayMilliSec(test->pause_microseconds);
+        //roveBoard_DelayMilliSec(test->pause_microseconds);
     } //end for
 
     //ramp back from max reverse landing on zero
@@ -232,10 +232,10 @@ int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
             return AX_ERROR;
         }//endif
 
-        roveBoard_DelayMilliSec(test->pause_microseconds);
+        //roveBoard_DelayMilliSec(test->pause_microseconds);
     } //end for
 
-    roveBoard_DelayMilliSec(4*test->pause_microseconds);
+    //roveBoard_DelayMilliSec(4*test->pause_microseconds);
     return AX_ERROR_FREE;
 };//end fnctn
 
@@ -405,7 +405,7 @@ int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
                 return AX_ERROR;
             }//endif
 
-            roveBoard_DelayMilliSec(test->pause_microseconds);
+            //roveBoard_DelayMilliSec(test->pause_microseconds);
         } //end for
 
         for (angle = test->max_angle; angle > test->min_angle; angle -= test->angle_increment) {
@@ -418,7 +418,7 @@ int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
                 printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
             }//endif
 
-            roveBoard_DelayMilliSec(test->pause_microseconds);
+            //roveBoard_DelayMilliSec(test->pause_microseconds);
         } //end for
 
         for (angle = test->min_angle; angle < test->max_angle; angle += test->angle_increment) {
@@ -431,12 +431,12 @@ int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metri
                 printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
             }//endif
 
-            roveBoard_DelayMilliSec(test->pause_microseconds);
+            //roveBoard_DelayMilliSec(test->pause_microseconds);
         } //end for
 
     } //end for
 
-    roveBoard_DelayMilliSec(4*test->pause_microseconds);
+    //oveBoard_DelayMilliSec(4*test->pause_microseconds);
     return AX_ERROR_FREE;
 };//end fnctn
 
@@ -502,7 +502,7 @@ static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* wri
     //send check sum
     roveBoard_UartWrite(dynmxl->uart, &check_sum, 1);
     //wait for uart_write
-    roveBoard_DelayMicroSec(AX_DELAY_TX_uSEC);
+    //roveBoard_DelayMicroSec(AX_DELAY_TX_uSEC);
     //set tristate buffer to uart_rx read status
     roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 0);
 

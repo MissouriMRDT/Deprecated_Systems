@@ -79,7 +79,7 @@ void roveBoard_PwmWrite(rovePWM_Handle pwm, int16_t duty_in_microseconds);
 int32_t roveBoard_UartWrite( roveUART_Handle uart, uint8_t* write_buffer, int32_t bytes_to_write);
 int32_t roveBoard_UartRead(roveUART_Handle uart, uint8_t* read_buffer, int32_t bytes_to_read);
 
-void roveBoard_DelayMilliSec(uint32_t milliseconds);
-void roveBoard_DelayMicroSec(uint32_t microseconds);
+//void roveBoard_DelayMilliSec(uint32_t milliseconds);
+//void roveBoard_DelayMicroSec(uint32_t microseconds);
 
 #endif //ROVEBOARD_TIVA1294_H_

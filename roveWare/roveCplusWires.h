@@ -6,21 +6,19 @@
 // Energia C++ Public Interface Thin Wrappers
 //
 // mrdt::roveWare
-/*
+
 #ifndef ROVECPLUSWIRES_H_
 #define ROVECPLUSWIRES_H_
 
-#include "roveComm.h"
-#include "roveControl.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 //I contend we heavily enforce an explicitly ban on the use of "New" operator or "Task_create" function in roveWare throughout 2016
 //That way all Rtos, C_plus, and pure C instantiation stays Compile Time and shares a common init pattern
 
 
-
-
-
-
+/*
 //ENERGIA::ROVECOMM::CLASS
 
 //public interface for an distrubuted embedded ip network for robotic control
@@ -137,5 +135,5 @@ class RoveDynmxAx {
 
 
 
-
+*/
 #endif // ROVECPLUSWIRES_H_

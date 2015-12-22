@@ -21,7 +21,185 @@
 // TODO Judah Factor Out Dev Shorthand
 //extern roveUart_Handle UART_2;
 //extern roveGpio_Handle PE_1;
+/* Global clock objects */
 
+
+
+class Clock {
+    private:
+         // data
+         int id;
+         double ticks;
+         int microsecond;
+         int millisecond;
+         int second;
+         int minute;
+         int hour;
+         int day;
+         int month;
+         int year;
+         int century;
+         int millenium;
+         Diags_Mask clockLog;
+
+    public:
+        // methods
+        Clock(int newId);  // Constructor
+        ~Clock();          // Destructor
+        void tick();
+        int getId();
+};//end Clock
+
+
+/* Global clock objects */
+Clock cl0(0);  /* idle loop clock */
+Clock cl1(1);  /* periodic clock, period = 1 ms */
+Clock cl2(2);  /* periodic clock, period = 1 sec */
+Clock cl3(3);  /* task clock */
+Clock cl4(4);  /* task clock */
+
+/* Wrapper functions to call Clock::tick() */
+extern "C" {
+
+//Wtf??
+void clockTask(UArg arg);
+void clockPrd(UArg arg);
+void clockIdle(void);
+
+} // end extern "C"
+
+
+///////////////::BEGIN//////RoveThread Device Tiva Task//////////////
+void roveThread_TivaTask(UArg arg0, UArg arg1)
+{
+    //Clock roveClock_Instance;
+    for(;;)
+    {
+
+        //SysClockGet
+        printf("roveThread_TivaTask is awake: ");
+
+    }//end while
+
+}//end task
+
+
+/*
+ *  ======== clockTask ========
+ *  Wrapper function for TSK objects calling
+ *  Clock::tick()
+ */
+void clockTask(UArg arg)
+{
+    Clock *clock = (Clock *)arg;
+    int count = 0;
+
+    if (clock->getId() == 3) {
+        for(;;) {             // task id = 3
+            Semaphore_pend(sem0, BIOS_WAIT_FOREVER);
+            clock->tick();
+            if(count == 50) {
+                Task_sleep(25);
+                count = 0;
+            }
+            count++;
+            printf("wtf");
+            //printf("clock->getId : %d : Count: %d ", clock->getId(), count);
+            Semaphore_post(sem1);
+        }
+    }
+    else {
+        for(;;) {             // task id = 4
+            Semaphore_pend(sem1, BIOS_WAIT_FOREVER);
+            if(count == 50) {
+                Task_sleep(25);
+                count = 0;
+            }
+            clock->tick();
+            count++;
+            printf("wtf");
+            //printf("clock->getId : %d : Count: %d ", clock->getId(), count);
+            Semaphore_post(sem0);
+        }
+    }
+
+};//end task
+
+
+//
+// ======== clockIdle ========
+// Wrapper function for IDL objects calling
+// Clock::tick()
+//
+void clockIdle(void)
+{
+    cl0.tick();
+    return;
+} // end fnctn
+
+//
+// ======== clockPrd ========
+// Wrapper function for PRD objects calling
+// Clock::tick()
+//
+void clockPrd(UArg arg)
+{
+    Clock *clock = (Clock *)arg;
+
+    clock->tick();
+    return;
+} //end fnctn
+
+
+/*
+ * Clock methods
+ */
+Clock::Clock(int newId)
+{
+    id = newId;
+    ticks = 0;
+    microsecond = 0;
+    millisecond = 0;
+    second = 0;
+    minute = 0;
+    hour = 0;
+    day = 19;
+    month = 8;
+    year = 10;
+    century = 20;
+    millenium = 0;
+}//end constructor
+
+Clock::~Clock()
+{
+}//end destructor
+
+void Clock::tick()
+{
+    ticks++;
+    return;
+}
+
+int Clock::getId()
+{
+    return id;
+}
+
+
+
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
 roveUART_Handle FAKE_UART;
 roveGPIO_Handle FAKE_GPIO;
 
@@ -233,7 +411,5 @@ static void roveThread_CatchERRNO(int32_t thread_error){
     }//endswitch
 };//end fnctn
 
-
+*/
 //Cplus
-
-

@@ -7,11 +7,8 @@
 #define ROVETHREAD_H_
 
 //MRDT definitions
-#include "roveWare/roveComm.h"
-//#include "roveWare/roveEnergia.h"
-
-#include "roveWare/roveControl.h"
 #include "roveWare/roveProtocol.h"
+//#include "roveWare/roveCplusWires.h"
 
 //C lib
 #include <stdio.h>
@@ -21,6 +18,20 @@
 //#include <ti/ndk/inc/os/osif.h>
 //#include <ti/sysbios/knl/Mailbox.h>
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
+
+//#include "roveComm.h"
+//#include "roveControl.h"
+
+#include <xdc/std.h>
+
+#include <xdc/runtime/Log.h>
+#include <xdc/runtime/Diags.h>
+#include <xdc/runtime/System.h>
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Semaphore.h>
+#include <ti/sysbios/knl/Task.h>
+
+#include <xdc/cfg/global.h>
 
 void roveThread_TivaTask(UArg arg0 , UArg arg1);
 

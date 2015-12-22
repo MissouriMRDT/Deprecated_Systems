@@ -87,7 +87,9 @@ int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_addr
 
     //set rove socket address structure ipv4 (casting embedded types, to bsd types)
     rove_socket->local_ip.port = htons( (unsigned short)local_port);
-    rove_socket->local_ip.address = inet_addr( (char*)local_ip_address );
+
+    //TODO BSD
+    //rove_socket->local_ip.address = inet_addr( (char*)local_ip_address );
 
     //bind the socket address
 
@@ -209,9 +211,36 @@ static int32_t roveComm_ParseUdpMSG(rovecomm_protocol* rove_data){
 
 
 
-// Begin Tiva Ndk Developement Notes as of Dec16
+/* Begin Tiva Ndk Developement Notes as of Dec16
 
 //TODO mark up on udp bsd cfg
+
+
+// Socket Oriented Functions
+extern SOCKET NDK_accept( SOCKET s, PSA pName, int *plen );
+extern int    NDK_bind( SOCKET s, PSA pName, int len );
+extern int    NDK_connect( SOCKET s, PSA pName, int len );
+extern int    NDK_getpeername( SOCKET s, PSA pName, int *plen );
+extern int    NDK_getsockname( SOCKET s, PSA pName, int *plen );
+extern int    NDK_getsockopt( SOCKET s, int level, int op, void *pbuf, int *pbufsize );
+extern int    NDK_listen( SOCKET s, int maxcon );
+extern int    NDK_recv( SOCKET s, void *pbuf, int size, int flags );
+extern int    NDK_recvfrom( SOCKET s, void *pbuf, int size, int flags, PSA pName, int *plen );
+extern int    NDK_recvnc( SOCKET s, void **ppbuf, int flags, void **pHandle );
+extern int    NDK_recvncfrom( SOCKET s, void **ppbuf, int flags,
+                           PSA pName, int *plen, void **pHandle );
+extern void   NDK_recvncfree( SOCKET Handle );
+extern int    NDK_send( SOCKET s, void *pbuf, int size, int flags );
+extern int    NDK_sendto( SOCKET s, void *pbuf, int size, int flags, PSA pName, int len );
+extern int    NDK_setsockopt( SOCKET s, int level, int op, void *pbuf, int bufsize );
+extern int    NDK_shutdown( SOCKET s, int how );
+extern SOCKET NDK_socket( int domain, int type, int protocol );
+
+extern int    NDK_getsendncbuff(SOCKET s, unsigned int bufSize, void** phBuf, void ** phPkt);
+extern int    NDK_sendnc( SOCKET s, void *pbuf, int size, void * hPkt, int flags );
+extern void   NDK_sendncfree( SOCKET Handle );
+
+
 //AF_INET
 //SOCK_DGRAM
 //IPPROTO_UDP);
@@ -230,7 +259,7 @@ static int32_t roveComm_ParseUdpMSG(rovecomm_protocol* rove_data){
 //////////////////////////////////////////////////////////////////////
 
 
-/* Generic Socket address storage data structure.
+// Generic Socket address storage data structure.
 struct sockaddr {
 
     // address family
@@ -239,9 +268,9 @@ struct sockaddr {
     // socket data
     char sa_data[14];
 
-};*/
+};
 
-/* AF_INET family (IPv4) Socket address data structure.
+// AF_INET family (IPv4) Socket address data structure.
 struct sockaddr_in {
 
 // address family
@@ -257,14 +286,14 @@ struct sockaddr_in {
 };
 typedef struct sockaddr_in  SA_IN;
 typedef struct sockaddr_in* PSA_IN
-*/
+*
 
 
 // 32 bit long IP address, net order
-/* Structure used by kernel to store most
+// Structure used by kernel to store most
 struct in_addr {
     unsigned int s_addr;
-};*/
+};
 
 //typedef (struct sockaddr*)&     cast_ip_address_ptr
 //typedef (char*)                 cast_char_ptr
@@ -283,7 +312,7 @@ struct in_addr {
 //sin_port and sin_addr must be in Network Byte Order
 
 // End Tiva Ndk Developement Notes as of Dec16
-
+*/
 //TODO Reed Advice? JUDAH: Eliminate Switch
 static int32_t roveComm_CatchRoveERRNO(int32_t rove_errno) {
 

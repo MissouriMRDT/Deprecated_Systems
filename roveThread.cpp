@@ -21,10 +21,83 @@
 // TODO Judah Factor Out Dev Shorthand
 //extern roveUart_Handle UART_2;
 //extern roveGpio_Handle PE_1;
-/* Global clock objects */
+
+
+class roveComm {
+
+    private:
+        rovecomm_socket _udp_socket;
+        rovecomm_protocol _udp_data;
+
+        int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
+        int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
+
+    public:
+        roveComm(int newId);
+        ~roveComm();
+        //roveComm::beginUdp(my_ip_addr, port);
+        //roveComm::beginTcp(my_ip_addr, port);;
+};// end class
 
 
 
+class roveControl {
+
+    private:
+        rove_dyna_serial rove_dynamxl;
+
+        //config constructor
+        int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
+
+        //WHEEL Mode
+        int32_t roveDynmxAx_SetWheelModeCFG( rove_dyna_serial* dynmxl);
+        int32_t roveAxDynmxAx_SpinWheelCMD(rove_dyna_serial* dynmxl, int16_t wheel_speed);
+        int32_t roveAxDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl);
+
+         //JOINT Mode
+        int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
+        int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
+        int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
+    public:
+        roveControl(int newId);
+        ~roveControl();
+        //https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Named_Constructor
+        //BeginAx(serial_pin, dyna_id, baud_rate);
+        //BeginMx(serial_pin, dyna_id, baud_ra);
+};// end class
+
+
+
+///////////////::BEGIN//////RoveThread Device Tiva Task//////////////
+void roveThread(UArg arg0, UArg arg1)
+{
+
+    //roveTest testTimers;
+    //roveclock roveTest_SoftTimer_mS;
+    //roveclock roveTest_SoftTimer_uS;
+
+    //roveTest testControllers;
+    //roveControl roveTest_Ax12 = roveControl::BeginAx(serial_pin, dyna_id, baud_rate);
+    //roveControl roveTest_Mx28 = roveControl::BeginMx(serial_pin, dyna_id, baud_rate);
+    roveControl roveTestCplusController(1);
+
+    //roveTest testComms;
+    //roveComm roveTest_Udp = roveComm::beginUdp(my_ip_addr, port);
+    //roveComm roveTest_TcpServer =  roveComm::beginTcp(my_ip_addr, port);
+    roveComm roveTestCplusComm(1);
+
+    for(;;)
+    {
+        //SysClockGet
+        printf("roveThread_TivaTask is awake: ");
+    }// end for
+
+}//end task
+
+
+
+
+/*
 class Clock {
     private:
          // data
@@ -40,7 +113,7 @@ class Clock {
          int year;
          int century;
          int millenium;
-         Diags_Mask clockLog;
+         //Diags_Mask clockLog;
 
     public:
         // methods
@@ -48,47 +121,59 @@ class Clock {
         ~Clock();          // Destructor
         void tick();
         int getId();
-};//end Clock
+};// end class
+
+// Global clock objects
+Clock cl0(0);  // idle loop clock
+Clock cl1(1);  // periodic clock, period = 1 ms
+Clock cl2(2);  // periodic clock, period = 1 sec
+Clock cl3(3);  // task clock
+Clock cl4(4);  // task clock
 
 
-/* Global clock objects */
-Clock cl0(0);  /* idle loop clock */
-Clock cl1(1);  /* periodic clock, period = 1 ms */
-Clock cl2(2);  /* periodic clock, period = 1 sec */
-Clock cl3(3);  /* task clock */
-Clock cl4(4);  /* task clock */
 
-/* Wrapper functions to call Clock::tick() */
-extern "C" {
-
+// Wrapper functions to call Clock::tick()
+extern "C"
+{
 //Wtf??
-void clockTask(UArg arg);
-void clockPrd(UArg arg);
 void clockIdle(void);
-
+void clockPeridoic(UArg arg);
+void clockTask(UArg arg);
 } // end extern "C"
 
 
-///////////////::BEGIN//////RoveThread Device Tiva Task//////////////
-void roveThread_TivaTask(UArg arg0, UArg arg1)
+// ======== clockIdle ========
+// Wrapper function for
+// IDL objects
+// calling Clock::tick()
+// ========  ======== ========
+void clockIdle(void)
 {
-    //Clock roveClock_Instance;
-    for(;;)
-    {
-
-        //SysClockGet
-        printf("roveThread_TivaTask is awake: ");
-
-    }//end while
-
-}//end task
+    cl0.tick();
+    return;
+} // end fnctn
 
 
-/*
- *  ======== clockTask ========
- *  Wrapper function for TSK objects calling
- *  Clock::tick()
- */
+
+// ======== clockPrd ========
+// Wrapper function for
+// PRD objects calling
+// Clock::tick()
+// ========  ======== ========
+void clockPeriodic(UArg arg)
+{
+    Clock *clock = (Clock *)arg;
+
+    clock->tick();
+    return;
+} //end fnctn
+
+
+
+// ======== clockTask ========
+// Wrapper function for
+// TSK objects
+// calling Clock::tick()
 void clockTask(UArg arg)
 {
     Clock *clock = (Clock *)arg;
@@ -106,8 +191,8 @@ void clockTask(UArg arg)
             printf("wtf");
             //printf("clock->getId : %d : Count: %d ", clock->getId(), count);
             Semaphore_post(sem1);
-        }
-    }
+        }//end for
+    }//end if
     else {
         for(;;) {             // task id = 4
             Semaphore_pend(sem1, BIOS_WAIT_FOREVER);
@@ -120,86 +205,59 @@ void clockTask(UArg arg)
             printf("wtf");
             //printf("clock->getId : %d : Count: %d ", clock->getId(), count);
             Semaphore_post(sem0);
-        }
-    }
+        }//end for
+    }//end if
 
 };//end task
 
 
-//
-// ======== clockIdle ========
-// Wrapper function for IDL objects calling
-// Clock::tick()
-//
-void clockIdle(void)
-{
-    cl0.tick();
-    return;
-} // end fnctn
-
-//
-// ======== clockPrd ========
-// Wrapper function for PRD objects calling
-// Clock::tick()
-//
-void clockPrd(UArg arg)
-{
-    Clock *clock = (Clock *)arg;
-
-    clock->tick();
-    return;
-} //end fnctn
 
 
-/*
- * Clock methods
- */
+
+
+
+
+
+
+//Clock methods
 Clock::Clock(int newId)
 {
     id = newId;
     ticks = 0;
+
     microsecond = 0;
     millisecond = 0;
     second = 0;
-    minute = 0;
-    hour = 0;
-    day = 19;
-    month = 8;
-    year = 10;
-    century = 20;
-    millenium = 0;
-}//end constructor
+
+}// end constructor
 
 Clock::~Clock()
 {
-}//end destructor
+}// end destructor
 
 void Clock::tick()
 {
     ticks++;
     return;
-}
+}// end fnctn
 
 int Clock::getId()
 {
     return id;
-}
+}// end fnctn
 
 
 
 
-/*
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
+
+
+
+
+
+
+
+
+//
 roveUART_Handle FAKE_UART;
 roveGPIO_Handle FAKE_GPIO;
 

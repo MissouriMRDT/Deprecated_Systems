@@ -63,6 +63,8 @@ typedef struct rove_dyna_serial {
 
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
 
+extern "C"
+{
 //config constructor
 int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
 
@@ -97,7 +99,7 @@ int32_t roveAxDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl);
 int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
 int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
 int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
-
+} // end extern "C"
 //BEGIN JUDAH TODO factor MRDT shorthand
 typedef struct rovecntrl_test_metrics {
 

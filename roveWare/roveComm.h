@@ -18,7 +18,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <socketndk.h>
-//#include <inet/inetaddr.h> wtf implicit
+//#include <inet/inetaddr.h>
 
 //TODO Not sure I like to hardcode the max buffer, max subscrbr? (leave open for future dev : device synch?)
 typedef enum ROVECOMM_RELEASE {
@@ -86,10 +86,10 @@ typedef struct rovecomm_protocol {
 
 }__attribute__((packed)) rovecomm_protocol;
 
-
-
+extern "C"
+{
 int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
-
 int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
+} // end extern "C"
 
 #endif // ROVECOMM_H_

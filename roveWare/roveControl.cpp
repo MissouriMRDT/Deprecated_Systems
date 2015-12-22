@@ -578,7 +578,7 @@ static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl) {
 
 
 //TODO JUDAH REFACTOR
-static roveDynmxAx_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer){
+static int32_t roveDynmxAx_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer){
 
     dynmxl->reply_id = data_buffer[0];
 

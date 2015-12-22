@@ -9,30 +9,33 @@
 //MRDT definitions
 #include "roveWare/roveProtocol.h"
 //#include "roveWare/roveCplusWires.h"
+#include "roveWare/roveBoard/roveBOARD_TIVA1294.h"
+
+
+#include "roveWare/roveComm.h"
+#include "roveWare/roveControl.h"
 
 //C lib
 #include <stdio.h>
 //CCS TI operating system
-#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Task.h>
 //TODO wtf TaskSelf Warning?
 //#include <ti/ndk/inc/os/osif.h>
 //#include <ti/sysbios/knl/Mailbox.h>
 //Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
 
-//#include "roveComm.h"
-//#include "roveControl.h"
 
 #include <xdc/std.h>
-
-#include <xdc/runtime/Log.h>
-#include <xdc/runtime/Diags.h>
+//#include <xdc/runtime/Log.h>
+//#include <xdc/runtime/Diags.h>
 #include <xdc/runtime/System.h>
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Semaphore.h>
 #include <ti/sysbios/knl/Task.h>
-
 #include <xdc/cfg/global.h>
 
-void roveThread_TivaTask(UArg arg0 , UArg arg1);
+
+// Production Thread
+void roveThread(UArg arg0 , UArg arg1);
 
 #endif // ROVETHREAD_H_

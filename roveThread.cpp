@@ -91,7 +91,7 @@ void roveThread(UArg arg0, UArg arg1)
     //roveComm roveTest_TcpServer =  roveComm::beginTcp(my_ip_addr, port);
     roveComm roveTestCplusComm(1);
 
-    int roveTestClock = cl2.getId();
+    //int roveTestClock = cl2.getId();
 
     for(;;)
     {
@@ -102,7 +102,7 @@ void roveThread(UArg arg0, UArg arg1)
 }//end task
 
 
-
+/*
 
 // ======== clockPrd ========
 // Wrapper function for
@@ -167,7 +167,7 @@ void clockTask(UArg arg)
 
 
 
-
+*/
 
 
 

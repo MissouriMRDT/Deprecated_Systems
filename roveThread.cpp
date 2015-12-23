@@ -11,67 +11,72 @@
 
 #include "roveThread.h"
 
-//RoveWare Naming Convention : loosely adapted from crnrPMcore Scripting Convention
-
-//roveSquadName _ <Do Action> <On Noun> (optional ATTRIBUTE)
-//ie. roveComm_ParseUdpMSG
-//ie. roveDynmxl_SetWheelModeCFG
-
-
 // TODO Judah Factor Out Dev Shorthand
 //extern roveUart_Handle UART_2;
 //extern roveGpio_Handle PE_1;
-
-
-class roveComm {
-
-    private:
-        rovecomm_socket _udp_socket;
-        rovecomm_protocol _udp_data;
-
-        int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
-        int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
-
-    public:
-        roveComm(int newId);
-        ~roveComm();
-        //roveComm::beginUdp(my_ip_addr, port);
-        //roveComm::beginTcp(my_ip_addr, port);;
-};// end class
+//roveUART_Handle FAKE_UART;
+//roveGPIO_Handle FAKE_GPIO;
 
 
 
-class roveControl {
 
-    private:
-        rove_dyna_serial rove_dynamxl;
-
-        //config constructor
-        int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
-
-        //WHEEL Mode
-        int32_t roveDynmxAx_SetWheelModeCFG( rove_dyna_serial* dynmxl);
-        int32_t roveAxDynmxAx_SpinWheelCMD(rove_dyna_serial* dynmxl, int16_t wheel_speed);
-        int32_t roveAxDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl);
-
-         //JOINT Mode
-        int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
-        int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
-        int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
-    public:
-        roveControl(int newId);
-        ~roveControl();
-        //https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Named_Constructor
-        //BeginAx(serial_pin, dyna_id, baud_rate);
-        //BeginMx(serial_pin, dyna_id, baud_ra);
-};// end class
+// ======== roveDev16 ========
+typedef enum ROVETHREAD_DEV16
+{
+   LEFT_WRIST_ID = 0x00
+   , RIGHT_WRIST_ID = 0x00
+   , WRITE_ONLY = 0
+   , FAKE_UART = 0
+   , FAKE_GPIO = 0
+   , FOREVER = 1
+} ROVETHREAD_DEV16;
+// ========  =======  ========
 
 
+// ======== USING roveControl ========
+//roveControl::int DynmxlBeginAx(serial_pin, dyna_id, baud_rate);
+//roveControl::int DynmxlBeginMx(serial_pin, dyna_id, baud_rate);
+
+//WHEEL Mode
+//roveControl::int setWheelMode();
+//roveControl::int spinWheel(int wheel_speed);
+//roveControl::int readWheel();
+
+//WHEEL Mode
+//roveControl::int setJointMode();
+//roveControl::int rotateJoint(int joint_position, int wheel_speed);
+//roveControl::int readJoint();
+// ========  =======  ========
+// ======== PLANNED roveControl Future Developement:
+// ========  =======  ========
+
+
+// ======== USING roveComm ========
+//roveComm::int beginUdp(local_ip_addr, port);
+//roveComm::int readUdp(remote_ip_addr, "char_message");
+//roveComm::int writeUdp(remote_ip_addr, "char_message");
+// ========  =======  ========
+
+
+// ======== PLANNED roveComm Future Developement:
+//roveComm::beginTcp(local_ip_addr, port);
+//roveComm::readTcp(remote_ip_addr, "char_message");
+//roveComm::writeTcp(remote_ip_addr, "char_message");
+//
+//roveComm::beginHttp();
+//roveComm::getHttp(remote_url, "json_message");
+//roveComm::postHttp(remote_url, "json_message");
+//
+//roveComm::beginMqqt(broker);
+//roveComm::publishMqqt("message");
+//roveComm::subscribeMqqt("message");
+// ========  =======  ========
 
 ///////////////::BEGIN//////RoveThread Device Tiva Task//////////////
 void roveThread(UArg arg0, UArg arg1)
 {
 
+    //roveRtosMonitor?
     //roveTest testTimers;
     //roveclock roveTest_SoftTimer_mS;
     //roveclock roveTest_SoftTimer_uS;
@@ -86,6 +91,8 @@ void roveThread(UArg arg0, UArg arg1)
     //roveComm roveTest_TcpServer =  roveComm::beginTcp(my_ip_addr, port);
     roveComm roveTestCplusComm(1);
 
+    int roveTestClock = cl2.getId();
+
     for(;;)
     {
         //SysClockGet
@@ -97,76 +104,18 @@ void roveThread(UArg arg0, UArg arg1)
 
 
 
-/*
-class Clock {
-    private:
-         // data
-         int id;
-         double ticks;
-         int microsecond;
-         int millisecond;
-         int second;
-         int minute;
-         int hour;
-         int day;
-         int month;
-         int year;
-         int century;
-         int millenium;
-         //Diags_Mask clockLog;
-
-    public:
-        // methods
-        Clock(int newId);  // Constructor
-        ~Clock();          // Destructor
-        void tick();
-        int getId();
-};// end class
-
-// Global clock objects
-Clock cl0(0);  // idle loop clock
-Clock cl1(1);  // periodic clock, period = 1 ms
-Clock cl2(2);  // periodic clock, period = 1 sec
-Clock cl3(3);  // task clock
-Clock cl4(4);  // task clock
-
-
-
-// Wrapper functions to call Clock::tick()
-extern "C"
-{
-//Wtf??
-void clockIdle(void);
-void clockPeridoic(UArg arg);
-void clockTask(UArg arg);
-} // end extern "C"
-
-
-// ======== clockIdle ========
-// Wrapper function for
-// IDL objects
-// calling Clock::tick()
-// ========  ======== ========
-void clockIdle(void)
-{
-    cl0.tick();
-    return;
-} // end fnctn
-
-
-
 // ======== clockPrd ========
 // Wrapper function for
 // PRD objects calling
 // Clock::tick()
-// ========  ======== ========
+// ========  =======  ========
 void clockPeriodic(UArg arg)
 {
     Clock *clock = (Clock *)arg;
 
     clock->tick();
     return;
-} //end fnctn
+} //end task
 
 
 
@@ -219,56 +168,14 @@ void clockTask(UArg arg)
 
 
 
-//Clock methods
-Clock::Clock(int newId)
-{
-    id = newId;
-    ticks = 0;
-
-    microsecond = 0;
-    millisecond = 0;
-    second = 0;
-
-}// end constructor
-
-Clock::~Clock()
-{
-}// end destructor
-
-void Clock::tick()
-{
-    ticks++;
-    return;
-}// end fnctn
-
-int Clock::getId()
-{
-    return id;
-}// end fnctn
 
 
 
 
 
-
-
-
-
-
-
-
-//
+/*
 roveUART_Handle FAKE_UART;
 roveGPIO_Handle FAKE_GPIO;
-
-typedef enum ROVETHREAD_DEV {
-
-    //TODO Judah Dev16 shorthand
-   LEFT_AX_WRIST_ID = 0x00
-   , RIGHT_AX_WRIST_ID = 0x00
-   , DYNA_AX_WRITE_ONLY = 0
-
-   , FOREVER = 1
 
 ////////////////////TEST ROUTINE METRICS CFG:
 
@@ -301,7 +208,6 @@ typedef enum rove_thread_error {
     , THREAD_UNKNOWN_ERROR = 1
 } rove_thread_error;
 //};//end namespace
-
 
 
 ///////////////::BEGIN//////RoveThread Device Tiva Task//////////////

@@ -5,6 +5,14 @@
 //
 // mrdt::rovWare
 
+
+//RoveWare Naming Convention : loosely adapted from crnrPMcore Scripting Convention
+
+//roveSquadName _ <Do Action> <On Noun> (optional ATTRIBUTE)
+//ie. roveComm_ParseUdpMSG
+//ie. roveDynmxl_SetWheelModeCFG
+
+
 //TODO on URC 2016 OCTOBER_DEVELOPEMENT Protocol
 #include "roveComm.h"
 

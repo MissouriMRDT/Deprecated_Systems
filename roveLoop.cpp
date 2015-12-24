@@ -37,6 +37,7 @@ extern "C" {
 //roveControl:testJointMode(int min_angle, int max_angle, int angle_increment, int speed, int pause_microseconds);
 
 //C Public as Cplus Private in roveControl.h
+//int32_t roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
 //int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
 //int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
 // ========  =======  ========

@@ -17,13 +17,24 @@ extern "C" {
 
 
 // ======== USING roveComm ========
-//roveComm::int beginUdp(local_ip_addr, port);
-//roveComm::int readUdp(remote_ip_addr, "char_message");
+
+//Cplus Public in roveWiresCplus.h
+//roveComm::beginUdp(local_ip_addr, port);
+//roveComm::readUdp(remote_ip_addr, "char_message");
+
+//C Public as Cplus Private in roveComm.h
+//int32_t roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+//int32_t roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+// ========  =======  ========
+
+
 
 // ======== USING roveControl ========
-//Cplus Public in roveWiresCplus.h
-//roveControl::int DynmxlBeginAx(serial_pin, dyna_id, baud_rate);
 
+//Cplus Public in roveWiresCplus.h
+//roveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
+//roveControl:testWheelMode(int min_speed, int max_speed, int speed_increment, int pause_microseconds);
+//roveControl:testJointMode(int min_angle, int max_angle, int angle_increment, int speed, int pause_microseconds);
 
 //C Public as Cplus Private in roveControl.h
 //int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
@@ -39,6 +50,7 @@ typedef enum ROVETHREAD_DEV16
    FOREVER = 1
    , WRIST_ID = 1
 } ROVETHREAD_DEV16;
+
 
 
 //////////////::BEGIN//////Forever Thread Tiva Rtos Scheduled Task//////////////
@@ -75,7 +87,7 @@ void roveLoop(UArg arg0, UArg arg1)
 
     while(FOREVER)
     {
-        testCplusComms.readUdp();
+        test_error = testCplusComms.readUdp();
         printf("readUdp test_error: %d", test_error);
 
     }// end while

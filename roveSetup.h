@@ -6,7 +6,7 @@
 #define ROVESETUP_H_
 
 //roveware hardware abstraction
-#include "roveWare/roveBoard/roveBOARD_TIVA1294.h"
+#include "roveBoard/roveBOARD_TIVA1294.h"
 
 //C lib
 #include <stdio.h>

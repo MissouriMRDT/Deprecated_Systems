@@ -8,8 +8,8 @@
 //C lib
 #include <stdint.h>
 
-//mrdt definitions
-#include "roveBoard/roveBOARD_TIVA1294.h"
+//Rover Wrappers for Tiva C Connected
+#include "../roveBoard/roveBOARD_TIVA1294.h"
 
 // TODO Judah Factor Out Dev Shorthand
 //Public

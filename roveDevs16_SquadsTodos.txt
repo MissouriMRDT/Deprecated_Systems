@@ -61,35 +61,6 @@
 //PROJECT NOTES
 
 
-//////////////////////////////Dynamixel AX Series
-
-//WHEEL mode
-    //////////speed schema -> rpm
-            //range: 0~2047( 0X7FF)
-            //unit:  0.1%.
-            //speed = 0 Full Reverse
-            //speed = 1023 = 1024 Full Stop
-            //speed = 1025~2047 Full forward
-            //i.e. speed = 512 means 50% of max motor output in reverse
-    //angle schema = undefined -> has no affect
-
-//JOINT mode
-    //////////speed schema-> rpm
-            //range:  0~1023 (0X3FF)
-            //unit:   0.111rpm
-            //speed =  0 = 1024 is max rpm of the motor (114rpm)
-            //speed =  1~1023 (up to 114rpm)
-            //ie: speed = 300 is about 33.3 rpm
-    //angle schema -> 10 bit absolute joint position (Goal Position): dead band at 300-360 degrees
-            //range:   0~1023 (0x3FF)
-            //unit:    0.29 degree
-            //ie: angle = 1024 is 300 degree
-            
-            
-            
-            
-            
-
 //////////////////////////////Horizon Config Hardware Abstraction Vals:
 
 /////////TODO 2015 Deployed Updates : Deprecated Horizon DEV HW Pin Outs Tiva 123G:

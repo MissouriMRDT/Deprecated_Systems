@@ -19,7 +19,6 @@ extern "C" {
 
 
 // ========  roveComm  ========
-//
 // Cplus object wrappers
 class RoveComm
 {
@@ -37,13 +36,11 @@ class RoveComm
         int beginUdp(char* my_ip_addr, int port);
         int readUdp();
         //int writeUdp(char* message);
-
 };// end class
 
 
 
 // ========  roveControl  ========
-//
 // Cplus object wrappers
 class RoveControl
 {
@@ -65,7 +62,6 @@ class RoveControl
 
 
 // ========  roveComm  ========
-//
 RoveComm::RoveComm()
 {
 }// end constructor
@@ -79,8 +75,6 @@ int RoveComm::beginUdp(char* my_ip_addr, int port)
     return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
 }// end method
 
-
-
 int RoveComm::readUdp()
 {
     return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
@@ -89,7 +83,6 @@ int RoveComm::readUdp()
 
 
 // ========  roveControl  ========
-//
 RoveControl::RoveControl(int newId)
 {
     _rove_dynamxl.dynmxl_id = newId;
@@ -105,8 +98,6 @@ int RoveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_
     return -1;
 }// end method
 
-
-
 int RoveControl::testWheelMode(int min_speed, int max_speed, int speed_increment, int pause_microseconds)
 {
     //TODO
@@ -114,16 +105,12 @@ int RoveControl::testWheelMode(int min_speed, int max_speed, int speed_increment
     return roveDynmxAx_TestWheelMode(&_rove_dynamxl, &test);
 }// end method
 
-
-
 int RoveControl::testJointMode(int min_angle, int max_angle, int angle_increment, int speed, int pause_microseconds)
 {
     //TODO
     test_metrics test;
     return roveDynmxAx_TestJointMode(&_rove_dynamxl, &test);
 }// end method
-
-
 
 #ifdef __cplusplus
 }

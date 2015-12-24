@@ -1,2 +1,0 @@
-//roveSense.c
-//TODO

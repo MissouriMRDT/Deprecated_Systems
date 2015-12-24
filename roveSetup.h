@@ -1,10 +1,9 @@
 // Missouri Science and Technology Mars Rover Design Team 2015_2016
-// Judah Schad jrs6w7@mst.edu
-// declare global handles for pre BIOS startup hardware config
+// jrs6w7@mst.edu
 //
-// mrdt::rovWare
-#ifndef ROVEBIOS_H_
-#define ROVEBIOS_H_
+// mrdt::roveWare
+#ifndef ROVESETUP_H_
+#define ROVESETUP_H_
 
 //roveware hardware abstraction
 #include "roveWare/roveBoard/roveBOARD_TIVA1294.h"
@@ -12,7 +11,7 @@
 //C lib
 #include <stdio.h>
 
-//CCS TI operating system
+//CCS Rtos Scheduler Kernel
 #include <ti/sysbios/BIOS.h>
 
-#endif//ROVEBIOS_H_
+#endif // ROVESETUPRTOS_H_

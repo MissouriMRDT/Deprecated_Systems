@@ -30,11 +30,13 @@
 
 
 
-//TODO Reed, Connor, Owen advice??
+//TODO Hardware Handle Shorthand
 typedef struct roveGPIO_Handle {
     uint32_t port;
     uint8_t pin;
 } roveGPIO_Handle, *roveGPIO_HandlePtr;
+
+
 
 enum RoveHwDev16ShortHand {
     HW_ERROR_FREE = 1
@@ -59,12 +61,6 @@ enum RoveGpioDev16ShortHand {
 
 
 
-//TODO Watchdog_Handle watchdog;
-//TODO: ADC_0 : S_SQR 1x6
-//TODO roveADC_Handle* roveBoard_InitAdcCFG(UInt adc_index , UInt adc_cfg??);
-
-
-
 typedef UART_Handle roveUART_Handle;
 typedef PWM_Handle rovePWM_Handle;
 
@@ -78,8 +74,5 @@ void roveBoard_PwmWrite(rovePWM_Handle pwm, int16_t duty_in_microseconds);
 
 int32_t roveBoard_UartWrite( roveUART_Handle uart, uint8_t* write_buffer, int32_t bytes_to_write);
 int32_t roveBoard_UartRead(roveUART_Handle uart, uint8_t* read_buffer, int32_t bytes_to_read);
-
-//void roveBoard_DelayMilliSec(uint32_t milliseconds);
-//void roveBoard_DelayMicroSec(uint32_t microseconds);
 
 #endif //ROVEBOARD_TIVA1294_H_

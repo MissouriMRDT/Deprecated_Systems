@@ -12,8 +12,8 @@
 
 // TODO Judah Factor Out Dev Shorthand
 //Private
-typedef enum ROVECNTRL_AX_12 {
-
+typedef enum ROVECNTRL_AX_12
+{
 //TODO RoveDev16 Cntrl vals for dyna ax motor series cfg (factor to ax/mx/rx series/model flag):
     AX_12_SCALE_REG_MSB =           10
     , AX_12_SCALE_SPEED_REG_BIAS =  1023
@@ -45,12 +45,10 @@ typedef enum ROVECNTRL_AX_12 {
     , READ_VOLTAGE_AX_REQ =         42
     , READ_TEMPERATURE_AX_REQ =     43
     , READ_CURRENT_AX_REQ =         68
-
 } ROVECNTRL_AX_12;
 
 int16_t roveDynmxAx_ScaleReg_ByAngleDegrees(int16_t joint_angle_degrees, int16_t scale_joint_reg_bias);
 //END factor TODO
-
 
 
 ///////////////::BEGIN//////RoveDyna Private Functions//////////////
@@ -65,8 +63,6 @@ static int32_t roveDynmxAx_CatchERRNO(rove_dyna_serial* dynmxl_id);
 static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* write_msg_data, int32_t msg_data_byte_count);
 static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl);
 static int32_t roveDynmxAx_ParseREPLY(rove_dyna_serial* dynmxl, uint8_t* data_buffer);
-
-
 
 ///////////////::BEGIN//////RoveDyna Implementation//////////////
 

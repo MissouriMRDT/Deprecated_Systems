@@ -10,19 +10,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#ifndef ROVECOMM
-#define ROVECOMM
+#ifndef ROVECOMM_H
+#define ROVECOMM_H
+
+#define ROVECOMM_VERSION 1
+#define ROVECOMM_HEADER_LENGTH 7
 
 struct RoveComm{
   int sock;
   struct sockaddr_in sa;
-  char buffer[1024];
+  uint8_t buffer[1024];
 };
 
 extern struct RoveComm RoveComm;
 
 void RoveCommBegin();
-void RoveCommGetUdpMsg();
+void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
+void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
 
 
 #endif

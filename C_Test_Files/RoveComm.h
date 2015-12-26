@@ -14,7 +14,7 @@
 #define ROVECOMM_H
 
 #define ROVECOMM_VERSION 1
-#define ROVECOMM_HEADER_LENGTH 7
+#define ROVECOMM_HEADER_LENGTH 8
 
 struct RoveComm{
   int receiverSocket;
@@ -26,7 +26,7 @@ extern struct RoveComm RoveComm;
 
 void RoveCommBegin();
 void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
-void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
+void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags);
 
 
 #endif

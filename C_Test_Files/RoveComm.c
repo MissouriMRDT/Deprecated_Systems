@@ -27,6 +27,8 @@ void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
   fd_set socketSet;
   struct timeval timeout;
   
+  uint8_t flags = 0;
+  
   *dataID = 0;
   *size = 0;
   
@@ -46,19 +48,20 @@ void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
       exit(EXIT_FAILURE);
     }
     
-    RoveCommParseUdpMsg(dataID, size, data);
+    RoveCommParseUdpMsg(dataID, size, data, &flags);
   }
 }
 
 
-void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data) {
+void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags) {
   int protocol_version = RoveComm.buffer[0];
   switch (protocol_version) {
     case 1:
-      *dataID = RoveComm.buffer[3];
-      *dataID = (*dataID << 8) | RoveComm.buffer[4];
-      *size = RoveComm.buffer[5];
-      *size = (*size << 8) | RoveComm.buffer[6];
+      *flags = RoveComm.buffer[3];
+      *dataID = RoveComm.buffer[4];
+      *dataID = (*dataID << 8) | RoveComm.buffer[5];
+      *size = RoveComm.buffer[6];
+      *size = (*size << 8) | RoveComm.buffer[7];
       int i;
       for (i=0; i < *size; i++) {
         ((uint8_t*)data)[i] = RoveComm.buffer[i + ROVECOMM_HEADER_LENGTH];

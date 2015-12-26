@@ -17,8 +17,8 @@
 #define ROVECOMM_HEADER_LENGTH 7
 
 struct RoveComm{
-  int sock;
-  struct sockaddr_in sa;
+  int receiverSocket;
+  struct sockaddr_in myAddr;
   uint8_t buffer[1024];
 };
 

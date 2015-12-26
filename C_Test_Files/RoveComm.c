@@ -6,23 +6,23 @@
 struct RoveComm RoveComm;
 
 void RoveCommBegin(){
-  RoveComm.sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  RoveComm.receiverSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-  memset(&RoveComm.sa, 0, sizeof RoveComm.sa);
-  RoveComm.sa.sin_family = AF_INET;
-  RoveComm.sa.sin_addr.s_addr = htonl(INADDR_ANY);
-  RoveComm.sa.sin_port = htons(11000);
+  memset(&RoveComm.myAddr, 0, sizeof RoveComm.myAddr);
+  RoveComm.myAddr.sin_family = AF_INET;
+  RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  RoveComm.myAddr.sin_port = htons(11000);
   
-  if (-1 == bind(RoveComm.sock, (struct sockaddr *)&RoveComm.sa, sizeof RoveComm.sa)) {
+  if (-1 == bind(RoveComm.receiverSocket, (struct sockaddr *)&RoveComm.myAddr, sizeof RoveComm.myAddr)) {
     perror("error bind failed");
-    close(RoveComm.sock);
+    close(RoveComm.receiverSocket);
     exit(EXIT_FAILURE);
   }
 }
 
 void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
   struct sockaddr_in incoming;
-  ssize_t recsize, sendsize;
+  ssize_t recsize;
   socklen_t fromlen;
   fd_set socketSet;
   struct timeval timeout;
@@ -30,27 +30,23 @@ void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
   *dataID = 0;
   *size = 0;
   
-  fromlen = sizeof(RoveComm.sa);
+  fromlen = sizeof(RoveComm.myAddr);
   FD_ZERO(&socketSet);
-  FD_SET(RoveComm.sock,&socketSet);
+  FD_SET(RoveComm.receiverSocket,&socketSet);
   timeout.tv_usec = 0;
   timeout.tv_sec = 0;
-  select(RoveComm.sock +1, &socketSet,NULL,NULL,&timeout);
-  if (FD_ISSET(RoveComm.sock, &socketSet)){
-    memcpy(&incoming, &RoveComm.sa, fromlen);
+  select(RoveComm.receiverSocket +1, &socketSet,NULL,NULL,&timeout);
+  if (FD_ISSET(RoveComm.receiverSocket, &socketSet)){
+    memcpy(&incoming, &RoveComm.myAddr, fromlen);
     
-    recsize = recvfrom(RoveComm.sock, (void*)RoveComm.buffer, sizeof RoveComm.buffer, 0, (struct sockaddr*)&incoming, &fromlen);
+    recsize = recvfrom(RoveComm.receiverSocket, (void*)RoveComm.buffer, sizeof RoveComm.buffer, 0, (struct sockaddr*)&incoming, &fromlen);
 
     if (recsize < 0) {
       fprintf(stderr, "%s\n", strerror(errno));
       exit(EXIT_FAILURE);
     }
     
-    
-    RoveCommParseUdpMsg( dataID, size, data);
-    
-      sendsize = sendto(RoveComm.sock, RoveComm.buffer, recsize, 0, (struct sockaddr*)&incoming, sizeof(incoming));
-      
+    RoveCommParseUdpMsg(dataID, size, data);
   }
 }
 

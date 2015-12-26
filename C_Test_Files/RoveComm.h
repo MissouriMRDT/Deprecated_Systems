@@ -9,6 +9,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #ifndef ROVECOMM_H
 #define ROVECOMM_H
@@ -17,7 +18,7 @@
 #define ROVECOMM_HEADER_LENGTH 8
 
 struct RoveComm{
-  int receiverSocket;
+  int receiverSocket, senderSocket;
   struct sockaddr_in myAddr;
   uint8_t buffer[1024];
 };
@@ -27,7 +28,8 @@ extern struct RoveComm RoveComm;
 void RoveCommBegin();
 void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
 void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags);
-
+bool RoveCommSendPacket(char* destIP, int destPort, int sourcePort, uint8_t* msg, int msgSize);
+void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, char* destIP, int destPort, uint8_t flags);
 
 #endif
 

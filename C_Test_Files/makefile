@@ -4,8 +4,8 @@ all: server client
 server: roveComm_Server.o RoveComm.o
 	gcc roveComm_Server.o RoveComm.o -o server
 
-client: roveComm_Client.o
-	gcc roveComm_Client.o -o client
+client: roveComm_Client.o RoveComm.o
+	gcc roveComm_Client.o RoveComm.o -o client
 
 RoveComm.o: RoveComm.c
 	gcc -c RoveComm.c

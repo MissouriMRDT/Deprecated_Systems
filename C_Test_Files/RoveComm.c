@@ -77,6 +77,7 @@ bool RoveCommSendPacket(char* destIP, int destPort, int sourcePort, uint8_t* msg
   outgoing.sin_port = htons(sourcePort);
   
   if (-1 == bind(RoveComm.senderSocket, (struct sockaddr *)&outgoing, sizeof(outgoing))) {
+    close(RoveComm.senderSocket);
     return false;
   }
   

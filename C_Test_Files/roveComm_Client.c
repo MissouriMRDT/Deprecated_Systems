@@ -7,8 +7,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-
-#define ROVECOMM_VERSION 0x01
+#include "RoveComm.h"
 
 int main(int argc, char* argv[])
 {
@@ -43,52 +42,16 @@ int main(int argc, char* argv[])
     sscanf(argv[5], "%X", (int*)&seqNum);
   }
   
-  
-  uint8_t buffer[1024];
- 
-  buffer[0] = verNum;
-  buffer[1] = seqNum >> 8;
-  buffer[2] = seqNum;
-  buffer[3] = dataID >> 8;
-  buffer[4] = dataID;
-  buffer[5] = dataSize >> 8;
-  buffer[6] = dataSize;
-  
-  int i;
-  for (i=0; i<dataSize; i++)
-    buffer[7+i] = hexData[dataSize -1 -i];
-    
-  /* create an Internet, datagram, socket using UDP */
-  sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-  if (-1 == sock) {
-      /* if socket failed to initialize, exit */
-      printf("Error Creating Socket\n");
-      exit(EXIT_FAILURE);
-    }
- 
-  /* Zero out socket address */
-  memset(&sa, 0, sizeof sa);
-  /* The address is IPv4 */
-  sa.sin_family = AF_INET;
-   /* IPv4 adresses is a uint32_t, convert a string representation of the octets to the appropriate value */
-  sa.sin_addr.s_addr = inet_addr(destinationIP);
-  /* sockets are unsigned shorts, htons(x) ensures x is in network byte order, set the port to our given or default port */
-  sa.sin_port = htons(destinationPort);
- 
-  bytes_sent = sendto(sock, buffer, dataSize + 7, 0,(struct sockaddr*)&sa, sizeof sa);
-  printf ("Sent %d bytes: ", bytes_sent);
-  for (i=0; i<dataSize + 7; i++)
-    printf("%X ", buffer[i]);
-  printf("\n");
-  
-  if (bytes_sent < 0) {
-    printf("Error sending packet: %s\n", strerror(errno));
-    exit(EXIT_FAILURE);
-  }
+  // Replicated RoveCommBegin so it doesn't attempt to bind server Port
+  RoveComm.receiverSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+  RoveComm.senderSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-  //bytes_sent = recvfrom(sock, (void *)buffer, sizeof(buffer), 0, (struct sockaddr*)&sa, &fromlen);
-  //printf("%s\n", buffer);
- 
-  close(sock); /* close the socket */
+  memset(&RoveComm.myAddr, 0, sizeof RoveComm.myAddr);
+  RoveComm.myAddr.sin_family = AF_INET;
+  RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  RoveComm.myAddr.sin_port = htons(11000);
+  
+  RoveCommSendMsgTo(dataID, dataSize, hexData, destinationIP, destinationPort, 0);
+  
   return 0;
 }

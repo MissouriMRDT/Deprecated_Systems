@@ -4,8 +4,9 @@
 // module for utlity wrapper access to Texas Instruments TivaWare
 //
 // mrdt::rovWare
-#ifndef ROVEBOARD_TIVA1294_H_
-#define ROVEBOARD_TIVA1294_H_
+#pragma once
+#ifndef ROVEBOARDTIVA1294_H_
+#define ROVEBOARDTIVA1294_H_
 
 //
 #ifdef __cplusplus
@@ -15,13 +16,6 @@ extern "C" {
 //TODO factor TI hardware config in EK_TM4C1294XL
 #include "EK_TM4C1294XL.h"
 
-//RoveWare
-//#include "roveWare/roveComm.h"
-//#include "roveWare/roveControl.h"
-//#include "roveWare/roveSense.h"
-//#include "roveWare/roveScience.h"
-//#include "roveWare/roveMonitor.h"
-
 //TODO
 enum RoveHwDev16ShortHand {
     HW_ERROR_FREE = 1
@@ -30,7 +24,6 @@ enum RoveHwDev16ShortHand {
     , HW_TEST_DEVICE_ID = 0
     , HW_TRI_STATE_PIN = 1
 };//end enum
-
 
 //C lib
 #include <stdio.h>
@@ -47,8 +40,6 @@ enum RoveHwDev16ShortHand {
 
 //CCS TI config
 #include <xdc/runtime/System.h>
-
-
 
 typedef PWM_Handle rovePWM_Handle;
 typedef UART_Handle roveUART_Handle;
@@ -75,6 +66,21 @@ int32_t roveBoard_UartRead(roveUART_Handle uart, uint8_t* read_buffer, int32_t b
 #endif
 
 #endif //ROVEBOARD_TIVA1294_H_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

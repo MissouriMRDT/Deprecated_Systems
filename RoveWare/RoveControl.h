@@ -2,6 +2,7 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
+#pragma once
 #ifndef ROVECONTROL_H_
 #define ROVECONTROL_H_
 
@@ -13,7 +14,7 @@ extern "C" {
 #include <stdint.h>
 
 //Rover Wrappers for Tiva C Connected
-#include "../RoveBoard/RoveBoard_Tiva1294.h"
+#include "../RoveBoard/RoveBoardTiva1294.h"
 
 // TODO Judah Factor Out Dev Shorthand
 //Public

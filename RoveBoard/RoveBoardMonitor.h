@@ -2,7 +2,8 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
-#ifndef ROVEMONITOR_H_
-#define ROVEMONITOR_H_
+#pragma once
+#ifndef ROVEBOARDMONITOR_H_
+#define ROVEBOARDMONITOR_H_
 
 #endif // ROVEMONITOR_H_

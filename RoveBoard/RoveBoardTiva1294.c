@@ -5,13 +5,13 @@
 // roveWare 1294XL Access Routines
 //
 // mrdt::rovWare
-#include "RoveBoard_Tiva1294.h"
+#include "RoveBoardTiva1294.h"
 
 
 
 //TODO Clock and Timer Instances
 
-
+//TASK_Handle roveBoard_InitTask(Todo
 
 //TODO Connor, Drue, Jetter Hbridge use case Config choices
 PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds) {
@@ -84,6 +84,27 @@ void roveBoard_DigitalWrite(roveGPIO_Handle* gpio_pin, uint8_t digital_value) {
     GPIOPinWrite(gpio_pin->port, gpio_pin->pin, ~(gpio_pin->pin) );
     return;
 }//endfnctn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*TODO Reed, Connor, Owen Advice??

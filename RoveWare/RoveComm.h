@@ -4,6 +4,7 @@
 // mrdt::rovWare
 
 //TODO on URC 2016 OCTOBER_DEVELOPEMENT Protocol
+#pragma once
 #ifndef ROVECOMM_H_
 #define ROVECOMM_H_
 
@@ -47,28 +48,6 @@ typedef enum HorizonArmCommands {
 #include <arpa/inet.h>
 #include <socketndk.h>
 //#include <inet/inetaddr.h>
-
-
-/*
-// ========  roveComm  ========
-RoveComm::RoveComm()
-{
-}// end constructor
-
-RoveComm::~RoveComm()
-{
-}// end destructor
-
-int RoveComm::beginUdp(char* my_ip_addr, int port)
-{
-    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
-}// end method
-
-int RoveComm::readUdp()
-{
-    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
-}// end method
-*/
 
 
 
@@ -129,7 +108,40 @@ typedef struct rovecomm_protocol
 int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
 int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
 
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // ROVECOMM_H_
+
+
+
+
+
 /*Todo
+
+// ========  roveComm  ========
+RoveComm::RoveComm()
+{
+}// end constructor
+
+RoveComm::~RoveComm()
+{
+}// end destructor
+
+int RoveComm::beginUdp(char* my_ip_addr, int port)
+{
+    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+}// end method
+
+int RoveComm::readUdp()
+{
+    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+}// end method
+
+
+
 //#ifdef __cplusplus
 //extern "C" {
 //#endif
@@ -171,14 +183,6 @@ int RoveComm::readUdp()
 //}
 //#endif
 */
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // ROVECOMM_H_
-
-
 
 // ======== roveComm Future Developement:
 //roveComm::beginTcp(local_ip_addr, port);

@@ -2,11 +2,16 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
-#ifndef ROVESETUP_H_
-#define ROVESETUP_H_
+#pragma once
+#ifndef ROVEMAINSETUP_H_
+#define ROVEMAINSETUP_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 //roveware hardware abstraction
-#include "RoveBoard/RoveBoard_Tiva1294.h"
+#include "RoveBoard/RoveBoardTiva1294.h"
 
 //C lib
 #include <stdio.h>
@@ -14,7 +19,37 @@
 //CCS Rtos Scheduler Kernel
 #include <ti/sysbios/BIOS.h>
 
+#ifdef __cplusplus
+}
+#endif
+
 #endif // ROVESETUPRTOS_H_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  // //

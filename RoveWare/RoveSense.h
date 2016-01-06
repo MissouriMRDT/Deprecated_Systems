@@ -2,6 +2,7 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
+#pragma once
 #ifndef ROVESENSE_H_
 #define ROVESENSE_H_
 

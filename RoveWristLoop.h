@@ -2,20 +2,13 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
-#ifndef ROVETESTLOOP_H_
-#define ROVETESTLOOP_H_
+#pragma once
+#ifndef ROVEWRISTLOOP_H_
+#define ROVEWRISTLOOP_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-//RoveWare
-#include "RoveWare/RoveComm.h"
-#include "RoveWare/RoveControl.h"
-//#include "roveWare/roveSense.h"
-//#include "roveWare/roveScience.h"
-//#include "roveWare/roveMonitor.h"
-
 // ======== USING roveComm ========
 //Cplus Public in roveWiresCplus.h
 //roveComm::beginUdp(local_ip_addr, port);
@@ -29,22 +22,24 @@ extern "C" {
 // ======== USING roveControl ========
 //Cplus Public in roveWiresCplus.h
 //roveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
-//roveControl:testWheelMode(int min_speed, int max_speed, int speed_increment, int pause_microseconds);
-//roveControl:testJointMode(int min_angle, int max_angle, int angle_increment, int speed, int pause_microseconds);
 
 //C Public as Cplus Private in roveControl.h
 //int32_t roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
-//int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
-//int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, rovecntrl_test_metrics* test);
 // ========  =======  ========
 
+//RoveWare
+#include "RoveWare/RoveComm.h"
+#include "RoveWare/RoveControl.h"
+//#include "roveWare/roveSense.h"
+//#include "roveWare/roveScience.h"
+//#include "roveWare/roveMonitor.h"
 
 
 //Rtos Kernel Module Api
 #include <ti/sysbios/knl/Task.h>
-#include <ti/sysbios/knl/Clock.h>
-#include <ti/sysbios/knl/Mailbox.h>
-#include <ti/sysbios/knl/Semaphore.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
 
 // wired to the build time allocation for the main Rtos Task Thread in roveBuildRtos.cfg
 void roveLoop(UArg arg0, UArg arg1);
@@ -58,9 +53,32 @@ void roveLoop(UArg arg0, UArg arg1);
 
 
 
-/*
- *
- * //TODO Test Suite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Todo Test Suite
 int testWheelMode(int min_speed, int max_speed, int speed_increment, int pause_microseconds);
 int testJointMode(int min_angle, int max_angle, int angle_increment, int speed, int pause_microseconds);
 

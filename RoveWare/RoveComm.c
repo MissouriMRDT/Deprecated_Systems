@@ -6,7 +6,7 @@
 // mrdt::rovWare
 
 //TODO on URC 2016 OCTOBER_DEVELOPEMENT Protocol
-#include "roveComm.h"
+#include "RoveComm.h"
 
 // TODO Judah Factor Out Dev Shorthand
 //Public

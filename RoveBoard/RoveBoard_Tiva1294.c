@@ -5,7 +5,7 @@
 // roveWare 1294XL Access Routines
 //
 // mrdt::rovWare
-#include "roveBOARD_TIVA1294.h"
+#include "RoveBoard_Tiva1294.h"
 
 
 
@@ -14,7 +14,7 @@
 
 
 //TODO Connor, Drue, Jetter Hbridge use case Config choices
-PWM_Handle roveBoard_InitPwmCFG(UInt pwm_index, UInt period_in_microseconds) {
+PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwmHandle;
     PWM_Params pwmParams;
@@ -30,7 +30,7 @@ PWM_Handle roveBoard_InitPwmCFG(UInt pwm_index, UInt period_in_microseconds) {
     return pwmHandle;
 }//endfnctn
 
-UART_Handle roveBoard_InitUartCFG(UInt uart_index, UInt baud_rate) {
+UART_Handle roveBoard_InitUart(UInt uart_index, UInt baud_rate) {
 
     UART_Handle uartHandle;
     UART_Params uartParams;
@@ -88,6 +88,20 @@ void roveBoard_DigitalWrite(roveGPIO_Handle* gpio_pin, uint8_t digital_value) {
 
 /*TODO Reed, Connor, Owen Advice??
 
+enum RoveGpioDev16ShortHand {
+    PORT_E = GPIO_PORTE_BASE
+    ,PORT_H = GPIO_PORTH_BASE
+    ,PORT_K = GPIO_PORTK_BASE
+    ,PORT_L = GPIO_PORTL_BASE
+    ,PORT_M = GPIO_PORTM_BASE
+    ,PIN_0 = GPIO_PIN_0
+    ,PIN_1 = GPIO_PIN_1
+    ,PIN_2 = GPIO_PIN_2
+    ,PIN_3 = GPIO_PIN_3
+    ,PIN_6 = GPIO_PIN_6
+    ,PIN_7 = GPIO_PIN_7
+};//end enum
+
 //TODO Watchdog_Handle watchdog;
 //TODO: ADC_0 : S_SQR 1x6
 //TODO roveADC_Handle* roveBoard_InitAdcCFG(UInt adc_index , UInt adc_cfg??);
@@ -136,17 +150,5 @@ roveADC_Handle roveAdc_Init(UInt adc_index, UInt adc_cfg) {
     return roveADC_Handle;
 }//endfnct
 
+*/
 
-//////////////////////////////////////roveSoftClockmS
-
-//TODO Reed, Connor, Owen Advice?? 123G used SysCtlClockGet 1294 doesn't even have that?? needs global return value for roveSetClockMicroSec_Init
-//We should explicitly init the clock juuuust to get the return global??? It's being Init in Rtsc already? that global hides an rtos handle??
-//void roveBoard_DelayMilliSec(uint32_t milliseconds) {
-    //SysCtlDelay(milliseconds// (SysCtlClockGet() / 100));
-//}//endfnctn
-
-//void roveBoard_DelayMicroSec(uint32_t microseconds) {
-
-   //SysCtlDelay(microseconds// (SysCtlClockGet() / 100000));
-
-}//endfnctn*/

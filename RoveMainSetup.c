@@ -12,7 +12,7 @@
 // begins the scheduler
 //
 // mrdt::roveWare
-#include "roveSetup.h"
+#include "RoveMainSetup.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,24 +57,24 @@ int main(void) {
 
     //hardcode configured as INPUT/OUTPUT pairs in the roveBoard/EK_TM4C1294XL.C file
     //hardcoding a 57600 Baud Rate in Tiva UART module for dynamixel
-    roveUART_Handle UART_2 = roveBoard_InitUartCFG(2, 57600);
-    roveUART_Handle UART_3 = roveBoard_InitUartCFG(3, 57600);
-    roveUART_Handle UART_4 = roveBoard_InitUartCFG(4, 57600);
-    roveUART_Handle UART_5 = roveBoard_InitUartCFG(5, 57600);
-    roveUART_Handle UART_6 = roveBoard_InitUartCFG(6, 57600);
-    roveUART_Handle UART_7 = roveBoard_InitUartCFG(7, 57600);
+    roveUART_Handle UART_2 = roveBoard_InitUart(2, 57600);
+    roveUART_Handle UART_3 = roveBoard_InitUart(3, 57600);
+    roveUART_Handle UART_4 = roveBoard_InitUart(4, 57600);
+    roveUART_Handle UART_5 = roveBoard_InitUart(5, 57600);
+    roveUART_Handle UART_6 = roveBoard_InitUart(6, 57600);
+    roveUART_Handle UART_7 = roveBoard_InitUart(7, 57600);
     printf("Init UARTS\n\n");
 
 //DO NOT INIT PWM_0 -> ethernet support conflict: HardwareResourecs/EK_TM4C1294XL.h
 
     //These are hardcode configured as OUTPUTS in the roveBoard/EK_TM4C1294XL.C file
     //hardcoding 20,000 Period for Tiva PWM module
-    rovePWM_Handle PWM_1 = roveBoard_InitPwmCFG(1, 20000);
-    rovePWM_Handle PWM_2 = roveBoard_InitPwmCFG(2, 20000);
-    rovePWM_Handle PWM_3 = roveBoard_InitPwmCFG(3, 20000);
-    rovePWM_Handle PWM_4 = roveBoard_InitPwmCFG(4, 20000);
-    rovePWM_Handle PWM_5 = roveBoard_InitPwmCFG(5, 20000);
-    rovePWM_Handle PWM_6 = roveBoard_InitPwmCFG(6, 20000);
+    rovePWM_Handle PWM_1 = roveBoard_InitPwm(1, 20000);
+    rovePWM_Handle PWM_2 = roveBoard_InitPwm(2, 20000);
+    rovePWM_Handle PWM_3 = roveBoard_InitPwm(3, 20000);
+    rovePWM_Handle PWM_4 = roveBoard_InitPwm(4, 20000);
+    rovePWM_Handle PWM_5 = roveBoard_InitPwm(5, 20000);
+    rovePWM_Handle PWM_6 = roveBoard_InitPwm(6, 20000);
     printf("Init PWM\n\n");
 
     //TODO Tiva ADC module

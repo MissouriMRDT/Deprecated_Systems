@@ -13,7 +13,7 @@ extern "C" {
 #include <stdint.h>
 
 //Rover Wrappers for Tiva C Connected
-#include "../roveBoard/roveBOARD_TIVA1294.h"
+#include "../RoveBoard/RoveBoard_Tiva1294.h"
 
 // TODO Judah Factor Out Dev Shorthand
 //Public
@@ -45,24 +45,6 @@ typedef enum ROVECNTRL_DEV_16
 
 
 
-//BEGIN JUDAH TODO factor MRDT shorthand
-typedef struct test_metrics
-{
-    //negative sign cntrl values allowed
-    int16_t min_speed;
-
-    //negative sign cntrl values not allowed
-    uint16_t max_speed;
-    uint16_t speed_increment;
-
-    uint16_t min_angle;
-    uint16_t max_angle;
-    uint16_t angle_increment;
-    uint32_t pause_microseconds;
-} test_metrics;
-
-
-
 //instance defintion
 typedef struct rove_dyna_serial
 {
@@ -76,8 +58,6 @@ typedef struct rove_dyna_serial
     int32_t err_no;
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
 
-
-
 int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
 
 //WHEEL Mode : set to "AngleLimit" to anything other than zero
@@ -90,12 +70,47 @@ int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
 int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
 int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
 
-//TODO Test Suite
-int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, test_metrics* test);
-int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, test_metrics* test);
-
 #ifdef __cplusplus
 }
 #endif
 
 #endif // ROVECONTROL_H_
+
+
+
+/*extern "C" {
+//#endif
+// ========  roveControl  ========
+// Cplus object wrappers
+// ========  roveControl  ========
+// Cplus object wrappers
+class RoveControl
+{
+    private:
+        rove_dyna_serial _rove_dynamxl;
+
+    public:
+        RoveControl(int newId);
+        ~RoveControl();
+
+        int BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
+        //TODO https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Named_Constructor
+        //BeginMx(serial_pin, dyna_id, baud_ra);
+};// end class
+// ========  roveControl  ========
+RoveControl::RoveControl(int newId)
+{
+    _rove_dynamxl.dynmxl_id = newId;
+}// end constructor
+RoveControl::~RoveControl()
+{
+}// end destructor
+int RoveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin)
+{
+    //return roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
+    return -1;
+}// end method
+//#ifdef __cplusplus
+//}
+//#endif
+*/

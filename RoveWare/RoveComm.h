@@ -1,8 +1,6 @@
 // Missouri Science and Technology Mars Rover Design Team 2015_2016
 // jrs6w7@mst.edu
 //
-// recieves base station commands using ip bsd style UDP sockets
-//
 // mrdt::rovWare
 
 //TODO on URC 2016 OCTOBER_DEVELOPEMENT Protocol
@@ -13,8 +11,31 @@
 extern "C" {
 #endif
 
+
+
+// TODO Judah Factor Out Dev Shorthand
 //Comms Version
-#include "roveProtocol.h"
+//#include "roveProtocol.h"
+//Public
+typedef enum HorizonDriveCommands {
+
+    DRIVE_RIGHT_MOTORS = 100
+    , DRIVE_LEFT_MOTORS = 101
+} HorizonDriveCommands;
+
+//Left Over from Horizon protocol//positive is clockwise, negative is counterclockwise
+typedef enum HorizonArmCommands {
+
+    WRIST_ROTATE = 201
+    , WRIST_VERTICAL = 202
+    , ELBOW_ROTATE = 203
+    , ELBOW_VERTICAL = 204
+    , BASE_ROTATE = 205
+    , E_STOP_ARM = 206
+    , ACTUATOR_INCREMENT = 207
+    , GRIPPER_OPEN = 208
+} HorizonArmCommands;
+
 
 //C lib
 #include <stdint.h>
@@ -26,6 +47,28 @@ extern "C" {
 #include <arpa/inet.h>
 #include <socketndk.h>
 //#include <inet/inetaddr.h>
+
+
+/*
+// ========  roveComm  ========
+RoveComm::RoveComm()
+{
+}// end constructor
+
+RoveComm::~RoveComm()
+{
+}// end destructor
+
+int RoveComm::beginUdp(char* my_ip_addr, int port)
+{
+    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+}// end method
+
+int RoveComm::readUdp()
+{
+    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+}// end method
+*/
 
 
 
@@ -85,6 +128,49 @@ typedef struct rovecomm_protocol
 
 int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
 int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
+
+/*Todo
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
+// ========  roveComm  ========
+// Cplus object wrappers
+class RoveComm
+{
+    //public:
+    private:
+        //pure C public API roveComm.h
+        rovecomm_socket _udp_socket;
+        rovecomm_protocol _udp_data;
+
+    public:
+        //Cplus extension API for Tiva Threads
+        RoveComm();
+        ~RoveComm();
+
+        int beginUdp(char* my_ip_addr, int port);
+        int readUdp();
+        //int writeUdp(char* message);
+};// end class
+// ========  roveComm  ========
+RoveComm::RoveComm()
+{
+}// end constructor
+RoveComm::~RoveComm()
+{
+}// end destructor
+int RoveComm::beginUdp(char* my_ip_addr, int port)
+{
+    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+}// end method
+int RoveComm::readUdp()
+{
+    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+}// end method
+//#ifdef __cplusplus
+//}
+//#endif
+*/
 
 #ifdef __cplusplus
 }

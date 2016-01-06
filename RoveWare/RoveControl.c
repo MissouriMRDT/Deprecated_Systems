@@ -8,7 +8,7 @@
 // angle ONLY used in joint mode AX12:(JOINT GoalPosition:0~1023/0x3FF) at 0.29 degree
 //
 // mrdt::rovWare
-#include "roveControl.h"
+#include "RoveControl.h"
 
 // TODO Judah Factor Out Dev Shorthand
 //Private
@@ -168,80 +168,6 @@ int32_t roveDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl)
 
 
 
-int32_t roveDynmxAx_TestWheelMode(rove_dyna_serial* dynmxl, test_metrics* test)
-{
-    if( roveDynmxAx_SetWheelModeCFG(dynmxl) )
-    {
-        printf("Dev16 Error roveDynmxAx_SetWheelModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    if( roveDynmxAx_SetWheelModeCFG(dynmxl) )
-    {
-        printf("Dev16 Error roveDynmxAx_SetWheelModeCFG ldynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    int16_t speed = 0;
-
-    //ramp up from zero to max forward
-    for (speed = 0; speed < test->max_speed; speed += test->speed_increment)
-    {
-        //TODO arg2 could be negative??
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed)){
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        //roveBoard_DelayMilliSec(test->pause_microseconds);
-    } //end for
-
-    //ramp back from max forward through zero to max reverse
-    for (speed = test->max_speed; speed > test->min_speed; speed -= test->speed_increment)
-    {
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed))
-        {
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed))
-        {
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        //roveBoard_DelayMilliSec(test->pause_microseconds);
-    } //end for
-
-    //ramp back from max reverse landing on zero
-    for (speed = test->min_speed; speed < 0; speed += test->speed_increment)
-    {
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed))
-        {
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        }//endif
-
-        if(roveDynmxAx_SpinWheelCMD(dynmxl, speed))
-        {
-            printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            return AX_ERROR;
-        }//endif
-
-        //roveBoard_DelayMilliSec(test->pause_microseconds);
-    } //end for
-
-    //roveBoard_DelayMilliSec(4*test->pause_microseconds);
-    return AX_ERROR_FREE;
-};//end fnctn
-
-
-
 //Joint Mode : set to Angle Limits anything other than zero
 int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl)
 {
@@ -348,99 +274,6 @@ int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl)
     //speed is the two high bytes, and angle is the two low bytes
     return joint_angle  + (joint_speed << 16);
 }//end fnctn
-
-
-
-int32_t roveDynmxAx_TestJointMode(rove_dyna_serial* dynmxl, test_metrics* test)
-{
-    if( roveDynmxAx_SetJointModeCFG(dynmxl))
-    {
-        printf("Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    if(roveDynmxAx_SetJointModeCFG(dynmxl))
-    {
-        printf("Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//endif
-
-    //catch dynamixel joint api confusion
-    if(test->min_speed > test->max_speed)
-    {
-        printf("test->min_speed > test->max_speed Dev16 Error roveDynmxAx_SetJointModeCFG dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-        return AX_ERROR;
-    }//end if
-
-    //joint mode only takes positive speeds
-    if(test->min_speed < 0)
-    {
-        test->min_speed = 0;
-    }//end if
-
-    //joint mode only takes positive speeds
-    if(test->max_speed > AX_12_MAX_JOINT_SPEED)
-    {
-       test->max_speed = AX_12_MAX_JOINT_SPEED;
-    }//end if
-
-    uint16_t speed = 0;
-
-    for (speed = test->min_speed; speed < test->max_speed; speed += test->speed_increment)
-    {
-        uint16_t angle = 0;
-
-        for (angle = test->min_angle; angle < test->max_angle; angle += test->angle_increment)
-        {
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed))
-            {
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-                return AX_ERROR;
-            }//endif
-
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed))
-            {
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-                return AX_ERROR;
-            }//endif
-
-            //roveBoard_DelayMilliSec(test->pause_microseconds);
-        } //end for
-
-        for (angle = test->max_angle; angle > test->min_angle; angle -= test->angle_increment)
-        {
-
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed))
-            {
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            }//endif
-
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed))
-            {
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            }//endif
-
-            //roveBoard_DelayMilliSec(test->pause_microseconds);
-        } //end for
-
-        for (angle = test->min_angle; angle < test->max_angle; angle += test->angle_increment) {
-
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            }//endif
-
-            if(roveDynmxAx_RotateJointCMD(dynmxl, angle, speed)){
-                printf("Dev16 Error roveDynmxAx_SpinWheelCMD dynmxl->dynmxl_id :%d\n!", dynmxl->dynmxl_id);
-            }//endif
-
-            //roveBoard_DelayMilliSec(test->pause_microseconds);
-        } //end for
-
-    } //end for
-
-    //oveBoard_DelayMilliSec(4*test->pause_microseconds);
-    return AX_ERROR_FREE;
-};//end fnctn
 
 
 

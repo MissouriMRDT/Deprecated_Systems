@@ -16,6 +16,12 @@ extern "C" {
 //TODO factor TI hardware config in EK_TM4C1294XL
 #include "EK_TM4C1294XL.h"
 
+//Rtos Kernel Module Instance Api
+#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
+
 //TODO
 enum RoveHwDev16ShortHand {
     HW_ERROR_FREE = 1
@@ -49,6 +55,8 @@ typedef struct roveGPIO_Handle {
     uint32_t port;
     uint8_t pin;
 } roveGPIO_Handle, *roveGPIO_HandlePtr;
+
+void roveBoard_InitTask(UInt task_handler_fnctn, UInt task_priority);
 
 roveGPIO_Handle* roveBoard_InitGpio(roveGPIO_Handle* gpio , uint32_t gpio_port , uint8_t gpio_pin);
 PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds);

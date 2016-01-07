@@ -48,7 +48,19 @@ typedef enum ROVECNTRL_AX_12
     , READ_CURRENT_AX_REQ =         68
 } ROVECNTRL_AX_12;
 
-
+// ========  roveControl  ========
+RoveControl::RoveControl(int newId)
+{
+    _rove_dynamxl.dynmxl_id = newId;
+}// end constructor
+RoveControl::~RoveControl()
+{
+}// end destructor
+int RoveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin)
+{
+    //return roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
+    return -1;
+}// end method
 
 ///////////////::BEGIN//////RoveDyna Private Functions//////////////
 

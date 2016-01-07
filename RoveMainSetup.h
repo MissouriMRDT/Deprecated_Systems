@@ -10,7 +10,17 @@
 extern "C" {
 #endif
 
-//roveware hardware abstraction
+//  ======== Rove Thread Developers =======
+//  Rtos Loop Manisfest:
+
+//Test Horizon Wrist Thread
+#include "RoveWristLoop.h"
+//#include "<AddYourThreads>Loop.h"
+//  ========    =================   =======
+
+
+//Todo RoveBoardTiva1294 included twice?
+//RoveWare for Texas Instruments Tiva Connected C Dev board peripheral access hardware abstraction
 #include "RoveBoard/RoveBoardTiva1294.h"
 
 //C lib
@@ -18,6 +28,12 @@ extern "C" {
 
 //CCS Rtos Scheduler Kernel
 #include <ti/sysbios/BIOS.h>
+
+//Rtos Kernel Module Instance Api
+//#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
 
 #ifdef __cplusplus
 }

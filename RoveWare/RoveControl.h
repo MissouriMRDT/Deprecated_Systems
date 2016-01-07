@@ -44,8 +44,6 @@ typedef enum ROVECNTRL_DEV_16
     , AX_12_MAX_JOINT_SPEED =       1023
 } ROVECNTRL_DEV_16;
 
-
-
 //instance defintion
 typedef struct rove_dyna_serial
 {
@@ -58,6 +56,24 @@ typedef struct rove_dyna_serial
     int32_t reply;
     int32_t err_no;
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
+
+#ifdef __cplusplus
+// ========  roveControl  ========
+// Cplus object wrappers
+class RoveControl
+{
+    private:
+        rove_dyna_serial _rove_dynamxl;
+
+    public:
+        RoveControl(int newId);
+        ~RoveControl();
+
+        int BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
+        //TODO https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Named_Constructor
+        //BeginMx(serial_pin, dyna_id, baud_ra);
+};// end class
+#endif
 
 int32_t roveDynmxAx_InitCFG(rove_dyna_serial* dynmxl, uint8_t dyna_id, roveUART_Handle serial_port, roveGPIO_Handle tri_state_pin);
 
@@ -76,42 +92,3 @@ int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
 #endif
 
 #endif // ROVECONTROL_H_
-
-
-
-/*extern "C" {
-//#endif
-// ========  roveControl  ========
-// Cplus object wrappers
-// ========  roveControl  ========
-// Cplus object wrappers
-class RoveControl
-{
-    private:
-        rove_dyna_serial _rove_dynamxl;
-
-    public:
-        RoveControl(int newId);
-        ~RoveControl();
-
-        int BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
-        //TODO https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Named_Constructor
-        //BeginMx(serial_pin, dyna_id, baud_ra);
-};// end class
-// ========  roveControl  ========
-RoveControl::RoveControl(int newId)
-{
-    _rove_dynamxl.dynmxl_id = newId;
-}// end constructor
-RoveControl::~RoveControl()
-{
-}// end destructor
-int RoveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin)
-{
-    //return roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
-    return -1;
-}// end method
-//#ifdef __cplusplus
-//}
-//#endif
-*/

@@ -12,7 +12,16 @@
 extern "C" {
 #endif
 
+//C lib
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
 
+//CCS TI NDK BSD support
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <socketndk.h>
+//#include <inet/inetaddr.h>
 
 // TODO Judah Factor Out Dev Shorthand
 //Comms Version
@@ -37,20 +46,6 @@ typedef enum HorizonArmCommands {
     , GRIPPER_OPEN = 208
 } HorizonArmCommands;
 
-
-//C lib
-#include <stdint.h>
-#include <string.h>
-#include <stdio.h>
-
-//CCS TI NDK BSD support
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <socketndk.h>
-//#include <inet/inetaddr.h>
-
-
-
 //TODO Not sure I like to hardcode the max buffer, max subscrbr? (leave open for future dev : device synch?)
 typedef enum ROVECOMM_RELEASE
 {
@@ -62,8 +57,6 @@ typedef enum ROVECOMM_RELEASE
     , COMMS_PORT_11000 = 11000
 } ROVECOMM_RELEASE;
 
-
-
 //why did I ip address wrapper ?? over complicating this just to bind socklen_t (and reads as board stdint_t)
 // 32 bit long IP address, net order
 typedef struct rove_comm_ip
@@ -74,8 +67,6 @@ typedef struct rove_comm_ip
     uint8_t     null_term[8];
     uint32_t   address_byte_cnt;
 }__attribute__((packed)) rove_comm_ip;
-
-
 
 //udp socket config
 typedef struct rovecomm_socket
@@ -90,8 +81,6 @@ typedef struct rovecomm_socket
     int32_t ndk_fd_error;
 }__attribute__((packed)) rovecomm_socket;
 
-
-
 //defines base station/rovecomm packet and instruction set
 typedef struct rovecomm_protocol
 {
@@ -103,48 +92,7 @@ typedef struct rovecomm_protocol
         int32_t data_error;
 }__attribute__((packed)) rovecomm_protocol;
 
-
-
-int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
-int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
-
-
 #ifdef __cplusplus
-}
-#endif
-
-#endif // ROVECOMM_H_
-
-
-
-
-
-/*Todo
-
-// ========  roveComm  ========
-RoveComm::RoveComm()
-{
-}// end constructor
-
-RoveComm::~RoveComm()
-{
-}// end destructor
-
-int RoveComm::beginUdp(char* my_ip_addr, int port)
-{
-    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
-}// end method
-
-int RoveComm::readUdp()
-{
-    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
-}// end method
-
-
-
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
 // ========  roveComm  ========
 // Cplus object wrappers
 class RoveComm
@@ -164,25 +112,16 @@ class RoveComm
         int readUdp();
         //int writeUdp(char* message);
 };// end class
-// ========  roveComm  ========
-RoveComm::RoveComm()
-{
-}// end constructor
-RoveComm::~RoveComm()
-{
-}// end destructor
-int RoveComm::beginUdp(char* my_ip_addr, int port)
-{
-    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
-}// end method
-int RoveComm::readUdp()
-{
-    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
-}// end method
-//#ifdef __cplusplus
-//}
-//#endif
-*/
+#endif
+
+int32_t roveComm_InitUdpCFG(rovecomm_socket* rove_socket, uint8_t* local_ip_address, int32_t local_port);
+int32_t roveComm_GetUdpMSG(rovecomm_socket* rove_socket, rovecomm_protocol* rove_data);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // ROVECOMM_H_
 
 // ======== roveComm Future Developement:
 //roveComm::beginTcp(local_ip_addr, port);

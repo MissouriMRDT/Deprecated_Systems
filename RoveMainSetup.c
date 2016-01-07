@@ -101,9 +101,14 @@ int main(void) {
     //TODO Rtos Malloc Hooks
 
     //TODO watchdog = rove_init_watchdog(Board_WATCHDOG0);
-    //printf("Init BIOS\n\n");
 
-/////////////////////////////////////////////BEGIN LOOPS
+/////////////////////////////////////////////BEGIN THREAD INSTANCE SETUP
+
+    //Thread for handling the Horizon Dynamixel MX Series Differential Geared Wrist Test Routine
+    //roveTask_Handle = roveTask_init(roveWristLoop, task_priority);
+    roveBoard_InitTask(roveWristLoop, 1);
+
+    printf("Init BIOS\n\n");
 
    //begin real time scheduler
     BIOS_start();

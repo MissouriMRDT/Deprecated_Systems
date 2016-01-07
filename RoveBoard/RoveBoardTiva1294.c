@@ -14,6 +14,23 @@
 //TASK_Handle roveBoard_InitTask(Todo
 
 //TODO Connor, Drue, Jetter Hbridge use case Config choices
+//roveTask_Handle roveTask_Init(UInt task_handler_fnctn, UInt task_priority) {
+void roveBoard_InitTask(UInt task_handler_fnctn, UInt task_priority) {
+
+    Task_Params roveTask_RtosParameters;
+    Task_Params_init(&roveTask_RtosParameters);
+    roveTask_RtosParameters.priority = task_priority;
+    Task_create (task_handler_fnctn, &roveTask_RtosParameters, NULL);
+    //roveTask_Handle = Task_create (task_handler_fnctn, &roveTask_RtosParameters, NULL);
+    //if (roveTask_Handle == NULL) {
+    //    System_abort("Error opening the Task\n");
+    //}//endif
+    //return roveTask_Handle;
+
+    return;
+}//endfnctn
+
+
 PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds) {
 
     PWM_Handle pwmHandle;

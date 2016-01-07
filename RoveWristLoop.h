@@ -9,6 +9,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 // ======== USING roveComm ========
 //Cplus Public in roveWiresCplus.h
 //roveComm::beginUdp(local_ip_addr, port);
@@ -34,15 +35,7 @@ extern "C" {
 //#include "roveWare/roveScience.h"
 //#include "roveWare/roveMonitor.h"
 
-
-//Rtos Kernel Module Api
-#include <ti/sysbios/knl/Task.h>
-//#include <ti/sysbios/knl/Swi.h>
-//#include <ti/sysbios/knl/Clock.h>
-//#include <ti/sysbios/knl/Semaphore.h>
-
-// wired to the build time allocation for the main Rtos Task Thread in roveBuildRtos.cfg
-void roveLoop(UArg arg0, UArg arg1);
+void roveWristLoop(UArg arg0, UArg arg1);
 
 #ifdef __cplusplus
 }

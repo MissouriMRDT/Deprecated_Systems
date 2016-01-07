@@ -8,6 +8,10 @@
 //TODO on URC 2016 OCTOBER_DEVELOPEMENT Protocol
 #include "RoveComm.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // TODO Judah Factor Out Dev Shorthand
 //Public
 typedef enum ROVECOM_DEV {
@@ -17,8 +21,6 @@ typedef enum ROVECOM_DEV {
     , COMMS_ZERO_BYTES = 0
     , COMMS_SINGLE_BYTE = 1
 } ROVECOM_DEV;
-
-
 
 // TODO Reed NDK vs IP vs PROTO Error model advice??
 //see eof for roveComm_CatchRoveERRNO, roveComm_CatchNdkERRNO, Tiva Ndk Developement Notes as of Dec16
@@ -38,7 +40,26 @@ typedef enum ROVECOMM_ERRNO {
     , COMMS_CATCH_NDK_ERRNO = 6
 } ROVECOMM_ERRNO;
 
+#ifdef __cplusplus
+// ========  roveComm  ========
+RoveComm::RoveComm()
+{
+}// end constructor
 
+RoveComm::~RoveComm()
+{
+}// end destructor
+
+int RoveComm::beginUdp(char* my_ip_addr, int port)
+{
+    return roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+}// end method
+
+int RoveComm::readUdp()
+{
+    return roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+}// end method
+#endif
 
 ///////////////::BEGIN//////RoveComm Private Functions//////////////
 static int32_t roveComm_ParseUdpMSG(rovecomm_protocol* rove_data);

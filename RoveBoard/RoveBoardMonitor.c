@@ -1,4 +1,42 @@
 /*Todo
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+
+typedef struct roveError_Block {
+    Error_No id;
+    Error_Data data;
+    struct Error_Msg msg;
+} roveError_Block;
+
+typdef enum roveFnctn_Block {
+    Function_No id;
+    Function_Date date;
+    struct Function_Signature name;
+} roveFunction_Block;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // roveWare Upgrades Version 1 Release
 // ========  roveMonitor ========
 //

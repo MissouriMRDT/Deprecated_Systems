@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 //////////////::BEGIN//////Forever Thread Tiva Rtos Scheduled Task//////////////
-void roveLoop(UArg arg0, UArg arg1)
+void roveWristLoop(UArg arg0, UArg arg1)
 {
     //Private Thread Stack  (Tiva Rtos Task MemSpace) roveThread_Setup()
 
@@ -24,18 +24,18 @@ void roveLoop(UArg arg0, UArg arg1)
     //roveUART_Handle FAKE_UART;
     //roveGPIO_Handle FAKE_GPIO;
 
-    /*RoveComm UdpSock;
+    RoveComm UdpSock;
 
     int test_error =  UdpSock.beginUdp("192.168.1.2", 11000);
         printf("beginUdp test_error: %d", test_error);
 
-    while(FOREVER)
+    while(1)
     {
         test_error = UdpSock.readUdp();
             printf("readUdp test_error: %d", test_error);
 
     }// end while
-*/
+
 }//end task
 
 #ifdef __cplusplus

@@ -21,18 +21,17 @@
 #define UDP_TX_PACKET_MAX_SIZE 1024
 
 struct RoveComm{
-  // sender socket for multiple ports
-  int receiverSocket, senderSocket;
+  int socket;
   struct sockaddr_in myAddr;
   uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 };
 
 extern struct RoveComm RoveComm;
 
-void RoveCommBegin();
+void RoveCommBegin(int port);
 void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data);
 void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags);
-bool RoveCommSendPacket(char* destIP, int destPort, int sourcePort, uint8_t* msg, int msgSize);
+bool RoveCommSendPacket(char* destIP, int destPort, uint8_t* msg, int msgSize);
 void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, char* destIP, int destPort, uint8_t flags);
 
 #endif

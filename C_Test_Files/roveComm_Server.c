@@ -10,7 +10,7 @@ int main(void)
   uint16_t dataSize;
   unsigned char data[30];
   
-  RoveCommBegin();
+  RoveCommBegin(ROVECOMM_PORT);
   
   for (;;) {
     RoveCommGetUdpMsg(&dataID, &dataSize, data);

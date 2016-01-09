@@ -42,14 +42,7 @@ int main(int argc, char* argv[])
     sscanf(argv[5], "%X", (int*)&seqNum);
   }
   
-  // Replicated RoveCommBegin so it doesn't attempt to bind server Port
-  RoveComm.receiverSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-  RoveComm.senderSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
-
-  memset(&RoveComm.myAddr, 0, sizeof RoveComm.myAddr);
-  RoveComm.myAddr.sin_family = AF_INET;
-  RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-  RoveComm.myAddr.sin_port = htons(11000);
+  RoveCommBegin(11001);
   
   RoveCommSendMsgTo(dataID, dataSize, hexData, destinationIP, destinationPort, 0);
   

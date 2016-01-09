@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
   
   RoveCommBegin(11001);
   
-  RoveCommSendMsgTo(dataID, dataSize, hexData, destinationIP, destinationPort, 0);
+  RoveCommSendMsgTo(dataID, dataSize, hexData, inet_addr(destinationIP), destinationPort, 0);
   
   return 0;
 }

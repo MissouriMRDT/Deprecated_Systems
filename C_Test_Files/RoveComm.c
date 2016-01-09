@@ -18,6 +18,11 @@ void RoveCommBegin(int port){
     close(RoveComm.socket);
     exit(EXIT_FAILURE);
   }
+  
+  int i;
+  for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
+    RoveComm.subscribers[i] = INADDR_NONE;
+  }
 }
 
 void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
@@ -69,19 +74,19 @@ void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* 
   }
 }
 
-bool RoveCommSendPacket(char* destIP, int destPort, uint8_t* msg, int msgSize) {
+bool RoveCommSendPacket(in_addr_t destIP, int destPort, uint8_t* msg, int msgSize) {
   struct sockaddr_in destination;
   
   memset(&destination, 0, sizeof(destination));
   destination.sin_family = AF_INET;
-  destination.sin_addr.s_addr = inet_addr(destIP);
+  destination.sin_addr.s_addr = (destIP);
   destination.sin_port = htons(destPort);
   
   sendto(RoveComm.socket, msg, msgSize, 0,(struct sockaddr*)&destination, sizeof(destination));
   return true;
 }
 
-void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, char* destIP, int destPort, uint8_t flags) {
+void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, in_addr_t destIP, int destPort, uint8_t flags) {
   int packetSize = size + ROVECOMM_HEADER_LENGTH;
   uint8_t buffer[packetSize];
   
@@ -102,3 +107,13 @@ void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, char* destIP,
   RoveCommSendPacket(destIP, destPort, buffer, packetSize);
 }
 
+void RoveCommSendMsg(uint16_t dataID, uint16_t size, void* data) {
+  int i = 0; 
+  
+  while (i < ROVECOMM_MAX_SUBSCRIBERS) {
+    if (RoveComm.subscribers[i] == INADDR_NONE) {
+      RoveCommSendMsgTo(dataID, size, data, RoveComm.subscribers[i], ROVECOMM_PORT, 0);
+    }
+    i++;
+  }
+}

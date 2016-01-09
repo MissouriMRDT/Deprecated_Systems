@@ -12,7 +12,7 @@ void RoveCommBegin(){
   memset(&RoveComm.myAddr, 0, sizeof RoveComm.myAddr);
   RoveComm.myAddr.sin_family = AF_INET;
   RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-  RoveComm.myAddr.sin_port = htons(11000);
+  RoveComm.myAddr.sin_port = htons(ROVECOMM_PORT);
   
   if (-1 == bind(RoveComm.receiverSocket, (struct sockaddr *)&RoveComm.myAddr, sizeof RoveComm.myAddr)) {
     perror("error bind failed");

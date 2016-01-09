@@ -16,11 +16,15 @@
 
 #define ROVECOMM_VERSION 1
 #define ROVECOMM_HEADER_LENGTH 8
+#define ROVECOMM_PORT 11000
+
+#define UDP_TX_PACKET_MAX_SIZE 1024
 
 struct RoveComm{
+  // sender socket for multiple ports
   int receiverSocket, senderSocket;
   struct sockaddr_in myAddr;
-  uint8_t buffer[1024];
+  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
 };
 
 extern struct RoveComm RoveComm;

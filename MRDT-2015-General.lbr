@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.015" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -583,15 +583,27 @@ Source: http://www.analog.com/UploadedFiles/Data_Sheets/703465986AD8611_2_0.pdf<
 <circle x="0" y="41.91" radius="0.127" width="0.254" layer="30"/>
 </package>
 <package name="MLX-3-PIN-SOCKET">
-<pad name="P$1" x="0" y="0" drill="2"/>
-<pad name="P$2" x="6.35" y="0" drill="2"/>
-<pad name="P$3" x="-6.35" y="0" drill="2"/>
+<pad name="P$2" x="0" y="0" drill="2"/>
+<pad name="P$3" x="6.35" y="0" drill="2"/>
+<pad name="P$1" x="-6.35" y="0" drill="2"/>
 <wire x1="-10.16" y1="3.81" x2="-10.16" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="-10.16" y1="-3.81" x2="10.16" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="10.16" y1="-3.81" x2="10.16" y2="3.81" width="0.127" layer="21"/>
 <wire x1="10.16" y1="3.81" x2="-10.16" y2="3.81" width="0.127" layer="21"/>
 <text x="-3.81" y="5.08" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3.81" y="-6.35" size="1.27" layer="27">&gt;VALUE</text>
+<dimension x1="-6.35" y1="0" x2="0" y2="0" x3="-3.175" y3="-8.89" textsize="1.27" layer="48" visible="yes"/>
+<dimension x1="10.16" y1="-3.81" x2="-10.16" y2="-3.81" x3="0" y3="-15.24" textsize="1.27" layer="48" unit="inch" visible="yes"/>
+<dimension x1="6.35" y1="-1.016" x2="6.35" y2="1.016" x3="14.224" y3="0" textsize="1.27" layer="48" dtype="diameter" unit="inch" visible="yes"/>
+<circle x="0" y="0" radius="2.796884375" width="0.127" layer="21"/>
+<wire x1="-9.144" y1="0" x2="-9.144" y2="-2.794" width="0.127" layer="21"/>
+<wire x1="-9.144" y1="-2.794" x2="-3.556" y2="-2.794" width="0.127" layer="21"/>
+<wire x1="-3.556" y1="-2.794" x2="-3.556" y2="0" width="0.127" layer="21"/>
+<wire x1="-9.144" y1="0" x2="-3.556" y2="0" width="0.127" layer="21" curve="-180"/>
+<wire x1="3.556" y1="0" x2="3.556" y2="-2.794" width="0.127" layer="21"/>
+<wire x1="3.556" y1="-2.794" x2="9.144" y2="-2.794" width="0.127" layer="21"/>
+<wire x1="3.556" y1="0" x2="9.144" y2="0" width="0.127" layer="21" curve="-180"/>
+<wire x1="9.144" y1="-2.794" x2="9.144" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="MLX-2-PIN">
 <pad name="P$1" x="-2.54" y="0" drill="2"/>
@@ -2899,6 +2911,23 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <text x="122.8725" y="13.0175" size="1.27" layer="21">1</text>
 <text x="122.8725" y="49.2125" size="1.27" layer="21">1</text>
 </package>
+<package name="MLX-2X3-PIN">
+<pad name="GND1" x="0" y="0" drill="1.8034"/>
+<pad name="5V1" x="0" y="4.191" drill="1.8034"/>
+<pad name="12V1" x="0" y="8.382" drill="1.8034"/>
+<pad name="12V2" x="5.5118" y="8.382" drill="1.8034"/>
+<pad name="5V2" x="5.5118" y="4.191" drill="1.8034"/>
+<pad name="GND2" x="5.5118" y="0" drill="1.8034"/>
+<hole x="-7.2898" y="0" drill="2.9972"/>
+<hole x="-7.2898" y="8.382" drill="2.9972"/>
+<wire x1="-13.8938" y1="11.049" x2="-13.8938" y2="-2.667" width="0.127" layer="49"/>
+<wire x1="-13.8938" y1="-2.667" x2="-1.1938" y2="-2.667" width="0.127" layer="49"/>
+<wire x1="-1.1938" y1="-2.667" x2="-1.1938" y2="11.049" width="0.127" layer="49"/>
+<wire x1="-1.1938" y1="11.049" x2="-13.8938" y2="11.049" width="0.127" layer="49"/>
+<wire x1="-13.891103125" y1="11.04973125" x2="7.58748125" y2="11.024590625" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.58748125" y1="11.024590625" x2="7.58748125" y2="-2.66859375" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.58748125" y1="-2.66859375" x2="-13.89379375" y2="-2.66859375" width="0.127" layer="49" style="shortdash"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ICSP">
@@ -3316,6 +3345,18 @@ Breakout</text>
 <pin name="PQ2/PA3" x="30.48" y="5.08" length="middle" rot="R180"/>
 <pin name="PQ3/PA2" x="30.48" y="2.54" length="middle" rot="R180"/>
 </symbol>
+<symbol name="MLX-2X3-PIN">
+<wire x1="0" y1="0" x2="0" y2="15.24" width="0.254" layer="94"/>
+<wire x1="0" y1="15.24" x2="15.24" y2="15.24" width="0.254" layer="94"/>
+<wire x1="15.24" y1="15.24" x2="15.24" y2="0" width="0.254" layer="94"/>
+<wire x1="15.24" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="12V_1" x="-5.08" y="12.7" length="middle"/>
+<pin name="5V_1" x="-5.08" y="7.62" length="middle"/>
+<pin name="GND_1" x="-5.08" y="2.54" length="middle"/>
+<pin name="12V_2" x="20.32" y="12.7" length="middle" rot="R180"/>
+<pin name="5V_2" x="20.32" y="7.62" length="middle" rot="R180"/>
+<pin name="GND_2" x="20.32" y="2.54" length="middle" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="ICSP_SMD">
@@ -3670,9 +3711,9 @@ Breakout</text>
 <devices>
 <device name="" package="MLX-3-PIN-SOCKET">
 <connects>
-<connect gate="G$1" pin="12V" pad="P$2"/>
-<connect gate="G$1" pin="5V" pad="P$1"/>
-<connect gate="G$1" pin="GND" pad="P$3"/>
+<connect gate="G$1" pin="12V" pad="P$3"/>
+<connect gate="G$1" pin="5V" pad="P$2"/>
+<connect gate="G$1" pin="GND" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4002,6 +4043,26 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <connect gate="G$1" pin="PF3" pad="PF3"/>
 <connect gate="G$1" pin="PF4" pad="PF4"/>
 <connect gate="G$1" pin="RST" pad="RST"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MLX-2X3-PIN">
+<gates>
+<gate name="G$1" symbol="MLX-2X3-PIN" x="0" y="-5.08"/>
+</gates>
+<devices>
+<device name="" package="MLX-2X3-PIN">
+<connects>
+<connect gate="G$1" pin="12V_1" pad="12V1"/>
+<connect gate="G$1" pin="12V_2" pad="12V2"/>
+<connect gate="G$1" pin="5V_1" pad="5V1"/>
+<connect gate="G$1" pin="5V_2" pad="5V2"/>
+<connect gate="G$1" pin="GND_1" pad="GND1"/>
+<connect gate="G$1" pin="GND_2" pad="GND2"/>
 </connects>
 <technologies>
 <technology name=""/>

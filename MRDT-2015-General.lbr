@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -55,7 +55,7 @@
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
@@ -2906,12 +2906,14 @@ WARNING: The mounting holes on this board are only for reference. They will not 
 <text x="35.8775" y="13.0175" size="1.27" layer="21">10</text>
 <text x="99.3775" y="13.0175" size="1.27" layer="21">10</text>
 <text x="99.3775" y="49.2125" size="1.27" layer="21">10</text>
-<dimension x1="84.15" y1="52.07" x2="80.95" y2="52.07" x3="80.95" y3="52.07" textsize="0.8128" layer="48" dtype="diameter" unit="inch" precision="5" visible="yes"/>
-<dimension x1="85.979" y1="52.07" x2="79.121" y2="52.07" x3="82.55" y3="46.99" textsize="0.8128" layer="48" dtype="diameter" unit="inch" precision="5" visible="yes"/>
+<dimension x1="84.15" y1="52.07" x2="80.95" y2="52.07" x3="80.95" y3="52.07" textsize="0.8128" layer="47" dtype="diameter" unit="inch" precision="5" visible="yes"/>
+<dimension x1="85.979" y1="52.07" x2="79.121" y2="52.07" x3="82.55" y3="46.99" textsize="0.8128" layer="47" dtype="diameter" unit="inch" precision="5" visible="yes"/>
 <text x="59.3725" y="49.2125" size="1.27" layer="21">1</text>
 <text x="59.3725" y="13.0175" size="1.27" layer="21">1</text>
 <text x="122.8725" y="13.0175" size="1.27" layer="21">1</text>
 <text x="122.8725" y="49.2125" size="1.27" layer="21">1</text>
+<dimension x1="124.46" y1="0" x2="0" y2="0" x3="62.23" y3="-7.62" textsize="1.27" layer="47" unit="inch" visible="yes"/>
+<dimension x1="0" y1="0" x2="0" y2="55.88" x3="-5.08" y3="27.94" textsize="1.27" layer="47" dtype="vertical" unit="inch" visible="yes"/>
 </package>
 <package name="MLX-2X3-PIN">
 <pad name="GND1" x="0" y="0" drill="1.8034"/>

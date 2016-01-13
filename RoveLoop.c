@@ -7,35 +7,60 @@
 // recieves base station messages using ip bsd style sockets and issues logic commands to hardware
 //
 // mrdt::rovWare
-//Cplus
-#include "RoveWristLoop.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+//Cplus
+#include "RoveLoop.h"
+
+//RoveWare
+#include "RoveWare/RoveComm.h"
+#include "RoveWare/RoveControl.h"
+//#include "roveWare/roveSense.h"
+//#include "roveWare/roveScience.h"
+//#include "roveWare/roveMonitor.h"
+
+
 
 //////////////::BEGIN//////Forever Thread Tiva Rtos Scheduled Task//////////////
-void roveWristLoop(UArg arg0, UArg arg1)
+Void roveLoop(UArg arg0, UArg arg1)
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Private Thread Stack  (Tiva Rtos Task MemSpace) roveThread_Setup()
 
     //extern roveUart_Handle UART_2;
     //extern roveGpio_Handle PE_1;
     //roveUART_Handle FAKE_UART;
     //roveGPIO_Handle FAKE_GPIO;
+/*
+    uint16_t data_id;
+    size_t size;
+    char data[] = "Tiva Cplus RoveComm For the Win!";
 
-    RoveComm UdpSock;
-
-    int test_error =  UdpSock.beginUdp("192.168.1.2", 11000);
-        printf("beginUdp test_error: %d", test_error);
+    RoveCommBegin();
 
     while(1)
     {
-        test_error = UdpSock.readUdp();
-            printf("readUdp test_error: %d", test_error);
-
+        RoveCommGetMsg(&data_id, &size, data);
+        //printf("%s", data);
+        RoveCommSendMsg(data_id, size, data);
     }// end while
-
+*/
 }//end task
 
 #ifdef __cplusplus

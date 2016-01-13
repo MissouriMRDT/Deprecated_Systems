@@ -7,31 +7,31 @@
 // mrdt::rovWare
 #include "RoveBoardTiva1294.h"
 
+//TODO factor TI hardware config in EK_TM4C1294XL
+#include "EK_TM4C1294XL.h"
 
+//C lib
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+#include "inc/hw_memmap.h"
+#include "driverlib/gpio.h"
+#include "driverlib/sysctl.h"
+
+//Rtos Kernel Module Instance Api
+//#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
+//TODO #include <ti/drivers/Watchdog.h>
+
+//CCS TI config
+#include <xdc/runtime/System.h>
 
 //TODO Clock and Timer Instances
 
-//TASK_Handle roveBoard_InitTask(Todo
-
-//TODO Connor, Drue, Jetter Hbridge use case Config choices
-//roveTask_Handle roveTask_Init(UInt task_handler_fnctn, UInt task_priority) {
-void roveBoard_InitTask(UInt task_handler_fnctn, UInt task_priority) {
-
-    Task_Params roveTask_RtosParameters;
-    Task_Params_init(&roveTask_RtosParameters);
-    roveTask_RtosParameters.priority = task_priority;
-    Task_create (task_handler_fnctn, &roveTask_RtosParameters, NULL);
-    //roveTask_Handle = Task_create (task_handler_fnctn, &roveTask_RtosParameters, NULL);
-    //if (roveTask_Handle == NULL) {
-    //    System_abort("Error opening the Task\n");
-    //}//endif
-    //return roveTask_Handle;
-
-    return;
-}//endfnctn
-
-
-PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds) {
+rovePWM_Handle roveBoard_PwmInit(unsigned int pwm_index, unsigned int period_in_microseconds){
 
     PWM_Handle pwmHandle;
     PWM_Params pwmParams;
@@ -47,7 +47,7 @@ PWM_Handle roveBoard_InitPwm(UInt pwm_index, UInt period_in_microseconds) {
     return pwmHandle;
 }//endfnctn
 
-UART_Handle roveBoard_InitUart(UInt uart_index, UInt baud_rate) {
+roveUART_Handle roveBoard_UartInit(unsigned int uart_index , unsigned int baud_rate){
 
     UART_Handle uartHandle;
     UART_Params uartParams;
@@ -68,39 +68,56 @@ UART_Handle roveBoard_InitUart(UInt uart_index, UInt baud_rate) {
 
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-int32_t roveBoard_UartWrite(roveUART_Handle uart, uint8_t* write_buffer, int32_t bytes_to_write) {
+roveBoardERROR roveBoard_UartWrite(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write) {
 
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
-    return UART_write(uart, (char*)&write_buffer, bytes_to_write);
-}//endfnctn
+    int bytes_written = UART_write(uart, write_buffer, bytes_to_write);
 
-int32_t roveBoard_UartRead(roveUART_Handle uart, uint8_t* read_buffer, int32_t bytes_to_read) {
-
-    //roveUARTWrite timing issue?
-    //roveDelay_MilliSec(1);
-    return UART_read(uart, (char*)&read_buffer, bytes_to_read);
-}//endfnctn
-
-
-
-void roveBoard_PwmWrite(PWM_Handle tiva_pin, int16_t duty_in_microseconds) {
-
-    PWM_setDuty(tiva_pin, duty_in_microseconds);
-    return;
-}//endfnctn
-
-void roveBoard_DigitalWrite(roveGPIO_Handle* gpio_pin, uint8_t digital_value) {
-
-    if(digital_value){
-
-        GPIOPinWrite(gpio_pin->port, gpio_pin->pin, gpio_pin->pin);
-        return;
+    if(bytes_written < 0){
+        return roveBoardERROR_UARTError;
     }//end if
 
-    GPIOPinWrite(gpio_pin->port, gpio_pin->pin, ~(gpio_pin->pin) );
-    return;
+    return roveBoardERROR_success;
 }//endfnctn
+
+roveBoardERROR roveBoard_UartRead(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read) {
+
+    //roveUARTWrite timing issue?
+    //roveDelay_MilliSec(1);
+
+    int bytes_read = UART_read(uart, read_buffer, bytes_to_read);
+
+    if(bytes_read < 0){
+      return roveBoardERROR_UARTError;
+    }//end if
+
+    return roveBoardERROR_success;
+}//endfnctn
+
+
+
+void roveBoard_PwmWrite(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds) {
+
+    PWM_setDuty(tiva_pin, duty_in_microseconds);
+}//endfnctn
+
+
+
+void roveBoard_DigitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value) {
+
+    uint8_t pin_value = 0;
+
+    if(digital_value > 0) {
+
+        pin_value = ~0;
+    }//end if
+
+    GPIOPinWrite(gpio_pin->port, gpio_pin->pin, pin_value);
+}//endfnctn
+
+//extern int32_t GPIOPinRead(uint32_t ui32Port, uint8_t ui8Pins);
+//extern void GPIOPinWrite(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val);
 
 
 

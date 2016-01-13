@@ -57,6 +57,7 @@ typedef struct rove_dyna_serial
     int32_t err_no;
 }__attribute__((packed)) rove_dyna_serial, *rove_dyna_serial_ptr;
 
+
 #ifdef __cplusplus
 // ========  roveControl  ========
 // Cplus object wrappers

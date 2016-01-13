@@ -327,7 +327,7 @@ static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* wri
     check_sum = (~check_sum) & 0xFF;
 
     //set tristate buffer to uart_tx write status
-    roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 1);
+    //roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 1);
 
     //start dyna msg, id the dyna, tell dyna the msg data size (+ check_sum)
     header_byte = AX_PACKET_START_BYTE;
@@ -353,7 +353,7 @@ static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* wri
     //wait for uart_write
     //roveBoard_DelayMicroSec(AX_DELAY_TX_uSEC);
     //set tristate buffer to uart_rx read status
-    roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 0);
+    //roveBoard_DigitalWrite(&dynmxl->tri_state_buffer, 0);
 
     if(dynmxl->read_reply_flag)
     {

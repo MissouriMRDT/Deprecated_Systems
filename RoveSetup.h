@@ -3,37 +3,13 @@
 //
 // mrdt::roveWare
 #pragma once
-#ifndef ROVEMAINSETUP_H_
-#define ROVEMAINSETUP_H_
+#ifndef ROVESETUP_H_
+#define ROVESETUP_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//  ======== Rove Thread Developers =======
-//  Rtos Loop Manisfest:
-
-//Test Horizon Wrist Thread
-#include "RoveWristLoop.h"
-//#include "<AddYourThreads>Loop.h"
-//  ========    =================   =======
-
-
-//Todo RoveBoardTiva1294 included twice?
-//RoveWare for Texas Instruments Tiva Connected C Dev board peripheral access hardware abstraction
-#include "RoveBoard/RoveBoardTiva1294.h"
-
-//C lib
-#include <stdio.h>
-
-//CCS Rtos Scheduler Kernel
-#include <ti/sysbios/BIOS.h>
-
-//Rtos Kernel Module Instance Api
-//#include <ti/sysbios/knl/Task.h>
-//#include <ti/sysbios/knl/Swi.h>
-//#include <ti/sysbios/knl/Clock.h>
-//#include <ti/sysbios/knl/Semaphore.h>
 
 #ifdef __cplusplus
 }

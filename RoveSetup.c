@@ -12,11 +12,41 @@
 // begins the scheduler
 //
 // mrdt::roveWare
-#include "RoveMainSetup.h"
+#include "RoveSetup.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+//  ======== Rove Thread Developers =======
+//  Rtos Loop Manisfest:
+#include "RoveLoop.h"
+//#include "<AddYourThreads>Loop.h"
+//  ========    =================   =======
+
+//TODO factor TI hardware config in EK_TM4C1294XL
+#include "RoveBoard/EK_TM4C1294XL.h"
+
+//Todo RoveBoardTiva1294 included twice?
+//RoveWare for Texas Instruments Tiva Connected C Dev board peripheral access hardware abstraction
+#include "RoveBoard/RoveBoardTiva1294.h"
+
+//C lib
+#include <stdio.h>
+
+//CCS Rtos Scheduler Kernel
+#include <ti/sysbios/BIOS.h>
+
+//Rtos Kernel Module Instance Api
+#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
+
+typedef ti_sysbios_knl_Task_FuncPtr roveTaskFnctn_ptr;
+
+//TASK_Handle roveBoard_InitTask(Todo
+static void roveBoard_InitTask(roveTaskFnctn_ptr task_handler_fnctn_ptr, UInt task_priority);
 
 //init main
 int main(void) {
@@ -42,8 +72,8 @@ int main(void) {
     //right now I just have stubbed roveGPIO_Handle as small typedef struct in roveBOARD_TIVA1294.h
 
     //still need to be hard code configured as OUTPUTS in the roveBoard/EK_TM4C1294XL.C file
-    /*roveGPIO_Handle PE_0 = roveBoard_InitGpioCFG(PE_0, PORT_E, PIN_2);
-    roveGPIO_Handle PE_1 = roveBoard_InitGpioCFG(PE_1, PORT_E, PIN_2);
+    /*roveGPIO_Handle PE_0 = roveBoard_InitGpio(PE_0, PORT_E, PIN_2);
+    roveGPIO_Handle PE_1 = roveBoard_InitGpio(PE_1, PORT_E, PIN_2);
     roveGPIO_Handle PH_0 = roveBoard_InitGpioCFG(PH_0, PORT_H, PIN_0);
     roveGPIO_Handle PH_1 = roveBoard_InitGpioCFG(PH_1, PORT_H, PIN_1);
     roveGPIO_Handle PK_2 = roveBoard_InitGpioCFG(PK_2, PORT_K, PIN_2);
@@ -57,24 +87,24 @@ int main(void) {
 
     //hardcode configured as INPUT/OUTPUT pairs in the roveBoard/EK_TM4C1294XL.C file
     //hardcoding a 57600 Baud Rate in Tiva UART module for dynamixel
-    roveUART_Handle UART_2 = roveBoard_InitUart(2, 57600);
-    roveUART_Handle UART_3 = roveBoard_InitUart(3, 57600);
-    roveUART_Handle UART_4 = roveBoard_InitUart(4, 57600);
-    roveUART_Handle UART_5 = roveBoard_InitUart(5, 57600);
-    roveUART_Handle UART_6 = roveBoard_InitUart(6, 57600);
-    roveUART_Handle UART_7 = roveBoard_InitUart(7, 57600);
+    roveUART_Handle UART_2 = roveBoard_UartInit(2, 57600);
+    roveUART_Handle UART_3 = roveBoard_UartInit(3, 57600);
+    roveUART_Handle UART_4 = roveBoard_UartInit(4, 57600);
+    roveUART_Handle UART_5 = roveBoard_UartInit(5, 57600);
+    roveUART_Handle UART_6 = roveBoard_UartInit(6, 57600);
+    roveUART_Handle UART_7 = roveBoard_UartInit(7, 57600);
     printf("Init UARTS\n\n");
 
 //DO NOT INIT PWM_0 -> ethernet support conflict: HardwareResourecs/EK_TM4C1294XL.h
 
     //These are hardcode configured as OUTPUTS in the roveBoard/EK_TM4C1294XL.C file
     //hardcoding 20,000 Period for Tiva PWM module
-    rovePWM_Handle PWM_1 = roveBoard_InitPwm(1, 20000);
-    rovePWM_Handle PWM_2 = roveBoard_InitPwm(2, 20000);
-    rovePWM_Handle PWM_3 = roveBoard_InitPwm(3, 20000);
-    rovePWM_Handle PWM_4 = roveBoard_InitPwm(4, 20000);
-    rovePWM_Handle PWM_5 = roveBoard_InitPwm(5, 20000);
-    rovePWM_Handle PWM_6 = roveBoard_InitPwm(6, 20000);
+    rovePWM_Handle PWM_1 = roveBoard_PwmInit(1, 20000);
+    rovePWM_Handle PWM_2 = roveBoard_PwmInit(2, 20000);
+    rovePWM_Handle PWM_3 = roveBoard_PwmInit(3, 20000);
+    rovePWM_Handle PWM_4 = roveBoard_PwmInit(4, 20000);
+    rovePWM_Handle PWM_5 = roveBoard_PwmInit(5, 20000);
+    rovePWM_Handle PWM_6 = roveBoard_PwmInit(6, 20000);
     printf("Init PWM\n\n");
 
     //TODO Tiva ADC module
@@ -106,7 +136,7 @@ int main(void) {
 
     //Thread for handling the Horizon Dynamixel MX Series Differential Geared Wrist Test Routine
     //roveTask_Handle = roveTask_init(roveWristLoop, task_priority);
-    roveBoard_InitTask(roveWristLoop, 1);
+    roveBoard_InitTask(roveLoop, 1);
 
     printf("Init BIOS\n\n");
 
@@ -114,6 +144,18 @@ int main(void) {
     BIOS_start();
     return (0);
 }//end main
+
+//TODO Connor, Drue, Jetter Hbridge use case Config choices
+//roveTask_Handle roveTask_Init(UInt task_handler_fnctn, UInt task_priority) {
+static void roveBoard_InitTask(roveTaskFnctn_ptr task_handler_fnctn_ptr, UInt task_priority) {
+
+    Task_Params roveTask_RtosParameters;
+    Task_Params_init(&roveTask_RtosParameters);
+    roveTask_RtosParameters.priority = task_priority;
+    Task_create (task_handler_fnctn_ptr, &roveTask_RtosParameters, NULL);
+
+    return;
+}//endfnctn
 
 #ifdef __cplusplus
 }

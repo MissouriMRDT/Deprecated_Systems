@@ -3,8 +3,8 @@
 //
 // mrdt::roveWare
 #pragma once
-#ifndef ROVEWRISTLOOP_H_
-#define ROVEWRISTLOOP_H_
+#ifndef ROVELOOP_H_
+#define ROVELOOP_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,14 +28,13 @@ extern "C" {
 //int32_t roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
 // ========  =======  ========
 
-//RoveWare
-#include "RoveWare/RoveComm.h"
-#include "RoveWare/RoveControl.h"
-//#include "roveWare/roveSense.h"
-//#include "roveWare/roveScience.h"
-//#include "roveWare/roveMonitor.h"
+//Rtos Kernel Module Instance Api
+#include <ti/sysbios/knl/Task.h>
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Clock.h>
+//#include <ti/sysbios/knl/Semaphore.h>
 
-void roveWristLoop(UArg arg0, UArg arg1);
+Void roveLoop(UArg arg0, UArg arg1);
 
 #ifdef __cplusplus
 }

@@ -3,15 +3,45 @@
 
 #include "RoveComm.h"
 
-struct RoveComm RoveComm;
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-void RoveCommBegin(int port){
+#define ROVECOMM_VERSION 1
+#define ROVECOMM_HEADER_LENGTH 8
+#define ROVECOMM_PORT 11000
+
+#define UDP_TX_PACKET_MAX_SIZE 1024
+#define ROVECOMM_MAX_SUBSCRIBERS 5
+
+
+
+struct RoveComm{
+  int socket;
+  struct sockaddr_in myAddr;
+  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
+  in_addr_t subscribers[ROVECOMM_MAX_SUBSCRIBERS];
+} RoveComm;
+
+static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags);
+static bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize);
+static void RoveCommGetUdpMsg(uint16_t* dataID, size_t* size, void* data);
+
+
+
+void RoveCommBegin(){
   RoveComm.socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
   memset(&RoveComm.myAddr, 0, sizeof RoveComm.myAddr);
   RoveComm.myAddr.sin_family = AF_INET;
-  RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-  RoveComm.myAddr.sin_port = htons(port);
+  RoveComm.myAddr.sin_addr.s_addr = htonl(INADDR_ANY); //TODO Pass in some IP. will it work?
+  RoveComm.myAddr.sin_port = htons(ROVECOMM_PORT);
   
   if (-1 == bind(RoveComm.socket, (struct sockaddr *)&RoveComm.myAddr, sizeof RoveComm.myAddr)) {
     perror("error bind failed");
@@ -25,7 +55,11 @@ void RoveCommBegin(int port){
   }
 }
 
-void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
+void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data) {
+  RoveCommGetUdpMsg(dataID, size, data);
+}
+
+static void RoveCommGetUdpMsg(uint16_t* dataID, size_t* size, void* data){
   struct sockaddr_in incoming;
   ssize_t recsize;
   socklen_t fromlen;
@@ -57,8 +91,7 @@ void RoveCommGetUdpMsg(uint16_t* dataID, uint16_t* size, void* data){
   }
 }
 
-
-void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags) {
+static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags) {
   int protocol_version = RoveComm.buffer[0];
   switch (protocol_version) {
     case 1:
@@ -67,14 +100,12 @@ void RoveCommParseUdpMsg(uint16_t* dataID, uint16_t* size, void* data, uint8_t* 
       *dataID = (*dataID << 8) | RoveComm.buffer[5];
       *size = RoveComm.buffer[6];
       *size = (*size << 8) | RoveComm.buffer[7];
-      int i;
-      for (i=0; i < *size; i++) {
-        ((uint8_t*)data)[i] = RoveComm.buffer[i + ROVECOMM_HEADER_LENGTH];
-      }
+      
+      memcpy(data, &(RoveComm.buffer[8]), *size);
   }
 }
 
-bool RoveCommSendPacket(in_addr_t destIP, int destPort, uint8_t* msg, int msgSize) {
+static bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * const msg, size_t msgSize) {
   struct sockaddr_in destination;
   
   memset(&destination, 0, sizeof(destination));
@@ -86,8 +117,8 @@ bool RoveCommSendPacket(in_addr_t destIP, int destPort, uint8_t* msg, int msgSiz
   return true;
 }
 
-void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, in_addr_t destIP, int destPort, uint8_t flags) {
-  int packetSize = size + ROVECOMM_HEADER_LENGTH;
+void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, in_addr_t destIP, uint16_t destPort, uint8_t flags) {
+  size_t packetSize = size + ROVECOMM_HEADER_LENGTH;
   uint8_t buffer[packetSize];
   
   buffer[0] = ROVECOMM_VERSION;
@@ -99,15 +130,12 @@ void RoveCommSendMsgTo(uint16_t dataID, uint16_t size, void* data, in_addr_t des
   buffer[6] = size >> 8;
   buffer[7] = size & 0x00FF;
   
-  int i;
-  for (i=0; i < size; i++) {
-    buffer[i + ROVECOMM_HEADER_LENGTH] = ((uint8_t*)data)[i];
-  }
+  memcpy(&(RoveComm.buffer[8]), data, size);
   
   RoveCommSendPacket(destIP, destPort, buffer, packetSize);
 }
 
-void RoveCommSendMsg(uint16_t dataID, uint16_t size, void* data) {
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data) {
   int i = 0; 
   
   while (i < ROVECOMM_MAX_SUBSCRIBERS) {

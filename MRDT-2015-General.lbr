@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0001" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -27,8 +27,8 @@
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -2947,21 +2947,34 @@
 <dimension x1="0" y1="0" x2="0" y2="55.88" x3="-5.08" y3="27.94" textsize="1.27" layer="47" dtype="vertical" unit="inch" visible="yes"/>
 </package>
 <package name="MLX-2X3-PIN">
-<pad name="GND1" x="0" y="0" drill="1.8034"/>
-<pad name="5V1" x="0" y="4.191" drill="1.8034"/>
-<pad name="12V1" x="0" y="8.382" drill="1.8034"/>
-<pad name="12V2" x="5.5118" y="8.382" drill="1.8034"/>
-<pad name="5V2" x="5.5118" y="4.191" drill="1.8034"/>
-<pad name="GND2" x="5.5118" y="0" drill="1.8034"/>
-<hole x="-7.2898" y="0" drill="2.9972"/>
-<hole x="-7.2898" y="8.382" drill="2.9972"/>
-<wire x1="-13.8938" y1="11.049" x2="-13.8938" y2="-2.667" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="-2.667" x2="-1.1938" y2="-2.667" width="0.127" layer="49"/>
-<wire x1="-1.1938" y1="-2.667" x2="-1.1938" y2="11.049" width="0.127" layer="49"/>
-<wire x1="-1.1938" y1="11.049" x2="-13.8938" y2="11.049" width="0.127" layer="49"/>
-<wire x1="-13.891103125" y1="11.04973125" x2="7.58748125" y2="11.024590625" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.58748125" y1="11.024590625" x2="7.58748125" y2="-2.66859375" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.58748125" y1="-2.66859375" x2="-13.89379375" y2="-2.66859375" width="0.127" layer="49" style="shortdash"/>
+<pad name="GND1" x="13.8938" y="-4.1656" drill="1.8034"/>
+<pad name="5V1" x="13.8938" y="0.0254" drill="1.8034"/>
+<pad name="12V1" x="13.8938" y="4.2164" drill="1.8034"/>
+<pad name="12V2" x="19.4056" y="4.2164" drill="1.8034"/>
+<pad name="5V2" x="19.4056" y="0.0254" drill="1.8034"/>
+<pad name="GND2" x="19.4056" y="-4.1656" drill="1.8034"/>
+<hole x="6.604" y="-4.191" drill="2.9972"/>
+<hole x="6.604" y="4.191" drill="2.9972"/>
+<wire x1="0" y1="6.858" x2="0" y2="2.667" width="0.127" layer="49"/>
+<wire x1="0" y1="2.667" x2="0" y2="1.524" width="0.127" layer="49"/>
+<wire x1="0" y1="1.524" x2="0" y2="-1.524" width="0.127" layer="49"/>
+<wire x1="0" y1="-1.524" x2="0" y2="-2.667" width="0.127" layer="49"/>
+<wire x1="0" y1="-2.667" x2="0" y2="-6.8326" width="0.127" layer="49"/>
+<wire x1="0" y1="-6.8326" x2="12.7" y2="-6.8326" width="0.127" layer="49"/>
+<wire x1="12.7" y1="-6.8326" x2="12.7" y2="6.858" width="0.127" layer="49"/>
+<wire x1="12.7" y1="6.858" x2="0" y2="6.858" width="0.127" layer="49"/>
+<wire x1="12.7" y1="6.858" x2="21.48128125" y2="6.858" width="0.127" layer="49" style="dashdot"/>
+<wire x1="21.48128125" y1="6.858" x2="21.48128125" y2="-6.83419375" width="0.127" layer="49" style="dashdot"/>
+<wire x1="21.48128125" y1="-6.83419375" x2="12.70000625" y2="-6.83419375" width="0.127" layer="49" style="dashdot"/>
+<wire x1="0" y1="-6.8961" x2="-10.668" y2="-6.8961" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-10.668" y1="-6.8961" x2="-10.668" y2="6.8961" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0" y1="2.667" x2="-8.382" y2="2.667" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-8.382" y1="2.667" x2="-8.382" y2="-2.667" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-8.382" y1="-2.667" x2="0" y2="-2.667" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0" y1="1.524" x2="6.35" y2="1.524" width="0.127" layer="49" style="shortdash"/>
+<wire x1="6.35" y1="1.524" x2="6.35" y2="-1.524" width="0.127" layer="49" style="shortdash"/>
+<wire x1="6.35" y1="-1.524" x2="0" y2="-1.524" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-10.668" y1="6.8961" x2="0" y2="6.8961" width="0.127" layer="49" style="shortdash"/>
 </package>
 <package name="MRDT_LOGO">
 <rectangle x1="2.491740625" y1="0.83946875" x2="2.506978125" y2="0.84455" layer="21"/>

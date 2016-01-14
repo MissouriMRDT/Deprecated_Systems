@@ -1,5 +1,7 @@
 #include "RoveComm.h"
 
+#include <stdio.h>
+
 int main(void)
 {
   uint16_t dataID;

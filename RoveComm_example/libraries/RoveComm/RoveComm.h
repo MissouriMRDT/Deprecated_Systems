@@ -1,39 +1,17 @@
-#ifndef ROVECOMM_HEAD
-#define ROVECOMM_HEAD
+// RoveComm.h
+// Author: Gbenga Osibodu
 
-#define ROVECOMM_PORT 11000
-#define VERSION_NO 0x01
-#define HEADER_BYTES 8
-#define SEQ 0x0F0F
+#ifndef ROVECOMM_H
+#define ROVECOMM_H
 
-#include <Energia.h>
-#include <SPI.h>
-#include <Ethernet.h>
-#include <EthernetUdp.h>
+#include "roveBoard.h"
 
-#define ROVECOMM_ACKNOWLEDGE_FLAG 1
+#include <stdint.h>
 
-class RoveCommClass {
-  bool initialized = false;
-  
-  //declare our receiving server and a subscriber buffer
-  EthernetUDP udpReceiver;
-  IPAddress subscriberList[5] = {INADDR_NONE};
-  
-  //function prototypes
-  bool sendPacket(IPAddress ip, int port, int source_port, byte* msg, uint16_t size);
-  void parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags);
-  void sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, int dest_port, uint8_t flags);
-  bool rovecommControl(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags, IPAddress & remote_ip, int & remote_port);
-  bool addSubscriber(IPAddress address);
+void RoveCommBegin(roveIP IP);
+void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data);
+void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags);
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data);
 
-  
-  public:
-  void begin(IPAddress ip);
-  void sendMsg(uint16_t dataID, uint16_t size, void* data);
-  void sendMsg(uint16_t dataID, uint16_t size, void* data, uint8_t flags);
-  void getMsg(uint16_t* dataID, uint16_t* size, void* data);
-};
-
-extern RoveCommClass RoveComm;
 #endif
+

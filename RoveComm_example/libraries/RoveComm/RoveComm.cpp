@@ -1,176 +1,91 @@
+// RoveComm.c
+// Author: Gbenga Osibodu
+
 #include "RoveComm.h"
+#include <string.h>
 
-// This function starts networking and sets up our listening port
-void RoveCommClass::begin(IPAddress ip) {
-  uint16_t dataID = 0, size = 0;
-  uint8_t tempData[UDP_TX_PACKET_MAX_SIZE];
+#define ROVECOMM_VERSION 1
+#define ROVECOMM_HEADER_LENGTH 8
+#define ROVECOMM_PORT 11000
+
+#define UDP_TX_PACKET_MAX_SIZE 1024
+#define ROVECOMM_MAX_SUBSCRIBERS 5
+
+
+
+struct RoveComm{
+  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE]; //roveWare
+  roveIP subscribers[ROVECOMM_MAX_SUBSCRIBERS]; 
+} RoveComm;
+
+static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags);
+
+
+
+void RoveCommBegin(roveIP IP){
+  roveNetworkingStart(IP);
   
-  Ethernet.begin(0, ip); //MAC Address is set by hardware
-  udpReceiver.begin(ROVECOMM_PORT);
-  Serial.println("Waiting for Base Station");
-  while (subscriberList[0] == INADDR_NONE)
-    getMsg(&dataID, &size, tempData);
-  initialized = true;
-}
-
-bool RoveCommClass::sendPacket(IPAddress ip, int port, int source_port, byte* msg, uint16_t size) {
-  Serial.print("Sending Msg...");
-  EthernetUDP udpSender; //Create a new temporary port for sending messages. If we need verification, it's important that it doesn't interfere with the regular listening port
-  if (udpSender.begin(source_port)) { 
-    udpSender.beginPacket(ip,port);
-      udpSender.write(msg, size);
-    udpSender.endPacket();
-    udpSender.stop(); //close socket
-    Serial.println("Msg Sent");
-    return true;
+  roveSocketListen(11000);
+  
+  int i;
+  for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
+    RoveComm.subscribers[i] = INADDR_NONE;
   }
-  return false;
 }
 
-void RoveCommClass::sendMsgTo(uint16_t dataID, uint16_t size, void* data, IPAddress dest, int dest_port, uint8_t flags) {
-  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE];
-  int source_port;
-  //setup the packet header
-  buffer[0] = VERSION_NO;
-  buffer[1] = SEQ >> 8;
-  buffer[2] = SEQ & 0x00FF;
+void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data) {
+  uint8_t flags = 0;
+  
+  *dataID = 0;
+  *size = 0;
+  
+  if (RoveCommGetUdpMsg(RoveComm.buffer) == true) {
+    RoveCommParseUdpMsg(dataID, size, data, &flags);  
+  }
+}
+
+
+static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags) {
+  int protocol_version = RoveComm.buffer[0];
+  switch (protocol_version) {
+    case 1:
+      *flags = RoveComm.buffer[3];
+      *dataID = RoveComm.buffer[4];
+      *dataID = (*dataID << 8) | RoveComm.buffer[5];
+      *size = RoveComm.buffer[6];
+      *size = (*size << 8) | RoveComm.buffer[7];
+      
+      memcpy(data, &(RoveComm.buffer[8]), *size);
+  }
+}
+
+
+
+void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags) {
+  size_t packetSize = size + ROVECOMM_HEADER_LENGTH;
+  uint8_t buffer[packetSize];
+  
+  buffer[0] = ROVECOMM_VERSION;
+  buffer[1] = 0x00;
+  buffer[2] = 0xFF;
   buffer[3] = flags;
   buffer[4] = dataID >> 8;
   buffer[5] = dataID & 0x00FF;
   buffer[6] = size >> 8;
   buffer[7] = size & 0x00FF;
-  //copy the message into the packet
-  for (int i = 0; i<size; i++) {
-    buffer[i + HEADER_BYTES] = ((uint8_t*)data)[i];
-  }
   
-  do { //send message on an open port from this pool
-  source_port = random(30000, 35000);
-  } while(!sendPacket(dest, dest_port, source_port, buffer, size + HEADER_BYTES));
+  memcpy(&(RoveComm.buffer[8]), data, size);
   
-  if (flags & ROVECOMM_ACKNOWLEDGE_FLAG == ROVECOMM_ACKNOWLEDGE_FLAG) {
-    EthernetUDP udpReply;
-    udpReply.begin(source_port);
-    udpReply.read();
-    udpReply.stop();
-  }
+  RoveCommSendPacket(destIP, destPort, buffer, packetSize);
 }
 
-void RoveCommClass::getMsg(uint16_t* dataID, uint16_t* size, void* data) {
-  uint8_t receiverBuffer[UDP_TX_PACKET_MAX_SIZE];
-  uint8_t flags;
-  *dataID = 0;
-  *size = 0;
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data) {
+  int i = 0; 
   
-  Serial.println("Checking messages");
-  int packetSize = udpReceiver.parsePacket(); //check if there is a packet
-  Serial.print("Packet Size: ");
-  Serial.println(packetSize);
-  if (packetSize > 0){ //if there is a packet
-    IPAddress remote_ip = udpReceiver.remoteIP();
-    int remote_port = udpReceiver.remotePort();
-    Serial.print("Message from ");
-    for(int i = 0; i<4; i++) {
-      Serial.print(remote_ip[i]);
-      if (i < 3)
-        Serial.print(".");
+  while (i < ROVECOMM_MAX_SUBSCRIBERS) {
+    if (RoveComm.subscribers[i] == INADDR_NONE) {
+      RoveCommSendMsgTo(dataID, size, data, RoveComm.subscribers[i], ROVECOMM_PORT, 0);
     }
-    Serial.print(":");
-    Serial.println(remote_port);
-    udpReceiver.read(receiverBuffer, UDP_TX_PACKET_MAX_SIZE);
-    parseUdpMsg(receiverBuffer, dataID, size, data, &flags);
-    if (rovecommControl(dataID, size, data, &flags, remote_ip, remote_port))
-      if (initialized == true)
-        getMsg(dataID, size, data);
-    Serial.println();
-  }
-}
-
-void RoveCommClass::parseUdpMsg(uint8_t* packet, uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags) {
-  uint8_t proto_version = packet[0]; //get Protocol Version
-  //Switch based on protocol version
-  if (proto_version == 1) {
-    *flags = packet[3];
-    uint8_t dataIDUpper = packet[4];
-    *dataID = dataIDUpper;
-    *dataID = (*dataID << 8) | packet[5];
-    uint8_t sizeUpper = packet[6];
-    *size = sizeUpper;
-    *size = (*size << 8) | packet[7];
-    for( int i = 0; i<(*size); i++) {
-      ((uint8_t*)data)[i] = packet[i+HEADER_BYTES];
-    }
-  }
-}
-
-bool RoveCommClass::rovecommControl(uint16_t* dataID, uint16_t* size, void* data, uint8_t* flags, IPAddress & remote_ip, int & remote_port) {
-  if (*flags & 1 == 1) { //Acknowledge Flag: Send reply to remote port
-    sendMsgTo(0x0000,0,0,remote_ip, remote_port, 0);
-  }
-
-  if (*flags & 2 == 2) {
-  
-  }
-
-  if (*flags & 4 == 4) {
-  
-  }
-
-  if (*flags & 8 == 8) {
-  
-  }
-
-  if (*flags & 16 == 16) {
-  
-  }
-
-  if (*flags & 32 == 32) {
-  
-  }
-
-  if (*flags & 64 == 64) {
-  
-  }
-
-  if (*flags & 128 == 128) {
-  
-  }
-
-  if (*dataID < 0x65) {
-    Serial.print("RoveComm function received with dataID: 0x");
-    Serial.println(*dataID, HEX);
-  } else return false;
-  
-  switch (*dataID) {
-    case 1: //Add subscriber
-      addSubscriber(remote_ip);
-  }
-  
-  return true;
-}
-
-bool RoveCommClass::addSubscriber(IPAddress address) {
-  int i = 0;
-  Serial.println("Adding Subsrciber");
-  while(i < 5 && !(subscriberList[i] == INADDR_NONE || subscriberList[i] == address))
-    i++;
-  if (i == 5) //If we have exceeded the subscribers array
-    return false;
-  subscriberList[i] = address;
-  return true;
-}
-
-void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data, uint8_t flags) {
-  Serial.println("Sending to Basestations");
-  int i=0;
-  while(i<5 && !(subscriberList[i] == INADDR_NONE)) {
-    sendMsgTo(dataID, size, data, subscriberList[i], ROVECOMM_PORT,flags); 
     i++;
   }
 }
-
-void RoveCommClass::sendMsg(uint16_t dataID, uint16_t size, void* data) {
-  sendMsg(dataID, size, data, 0);
-}
-
-RoveCommClass RoveComm;

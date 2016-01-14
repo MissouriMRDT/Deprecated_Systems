@@ -22,9 +22,8 @@ static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint
 
 
 
-void RoveCommBegin(){
-  roveIP temp;
-  roveNetworkingStart(temp);
+void RoveCommBegin(roveIP IP){
+  roveNetworkingStart(IP);
   
   roveSocketListen(11000);
   

@@ -8,6 +8,7 @@ This is an example use of the RoveComm Library
 #include <EthernetUdp.h>
 
 //Include Rovecomm itself
+#include "roveBoard.h"
 #include <RoveComm.h>
 
 //Including stuff for this example
@@ -54,22 +55,22 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  RoveComm.begin(deviceIP);
+  RoveCommBegin(deviceIP);
 }
 
 void loop() {
   //Set Variables for a packet to send
   Rover toSend("Horizon", 2015, true);
-  short unsigned int size = sizeof(toSend);
+  unsigned int size = sizeof(toSend);
   short unsigned int dataID = 1569;
   
   //A place to store data that was received
   byte receivedMsg[100];
   
   //send a message to the test server
-  RoveComm.sendMsg(dataID, size, &toSend);
+  RoveCommSendMsg(dataID, size, &toSend);
   //get a reply from the test server
-  RoveComm.getMsg(&dataID, &size, receivedMsg);
+  RoveCommGetMsg(&dataID, &size, receivedMsg);
   
   //Print the bytes of the received Data
   Serial.print("dataID: ");

@@ -6,9 +6,9 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.001" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -2955,17 +2955,17 @@
 <pad name="GND2" x="5.5118" y="0.0254" drill="1.8034"/>
 <hole x="-7.2898" y="0" drill="2.9972"/>
 <hole x="-7.2898" y="8.382" drill="2.9972"/>
-<wire x1="-13.8938" y1="11.049" x2="-13.8938" y2="6.858" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="6.858" x2="-13.8938" y2="5.715" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="5.715" x2="-13.8938" y2="2.667" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="2.667" x2="-13.8938" y2="1.524" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="1.524" x2="-13.8938" y2="-2.6416" width="0.127" layer="49"/>
-<wire x1="-13.8938" y1="-2.6416" x2="-1.1938" y2="-2.6416" width="0.127" layer="49"/>
-<wire x1="-1.1938" y1="-2.6416" x2="-1.1938" y2="11.049" width="0.127" layer="49"/>
-<wire x1="-1.1938" y1="11.049" x2="-13.8938" y2="11.049" width="0.127" layer="49"/>
-<wire x1="-1.1938" y1="11.049" x2="7.58748125" y2="11.049" width="0.127" layer="49" style="dashdot"/>
-<wire x1="7.58748125" y1="11.049" x2="7.58748125" y2="-2.64319375" width="0.127" layer="49" style="dashdot"/>
-<wire x1="7.58748125" y1="-2.64319375" x2="-1.19379375" y2="-2.64319375" width="0.127" layer="49" style="dashdot"/>
+<wire x1="-13.8938" y1="11.049" x2="-13.8938" y2="6.858" width="0.127" layer="51"/>
+<wire x1="-13.8938" y1="6.858" x2="-13.8938" y2="5.715" width="0.127" layer="51"/>
+<wire x1="-13.8938" y1="5.715" x2="-13.8938" y2="2.667" width="0.127" layer="51"/>
+<wire x1="-13.8938" y1="2.667" x2="-13.8938" y2="1.524" width="0.127" layer="51"/>
+<wire x1="-13.8938" y1="1.524" x2="-13.8938" y2="-2.6416" width="0.127" layer="51"/>
+<wire x1="-13.8938" y1="-2.6416" x2="-1.1938" y2="-2.6416" width="0.127" layer="51"/>
+<wire x1="-1.1938" y1="-2.6416" x2="-1.1938" y2="11.049" width="0.127" layer="51"/>
+<wire x1="-1.1938" y1="11.049" x2="-13.8938" y2="11.049" width="0.127" layer="51"/>
+<wire x1="-1.1938" y1="11.049" x2="7.58748125" y2="11.049" width="0.127" layer="51" style="dashdot"/>
+<wire x1="7.58748125" y1="11.049" x2="7.58748125" y2="-2.64319375" width="0.127" layer="51" style="dashdot"/>
+<wire x1="7.58748125" y1="-2.64319375" x2="-1.19379375" y2="-2.64319375" width="0.127" layer="51" style="dashdot"/>
 <wire x1="-13.8938" y1="-2.7051" x2="-24.5618" y2="-2.7051" width="0.127" layer="49" style="shortdash"/>
 <wire x1="-24.5618" y1="-2.7051" x2="-24.5618" y2="11.0871" width="0.127" layer="49" style="shortdash"/>
 <wire x1="-13.8938" y1="6.858" x2="-22.2758" y2="6.858" width="0.127" layer="49" style="shortdash"/>
@@ -8493,6 +8493,34 @@
 <dimension x1="1.4605" y1="6.7691" x2="0" y2="-15.24" x3="0.73025" y3="-13.97" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="6"/>
 <dimension x1="2.7305" y1="8.89" x2="1.4605" y2="6.35" x3="2.0955" y3="-8.89" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="6"/>
 </package>
+<package name="POWER-SO8">
+<wire x1="4.9" y1="3.9" x2="4.9" y2="0.6" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.6" x2="4.9" y2="0.1" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.1" x2="0.1" y2="0.1" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="0.1" x2="0.1" y2="0.6" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="0.6" x2="0.1" y2="3.9" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="3.9" x2="4.9" y2="3.9" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.6" x2="0.1" y2="0.6" width="0.2032" layer="51"/>
+<smd name="2" x="1.865" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="7" x="1.865" y="4.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="0.595" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="3.135" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="4.405" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="8" x="0.595" y="4.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="6" x="3.135" y="4.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="4.405" y="4.6" dx="0.6" dy="2.2" layer="1"/>
+<rectangle x1="0.3499" y1="-1.1001" x2="0.8401" y2="0" layer="51"/>
+<rectangle x1="1.6199" y1="-1.1001" x2="2.1101" y2="0" layer="51"/>
+<rectangle x1="2.8899" y1="-1.1001" x2="3.3801" y2="0" layer="51"/>
+<rectangle x1="4.1599" y1="-1.1001" x2="4.6501" y2="0" layer="51"/>
+<rectangle x1="4.1599" y1="4" x2="4.6501" y2="5.1001" layer="51"/>
+<rectangle x1="2.8899" y1="4" x2="3.3801" y2="5.1001" layer="51"/>
+<rectangle x1="1.6199" y1="4" x2="2.1101" y2="5.1001" layer="51"/>
+<rectangle x1="0.3499" y1="4" x2="0.8401" y2="5.1001" layer="51"/>
+<circle x="0.595" y="1.0475" radius="0.3175" width="0.127" layer="21"/>
+<rectangle x1="0.25" y1="3.5" x2="4.75" y2="5.75" layer="1"/>
+<rectangle x1="0.25" y1="-1.75" x2="3.5" y2="0.5" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ICSP">
@@ -9856,6 +9884,27 @@
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BUK9Y4R4-40E">
+<gates>
+<gate name="G$1" symbol="MOSFET_N" x="-2.54" y="5.08"/>
+</gates>
+<devices>
+<device name="POWER-SO8" package="POWER-SO8">
+<connects>
+<connect gate="G$1" pin="D" pad="5 6 7 8"/>
+<connect gate="G$1" pin="G" pad="4"/>
+<connect gate="G$1" pin="S" pad="1 2 3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MFR" value="NXP"/>
+<attribute name="MFR_PN" value="BUK9Y4R4-40E"/>
+<attribute name="PACKAGE" value="POWER-SO8" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>

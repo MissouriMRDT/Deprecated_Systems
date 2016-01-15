@@ -194,6 +194,7 @@
 </symbols>
 <devicesets>
 <deviceset name="ANDERSON_POWERPOLE">
+<description>http://www.powerwerx.com/anderson-powerpoles/</description>
 <gates>
 <gate name="G$1" symbol="ANDERSON_POWERPOLE" x="0" y="0"/>
 </gates>

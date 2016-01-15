@@ -27,7 +27,7 @@
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="13" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -51,8 +51,8 @@
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -160,6 +160,25 @@
 <wire x1="7.874" y1="0" x2="7.874" y2="8.382" width="0.127" layer="51" style="shortdash"/>
 <pad name="P$1" x="27.94" y="4.191" drill="4.064"/>
 </package>
+<package name="PP45_PCB_VERT">
+<wire x1="0" y1="0" x2="0" y2="8.382" width="0.127" layer="51"/>
+<wire x1="0" y1="8.382" x2="8.382" y2="8.382" width="0.127" layer="51"/>
+<wire x1="8.382" y1="8.382" x2="8.382" y2="0" width="0.127" layer="51"/>
+<wire x1="8.382" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
+<pad name="P$1" x="4.191" y="3.175" drill="4.064"/>
+<wire x1="0" y1="4.572" x2="0.762" y2="4.572" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0.762" y1="4.572" x2="0.762" y2="7.62" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0.762" y1="7.62" x2="7.62" y2="7.62" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="4.572" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.62" y1="4.572" x2="8.382" y2="4.572" width="0.127" layer="49" style="shortdash"/>
+<wire x1="8.382" y1="4.572" x2="8.382" y2="8.382" width="0.127" layer="49" style="shortdash"/>
+<wire x1="8.382" y1="8.382" x2="0" y2="8.382" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0" y1="8.382" x2="0" y2="4.572" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0.762" y1="4.318" x2="0.762" y2="0.889" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0.762" y1="0.889" x2="7.62" y2="0.889" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.62" y1="0.889" x2="7.62" y2="4.318" width="0.127" layer="49" style="shortdash"/>
+<wire x1="7.62" y1="4.318" x2="0.762" y2="4.318" width="0.127" layer="49" style="shortdash"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ANDERSON_POWERPOLE">
@@ -188,6 +207,14 @@
 </technologies>
 </device>
 <device name="PP45_PCB_HORIZ_RIGHT" package="PP45_PCB_HORIZ_RIGHT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="PP45_PCB_VERT" package="PP45_PCB_VERT">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 </connects>

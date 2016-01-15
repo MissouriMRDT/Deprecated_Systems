@@ -13,14 +13,12 @@
 
 
 
-struct RoveComm{
-  uint8_t buffer[UDP_TX_PACKET_MAX_SIZE]; //roveWare
-  roveIP subscribers[ROVECOMM_MAX_SUBSCRIBERS]; 
-} RoveComm;
+uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE]; //roveWare
+roveIP RoveCommSubscribers[ROVECOMM_MAX_SUBSCRIBERS]; 
 
 static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags);
-
-
+static void RoveCommControl(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP);
+static void RoveCommAddSubscriber(roveIP IP);
 
 void RoveCommBegin(roveIP IP){
   roveNetworkingStart(IP);
@@ -29,33 +27,34 @@ void RoveCommBegin(roveIP IP){
   
   int i;
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
-    RoveComm.subscribers[i] = INADDR_NONE;
+    RoveCommSubscribers[i] = INADDR_NONE;
   }
 }
 
 void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data) {
   uint8_t flags = 0;
+  roveIP senderIP;
   
   *dataID = 0;
   *size = 0;
   
-  if (RoveCommGetUdpMsg(RoveComm.buffer) == true) {
+  if (RoveCommGetUdpMsg(senderIP, RoveCommBuffer) == true) {
     RoveCommParseUdpMsg(dataID, size, data, &flags);  
   }
 }
 
 
 static void RoveCommParseUdpMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags) {
-  int protocol_version = RoveComm.buffer[0];
+  int protocol_version = RoveCommBuffer[0];
   switch (protocol_version) {
     case 1:
-      *flags = RoveComm.buffer[3];
-      *dataID = RoveComm.buffer[4];
-      *dataID = (*dataID << 8) | RoveComm.buffer[5];
-      *size = RoveComm.buffer[6];
-      *size = (*size << 8) | RoveComm.buffer[7];
+      *flags = RoveCommBuffer[3];
+      *dataID = RoveCommBuffer[4];
+      *dataID = (*dataID << 8) | RoveCommBuffer[5];
+      *size = RoveCommBuffer[6];
+      *size = (*size << 8) | RoveCommBuffer[7];
       
-      memcpy(data, &(RoveComm.buffer[8]), *size);
+      memcpy(data, &(RoveCommBuffer[8]), *size);
   }
 }
 
@@ -74,7 +73,7 @@ void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, rov
   buffer[6] = size >> 8;
   buffer[7] = size & 0x00FF;
   
-  memcpy(&(RoveComm.buffer[8]), data, size);
+  memcpy(&(RoveCommBuffer[8]), data, size);
   
   RoveCommSendPacket(destIP, destPort, buffer, packetSize);
 }
@@ -83,9 +82,36 @@ void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data) {
   int i = 0; 
   
   while (i < ROVECOMM_MAX_SUBSCRIBERS) {
-    if (RoveComm.subscribers[i] == INADDR_NONE) {
-      RoveCommSendMsgTo(dataID, size, data, RoveComm.subscribers[i], ROVECOMM_PORT, 0);
+    if (RoveCommSubscribers[i] == INADDR_NONE) {
+      RoveCommSendMsgTo(dataID, size, data, RoveCommSubscribers[i], ROVECOMM_PORT, 0);
     }
     i++;
   }
 }
+
+static void RoveCommAddSubscriber(roveIP IP) {
+  int i = 0;
+  
+  while (i < ROVECOMM_MAX_SUBSCRIBERS && !(RoveCommSubscribers[i] == INADDR_NONE || RoveCommSubscribers[i] == IP)) {
+    i++;
+  } 
+  
+  if (i == ROVECOMM_MAX_SUBSCRIBERS)
+    return;
+    
+  RoveCommSubscribers[i] = IP;
+  return;
+}
+
+static void RoveCommControl(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP) {
+  if (*dataID < 0x00FF) {
+    switch (*dataID) {
+      case 0x0001:
+        RoveCommAddSubscriber(IP);
+        break;
+      default:
+        break;
+    }
+  }
+}
+

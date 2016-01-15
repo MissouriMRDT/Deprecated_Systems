@@ -42,7 +42,7 @@ bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * con
   return true;
 }
 
-bool RoveCommGetUdpMsg(void* buffer){
+bool RoveCommGetUdpMsg(roveIP senderIP, void* buffer){
   struct sockaddr_in incoming;
   ssize_t recsize;
   socklen_t fromlen;
@@ -65,6 +65,8 @@ bool RoveCommGetUdpMsg(void* buffer){
       fprintf(stderr, "%s\n", strerror(errno));
       exit(EXIT_FAILURE);
     }
+    
+    senderIP = incoming.sin_addr.s_addr;
     
   } else {
     return false;

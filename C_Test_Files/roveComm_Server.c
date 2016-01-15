@@ -8,7 +8,8 @@ int main(void)
   uint16_t dataSize;
   unsigned char data[30];
   
-  RoveCommBegin();
+  roveIP IP;
+  RoveCommBegin(IP);
   
   for (;;) {
     RoveCommGetMsg(&dataID, &dataSize, data);

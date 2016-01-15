@@ -10,7 +10,7 @@
 // mrdt::rovWare
 
 #include "RoveControl.h"
-
+/*
 // TODO Judah Factor Out Dev Shorthand
 //Private
 typedef enum ROVECNTRL_AX_12
@@ -331,25 +331,25 @@ static int32_t roveDynmxAx_WritePacketMSG(rove_dyna_serial* dynmxl, uint8_t* wri
 
     //start dyna msg, id the dyna, tell dyna the msg data size (+ check_sum)
     header_byte = AX_PACKET_START_BYTE;
-    roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
+    roveBoard_UART_write(dynmxl->uart, &header_byte, 1);
 
     header_byte = AX_PACKET_START_BYTE;
-    roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
+    roveBoard_UART_write(dynmxl->uart, &header_byte, 1);
 
     header_byte = dynmxl->dynmxl_id;
-    roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
+    roveBoard_UART_write(dynmxl->uart, &header_byte, 1);
 
     header_byte = msg_data_byte_count + 1;
-    roveBoard_UartWrite(dynmxl->uart, &header_byte, 1);
+    roveBoard_UART_write(dynmxl->uart, &header_byte, 1);
 
     //send each byte in the data_buffer
     while(current_byte_count < msg_data_byte_count)
     {
-        roveBoard_UartWrite(dynmxl->uart, &write_msg_data[current_byte_count], 1);
+        roveBoard_UART_write(dynmxl->uart, &write_msg_data[current_byte_count], 1);
     }//endwhile
 
     //send check sum
-    roveBoard_UartWrite(dynmxl->uart, &check_sum, 1);
+    roveBoard_UART_write(dynmxl->uart, &check_sum, 1);
     //wait for uart_write
     //roveBoard_DelayMicroSec(AX_DELAY_TX_uSEC);
     //set tristate buffer to uart_rx read status
@@ -381,16 +381,16 @@ static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl)
     uint8_t rx_attempts = 0;
     while(rx_attempts < AX_MAX_READ_ATTMPT_CNT)
     {
-        roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
+        roveBoard_UART_read(dynmxl->uart, data_buffer, 1);
         if(AX_PACKET_START_BYTE == data_buffer[data_rx_byte_cnt])
         {
             //qual and discard header bytes
             data_rx_byte_cnt++;
-            roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
+            roveBoard_UART_read(dynmxl->uart, data_buffer, 1);
             if(AX_PACKET_START_BYTE == data_buffer[data_rx_byte_cnt])
             {
                 data_rx_byte_cnt++;
-                roveBoard_UartRead(dynmxl->uart, data_buffer, 1);
+                roveBoard_UART_read(dynmxl->uart, data_buffer, 1);
                 if(dynmxl->dynmxl_id == data_buffer[data_rx_byte_cnt])
                 {
                     //get the data payload
@@ -398,7 +398,7 @@ static int32_t roveDynmxAx_ReadPacketMSG(rove_dyna_serial* dynmxl)
                     data_rx_byte_cnt = data_buffer[data_rx_byte_cnt];
                     while(current_byte_count < data_rx_byte_cnt)
                     {
-                        roveBoard_UartRead(dynmxl->uart, &data_buffer[current_byte_count] , 1);
+                        roveBoard_UART_read(dynmxl->uart, &data_buffer[current_byte_count] , 1);
                         current_byte_count++;
                     }//endwhile
 
@@ -460,7 +460,7 @@ static int32_t roveDynmxAx_CatchERRNO(rove_dyna_serial* dynmxl){
 
 
 
-/*///////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
  void beginBaud(long baud)
 {
     beginCom(baud);
@@ -657,7 +657,7 @@ int readLoad(unsigned char ID)
     sendPacket(ID,data,sizeof(data));
 
     return receivePacket(2);
-}//END::GBENGA TODO*/
+}//END::GBENGA TODO
 
 
 
@@ -666,7 +666,7 @@ int readLoad(unsigned char ID)
 
 
 
-/* Judah TODO
+// Judah TODO
 //standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
 void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
 void roveDriveMotor_ByPWM(rovePWM_Handle motor, int16_t speed){

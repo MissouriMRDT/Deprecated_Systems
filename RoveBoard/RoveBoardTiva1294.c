@@ -31,7 +31,7 @@
 
 //TODO Clock and Timer Instances
 
-rovePWM_Handle roveBoard_PwmInit(unsigned int pwm_index, unsigned int period_in_microseconds){
+rovePWM_Handle roveBoard_PWM_open(unsigned int pwm_index, unsigned int period_in_microseconds){
 
     PWM_Handle pwmHandle;
     PWM_Params pwmParams;
@@ -47,7 +47,7 @@ rovePWM_Handle roveBoard_PwmInit(unsigned int pwm_index, unsigned int period_in_
     return pwmHandle;
 }//endfnctn
 
-roveUART_Handle roveBoard_UartInit(unsigned int uart_index , unsigned int baud_rate){
+roveUART_Handle roveBoard_UART_open(unsigned int uart_index, unsigned int baud_rate){
 
     UART_Handle uartHandle;
     UART_Params uartParams;
@@ -68,20 +68,20 @@ roveUART_Handle roveBoard_UartInit(unsigned int uart_index , unsigned int baud_r
 
 
 //rove to Tiva Read/Write Hardware I/O Module Wrappers
-roveBoardERROR roveBoard_UartWrite(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write) {
+roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write) {
 
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
     int bytes_written = UART_write(uart, write_buffer, bytes_to_write);
 
     if(bytes_written < 0){
-        return roveBoardERROR_UARTError;
+        return roveBoard_ERROR_UART_error;
     }//end if
 
-    return roveBoardERROR_success;
+    return roveBoard_ERROR_success;
 }//endfnctn
 
-roveBoardERROR roveBoard_UartRead(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read) {
+roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read) {
 
     //roveUARTWrite timing issue?
     //roveDelay_MilliSec(1);
@@ -89,22 +89,22 @@ roveBoardERROR roveBoard_UartRead(roveUART_Handle uart, void* read_buffer, size_
     int bytes_read = UART_read(uart, read_buffer, bytes_to_read);
 
     if(bytes_read < 0){
-      return roveBoardERROR_UARTError;
+      return roveBoard_ERROR_UART_error;
     }//end if
 
-    return roveBoardERROR_success;
+    return roveBoard_ERROR_success;
 }//endfnctn
 
 
 
-void roveBoard_PwmWrite(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds) {
+void roveBoard_PWM_write(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds) {
 
     PWM_setDuty(tiva_pin, duty_in_microseconds);
 }//endfnctn
 
 
-
-void roveBoard_DigitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value) {
+/*
+void roveBoard_GPIO_digitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value) {
 
     uint8_t pin_value = 0;
 
@@ -118,7 +118,7 @@ void roveBoard_DigitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value) {
 
 //extern int32_t GPIOPinRead(uint32_t ui32Port, uint8_t ui8Pins);
 //extern void GPIOPinWrite(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val);
-
+*/
 
 
 
@@ -205,5 +205,14 @@ roveADC_Handle roveAdc_Init(UInt adc_index, UInt adc_cfg) {
     return roveADC_Handle;
 }//endfnct
 
-*/
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+ */
+
 

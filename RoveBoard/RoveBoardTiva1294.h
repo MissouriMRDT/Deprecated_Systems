@@ -19,6 +19,8 @@ extern "C" {
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 
+//Todo
+//typedef PWM_Handle roveGPIO_Handle
 typedef PWM_Handle rovePWM_Handle;
 typedef UART_Handle roveUART_Handle;
 
@@ -29,29 +31,20 @@ enum RoveHwDev16ShortHand {
     , HW_TEST_DEVICE_ID = 0
     , HW_TRI_STATE_PIN = 1
 };//end enum
-//End Todo
 
-//Todo Hardware Handle Shorthand
-typedef struct roveGPIO_Struct {
-    uint32_t port;
-    uint8_t pin;
-} roveGPIO_Struct, *roveGPIO_Handle;
-void roveBoard_DigitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value);
-roveGPIO_Handle roveBoard_GpioInit(roveGPIO_Handle gpio , uint32_t gpio_port , uint8_t gpio_pin);
-//End Todo
-
-typedef enum roveBoardERROR {
-    roveBoardERROR_UARTError = -1
-    , roveBoardERROR_success = 1
-} roveBoardERROR;//end enum
+typedef enum roveBoard_ERROR
+{
+    roveBoard_ERROR_UART_error = -1
+    , roveBoard_ERROR_success = 1
+} roveBoard_ERROR;
 
 //Works
-rovePWM_Handle roveBoard_PwmInit(unsigned int pwm_index, unsigned int period_in_microseconds);
-roveUART_Handle roveBoard_UartInit(unsigned int uart_index , unsigned int baud_rate);
+rovePWM_Handle roveBoard_PWM_open(unsigned int pwm_index, unsigned int period_in_microseconds);
+roveUART_Handle roveBoard_UART_open(unsigned int uart_index , unsigned int baud_rate);
 
-void roveBoard_PwmWrite(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds);
-roveBoardERROR roveBoard_UartWrite(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write);
-roveBoardERROR roveBoard_UartRead(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read);
+void roveBoard_PWM_write(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds);
+roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write);
+roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read);
 
 #ifdef __cplusplus
 }

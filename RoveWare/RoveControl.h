@@ -15,7 +15,7 @@ extern "C" {
 
 //Rover Wrappers for Tiva C Connected
 #include "../RoveBoard/RoveBoardTiva1294.h"
-
+/*
 // TODO Judah Factor Out Dev Shorthand
 //Public
 // 12 bit for MX
@@ -87,7 +87,7 @@ int32_t roveAxDynmxAx_ReadWheelREQ(rove_dyna_serial* dynmxl);
 int32_t roveDynmxAx_SetJointModeCFG(rove_dyna_serial* dynmxl);
 int32_t roveDynmxAx_RotateJointCMD( rove_dyna_serial* dynmxl, uint16_t joint_position, uint16_t joint_speed);
 int32_t roveDynmxAx_ReadJointREQ(rove_dyna_serial* dynmxl);
-
+*/
 #ifdef __cplusplus
 }
 #endif

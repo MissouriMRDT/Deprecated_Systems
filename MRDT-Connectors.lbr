@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -140,7 +140,7 @@
 </layers>
 <library>
 <packages>
-<package name="PP45_PCB_HORIZ_RIGHT-2HIGH">
+<package name="PP45_PCB_HORIZ_RIGHT_2HIGH">
 <wire x1="0" y1="0" x2="0" y2="8.382" width="0.127" layer="51"/>
 <wire x1="0" y1="8.382" x2="7.874" y2="8.382" width="0.127" layer="51"/>
 <wire x1="7.874" y1="8.382" x2="24.638" y2="8.382" width="0.127" layer="51"/>
@@ -176,9 +176,21 @@
 <devicesets>
 <deviceset name="ANDERSON_POWERPOLE">
 <gates>
+<gate name="G$1" symbol="ANDERSON_POWERPOLE" x="0" y="0"/>
 </gates>
 <devices>
-<device name="">
+<device name="PP45_PCB_HORIZ_RIGHT_2HIGH" package="PP45_PCB_HORIZ_RIGHT_2HIGH">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="PP45_PCB_HORIZ_RIGHT" package="PP45_PCB_HORIZ_RIGHT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

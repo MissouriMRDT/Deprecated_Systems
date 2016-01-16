@@ -45,8 +45,6 @@ struct Rover {
 };
 
 void setup() {
-  //define device IP for networking
-  IPAddress deviceIP(192,168,1,51);
   
   //Start serial for debugging
   Serial.begin(9600);
@@ -55,7 +53,7 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  RoveCommBegin(deviceIP);
+  RoveCommBegin(192,168,1,51);
 }
 
 void loop() {
@@ -68,10 +66,12 @@ void loop() {
   byte receivedMsg[100];
   
   //send a message to the test server
-  RoveCommSendMsg(dataID, size, &toSend);
+  //RoveCommSendMsg(dataID, size, &toSend);
+  RoveCommSendMsg(0x0300, 4, "cat\0");
   //get a reply from the test server
   RoveCommGetMsg(&dataID, &size, receivedMsg);
   
+  if (dataID) {
   //Print the bytes of the received Data
   Serial.print("dataID: ");
   Serial.println(dataID, HEX);
@@ -83,7 +83,7 @@ void loop() {
   }
   Serial.println();
   Serial.println();
-  
+  }
   //Act on the received data based on the dataID
   switch (dataID) {
     //If a Rover was received

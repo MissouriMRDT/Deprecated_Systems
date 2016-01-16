@@ -49,7 +49,7 @@ bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * con
   return true;
 }
 
-bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer){
+bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
   struct sockaddr_in incoming;
   ssize_t recsize;
   socklen_t fromlen;
@@ -66,7 +66,7 @@ bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer){
   if (FD_ISSET(roveCommSocket, &socketSet)){
     memset(&incoming, 0, fromlen);
     
-    recsize = recvfrom(roveCommSocket, buffer, sizeof buffer, 0, (struct sockaddr*)&incoming, &fromlen);
+    recsize = recvfrom(roveCommSocket, buffer, bufferSize, 0, (struct sockaddr*)&incoming, &fromlen);
 
     if (recsize < 0) { //TODO roveError
       fprintf(stderr, "%s\n", strerror(errno));

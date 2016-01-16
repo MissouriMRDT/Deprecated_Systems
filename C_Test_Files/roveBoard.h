@@ -16,6 +16,7 @@ struct sockaddr_in roveCommAddr;
 void roveNetworkingStart(roveIP myIP);
 void roveSocketListen(uint16_t port);
 bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize);
-bool RoveCommGetUdpMsg(roveIP IP, void* buffer);
+bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer);
+roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet);
 
 #endif

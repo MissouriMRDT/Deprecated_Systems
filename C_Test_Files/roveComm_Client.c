@@ -9,6 +9,8 @@
 #include <arpa/inet.h>
 #include "RoveComm.h"
 
+extern void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags);
+
 int main(int argc, char* argv[])
 {
   uint8_t verNum = 1;
@@ -39,7 +41,7 @@ int main(int argc, char* argv[])
     sscanf(argv[5], "%X", (int*)&seqNum);
   }
   
-  RoveCommBegin(0);
+  RoveCommBegin(192,168,1,1);
   
   RoveCommSendMsgTo(dataID, dataSize, hexData, inet_addr(destinationIP), destinationPort, 0);
   

@@ -15,6 +15,13 @@
 
 void roveNetworkingStart(roveIP myIP) {}
 
+roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet) {
+  uint32_t temp = 0;
+  
+  temp = first_octet << 24 | second_octet << 16 | third_octet << 8 | fourth_octet;
+  return (roveIP)temp;
+}
+
 void roveSocketListen(uint16_t port) {
   roveCommSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
@@ -42,7 +49,7 @@ bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * con
   return true;
 }
 
-bool RoveCommGetUdpMsg(roveIP senderIP, void* buffer){
+bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer){
   struct sockaddr_in incoming;
   ssize_t recsize;
   socklen_t fromlen;
@@ -61,12 +68,12 @@ bool RoveCommGetUdpMsg(roveIP senderIP, void* buffer){
     
     recsize = recvfrom(roveCommSocket, buffer, sizeof buffer, 0, (struct sockaddr*)&incoming, &fromlen);
 
-    if (recsize < 0) {
+    if (recsize < 0) { //TODO roveError
       fprintf(stderr, "%s\n", strerror(errno));
       exit(EXIT_FAILURE);
     }
     
-    senderIP = incoming.sin_addr.s_addr;
+    *senderIP = incoming.sin_addr.s_addr;
     
   } else {
     return false;

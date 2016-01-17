@@ -52,32 +52,16 @@ bool RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * 
 bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
   struct sockaddr_in incoming;
   ssize_t recsize;
-  socklen_t fromlen;
-  fd_set socketSet;
-  struct timeval timeout;
+  socklen_t fromlen = sizeof(roveCommAddr);
   
-  
-  fromlen = sizeof(roveCommAddr);
-  FD_ZERO(&socketSet);
-  FD_SET(roveCommSocket,&socketSet);
-  timeout.tv_usec = 0;
-  timeout.tv_sec = 0;
-  select(roveCommSocket +1, &socketSet,NULL,NULL,&timeout);
-  if (FD_ISSET(roveCommSocket, &socketSet)){
-    memset(&incoming, 0, fromlen);
-    
-    recsize = recvfrom(roveCommSocket, buffer, bufferSize, 0, (struct sockaddr*)&incoming, &fromlen);
+  recsize = recvfrom(roveCommSocket, buffer, bufferSize, MSG_DONTWAIT, (struct sockaddr*)&incoming, &fromlen);
 
-    if (recsize < 0) { //TODO roveError
-      fprintf(stderr, "%s\n", strerror(errno));
-      exit(EXIT_FAILURE);
+  if (recsize < 0) {
+    if ((errno == EWOULDBLOCK) || (errno == EAGAIN)) {
+      return false;
     }
-    
-    *senderIP = incoming.sin_addr.s_addr;
-    
-  } else {
-    return false;
   }
   
+  *senderIP = incoming.sin_addr.s_addr;
   return true;
 }

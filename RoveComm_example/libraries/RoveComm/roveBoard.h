@@ -10,7 +10,10 @@
 #include <EthernetUdp.h>
 
 
+
 typedef IPAddress roveIP;
+
+bool roveIP::operator != (const roveIP & rhs) {return !(*this == rhs);}
 
 void roveNetworkingStart(roveIP myIP);
 void roveSocketListen(uint16_t port);

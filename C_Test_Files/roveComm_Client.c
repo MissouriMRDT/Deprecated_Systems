@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   uint8_t verNum = 1;
   uint16_t dataID, dataSize, seqNum = 0x0000;
   char destinationIP[15] = "192.168.1.51";
-  char hexData[512];
+  char hexData[sizeof(long)];
   int destinationPort = 11000;
   
   if(argc < 3 || argc > 6) {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
   }
   
   RoveCommBegin(192,168,1,1);
-  
+  *((long*)hexData) = htonl(*((long*)hexData));
   RoveCommSendMsgTo(dataID, dataSize, hexData, inet_addr(destinationIP), destinationPort, 0);
   
   return 0;

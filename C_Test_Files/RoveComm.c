@@ -28,7 +28,7 @@ void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octe
   
   roveNetworkingStart(IP);
   
-  roveSocketListen(ROVECOMM_PORT);
+  roveUdpSocketListen(ROVECOMM_PORT);
   
   int i;
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
@@ -81,7 +81,7 @@ void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, rov
   
   memcpy(&(buffer[8]), data, size);
 
-  RoveCommSendPacket(destIP, destPort, buffer, packetSize);
+  RoveCommSendUdpPacket(destIP, destPort, buffer, packetSize);
 }
 
 void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data) {

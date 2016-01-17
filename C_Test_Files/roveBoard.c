@@ -22,12 +22,12 @@ roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet,
   return (roveIP)temp;
 }
 
-void roveSocketListen(uint16_t port) {
+void roveUdpSocketListen(uint16_t port) {
   roveCommSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
   memset(&roveCommAddr, 0, sizeof roveCommAddr);
   roveCommAddr.sin_family = AF_INET;
-  roveCommAddr.sin_addr.s_addr = htonl(INADDR_ANY); //TODO Pass in some IP. will it work?
+  roveCommAddr.sin_addr.s_addr = htonl(INADDR_ANY);
   roveCommAddr.sin_port = htons(port);
   
   if (-1 == bind(roveCommSocket, (struct sockaddr *)&roveCommAddr, sizeof roveCommAddr)) {
@@ -37,7 +37,7 @@ void roveSocketListen(uint16_t port) {
   }
 }
 
-bool RoveCommSendPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * const msg, size_t msgSize) {
+bool RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * const msg, size_t msgSize) {
   struct sockaddr_in destination;
   
   memset(&destination, 0, sizeof(destination));

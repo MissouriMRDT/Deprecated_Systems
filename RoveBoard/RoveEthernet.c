@@ -6,7 +6,7 @@
 //
 // mrdt::rovWare
 
-#include "RoveBoardSockets.h"
+#include "RoveEthernet.h"
 
 #include <stdio.h>
 #include <errno.h>
@@ -18,7 +18,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void roveNetworkingStart(roveIP myIP) {}
+void roveNetworkingStart(roveIP myIP) {
+
+    //Psuedo bsd file descriptors for Tiva Sockets
+    fdOpenSession((void*) TaskSelf());
+}
 
 
 

@@ -8,10 +8,15 @@
 // angle ONLY used in joint mode AX12:(JOINT GoalPosition:0~1023/0x3FF) at 0.29 degree
 //
 // mrdt::rovWare
-
 #include "RoveControl.h"
-/*
-// TODO Judah Factor Out Dev Shorthand
+
+
+
+// roveWare Upgrades Version 2 Release
+
+
+
+/* TODO Judah Factor Out Dev Shorthand
 //Private
 typedef enum ROVECNTRL_AX_12
 {
@@ -726,4 +731,26 @@ void rovePolulu_DriveLinAct(int tiva_pin, int16_t speed){
     roveUART_Write(tiva_pin, (char*)&linear_actuator, sizeof(linear_actuator) );
     return;
 }//endfnctn
-End Judah TODO*/
+
+End Judah TODO*
+
+// ======== USING roveComm ========
+//Cplus Public in roveWiresCplus.h
+//roveComm::beginUdp(local_ip_addr, port);
+//roveComm::readUdp(remote_ip_addr, "char_message");
+
+//C Public as Cplus Private in roveComm.h
+//int32_t roveComm_InitUdpCFG(&_udp_socket, (uint8_t*)my_ip_addr, (int32_t)port);
+//int32_t roveComm_GetUdpMSG(&_udp_socket, &_udp_data);
+// ========  =======  ========
+
+// ======== USING roveControl ========
+//Cplus Public in roveWiresCplus.h
+//roveControl::BeginAx(char dyna_id, int baud_rate, char serial_pin, char tri_state_pin);
+
+//C Public as Cplus Private in roveControl.h
+//int32_t roveDynmxAx_InitCFG(&_rove_dynamxl, (uint8_t)dyna_id, serial_pin, tri_state_pin);
+// ========  =======  ========
+ *
+ *
+ */

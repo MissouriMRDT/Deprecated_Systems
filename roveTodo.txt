@@ -3,13 +3,6 @@
 //
 // mrdt::rovWare
 
-
-//RoveComm : Ip Address Shifts, and Remove Select, Remove Second Const, Add Subscriber If, and do Error Handling
-
-
-
-
-
 //RoveWare Naming Convention:
 
 //roveFileName _ <Do Action> <On Noun> (optional ATTRIBUTE)
@@ -20,43 +13,24 @@
 
 
 
+
 ////////////////////////////////CUR_TODO 
 
 //:: Wire Up roveEnergia.hpp and roveEnergia.cpp interface
 
 
 
-
 //TODO Judah Factor Out Dev Shorthand
 
 //TODO watchdog = rove_init_watchdog(Board_WATCHDOG0);
+//TODO Tiva CCP module
 //TODO Tiva ADC module
 
 //TODO Reed/Connor/Owen Hardware Abstraction Advice?
 //There is no GPIO.c like there is PWM.c and UART.c which contain PWM_Open() and UART_open()
 //Should we write roveGPIO.c with a roveGPIO_Params_init() and roveGPIO_open()?
 //right now I just have stubbed roveGPIO_Handle as small typedef struct in roveBOARD_TIVA1294.h
-
-
-//TODO Reed NDK vs IP vs PROTO Error model advice??
-//see eof for roveComm_CatchRoveERRNO, roveComm_CatchNdkERRNO, Tiva Ndk Developement Notes as of Dec16
-
-//TODO Reed Advice? JUDAH: Eliminate Switch
-	static int32_t roveComm_CatchRoveERRNO(int32_t rove_errno) {
 	
-//TODO Reed Advice? JUDAH: Eliminate Switch
-	static int32_t roveComm_CatchNdkERRNO(int32_t ndk_errno) {
-
-//TODO while subscribers[0++] < subcscriber_cnt etc
-//currently this will always just overwrite as address of last ip subscriber
-            , (struct sockaddr*)&(rove_socket->ip_subscribers[0].address )
-            , (socklen_t*) &(rove_socket->ip_subscribers[0].address_byte_cnt));
-//TODO roveComm_CatchNewSubscriber( subscribers[0++] ) < subcscriber_cnt etc
-
-
-//TODO __Judah__ hmmmmm I don't like this path
-		int16_t roveDynmxAx_ScaleReg_ByAngleDegrees
-		
 		
 //TODO wtf TaskSelf Warning?
 //#include <ti/ndk/inc/os/osif.h>
@@ -93,9 +67,6 @@
             
             
             
-            
-            
-
 //////////////////////////////Horizon Config Hardware Abstraction Vals:
 
 /////////TODO 2015 Deployed Updates : Deprecated Horizon DEV HW Pin Outs Tiva 123G:
@@ -164,6 +135,3 @@
 //#define GRIPPER_UART END_EFFECTOR_UART
 //#define END_EFFECTOR_UART    2
 //#define LIN_ACT_UART    3
-
-
-//END NEW MEMBER_READ_ME.txt

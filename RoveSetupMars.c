@@ -10,49 +10,18 @@
 // configs hardware interface
 // get global handles
 // begins the scheduler
+#include "RoveLoopMars.cpp"
+
+
+
+// == RoveSetup ==============
 //
-// mrdt::roveWare
-#include "RoveSetup.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-//  ======== Rove Thread Developers =======
-//  Rtos Loop Manisfest:
-#include "RoveLoop.h"
-//#include "<AddYourThreads>Loop.h"
-//  ========    =================   =======
-
-//Todo RoveBoardTiva1294 included twice?
-//RoveWare for Texas Instruments Tiva Connected C Dev board peripheral access hardware abstraction
-#include "RoveBoard/RoveBoardPins.h"
-
-//TODO factor TI hardware config in EK_TM4C1294XL
-#include "RoveBoard/RoveTiva/EK_TM4C1294XL.h"
-
-//C lib
-#include <stdio.h>
-
-//CCS Rtos Scheduler Kernel
-#include <ti/sysbios/BIOS.h>
-
-//Rtos Kernel Module Instance Api
-#include <ti/sysbios/knl/Task.h>
-//#include <ti/sysbios/knl/Swi.h>
-//#include <ti/sysbios/knl/Clock.h>
-//#include <ti/sysbios/knl/Semaphore.h>
-
-typedef ti_sysbios_knl_Task_FuncPtr roveTask_FnctnPtr;
-
-static void roveBoard_RtosTask_init(roveTask_FnctnPtr task_handler_fnctn_ptr, UInt task_priority);
-
-//init main
+// Texas Inst Rtos Module / TM4 Pin Access Runtime Instances
 int main(void) {
 
-/////////////////////////////////////////////BEGIN SETUP/////////
+/////////////////////////////////////////////BEGIN Tiva SETUP/////////
 
-    //init TI board driver routines
+    // TI board driver routines
     EK_TM4C1294XL_initGeneral();
     EK_TM4C1294XL_initGPIO();
     EK_TM4C1294XL_initEMAC();
@@ -60,13 +29,14 @@ int main(void) {
     EK_TM4C1294XL_initPWM();
     //Todo EK_TM4C1294XL_initWatchdog();
 
+    // RoveDev custom board driver routines
     //Todo roveEK_TM4C1294XL_initCCP();
     //Todo roveEK_TM4C1294XL_initADC();
     printf("\n\nInit TIVA EK_1294_XL\n\n");
 
 
 
-/////////////////////////////////////////////BEGIN HARDWARE SETUP
+/////////////////////////////////////////////BEGIN HARDWARE Abstraction SETUP
 
     //Todo still need to be hard code configured as OUTPUTS in the roveBoard/EK_TM4C1294XL.C file?
     /*roveGPIO_Handle PE_0 = roveBoard_GPIO_open(PE_0, PORT_E, PIN_2);
@@ -138,35 +108,23 @@ int main(void) {
 
 
 
-
 /////////////////////////////////////////////BEGIN MEMORY AND SCHEDULING SETUP
 
-    //Todo Rtos Malloc Hooks
+    //Todo Rtos Malloc Hook?s
 
 /////////////////////////////////////////////BEGIN THREAD INSTANCE SETUP
 
-    //Rtos Forever Loops scheduled by Texas_Instruments_BIOS
-    roveBoard_RtosTask_init(roveLoop, 1);
-
     //Todo watchdog = rove_init_watchdog(Board_WATCHDOG0);
 
+   //begin real time scheduler
     printf("Init BIOS\n\n");
 
-   //begin real time scheduler
+    roveLoop_RtosTask_init(firstPriorityLoop, 1);
+    //roveBoard_RtosTask_init(secondPriorityLoop, 2);
+
+    //See RoveLoops.c for RoveRtosTask threads scheduled by TexasInst->roveRtos.cfg
     BIOS_start();
     return (0);
+
 }//end main
 
-
-
-static void roveBoard_RtosTask_init(roveTask_FnctnPtr task_handler, UInt task_priority) {
-
-    Task_Params roveTask_Params;
-    Task_Params_init(&roveTask_Params);
-    roveTask_Params.priority = task_priority;
-    Task_create (task_handler, &roveTask_Params, NULL);
-}//endfnctn
-
-#ifdef __cplusplus
-}
-#endif

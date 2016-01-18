@@ -5,37 +5,42 @@
 // Last Edit: Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "RoveComm.h"
 
-#include <stdio.h>
-
+//Todo Gbenga-> one line Api explanation cs 53
 #define ROVECOMM_VERSION 1
 #define ROVECOMM_HEADER_LENGTH 8
 #define ROVECOMM_PORT 11000
-
 #define UDP_TX_PACKET_MAX_SIZE 1500
-#define ROVECOMM_MAX_SUBSCRIBERS 5
+uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE];
 
+//Todo This goes in an include? this is the data id protocol manifest
 #define ROVECOMM_ADD_SUBSCRIBER 0x0003
 
-uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE];
+//Todo Gbenga-> one line Api explanation cs 53
+#define ROVECOMM_MAX_SUBSCRIBERS 5
 roveIP RoveCommSubscribers[ROVECOMM_MAX_SUBSCRIBERS];
 
-void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags);
+
+
+//Todo Gbenga-> one line Api explanation cs 53
 static void RoveCommParseMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags);
-static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP);
+
+//Todo Gbenga-> one line Api explanation cs 53
 static void RoveCommAddSubscriber(roveIP IP);
 
+//Todo Gbenga-> one line Api def
+static void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags);
+
+//Todo Gbenga-> one line Api def
+static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP);
 
 
+
+// == Public API ========
+//
 void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet)
 {
-  printf("RoveCommBegin\n\n");
   roveIP IP = roveSetIP(first_octet, second_octet, third_octet, fourth_octet);
 
   roveNetworkingStart(IP);
@@ -48,8 +53,6 @@ void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octe
     RoveCommSubscribers[i] = INADDR_NONE;
   }//endfor
 }//endfnctn
-
-
 
 void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data)
 {
@@ -66,8 +69,25 @@ void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data)
   }//end if
 }//end fnctn
 
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data)
+{
+  int i = 0;
+
+  for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++)
+  {
+    if (!(RoveCommSubscribers[i] == INADDR_NONE))
+    {
+      RoveCommSendMsgTo(dataID, size, data, RoveCommSubscribers[i], ROVECOMM_PORT, 0);
+    }//end if
+  }//end for
+}//end fnctn
+//
+// ==================================
 
 
+
+// == Private Implementation ========
+//
 static void RoveCommParseMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags)
 {
   int protocol_version = RoveCommBuffer[0];
@@ -85,7 +105,20 @@ static void RoveCommParseMsg(uint16_t* dataID, size_t* size, void* data, uint8_t
   }//end switch
 }//end fnctn
 
+static void RoveCommAddSubscriber(roveIP IP) {
+  int i = 0;
 
+  // TODO make this clear
+  while (i < ROVECOMM_MAX_SUBSCRIBERS && !(RoveCommSubscribers[i] == INADDR_NONE || RoveCommSubscribers[i] == IP)) {
+    i++;
+  }//end while
+
+  if (i == ROVECOMM_MAX_SUBSCRIBERS)
+    return;
+
+  RoveCommSubscribers[i] = IP;
+  return;
+}//end fnctn
 
 void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags)
 {
@@ -106,38 +139,6 @@ void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, rov
   RoveCommSendUdpPacket(destIP, destPort, buffer, packetSize);
 }//end fnctn
 
-
-
-void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data)
-{
-  int i = 0;
-
-  for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++)
-  {
-    if (!(RoveCommSubscribers[i] == INADDR_NONE))
-    {
-      RoveCommSendMsgTo(dataID, size, data, RoveCommSubscribers[i], ROVECOMM_PORT, 0);
-    }//end if
-  }//end for
-}//end fnctn
-
-
-
-static void RoveCommAddSubscriber(roveIP IP) {
-  int i = 0;
-
-  // TODO make this clear
-  while (i < ROVECOMM_MAX_SUBSCRIBERS && !(RoveCommSubscribers[i] == INADDR_NONE || RoveCommSubscribers[i] == IP)) {
-    i++;
-  }
-
-  if (i == ROVECOMM_MAX_SUBSCRIBERS)
-    return;
-
-  RoveCommSubscribers[i] = IP;
-  return;
-}
-
 static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP) {
   if (*dataID < 0x000F) {
     switch (*dataID) {
@@ -146,12 +147,8 @@ static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, 
         break;
       default:
         break;
-    }
+    }//end switch
     *dataID = 0;
     *size = 0;
-  }
-}
-
-#ifdef __cplusplus
-}
-#endif
+  }//end if
+}//end fnctn

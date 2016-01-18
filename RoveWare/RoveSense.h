@@ -2,12 +2,19 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
-#pragma once
 #ifndef ROVESENSE_H_
 #define ROVESENSE_H_
+#pragma once
 
-/* roveWare Upgrades Version 2 Release
-//TODO US Digital Encoders, Adafruit GPS, Sparkfun UltraSonic,  Sparkfun IR, SenseorHub Imu
+
+// roveWare Upgrades Version 2 Release
+
+
+#endif // ROVESENSE_H_
+
+
+
+/*TODO US Digital Encoders, Adafruit GPS, Sparkfun UltraSonic,  Sparkfun IR, SenseorHub Imu
 class roveSense {
 
     private:
@@ -51,7 +58,3 @@ class roveScience {
         ~roveScience();
 };// end class
 */
-
-
-
-#endif /* ROVESENSE_H_ */

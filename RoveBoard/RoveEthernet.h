@@ -6,8 +6,8 @@
 //
 // mrdt::rovWare
 
-#ifndef ROVEBOARDSOCKETS_H_
-#define ROVEBOARDSOCKETS_H_
+#ifndef ROVEETHERNET_H_
+#define ROVEETHERNET_H_
 
 #include <stdint.h>
 #include <stddef.h>
@@ -28,4 +28,4 @@ bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* cons
 bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize);
 roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet);
 
-#endif // ROVEBOARDSOCKETS_H_
+#endif // ROVEETHERNET_H_

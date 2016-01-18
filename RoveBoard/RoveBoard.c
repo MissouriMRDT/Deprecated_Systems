@@ -3,10 +3,8 @@
 // Author: Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-#include "RoveBoardPins.h"
+#include "RoveBoard.h"
 
-//TODO factor TI hardware config in EK_TM4C1294XL
-#include "RoveTiva/EK_TM4C1294XL.h"
 
 //C lib
 #include <stdio.h>

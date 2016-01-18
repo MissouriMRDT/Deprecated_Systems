@@ -24,12 +24,12 @@ extern "C" {
 //#include "<AddYourThreads>Loop.h"
 //  ========    =================   =======
 
-//TODO factor TI hardware config in EK_TM4C1294XL
-#include "RoveBoard/EK_TM4C1294XL.h"
-
 //Todo RoveBoardTiva1294 included twice?
 //RoveWare for Texas Instruments Tiva Connected C Dev board peripheral access hardware abstraction
-#include "RoveBoard/RoveBoardTiva1294.h"
+#include "RoveBoard/RoveBoardPins.h"
+
+//TODO factor TI hardware config in EK_TM4C1294XL
+#include "RoveBoard/RoveTiva/EK_TM4C1294XL.h"
 
 //C lib
 #include <stdio.h>
@@ -42,9 +42,6 @@ extern "C" {
 //#include <ti/sysbios/knl/Swi.h>
 //#include <ti/sysbios/knl/Clock.h>
 //#include <ti/sysbios/knl/Semaphore.h>
-
-
-
 
 typedef ti_sysbios_knl_Task_FuncPtr roveTask_FnctnPtr;
 
@@ -119,12 +116,13 @@ int main(void) {
 
     //Todo Rove Tiva Read PWM Capture and Compare Timers (i.e. hardware_pulseIn() pins
     //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
-    //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
-    //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
-    //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
-    //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
-    //roveCCP_Handle CCP_1 = roveBoard_CCP_open(1, ?);
+    //roveCCP_Handle CCP_2 = roveBoard_CCP_open(1, ?);
+    //roveCCP_Handle CCP_3 = roveBoard_CCP_open(1, ?);
+    //roveCCP_Handle CCP_4 = roveBoard_CCP_open(1, ?);
+    //roveCCP_Handle CCP_5 = roveBoard_CCP_open(1, ?);
+    //roveCCP_Handle CCP_6 = roveBoard_CCP_open(1, ?);
     printf("Init CCP\n\n");
+
 
 
     //These are hardcoded configured to TIMER INTERRUPTS and Capture Compare Registers in the roveBoard/roveEK_TM4C1294XL.c

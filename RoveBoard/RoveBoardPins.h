@@ -1,12 +1,14 @@
 // Missouri Science and Technology Mars Rover Design Team 2015_2016
-// jrs6w7@mst.edu
+//
+// Authorjrs6w7@mst.edu
 //
 // module for utlity wrapper access to Texas Instruments TivaWare
 //
 // mrdt::rovWare
+
 #pragma once
-#ifndef ROVEBOARDTIVA1294_H_
-#define ROVEBOARDTIVA1294_H_
+#ifndef ROVEBOARDPINS_H_
+#define ROVEBOARDPINS_H_
 
 #ifdef __cplusplus
 extern "C" {

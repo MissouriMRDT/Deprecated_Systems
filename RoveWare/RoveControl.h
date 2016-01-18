@@ -14,7 +14,7 @@ extern "C" {
 #include <stdint.h>
 
 //Rover Wrappers for Tiva C Connected
-#include "../RoveBoard/RoveBoardTiva1294.h"
+#include "../RoveBoard/RoveBoardPins.h"
 /*
 // TODO Judah Factor Out Dev Shorthand
 //Public

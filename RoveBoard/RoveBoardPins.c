@@ -1,14 +1,12 @@
 // Missouri Science and Technology Mars Rover Design Team 2015_2016
-// jrs6w7@mst.edu
 //
-// module for utlity wrapper access to Texas Instruments TivaWare
-// roveWare 1294XL Access Routines
+// Author: Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-#include "RoveBoardTiva1294.h"
+#include "RoveBoardPins.h"
 
 //TODO factor TI hardware config in EK_TM4C1294XL
-#include "EK_TM4C1294XL.h"
+#include "RoveTiva/EK_TM4C1294XL.h"
 
 //C lib
 #include <stdio.h>
@@ -47,6 +45,8 @@ rovePWM_Handle roveBoard_PWM_open(unsigned int pwm_index, unsigned int period_in
     return pwmHandle;
 }//endfnctn
 
+
+
 roveUART_Handle roveBoard_UART_open(unsigned int uart_index, unsigned int baud_rate){
 
     UART_Handle uartHandle;
@@ -80,6 +80,8 @@ roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, s
 
     return roveBoard_ERROR_success;
 }//endfnctn
+
+
 
 roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read) {
 

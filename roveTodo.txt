@@ -4,6 +4,12 @@
 // mrdt::rovWare
 
 
+//RoveComm : Ip Address Shifts, and Remove Select, Remove Second Const, Add Subscriber If, and do Error Handling
+
+
+
+
+
 //RoveWare Naming Convention:
 
 //roveFileName _ <Do Action> <On Noun> (optional ATTRIBUTE)

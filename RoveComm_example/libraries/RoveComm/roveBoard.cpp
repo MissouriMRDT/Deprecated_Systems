@@ -14,11 +14,11 @@ roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet,
   return temp;
 }
 
-void roveSocketListen(uint16_t port) {
+void roveUdpSocketListen(uint16_t port) {
   udpReceiver.begin(port);
 }
 
-bool RoveCommSendPacket(roveIP destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize) {
+bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize) {
   udpReceiver.beginPacket(destIP, destPort);
   udpReceiver.write(msg, msgSize);
   udpReceiver.endPacket();

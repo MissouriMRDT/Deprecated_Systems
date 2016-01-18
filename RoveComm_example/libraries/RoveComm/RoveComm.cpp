@@ -108,16 +108,14 @@ static bool RoveCommAddSubscriber(roveIP IP) {
 }
 
 static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags, roveIP IP) {
-  if (*dataID < 0x00FF) {
-    switch (*dataID) {
-      case ROVECOMM_ADD_SUBSCRIBER:
-        RoveCommAddSubscriber(IP);
-        break;
-      default:
-        break;
-    }
-    *dataID = 0;
-    *size = 0;
+  switch (*dataID) {
+    case ROVECOMM_ADD_SUBSCRIBER:
+      RoveCommAddSubscriber(IP);
+      break;
+    default:
+      return;
   }
+  *dataID = 0;
+  *size = 0;
 }
 

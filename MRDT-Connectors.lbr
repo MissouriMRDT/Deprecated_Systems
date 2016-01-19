@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -670,6 +670,36 @@
 <wire x1="8.382" y1="14.097" x2="8.382" y2="9.525" width="0.127" layer="49" style="shortdash"/>
 <wire x1="8.382" y1="9.525" x2="7.874" y2="9.525" width="0.127" layer="49" style="shortdash"/>
 </package>
+<package name="RJ45_PT_STEWART-SS82000002">
+<wire x1="1.0922" y1="0" x2="14.7828" y2="0" width="0.127" layer="51"/>
+<wire x1="14.7828" y1="0" x2="14.7828" y2="17.399" width="0.127" layer="51"/>
+<wire x1="14.7828" y1="17.399" x2="1.0922" y2="17.399" width="0.127" layer="51"/>
+<wire x1="1.0922" y1="17.399" x2="1.0922" y2="0" width="0.127" layer="51"/>
+<wire x1="1.0922" y1="11.1506" x2="-0.4445" y2="11.1506" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-0.4445" y1="11.1506" x2="-0.4445" y2="7.8486" width="0.127" layer="49" style="shortdash"/>
+<wire x1="-0.4445" y1="7.8486" x2="1.0922" y2="7.8486" width="0.127" layer="49" style="shortdash"/>
+<wire x1="1.0922" y1="0" x2="1.0922" y2="-1.1176" width="0.127" layer="49" style="shortdash"/>
+<wire x1="1.0922" y1="-1.1176" x2="3.048" y2="-1.1176" width="0.127" layer="49" style="shortdash"/>
+<wire x1="3.048" y1="-1.1176" x2="3.048" y2="0" width="0.127" layer="49" style="shortdash"/>
+<wire x1="12.827" y1="0" x2="12.827" y2="-1.1176" width="0.127" layer="49" style="shortdash"/>
+<wire x1="12.827" y1="-1.1176" x2="14.7828" y2="-1.1176" width="0.127" layer="49" style="shortdash"/>
+<wire x1="14.7828" y1="-1.1176" x2="14.7828" y2="0" width="0.127" layer="49" style="shortdash"/>
+<wire x1="0" y1="0" x2="15.875" y2="0" width="0.127" layer="20"/>
+<wire x1="15.875" y1="0" x2="15.875" y2="17.399" width="0.127" layer="20"/>
+<wire x1="15.875" y1="17.399" x2="0" y2="17.399" width="0.127" layer="20"/>
+<wire x1="0" y1="17.399" x2="0" y2="0" width="0.127" layer="20"/>
+<wire x1="14.7828" y1="7.8486" x2="16.3195" y2="7.8486" width="0.127" layer="49" style="shortdash"/>
+<wire x1="16.3195" y1="7.8486" x2="16.3195" y2="11.1506" width="0.127" layer="49" style="shortdash"/>
+<wire x1="16.3195" y1="11.1506" x2="14.7828" y2="11.1506" width="0.127" layer="49" style="shortdash"/>
+<wire x1="14.7828" y1="17.399" x2="14.7828" y2="18.5166" width="0.127" layer="49" style="shortdash"/>
+<wire x1="14.7828" y1="18.5166" x2="12.827" y2="18.5166" width="0.127" layer="49" style="shortdash"/>
+<wire x1="12.827" y1="18.5166" x2="12.827" y2="17.399" width="0.127" layer="49" style="shortdash"/>
+<wire x1="3.048" y1="17.399" x2="3.048" y2="18.5166" width="0.127" layer="49" style="shortdash"/>
+<wire x1="3.048" y1="18.5166" x2="1.0922" y2="18.5166" width="0.127" layer="49" style="shortdash"/>
+<wire x1="1.0922" y1="18.5166" x2="1.0922" y2="17.399" width="0.127" layer="49" style="shortdash"/>
+<dimension x1="0" y1="0" x2="15.875" y2="0" x3="7.9375" y3="-5.08" textsize="1.27" layer="47" unit="inch" precision="4" visible="yes"/>
+<dimension x1="15.875" y1="0" x2="15.875" y2="17.399" x3="21.59" y3="8.6995" textsize="1.27" layer="47" unit="inch" precision="4" visible="yes"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ANDERSON_POWERPOLE">
@@ -690,6 +720,13 @@
 <text x="5.08" y="1.524" size="1.27" layer="97" align="center">MOUNTING
 WING
 </text>
+</symbol>
+<symbol name="RJ45_PASSTHRU">
+<text x="1.27" y="1.27" size="1.778" layer="94">RJ45 PASSTHRU</text>
+<wire x1="0" y1="0" x2="22.86" y2="0" width="0.254" layer="94" style="shortdash"/>
+<wire x1="22.86" y1="0" x2="22.86" y2="5.08" width="0.254" layer="94" style="shortdash"/>
+<wire x1="22.86" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94" style="shortdash"/>
+<wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94" style="shortdash"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -826,6 +863,21 @@ WING
 <technologies>
 <technology name="">
 <attribute name="COLOR1" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RJ45_PASSTHRU">
+<gates>
+<gate name="G$1" symbol="RJ45_PASSTHRU" x="0" y="0"/>
+</gates>
+<devices>
+<device name="STEWART-SS82000002" package="RJ45_PT_STEWART-SS82000002">
+<technologies>
+<technology name="">
+<attribute name="MFR" value="Stewart Connectors"/>
+<attribute name="MFR_PN" value="SS-82000-002"/>
 </technology>
 </technologies>
 </device>

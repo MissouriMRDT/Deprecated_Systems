@@ -10,9 +10,6 @@
 
 typedef in_addr_t roveIP;
 
-int roveCommSocket;
-struct sockaddr_in roveCommAddr;
-
 void roveNetworkingStart(roveIP myIP);
 void roveUdpSocketListen(uint16_t port);
 bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize);

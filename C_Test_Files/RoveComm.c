@@ -24,13 +24,13 @@
 uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE];
 roveIP RoveCommSubscribers[ROVECOMM_MAX_SUBSCRIBERS]; 
 
-void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
+void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
 static void RoveCommParseMsg(uint8_t* buffer, uint16_t* dataID, size_t* size, void* data, uint16_t* seqNum, uint8_t* flags);
 static void RoveCommHandleSystemMsg(uint8_t* buffer, uint16_t* dataID, size_t* size, void* data, uint16_t* seqNum, uint8_t* flags, roveIP IP);
 static bool RoveCommAddSubscriber(roveIP IP);
 
-void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet) {
-  roveIP IP = roveSetIP(first_octet, second_octet, third_octet, fourth_octet);
+void RoveCommBegin(uint8_t IP_octet1, uint8_t IP_octet2, uint8_t IP_octet3, uint8_t IP_octet4) {
+  roveIP IP = roveSetIP(IP_octet1, IP_octet2, IP_octet3, IP_octet4);
   
   roveNetworkingStart(IP);
   
@@ -72,7 +72,7 @@ static void RoveCommParseMsg(uint8_t* buffer, uint16_t* dataID, size_t* size, vo
   }
 }
 
-void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort) {
+void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort) {
   size_t packetSize = size + ROVECOMM_HEADER_LENGTH;
   uint8_t buffer[packetSize];
   
@@ -90,7 +90,7 @@ void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, uin
   RoveCommSendUdpPacket(destIP, destPort, buffer, packetSize);
 }
 
-void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data) {
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* data) {
   int i = 0; 
   
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
@@ -117,7 +117,7 @@ static bool RoveCommAddSubscriber(roveIP IP) {
 }
 
 static void RoveCommHandleSystemMsg(uint8_t* buffer, uint16_t* dataID, size_t* size, void* data, uint16_t* seqNum, uint8_t* flags, roveIP IP) {
-  if (*flags & ROVECOMM_ACKNOWLEDGE_FLAG == ROVECOMM_ACKNOWLEDGE_FLAG) {
+  if (*flags & ROVECOMM_ACKNOWLEDGE_FLAG != 0) {
     RoveCommSendMsgTo(ROVECOMM_ACKNOWLEDGE_ID, sizeof(uint16_t), dataID, 0x00FF, 0, IP, ROVECOMM_PORT);
   }
 

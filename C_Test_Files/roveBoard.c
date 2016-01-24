@@ -37,7 +37,7 @@ void roveUdpSocketListen(uint16_t port) {
   }
 }
 
-bool RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * const msg, size_t msgSize) {
+bool RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * msg, size_t msgSize) {
   struct sockaddr_in destination;
   
   memset(&destination, 0, sizeof(destination));

@@ -11,14 +11,14 @@
 #define UDP_TX_PACKET_MAX_SIZE 1500
 #define ROVECOMM_MAX_SUBSCRIBERS 5
 
-#define ROVECOMM_ACKNOWLEDGE_FLAG   0x0001
+#define ROVECOMM_ACKNOWLEDGE_FLAG   1
 
 #define ROVECOMM_PING               0x0001
 #define ROVECOMM_PING_REPLY         0x0002
 #define ROVECOMM_SUBSCRIBE          0x0003
 #define ROVECOMM_UNSUBSCRIBE        0x0004
 #define ROVECOMM_FORCE_UNSUBSCRIBE  0x0005
-#define ROVECOMM_ACKNOWLEDGE_ID     0x0006
+#define ROVECOMM_ACKNOWLEDGE_MSG    0x0006
 
 
 uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE];
@@ -118,7 +118,7 @@ static bool RoveCommAddSubscriber(roveIP IP) {
 
 static void RoveCommHandleSystemMsg(uint8_t* buffer, uint16_t* dataID, size_t* size, void* data, uint16_t* seqNum, uint8_t* flags, roveIP IP) {
   if (*flags & ROVECOMM_ACKNOWLEDGE_FLAG != 0) {
-    RoveCommSendMsgTo(ROVECOMM_ACKNOWLEDGE_ID, sizeof(uint16_t), dataID, 0x00FF, 0, IP, ROVECOMM_PORT);
+    RoveCommSendMsgTo(ROVECOMM_ACKNOWLEDGE_MSG, sizeof(uint16_t), dataID, 0x00FF, 0, IP, ROVECOMM_PORT);
   }
 
   switch (*dataID) {
@@ -129,6 +129,8 @@ static void RoveCommHandleSystemMsg(uint8_t* buffer, uint16_t* dataID, size_t* s
       break;
     case ROVECOMM_SUBSCRIBE:
       RoveCommAddSubscriber(IP);
+      break;
+    case ROVECOMM_ACKNOWLEDGE_MSG:
       break;
     default:
       return;

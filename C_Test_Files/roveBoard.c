@@ -13,6 +13,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+int roveCommSocket;
+struct sockaddr_in roveCommAddr;
+
 void roveNetworkingStart(roveIP myIP) {}
 
 roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet) {

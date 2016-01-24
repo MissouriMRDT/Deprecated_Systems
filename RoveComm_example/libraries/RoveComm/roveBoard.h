@@ -9,8 +9,6 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-
-
 typedef IPAddress roveIP;
 
 inline bool operator != (IPAddress & lhs, const IPAddress & rhs) {return !(lhs == rhs);}

@@ -8,10 +8,9 @@
 
 #include <stdint.h>
 
-void RoveCommBegin(roveIP IP);
+void RoveCommBegin(uint8_t IP_octet1, uint8_t IP_octet2, uint8_t IP_octet3, uint8_t IP_octet4);
 void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data);
-void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, roveIP destIP, uint16_t destPort, uint8_t flags);
-void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data);
+void RoveCommSendMsg(uint16_t dataID, size_t size, const void* data);
 
 #endif
 

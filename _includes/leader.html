@@ -14,8 +14,8 @@
       <small>{{ leader.Position }}</small>
       {% endif %}
     </h3>
-    {% if leader.SubTeams %}
-    Sub-teams: <strong>{{ leader.SubTeams }}</strong>
+    {% if leader.Email %}
+    Email: <strong> <a href="mailto:{{ leader.Email }}">{{ leader.Email }}</a></strong>
     {% endif %}
   </div>
   {% if leader.Logo %}

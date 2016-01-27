@@ -8,7 +8,7 @@ This is an example use of the RoveComm Library
 #include <EthernetUdp.h>
 
 //Include Rovecomm itself
-#include "roveBoard.h"
+#include "RoveEthernet.h"
 #include <RoveComm.h>
 
 //Including stuff for this example
@@ -44,6 +44,7 @@ struct Rover {
   }
 };
 
+
 void setup() {
   
   //Start serial for debugging
@@ -53,7 +54,7 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  RoveCommBegin(192,168,1,51);
+  RoveCommBegin(192,168,1,52);
 }
 
 void loop() {
@@ -93,10 +94,10 @@ void loop() {
       break;
       
     //If a character array was received
-    case 0x0300: //768 in Decimal
+    case 180: // 0xB4
       Serial.println("This is just a text message");
       Serial.println((char*)receivedMsg);
       break;
   }
-  delay(1000);
+  delay(5000);
 }

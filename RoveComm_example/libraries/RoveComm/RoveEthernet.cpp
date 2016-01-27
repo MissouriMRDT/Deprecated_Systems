@@ -1,7 +1,7 @@
 // roveBoard.h for Tiva/Energia
 // Author: Gbenga Osibodu
 
-#include "roveBoard.h"
+#include "RoveEthernet.h"
 
 EthernetUDP udpReceiver;
 

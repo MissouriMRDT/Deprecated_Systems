@@ -1,7 +1,7 @@
 // roveBoard.c for Linux
 // Author: Gbenga Osibodu
 
-#include "roveBoard.h"
+#include "RoveEthernet.h"
 
 #include <stdio.h>
 #include <errno.h>

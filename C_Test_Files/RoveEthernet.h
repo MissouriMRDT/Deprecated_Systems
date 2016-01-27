@@ -1,4 +1,4 @@
-// roveBoard.h for Linux
+// RoveEthernet.h for Linux
 // Author: Gbenga Osibodu
 
 #ifndef ROVEETHERNET_LINUX
@@ -10,7 +10,8 @@
 
 #define ROVE_IP_ADDR_NONE INADDR_NONE
 
-typedef enum {
+typedef enum 
+{
   ROVE_ETHERNET_ERROR_SUCCESS       =  0,
   ROVE_ETHERNET_ERROR_UNKNOWN       = -1,
   ROVE_ETHERNET_ERROR_SOCKET_IN_USE = -2,

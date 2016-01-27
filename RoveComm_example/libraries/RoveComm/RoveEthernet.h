@@ -11,7 +11,8 @@
 
 #define ROVE_IP_ADDR_NONE INADDR_NONE
 
-typedef enum {
+typedef enum
+{
   ROVE_ETHERNET_ERROR_SUCCESS       =  0,
   ROVE_ETHERNET_ERROR_UNKNOWN       = -1,
   ROVE_ETHERNET_ERROR_SOCKET_IN_USE = -2,
@@ -21,7 +22,7 @@ typedef enum {
 
 typedef IPAddress roveIP;
 
-inline bool operator != (IPAddress & lhs, const IPAddress & rhs) {return !(lhs == rhs);}
+inline bool operator != (IPAddress & lhs, const IPAddress & rhs) { return !(lhs == rhs); }
 
 void roveNetworkingStart(roveIP myIP);
 roveEthernet_Error roveUdpSocketListen(uint16_t port);

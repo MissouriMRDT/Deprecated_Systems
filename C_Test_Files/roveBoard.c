@@ -25,7 +25,7 @@ roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet,
   return (roveIP)temp;
 }
 
-void roveUdpSocketListen(uint16_t port) {
+roveEthernet_Error roveUdpSocketListen(uint16_t port) {
   roveCommSocket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
   memset(&roveCommAddr, 0, sizeof roveCommAddr);
@@ -34,25 +34,40 @@ void roveUdpSocketListen(uint16_t port) {
   roveCommAddr.sin_port = htons(port);
   
   if (-1 == bind(roveCommSocket, (struct sockaddr *)&roveCommAddr, sizeof roveCommAddr)) {
-    perror("error bind failed");
     close(roveCommSocket);
-    exit(EXIT_FAILURE);
+    
+    if (errno == EADDRINUSE) {
+      return ROVE_ETHERNET_ERROR_SOCKET_IN_USE;
+    } else {
+      return ROVE_ETHERNET_ERROR_UNKNOWN;
+    }
   }
+  
+  return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-bool RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * msg, size_t msgSize) {
+roveEthernet_Error RoveCommSendUdpPacket(in_addr_t destIP, uint16_t destPort, const uint8_t * msg, size_t msgSize) {
   struct sockaddr_in destination;
+  ssize_t sendSize;
   
   memset(&destination, 0, sizeof(destination));
   destination.sin_family = AF_INET;
   destination.sin_addr.s_addr = (destIP);
   destination.sin_port = htons(destPort);
   
-  sendto(roveCommSocket, msg, msgSize, 0,(struct sockaddr*)&destination, sizeof(destination));
-  return true;
+  sendSize = sendto(roveCommSocket, msg, msgSize, 0,(struct sockaddr*)&destination, sizeof(destination));
+  if (sendSize < 0) {
+    if (errno == EHOSTDOWN) {
+      return ROVE_ETHERNET_ERROR_HOST_DOWN;
+    } else {
+      return ROVE_ETHERNET_ERROR_UNKNOWN;
+    }
+  }
+  
+  return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
+roveEthernet_Error RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
   struct sockaddr_in incoming;
   ssize_t recsize;
   socklen_t fromlen = sizeof(roveCommAddr);
@@ -61,10 +76,12 @@ bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
 
   if (recsize < 0) {
     if ((errno == EWOULDBLOCK) || (errno == EAGAIN)) {
-      return false;
+      return ROVE_ETHERNET_ERROR_WOULD_BLOCK;
+    } else {
+      return ROVE_ETHERNET_ERROR_UNKNOWN;
     }
   }
   
   *senderIP = incoming.sin_addr.s_addr;
-  return true;
+  return ROVE_ETHERNET_ERROR_SUCCESS;
 }

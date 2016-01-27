@@ -14,27 +14,28 @@ roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet,
   return temp;
 }
 
-void roveUdpSocketListen(uint16_t port) {
+roveEthernet_Error roveUdpSocketListen(uint16_t port) {
   udpReceiver.begin(port);
+  return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize) {
+roveEthernet_Error RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* msg, size_t msgSize) {
   udpReceiver.beginPacket(destIP, destPort);
   udpReceiver.write(msg, msgSize);
   udpReceiver.endPacket();
-  return true;
+  return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize) {
+roveEthernet_Error RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize) {
     
   int packetSize = udpReceiver.parsePacket(); 
   
   if (packetSize > 0){ //if there is a packet
     udpReceiver.read((char*)buffer, bufferSize);
     *senderIP = udpReceiver.remoteIP();
-    return true;
+    return ROVE_ETHERNET_ERROR_SUCCESS;
   } else {
-    return false;
+    return ROVE_ETHERNET_ERROR_WOULD_BLOCK;
   }
 }
 

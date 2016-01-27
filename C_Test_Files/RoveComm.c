@@ -38,7 +38,7 @@ void RoveCommBegin(uint8_t IP_octet1, uint8_t IP_octet2, uint8_t IP_octet3, uint
   
   int i;
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
-    RoveCommSubscribers[i] = INADDR_NONE;
+    RoveCommSubscribers[i] = ROVE_IP_ADDR_NONE;
   }
 }
 
@@ -50,7 +50,7 @@ void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data) {
   *dataID = 0;
   *size = 0;
   
-  if (RoveCommGetUdpMsg(&senderIP, RoveCommBuffer, sizeof(RoveCommBuffer)) == true) {
+  if (RoveCommGetUdpMsg(&senderIP, RoveCommBuffer, sizeof(RoveCommBuffer)) == ROVE_ETHERNET_ERROR_SUCCESS) {
     RoveCommParseMsg(RoveCommBuffer, dataID, size, data, &seqNum, &flags);  
     RoveCommHandleSystemMsg(RoveCommBuffer, dataID, size, data, &seqNum, &flags, senderIP);
   }
@@ -94,7 +94,7 @@ void RoveCommSendMsg(uint16_t dataID, size_t size, const void* data) {
   int i = 0; 
   
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++) {
-    if (!(RoveCommSubscribers[i] == INADDR_NONE)) {
+    if (!(RoveCommSubscribers[i] == ROVE_IP_ADDR_NONE)) {
       RoveCommSendMsgTo(dataID, size, data, 0x00FF, 0, RoveCommSubscribers[i], ROVECOMM_PORT);
     }
   }
@@ -107,7 +107,7 @@ static bool RoveCommAddSubscriber(roveIP IP) {
     if (RoveCommSubscribers[i] == IP) {
       return true;
     }
-    if (RoveCommSubscribers[i] == INADDR_NONE) {
+    if (RoveCommSubscribers[i] == ROVE_IP_ADDR_NONE) {
       RoveCommSubscribers[i] = IP;
       return true;
     }

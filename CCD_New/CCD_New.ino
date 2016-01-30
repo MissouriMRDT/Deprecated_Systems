@@ -4,8 +4,6 @@
 // Software Sketch of a Rover Device to read Raman Spectrometer Camera using Toshiba TCD1304DG
 //////////////////////////
 
-
-
 ////////////////////////// The TCD1304DG is a high sensitive and low dark current pn Photodiode CCD
 // Sample and Hold: 22 PinCERDIP
 //

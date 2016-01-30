@@ -83,8 +83,8 @@ void RoveSci_CCDReadPacket(
   , int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
   , int read_data_pin
 //  , int read_byte_ticks
-  , int read_bytes_cnt
-  , int* ccd_picture_data );
+  , int* ccd_picture_data 
+  , int read_bytes_count);
 
 //////// RoveSci_CCD Private Method
 void RoveSci_CCD_SynchNextClockTick();

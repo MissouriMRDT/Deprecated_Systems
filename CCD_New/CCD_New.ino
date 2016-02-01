@@ -28,18 +28,11 @@
 // 3) Read this value of each pixel into a buffer of header_cnt + 3648 pixel_cnt + footer_cnt, as a time series of clocked analog voltages
 //////////////////////////
 
-// TODO Testing and Debug and assign:
- int MASTER_CLOCK_CCD_PIN = 23               // WriteTone Drive the Camera Master Clock at the MASTER_CLOCK_FREQ: 0.8 Mhz Min /2 Mhz Typical /4 Mhz Max
- int SHIFT_DATA_CCD_PIN = 24                 // SynchTone Shift Pixel one at a time through the diode array at 1/4 MASTER_CLOCK_FREQ edge aligned 
- int INTEGRATE_DATA_CCD_PIN = 25             // SynchTone Drive the Camera Data Transfer Clockt at 1/4 MASTER_CLOCK_FREQ edge aligned
- int READ_DATA_CCD_PIN = 26                  // AnalogRead each Pixel into a ccd_packet_data_buffer
+ int MASTER_CLOCK_CCD_PIN = 23;               // WriteTone Drive the Camera Master Clock at the MASTER_CLOCK_FREQ: 0.8 Mhz Min /2 Mhz Typical /4 Mhz Max
+ int SHIFT_DATA_CCD_PIN = 24;                 // SynchTone Shift Pixel one at a time through the diode array at 1/4 MASTER_CLOCK_FREQ edge aligned 
+ int INTEGRATE_DATA_CCD_PIN = 25;             // SynchTone Drive the Camera Data Transfer Clockt at 1/4 MASTER_CLOCK_FREQ edge aligned
+ int READ_DATA_CCD_PIN = 26;                  // AnalogRead each Pixel into a ccd_packet_data_buffer
  
- pinMode(MASTER_CLOCK_CCD_PIN, OUTPUT);  
- pinMode(SHIFT_DATA_CCD_PIN, OUTPUT);     
- pinMode(INTEGRATE_DATA_CCD_PIN, OUTPUT);
- pinMode(READ_DATA_CCD_PIN, INPUT);    
-
-
 ////////////////////////// Todo: John Maruska : critique, review,rewrite, contrast, refactor, edit proccess Flow: 
 //Page2 http://www.eureca.de/datasheets/01.xx.xxxx/01.04.xxxx/01.04.0060/TCD1304DG.pdf
 // Reset : the Clear Gate and Shift Gate
@@ -48,16 +41,16 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////// ////////////////////////// ////////////////////////// 
-// TODO Pin Map: OPTIONAL Electronic Shutter
+// Pin Map: OPTIONAL Electronic Shutter
 //
 //  MASTER_CLOCK_CCD_PIN    :  PE_0
 //  SHIFT_DATA_CCD_PIN      :  PE_1
 //  INTEGRATE_DATA_CCD_PIN  :  PE_2
 //  READ_DATA_CCD_PIN       :  PE_3
 //
-// Todo Cross Org RoveSci_CHALLENGE: RoveBoard::Wrappers in Cplus Energia
+// TODO: Cross Org RoveSci_CHALLENGE: RoveBoard::Wrappers in Cplus Energia
 //
-// Todo Cross Org RoveSci_CHALLENGE_DBL_BONUS::CCS Rtos Cfg in RoveWareRealTimeia
+// TODO: Cross Org RoveSci_CHALLENGE_DBL_BONUS::CCS Rtos Cfg in RoveWareRealTimeia
 ////////////////////////// ////////////////////////// ////////////////////////// 
 
 // CCD Data Protocol
@@ -74,7 +67,7 @@ const int CCD_FOOTER_END_INDEX              = 14 + CCD_PIXEL_END_INDEX;
 
 // TODO: How long for DigitalWrite. How long for DigitalRead. How long for AnalogRead?
 
-const int CCD_MASTER_CLOCK_FREQ = 1000000;  // TODO: Naming convention. 
+const int CCD_MASTER_CLOCK_FREQ = 1000000; 
 
 //TODO -> Hardware Library Hack for Calibration Timing/Tuning Variable
 // const int TUNING_VAR = 1;
@@ -91,16 +84,20 @@ int clock_pin
 , int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
 , int read_data_pin
 //  , int read_byte_ticks
-, int* ccd_picture_data 
+, int* ccd_picture_data // TODO: cannot convert 'int(*)[3694] to 'int*' 
 , int read_bytes_count
 );
 
 //////// RoveSci_CCD Private Method
-void RoveSci_CCD_SynchNextClockTick(synch_to_clock_pin);
+void RoveSci_CCD_SyncNextClockTick(int synch_to_clock_pin);
 
 /////////////////////////////////////////////////////////////////////////////Setup
 void setup()
 {
+  pinMode(MASTER_CLOCK_CCD_PIN, OUTPUT);  
+  pinMode(SHIFT_DATA_CCD_PIN, OUTPUT);     
+  pinMode(INTEGRATE_DATA_CCD_PIN, OUTPUT);
+  pinMode(READ_DATA_CCD_PIN, INPUT);    
   //This tone.h PIN synchs the Hardware Sensor Master Clock AND our own Software Data Clock by digitalReadSelf(SYNCH_DATA_TRANSFER_PIN);
   //ToshibaMasterClock.begin(MasterClock_ToshibaCCD_Pin);
   Serial.begin(9600);
@@ -115,20 +112,22 @@ void loop()
     , SHIFT_DATA_CCD_PIN
     , INTEGRATE_DATA_CCD_PIN
     , READ_DATA_CCD_PIN
-    , &ccd_packet_data_buffer 
+    , &ccd_packet_data_buffer // TODO: cannot convert 'int(*)[3694] to 'int*' 
     , CCD_FOOTER_END_INDEX
     ); // end function call
 
-  delay_uS(2);
+  delayMicroseconds(2);
 
-  Serial.println(ccd_packet_data_buffer); 
-  delay_uS(2); // Why are we delaying on each side of the prinln? 
+  // TODO: Serial.println(ccd_packet_data_buffer); 
+  // data_buffer is an array of 3964 elements. Need to create a custom print function. 
+  
+  delayMicroseconds(2); // Why are we delaying on each side of the println? 
 
 }//end loop
 ///////////////////////////////////////////////////////////////////////////End Sketch
 
 //Spins on a pin waiting and returns at a rising edge
-void RoveSci_CCD_SynchNextClockTick(synch_to_clock_pin)
+void RoveSci_CCD_SynchNextClockTick(int synch_to_clock_pin)
 {
   bool clock_synched = false;
 
@@ -147,9 +146,8 @@ void RoveSci_CCD_ReadPacket(
   , int shift_data_pin
   , int integrate_data_pin
   , int read_data_pin
-  , int read_byte_ticks
+  , int* ccd_picture_data // TODO: cannot convert 'int(*)[3694] to 'int*' 
   , int read_bytes_count
-  , int* ccd_picture_data 
   ){
   tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
 
@@ -164,19 +162,19 @@ void RoveSci_CCD_ReadPacket(
   RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(integrate_data_pin, LOW);
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, HIGH); 
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, LOW);
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(integrate_data_pin, HIGH);
 
   bool shift_toggle = HIGH;
@@ -201,19 +199,19 @@ void RoveSci_CCD_ReadPacket(
   RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(integrate_data_pin, LOW);
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, HIGH); 
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, LOW);
 
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
-  RoveSci__CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(integrate_data_pin, HIGH);
 
   noTone(clock_pin);

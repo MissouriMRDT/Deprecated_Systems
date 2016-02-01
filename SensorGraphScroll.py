@@ -53,6 +53,14 @@ def graph():
         plt.pause(0.001)                                # because humans are slow
 
 def main():
+        parser = argparse.ArgumentParser(description='plot scientific data in real time')
+        parser.add_argument('-p', default="/dev/tty.usbmodem0F005721", action="store", dest="port",help="name of serial input")
+        parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")
+        parser.add_argument('-m', default=7, action="store", dest="MAX_PLOT_SIZE", help="maximum size for x axis (recommended < 10)")
+        parser.add_argument('-s', default="Sensor Data", action="store", dest="sensor", help="sensor being used, in order to correctly title plot")
+        parser.add_argument('-f', default="sensor_data", action="store", dest="filename", help="name of file for data to be stored in")
+        args = parser.parse_args()
+        
         while(True):
                 
                 try:

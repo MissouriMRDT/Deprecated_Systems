@@ -17,25 +17,26 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-void roveNetworkingStart(roveIP myIP) {
-
+/*
+void roveNetworkingStart(roveIP myIP)
+{
     //Psuedo bsd file descriptors for Tiva Sockets
     fdOpenSession((void*) TaskSelf());
 }
 
 
 
-roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet) {
+roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet)
+{
   roveIP temp;
 
   temp = first_octet << 24 | second_octet << 16 | third_octet << 8 | fourth_octet;
   return temp;
-}
+}//end
 
 
 
-void roveUdpSocketListen(uint16_t port) {
+roveEthernet_Error roveUdpSocketListen(uint16_t port) {
   roveCommSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
   memset(&roveCommAddr, 0, sizeof roveCommAddr);
@@ -43,8 +44,9 @@ void roveUdpSocketListen(uint16_t port) {
   roveCommAddr.sin_addr.s_addr = htonl(INADDR_ANY);
   roveCommAddr.sin_port = htons(port);
 
-  if (-1 == bind(roveCommSocket, (struct sockaddr *)&roveCommAddr, sizeof roveCommAddr)) {
-    perror("error bind failed");
+  if (-1 == bind(roveCommSocket, (struct sockaddr *)&roveCommAddr, sizeof roveCommAddr))
+  {
+
     close(roveCommSocket);
     exit(EXIT_FAILURE);
   }
@@ -62,7 +64,7 @@ bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t * con
 
   sendto(roveCommSocket, msg, msgSize, 0,(struct sockaddr*)&destination, sizeof(destination));
   return true;
-}
+}//end fnctn
 
 
 
@@ -82,3 +84,4 @@ bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize){
   *senderIP = incoming.sin_addr.s_addr;
   return true;
 }
+*/

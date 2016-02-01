@@ -9,16 +9,8 @@
 #define ROVEBOARD_H_
 #pragma once
 
-
-
-//Todo Judah-> Api Comments + Shorthand Refactor
-
-
-
 //TODO factor TI hardware config in EK_TM4C1294XL
 #include "RoveTiva/EK_TM4C1294XL.h"
-
-
 
 #include <stdio.h>
 #include <stdint.h>
@@ -28,27 +20,26 @@
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 
-
-
-//Todo
-//typedef PWM_Handle roveGPIO_Handle
-typedef PWM_Handle rovePWM_Handle;
-typedef UART_Handle roveUART_Handle;
-
-typedef enum roveBoard_ERROR
+typedef enum
 {
-    roveBoard_ERROR_UART_error = -1
-    , roveBoard_ERROR_success = 1
+    ROVE_BOARD_ERROR_SUCCESS = 0
+    ,ROVE_BOARD_ERROR_UNKNOWN = -1
+    //,roveBoard_ERROR_KNOWN = -2
 } roveBoard_ERROR;
 
-//Works
 
+
+typedef PWM_Handle rovePWM_Handle;
 rovePWM_Handle roveBoard_PWM_open(unsigned int pwm_index, unsigned int period_in_microseconds);
-roveUART_Handle roveBoard_UART_open(unsigned int uart_index , unsigned int baud_rate);
-
 void roveBoard_PWM_write(rovePWM_Handle tiva_pin, uint32_t duty_in_microseconds);
+
+
+
+typedef UART_Handle roveUART_Handle;
+roveUART_Handle roveBoard_UART_open(unsigned int uart_index , unsigned int baud_rate);
 roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, size_t bytes_to_write);
 roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read);
+
 
 #endif //ROVEBOARD_TIVA1294_H_
 

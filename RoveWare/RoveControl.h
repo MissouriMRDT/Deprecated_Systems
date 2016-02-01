@@ -13,7 +13,6 @@
 #endif // ROVECONTROL_H_
 
 
-
 //Standard C lib
 //#include <stdint.h>
 //Rover Wrappers for hardware specific microcontroller pin protocol drivers

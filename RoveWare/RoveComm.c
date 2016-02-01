@@ -7,26 +7,26 @@
 // mrdt::rovWare
 #include "RoveComm.h"
 
-//Todo Gbenga-> one line Api explanation cs 53
+//Todo Gbenga-> one line Api explanation
 #define ROVECOMM_VERSION 1
 #define ROVECOMM_HEADER_LENGTH 8
 #define ROVECOMM_PORT 11000
 #define UDP_TX_PACKET_MAX_SIZE 1500
 uint8_t RoveCommBuffer[UDP_TX_PACKET_MAX_SIZE];
 
-//Todo This goes in an include? this is the data id protocol manifest
-#define ROVECOMM_ADD_SUBSCRIBER 0x0003
 
-//Todo Gbenga-> one line Api explanation cs 53
+
+//Todo Gbenga-> one line Api explanation
 #define ROVECOMM_MAX_SUBSCRIBERS 5
+#define ROVECOMM_ADD_SUBSCRIBER 0x0003
 roveIP RoveCommSubscribers[ROVECOMM_MAX_SUBSCRIBERS];
 
+/*
 
-
-//Todo Gbenga-> one line Api explanation cs 53
+//Todo Gbenga-> one line Api explanation
 static void RoveCommParseMsg(uint16_t* dataID, size_t* size, void* data, uint8_t* flags);
 
-//Todo Gbenga-> one line Api explanation cs 53
+//Todo Gbenga-> one line Api explanation
 static void RoveCommAddSubscriber(roveIP IP);
 
 //Todo Gbenga-> one line Api def
@@ -50,7 +50,7 @@ void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octe
   int i;
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++)
   {
-    RoveCommSubscribers[i] = INADDR_NONE;
+    RoveCommSubscribers[i] = ROVE_IP_ADDR_NONE;
   }//endfor
 }//endfnctn
 
@@ -75,7 +75,7 @@ void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data)
 
   for (i=0; i < ROVECOMM_MAX_SUBSCRIBERS; i++)
   {
-    if (!(RoveCommSubscribers[i] == INADDR_NONE))
+    if (!(RoveCommSubscribers[i] == ROVE_IP_ADDR_NONE))
     {
       RoveCommSendMsgTo(dataID, size, data, RoveCommSubscribers[i], ROVECOMM_PORT, 0);
     }//end if
@@ -109,7 +109,7 @@ static void RoveCommAddSubscriber(roveIP IP) {
   int i = 0;
 
   // TODO make this clear
-  while (i < ROVECOMM_MAX_SUBSCRIBERS && !(RoveCommSubscribers[i] == INADDR_NONE || RoveCommSubscribers[i] == IP)) {
+  while (i < ROVECOMM_MAX_SUBSCRIBERS && !(RoveCommSubscribers[i] == ROVE_IP_ADDR_NONE || RoveCommSubscribers[i] == IP)) {
     i++;
   }//end while
 
@@ -152,3 +152,5 @@ static void RoveCommHandleSystemMsg(uint16_t* dataID, size_t* size, void* data, 
     *size = 0;
   }//end if
 }//end fnctn
+
+*/

@@ -16,7 +16,7 @@
 
 // == RoveLoopCCS ========
 //
-#include "RoveRtosLoops.h"
+#include "RoveBoard/RoveRtosLoops.h"
 
 // == RoveLoopCCS_HiPri ========
 //

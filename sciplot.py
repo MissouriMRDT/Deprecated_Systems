@@ -75,13 +75,13 @@ def serial_ports():
 def serial_check(list_of_ports):
     valid_ports = []
     for port in list_of_ports:
-        testinput = serial.Serial(port, 9600, timeout=1)
-        print("testing input: ",port)
+        testinput = serial.Serial(port, 9600, timeout=.001)
+        print("Testing serial input: ",port)
         testdata = testinput.readline()
         try:
-            testdata
-        except (NameError):
-            print("passing port: ",port)
+            print(float(testdata))
+        except (NameError, ValueError):
+            print("Serial input invalid: ",port)
             pass
         else:
             print("made it to else clause")
@@ -89,8 +89,8 @@ def serial_check(list_of_ports):
     if (len(valid_ports) == 1):
         return port
     else:
-        print("wrong number of availible ports, must be specified by -p tag")
-        print(valid_ports)
+        print("There is more than one valid serial input, you must specify which to use by using th -p tag.")
+        print("These are the valid inputs: ",valid_ports)
 
 
 def graph():
@@ -120,10 +120,8 @@ def graph():
     plt.pause(0.0001)
 
 def main():
-        print("entered main")
         portslist = serial_ports()
-        print("found portslist")
-        print(portslist)
+        print("Found list of availible serial inputs: ", portslist)
         serialport = serial_check(portslist)
         
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
@@ -137,6 +135,7 @@ def main():
         global MAX_PLOT_SIZE
         global filename
         global port
+        global sensor
         MAX_PLOT_SIZE = args.MAX_PLOT_SIZE
         port = args.port
         filename = args.filename + '.csv'

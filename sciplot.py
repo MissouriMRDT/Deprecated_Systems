@@ -71,8 +71,21 @@ def serial_ports():
             pass
     return result
 
-def serial_check():
-    
+def serial_check(list_of_ports):
+    valid_ports = []
+    for port in list_of_ports:
+        testinput = serial.Serial(port, 9600)
+        try:
+            testinput.read()
+        except (NameError):
+            pass
+        else:
+            valid_ports.append(port)
+    if len(valid_ports == 1):
+        return port
+    else:
+        print("wrong number of availible ports, must be specified by -p tag")
+        print(valid_ports)
 
 def graph():
     global count

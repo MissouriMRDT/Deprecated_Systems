@@ -15,6 +15,8 @@ import numpy
 import matplotlib.pyplot as plt
 import csv
 import argparse
+import glob
+import sys
 
 global count
 global MAX_PLOT_SIZE
@@ -39,6 +41,35 @@ endData = 0
 plt.plot(graphStore, 'r,', label='Humidity')
 port = 0
 baudrate = 9600
+
+
+def serial_ports():
+    """ Lists serial port names
+
+        :raises EnvironmentError:
+            On unsupported or unknown platforms
+        :returns:
+            A list of the serial ports available on the system
+    """
+    if sys.platform.startswith('win'):
+        ports = ['COM%s' % (i + 1) for i in range(256)]
+    elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+        # this excludes your current terminal "/dev/tty"
+        ports = glob.glob('/dev/tty[A-Za-z]*')
+    elif sys.platform.startswith('darwin'):
+        ports = glob.glob('/dev/tty.*')
+    else:
+        return 0
+
+    result = []
+    for port in ports:
+        try:
+            s = serial.Serial(port)
+            s.close()
+            result.append(port)
+        except (OSError, serial.SerialException):
+            pass
+    return result
 
 
 
@@ -69,8 +100,14 @@ def graph():
         plt.pause(0.0001)
 
 def main():
+        portslist = serial_ports()
+        firstport = portslist[0]
+        
+        if firstport==0:
+                usage()
+        
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
-        parser.add_argument('-p', default="/dev/tty.usbmodem0F005721", action="store", dest="port",help="name of serial input")
+        parser.add_argument('-p', default=firstport, action="store", dest="port",help="name of serial input")
         parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")
         parser.add_argument('-f', default="sensor_data", action="store", dest="filename", help="name of file for data to be stored in")
         parser.add_argument('-m', default=7, action="store", dest="MAX_PLOT_SIZE", help="maximum size for x axis (recommended < 10)")
@@ -78,10 +115,10 @@ def main():
 
         args = parser.parse_args()
         global MAX_PLOT_SIZE
-        MAX_PLOT_SIZE = args.MAX_PLOT_SIZE
-        global port
-        port = args.port
         global filename
+        global port
+        MAX_PLOT_SIZE = args.MAX_PLOT_SIZE
+        port = args.port
         filename = args.filename + '.csv'
         serialData = serial.Serial(port, baudrate)
         sensor = args.sensor

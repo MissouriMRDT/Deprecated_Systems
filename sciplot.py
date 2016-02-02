@@ -71,15 +71,20 @@ def serial_ports():
             pass
     return result
 
+
 def serial_check(list_of_ports):
     valid_ports = []
     for port in list_of_ports:
-        testinput = serial.Serial(port, 9600)
+        testinput = serial.Serial(port, 9600, timeout=1)
+        print("testing input: ",port)
+        testdata = testinput.readline()
         try:
-            testinput.read()
+            testdata
         except (NameError):
+            print("passing port: ",port)
             pass
         else:
+            print("made it to else clause")
             valid_ports.append(port)
     if len(valid_ports == 1):
         return port
@@ -87,37 +92,40 @@ def serial_check(list_of_ports):
         print("wrong number of availible ports, must be specified by -p tag")
         print(valid_ports)
 
+
 def graph():
     global count
-        if (count < MAX_PLOT_SIZE):
-                plt.clf()
-                plt.scatter(count,graphStore[count])
-                plt.ylim(-5,100)
-                plt.grid(True)
-                plt.title(sensor)
-                plt.plot(graphStore)
-                plt.show()
-                count += 1
-        else:
-                plt.clf()
-                endData = count+1
-                beginData = (count - MAX_PLOT_SIZE)
-                dataRange = numpy.arange(beginData,(endData))
-                plt.ylim(-5,100)
-                plt.grid(True)
-                plt.title(sensor)
-                plt.scatter(dataRange,graphStore)
-                plt.plot(dataRange,graphStore)
-                plt.show
-                count += 1
-                graphStore.pop(0)
+    if (count < MAX_PLOT_SIZE):
+        plt.clf()
+        plt.scatter(count,graphStore[count])
+        plt.ylim(-5,100)
+        plt.grid(True)
+        plt.title(sensor)
+        plt.plot(graphStore)
+        plt.show()
+        count += 1
+    else:
+        plt.clf()
+        endData = count+1
+        beginData = (count - MAX_PLOT_SIZE)
+        dataRange = numpy.arange(beginData,(endData))
+        plt.ylim(-5,100)
+        plt.grid(True)
+        plt.title(sensor)
+        plt.scatter(dataRange,graphStore)
+        plt.plot(dataRange,graphStore)
+        plt.show
+        count += 1
+        graphStore.pop(0)
     plt.pause(0.0001)
 
 def main():
+        print("entered main")
         portslist = serial_ports()
+        print("found portslist")
+        print(portslist)
         serialport = serial_check(portslist)
-        print("found firstport")
-        print(firstport)
+        
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
         parser.add_argument('-p', default=serialport, action="store", dest="port",help="name of serial input")
         parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")

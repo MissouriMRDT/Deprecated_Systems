@@ -86,7 +86,7 @@ def serial_check(list_of_ports):
         else:
             print("made it to else clause")
             valid_ports.append(port)
-    if len(valid_ports == 1):
+    if len((valid_ports) == 1):
         return port
     else:
         print("wrong number of availible ports, must be specified by -p tag")

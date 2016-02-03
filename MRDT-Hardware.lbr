@@ -12,7 +12,7 @@
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="yes"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="yes"/>
 <layer number="6" name="Route6" color="1" fill="8" visible="no" active="yes"/>
 <layer number="7" name="Route7" color="4" fill="8" visible="no" active="yes"/>
 <layer number="8" name="Route8" color="1" fill="2" visible="no" active="yes"/>
@@ -54,7 +54,7 @@
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
@@ -70,13 +70,31 @@
 </layers>
 <library>
 <packages>
-<package name="#8_SCREW">
+<package name="M8_SCREW">
+<description>BOLT DIA.: .162"
+HOLE DIA.: .17"
+HEAD DIA.: .265"</description>
 <hole x="0" y="0" drill="4.318"/>
-<circle x="0" y="0" radius="3.429" width="0.127" layer="51"/>
-<wire x1="2.0828" y1="0" x2="0" y2="2.0828" width="0.127" layer="49" style="shortdash" curve="90"/>
-<wire x1="0" y1="2.0828" x2="-2.0828" y2="0" width="0.127" layer="49" style="shortdash" curve="90"/>
-<wire x1="-2.0828" y1="0" x2="0" y2="-2.0828" width="0.127" layer="49" style="shortdash" curve="90"/>
-<wire x1="0" y1="-2.0828" x2="2.0828" y2="0" width="0.127" layer="49" style="shortdash" curve="90"/>
+<circle x="0" y="0" radius="3.3655" width="0.127" layer="51"/>
+<dimension x1="2.033221875" y1="0.72615" x2="-2.033221875" y2="-0.72615" x3="-2.033221875" y3="-0.72615" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="5" visible="yes"/>
+<wire x1="0" y1="2.159" x2="2.159" y2="0" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="2.159" y1="0" x2="0" y2="-2.159" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="0" y1="-2.159" x2="-2.159" y2="0" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="-2.159" y1="0" x2="0" y2="2.159" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<dimension x1="3.3655" y1="0" x2="-3.3655" y2="0" x3="-3.3655" y3="0" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="6" visible="yes"/>
+</package>
+<package name="M6_SCREW">
+<description>BOLT DIA.: .136"
+HOLE DIA.: .14"
+HEAD DIA.: .22"</description>
+<circle x="0" y="0" radius="1.778" width="0.0254" layer="20"/>
+<dimension x1="1.257234375" y1="1.257234375" x2="-1.257234375" y2="-1.257234375" x3="-1.257234375" y3="-1.257234375" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="6" visible="yes"/>
+<circle x="0" y="0" radius="2.794" width="0.127" layer="51"/>
+<dimension x1="2.634715625" y1="0.9299" x2="-2.634715625" y2="-0.9299" x3="-2.634715625" y3="-0.9299" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="6" visible="yes"/>
+<wire x1="0" y1="-1.778" x2="-1.778" y2="0" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="-1.778" y1="0" x2="0" y2="1.778" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="0" y1="1.778" x2="1.778" y2="0" width="0.127" layer="49" style="shortdash" curve="-90"/>
+<wire x1="1.778" y1="0" x2="0" y2="-1.778" width="0.127" layer="49" style="shortdash" curve="-90"/>
 </package>
 </packages>
 <symbols>
@@ -91,11 +109,21 @@ HOLE</text>
 </symbols>
 <devicesets>
 <deviceset name="MOUNTING_HOLE">
+<description>Mounting hole for M6 bolt.
+Standard use mounting hole for:
+Tiva C Connected - M6
+Anderson Powerpole Mounting Wing - M8
+Most frame-mounted PCB's - M8</description>
 <gates>
 <gate name="G$1" symbol="MOUNTING_HOLES" x="0" y="0"/>
 </gates>
 <devices>
-<device name="#8" package="#8_SCREW">
+<device name="M8" package="M8_SCREW">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="M6" package="M6_SCREW">
 <technologies>
 <technology name=""/>
 </technologies>

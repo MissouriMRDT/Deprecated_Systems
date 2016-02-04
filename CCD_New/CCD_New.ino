@@ -15,7 +15,7 @@
 // Pixel Number : 3648 pixels
 // Pixel Size : 8 µm ×200 µm
 //
-// Clocked Data Synch Control Scheme:
+// Clocked Data Sync Control Scheme:
 //
 // Clock_In
 // Shift_Gate
@@ -29,8 +29,8 @@
 //////////////////////////
 
  int MASTER_CLOCK_CCD_PIN = 23;               // WriteTone Drive the Camera Master Clock at the MASTER_CLOCK_FREQ: 0.8 Mhz Min /2 Mhz Typical /4 Mhz Max
- int SHIFT_DATA_CCD_PIN = 24;                 // SynchTone Shift Pixel one at a time through the diode array at 1/4 MASTER_CLOCK_FREQ edge aligned 
- int INTEGRATE_DATA_CCD_PIN = 25;             // SynchTone Drive the Camera Data Transfer Clockt at 1/4 MASTER_CLOCK_FREQ edge aligned
+ int SHIFT_DATA_CCD_PIN = 24;                 // SyncTone Shift Pixel one at a time through the diode array at 1/4 MASTER_CLOCK_FREQ edge aligned 
+ int INTEGRATE_DATA_CCD_PIN = 25;             // SyncTone Drive the Camera Data Transfer Clockt at 1/4 MASTER_CLOCK_FREQ edge aligned
  int READ_DATA_CCD_PIN = 26;                  // AnalogRead each Pixel into a ccd_packet_data_buffer
  
 ////////////////////////// Todo: John Maruska : critique, review,rewrite, contrast, refactor, edit proccess Flow: 
@@ -84,11 +84,11 @@ const int clock_pin
 , const int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
 , const int read_data_pin
 //  , int read_byte_ticks
-, int ccd_picture_data[CCD_FOOTER_END_INDEX] // TODO: cannot convert 'int(*)[3694] to 'int*' 
+, int ccd_picture_data[] // TODO: cannot convert 'int(*)[3694] to 'int*' 
 );
 
 //////// RoveSci_CCD Private Method
-void RoveSci_CCD_SyncNextClockTick(int synch_to_clock_pin);
+void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin);
 
 /////////////////////////////////////////////////////////////////////////////Setup
 void setup()
@@ -97,7 +97,7 @@ void setup()
   pinMode(SHIFT_DATA_CCD_PIN, OUTPUT);     
   pinMode(INTEGRATE_DATA_CCD_PIN, OUTPUT);
   pinMode(READ_DATA_CCD_PIN, INPUT);    
-  //This tone.h PIN synchs the Hardware Sensor Master Clock AND our own Software Data Clock by digitalReadSelf(SYNCH_DATA_TRANSFER_PIN);
+  //This tone.h PIN syncs the Hardware Sensor Master Clock AND our own Software Data Clock by digitalReadSelf(SYNC_DATA_TRANSFER_PIN);
   //ToshibaMasterClock.begin(MasterClock_ToshibaCCD_Pin);
   Serial.begin(9600);
 }//end setup
@@ -125,13 +125,13 @@ void loop()
 ///////////////////////////////////////////////////////////////////////////End Sketch
 
 //Spins on a pin waiting and returns at a rising edge
-void RoveSci_CCD_SynchNextClockTick(int synch_to_clock_pin)
+void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin)
 {
-  bool clock_synched = false;
+  bool clock_synced = false;
 
-  while(!clock_synched)
+  while(!clock_synced)
   {   
-    clock_synched = digitalRead(synch_to_clock_pin);
+    clock_synced = digitalRead(sync_to_clock_pin);
   }//end while
 } //end_function
 
@@ -144,7 +144,7 @@ void RoveSci_CCD_ReadPacket(
   , const int shift_data_pin
   , const int integrate_data_pin
   , const int read_data_pin
-  , int ccd_picture_data [CCD_FOOTER_END_INDEX] // TODO: cannot convert 'int(*)[3694] to 'int*' 
+  , int ccd_picture_data [] // TODO: cannot convert 'int(*)[3694] to 'int*' 
   ){
   tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
 
@@ -152,7 +152,7 @@ void RoveSci_CCD_ReadPacket(
 
   // This digitalWrite block is to manually replicate the timing chart on the datasheet. 
   //wait for the next rising edge of master clock
-  RoveSci_CCD_SynchNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, LOW);
   digitalWrite(integrate_data_pin, HIGH);
 
@@ -189,7 +189,7 @@ void RoveSci_CCD_ReadPacket(
     data_read_count++;
   } // end while
 
-  RoveSci_CCD_SynchNextClockTick(clock_pin);
+  RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(shift_data_pin, LOW);
   digitalWrite(integrate_data_pin, HIGH);
 

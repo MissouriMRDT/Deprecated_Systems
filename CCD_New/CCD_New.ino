@@ -54,9 +54,9 @@
 ////////////////////////// ////////////////////////// ////////////////////////// 
 
 // CCD Data Protocol
-const int CCD_HEADER_END_INDEX              = 32;
-const int CCD_PIXEL_END_INDEX               = 3648 + CCD_HEADER_END_INDEX;
-const int CCD_FOOTER_END_INDEX              = 14 + CCD_PIXEL_END_INDEX;
+const int CCD_HEADER_END_INDEX     = 32;
+const int CCD_PIXEL_END_INDEX      = 3648 + CCD_HEADER_END_INDEX;
+const int CCD_FOOTER_END_INDEX     = 14 + CCD_PIXEL_END_INDEX;
 
 /////////////////////////////////////////////////////////////////////////////Begin Sketch
 
@@ -79,13 +79,12 @@ int ccd_packet_data_buffer[CCD_FOOTER_END_INDEX];
 //////// RoveSci_CCD Public Api
 void RoveSci_CCD_ReadPacket
 (
-int clock_pin
-, int shift_data_pin
-, int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
-, int read_data_pin
+const int clock_pin
+, const int shift_data_pin
+, const int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
+, const int read_data_pin
 //  , int read_byte_ticks
-, int* ccd_picture_data // TODO: cannot convert 'int(*)[3694] to 'int*' 
-, int read_bytes_count
+, int ccd_picture_data[CCD_FOOTER_END_INDEX] // TODO: cannot convert 'int(*)[3694] to 'int*' 
 );
 
 //////// RoveSci_CCD Private Method
@@ -112,8 +111,7 @@ void loop()
     , SHIFT_DATA_CCD_PIN
     , INTEGRATE_DATA_CCD_PIN
     , READ_DATA_CCD_PIN
-    , &ccd_packet_data_buffer // TODO: cannot convert 'int(*)[3694] to 'int*' 
-    , CCD_FOOTER_END_INDEX
+    , ccd_packet_data_buffer // TODO: cannot convert 'int(*)[3694] to 'int*' 
     ); // end function call
 
   delayMicroseconds(2);
@@ -142,12 +140,11 @@ void RoveSci_CCD_ReadPacket(
   //ToshibaMasterClock.play(TOSHIBA_MASTER_CLOCK_FREQ, READ_PACKET_DURATION);
 
   //function args
-  int clock_pin
-  , int shift_data_pin
-  , int integrate_data_pin
-  , int read_data_pin
-  , int* ccd_picture_data // TODO: cannot convert 'int(*)[3694] to 'int*' 
-  , int read_bytes_count
+  const int clock_pin
+  , const int shift_data_pin
+  , const int integrate_data_pin
+  , const int read_data_pin
+  , int ccd_picture_data [CCD_FOOTER_END_INDEX] // TODO: cannot convert 'int(*)[3694] to 'int*' 
   ){
   tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
 
@@ -178,7 +175,7 @@ void RoveSci_CCD_ReadPacket(
   digitalWrite(integrate_data_pin, HIGH);
 
   bool shift_toggle = HIGH;
-  while(ccd_picture_data[data_read_count] != read_bytes_count)
+  while(data_read_count != CCD_FOOTER_END_INDEX) 
   {
     digitalWrite(shift_data_pin, shift_toggle);
 
@@ -189,7 +186,7 @@ void RoveSci_CCD_ReadPacket(
     RoveSci_CCD_SyncNextClockTick(clock_pin);
 
     shift_toggle = !shift_toggle;
-    read_bytes_count++;
+    data_read_count++;
   } // end while
 
   RoveSci_CCD_SynchNextClockTick(clock_pin);

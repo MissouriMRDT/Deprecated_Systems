@@ -46,7 +46,7 @@ port = 0
 baudrate = 9600
 
 
-def serial_ports():
+def identify_serial():
     """ Lists serial port names
 
         :raises EnvironmentError:
@@ -56,6 +56,7 @@ def serial_ports():
         
     """
     # parses name of operating system and assigns corrolating prefix for serial port
+    # then checks which serial port is recieving data, and returns that
     
     if sys.platform.startswith('win'):
         ports = ['COM%s' % (i + 1) for i in range(256)]
@@ -75,12 +76,9 @@ def serial_ports():
             result.append(port)
         except (OSError, serial.SerialException):
             pass
-    return result
 
-
-def serial_check(list_of_ports): # TODO: integrate into serial_ports
     valid_ports = []
-    for port in list_of_ports:
+    for port in result:
         testinput = serial.Serial(port, 9600, timeout=.001)
         print("Testing serial input: ",port)
         testdata = testinput.readline()
@@ -133,9 +131,8 @@ def graph():
     plt.pause(0.0001)
 
 def main():
-        portslist = serial_ports()
-        print("Found list of availible serial inputs: ", portslist)
-        serialport = serial_check(portslist)
+        serialport = identify_serial()
+        
         
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
         parser.add_argument('-p', default='/dev/tty.usbmodem1411', action="store", dest="port",help="name of serial input")
@@ -145,6 +142,7 @@ def main():
         parser.add_argument('-s', default="humidity", action="store", dest="sensor", help="sensor being used, in order to correctly title plot")
 
         args = parser.parse_args()
+                                # reed to specify global variables for modification
         global MAX_PLOT_SIZE
         global filename
         global port

@@ -34,7 +34,7 @@
  int INTEGRATE_DATA_CCD_PIN = 25;             // SyncTone Drive the Camera Data Transfer Clockt at 1/4 MASTER_CLOCK_FREQ edge aligned
  int READ_DATA_CCD_PIN = 26;                  // AnalogRead each Pixel into a ccd_packet_data_buffer
  
-////////////////////////// Todo: John Maruska : critique, review,rewrite, contrast, refactor, edit proccess Flow: 
+////////////////////////// Todo: Test, consolidate code 
 //Page2 http://www.eureca.de/datasheets/01.xx.xxxx/01.04.xxxx/01.04.0060/TCD1304DG.pdf
 // Reset : the Clear Gate and Shift Gate
 // Shift the diode sum value of each pixel into the Register as a single step on 3648 light sensing diode array
@@ -85,7 +85,7 @@ const int clock_pin
 , const int integrate_data_pin  // TODO: Figure out exact ICG stuff for better name
 , const int read_data_pin
 //  , int read_byte_ticks
-, int ccd_picture_data[] // TODO: cannot convert 'int(*)[3694] to 'int*' 
+, int ccd_picture_data[]
 );
 
 void RoveSci_CCD_PrintPacket(int ccd_picture_data []);
@@ -114,7 +114,7 @@ void loop()
     , SHIFT_DATA_CCD_PIN
     , INTEGRATE_DATA_CCD_PIN
     , READ_DATA_CCD_PIN
-    , ccd_packet_data_buffer // TODO: cannot convert 'int(*)[3694] to 'int*' 
+    , ccd_packet_data_buffer 
     ); // end function call
 
   delayMicroseconds(2);
@@ -158,7 +158,7 @@ void RoveSci_CCD_ReadPacket(
   , const int shift_data_pin
   , const int integrate_data_pin
   , const int read_data_pin
-  , int ccd_picture_data [] // TODO: cannot convert 'int(*)[3694] to 'int*' 
+  , int ccd_picture_data [] 
   ){
   tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
 
@@ -227,7 +227,7 @@ void RoveSci_CCD_ReadPacket(
 
   noTone(clock_pin);
 
-  //TODO? RoveSci_CCDParsePacket(&ccd_packet_data_buffer);
+  RoveSci_CCD_PrintPacket(&ccd_packet_data_buffer);
 
 }//end function
 

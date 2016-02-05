@@ -6,6 +6,8 @@
 // Software Sketch of a Rover Device to read Raman Spectrometer Camera using Toshiba TCD1304DG
 //////////////////////////
 
+#include <wiring_private.h>
+
 ////////////////////////// The TCD1304DG is a high sensitive and low dark current pn Photodiode CCD
 // Sample and Hold: 22 PinCERDIP
 //
@@ -138,11 +140,17 @@ void RoveSci_CCD_PrintPacket(int ccd_picture_data [])
 //Spins on a pin waiting and returns at a rising edge
 void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin)
 {
+  bool pin_level = true;      // = true to please SpaceX. We offer as tribute.
   bool clock_synced = false;
-
+  
   while(!clock_synced)
-  {   
-    clock_synced = digitalRead(sync_to_clock_pin);
+  {  
+    pin_level = digitalRead(sync_to_clock_pin);
+    if(pin_level = false)
+    {
+      while(!clock_synced)
+         clock_synced = digitalRead(sync_to_clock_pin);
+    }
   }//end while
 } //end_function
 
@@ -157,8 +165,9 @@ void RoveSci_CCD_ReadPacket(
   , const int read_data_pin
   , int ccd_picture_data [] 
   ){
-  tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
-
+//  tone(clock_pin, CCD_MASTER_CLOCK_FREQ);
+  PWMWrite(clock_pin, 4096, (4096 / 2), CCD_MASTER_CLOCK_FREQ);
+  
   int data_read_count = 0; 
 
   // This digitalWrite block is to manually replicate the timing chart on the datasheet. 
@@ -222,7 +231,8 @@ void RoveSci_CCD_ReadPacket(
   RoveSci_CCD_SyncNextClockTick(clock_pin);
   digitalWrite(integrate_data_pin, HIGH);
 
-  noTone(clock_pin);
+//  noTone(clock_pin);
+  PWMWrite(clock_pin, 0, 0, CCD_MASTER_CLOCK_FREQ);
 
   RoveSci_CCD_PrintPacket(ccd_packet_data_buffer);
 

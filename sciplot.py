@@ -18,29 +18,28 @@ import argparse
 import glob
 import sys
 
-global count
+global data_count
 global MAX_PLOT_SIZE
-global beginData
-global endData
-global filename
+global begin_data
+global end_data
+global file_name
 global port
-global sensor
+global sensor_type
 
-count = 0
-relativeCount = []
+data_count = 0
+relative_count = []
 plt.ion()
-dataStore = []
-graphStore = []
+data_store = []
+graph_store = []
 
 MAX_PLOT_SIZE = 7
 
-dataRange = []
-beginData = 0
-endData = 0
+data_range = []
+begin_data = 0
+end_data = 0
 
-plt.plot(graphStore, 'r,', label='Humidity')
 port = 0
-baudrate = 9600
+baud_rate = 9600
 
 
 def serial_ports():
@@ -75,11 +74,11 @@ def serial_ports():
 def serial_check(list_of_ports):
     valid_ports = []
     for port in list_of_ports:
-        testinput = serial.Serial(port, 9600, timeout=.001)
+        test_input = serial.Serial(port, 9600, timeout=.001)
         print("Testing serial input: ",port)
-        testdata = testinput.readline()
+        test_data = test_input.readline()
         try:
-            print(float(testdata))
+            print(float(test_data))
         except (NameError, ValueError):
             print("Serial input invalid: ",port)
             pass
@@ -95,63 +94,63 @@ def serial_check(list_of_ports):
 
 def graph():
     global count
-    if (count < MAX_PLOT_SIZE):
-        plt.clf()
+    if (count < MAX_PLOT_SIZE):                 # hold graph still
+        plt.clf()                               # clear current plot
         plt.scatter(count,graphStore[count])
         plt.ylim(-5,100)
         plt.grid(True)
-        plt.title(sensor)
-        plt.plot(graphStore)
+        plt.title(sensor_type)
+        plt.plot(graph_store)
         plt.show()
         count += 1
-    else:
+    else:                                       # start scrolling graph
         plt.clf()
-        endData = count+1
-        beginData = (count - MAX_PLOT_SIZE)
-        dataRange = numpy.arange(beginData,(endData))
+        end_data = count+1
+        begin_data = (data_count - MAX_PLOT_SIZE)
+        data_range = numpy.arange(begin_data,(end_data))
         plt.ylim(-5,100)
         plt.grid(True)
-        plt.title(sensor)
-        plt.scatter(dataRange,graphStore)
-        plt.plot(dataRange,graphStore)
+        plt.title(sensor_type)
+        plt.scatter(data_range,graph_store)
+        plt.plot(data_range,graph_store)
         plt.show
         count += 1
-        graphStore.pop(0)
+        graph_store.pop(0)
     plt.pause(0.0001)
 
 def main():
-        portslist = serial_ports()
-        print("Found list of availible serial inputs: ", portslist)
-        serialport = serial_check(portslist)
+        ports_list = serial_ports()
+        print("Found list of availible serial inputs: ", ports_list)
+        serial_port = serial_check(ports_list)
         
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
-        parser.add_argument('-p', default=serialport, action="store", dest="port",help="name of serial input")
+        parser.add_argument('-p', default=serial_port, action="store", dest="port",help="name of serial input")
         parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")
-        parser.add_argument('-f', default="sensor_data", action="store", dest="filename", help="name of file for data to be stored in")
+        parser.add_argument('-f', default="sensor_data", action="store", dest="file_name", help="name of file for data to be stored in")
         parser.add_argument('-m', default=7, action="store", dest="MAX_PLOT_SIZE", help="maximum size for x axis (recommended < 10)")
-        parser.add_argument('-s', default="Sensor Data", action="store", dest="sensor", help="sensor being used, in order to correctly title plot")
+        parser.add_argument('-s', default="Sensor Data", action="store", dest="sensor_type", help="sensor being used, in order to correctly title plot")
 
         args = parser.parse_args()
         global MAX_PLOT_SIZE
-        global filename
+        global file_name
         global port
-        global sensor
+        global sensor_type
         MAX_PLOT_SIZE = args.MAX_PLOT_SIZE
         port = args.port
-        filename = args.filename + '.csv'
-        serialData = serial.Serial(port, baudrate)
-        sensor = args.sensor
+        file_name = args.file_name + '.csv'
+        serial_data = serial.Serial(port, baud_rate)
+        sensor_type = args.sensor_type
         while(True):
                 
                 try:
-                        y = float(serialData.readline())
-                        dataStore.append(y)
-                        graphStore.append(y)
+                        y = float(serial_data.readline())
+                        data_store.append(y)
+                        graph_store.append(y)
                         graph()
                 except(KeyboardInterrupt,SystemExit):
-                        with open(filename,'w') as data_output:
+                        with open(file_name,'w') as data_output:
                                 datawriter = csv.writer(data_output, delimiter = ',')
-                                datawriter.writerow(dataStore)
+                                datawriter.writerow(data_store)
 
 if __name__=="__main__":
         main()

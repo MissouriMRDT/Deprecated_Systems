@@ -1,6 +1,7 @@
 
 ////////////////////////// Missouri Science and Technology Mars Rover Design Team 2015
 // Judah Schad jrs6w7@mst.edu
+// John Maruska jwmbq6@mst.edu
 //
 // Software Sketch of a Rover Device to read Raman Spectrometer Camera using Toshiba TCD1304DG
 //////////////////////////
@@ -87,6 +88,8 @@ const int clock_pin
 , int ccd_picture_data[] // TODO: cannot convert 'int(*)[3694] to 'int*' 
 );
 
+void RoveSci_CCD_PrintPacket(int ccd_picture_data []);
+
 //////// RoveSci_CCD Private Method
 void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin);
 
@@ -116,13 +119,24 @@ void loop()
 
   delayMicroseconds(2);
 
-  // TODO: Serial.println(ccd_packet_data_buffer); 
-  // data_buffer is an array of 3964 elements. Need to create a custom print function. 
+  RoveSci_CCD_PrintPacket(ccd_packet_data_buffer); // TODO : Check that values are held after ReadPacket function completes
   
   delayMicroseconds(2); // Why are we delaying on each side of the println? 
 
 }//end loop
 ///////////////////////////////////////////////////////////////////////////End Sketch
+
+void RoveSci_CCD_PrintPacket(int ccd_picture_data [])
+{
+   for(int i = 0; i < CCD_FOOTER_END_INDEX; i++)
+  {
+    if(i >= CCD_HEADER_END_INDEX && i < CCD_PIXEL_END_INDEX)
+    {
+      Serial.println(ccd_picture_data[i]);
+    }
+  } 
+  return;
+}
 
 //Spins on a pin waiting and returns at a rising edge
 void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin)

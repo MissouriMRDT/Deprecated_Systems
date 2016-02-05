@@ -47,14 +47,8 @@ baudrate = 9600
 
 
 def identify_serial():
-    """ Lists serial port names
-
-        :raises EnvironmentError:
-            On unsupported or unknown platforms
-        :returns:
-            A list of the serial ports available on the system
+   
         
-    """
     # parses name of operating system and assigns corrolating prefix for serial port
     # then checks which serial port is recieving data, and returns that
     

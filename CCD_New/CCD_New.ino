@@ -88,7 +88,7 @@ const int clock_pin
 , int ccd_picture_data[]
 );
 
-void RoveSci_CCD_PrintPacket(int ccd_picture_data []);
+void RoveSci_CCD_PrintPacket(int ccd_picture_data[]);
 
 //////// RoveSci_CCD Private Method
 void RoveSci_CCD_SyncNextClockTick(int sync_to_clock_pin);
@@ -116,11 +116,8 @@ void loop()
     , READ_DATA_CCD_PIN
     , ccd_packet_data_buffer 
     ); // end function call
-
   delayMicroseconds(2);
-
-  RoveSci_CCD_PrintPacket(ccd_packet_data_buffer); // TODO : Check that values are held after ReadPacket function completes
-  
+  RoveSci_CCD_PrintPacket(ccd_packet_data_buffer);
   delayMicroseconds(2); // Why are we delaying on each side of the println? 
 
 }//end loop

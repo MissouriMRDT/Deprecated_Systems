@@ -227,7 +227,7 @@ void RoveSci_CCD_ReadPacket(
 
   noTone(clock_pin);
 
-  RoveSci_CCD_PrintPacket(&ccd_packet_data_buffer);
+  RoveSci_CCD_PrintPacket(ccd_packet_data_buffer);
 
 }//end function
 

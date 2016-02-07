@@ -3,22 +3,26 @@
 // Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-#ifndef ROVELOOPS_H_
-#define ROVELOOPS_H_
-#pragma once
 
-#include <ti/sysbios/BIOS.h>
-#include <ti/sysbios/knl/Task.h>
+#include "RoveLoops.h"
 
-//roveTiRtos Interface Object
-typedef ti_sysbios_knl_Task_FuncPtr roveLoopPtr;
+//roveTiRtos Interface Constructor
+void roveBoard_LOOP_open(roveLoopPtr loop_Ptr, UInt loop_Pri)
+{
+    //construct
+    Task_Params roveLoop_Params;
+    Task_Params_init(&roveLoop_Params);
+
+    //config
+    roveLoop_Params.priority = loop_Pri;
+    Task_create (loop_Ptr, &roveLoop_Params, NULL);
+}//end fnctn
+
+
 
 // == RoveLoopsCCS List ==============
 //
-#define FOREVER 1
-
-
-
+/*
 // == TODO::LOOP_TWO_DEVELOPER ==============
 //
 Void roveLOOP_two(UArg arg0, UArg arg1)
@@ -50,18 +54,4 @@ Void roveLOOP_three(UArg arg0, UArg arg1)
 //Etc....Max of 16 Loops awakened/slept on rtos priority ..
 
 
-
-
-//roveTiRtos Interface Constructor
-void roveBoard_LOOP_open(roveLoopPtr loop_Ptr, UInt loop_Pri)
-{
-    //construct
-    Task_Params roveLoop_Params;
-    Task_Params_init(&roveLoop_Params);
-
-    //config
-    roveLoop_Params.priority = loop_Pri;
-    Task_create (loop_Ptr, &roveLoop_Params, NULL);
-}//end fnctn
-
-#endif // ROVELOOPS_H_
+*/

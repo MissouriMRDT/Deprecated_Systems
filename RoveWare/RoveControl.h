@@ -6,11 +6,17 @@
 #define ROVECONTROL_H_
 #pragma once
 
+#include "../RoveBoard/RoveBoard.h"
+
+//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
+void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
+
+#endif // ROVECONTROL_H_
+
+
 
 // roveWare Upgrades Version 2 Release
 
-
-#endif // ROVECONTROL_H_
 
 
 //Standard C lib

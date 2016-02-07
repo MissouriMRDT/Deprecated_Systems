@@ -22,19 +22,20 @@ typedef unsigned int roveIP;
 
 typedef enum
 {
-    ROVE_ETHERNET_ERROR_SUCCESS = 0
-    ,ROVE_ETHERNET_ERROR_UNKOWN = -1
-    //,roveBoard_ERROR_KNOWN = -2
+  ROVE_ETHERNET_ERROR_SUCCESS       =  0,
+  ROVE_ETHERNET_ERROR_UNKNOWN       = -1,
+  ROVE_ETHERNET_ERROR_SOCKET_IN_USE = -2,
+  ROVE_ETHERNET_ERROR_HOST_DOWN     = -3,
+  ROVE_ETHERNET_ERROR_WOULD_BLOCK   = -4
 } roveEthernet_Error;
-
 
 int roveCommSocket;
 struct sockaddr_in roveCommAddr;
-/*
+
 void roveNetworkingStart(roveIP myIP);
-void roveUdpSocketListen(uint16_t port);
-bool RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* const msg, size_t msgSize);
-bool RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize);
+roveEthernet_Error roveUdpSocketListen(uint16_t port);
+roveEthernet_Error RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t* msg, size_t msgSize);
+roveEthernet_Error RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize);
 roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet);
-*/
+
 #endif // ROVEETHERNET_H_

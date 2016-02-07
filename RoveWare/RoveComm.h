@@ -14,8 +14,6 @@
 //Rover Wrappers for hardware specific ip network access
 #include "../RoveBoard/RoveEthernet.h"
 
-
-
 // == Public API ========
 //
 //Todo Gbenga-> one line Api explanation

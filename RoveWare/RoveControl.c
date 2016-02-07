@@ -10,12 +10,38 @@
 // mrdt::rovWare
 #include "RoveControl.h"
 
+///////////////::BEGIN//////Horizon Assets ////////////////////////
+
+//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
+void roveDriveMotor_ByPWM(rovePWM_Handle motor, int16_t speed){
+
+    int16_t microseconds;
+
+    //scale down to the final range to be between 1000 and 2000
+    microseconds = speed / 2;
+
+    //offset so that 1500 is neutral
+    microseconds += 1500;
+
+    //protect the upper bound on motor pulse width
+    if (microseconds > 2000) {
+
+        microseconds = 2000;
+    }//endif
+
+    //protect the lower bound on motor pulse width
+    if (microseconds < 1000) {
+
+        microseconds = 1000;
+    }//endif
+
+    roveBoard_PWM_write(motor, microseconds);
+    return;
+} //endfnctn
+
 
 
 // roveWare Upgrades Version 2 Release
-
-
-
 /* TODO Judah Factor Out Dev Shorthand
 //Private
 typedef enum ROVECNTRL_AX_12
@@ -667,38 +693,6 @@ int readLoad(unsigned char ID)
 
 
 
-///////////////::BEGIN//////Horizon Assets ////////////////////////
-
-
-
-// Judah TODO
-//standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
-void roveDriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
-void roveDriveMotor_ByPWM(rovePWM_Handle motor, int16_t speed){
-
-    int16_t microseconds;
-
-    //scale down to the final range to be between 1000 and 2000
-    microseconds = speed / 2;
-
-    //offset so that 1500 is neutral
-    microseconds += 1500;
-
-    //protect the upper bound on motor pulse width
-    if (microseconds > 2000) {
-
-        microseconds = 2000;
-    }//endif
-
-    //protect the lower bound on motor pulse width
-    if (microseconds < 1000) {
-
-        microseconds = 1000;
-    }//endif
-
-    rovePWM_Write(motor, microseconds);
-    return;
-} //endfnctn
 
 
 

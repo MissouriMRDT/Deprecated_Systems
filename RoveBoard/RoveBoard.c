@@ -189,7 +189,7 @@ roveBoard_ERROR roveBoard_CCP_read(roveCCP_Handle ccp, void* read_buffer, unsign
     return ROVE_BOARD_ERROR_SUCCESS;
 }//endfnctn
 
-*/
+
 
 
 
@@ -210,23 +210,12 @@ roveADC_Handle roveBoard_ADC_open(unsigned int adc_index, unsigned int adc_flags
     //TODO
     roveADC_Handle ADC_Handle = NULL;
 
+    //        ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+    //        ROM_GPIOPinTypeADC((uint32_t) portBASERegister(port), digitalPinToBitMask(pin));
 
-    /*reed
-    uint32_t output;
-    const uint32_t MY_SEQUENCER_INDEX = 0;
-    const uint32_t HIGHEST_PRIORITY = 0;
-    // Enable the first sample sequencer to capture the value of channel MY_SEQUENCER_INDEX when the processor trigger occurs.
-    ADCSequenceConfigure(ADC0_BASE, MY_SEQUENCER_INDEX, ADC_TRIGGER_PROCESSOR, HIGHEST_PRIORITY);
-    ADCSequenceStepConfigure(ADC0_BASE, MY_SEQUENCER_INDEX, 0, ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH0);
-    ADCSequenceEnable(ADC0_BASE, MY_SEQUENCER_INDEX);
-    // Trigger the sample sequence.
-    ADCProcessorTrigger(ADC0_BASE, MY_SEQUENCER_INDEX);
-    // Wait until the sample sequence has completed.
-    while(!ADCIntStatus(ADC0_BASE, MY_SEQUENCER_INDEX, false));
-    // Read the value from the ADC.
-    ADCSequenceDataGet(ADC0_BASE, MY_SEQUENCER_INDEX, &output);
-*/
-
+    // Enable the first sample sequencer to capture the value of channel SEQUENCER_INDEX when the processor trigger occurs.
+    ADCSequenceConfigure(ADC0_BASE, adc_index, ADC_TRIGGER_PROCESSOR, 0);
+    ADCSequenceStepConfigure(ADC0_BASE, adc_index, 0, ADC_CTL_CH0 | ADC_CTL_IE | ADC_CTL_END);
 
     //UInt adcParams;
     if (ADC_Handle == NULL) {
@@ -235,6 +224,68 @@ roveADC_Handle roveBoard_ADC_open(unsigned int adc_index, unsigned int adc_flags
 
     return ADC_Handle;
 }//endfnct
+
+roveBoard_ERROR roveBoard_ADC_read(roveADC_Handle adc, void* read_buffer, unsigned int read_flag)
+{
+    uint32_t adc_read = 0;
+
+    ADCSequenceEnable(ADC0_BASE, SEQUENCER_INDEX);
+
+    // Trigger the sample sequence.
+    ADCProcessorTrigger(ADC0_BASE, SEQUENCER_INDEX);
+
+    // Wait until the sample sequence has completed.
+    while(!ADCIntStatus(ADC0_BASE, SEQUENCER_INDEX, false));
+
+   // ROM_ADCIntClear(ADC0_BASE, 3);
+   // ROM_ADCProcessorTrigger(ADC0_BASE, 3);
+
+    // Read the value from the ADC.
+    ADCSequenceDataGet(ADC0_BASE, SEQUENCER_INDEX, &adc_read);
+
+    //ROM_ADCIntClear(ADC0_BASE, 3);
+
+    if(adc_read <= 0){
+       return ROVE_BOARD_ERROR_UNKNOWN;
+     }//end if
+
+     return ROVE_BOARD_ERROR_SUCCESS;
+ }//endfnctn
+
+
+    uint16_t analogRead(uint8_t pin) {
+
+        uint8_t port = digitalPinToPort(pin);
+
+        uint16_t value[1];
+        uint32_t channel = digitalPinToADCIn(pin);
+
+
+        if (channel == NOT_ON_ADC) { //invalid ADC pin
+            return 0;
+        }
+
+        ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+        if(channel != ADC_CTL_TS)
+            ROM_GPIOPinTypeADC((uint32_t) portBASERegister(port), digitalPinToBitMask(pin));
+
+        ROM_ADCSequenceConfigure(ADC0_BASE, 3, ADC_TRIGGER_PROCESSOR, 0);
+        ROM_ADCSequenceStepConfigure(ADC0_BASE, 3, 0, channel | ADC_CTL_IE | ADC_CTL_END);
+        ROM_ADCSequenceEnable(ADC0_BASE, 3);
+
+        ROM_ADCIntClear(ADC0_BASE, 3);
+        ROM_ADCProcessorTrigger(ADC0_BASE, 3);
+
+        while(!ROM_ADCIntStatus(ADC0_BASE, 3, false)) {
+        }//endwhile
+
+        ROM_ADCIntClear(ADC0_BASE, 3);
+        ROM_ADCSequenceDataGet(ADC0_BASE, 3, (unsigned long*) value);
+
+        return mapResolution(value[0], 12, _readResolution);
+    }
+*/
+
 
 
 

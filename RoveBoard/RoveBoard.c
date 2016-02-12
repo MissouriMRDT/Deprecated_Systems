@@ -146,6 +146,31 @@ roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, siz
 
 
 /*
+roveWatchdog_Handle roveBoard_WATCHDOG_open(unsigned int watchdog_index)
+{
+  Watchdog_Handle watchdogHandle;
+  Watchdog_Params watchdogParams;
+
+  // Create and enable a Watchdog with resets enabled
+  Watchdog_Params_init(&watchdogParams);
+  params.callbackFxn = watchdog_callback;
+  params.resetMode = Watchdog_RESET_ON;
+
+  watchdogHandle = Watchdog_open(watchdog_index, &watchdogParams);
+  if (watchdog == NULL) {
+      System_abort("Error opening Watchdog!\n");
+  }
+  Watchdog_clear(watchdogHandle);
+
+    return watchdogHandle;
+}//endfnctn
+
+void watchdog_callback(UArg handle)
+{
+    return;
+}*/
+
+/*
  * //typedef CCP_Handle roveCCP_Handle;
 roveCCP_Handle ccpHandle;
 roveCCP_Params ccpParams;

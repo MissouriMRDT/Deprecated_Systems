@@ -7,6 +7,10 @@
 #define ROVECOMM_H_
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //Standard C lib
 #include <stdio.h>
 #include <stdint.h>
@@ -17,12 +21,16 @@
 // == Public API ========
 //
 //Todo Gbenga-> one line Api explanation
-void RoveCommBegin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet);
+void roveComm_Begin(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet);
 
 //Todo Gbenga-> one line Api explanation
-void RoveCommGetMsg(uint16_t* dataID, size_t* size, void* data);
+void roveComm_GetMsg(uint16_t* dataID, size_t* size, void* data);
 
 //Todo Gbenga-> one line Api explanation
-void RoveCommSendMsg(uint16_t dataID, size_t size, const void* const data);
+void roveComm_SendMsg(uint16_t dataID, size_t size, const void* const data);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // ROVECOMM_H_

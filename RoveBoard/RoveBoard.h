@@ -41,5 +41,10 @@ roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, s
 roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read);
 
 
+
+//typedef Watchdog_Handle roveWatchdog_Handle;
+//roveWatchdog_Handle roveBoard_WATCHDOG_open(unsigned int watchdog_index)
+
+
 #endif //ROVEBOARD_TIVA1294_H_
 

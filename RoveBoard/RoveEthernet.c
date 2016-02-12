@@ -21,9 +21,9 @@
 int roveCommSocket;
 struct sockaddr_in roveCommAddr;
 
-void roveNetworkingStart(roveIP myIP) {}
+void roveEthernet_NetworkingStart(roveIP myIP) {}
 
-roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet)
+roveIP roveEthernet_SetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet)
 {
   uint32_t temp = 0;
 
@@ -31,7 +31,7 @@ roveIP roveSetIP(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet,
   return (roveIP)temp;
 }
 
-roveEthernet_Error roveUdpSocketListen(uint16_t port)
+roveEthernet_Error roveEthernet_UdpSocketListen(uint16_t port)
 {
   roveCommSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
@@ -57,7 +57,7 @@ roveEthernet_Error roveUdpSocketListen(uint16_t port)
   return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-roveEthernet_Error RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t * msg, size_t msgSize)
+roveEthernet_Error roveEthernet_SendUdpPacket(roveIP destIP, uint16_t destPort, const uint8_t * msg, size_t msgSize)
 {
   struct sockaddr_in destination;
   ssize_t sendSize;
@@ -83,7 +83,7 @@ roveEthernet_Error RoveCommSendUdpPacket(roveIP destIP, uint16_t destPort, const
   return ROVE_ETHERNET_ERROR_SUCCESS;
 }
 
-roveEthernet_Error RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize)
+roveEthernet_Error roveEthernet_GetUdpMsg(roveIP* senderIP, void* buffer, size_t bufferSize)
 {
   struct sockaddr_in incoming;
   ssize_t recsize;
@@ -106,3 +106,9 @@ roveEthernet_Error RoveCommGetUdpMsg(roveIP* senderIP, void* buffer, size_t buff
   *senderIP = incoming.sin_addr.s_addr;
   return ROVE_ETHERNET_ERROR_SUCCESS;
 }
+
+
+
+#ifdef __cplusplus
+}
+#endif

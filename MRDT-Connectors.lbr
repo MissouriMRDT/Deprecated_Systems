@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -877,7 +877,41 @@
 <vertex x="24.511" y="7.62"/>
 </polygon>
 </package>
-<package name="MOLEX_MICROFIT30_3POS_HORIZ">
+<package name="MOLEX_MICROFIT3.0_3POS_HORIZ_PTH">
+<wire x1="1.524" y1="0" x2="0" y2="1.524" width="0.127" layer="51"/>
+<wire x1="0" y1="1.524" x2="0" y2="9.906" width="0.127" layer="51"/>
+<wire x1="0" y1="9.906" x2="12.6492" y2="9.906" width="0.127" layer="51"/>
+<wire x1="12.6492" y1="9.906" x2="12.6492" y2="1.524" width="0.127" layer="51"/>
+<wire x1="12.6492" y1="1.524" x2="11.1252" y2="0" width="0.127" layer="51"/>
+<wire x1="11.1252" y1="0" x2="1.524" y2="0" width="0.127" layer="51"/>
+<hole x="6.3246" y="4.572" drill="2.9972"/>
+<pad name="2" x="6.3246" y="8.89" drill="1.016"/>
+<pad name="1" x="9.3218" y="8.89" drill="1.016"/>
+<pad name="3" x="3.3274" y="8.89" drill="1.016"/>
+<wire x1="11.1252" y1="0" x2="11.1252" y2="-7.6454" width="0.127" layer="49" style="shortdash"/>
+<wire x1="11.1252" y1="-7.6454" x2="1.524" y2="-7.6454" width="0.127" layer="49" style="shortdash"/>
+<wire x1="1.524" y1="-7.6454" x2="1.524" y2="0" width="0.127" layer="49" style="shortdash"/>
+<text x="9.144" y="6.858" size="0.6096" layer="21">1</text>
+</package>
+<package name="MOLEX_MICROFIT3.0_6POS_HORIZ_PTH">
+<wire x1="1.524" y1="0" x2="0" y2="1.524" width="0.127" layer="51"/>
+<wire x1="0" y1="1.524" x2="0" y2="9.906" width="0.127" layer="51"/>
+<wire x1="0" y1="9.906" x2="21.6408" y2="9.906" width="0.127" layer="51"/>
+<wire x1="21.6408" y1="9.906" x2="21.6408" y2="1.524" width="0.127" layer="51"/>
+<wire x1="21.6408" y1="1.524" x2="20.1168" y2="0" width="0.127" layer="51"/>
+<wire x1="20.1168" y1="0" x2="1.524" y2="0" width="0.127" layer="51"/>
+<hole x="5.4864" y="4.572" drill="2.9972"/>
+<pad name="5" x="6.3246" y="8.89" drill="1.016"/>
+<pad name="4" x="9.3218" y="8.89" drill="1.016"/>
+<pad name="6" x="3.3274" y="8.89" drill="1.016"/>
+<wire x1="20.1168" y1="0" x2="20.1168" y2="-7.6454" width="0.127" layer="49" style="shortdash"/>
+<wire x1="20.1168" y1="-7.6454" x2="1.524" y2="-7.6454" width="0.127" layer="49" style="shortdash"/>
+<wire x1="1.524" y1="-7.6454" x2="1.524" y2="0" width="0.127" layer="49" style="shortdash"/>
+<pad name="2" x="15.3162" y="8.89" drill="1.016"/>
+<pad name="1" x="18.3134" y="8.89" drill="1.016"/>
+<pad name="3" x="12.319" y="8.89" drill="1.016"/>
+<hole x="16.1798" y="4.572" drill="2.9972"/>
+<text x="18.034" y="6.858" size="0.6096" layer="21">1</text>
 </package>
 </packages>
 <symbols>
@@ -915,11 +949,30 @@
 <wire x1="0" y1="10.16" x2="0" y2="0" width="0.4064" layer="94"/>
 <wire x1="6.35" y1="0" x2="6.35" y2="10.16" width="0.4064" layer="94"/>
 <wire x1="0" y1="10.16" x2="6.35" y2="10.16" width="0.4064" layer="94"/>
-<text x="0" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <text x="0" y="10.922" size="1.778" layer="95">&gt;NAME</text>
 <pin name="1" x="10.16" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="2" x="10.16" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="3" x="10.16" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="M06">
+<wire x1="6.35" y1="0" x2="0" y2="0" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="7.62" x2="5.08" y2="7.62" width="0.6096" layer="94"/>
+<wire x1="3.81" y1="5.08" x2="5.08" y2="5.08" width="0.6096" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="0" y1="17.78" x2="0" y2="0" width="0.4064" layer="94"/>
+<wire x1="6.35" y1="0" x2="6.35" y2="17.78" width="0.4064" layer="94"/>
+<wire x1="0" y1="17.78" x2="6.35" y2="17.78" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="12.7" x2="5.08" y2="12.7" width="0.6096" layer="94"/>
+<wire x1="3.81" y1="10.16" x2="5.08" y2="10.16" width="0.6096" layer="94"/>
+<wire x1="3.81" y1="15.24" x2="5.08" y2="15.24" width="0.6096" layer="94"/>
+<text x="0" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<text x="0" y="18.542" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="10.16" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="10.16" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="3" x="10.16" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="10.16" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="5" x="10.16" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="6" x="10.16" y="15.24" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1110,6 +1163,43 @@
 <attribute name="MFR" value="Stewart Connectors"/>
 <attribute name="MFR_PN" value="SS-82000-002"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="M03">
+<gates>
+<gate name="G$1" symbol="M03" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MOLEX_MICROFIT3.0_3POS_HORIZ_PTH">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="M06">
+<gates>
+<gate name="G$1" symbol="M06" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MOLEX_MICROFIT3.0_6POS_HORIZ_PTH">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

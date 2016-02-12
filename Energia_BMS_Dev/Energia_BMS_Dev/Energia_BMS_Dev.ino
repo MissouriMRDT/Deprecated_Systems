@@ -34,8 +34,9 @@
 void setup() 
 {
   SPI.begin(); 
+  SPI.transfer(TODO_DATA_BMS_ON);
+  
   pinMode(ESTOP_ONE, INPUT);
-  SPI.transfer(TODO_DATA_BMS_OFF);
   
 }//end setup
 

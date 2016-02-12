@@ -141,16 +141,15 @@ def main():
         serial_data = serial.Serial(port, baud_rate)
         sensor_type = args.sensor_type
         while(True):
-                
-                try:
-                        y = float(serial_data.readline())
-                        data_store.append(y)
-                        graph_store.append(y)
-                        graph()
-                except(KeyboardInterrupt,SystemExit):
-                        with open(file_name,'w') as data_output:
-                                datawriter = csv.writer(data_output, delimiter = ',')
-                                datawriter.writerow(data_store)
-
+            try:
+                y = float(serial_data.readline())
+                data_store.append(y)
+                graph_store.append(y)
+                graph()
+            except(KeyboardInterrupt,SystemExit):
+                with open(file_name,'w') as data_output:
+                    datawriter = csv.writer(data_output, delimiter = ',')
+                    datawriter.writerow(data_store)
+                    
 if __name__=="__main__":
         main()

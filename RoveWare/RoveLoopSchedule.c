@@ -4,7 +4,7 @@
 //
 // mrdt::rovWare
 
-#include "RoveLoops.h"
+#include "RoveLoopSchedule.h"
 
 //roveTiRtos Interface Constructor
 void roveBoard_LOOP_open(roveLoopPtr loop_Ptr, UInt loop_Pri)

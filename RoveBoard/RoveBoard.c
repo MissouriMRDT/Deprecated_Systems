@@ -5,77 +5,48 @@
 // mrdt::rovWare
 #include "RoveBoard.h"
 
-
 //C lib
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 
+//CCS TI config
 #include "inc/hw_memmap.h"
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
-
-//Rtos Kernel Module Instance Api
-//#include <ti/sysbios/knl/Task.h>
-//#include <ti/sysbios/knl/Swi.h>
-//#include <ti/sysbios/knl/Clock.h>
-//#include <ti/sysbios/knl/Semaphore.h>
-//TODO #include <ti/drivers/Watchdog.h>
-
-//CCS TI config
 #include <xdc/runtime/System.h>
 
-//TODO Clock and Timer Instances
-//void roveBoard_DelayMilliSec(uint32_t milliseconds);
-//void roveBoard_DelayMicroSec(uint32_t microseconds);
 
 
+roveWatchdog_Handle roveBoard_WATCHDOG_open(unsigned int watchdog_index, roveBoard_WATCHDOG_Callback attach_isr_countdown)
+{
+  Watchdog_Handle watchdogHandle;
+  Watchdog_Params watchdogParams;
 
-/*TODO Reed, Connor, Owen GPIO Advice??
-enum RoveGpioDev16ShortHand {
-    PORT_E = GPIO_PORTE_BASE
-    ,PORT_H = GPIO_PORTH_BASE
-    ,PORT_K = GPIO_PORTK_BASE
-    ,PORT_L = GPIO_PORTL_BASE
-    ,PORT_M = GPIO_PORTM_BASE
-    ,PIN_0 = GPIO_PIN_0
-    ,PIN_1 = GPIO_PIN_1
-    ,PIN_2 = GPIO_PIN_2
-    ,PIN_3 = GPIO_PIN_3
-    ,PIN_6 = GPIO_PIN_6
-    ,PIN_7 = GPIO_PIN_7
-};//end enum
+  // Create and enable a Watchdog with resets enabled
+  Watchdog_Params_init(&watchdogParams);
+  watchdogParams.callbackFxn = attach_isr_countdown;
+  watchdogParams.resetMode = Watchdog_RESET_OFF;
 
+  watchdogHandle = Watchdog_open(watchdog_index, &watchdogParams);
+  if (watchdogHandle == NULL) {
+      System_abort("Error opening Watchdog!\n");
+  }//end if
 
+  Watchdog_clear(watchdogHandle);
 
-typedef struct ROVE_GPIO_Config   *roveGPIO_Handle
-typedef struct roveGPIO_Handle {
-    uint32_t port;
-    uint8_t pin;
-} roveGPIO_Handle;
-roveGPIO_Handle roveBoard_GPIO_Open(roveGPIO_Handle gpio, uint32_t gpio_port, uint8_t gpio_pin) {
-
-    gpio->port = gpio_port;
-    gpio->pin = gpio_pin;
-//TODO
-    return gpio;
-};//end fnctn
-void roveBoard_GPIO_digitalWrite(roveGPIO_Handle gpio_pin, uint8_t digital_value) {
-
-    uint8_t pin_value = 0;
-
-    if(digital_value > 0) {
-
-        pin_value = ~0;
-    }//end if
-
-    GPIOPinWrite(gpio_pin->port, gpio_pin->pin, pin_value);
+  return watchdogHandle;
 }//endfnctn
-*/
 
 
 
 rovePWM_Handle roveBoard_PWM_open(unsigned int pwm_index, unsigned int period_in_microseconds){
+
+    //Todo: DO NOT INIT PWM_0 -> ethernet support conflict: roveBoard/EK_TM4C1294XL.h
+    //These are hardcode configured as OUTPUTS in the roveBoard/EK_TM4C1294XL.C file
+    if (pwm_index == 0) {
+        System_abort("Error opening the PWM\n");
+    }//endif
 
     PWM_Handle pwmHandle;
     PWM_Params pwmParams;
@@ -124,10 +95,10 @@ roveBoard_ERROR roveBoard_UART_write(roveUART_Handle uart, void* write_buffer, s
     int bytes_written = UART_write(uart, write_buffer, bytes_to_write);
 
     if(bytes_written < 0){
-        return ROVE_BOARD_ERROR_UNKNOWN;
+        return ROVEBOARD_ERROR_UNKNOWN;
     }//end if
 
-    return ROVE_BOARD_ERROR_SUCCESS;
+    return ROVEBOARD_ERROR_SUCCESS;
 }//endfnctn
 
 roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, size_t bytes_to_read) {
@@ -138,44 +109,19 @@ roveBoard_ERROR roveBoard_UART_read(roveUART_Handle uart, void* read_buffer, siz
     int bytes_read = UART_read(uart, read_buffer, bytes_to_read);
 
     if(bytes_read < 0){
-      return ROVE_BOARD_ERROR_UNKNOWN;
+      return ROVEBOARD_ERROR_UNKNOWN;
     }//end if
 
-    return ROVE_BOARD_ERROR_SUCCESS;
+    return ROVEBOARD_ERROR_SUCCESS;
 }//endfnctn
 
 
-/*
-roveWatchdog_Handle roveBoard_WATCHDOG_open(unsigned int watchdog_index)
-{
-  Watchdog_Handle watchdogHandle;
-  Watchdog_Params watchdogParams;
-
-  // Create and enable a Watchdog with resets enabled
-  Watchdog_Params_init(&watchdogParams);
-  params.callbackFxn = watchdog_callback;
-  params.resetMode = Watchdog_RESET_ON;
-
-  watchdogHandle = Watchdog_open(watchdog_index, &watchdogParams);
-  if (watchdog == NULL) {
-      System_abort("Error opening Watchdog!\n");
-  }
-  Watchdog_clear(watchdogHandle);
-
-    return watchdogHandle;
-}//endfnctn
-
-void watchdog_callback(UArg handle)
-{
-    return;
-}*/
 
 /*
  * //typedef CCP_Handle roveCCP_Handle;
 roveCCP_Handle ccpHandle;
 roveCCP_Params ccpParams;
 roveCCP_Handle roveCCP_open(ccp_index, &ccpParams);
-
 roveCCP_Handle roveBoard_CCP_open(unsigned int ccp_index, unsigned int ccp_sample_period, unsigned int init_flag){
 
     roveCCP_Handle ccpHandle;
@@ -196,8 +142,6 @@ roveCCP_Handle roveBoard_CCP_open(unsigned int ccp_index, unsigned int ccp_sampl
 
     return uartHandle;
 }//endfnct
-
-
 
 //Todo int roveTIVAWARE_CCP_read(ccp, read_buffer, read_flag);
 roveBoard_ERROR roveBoard_CCP_read(roveCCP_Handle ccp, void* read_buffer, unsigned int read_flag) {
@@ -310,12 +254,3 @@ roveBoard_ERROR roveBoard_ADC_read(roveADC_Handle adc, void* read_buffer, unsign
         return mapResolution(value[0], 12, _readResolution);
     }
 */
-
-
-
-
-
-/*TODO
-Watchdog_Handle watchdog;
-*/
-

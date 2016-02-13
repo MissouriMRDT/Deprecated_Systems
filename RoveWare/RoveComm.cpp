@@ -8,6 +8,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 #include "RoveComm.h"
 
 //Standard C lib

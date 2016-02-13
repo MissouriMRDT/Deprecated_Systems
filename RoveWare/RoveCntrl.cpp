@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#include "RoveControl.h"
+#include "RoveCntrl.h"
 
 //Standard C lib
 #include <string.h>
@@ -20,7 +20,7 @@ extern "C" {
 ///////////////::BEGIN//////Horizon Assets ////////////////////////
 
 //standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
-void roveCntrl_DriveMotor_ByPWM(rovePWM_Handle motor, int16_t speed){
+void roveCntrl_RcServo_Spin(rovePWM_Handle motor, int16_t speed){
 
     int16_t microseconds;
 
@@ -46,8 +46,15 @@ void roveCntrl_DriveMotor_ByPWM(rovePWM_Handle motor, int16_t speed){
     return;
 } //endfnctn
 
+#ifdef __cplusplus
+}
+#endif
+
+//TODO Code Review
 
 
+
+/*
 void roveCntrl_Dynamixel_Init(Dynamixel* dyna, DynamixelType type, uint8_t id, uint8_t uartIndex, int baud) {
   dyna -> type = type;
   dyna -> id = id;
@@ -83,7 +90,7 @@ uint8_t roveCntrl_Dynamixel_GetReturnPacket(Dynamixel dyna, uint8_t* data, size_
   uint8_t id, length, error;
   uint8_t temp1, temp2;
 
-/*
+
   if(roveBoard_UART_available(dyna.uart) == true){
   roveBoard_UART_read(dyna.uart, &temp2, 1);
 
@@ -103,7 +110,7 @@ uint8_t roveCntrl_Dynamixel_GetReturnPacket(Dynamixel dyna, uint8_t* data, size_
         return error;
       }
     }
-  }}*/
+  }}
   return DYNAMIXEL_ERROR_UNKNOWN;
 }
 
@@ -274,7 +281,7 @@ uint8_t roveCntrl_Dynamixel_GetMode(Dynamixel dyna, DynamixelMode* mode) {
   }
   return error;
 }
-/*
+
 uint8_t roveCntrl_Dynamixel_GetPresentPosition(Dynamixel dyna, uint16_t* pos) {
   uint8_t msgLength = 3, dataSize = 2, error;
   uint8_t commands[msgLength], buffer[dataSize];
@@ -365,7 +372,7 @@ uint8_t DynamixelGetTemperature(Dynamixel dyna, uint8_t* temp) {
 #endif
 
 // roveWare Upgrades Version 2 Release
-/* TODO Judah Factor Out Dev Shorthand
+// TODO Judah Factor Out Dev Shorthand
 //Private
 typedef enum ROVECNTRL_AX_12
 {

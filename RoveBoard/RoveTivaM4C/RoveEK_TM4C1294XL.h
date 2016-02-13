@@ -3,7 +3,7 @@
  *
  *  Created on: Jan 15, 2016
  *      Author: mrdtdev
- */
+ //
 
 #ifndef ROVEEK_TM4C1294XL_H_
 #define ROVEEK_TM4C1294XL_H_
@@ -168,15 +168,13 @@ roveCCP_Handle roveCCPTiva_open(roveCCP_Handle handle, roveCCP_Params *params)
 }
 
 
-/*
- *  ======== UARTTiva_read ========
- */
+
 int UARTTiva_read(UART_Handle handle, void *buffer, size_t size)
 {
     unsigned int        key;
     UARTTiva_Object    *object = handle->object;
 
-    /* Disable preemption while checking if the uart is in use. */
+    /* Disable preemption while checking if the uart is in use.
     key = Hwi_disable();
     if (object->readSize) {
         Hwi_restore(key);
@@ -186,35 +184,35 @@ int UARTTiva_read(UART_Handle handle, void *buffer, size_t size)
         return (UART_ERROR);
     }
 
-    /* Save the data to be read and restore interrupts. */
+    /* Save the data to be read and restore interrupts.
     object->readBuf = buffer;
     object->readCount = 0;
 
     Hwi_restore(key);
 
     if (!(object->readSize = readData(object, (UARTTiva_HWAttrs *) handle->hwAttrs, size))) {
-        /* Read is finished. */
+        /* Read is finished. //
         Log_print2(Diags_USER1, "UART:(%p) Read finished, %d bytes read",
                    ((UARTTiva_HWAttrs const *)(handle->hwAttrs))->baseAddr,
                    object->readCount);
 
         if (object->readMode == UART_MODE_CALLBACK) {
-            /* Reset the read buffer so we can pass it back */
+            /* Reset the read buffer so we can pass it back
             object->readBuf = (unsigned char *)object->readBuf - object->readCount;
             object->readCallback(handle, object->readBuf, object->readCount);
 
-            /* Return 0 for UART_MODE_CALLBACK */
+            /* Return 0 for UART_MODE_CALLBACK
             return (0);
         }
         return (object->readCount);
     }
 
-    /* If readMode is blocking, block and get the status. */
+    /* If readMode is blocking, block and get the status.
     if (object->readMode == UART_MODE_BLOCKING) {
-        /* Pend on semaphore and wait for Hwi to finish. */
+        /* Pend on semaphore and wait for Hwi to finish.
         if (!Semaphore_pend(Semaphore_handle(&(object->readSem)),
                             object->readTimeout)) {
-            /* Semaphore timed out, make the read empty and log the read. */
+            /* Semaphore timed out, make the read empty and log the read.
             object->readSize = 0;
 
             Log_print2(Diags_USER1, "UART:(%p) Read timed out, %d bytes read",
@@ -228,9 +226,7 @@ int UARTTiva_read(UART_Handle handle, void *buffer, size_t size)
     return (0);
 }
 
-/*
- *  ======== UARTTiva_readPolling ========
- */
+
 int UARTTiva_readPolling(UART_Handle handle, void *buf, size_t size)
 {
     int32_t                    count = 0;
@@ -238,7 +234,7 @@ int UARTTiva_readPolling(UART_Handle handle, void *buf, size_t size)
     UARTTiva_HWAttrs const    *hwAttrs = handle->hwAttrs;
     unsigned char             *buffer = (unsigned char *)buf;
 
-    /* Read characters. */
+    /* Read characters. //
     while (size) {
         *buffer = UARTCharGet(hwAttrs->baseAddr);
         Log_print2(Diags_USER2, "UART:(%p) Read character 0x%x",
@@ -247,19 +243,19 @@ int UARTTiva_readPolling(UART_Handle handle, void *buf, size_t size)
         size--;
 
         if (object->readDataMode == UART_DATA_TEXT && *buffer == '\r') {
-            /* Echo character if enabled. */
+            /* Echo character if enabled. //
             if (object->readEcho) {
                 UARTCharPut(hwAttrs->baseAddr, '\r');
             }
             *buffer = '\n';
         }
 
-        /* Echo character if enabled. */
+        /* Echo character if enabled. //
         if (object->readEcho) {
             UARTCharPut(hwAttrs->baseAddr, *buffer);
         }
 
-        /* If read return mode is newline, finish if a newline was received. */
+        /* If read return mode is newline, finish if a newline was received.
         if (object->readReturnMode == UART_RETURN_NEWLINE &&
             *buffer == '\n') {
             return (count);
@@ -276,26 +272,26 @@ int UARTTiva_readPolling(UART_Handle handle, void *buf, size_t size)
 
 /*
  *  ======== UARTTiva_readCancel ========
- */
+ //
 void UARTTiva_readCancel(UART_Handle handle)
 {
     unsigned int        key;
     UARTTiva_Object    *object = handle->object;
 
-    /* Disable interrupts to avoid reading data while changing state. */
+    /* Disable interrupts to avoid reading data while changing state. //
     key = Hwi_disable();
 
-    /* Return if there is no read. */
+    /* Return if there is no read. //
     if (!object->readSize) {
         Hwi_restore(key);
         return;
     }
 
-    /* Set size = 0 to prevent reading and restore interrupts. */
+    /* Set size = 0 to prevent reading and restore interrupts. //
     object->readSize = 0;
     Hwi_restore(key);
 
-    /* Reset the read buffer so we can pass it back */
+    /* Reset the read buffer so we can pass it back //
     object->readBuf = (unsigned char *)object->readBuf - object->readCount;
     object->readCallback(handle, object->readBuf, object->readCount);
 
@@ -319,7 +315,7 @@ const UART_Params roveCCP_Params_init = {
     UART_ECHO_ON,         //  readEcho
     UART_LEN_8,           //  dataLength
     UART_STOP_ONE,        //  stopBits
-    UART_PAR_NONE,        //  parityType*/
+    UART_PAR_NONE,        //  parityType//
     NULL                  //  custom
 };
 
@@ -391,7 +387,7 @@ const UART_Params roveCCP_Params_init = {
     UART_ECHO_ON,         //  readEcho
     UART_LEN_8,           //  dataLength
     UART_STOP_ONE,        //  stopBits
-    UART_PAR_NONE,        //  parityType*/
+    UART_PAR_NONE,        //  parityType//
     NULL                  //  custom
 };
 
@@ -617,7 +613,7 @@ extern "C" void swi_PostPwmPeriod_Fxn(void)
 
 //SWi added in the CCS Gui
 //swi_PostPwmPeriod_Fxn
-*/
+//
 
 
-#endif /* ROVEEK_TM4C1294XL_H_ */
+#endif /* ROVEEK_TM4C1294XL_H_ //

@@ -2,8 +2,8 @@
 // jrs6w7@mst.edu
 //
 // mrdt::roveWare
-#ifndef ROVECONTROL_H_
-#define ROVECONTROL_H_
+#ifndef ROVECNTRL_H_
+#define ROVECNTRL_H_
 #pragma once
 
 #ifdef __cplusplus
@@ -12,84 +12,19 @@ extern "C" {
 
 #include "../RoveBoard/RoveBoard.h"
 
-
-
+//Todo: MOVE TO SEPERATE FILE
 //standard rcservo : 1000uS full reverse : 1500uS stop : 2000uS full forward
-void roveCntrl_DriveMotor_ByPWM(PWM_Handle motor, int16_t speed);
+void roveCntrl_RcServo_Spin(PWM_Handle motor, int16_t speed);
 
-// DYNAMIXEL EEPROM AREA
-#define DYNAMIXEL_MODEL_NUMBER_L           0
-#define DYNAMIXEL_MODEL_NUMBER_H           1
-#define DYNAMIXEL_VERSION                  2
-#define DYNAMIXEL_ID                       3
-#define DYNAMIXEL_BAUD_RATE                4
-#define DYNAMIXEL_RETURN_DELAY_TIME        5
-#define DYNAMIXEL_CW_ANGLE_LIMIT_L         6
-#define DYNAMIXEL_CW_ANGLE_LIMIT_H         7
-#define DYNAMIXEL_CCW_ANGLE_LIMIT_L        8
-#define DYNAMIXEL_CCW_ANGLE_LIMIT_H        9
-#define DYNAMIXEL_LIMIT_TEMPERATURE        11
-#define DYNAMIXEL_DOWN_LIMIT_VOLTAGE       12
-#define DYNAMIXEL_UP_LIMIT_VOLTAGE         13
-#define DYNAMIXEL_MAX_TORQUE_L             14
-#define DYNAMIXEL_MAX_TORQUE_H             15
-#define DYNAMIXEL_RETURN_LEVEL             16
-#define DYNAMIXEL_ALARM_LED                17
-#define DYNAMIXEL_ALARM_SHUTDOWN           18
+#ifdef __cplusplus
+}
+#endif
 
-// MX SERIES EEPROM
-#define MX_MULTI_TURN_OFFSET_L             20
-#define MX_MULTI_TURN_OFFSET_H             21
-#define MX_RESOLUTION_DIVIDER              22
+#endif // ROVECNTRL_H_
 
-// DYNAMIXEL RAM AREA
-#define DYNAMIXEL_TORQUE_ENABLE            24
-#define DYNAMIXEL_LED                      25
-#define DYNAMIXEL_GOAL_POSITION_L          30
-#define DYNAMIXEL_GOAL_POSITION_H          31
-#define DYNAMIXEL_MOVING_SPEED_L           32
-#define DYNAMIXEL_MOVING_SPEED_H           33
-#define DYNAMIXEL_TORQUE_LIMIT_L           34
-#define DYNAMIXEL_TORQUE_LIMIT_H           35
-#define DYNAMIXEL_PRESENT_POSITION_L       36
-#define DYNAMIXEL_PRESENT_POSITION_H       37
-#define DYNAMIXEL_PRESENT_SPEED_L          38
-#define DYNAMIXEL_PRESENT_SPEED_H          39
-#define DYNAMIXEL_PRESENT_LOAD_L           40
-#define DYNAMIXEL_PRESENT_LOAD_H           41
-#define DYNAMIXEL_PRESENT_VOLTAGE          42
-#define DYNAMIXEL_PRESENT_TEMPERATURE      43
-#define DYNAMIXEL_REGISTERED_INSTRUCTION   44
-#define DYNAMIXEL_MOVING                   46
-#define DYNAMIXEL_LOCK                     47
-#define DYNAMIXEL_PUNCH_L                  48
-#define DYNAMIXEL_PUNCH_H                  49
+//TODO Code Review
 
-// AX SERIES RAM
-#define AX_CW_COMPLIANCE_MARGIN            26
-#define AX_CCW_COMPLIANCE_MARGIN           27
-#define AX_CW_COMPLIANCE_SLOPE             28
-#define AX_CCW_COMPLIANCE_SLOPE            29
-
-// MX SERIES RAM
-#define MX_D_GAIN                          26
-#define MX_I_GAIN                          27
-#define MX_P_GAIN                          28
-#define MX_GOAL_ACCELERATION               73
-
-// Instructions
-#define DYNAMIXEL_PING                     1
-#define DYNAMIXEL_READ_DATA                2
-#define DYNAMIXEL_WRITE_DATA               3
-#define DYNAMIXEL_REG_WRITE                4
-#define DYNAMIXEL_ACTION                   5
-#define DYNAMIXEL_RESET                    6
-
-#define MX_HIGH_BYTE_MASK                  0x0F
-#define AX_HIGH_BYTE_MASK                  0x03
-
-#define TXDELAY 2000
-
+/*
 typedef enum {
   AX,
   MX
@@ -140,6 +75,83 @@ uint8_t DynamixelGetLoad(Dynamixel dyna, uint16_t* load);
 uint8_t DynamixelGetVoltage(Dynamixel dyna, uint8_t* voltage);
 uint8_t DynamixelGetTemperature(Dynamixel dyna, uint8_t* temp);
 
+// Instructions
+#define DYNAMIXEL_PING                     1
+#define DYNAMIXEL_READ_DATA                2
+#define DYNAMIXEL_WRITE_DATA               3
+#define DYNAMIXEL_REG_WRITE                4
+#define DYNAMIXEL_ACTION                   5
+#define DYNAMIXEL_RESET                    6
+
+// Sets poll for response timeout
+#define TXDELAY 2000
+
+// DYNAMIXEL EEPROM AREA
+#define DYNAMIXEL_MODEL_NUMBER_L           0
+#define DYNAMIXEL_MODEL_NUMBER_H           1
+#define DYNAMIXEL_VERSION                  2
+#define DYNAMIXEL_ID                       3
+#define DYNAMIXEL_BAUD_RATE                4
+#define DYNAMIXEL_RETURN_DELAY_TIME        5
+#define DYNAMIXEL_CW_ANGLE_LIMIT_L         6
+#define DYNAMIXEL_CW_ANGLE_LIMIT_H         7
+#define DYNAMIXEL_CCW_ANGLE_LIMIT_L        8
+#define DYNAMIXEL_CCW_ANGLE_LIMIT_H        9
+#define DYNAMIXEL_LIMIT_TEMPERATURE        11
+#define DYNAMIXEL_DOWN_LIMIT_VOLTAGE       12
+#define DYNAMIXEL_UP_LIMIT_VOLTAGE         13
+#define DYNAMIXEL_MAX_TORQUE_L             14
+#define DYNAMIXEL_MAX_TORQUE_H             15
+#define DYNAMIXEL_RETURN_LEVEL             16
+#define DYNAMIXEL_ALARM_LED                17
+#define DYNAMIXEL_ALARM_SHUTDOWN           18
+//Todo: ////////////////////////////////////////////19&23?
+// MX SERIES EEPROM
+#define MX_MULTI_TURN_OFFSET_L             20
+#define MX_MULTI_TURN_OFFSET_H             21
+#define MX_RESOLUTION_DIVIDER              22
+//////////////////////////////////////////////////////////
+// DYNAMIXEL RAM AREA
+#define DYNAMIXEL_TORQUE_ENABLE            24
+#define DYNAMIXEL_LED                      25
+
+// AX SERIES RAM
+#define AX_CW_COMPLIANCE_MARGIN            26
+#define AX_CCW_COMPLIANCE_MARGIN           27
+#define AX_CW_COMPLIANCE_SLOPE             28
+#define AX_CCW_COMPLIANCE_SLOPE            29
+//Todo: ////////////////////////////////////////////29?
+// MX SERIES RAM
+#define MX_D_GAIN                          26
+#define MX_I_GAIN                          27
+#define MX_P_GAIN                          28
+
+#define DYNAMIXEL_GOAL_POSITION_L          30
+#define DYNAMIXEL_GOAL_POSITION_H          31
+#define DYNAMIXEL_MOVING_SPEED_L           32
+#define DYNAMIXEL_MOVING_SPEED_H           33
+#define DYNAMIXEL_TORQUE_LIMIT_L           34
+#define DYNAMIXEL_TORQUE_LIMIT_H           35
+#define DYNAMIXEL_PRESENT_POSITION_L       36
+#define DYNAMIXEL_PRESENT_POSITION_H       37
+#define DYNAMIXEL_PRESENT_SPEED_L          38
+#define DYNAMIXEL_PRESENT_SPEED_H          39
+#define DYNAMIXEL_PRESENT_LOAD_L           40
+#define DYNAMIXEL_PRESENT_LOAD_H           41
+#define DYNAMIXEL_PRESENT_VOLTAGE          42
+#define DYNAMIXEL_PRESENT_TEMPERATURE      43
+#define DYNAMIXEL_REGISTERED_INSTRUCTION   44
+#define DYNAMIXEL_MOVING                   46
+#define DYNAMIXEL_LOCK                     47
+#define DYNAMIXEL_PUNCH_L                  48
+#define DYNAMIXEL_PUNCH_H                  49
+//Todo: ////////////////////////////////////////////WHAT IS THIS//MX ONLY Mode!!
+#define MX_GOAL_ACCELERATION               73
+
+#define MX_HIGH_BYTE_MASK                  0x0F
+#define AX_HIGH_BYTE_MASK                  0x03
+
+
 #ifdef __cplusplus
 }
 #endif
@@ -158,7 +170,7 @@ uint8_t DynamixelGetTemperature(Dynamixel dyna, uint8_t* temp);
 //#include "../RoveBoard/RoveBoardPins.h"
 
 
-/*TODO Judah Factor Out Dev Shorthand
+//TODO Judah Factor Out Dev Shorthand
 //Public
 // 12 bit for MX
 // AX_12_SCALE_REG_MSB = 1023 clockwise direction is the 10th bit

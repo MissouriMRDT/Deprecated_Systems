@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #include "RoveComm.h"
 
-extern void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
+extern void roveComm_SendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
 
 int main(int argc, char* argv[])
 {
@@ -46,9 +46,9 @@ int main(int argc, char* argv[])
     sscanf(argv[5], "%i", &temp); seqNum = temp;
   }
   
-  RoveCommBegin(192,168,1,1);
+  roveComm_Begin(192,168,1,1);
   *((long*)hexData) = htonl(*((long*)hexData));
-  RoveCommSendMsgTo(dataID, dataSize, hexData, seqNum, flags, inet_addr(destinationIP), destinationPort);
+  roveComm_SendMsgTo(dataID, dataSize, hexData, seqNum, flags, inet_addr(destinationIP), destinationPort);
   
   return 0;
 }

@@ -54,7 +54,7 @@ void setup() {
   //this function waits for a basestation to connect before it
   // returns. For testing you can use the Udp Client in the C
   // folder to simulate it.
-  RoveCommBegin(192,168,1,52);
+  roveComm_Begin(192,168,1,52);
 }
 
 void loop() {
@@ -67,10 +67,10 @@ void loop() {
   byte receivedMsg[100];
   
   //send a message to the test server
-  //RoveCommSendMsg(dataID, size, &toSend);
-  RoveCommSendMsg(0x0300, 4, "cat\0");
+  //roveComm_SendMsg(dataID, size, &toSend);
+  roveComm_SendMsg(0x0300, 4, "cat\0");
   //get a reply from the test server
-  RoveCommGetMsg(&dataID, &size, receivedMsg);
+  roveComm_GetMsg(&dataID, &size, receivedMsg);
   
   if (dataID) {
   //Print the bytes of the received Data

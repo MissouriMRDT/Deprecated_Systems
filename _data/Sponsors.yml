@@ -1,12 +1,42 @@
-- Name: Missouri S&T SDELC
+- Name: Student Design and <br> Experiential Learning Center
   Level:
-  Website: http://www.mst.edu
-  Logo: img/logo-mst.png
+  Website: http://design.mst.edu
+  Logo: img/mst-sq-logo.png
 
-- Name: Missouri S&T SAFB
+- Name: Student Activity Finance Board
   Level: 
   Website: http://stuco.mst.edu/safb/
   Logo: img/StuCo.jpg
+
+- Name: Innovation Fund
+  Level: Interstellar Aviator
+  Website: http://innovate.mst.edu
+  Logo: img/mst-sq-logo.png
+
+- Name: Henry A. Jubel Foundation
+  Level: Interstellar Aviator
+  Website: 
+  Logo: img/spartan-logo.svg
+
+- Name: Sierra Circuits
+  Level: Martian Pioneer
+  Website: http://protoexpress.com
+  Logo: img/sierracircuits-logo.jpg
+
+- Name: Academy of Engineering Management
+  Level: Space Walker
+  Website: http://emse.mst.edu/departmentoverview/emacademyhome/
+  Logo: img/mst-sq-logo.png
+
+- Name: Dept. of Engineering Management
+  Level: Space Walker
+  Website: http://emse.mst.edu/
+  Logo: img/mst-sq-logo.png
+
+- Name: Dept. of Civil, Architectural and Environmental Engineering
+  Level: Space Walker
+  Website: http://care.mst.edu/
+  Logo: img/mst-sq-logo.png
 
 - Name: Asian Circuits Inc.
   Level: Suborbital Flyer

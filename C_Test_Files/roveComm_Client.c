@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #include "RoveComm.h"
 
-extern void RoveCommSendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
+extern void roveComm_SendMsgTo(uint16_t dataID, size_t size, const void* const data, uint16_t seqNum, uint8_t flags, roveIP destIP, uint16_t destPort);
 
 int main(int argc, char* argv[])
 {
@@ -20,7 +20,8 @@ int main(int argc, char* argv[])
   int destinationPort = 11000;
   int temp = 0;
   
-  if(argc < 3 || argc > 6) {
+  if(argc < 3 || argc > 6) 
+  {
     printf("Usage: %s DataID Data [Dest_IP [Flags [Sequence Number]]]\n", argv[0]);
     printf("Check the RoveComm readme for more info\n");
     exit(EXIT_FAILURE);
@@ -30,21 +31,24 @@ int main(int argc, char* argv[])
   sscanf(argv[2], "%lX", (long*)hexData);
   dataSize = (strlen(argv[2])+1) /2; //the number of bytes of data should be have of what was entered
   
-  if(argc > 3) {
+  if(argc > 3) 
+  {
     sscanf(argv[3], "%s", destinationIP);
   }
   
-  if(argc > 4) {
+  if(argc > 4) 
+  {
     sscanf(argv[4], "%i", &temp); flags = temp;
   }
 
-  if(argc > 5) {
+  if(argc > 5) 
+  {
     sscanf(argv[5], "%i", &temp); seqNum = temp;
   }
   
-  RoveCommBegin(192,168,1,1);
+  roveComm_Begin(192,168,1,1);
   *((long*)hexData) = htonl(*((long*)hexData));
-  RoveCommSendMsgTo(dataID, dataSize, hexData, seqNum, flags, inet_addr(destinationIP), destinationPort);
+  roveComm_SendMsgTo(dataID, dataSize, hexData, seqNum, flags, inet_addr(destinationIP), destinationPort);
   
   return 0;
 }

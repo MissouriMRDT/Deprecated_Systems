@@ -2,13 +2,13 @@ all: server client
 	echo "Making all..."
 
 server: roveComm_Server.o RoveComm.o
-	gcc roveComm_Server.o RoveComm.o roveBoard.o -o server
+	gcc roveComm_Server.o RoveComm.o RoveEthernet.o -o server
 
 client: roveComm_Client.o RoveComm.o
-	gcc roveComm_Client.o RoveComm.o roveBoard.o -o client
+	gcc roveComm_Client.o RoveComm.o RoveEthernet.o -o client
 
-RoveComm.o: RoveComm.c roveBoard.c
-	gcc -c RoveComm.c roveBoard.c
+RoveComm.o: RoveComm.c RoveEthernet.c
+	gcc -c RoveComm.c RoveEthernet.c
 
 roveComm_Server.o: roveComm_Server.c 
 	gcc -c roveComm_Server.c

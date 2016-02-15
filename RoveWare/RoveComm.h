@@ -5,6 +5,7 @@
 // mrdt::rovWare
 #ifndef ROVECOMM_H_
 #define ROVECOMM_H_
+
 #pragma once
 
 #ifdef __cplusplus
@@ -16,7 +17,7 @@ extern "C" {
 #include <stdint.h>
 
 //Rover Wrappers for hardware specific ip network access
-#include "../RoveBoard/RoveTivaM4C/RoveEthernet.h"
+#include "RoveBoard/RoveM4C1294/RoveEthernet.h"
 
 // == Public API ========
 //

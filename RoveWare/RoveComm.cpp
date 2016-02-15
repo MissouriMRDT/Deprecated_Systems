@@ -5,10 +5,6 @@
 // Last Edit: Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "RoveComm.h"
 
 //Standard C lib
@@ -166,7 +162,3 @@ static void roveComm_HandleSystemMsg(uint8_t* buffer, uint16_t* dataID, size_t* 
   *dataID = 0;
   *size = 0;
 }
-
-#ifdef __cplusplus
-}
-#endif

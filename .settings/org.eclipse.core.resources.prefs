@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
-encoding//Debug/RoveBoard/RoveTivaM4C/subdir_rules.mk=UTF-8
-encoding//Debug/RoveBoard/RoveTivaM4C/subdir_vars.mk=UTF-8
-encoding//Debug/RoveBoard/subdir_rules.mk=UTF-8
-encoding//Debug/RoveBoard/subdir_vars.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/RoveM4C1294/subdir_rules.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/RoveM4C1294/subdir_vars.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/RoveTivaM4C/subdir_rules.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/RoveTivaM4C/subdir_vars.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/subdir_rules.mk=UTF-8
+encoding//Debug/RoveWare/RoveBoard/subdir_vars.mk=UTF-8
 encoding//Debug/RoveWare/subdir_rules.mk=UTF-8
 encoding//Debug/RoveWare/subdir_vars.mk=UTF-8
 encoding//Debug/makefile=UTF-8

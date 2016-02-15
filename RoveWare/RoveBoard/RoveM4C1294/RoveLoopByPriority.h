@@ -3,22 +3,20 @@
 // Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
+#ifndef ROVEMORELOOPS_H_
+#define ROVEMORELOOPS_H_
+#pragma once
 
-#include "RoveLoopSchedule.h"
-
-//roveTiRtos Interface Constructor
-void roveBoard_LOOP_open(roveLoopPtr loop_Ptr, UInt loop_Pri)
-{
-    //construct
-    Task_Params roveLoop_Params;
-    Task_Params_init(&roveLoop_Params);
-
-    //config
-    roveLoop_Params.priority = loop_Pri;
-    Task_create (loop_Ptr, &roveLoop_Params, NULL);
-}//end fnctn
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
+
+// rtos hooks are scheduled by explicit runtime post/pend sleep/wake priority schedule
+//#include <ti/sysbios/knl/Swi.h>
+//#include <ti/sysbios/knl/Mailbox.h>
+//#include <ti/sysbios/knl/Semaphore.h>
 
 // == RoveLoopsCCS List ==============
 //
@@ -54,4 +52,9 @@ Void roveLOOP_three(UArg arg0, UArg arg1)
 //Etc....Max of 16 Loops awakened/slept on rtos priority ..
 
 
-*/
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // ROVELOOP_H_

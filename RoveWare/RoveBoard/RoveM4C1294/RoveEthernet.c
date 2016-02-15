@@ -5,7 +5,6 @@
 // Last Edit: Judah Schad jrs6w7@mst.edu
 //
 // mrdt::rovWare
-
 #include "RoveEthernet.h"
 
 #include <stdio.h>
@@ -106,8 +105,6 @@ roveEthernet_Error roveEthernet_GetUdpMsg(roveIP* senderIP, void* buffer, size_t
   *senderIP = incoming.sin_addr.s_addr;
   return ROVE_ETHERNET_ERROR_SUCCESS;
 }
-
-
 
 #ifdef __cplusplus
 }

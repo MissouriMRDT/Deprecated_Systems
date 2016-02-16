@@ -54,7 +54,7 @@
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -7323,9 +7323,10 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="PWM2_3.3">
 <contactref element="U$2" pad="PE1"/>
 <contactref element="U$1" pad="5"/>
-<wire x1="109.126" y1="39.37" x2="106.172" y2="39.37" width="0.3048" layer="1"/>
-<via x="106.172" y="39.37" extent="1-16" drill="0.381"/>
-<wire x1="106.172" y1="39.37" x2="106.172" y2="42.926" width="0.3048" layer="16"/>
+<wire x1="109.126" y1="39.37" x2="106.426" y2="39.37" width="0.3048" layer="1"/>
+<wire x1="106.426" y1="39.37" x2="106.172" y2="39.624" width="0.3048" layer="1"/>
+<via x="106.172" y="39.624" extent="1-16" drill="0.381"/>
+<wire x1="106.172" y1="39.624" x2="106.172" y2="42.926" width="0.3048" layer="16"/>
 <wire x1="106.172" y1="42.926" x2="109.474" y2="46.228" width="0.3048" layer="16"/>
 <wire x1="109.474" y1="46.228" x2="109.728" y2="46.228" width="0.3048" layer="16"/>
 <wire x1="109.728" y1="46.228" x2="115.57" y2="52.07" width="0.3048" layer="16"/>

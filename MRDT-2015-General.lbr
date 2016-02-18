@@ -9843,9 +9843,9 @@
 <devices>
 <device name="" package="TIVA-C-CONNECTED">
 <connects>
-<connect gate="G$1" pin="+3V3" pad="+3V3_1 +3V3_2"/>
-<connect gate="G$1" pin="+5V" pad="+5V_1 +5V_2"/>
-<connect gate="G$1" pin="GND" pad="GND_1 GND_2 GND_3 GND_4"/>
+<connect gate="G$1" pin="+3V3" pad="+3V3_1 +3V3_2" route="any"/>
+<connect gate="G$1" pin="+5V" pad="+5V_1 +5V_2" route="any"/>
+<connect gate="G$1" pin="GND" pad="GND_1 GND_2 GND_3 GND_4" route="any"/>
 <connect gate="G$1" pin="PA4" pad="PA4"/>
 <connect gate="G$1" pin="PA5" pad="PA5"/>
 <connect gate="G$1" pin="PA6" pad="PA6"/>

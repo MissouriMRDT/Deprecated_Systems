@@ -118,8 +118,6 @@ void loop()
     , READ_DATA_CCD_PIN
     , ccd_packet_data_buffer 
     ); // end function call
-  delayMicroseconds(2);
-  RoveSci_CCD_PrintPacket(ccd_packet_data_buffer);
   delayMicroseconds(2); // Why are we delaying on each side of the println? 
 
 }//end loop

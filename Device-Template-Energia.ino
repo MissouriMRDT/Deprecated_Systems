@@ -1,3 +1,10 @@
+#include <SPI.h>
+#include <Ethernet.h>
+#include <EthernetUdp.h>
+
+#include "RoveEthernet.h"
+#include "RoveComm.h"
+
 void setup()
 {
   // put your setup code here, to run once:

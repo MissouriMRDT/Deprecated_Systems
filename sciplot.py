@@ -113,7 +113,7 @@ def graph():
         plt.title(sensor_type)
         plt.scatter(data_range,graph_store)
         plt.plot(data_range,graph_store)
-        plt.show
+        plt.show()
         count += 1
         graph_store.pop(0)
     plt.pause(0.0001)

@@ -1,30 +1,29 @@
 # Missouri University of Science and Technology
 # Mars Rover Design Team
 # Shannon Klaus         smk43b@mst.edu
+# John Maruska          jwmbq6@mst.edu
 
-import serial
-import numpy
+# TODO: Fix display error. Showing gray window with no graph.
+#       --> Likely fixed by plt.clf() position, pausing graph, or added delay
+#           from CCD
+
+import numpy # do we use numpy library at all?
 import matplotlib.pyplot as plt
 import csv
+
+""" Serial Port Functions Libraries"""
+import serial
 import argparse
 import glob
 import sys
 
-global count
-global MAX_PLOT_SIZE
-global begin_data
-global end_data
-global file_name
-global port
-global PACKET_SIZE
-
 port = 'COM5'
-plt.ion()
-data_store = []
-baud_rate = 9600
+BAUD_RATE = 115200
 PACKET_SIZE = 3648
-MAX_PLOT_SIZE = 4096
 
+""""""""""""""""""""""""""""""""""""""""""
+""" COOPER FUNCTIONS CONFIRMED WORKING """
+""""""""""""""""""""""""""""""""""""""""""
 
 def serial_ports():
     """ Lists serial port names
@@ -57,7 +56,7 @@ def serial_ports():
 def serial_check(list_of_ports):
     valid_ports = []
     for port in list_of_ports:
-        test_input = serial.Serial(port, 9600, timeout=.001)
+        test_input = serial.Serial(port, BAUD_RATE, timeout=.001)
         print("Testing serial input: ",port)
         test_data = test_input.readline()
         try:
@@ -74,20 +73,27 @@ def serial_check(list_of_ports):
         print("There is more than one valid serial input, you must specify which to use by using th -p tag.")
         print("These are the valid inputs: ",valid_ports)
 
+""""""""""""""""""""""""""""""""""""""""""
+""" COOPER FUNCTIONS CONFIRMED WORKING """
+""""""""""""""""""""""""""""""""""""""""""
+
 def graph(data_store):    # confirmed working
-    plt.clf()
+    MAX_Y_VALUE = 4096
+    
     plt.title('CCD Visualizer')
-    plt.ylim(0,MAX_PLOT_SIZE)
+    plt.ylim(0,MAX_Y_VALUE)
     plt.grid(True)
-    lines = plt.plot(data_store)
-    plt.setp(lines, linewidth=2, color='r')
+    plt.clf()   # TODO: Test moving plt.clf() to fix display error
+    plt.setp(plt.plot(data_store), linewidth=2, color='r')
     plt.show()
 
 
 def main():
     data_store = []
-   
-    serial_data = serial.Serial(port, baud_rate)
+    serial_data = serial.Serial(port, BAUD_RATE)
+
+    plt.ion()
+
     while(True):
         try:
             for x in range(PACKET_SIZE):

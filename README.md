@@ -18,3 +18,5 @@ git commit -a -m "Initial Commit"
 
 ## Cloning a Derivative Repo
 Any repo that uses submodules must be cloned with the command `git clone --recursive <url>`. This tells Git to recursively clone submodules in addition to the top-level repo.
+
+If you've already cloned the repo, use the command `git submodule update --init --recursive` to download the submodule data.

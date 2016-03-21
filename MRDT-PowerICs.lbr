@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.001" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -214,9 +214,9 @@
 <dimension x1="1.35" y1="6.4" x2="1.35" y2="4.2" x3="-7.9" y3="5.3" textsize="0.8128" textratio="7" layer="47" dtype="horizontal" width="0.1" precision="6"/>
 <text x="14.4" y="-5.2" size="0.8128" layer="47" ratio="7">All dimensions
 in mm</text>
-<smd name="SLUG2" x="3.0988" y="2.3114" dx="2.286" dy="3.556" layer="1" rot="R90"/>
-<smd name="SLUG3" x="3.0988" y="5.2832" dx="2.286" dy="3.556" layer="1" rot="R90"/>
-<smd name="SLUG1" x="7.3914" y="3.7846" dx="3.556" dy="5.334" layer="1"/>
+<smd name="SLUG2" x="3.0988" y="2.3114" dx="2" dy="3.25" layer="1" rot="R90" thermals="no"/>
+<smd name="SLUG3" x="3.0988" y="5.2832" dx="2" dy="3.25" layer="1" rot="R90" thermals="no"/>
+<smd name="SLUG1" x="7.3914" y="3.7846" dx="3.25" dy="5" layer="1" thermals="no"/>
 </package>
 <package name="SO-08">
 <wire x1="0" y1="0" x2="4.724" y2="0" width="0.1524" layer="51"/>
@@ -279,12 +279,12 @@ in mm</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="VNH5180A">
+<deviceset name="VNH5XXX_HBRIDGE">
 <gates>
 <gate name="G$1" symbol="VNH5180A" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="POWERSSO-36_TP">
+<device name="VNH5180A" package="POWERSSO-36_TP">
 <connects>
 <connect gate="G$1" pin="CS" pad="P$19"/>
 <connect gate="G$1" pin="CS_DIS" pad="P$20"/>
@@ -296,6 +296,25 @@ in mm</text>
 <connect gate="G$1" pin="INB" pad="P$22"/>
 <connect gate="G$1" pin="OUTA" pad="P$2 P$8 P$10 P$11 P$12 SLUG2"/>
 <connect gate="G$1" pin="OUTB" pad="P$25 P$26 P$27 P$29 P$35 SLUG3"/>
+<connect gate="G$1" pin="PWM" pad="P$17"/>
+<connect gate="G$1" pin="VCC" pad="P$13 P$24 SLUG1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="VNH5050A" package="POWERSSO-36_TP">
+<connects>
+<connect gate="G$1" pin="CS" pad="P$19"/>
+<connect gate="G$1" pin="CS_DIS" pad="P$20"/>
+<connect gate="G$1" pin="ENA" pad="P$16"/>
+<connect gate="G$1" pin="ENB" pad="P$21"/>
+<connect gate="G$1" pin="GNDA" pad="P$1 P$3 P$4 P$5 P$6 P$7"/>
+<connect gate="G$1" pin="GNDB" pad="P$30 P$31 P$32 P$33 P$34 P$36"/>
+<connect gate="G$1" pin="INA" pad="P$15"/>
+<connect gate="G$1" pin="INB" pad="P$22"/>
+<connect gate="G$1" pin="OUTA" pad="P$2 P$8 P$9 P$10 P$11 P$12 P$14 SLUG2"/>
+<connect gate="G$1" pin="OUTB" pad="P$23 P$25 P$26 P$27 P$28 P$29 P$35 SLUG3"/>
 <connect gate="G$1" pin="PWM" pad="P$17"/>
 <connect gate="G$1" pin="VCC" pad="P$13 P$24 SLUG1"/>
 </connects>

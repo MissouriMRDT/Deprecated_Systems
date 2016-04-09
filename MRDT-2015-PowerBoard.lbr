@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
@@ -444,14 +444,14 @@
 <wire x1="30.48" y1="17.78" x2="30.48" y2="-19.05" width="0.127" layer="21"/>
 <wire x1="30.48" y1="-19.05" x2="-27.94" y2="-19.05" width="0.127" layer="21"/>
 <wire x1="-27.94" y1="-19.05" x2="-27.94" y2="17.78" width="0.127" layer="21"/>
-<pad name="P$1" x="-24.13" y="-0.635" drill="1.016" thermals="no"/>
-<pad name="P$2" x="-24.13" y="6.985" drill="1.016" thermals="no"/>
-<pad name="P$3" x="-24.13" y="-8.255" drill="1.016" thermals="no"/>
-<pad name="P$4" x="26.67" y="-0.635" drill="1.016" thermals="no"/>
-<pad name="P$5" x="26.67" y="6.985" drill="1.5748" thermals="no"/>
-<pad name="P$6" x="26.67" y="-8.255" drill="1.5748" thermals="no"/>
-<pad name="P$7" x="26.67" y="-4.445" drill="1.016" thermals="no"/>
-<pad name="P$8" x="26.67" y="3.175" drill="1.016" thermals="no"/>
+<pad name="P$1" x="-24.13" y="-0.635" drill="1.524" thermals="no"/>
+<pad name="P$2" x="-24.13" y="6.985" drill="1.524" thermals="no"/>
+<pad name="P$3" x="-24.13" y="-8.255" drill="1.524" thermals="no"/>
+<pad name="P$4" x="26.67" y="-0.635" drill="1.524" thermals="no"/>
+<pad name="P$5" x="26.67" y="6.985" drill="2.032" thermals="no"/>
+<pad name="P$6" x="26.67" y="-8.255" drill="2.032" thermals="no"/>
+<pad name="P$7" x="26.67" y="-4.445" drill="1.524" thermals="no"/>
+<pad name="P$8" x="26.67" y="3.175" drill="1.524" thermals="no"/>
 <text x="-22.86" y="-7.62" size="1.778" layer="25">+Vin</text>
 <text x="-22.86" y="0" size="1.778" layer="25">On/Off</text>
 <text x="-22.86" y="7.62" size="1.778" layer="25">-Vin</text>
@@ -461,6 +461,11 @@
 <text x="16.51" y="-5.08" size="1.778" layer="25">+Sense</text>
 <text x="17.145" y="-8.89" size="1.778" layer="25">+Vout</text>
 <text x="-7.62" y="0" size="1.27" layer="27">UVQ-5/20-D24PB-C</text>
+<dimension x1="-27.94" y1="17.78" x2="30.48" y2="17.78" x3="1.27" y3="24.13" textsize="1.27" layer="47" unit="inch"/>
+<dimension x1="30.48" y1="17.78" x2="30.48" y2="-19.05" x3="38.1" y3="-0.635" textsize="1.27" layer="47" unit="inch"/>
+<dimension x1="-24.13" y1="6.985" x2="-24.13" y2="-8.255" x3="-19.05" y3="-0.635" textsize="1.27" layer="47" unit="inch"/>
+<dimension x1="-24.13" y1="-10.16" x2="26.67" y2="-10.16" x3="1.27" y3="-12.7" textsize="1.27" layer="47" unit="inch"/>
+<dimension x1="26.67" y1="6.985" x2="26.67" y2="-8.255" x3="22.86" y3="-0.635" textsize="1.27" layer="47" unit="inch"/>
 </package>
 <package name="OKI-78SR-VERT">
 <pad name="1" x="0" y="0" drill="0.7" diameter="1.4224" rot="R180"/>
@@ -1063,12 +1068,12 @@
 <devices>
 <device name="" package="MURATA_5V_DC-DC_CONVERTER">
 <connects>
-<connect gate="G$1" pin="+SENSE" pad="P$7"/>
-<connect gate="G$1" pin="+VIN" pad="P$3"/>
-<connect gate="G$1" pin="+VOUT" pad="P$6"/>
-<connect gate="G$1" pin="-SENSE" pad="P$8"/>
-<connect gate="G$1" pin="-VIN" pad="P$2"/>
-<connect gate="G$1" pin="-VOUT" pad="P$5"/>
+<connect gate="G$1" pin="+SENSE" pad="P$8"/>
+<connect gate="G$1" pin="+VIN" pad="P$2"/>
+<connect gate="G$1" pin="+VOUT" pad="P$5"/>
+<connect gate="G$1" pin="-SENSE" pad="P$7"/>
+<connect gate="G$1" pin="-VIN" pad="P$3"/>
+<connect gate="G$1" pin="-VOUT" pad="P$6"/>
 <connect gate="G$1" pin="ON/OFF" pad="P$1"/>
 <connect gate="G$1" pin="TRIM" pad="P$4"/>
 </connects>

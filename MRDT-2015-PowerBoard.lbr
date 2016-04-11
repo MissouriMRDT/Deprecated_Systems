@@ -301,9 +301,9 @@
 <wire x1="-7.747" y1="10.16" x2="-7.747" y2="15.24" width="0.127" layer="51"/>
 <wire x1="2.667" y1="15.24" x2="2.667" y2="-1.27" width="0.127" layer="51"/>
 <wire x1="-7.747" y1="5.08" x2="-7.747" y2="10.16" width="0.127" layer="51"/>
-<pad name="3" x="-5.08" y="0" drill="0.762" diameter="1.4224"/>
-<pad name="2" x="-2.54" y="0" drill="0.762" diameter="1.4224"/>
-<pad name="1" x="0" y="0" drill="0.762" diameter="1.4224"/>
+<pad name="3" x="-5.08" y="0" drill="0.8" diameter="1.4224"/>
+<pad name="2" x="-2.54" y="0" drill="0.8" diameter="1.4224"/>
+<pad name="1" x="0" y="0" drill="0.8" diameter="1.4224"/>
 <text x="-6.096" y="-2.794" size="1.27" layer="25">&gt;NAME</text>
 <wire x1="-7.747" y1="-1.27" x2="2.667" y2="-1.27" width="0.127" layer="51"/>
 <wire x1="2.667" y1="15.24" x2="-7.747" y2="15.24" width="0.127" layer="51"/>
@@ -467,10 +467,10 @@
 <dimension x1="-24.13" y1="-10.16" x2="26.67" y2="-10.16" x3="1.27" y3="-12.7" textsize="1.27" layer="47" unit="inch"/>
 <dimension x1="26.67" y1="6.985" x2="26.67" y2="-8.255" x3="22.86" y3="-0.635" textsize="1.27" layer="47" unit="inch"/>
 </package>
-<package name="OKI-78SR-VERT">
-<pad name="1" x="0" y="0" drill="0.7" diameter="1.4224" rot="R180"/>
-<pad name="2" x="2.54" y="0" drill="0.7" diameter="1.4224" rot="R180"/>
-<pad name="3" x="5.08" y="0" drill="0.7" diameter="1.4224" rot="R180"/>
+<package name="OKI-78SR_VERT">
+<pad name="1" x="0" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<pad name="2" x="2.54" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
+<pad name="3" x="5.08" y="0" drill="0.8" diameter="1.4224" rot="R180"/>
 <wire x1="-2.667" y1="4.826" x2="-2.667" y2="-2.794" width="0.127" layer="51"/>
 <wire x1="-2.667" y1="-2.794" x2="7.747" y2="-2.794" width="0.127" layer="51"/>
 <wire x1="7.747" y1="-2.794" x2="7.747" y2="4.826" width="0.127" layer="51"/>

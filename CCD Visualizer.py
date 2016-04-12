@@ -3,11 +3,6 @@
 # Shannon Klaus         smk43b@mst.edu
 # John Maruska          jwmbq6@mst.edu
 
-# TODO: Fix display error. Showing gray window with no graph.
-#       --> Likely fixed by plt.clf() position, pausing graph, or added delay
-#           from CCD
-
-import numpy # do we use numpy library at all?
 import matplotlib.pyplot as plt
 import csv
 
@@ -17,7 +12,7 @@ import argparse
 import glob
 import sys
 
-port = 'COM5'
+SENSOR_TYPE = "CCD Linear Image Sensor"
 BAUD_RATE = 115200
 PACKET_SIZE = 3648
 
@@ -50,7 +45,7 @@ def serial_ports():
             s.close()
             result.append(port)
         except (OSError, serial.SerialException):
-            Pass
+            raise
     return result
 
 def serial_check(list_of_ports):
@@ -78,34 +73,30 @@ def serial_check(list_of_ports):
 """"""""""""""""""""""""""""""""""""""""""
 
 def graph(data_store):    # confirmed working
-    MAX_Y_VALUE = 4096
-    
-    plt.title('CCD Visualizer')
+    plt.ion()
+    plt.clf()
+    plt.title(SENSOR_TYPE)
     plt.ylim(0,MAX_Y_VALUE)
     plt.grid(True)
-    plt.clf()   # TODO: Test moving plt.clf() to fix display error
     plt.setp(plt.plot(data_store), linewidth=2, color='r')
     plt.show()
-
+    plt.pause(0.0015) # normal read should be about 0.0014 seconds?
 
 def main():
     data_store = []
     serial_data = serial.Serial(port, BAUD_RATE)
-
-    plt.ion()
-
-    while(True):
+    while(True): # never tested on while(True), only limited range
         try:
+            data_store = []
             for x in range(PACKET_SIZE):
-                print(x)
                 y = float(serial_data.readline())
                 data_store.append(y)
             graph(data_store)
         except(KeyboardInterrupt,SystemExit):
+            #make sure this executes and properly creates file
             with open(file_name,'w') as data_output:
                 datawriter = csv.writer(data_output, delimiter = ',')
                 datawriter.writerow(data_store)
-    
+            raise
 
-if __name__=="__main__":
-        main()
+main()

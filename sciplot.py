@@ -1,20 +1,25 @@
-######## Missouri University of Science and Technology########
-#        Mars Rover Design Team                              #
-#        Author: Matthew Healy    mhrh3@mst.edu              #
-#                                                            #
-#    SciPlot is a graphing module that plots data from a     #
-#    serial input in real time.                              #
-#                                                            #
-#  Usage: python3.4 sciplot.py [-h] [-p] [-b] [-f] [-m] [-s] #
-##############################################################
+##############Missouri University of Science and Technology#############
+#                        Mars Rover Design Team                        #
+#        Author: Matthew Healy    mhrh3@mst.edu                        #
+#                                                                      #
+#        serial input in real time.                                    #
+#                                                                      #
+#        Usage: python3.4 sciplot.py [-h] [-p] [-b] [-f] [-m] [-s]     #
+#                                                                      #
+#   Note: This script should be run from within the directory          #
+#           That you wish to use to store the .csv file on exit, as    #
+#           saves to the current directory                             #
+########################################################################
 
 
 
-import serial 						
-import numpy						
-import matplotlib.pyplot as plt
-import csv
-import argparse
+import serial                   # used for .readline()					
+import numpy			# used for arange()			
+import matplotlib.pyplot as plt # used for all of plotting
+import csv                      # used for csv.writer() and writerow()
+import argparse                 # used for argparse.ArgumentParser()
+
+# used for auto-selection of serial ports
 import glob
 import sys
 
@@ -94,8 +99,15 @@ def serial_check(list_of_ports):
 
 def graph():
     global count
-    if (count < MAX_PLOT_SIZE):                 # hold graph still
-        plt.clf()                               # clear current plot
+
+    if sensorType=="humidity":
+        upperY = 900
+        lowerY = -5
+    elif sensorType=="temp":
+        upperY =  100
+        lowerY = -15
+    if (count < MAX_PLOT_SIZE): # holding still
+        plt.clf()               # clear current plot
         plt.scatter(count,graphStore[count])
         plt.ylim(-5,100)
         plt.grid(True)
@@ -124,7 +136,7 @@ def main():
         serial_port = serial_check(ports_list)
         
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
-        parser.add_argument('-p', default=serial_port, action="store", dest="port",help="name of serial input")
+        parser.add_argument('-p', default='/dev/tty.usbmodem1411', action="store", dest="port",help="name of serial input")
         parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")
         parser.add_argument('-f', default="sensor_data", action="store", dest="file_name", help="name of file for data to be stored in")
         parser.add_argument('-m', default=7, action="store", dest="MAX_PLOT_SIZE", help="maximum size for x axis (recommended < 10)")

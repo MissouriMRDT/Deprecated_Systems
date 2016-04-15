@@ -88,9 +88,13 @@ def main():
     while(True): # never tested on while(True), only limited range
         try:
             data_store = []
+            packet = serial_data.readline()
+            data_store = packet.split(" ") # never tested with split
+            """
             for x in range(PACKET_SIZE):
-                y = float(serial_data.readline())
+                y = float(serial_data.read(2))   # probably wont work with CCD output
                 data_store.append(y)
+            """
             graph(data_store)
         except(KeyboardInterrupt,SystemExit):
             #make sure this executes and properly creates file

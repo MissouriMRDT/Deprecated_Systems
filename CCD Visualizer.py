@@ -58,7 +58,7 @@ def serial_check(list_of_ports):
             print(float(test_data))
         except (NameError, ValueError):
             print("Serial input invalid: ",port)
-            Pass
+            pass
         else:
             print("made it to else clause")
             valid_ports.append(port)

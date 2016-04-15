@@ -18,7 +18,8 @@ import argparse
 import glob
 import sys
 
-data_count = 0
+sensor_type = "humidity"
+count = 0
 relative_count = []
 plt.ion()
 data_store = []
@@ -86,15 +87,16 @@ def serial_check(list_of_ports):
 
 def graph():
     global count
-    if sensorType=="humidity":
+    global sensor_type
+    if sensor_type=="humidity":
         upperY = 900
         lowerY = -5
-    elif sensorType=="temp":
+    elif sensor_type=="temp":
         upperY =  100
         lowerY = -15
     if (count < MAX_PLOT_SIZE): # holding still
         plt.clf()               # clear current plot
-        plt.scatter(count,graphStore[count])
+        plt.scatter(count,graph_store[count])
         plt.ylim(-5,100)
         plt.grid(True)
         plt.title(sensor_type)
@@ -104,7 +106,7 @@ def graph():
     else:                                       # start scrolling graph
         plt.clf()
         end_data = count+1
-        begin_data = (data_count - MAX_PLOT_SIZE)
+        begin_data = (count - MAX_PLOT_SIZE)
         data_range = numpy.arange(begin_data,(end_data))
         plt.ylim(-5,100)
         plt.grid(True)
@@ -122,7 +124,7 @@ def main():
         serial_port = serial_check(ports_list)
         
         parser = argparse.ArgumentParser(description='plot scientific data in real time')
-        parser.add_argument('-p', default=serial_port, action="store", dest="port",help="name of serial input")
+        parser.add_argument('-p', default="COM4", action="store", dest="port",help="name of serial input")
         parser.add_argument('-b', default=9600, action="store", dest="baudrate", help="baudrate for data transfer")
         parser.add_argument('-f', default="sensor_data", action="store", dest="file_name", help="name of file for data to be stored in")
         parser.add_argument('-m', default=7, action="store", dest="MAX_PLOT_SIZE", help="maximum size for x axis (recommended < 10)")
@@ -144,6 +146,7 @@ def main():
                 with open(file_name,'w') as data_output:
                     datawriter = csv.writer(data_output, delimiter = ',')
                     datawriter.writerow(data_store)
+                raise
                     
 if __name__=="__main__":
         main()

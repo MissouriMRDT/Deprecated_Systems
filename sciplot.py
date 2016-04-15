@@ -23,14 +23,6 @@ import argparse                 # used for argparse.ArgumentParser()
 import glob
 import sys
 
-global data_count
-global MAX_PLOT_SIZE
-global begin_data
-global end_data
-global file_name
-global port
-global sensor_type
-
 data_count = 0
 relative_count = []
 plt.ion()
@@ -98,8 +90,6 @@ def serial_check(list_of_ports):
 
 
 def graph():
-    global count
-
     if sensorType=="humidity":
         upperY = 900
         lowerY = -5
@@ -143,10 +133,6 @@ def main():
         parser.add_argument('-s', default="Sensor Data", action="store", dest="sensor_type", help="sensor being used, in order to correctly title plot")
 
         args = parser.parse_args()
-        global MAX_PLOT_SIZE
-        global file_name
-        global port
-        global sensor_type
         MAX_PLOT_SIZE = args.MAX_PLOT_SIZE
         port = args.port
         file_name = args.file_name + '.csv'

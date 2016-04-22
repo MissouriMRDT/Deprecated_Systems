@@ -2124,27 +2124,27 @@
 <pad name="P$9" x="7.62" y="-3.81" drill="0.8"/>
 <pad name="P$10" x="10.16" y="-3.81" drill="0.8"/>
 <pad name="P$11" x="12.7" y="-3.81" drill="0.8"/>
-<pad name="P$12" x="12.7" y="3.81" drill="0.8"/>
-<pad name="P$13" x="10.16" y="3.81" drill="0.8"/>
-<pad name="P$14" x="7.62" y="3.81" drill="0.8"/>
-<pad name="P$15" x="5.08" y="3.81" drill="0.8"/>
-<pad name="P$16" x="2.54" y="3.81" drill="0.8"/>
-<pad name="P$17" x="0" y="3.81" drill="0.8"/>
-<pad name="P$18" x="-2.54" y="3.81" drill="0.8"/>
-<pad name="P$19" x="-5.08" y="3.81" drill="0.8"/>
-<pad name="P$20" x="-7.62" y="3.81" drill="0.8"/>
-<pad name="OS" x="-10.16" y="3.81" drill="0.8"/>
-<pad name="SS" x="-12.7" y="3.81" drill="0.8"/>
-<wire x1="-19" y1="3.8" x2="-12.7" y2="3.8" width="0.127" layer="21"/>
+<pad name="P$12" x="12.7" y="6.35" drill="0.8"/>
+<pad name="P$13" x="10.16" y="6.35" drill="0.8"/>
+<pad name="P$14" x="7.62" y="6.35" drill="0.8"/>
+<pad name="P$15" x="5.08" y="6.35" drill="0.8"/>
+<pad name="P$16" x="2.54" y="6.35" drill="0.8"/>
+<pad name="P$17" x="0" y="6.35" drill="0.8"/>
+<pad name="P$18" x="-2.54" y="6.35" drill="0.8"/>
+<pad name="P$19" x="-5.08" y="6.35" drill="0.8"/>
+<pad name="P$20" x="-7.62" y="6.35" drill="0.8"/>
+<pad name="OS" x="-10.16" y="6.35" drill="0.8"/>
+<pad name="SS" x="-12.7" y="6.35" drill="0.8"/>
+<wire x1="-19" y1="6.34" x2="-12.7" y2="6.34" width="0.127" layer="21"/>
 <wire x1="-12.7" y1="-3.8" x2="-19" y2="-3.8" width="0.127" layer="21"/>
-<wire x1="-19" y1="-3.8" x2="-19" y2="-0.5" width="0.127" layer="21"/>
-<wire x1="-19" y1="3.8" x2="-19" y2="1" width="0.127" layer="21"/>
-<wire x1="-19" y1="1" x2="-18.5" y2="0.5" width="0.127" layer="21" curve="-90"/>
-<wire x1="-18.5" y1="0.5" x2="-18.5" y2="0" width="0.127" layer="21"/>
-<wire x1="-18.5" y1="0" x2="-19" y2="-0.5" width="0.127" layer="21" curve="-90"/>
 <wire x1="19" y1="-3.8" x2="12.7" y2="-3.8" width="0.127" layer="21"/>
-<wire x1="12.7" y1="3.8" x2="19" y2="3.8" width="0.127" layer="21"/>
-<wire x1="19" y1="-3.8" x2="19" y2="3.8" width="0.127" layer="21"/>
+<wire x1="12.7" y1="6.34" x2="19" y2="6.34" width="0.127" layer="21"/>
+<wire x1="19" y1="-3.8" x2="19" y2="6.34" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="3.81" x2="-17.78" y2="2.54" width="0.127" layer="21" curve="-90"/>
+<wire x1="-19.05" y1="-1.27" x2="-17.78" y2="0" width="0.127" layer="21" curve="90"/>
+<wire x1="-19.05" y1="6.35" x2="-19.05" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-19.05" y1="-3.81" x2="-19.05" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-17.78" y1="2.54" x2="-17.78" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="SERVO_JACK">
 <pad name="GND" x="-4.24" y="3.45" drill="1.016" diameter="1.8796" rot="R90"/>
@@ -2167,6 +2167,25 @@
 <wire x1="-2.5" y1="1.3" x2="-2.5" y2="0.9" width="0.127" layer="21"/>
 <wire x1="-1.7" y1="1.3" x2="-0.9" y2="1.3" width="0.127" layer="21"/>
 <wire x1="-0.9" y1="1.3" x2="-0.9" y2="0.9" width="0.127" layer="21"/>
+</package>
+<package name="POWER-S08-BUK">
+<wire x1="4.9" y1="3.9" x2="4.9" y2="0.6" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.6" x2="4.9" y2="0.1" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.1" x2="0.1" y2="0.1" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="0.1" x2="0.1" y2="0.6" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="0.6" x2="0.1" y2="3.9" width="0.2032" layer="51"/>
+<wire x1="0.1" y1="3.9" x2="4.9" y2="3.9" width="0.2032" layer="51"/>
+<wire x1="4.9" y1="0.6" x2="0.1" y2="0.6" width="0.2032" layer="51"/>
+<smd name="2" x="1.865" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="0.595" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="3" x="3.135" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="4" x="4.405" y="-0.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="5" x="2.5" y="4.6" dx="4.41" dy="2.2" layer="1"/>
+<rectangle x1="0.3499" y1="-1.1001" x2="0.8401" y2="0" layer="51"/>
+<rectangle x1="1.6199" y1="-1.1001" x2="2.1101" y2="0" layer="51"/>
+<rectangle x1="2.8899" y1="-1.1001" x2="3.3801" y2="0" layer="51"/>
+<rectangle x1="4.1599" y1="-1.1001" x2="4.6501" y2="0" layer="51"/>
+<circle x="0.595" y="1.0475" radius="0.3175" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -2525,6 +2544,7 @@
 </devices>
 </deviceset>
 <deviceset name="BUK9Y4R4-40E">
+<description>Compatible with the BUK9Y** MOSFETS made by NXP Semiconductors.</description>
 <gates>
 <gate name="G$1" symbol="MOSFET_N" x="-2.54" y="5.08"/>
 </gates>
@@ -2541,6 +2561,16 @@
 <attribute name="MFR_PN" value="BUK9Y4R4-40E"/>
 <attribute name="PACKAGE" value="POWER-SO8" constant="no"/>
 </technology>
+</technologies>
+</device>
+<device name="" package="POWER-S08-BUK">
+<connects>
+<connect gate="G$1" pin="D" pad="5"/>
+<connect gate="G$1" pin="G" pad="4"/>
+<connect gate="G$1" pin="S" pad="1 2 3"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -5052,7 +5082,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="FET_PWRMAIN" library="MRDT-2015-General" deviceset="BUK9Y4R4-40E" device="POWER-SO8"/>
+<part name="FET_PWRMAIN" library="MRDT-2015-General" deviceset="BUK9Y4R4-40E" device="" value="BUK9Y4R4-40E"/>
 <part name="LT1910-MAIN" library="Jake" deviceset="LT1910" device=""/>
 <part name="GND31" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="LT1910CAP-MAIN" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value=".1µF"/>
@@ -5066,7 +5096,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="U$1" library="MRDT-2015-General" deviceset="TIVA-C" device=""/>
 <part name="U$4" library="MRDT-RF" deviceset="XBEE_802.15.4" device="SMD"/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
-<part name="FET_TOOL1" library="MRDT-2015-General" deviceset="BUK9Y4R4-40E" device="POWER-SO8"/>
+<part name="FET_TOOL1" library="MRDT-2015-General" deviceset="BUK9Y4R4-40E" device="" value="BUK9Y4R4-40E"/>
 <part name="LT1910-J1" library="Jake" deviceset="LT1910" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="CAP_TOOL1" library="SparkFun-Capacitors" deviceset="CAP" device="0603-CAP" value=".1µF"/>
@@ -5075,7 +5105,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$9" library="MRDT-2015-General" deviceset="3V_LDO_REGULATOR" device=""/>
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="1uf"/>
 <part name="GND12" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="SUPPLY4" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
@@ -5096,6 +5126,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="U$21" library="MRDT-Connectors" deviceset="M04" device=""/>
 <part name="U$22" library="MRDT-Connectors" deviceset="M04" device=""/>
 <part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="1uf"/>
+<part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5152,8 +5184,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="GND1" gate="1" x="71.12" y="193.04" rot="R180"/>
 <instance part="U$9" gate="G$1" x="223.52" y="187.96"/>
 <instance part="GND5" gate="1" x="228.6" y="175.26"/>
-<instance part="C1" gate="G$1" x="208.28" y="198.12"/>
-<instance part="GND12" gate="1" x="208.28" y="190.5"/>
+<instance part="C1" gate="G$1" x="208.28" y="193.04"/>
+<instance part="GND12" gate="1" x="208.28" y="175.26"/>
 <instance part="SUPPLY3" gate="G$1" x="208.28" y="208.28"/>
 <instance part="SUPPLY4" gate="G$1" x="116.84" y="116.84"/>
 <instance part="GND14" gate="1" x="127" y="175.26"/>
@@ -5173,12 +5205,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <attribute name="VALUE" x="202.184" y="-116.459" size="1.778" layer="96"/>
 </instance>
 <instance part="U$17" gate="G$1" x="86.36" y="182.88" rot="R270"/>
-<instance part="U$18" gate="G$1" x="261.62" y="205.74" rot="R180"/>
-<instance part="GND4" gate="1" x="248.92" y="195.58"/>
+<instance part="U$18" gate="G$1" x="274.32" y="205.74" rot="R180"/>
+<instance part="GND4" gate="1" x="264.16" y="175.26"/>
 <instance part="GND10" gate="1" x="142.24" y="-22.86" rot="R180"/>
 <instance part="U$21" gate="G$1" x="137.16" y="-60.96" rot="R270"/>
 <instance part="U$22" gate="G$1" x="149.86" y="-43.18" rot="R90"/>
 <instance part="SUPPLY6" gate="G$1" x="147.32" y="-25.4"/>
+<instance part="C4" gate="G$1" x="251.46" y="193.04"/>
+<instance part="GND9" gate="1" x="251.46" y="175.26"/>
 </instances>
 <busses>
 </busses>
@@ -5246,7 +5280,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="208.28" y1="195.58" x2="208.28" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="190.5" x2="208.28" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="GND"/>
@@ -5256,12 +5290,17 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <segment>
 <pinref part="U$18" gate="G$1" pin="3"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="248.92" y1="198.12" x2="251.46" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="177.8" x2="264.16" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="142.24" y1="-33.02" x2="142.24" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <pinref part="U$22" gate="G$1" pin="3"/>
+</segment>
+<segment>
+<pinref part="C4" gate="G$1" pin="2"/>
+<pinref part="GND9" gate="1" pin="GND"/>
+<wire x1="251.46" y1="177.8" x2="251.46" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
@@ -5321,11 +5360,12 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U$17" gate="G$1" pin="+5V"/>
 </segment>
 <segment>
-<pinref part="U$9" gate="G$1" pin="VCC"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="218.44" y1="203.2" x2="208.28" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="208.28" y1="203.2" x2="208.28" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="198.12" x2="208.28" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="G$1" pin="5V"/>
+<pinref part="U$9" gate="G$1" pin="VCC"/>
+<wire x1="208.28" y1="203.2" x2="208.28" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="203.2" x2="208.28" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GATE-MAIN" class="0">
@@ -5401,9 +5441,9 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U$17" gate="G$1" pin="SIG"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="PE3"/>
-<wire x1="101.6" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
-<label x="104.14" y="60.96" size="0.762" layer="95" xref="yes"/>
+<pinref part="U$2" gate="G$1" pin="PL5"/>
+<wire x1="101.6" y1="30.48" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
+<label x="109.22" y="30.48" size="0.762" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="GATE-J1" class="0">
@@ -5433,8 +5473,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="246.38" y1="203.2" x2="243.84" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="243.84" y1="198.12" x2="246.38" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="198.12" x2="246.38" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="251.46" y1="203.2" x2="246.38" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="264.16" y1="203.2" x2="251.46" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="U$18" gate="G$1" pin="1"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="251.46" y1="203.2" x2="246.38" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="198.12" x2="251.46" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GRIPPER_SERIAL_OUT" class="0">
@@ -5695,9 +5738,9 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U$22" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="PK0"/>
-<wire x1="66.04" y1="63.5" x2="58.42" y2="63.5" width="0.1524" layer="91"/>
-<label x="58.42" y="63.5" size="0.762" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$2" gate="G$1" pin="PC6"/>
+<wire x1="66.04" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
+<label x="60.96" y="93.98" size="0.762" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -5707,9 +5750,9 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U$22" gate="G$1" pin="4"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="PK1"/>
-<wire x1="66.04" y1="60.96" x2="58.42" y2="60.96" width="0.1524" layer="91"/>
-<label x="58.42" y="60.96" size="0.762" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$2" gate="G$1" pin="PC7"/>
+<wire x1="66.04" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
+<label x="60.96" y="91.44" size="0.762" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="5V" class="0">

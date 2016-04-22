@@ -7,21 +7,18 @@
 
 #include <RoveComm.h>
 
-
-
-
 #include <dyna.h>
 
 
+
+//Pin assignments:
 #define EN_12V PM_6
 #define I_MEAS_12V PB_4
-
 
 #define PWM0 26
 #define PWM1 25
 #define PWM2 24
 #define PWM3 23
-
 
 #define PWM0_CAM2 PA_5
 #define PWM1_CAM2 PA_4
@@ -31,7 +28,7 @@
 
 
 
-
+//Camera pulse lengths (ms)
 #define SHORT_SIGNAL 1000
 #define MID_SIGNAL 1500
 #define LONG_SIGNAL 2000
@@ -39,16 +36,19 @@
 
 
 
-#define HORIZONTAL_DYNAMIXEL_ID 5//5
-#define VERTICAL_DYNAMIXEL_ID 4//4
+//Dynamixel ID's
+#define HOR_CAM_1 5
+#define VERT_CAM_1 4
+#define HOR_CAM_2 254
+#define VERT_CAM_2 254
 
-
+//Dynamixel function ID's
 #define ID_CW_LIMIT 6
 #define ID_CCW_LIMIT 8
 #define ID_SPEED 32
 
 
-
+//Basestation command ID's
 #define ID_CAMERA_COMMAND 1568
 #define ID_GIMBAL_SPEED 1552
 #define ID_CAMERA_MENU 1569
@@ -56,17 +56,24 @@
 
 
 
+
+uint16_t dataID = 0;
+size_t size = 0;
+char data[8];
+int counter;
+
+
+
+
+
 void setup() {
   
-  
-  
-  //initialize pin modes
+
   pinMode(PWM0,OUTPUT);
   pinMode(PWM1,OUTPUT);
   pinMode(PWM2,OUTPUT);
   pinMode(PWM3,OUTPUT);
   pinMode(EN_12V,OUTPUT);
-  
   
   digitalWrite(PWM0,0);
   digitalWrite(PWM1,0);
@@ -76,58 +83,26 @@ void setup() {
   
   delay(5000);
   
+  roveComm_Begin(192,168,1,134);
   Serial.begin(9600);
-
+  Ethernet.enableLinkLed();
+  Ethernet.enableActivityLed();
+  delay(100);
   init();//initialize Dynamixel library
   delay(100);
-  
-  
-  //setRegister(254,3,4);
-  //setRegister2(254,14,0x3ff);
-  
-  
-  
-  
+
   //set dynamixels to be in continuous rotation mode.
-  setRegister2(HORIZONTAL_DYNAMIXEL_ID,ID_CW_LIMIT,0);
-  setRegister2(HORIZONTAL_DYNAMIXEL_ID,ID_CCW_LIMIT,0);
-  setRegister2(VERTICAL_DYNAMIXEL_ID,ID_CW_LIMIT,0);
-  setRegister2(VERTICAL_DYNAMIXEL_ID,ID_CCW_LIMIT,0);
+  setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
+  setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
+  setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
+  setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
 
   //debug: flash LED's on dynamixel to indicate they are communicating
- blink(5);
+  blink(5);
 
  
- //roveComm_Begin(192,168,1,52);
- 
   
- delay(300);
-
-  int spd = 900;
-  
-  for(int i = 9; i >=0; i--){
-    spd = i*100;
- moveCameraVertically(spd);
- delay(100);
- moveCameraHorizontally(spd);
- delay(1000);
  
- moveCameraVertically(-spd);
- delay(100);
- moveCameraHorizontally(-spd);
- delay(1000);
- 
- moveCameraVertically(0);
- delay(100);
- moveCameraHorizontally(0);
- delay(1000);
- 
- 
- //if(i%2==0)zoomIn();
- //else zoomOut();
- 
- 
-  }
 
  
  
@@ -142,26 +117,55 @@ void blink(int num){
   }
 }
 
-
+int count = 0;
 void loop(){
-   blink(2);
+  if(roveCommCheck()) count=0;
+  else{
+    count++;
+    if(count>25){
+      moveDynamixel(0,HOR_CAM_1);
+      moveDynamixel(0,VERT_CAM_1);
+    }
+    delay(5);
+  }
+  delay(1);
 }
 
-void roveComm(){
-
-  uint16_t* dataID;
-  byte msg[100];
-  byte tmp;
-  roveComm_GetMsg(dataID, 0, msg);
+boolean roveCommCheck(){
   
-  switch(msg[2]){
+  roveComm_GetMsg(&dataID, &size, data);
+  if(dataID==0) return false;
+  
+  uint8_t tmp;
+  int16_t xSpeed;
+  int16_t ySpeed;
+  
+  switch(dataID){
     case ID_GIMBAL_SPEED:
-      tmp = msg[3];
-      //TODO
+      
+      char a[2];
+      
+      a[0] = data[0];
+      a[1] = data[1];
+      xSpeed = *(int16_t*)(a);
+      
+      a[0] = data[2];
+      a[1] = data[3];
+      ySpeed = *(int16_t*)(a);
+      
+      
+      //xSpeed = 900;
+      //ySpeed = 0;
+      
+      moveDynamixel(xSpeed,HOR_CAM_1);
+      moveDynamixel(ySpeed,VERT_CAM_1);
+      
+      
+      
     break;
     
     case ID_CAMERA_MENU:
-      tmp = msg[3];
+      tmp = *(uint8_t*)(data);
       if(tmp==0){
         toggleMenu();
       }
@@ -180,7 +184,7 @@ void roveComm(){
     break;
     
     case ID_CAMERA_COMMAND:
-      tmp = msg[3];
+      tmp = *(uint8_t*)(data);
       if(tmp==0){
         stopZoomAndFocus();
       }
@@ -201,6 +205,8 @@ void roveComm(){
    
     
   }
+  
+  return true;
 }
 
 
@@ -208,7 +214,7 @@ void roveComm(){
 
 
 //moveSpeed: -1000 to 1000
-void moveCameraHorizontally(int moveSpeed){
+void moveDynamixel(int moveSpeed, int dynaID){
   if(moveSpeed<0){
     moveSpeed = abs(moveSpeed)*1023/1000+1024;
   }
@@ -224,27 +230,9 @@ void moveCameraHorizontally(int moveSpeed){
     moveSpeed=2047;
   }
 
-  setRegister2(HORIZONTAL_DYNAMIXEL_ID,ID_SPEED,moveSpeed);
-}
-
-//moveSpeed: -1000 to 1000
-void moveCameraVertically(int moveSpeed){
-  if(moveSpeed<0){
-    moveSpeed = abs(moveSpeed)*1023/1000+1024;
-  }
-  else{
-    moveSpeed = moveSpeed*1023/1000;
-  }
+  setRegister2(dynaID,ID_SPEED,moveSpeed);
   
-  
-  if(moveSpeed<0){
-    moveSpeed=0;
-  }
-  if(moveSpeed>2047){
-    moveSpeed=2047;
-  }
-  
-  setRegister2(VERTICAL_DYNAMIXEL_ID,ID_SPEED,moveSpeed);
+  delay(50);
 }
 
 
@@ -313,8 +301,6 @@ void navigateMenuDown(){
   generateSignal(MID_SIGNAL,PWM0);
   generateSignal(SHORT_SIGNAL,PWM0);
 }
-
-
 
 
 void generateSignal(int amt, int pin){

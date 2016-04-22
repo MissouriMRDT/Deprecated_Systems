@@ -18,7 +18,7 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -155,17 +155,17 @@
 <library>
 <packages>
 <package name="APP45_PCB_HORIZ_RIGHT_2HIGH">
-<wire x1="0" y1="0" x2="0" y2="7.874" width="0.127" layer="51"/>
-<wire x1="0" y1="7.874" x2="8.001" y2="7.874" width="0.127" layer="51"/>
-<wire x1="8.001" y1="7.874" x2="8.89" y2="7.874" width="0.127" layer="51"/>
-<wire x1="11.176" y1="7.874" x2="24.638" y2="7.874" width="0.127" layer="51"/>
-<wire x1="24.638" y1="7.874" x2="24.638" y2="0" width="0.127" layer="51"/>
+<wire x1="0" y1="0" x2="0" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="0" y1="7.9375" x2="8.001" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="8.001" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="11.176" y1="7.9375" x2="24.638" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="24.638" y1="7.9375" x2="24.638" y2="0" width="0.127" layer="51"/>
 <wire x1="24.638" y1="0" x2="11.176" y2="0" width="0.127" layer="51"/>
 <wire x1="8.89" y1="0" x2="8.001" y2="0" width="0.127" layer="51"/>
 <wire x1="8.001" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="8.001" y2="7.874" width="0.127" layer="51" style="shortdash"/>
-<pad name="P$2" x="36.068" y="3.937" drill="4.064" thermals="no"/>
-<wire x1="11.176" y1="7.874" x2="8.89" y2="7.874" width="0.127" layer="51" curve="-180"/>
+<wire x1="8.001" y1="0" x2="8.001" y2="7.9375" width="0.127" layer="51" style="shortdash"/>
+<pad name="P$2" x="36.068" y="3.96875" drill="4.064" thermals="no"/>
+<wire x1="11.176" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51" curve="-180"/>
 <wire x1="8.89" y1="0" x2="11.176" y2="0" width="0.127" layer="51" curve="-180"/>
 <wire x1="24.638" y1="0" x2="24.638" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
 <wire x1="24.638" y1="-0.508" x2="12.319" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
@@ -178,17 +178,17 @@
 <wire x1="12.319" y1="5.588" x2="24.638" y2="5.588" width="0.127" layer="49" style="shortdash"/>
 </package>
 <package name="APP45_PCB_HORIZ_RIGHT">
-<pad name="P$1" x="28.194" y="3.937" drill="4.064" thermals="no"/>
-<wire x1="0" y1="0" x2="0" y2="7.874" width="0.127" layer="51"/>
-<wire x1="0" y1="7.874" x2="8.001" y2="7.874" width="0.127" layer="51"/>
-<wire x1="8.001" y1="7.874" x2="8.89" y2="7.874" width="0.127" layer="51"/>
-<wire x1="11.176" y1="7.874" x2="24.638" y2="7.874" width="0.127" layer="51"/>
-<wire x1="24.638" y1="7.874" x2="24.638" y2="0" width="0.127" layer="51"/>
+<pad name="P$1" x="28.194" y="3.96875" drill="4.064" thermals="no"/>
+<wire x1="0" y1="0" x2="0" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="0" y1="7.9375" x2="8.001" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="8.001" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="11.176" y1="7.9375" x2="24.638" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="24.638" y1="7.9375" x2="24.638" y2="0" width="0.127" layer="51"/>
 <wire x1="24.638" y1="0" x2="11.176" y2="0" width="0.127" layer="51"/>
 <wire x1="8.89" y1="0" x2="8.001" y2="0" width="0.127" layer="51"/>
 <wire x1="8.001" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="8.001" y2="7.874" width="0.127" layer="51" style="shortdash"/>
-<wire x1="11.176" y1="7.874" x2="8.89" y2="7.874" width="0.127" layer="51" curve="-180"/>
+<wire x1="8.001" y1="0" x2="8.001" y2="7.9375" width="0.127" layer="51" style="shortdash"/>
+<wire x1="11.176" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51" curve="-180"/>
 <wire x1="8.89" y1="0" x2="11.176" y2="0" width="0.127" layer="51" curve="-180"/>
 <wire x1="24.638" y1="0" x2="24.638" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
 <wire x1="24.638" y1="-0.508" x2="12.319" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
@@ -203,8 +203,8 @@
 <dimension x1="0" y1="0" x2="10.033" y2="0" x3="5.0165" y3="-7.62" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
 <dimension x1="0" y1="0" x2="8.001" y2="0" x3="4.0005" y3="-3.048" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
 <dimension x1="0" y1="0" x2="28.194" y2="3.937" x3="14.097" y3="-16.256" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
-<dimension x1="24.638" y1="7.874" x2="24.638" y2="0" x3="34.798" y3="3.937" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
 <dimension x1="11.176" y1="7.874" x2="8.89" y2="7.874" x3="10.033" y3="9.398" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="3" visible="yes"/>
+<dimension x1="24.638" y1="7.9375" x2="24.638" y2="0" x3="36.83" y3="3.96875" textsize="1.27" layer="47" unit="inch" precision="4"/>
 </package>
 <package name="APP45_PCB_VERT">
 <wire x1="0" y1="0" x2="0" y2="7.874" width="0.127" layer="51"/>
@@ -496,9 +496,9 @@
 <wire x1="0" y1="0" x2="-16.764" y2="0" width="0.127" layer="51"/>
 <wire x1="-16.764" y1="0" x2="-16.764" y2="1.651" width="0.127" layer="51"/>
 <wire x1="-16.764" y1="1.651" x2="-16.764" y2="6.223" width="0.127" layer="51"/>
-<wire x1="-16.764" y1="6.223" x2="-16.764" y2="7.874" width="0.127" layer="51"/>
-<wire x1="-16.764" y1="7.874" x2="0" y2="7.874" width="0.127" layer="51"/>
-<wire x1="0" y1="7.874" x2="0" y2="6.223" width="0.127" layer="51"/>
+<wire x1="-16.764" y1="6.223" x2="-16.764" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="-16.764" y1="7.9375" x2="0" y2="7.9375" width="0.127" layer="51"/>
+<wire x1="0" y1="7.9375" x2="0" y2="6.223" width="0.127" layer="51"/>
 <wire x1="0" y1="6.223" x2="0" y2="1.651" width="0.127" layer="51"/>
 <wire x1="0" y1="1.651" x2="0" y2="0" width="0.127" layer="51"/>
 <wire x1="0" y1="7.874" x2="0" y2="8.382" width="0.127" layer="49" style="shortdash"/>
@@ -512,7 +512,7 @@
 <wire x1="-5.08" y1="6.223" x2="-9.652" y2="6.223" width="0.127" layer="51"/>
 <wire x1="0" y1="6.223" x2="-16.764" y2="6.223" width="0.127" layer="51" style="shortdash"/>
 <wire x1="0" y1="1.651" x2="-16.764" y2="1.651" width="0.127" layer="51" style="shortdash"/>
-<hole x="-7.366" y="3.937" drill="4.318"/>
+<hole x="-7.366" y="3.96875" drill="4.318"/>
 <wire x1="-12.319" y1="0.508" x2="0" y2="0.508" width="0.127" layer="49" style="shortdash"/>
 <wire x1="-10.795" y1="3.937" x2="-7.366" y2="0.508" width="0.127" layer="49" style="shortdash" curve="90"/>
 <wire x1="-7.366" y1="0.508" x2="-3.937" y2="3.937" width="0.127" layer="49" style="shortdash" curve="90"/>
@@ -521,8 +521,8 @@
 <dimension x1="-7.366" y1="3.937" x2="-4.9413375" y2="6.3616625" x3="-6.15366875" y3="5.14933125" textsize="1.27" layer="47" dtype="radius" unit="inch" precision="3" visible="yes"/>
 <dimension x1="-5.31779375" y1="4.619734375" x2="-9.41420625" y2="3.254265625" x3="-9.41420625" y3="3.254265625" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="3" visible="yes"/>
 <dimension x1="0" y1="6.223" x2="0" y2="1.651" x3="1.397" y3="3.937" textsize="1.27" layer="47" unit="inch" precision="3" visible="yes"/>
-<dimension x1="0" y1="0" x2="-0.762" y2="7.874" x3="5.969" y3="3.937" textsize="1.27" layer="47" dtype="vertical" unit="inch" precision="3" visible="yes"/>
 <dimension x1="0" y1="0" x2="-16.764" y2="0" x3="-8.382" y3="-3.556" textsize="1.27" layer="47" dtype="vertical" unit="inch" precision="3" visible="yes"/>
+<dimension x1="-16.764" y1="7.9375" x2="-16.51" y2="0" x3="-22.86" y3="3.96875" textsize="1.27" layer="21" dtype="vertical" unit="inch" precision="5"/>
 </package>
 <package name="APP45_MOCO_VERT_CONFIG_DUMMY">
 <wire x1="0" y1="0" x2="0" y2="7.874" width="0.127" layer="51"/>
@@ -975,6 +975,7 @@
 <wire x1="-12.3444" y1="-2.8702" x2="-10.8204" y2="-4.3942" width="0.127" layer="51"/>
 <wire x1="-10.8204" y1="-4.3942" x2="10.7696" y2="-4.3942" width="0.127" layer="51"/>
 </package>
+<<<<<<< HEAD
 <package name="MOLEX_0436500400">
 <wire x1="0.254" y1="0" x2="-1.27" y2="1.524" width="0.127" layer="51"/>
 <wire x1="-1.27" y1="1.524" x2="-1.27" y2="9.906" width="0.127" layer="51"/>
@@ -993,6 +994,27 @@
 <wire x1="12.8524" y1="-0.0254" x2="12.8524" y2="-7.6708" width="0.127" layer="49" style="shortdash"/>
 <wire x1="12.8524" y1="-7.6708" x2="3.2512" y2="-7.6708" width="0.127" layer="49" style="shortdash"/>
 <text x="10.8712" y="6.8326" size="0.6096" layer="21">1</text>
+=======
+<package name="MOLEX0436500328">
+<wire x1="0" y1="0" x2="0" y2="4.3688" width="0.127" layer="51"/>
+<wire x1="0" y1="4.3688" x2="4.826" y2="4.3688" width="0.127" layer="51"/>
+<wire x1="4.826" y1="4.3688" x2="7.8232" y2="4.3688" width="0.127" layer="51"/>
+<wire x1="7.8232" y1="4.3688" x2="12.6492" y2="4.3688" width="0.127" layer="51"/>
+<wire x1="12.6492" y1="4.3688" x2="12.6492" y2="0" width="0.127" layer="51"/>
+<wire x1="12.6492" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
+<wire x1="4.826" y1="4.3688" x2="4.826" y2="5.5626" width="0.127" layer="51"/>
+<wire x1="4.826" y1="5.5626" x2="7.8232" y2="5.5626" width="0.127" layer="51"/>
+<wire x1="7.8232" y1="5.5626" x2="7.8232" y2="4.3688" width="0.127" layer="51"/>
+<wire x1="3.3274" y1="6.5532" x2="9.3218" y2="6.5532" width="0.127" layer="49" style="shortdash"/>
+<wire x1="9.3218" y1="6.5532" x2="9.3218" y2="4.3688" width="0.127" layer="49" style="shortdash"/>
+<wire x1="3.3274" y1="4.3688" x2="3.3274" y2="6.5532" width="0.127" layer="49" style="shortdash"/>
+<hole x="0.3302" y="0.508" drill="1.27"/>
+<hole x="12.319" y="0.508" drill="1.27"/>
+<pad name="P$1" x="9.3218" y="2.4638" drill="1.016"/>
+<pad name="P$2" x="6.3246" y="2.4638" drill="1.016"/>
+<pad name="P$3" x="3.3274" y="2.4638" drill="1.016"/>
+<text x="0" y="5.08" size="1.27" layer="25" rot="SR0">&gt;NAME</text>
+>>>>>>> origin/master
 </package>
 </packages>
 <symbols>
@@ -1298,11 +1320,21 @@
 <gate name="G$1" symbol="M03" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="MOLEX_0436500300">
+<device name="HORIZ" package="MOLEX_0436500300">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="VERT" package="MOLEX0436500328">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+<connect gate="G$1" pin="3" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1367,6 +1399,7 @@
 </device>
 </devices>
 </deviceset>
+<<<<<<< HEAD
 <deviceset name="M04">
 <gates>
 <gate name="G$1" symbol="M04" x="0" y="0"/>
@@ -1379,6 +1412,14 @@
 <connect gate="G$1" pin="3" pad="3"/>
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
+=======
+<deviceset name="MOLEX0436500328">
+<gates>
+<gate name="G$1" symbol="M03" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+>>>>>>> origin/master
 <technologies>
 <technology name=""/>
 </technologies>

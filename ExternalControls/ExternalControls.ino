@@ -1,3 +1,5 @@
+#include <Servo.h>
+
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
@@ -24,6 +26,24 @@
 #define PWM1_CAM2 PA_4
 #define PWM2_CAM2 PD_5
 #define PWM3_CAM2 PD_1
+
+//Servo pins
+#define P00 PK_0
+#define P01 PK_1
+#define P02 PK_2
+#define P03 PK_3
+#define P10 PP_0
+#define P11 PP_1
+#define P12 PN_4
+#define P13 PN_5
+#define P20 PL_0
+#define P21 PL_1
+#define P22 PL_2
+#define P23 PL_3
+#define P30 PF_1
+#define P31 PF_2
+#define P32 PF_3
+#define P33 PH_2
 
 
 
@@ -52,6 +72,7 @@
 #define ID_CAMERA_COMMAND 1568
 #define ID_GIMBAL_SPEED 1552
 #define ID_CAMERA_MENU 1569
+#define ID_DROP_BAY 1584
 
 
 
@@ -63,8 +84,22 @@ char data[8];
 int counter;
 
 
-
-
+//Servo servo00;
+//Servo servo01;
+//Servo servo02;
+//Servo servo03;
+//Servo servo10;
+//Servo servo11;
+//Servo servo12;
+//Servo servo13;
+//Servo servo20;
+///Servo servo21;
+//Servo servo22;
+//Servo servo23;
+//Servo servo30;
+//Servo servo31;
+//Servo servo32;
+//Servo servo33;
 
 void setup() {
   
@@ -75,11 +110,45 @@ void setup() {
   pinMode(PWM3,OUTPUT);
   pinMode(EN_12V,OUTPUT);
   
+  
+  pinMode(P00,OUTPUT);
+  pinMode(P01,OUTPUT);
+  pinMode(P02,OUTPUT);
+  pinMode(P03,OUTPUT);
+  digitalWrite(P00,0);
+  digitalWrite(P01,0);
+  digitalWrite(P02,0);
+  digitalWrite(P03,0);
+  
   digitalWrite(PWM0,0);
   digitalWrite(PWM1,0);
   digitalWrite(PWM2,0);
   digitalWrite(PWM3,0);
   digitalWrite(EN_12V,1);
+  
+  
+  
+  
+  
+  
+  
+  
+  //servo00.attach(P00);
+  //servo01.attach(P01);
+  //servo02.attach(P02);
+  //servo03.attach(P03);
+  //servo10.attach(P10);
+  //servo11.attach(P11);
+  //servo12.attach(P12);
+  //servo13.attach(P13);
+  //servo20.attach(P20);
+  //servo21.attach(P21);
+  //servo22.attach(P22);
+  //servo23.attach(P23);
+  //servo30.attach(P30);
+  //servo31.attach(P31);
+  //servo32.attach(P32);
+  //servo33.attach(P33);
   
   delay(5000);
   
@@ -122,7 +191,7 @@ void loop(){
   if(roveCommCheck()) count=0;
   else{
     count++;
-    if(count>25){
+    if(count>50){
       moveDynamixel(0,HOR_CAM_1);
       moveDynamixel(0,VERT_CAM_1);
     }
@@ -202,6 +271,11 @@ boolean roveCommCheck(){
       }
     break;
     
+    case ID_DROP_BAY:
+      tmp = *(uint8_t*)(data);
+      openDropBay(tmp);
+    break;
+    
    
     
   }
@@ -210,6 +284,32 @@ boolean roveCommCheck(){
 }
 
 
+void openDropBay(int bay){
+  if(bay==0){
+    unsigned long time = millis();
+    while(millis()<time+1000){//generate signal for 1 second. 1500us high period, 18500us low period PWM pulse.
+      generateSignal(1500,P00);
+    }
+  }
+  if(bay==1){
+    unsigned long time = millis();
+    while(millis()<time+1000){
+      generateSignal(1500,P01);
+    }
+  }
+  if(bay==2){
+    unsigned long time = millis();
+    while(millis()<time+1000){
+      generateSignal(1500,P02);
+    }
+  }
+  if(bay==3){
+    unsigned long time = millis();
+    while(millis()<time+1000){
+      generateSignal(1500,P03);
+    }
+  }
+}
 
 
 

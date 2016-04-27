@@ -96,6 +96,16 @@ HEAD DIA.: .22"</description>
 <wire x1="0" y1="1.778" x2="1.778" y2="0" width="0.127" layer="49" style="shortdash" curve="-90"/>
 <wire x1="1.778" y1="0" x2="0" y2="-1.778" width="0.127" layer="49" style="shortdash" curve="-90"/>
 </package>
+<package name="#4_SCREW">
+<hole x="0" y="0" drill="3.2639"/>
+<wire x1="0" y1="1.63195" x2="1.63195" y2="0" width="0.127" layer="51" style="shortdash" curve="-90"/>
+<wire x1="1.63195" y1="0" x2="0" y2="-1.63195" width="0.127" layer="51" style="shortdash" curve="-90"/>
+<wire x1="0" y1="-1.63195" x2="-1.63195" y2="0" width="0.127" layer="51" style="shortdash" curve="-90"/>
+<wire x1="-1.63195" y1="0" x2="0" y2="1.63195" width="0.127" layer="51" style="shortdash" curve="-90"/>
+<circle x="0" y="0" radius="2.3241" width="0.127" layer="51"/>
+<dimension x1="-1.284178125" y1="-1.284178125" x2="1.284178125" y2="1.284178125" x3="1.284178125" y3="1.284178125" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="6" visible="yes"/>
+<dimension x1="1.63195" y1="0" x2="-1.63195" y2="0" x3="-1.63195" y3="0" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="6" visible="yes"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MOUNTING_HOLES">
@@ -124,6 +134,11 @@ Most frame-mounted PCB's - M8</description>
 </technologies>
 </device>
 <device name="#6" package="#6_SCREW">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="#4" package="#4_SCREW">
 <technologies>
 <technology name=""/>
 </technologies>

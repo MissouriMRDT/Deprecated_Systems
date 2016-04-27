@@ -211,7 +211,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="NR8040T3R6N">
+<deviceset name="NR8040T3R6N" prefix="L" uservalue="yes">
 <gates>
 <gate name="G$1" symbol="INDUCTOR" x="0" y="0"/>
 </gates>

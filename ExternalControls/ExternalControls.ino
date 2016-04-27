@@ -75,6 +75,9 @@
 #define ID_DROP_BAY 1584
 
 
+#define DROPBAY_ANGLE_OPEN 170
+
+
 
 
 
@@ -84,10 +87,10 @@ char data[8];
 int counter;
 
 
-//Servo servo00;
-//Servo servo01;
-//Servo servo02;
-//Servo servo03;
+Servo servo0;
+Servo servo1;
+Servo servo2;
+Servo servo3;
 //Servo servo10;
 //Servo servo11;
 //Servo servo12;
@@ -115,10 +118,10 @@ void setup() {
   pinMode(P01,OUTPUT);
   pinMode(P02,OUTPUT);
   pinMode(P03,OUTPUT);
-  digitalWrite(P00,0);
-  digitalWrite(P01,0);
-  digitalWrite(P02,0);
-  digitalWrite(P03,0);
+  //digitalWrite(P00,0);
+  //digitalWrite(P01,0);
+  //digitalWrite(P02,0);
+  //digitalWrite(P03,0);
   
   digitalWrite(PWM0,0);
   digitalWrite(PWM1,0);
@@ -131,12 +134,7 @@ void setup() {
   
   
   
-  
-  
-  //servo00.attach(P00);
-  //servo01.attach(P01);
-  //servo02.attach(P02);
-  //servo03.attach(P03);
+ 
   //servo10.attach(P10);
   //servo11.attach(P11);
   //servo12.attach(P12);
@@ -191,13 +189,13 @@ void loop(){
   if(roveCommCheck()) count=0;
   else{
     count++;
-    if(count>50){
+    if(count>1000){
       moveDynamixel(0,HOR_CAM_1);
       moveDynamixel(0,VERT_CAM_1);
     }
-    delay(5);
+    delay(1);
   }
-  delay(1);
+  //delay(1);
 }
 
 boolean roveCommCheck(){
@@ -227,7 +225,7 @@ boolean roveCommCheck(){
       //ySpeed = 0;
       
       moveDynamixel(xSpeed,HOR_CAM_1);
-      moveDynamixel(ySpeed,VERT_CAM_1);
+      moveDynamixel(-ySpeed,VERT_CAM_1);
       
       
       
@@ -287,26 +285,38 @@ boolean roveCommCheck(){
 void openDropBay(int bay){
   if(bay==0){
     unsigned long time = millis();
-    while(millis()<time+1000){//generate signal for 1 second. 1500us high period, 18500us low period PWM pulse.
-      generateSignal(1500,P00);
+    while(millis()<time+1000){
+      servo0.attach(P00);
+      servo0.write(DROPBAY_ANGLE_OPEN);
+      delay(1000);
+      servo0.detach();
     }
   }
   if(bay==1){
     unsigned long time = millis();
     while(millis()<time+1000){
-      generateSignal(1500,P01);
+      servo0.attach(P10);
+      servo0.write(DROPBAY_ANGLE_OPEN);
+      delay(1000);
+      servo0.detach();
     }
   }
   if(bay==2){
     unsigned long time = millis();
     while(millis()<time+1000){
-      generateSignal(1500,P02);
+      servo0.attach(P20);
+      servo0.write(DROPBAY_ANGLE_OPEN);
+      delay(1000);
+      servo0.detach();
     }
   }
   if(bay==3){
     unsigned long time = millis();
     while(millis()<time+1000){
-      generateSignal(1500,P03);
+      servo0.attach(P30);
+      servo0.write(DROPBAY_ANGLE_OPEN);
+      delay(1000);
+      servo0.detach();
     }
   }
 }
@@ -316,10 +326,10 @@ void openDropBay(int bay){
 //moveSpeed: -1000 to 1000
 void moveDynamixel(int moveSpeed, int dynaID){
   if(moveSpeed<0){
-    moveSpeed = abs(moveSpeed)*1023/1000+1024;
+    moveSpeed = abs(moveSpeed)*1023/1000;
   }
   else{
-    moveSpeed = moveSpeed*1023/1000;
+    moveSpeed = moveSpeed*1023/1000+1024;
   }
   
   
@@ -332,25 +342,31 @@ void moveDynamixel(int moveSpeed, int dynaID){
 
   setRegister2(dynaID,ID_SPEED,moveSpeed);
   
-  delay(50);
+  
 }
 
 
-
+boolean active = false;
 
 void zoomIn(){
+  active=true;
   generateSignal(LONG_SIGNAL,PWM0);
 }
 void zoomOut(){
+  active=true;
   generateSignal(SHORT_SIGNAL,PWM0);
 }
 void focusIn(){
+  active=true;
   generateSignal(LONG_SIGNAL,PWM1);
 }
 void focusOut(){
+  active=true;
   generateSignal(SHORT_SIGNAL,PWM1);
 }
 void stopZoomAndFocus(){
+  if(!active)return;
+  active=false;
   generateSignal(MID_SIGNAL,PWM0);
   generateSignal(MID_SIGNAL,PWM1);
 }
@@ -358,26 +374,6 @@ void stopZoomAndFocus(){
 
 
 
-void zoomIn(int time){
-  zoomIn();
-  delay(time);
-  stopZoomAndFocus();
-}
-void zoomOut(int time){
-  zoomOut();
-  delay(time);
-  stopZoomAndFocus();
-}
-void focusIn(int time){
-  focusIn();
-  delay(time);
-  stopZoomAndFocus();
-}
-void focusOut(int time){
-  focusOut();
-  delay(time);
-  stopZoomAndFocus();
-}
 
 
 

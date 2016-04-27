@@ -169,6 +169,14 @@
 <rectangle x1="4.45" y1="-1.55" x2="6.85" y2="5.95" layer="51" rot="R270"/>
 <circle x="5.1" y="6.85" radius="4.8166375" width="0.127" layer="51"/>
 </package>
+<package name="NR8040T3R6N">
+<smd name="P$1" x="-2.8" y="0" dx="7.5" dy="1.8" layer="1" rot="R90"/>
+<smd name="P$2" x="2.8" y="0" dx="7.5" dy="1.8" layer="1" rot="R90"/>
+<wire x1="-4" y1="-4" x2="4" y2="-4" width="0.127" layer="51"/>
+<wire x1="4" y1="-4" x2="4" y2="4" width="0.127" layer="51"/>
+<wire x1="4" y1="4" x2="-4" y2="4" width="0.127" layer="51"/>
+<wire x1="-4" y1="4" x2="-4" y2="-4" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="INDUCTOR">
@@ -193,6 +201,22 @@
 </gates>
 <devices>
 <device name="" package="MURATA_37302C">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="NR8040T3R6N">
+<gates>
+<gate name="G$1" symbol="INDUCTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="NR8040T3R6N">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>

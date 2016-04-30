@@ -1,0 +1,99 @@
+uint16_t analogRead(uint8_t pin) {
+    uint8_t port = digitalPinToPort(pin);
+    uint16_t value[1];
+    uint32_t channel = digitalPinToADCIn(pin);
+    if (channel == NOT_ON_ADC) { //invalid ADC pin
+        return 0;
+    }
+    // ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+    // -->   HWREGBITW(SYSCTL_RCGCBASE + ((SYSCTL_PERIPH_ADC0 & 0xff00) >> 8), SYSCTL_PERIPH_ADC0 & 0xff) = 1;
+    // -->   SysCtlDelay(3); // ? Remove entirely? 
+    if(channel != ADC_CTL_TS)
+        ROM_GPIOPinTypeADC((uint32_t) portBASERegister(port), digitalPinToBitMask(pin));
+    // ROM_ADCSequenceConfigure(ADC0_BASE, 3, ADC_TRIGGER_PROCESSOR, 0);
+    // -->  ui32SequenceNum *= 4;
+    // --> HWREG(ui32Base + ADC_O_EMUX) = ((HWREG(ui32Base + ADC_O_EMUX) & ~(0xf << ui32SequenceNum)) |
+    // -->                                 ((ui32Trigger & 0xf) << ui32SequenceNum));
+    // --> HWREG(ui32Base + ADC_O_SSPRI) = ((HWREG(ui32Base + ADC_O_SSPRI) & ~(0xf << ui32SequenceNum)) |
+    // -->                                 ((ui32Priority & 0x3) << ui32SequenceNum));
+    ROM_ADCSequenceStepConfigure(ADC0_BASE, 3, 0, channel | ADC_CTL_IE | ADC_CTL_END);
+    ROM_ADCSequenceEnable(ADC0_BASE, 3);
+
+    ROM_ADCIntClear(ADC0_BASE, 3);
+    ROM_ADCProcessorTrigger(ADC0_BASE, 3);
+    while(!ROM_ADCIntStatus(ADC0_BASE, 3, false)) {
+    }
+	ROM_ADCIntClear(ADC0_BASE, 3);
+    ROM_ADCSequenceDataGet(ADC0_BASE, 3, (unsigned long*) value);
+
+    return mapResolution(value[0], 12, _readResolution);
+}
+
+
+  #include "inc/hw_memmap.h"  // ADC0_BASE  
+  #include "driverlib/adc.h" // ADC_TRIGGER_PROCESSOR
+  #include "driverlib/sysctl.h" // SYSCTL_PERIPH_ADC0, SYSCTL_RCGCBASE
+  #include "inc/hw_adc.h" // ADC_0_EMUX, ADC_0_SSPRI
+  
+  // SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+  // If peripheral guaranteed valid can replace with:
+  HWREGBITW(SYSCTL_RCGCBASE + ((SYSCTL_PERIPH_ADC0 & 0xff00) >> 8), SYSCTL_PERIPH_ADC0 & 0xff) = 1;
+  // https://github.com/energia/Energia/blob/master/hardware/lm4f/cores/lm4f/driverlib/sysctl.c
+  // SysCtlDelay(3); // remove entirely?? 
+
+
+  
+  
+  // (uint32_t ui32Base, uint32_t ui32SequenceNum, uint32_t ui32Trigger, uint32_t ui32Priority)
+  ROM_ADCSequenceConfigure(ADC0_BASE, 3, ADC_TRIGGER_PROCESSOR, 0);
+  // Check out which Trigger Parameter to use. Scale from 0x0..00 to 0x0..0f  
+  ROM_ADCSequenceEnable(ADC0_BASE, 3);
+  uint16_t final_result = mapResolution(value[0], 12, _readResolution); // static int _readResolution = 12;
+  
+  // Find pin information:
+  void pinLookUp(int pinA) {
+	  uint8_t bitA = digitalPinToBitMask(pinA);
+	  uint8_t portA = digitalPinToPort(pinA);
+	  int32_t portBaseA = (uint32_t)portBASERegister(portA);
+	  uint32_t channelA = digitalPinToADCIn(pinA);
+	  Serial.print("BitMask: ");
+	  Serial.println(bitA);
+	  Serial.print("Port: ");
+	  Serial.println(portA);
+	  Serial.print("Portbase: ");
+	  Serial.println(portBaseA);  
+  }
+  
+  // Digital Write: hard-value in function - 0.55us per read
+  // 				int pin - 0.57us
+  //				const int - 0.55us
+  //				#define - 0.55us
+  //
+  // Global pin lookups
+  //
+  // GPIOPinWrite		0.37us		GPIOPinWrite(portBaseA, bitA, 1);
+  // ROM_GPIOPinWrite	0.30us		ROM_GPIOPinWrite(portBaseA, bitA, 1);
+  // HWREG				0.17us		HWREG(portBaseA + (GPIO_DATA + bitA << 2)) = 1;
+  // HWREG decl outside	0.10us		
+  
+  
+  // Analog Read:	int pin - 7.66us
+  //				const int - 7.64us
+  // 
+  // Global pin lookups
+  //
+  // analogRead guts: 			7.09us
+  // first block in setup: 		3.33us
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	TODO for Analog
+// HWREG parameters for : ICG, master, SH

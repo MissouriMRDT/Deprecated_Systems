@@ -4,13 +4,14 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-#include <RoveBoard.h>
-#include <RoveEthernet.h>
+#include "RoveBoard.h"
+#include "RoveEthernet.h"
 
-#include <RoveComm.h>
+#include "RoveComm.h"
 
-#include <dyna.h>
-
+//#include <dyna.h>
+#include "EasyTransfer.h"
+#include "RoveDynamixel.h"
 
 
 //Pin assignments:

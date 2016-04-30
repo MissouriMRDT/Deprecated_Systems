@@ -25,6 +25,7 @@ const byte DRILL_ENABLE = 15;
 const byte DRILL_DISABLE = 16;
 
 const int SCI_CMD = 1808;
+const int DRILL_CMD = -1;
 
 //////////////////////////////////
 
@@ -76,7 +77,7 @@ void loop(){
          fc28_on = false;
          break;
        case DS18B20_ENABLE:
--        ds18b20_on = true;
+         ds18b20_on = true;
          break;
        case DS18B20_DISABLE:
          ds18b20_on = false;
@@ -104,27 +105,27 @@ void loop(){
    if(xd28_on) {   
      Serial6.write(XD28_ENABLE);
      dataRead = Serial6.read();
-     roveComm_SendMsg(0x728, sizeof(dataRead), dataRead);
+     roveComm_SendMsg(0x728, sizeof(dataRead), &dataRead);
    } 
    if(sht10_h_on) {
      Serial6.write(SHT10_H_ENABLE);     
      dataRead = Serial6.read();
-     roveComm_SendMsg(0x729, sizeof(dataRead), dataRead);
+     roveComm_SendMsg(0x729, sizeof(dataRead), &dataRead);
    }
    if(fc28_on) {
      Serial6.write(FC28_ENABLE);
      dataRead = Serial6.read();
-     roveComm_SendMsg(0x72A, sizeof(dataRead), dataRead);
+     roveComm_SendMsg(0x72A, sizeof(dataRead), &dataRead);
    }
    if(ds18b20_on) {
      Serial6.write(DS18B20_ENABLE);
      dataRead = Serial6.parseFloat();
-     roveComm_SendMsg(0x720, sizeof(dataRead), dataRead);
+     roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
    }
    if(sht10_t_on) {
      Serial6.write(SHT10_T_ENABLE);
      dataRead = Serial6.parseFloat();
-     roveComm_SendMsg(0x721, sizeof(dataRead), dataRead);
+     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);
    }
    
    //////////////////////////

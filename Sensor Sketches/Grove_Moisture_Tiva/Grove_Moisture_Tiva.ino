@@ -1,4 +1,4 @@
-int sensorPin = A0;    // select the input pin for the potentiometer
+int sensorPin = 26;    // PE_3
 int sensorValue = 0;  // variable to store the value coming from the sensor
  
 void setup() {
@@ -8,7 +8,9 @@ void setup() {
  
 void loop() {
   // read the value from the sensor:
-  sensorValue = analogRead(sensorPin)*1.15;      
-  delay(1000);  
-  Serial.println(sensorValue);                   
+  sensorValue = -(analogRead(sensorPin) - 4095) * 100 / 2185;
+  if(sensorValue >= 100)
+    Serial.println(100);                   
+  Serial.println(sensorValue);
+  delay(100);  
 }

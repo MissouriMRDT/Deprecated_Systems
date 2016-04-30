@@ -5,6 +5,7 @@
 #    SciPlot is a graphing module that plots data from a     #
 #    serial input in real time.                              #
 #                                                            #
+#		Spring 2016 Semester - For use with Zenith							 #
 #  Usage: python3.4 sciplot.py [-h] [-p] [-b] [-f] [-m] [-s] #
 ##############################################################
 

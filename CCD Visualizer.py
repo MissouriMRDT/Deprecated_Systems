@@ -2,6 +2,7 @@
 # Mars Rover Design Team
 # Shannon Klaus         smk43b@mst.edu
 # John Maruska          jwmbq6@mst.edu
+# 2016 Spring Semester - Create for use with Zenith
 
 import matplotlib.pyplot as plt
 import csv

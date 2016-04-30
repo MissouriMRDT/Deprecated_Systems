@@ -2,8 +2,10 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
+#include "RoveBoard.h"
 #include "RoveEthernet.h"
 #include "RoveComm.h"
+#include "RoveDynamixel.h"
 
 //////////////////////////////////
 // ===== CONFIG VARIABLES ===== //
@@ -25,7 +27,8 @@ const byte DRILL_ENABLE = 15;
 const byte DRILL_DISABLE = 16;
 
 const int SCI_CMD = 1808;
-const int DRILL_CMD = -1;
+const int DRILL_CMD = 866;
+const int CAROUSEL_CMD = 1809;
 
 //////////////////////////////////
 
@@ -36,9 +39,12 @@ bool ds18b20_on = false;
 bool sht10_t_on = false;
 bool drill_on = false;
 
+Dynamixel Carousel;
+
 void setup(){
   roveComm_Begin(192, 168, 1, 135); // predetermined science board IP
-  
+  DynamixelInit(&Carousel, AX, 1, 7, 1000000);
+  DynamixelSetMode(Carousel, Joint);
   Serial6.begin(9600);
 }
 
@@ -89,15 +95,24 @@ void loop(){
          sht10_t_on = false;
          break;
      }
-     
-     if(dataID == DRILL_CMD)
-     {
-       if(receivedMsg[0])
-         drill_on = true;
-       if(!receivedMsg[0]);
-         drill_on = false;
-     }
    }
+   
+   if(dataID == DRILL_CMD)
+   {
+     if(receivedMsg[0])
+       drill_on = true;
+     if(!receivedMsg[0]);
+       drill_on = false;
+   }
+     
+   if(dataID == CAROUSEL_CMD)
+   {
+     uint16_t position = *(uint8_t*)(receivedMsg);
+     if (position == 5)
+       position = 4;
+     DynamixelRotateJoint(Carousel, position * 102);
+   }
+   
 
    ///////////////////////////
    // Sensor controls block //

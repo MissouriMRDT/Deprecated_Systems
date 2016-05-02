@@ -1,3 +1,5 @@
+#include <EasyTransfer.h>
+
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
@@ -10,7 +12,6 @@
 //////////////////////////////////
 // ===== CONFIG VARIABLES ===== //
 //////////////////////////////////
-
 
 static const int TEMP_SCALE     = 10;
 
@@ -70,6 +71,8 @@ static const int M3_ON           = 9;
 static const int M4_ON           = 10;
 
 //////////////////////////////////
+//    Device States Variables   //
+//////////////////////////////////
 
 bool m1_on = false;
 bool m2_on = false;
@@ -82,6 +85,26 @@ bool t4_on = false;
 
 int drill_state = 0;
 
+//////////////////////////////////
+//    EasyTransfer Protocol     //
+//////////////////////////////////
+
+EasyTransfer ETin, ETout; // TODO : Change names after confirmed working
+
+struct RECEIVE_DATA_STRUCTURE { // Must match drill side
+  float sensor_data;
+  int sensor_id;
+};
+
+struct SEND_DATA_STRUCTURE { // Must match drill side
+  int device_state;
+};
+
+RECEIVE_DATA_STRUCTURE data_in;
+SEND_DATA_STRUCTURE    cmd_out;
+
+//////////////////////////////////
+
 Dynamixel Carousel;
 
 void setup(){
@@ -89,6 +112,8 @@ void setup(){
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
   Serial6.begin(9600);
+  ETin.begin(details(data_in), &Serial);
+  ETout.begin(details(cmd_out), &Serial);
 }
 
 void loop(){
@@ -187,45 +212,63 @@ void loop(){
    
    // Temperature sensor scaled up in drill board
    if(t1_on) {   
-     Serial6.write(T1_ON);
+     /*Serial6.write(T1_ON);
      dataRead = Serial6.read() / TEMP_SCALE; 
      roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
+     */
+     cmd_out.device_state = T1_ON;
+     ETout.sendData();
    } 
    if(t2_on) {   
-     Serial6.write(T2_ON);
+     /*Serial6.write(T2_ON);
      dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);
+     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);*/
+     cmd_out.device_state = T2_ON;
+     ETout.sendData();
    } 
    if(t3_on) {   
-     Serial6.write(T3_ON);
+     /* Serial6.write(T3_ON);
      dataRead = Serial6.read() / TEMP_SCALE;
      roveComm_SendMsg(0x722, sizeof(dataRead), &dataRead);
+     */
+     cmd_out.device_state = T3_ON;
+     ETout.sendData();
    } 
    if(t4_on) {   
-     Serial6.write(T4_ON);
+     /* Serial6.write(T4_ON);
      dataRead = Serial6.read() / TEMP_SCALE;
      roveComm_SendMsg(0x723, sizeof(dataRead), &dataRead);
+     */ 
+     cmd_out.device_state = T4_ON;
+     ETout.sendData();
    } 
    
    if(m1_on) {   
-     Serial6.write(M1_ON);
+     /* Serial6.write(M1_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x728, sizeof(dataRead), &dataRead);
+     */
+     cmd_out.device_state = M1_ON;
+     ETout.sendData();
    } 
    if(m2_on) {   
-     Serial6.write(M2_ON);
+     /*Serial6.write(M2_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x729, sizeof(dataRead), &dataRead);
+     */
+     cmd_out.device_state = M2_ON;
+     ETout.sendData();
    } 
-   if(m3_on) {   
-     Serial6.write(M3_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x72A, sizeof(dataRead), &dataRead);
-   } 
+   
+   // M3 slot occupied by the oscillating crystal. No M3 moisture sensor
+   
    if(m4_on) {   
-     Serial6.write(M4_ON);
+     /*Serial6.write(M4_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x72B, sizeof(dataRead), &dataRead);
+     */
+     cmd_out.device_state = M4_ON;
+     ETout.sendData();
    } 
    
    //////////////////////////
@@ -234,4 +277,3 @@ void loop(){
    
    Serial6.write(drill_state);
 }
-

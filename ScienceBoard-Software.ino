@@ -11,33 +11,76 @@
 // ===== CONFIG VARIABLES ===== //
 //////////////////////////////////
 
-const byte DS18B20_ENABLE = 1;
-const byte DS18B20_DISABLE = 2;
-const byte SHT10_T_ENABLE = 3; 
-const byte SHT10_T_DISABLE = 4;
 
-const byte XD28_ENABLE = 9;
-const byte XD28_DISABLE = 10;
-const byte SHT10_H_ENABLE = 11;
-const byte SHT10_H_DISABLE = 12; 
-const byte FC28_ENABLE = 13;
-const byte FC28_DISABLE = 14;
+static const int TEMP_SCALE     = 10;
 
-const byte DRILL_ENABLE = 15;
-const byte DRILL_DISABLE = 16;
+//////////////////////////////////
+//      RoveComm DataID         //
+//////////////////////////////////
 
-const int SCI_CMD = 1808;
-const int DRILL_CMD = 866;
-const int CAROUSEL_CMD = 1809;
+static const int SCI_CMD        = 1808;
+static const int DRILL_CMD      = 866;
+static const int CAROUSEL_CMD   = 1809;
+
+//////////////////////////////////
+// RoveComm received messages   //
+//////////////////////////////////
+
+static const byte T1_ENABLE     = 1;
+static const byte T1_DISABLE    = 2;
+static const byte T2_ENABLE     = 3; 
+static const byte T2_DISABLE    = 4;
+static const byte T3_ENABLE     = 5;
+static const byte T3_DISABLE    = 6;
+static const byte T4_ENABLE     = 7;
+static const byte T4_DISABLE    = 8;
+
+static const byte M1_ENABLE     = 9;
+static const byte M1_DISABLE    = 10; 
+static const byte M2_ENABLE     = 11;
+static const byte M2_DISABLE    = 12;
+static const byte M3_ENABLE     = 13;
+static const byte M3_DISABLE    = 14;
+static const byte M4_ENABLE     = 15;
+static const byte M4_DISABLE    = 16;
+
+static const byte CCD_REQ       = 17;
+static const byte LASER_ENABLE  = 18;
+static const byte LASER_DISABLE = 19;
+static const byte FUNNEL_OPEN   = 20;
+static const byte FUNNEL_CLOSE  = 21;
+
+static const byte DRILL_STOP    = 0;
+static const byte DRILL_FWD     = 1;
+static const byte DRILL_REV     = 2;
+
+
+//////////////////////////////////
+//     DrillBoard Commands      //
+//////////////////////////////////
+
+static const int T1_ON           = 3;
+static const int T2_ON           = 4;
+static const int T3_ON           = 5;
+static const int T4_ON           = 6;
+
+static const int M1_ON           = 7;
+static const int M2_ON           = 8;
+static const int M3_ON           = 9;
+static const int M4_ON           = 10;
 
 //////////////////////////////////
 
-bool xd28_on = false;
-bool sht10_h_on = false;
-bool fc28_on = false;
-bool ds18b20_on = false;
-bool sht10_t_on = false;
-bool drill_on = false;
+bool m1_on = false;
+bool m2_on = false;
+bool m3_on = false;
+bool m4_on = false;
+bool t1_on = false;
+bool t2_on = false;
+bool t3_on = false;
+bool t4_on = false;
+
+int drill_state = 0;
 
 Dynamixel Carousel;
 
@@ -57,52 +100,77 @@ void loop(){
    // Get command from base station
    roveComm_GetMsg(&dataID, &size, receivedMsg);
    
-   
    if(dataID == SCI_CMD)
    {
      //////////////////////////  
      // enable devices block //
      //////////////////////////
+     
      switch(receivedMsg[0]){
-       case XD28_ENABLE:
-         xd28_on = true;
+       case M1_ENABLE:
+         m1_on = true;
          break; 
-       case XD28_DISABLE:
-         xd28_on = false;
+       case M1_DISABLE:
+         m1_on = false;
          break;
-       case SHT10_H_ENABLE:
-         sht10_h_on = true;
+       case M2_ENABLE:
+         m2_on = true;
          break;
-       case SHT10_H_DISABLE:
-         sht10_h_on = false;
+       case M2_DISABLE:
+         m2_on = false;
          break;
-       case FC28_ENABLE:
-         fc28_on = true;
+       case M3_ENABLE:
+         m3_on = true;
          break;
-       case FC28_DISABLE:
-         fc28_on = false;
+       case M3_DISABLE:
+         m3_on = false;
          break;
-       case DS18B20_ENABLE:
-         ds18b20_on = true;
+       case M4_ENABLE:
+         m4_on = true;
          break;
-       case DS18B20_DISABLE:
-         ds18b20_on = false;
+       case M4_DISABLE:
+         m4_on = false;
          break;
-       case SHT10_T_ENABLE:
-         sht10_t_on = true;
+         
+       case T1_ENABLE:
+         t1_on = true;
          break;
-       case SHT10_T_DISABLE:
-         sht10_t_on = false;
+       case T1_DISABLE:
+         t1_on = false;
+         break;
+       case T2_ENABLE:
+         t2_on = true;
+         break;
+       case T2_DISABLE:
+         t2_on = false;
+         break;
+       case T3_ENABLE:
+         t3_on = true;
+         break;
+       case T3_DISABLE:
+         t3_on = false;
+         break;
+       case T4_ENABLE:
+         t4_on = true;
+         break;
+       case T4_DISABLE:
+         t4_on = false;
          break;
      }
    }
    
-   if(dataID == DRILL_CMD)
-   {
-     if(receivedMsg[0])
-       drill_on = true;
-     if(!receivedMsg[0]);
-       drill_on = false;
+   if(dataID == DRILL_CMD) {
+     switch(receivedMsg[0]){
+       case DRILL_FWD:
+         drill_state = DRILL_FWD;
+         break;
+       case DRILL_STOP:
+         drill_state = DRILL_STOP;
+         break;
+       case DRILL_REV:
+         drill_state = DRILL_REV;
+         break;
+     }
    }
      
    if(dataID == CAROUSEL_CMD)
@@ -113,44 +181,57 @@ void loop(){
      DynamixelRotateJoint(Carousel, position * 102);
    }
    
-
    ///////////////////////////
    // Sensor controls block //
    ///////////////////////////
-   if(xd28_on) {   
-     Serial6.write(XD28_ENABLE);
+   
+   // Temperature sensor scaled up in drill board
+   if(t1_on) {   
+     Serial6.write(T1_ON);
+     dataRead = Serial6.read() / TEMP_SCALE; 
+     roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
+   } 
+   if(t2_on) {   
+     Serial6.write(T2_ON);
+     dataRead = Serial6.read() / TEMP_SCALE;
+     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);
+   } 
+   if(t3_on) {   
+     Serial6.write(T3_ON);
+     dataRead = Serial6.read() / TEMP_SCALE;
+     roveComm_SendMsg(0x722, sizeof(dataRead), &dataRead);
+   } 
+   if(t4_on) {   
+     Serial6.write(T4_ON);
+     dataRead = Serial6.read() / TEMP_SCALE;
+     roveComm_SendMsg(0x723, sizeof(dataRead), &dataRead);
+   } 
+   
+   if(m1_on) {   
+     Serial6.write(M1_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x728, sizeof(dataRead), &dataRead);
    } 
-   if(sht10_h_on) {
-     Serial6.write(SHT10_H_ENABLE);     
+   if(m2_on) {   
+     Serial6.write(M2_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x729, sizeof(dataRead), &dataRead);
-   }
-   if(fc28_on) {
-     Serial6.write(FC28_ENABLE);
+   } 
+   if(m3_on) {   
+     Serial6.write(M3_ON);
      dataRead = Serial6.read();
      roveComm_SendMsg(0x72A, sizeof(dataRead), &dataRead);
-   }
-   if(ds18b20_on) {
-     Serial6.write(DS18B20_ENABLE);
-     dataRead = Serial6.parseFloat();
-     roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
-   }
-   if(sht10_t_on) {
-     Serial6.write(SHT10_T_ENABLE);
-     dataRead = Serial6.parseFloat();
-     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);
-   }
+   } 
+   if(m4_on) {   
+     Serial6.write(M4_ON);
+     dataRead = Serial6.read();
+     roveComm_SendMsg(0x72B, sizeof(dataRead), &dataRead);
+   } 
    
    //////////////////////////
    // Drill controls block //
    //////////////////////////
-   if(drill_on) {
-     Serial6.write(DRILL_ENABLE);
-   }
-   else if(!drill_on) {
-     Serial6.write(DRILL_DISABLE);
-   } 
+   
+   Serial6.write(drill_state);
 }
 

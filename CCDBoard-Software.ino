@@ -6,8 +6,6 @@
 // Software Sketch of a Rover Device to read Raman Spectrometer Camera using Toshiba TCD1304DG CCD Linear Image Sensor
 //////////////////////////
 
-#include "EasyTransfer.h"
-
 #include "wiring_private.h"  // fast analog read libraries
 #include "inc/hw_gpio.h"
 #include "inc/hw_ints.h"
@@ -243,7 +241,9 @@ void RoveSci_CCD_ICGToggle() {
     HWREG(MASTER_PIN_REG) = master_toggle;
     HWREG(SH_PIN_REG) = sh_toggle; 
     
-    ccd_packet_data_buffer[shutter_tick_count] = fastCCDPixelRead();
+    // TODO : Check this
+    // We will literally never read during ICGToggle
+    // ccd_packet_data_buffer[shutter_tick_count] = fastCCDPixelRead();
     
     master_toggle = !master_toggle;
     sh_toggle = !sh_toggle;

@@ -13,7 +13,7 @@
 // ===== CONFIG VARIABLES ===== //
 //////////////////////////////////
 
-static const int TEMP_SCALE     = 10;
+static const int TOTAL_SENSORS  = 7;
 
 //////////////////////////////////
 //      RoveComm DataID         //
@@ -40,8 +40,7 @@ static const byte M1_ENABLE     = 9;
 static const byte M1_DISABLE    = 10; 
 static const byte M2_ENABLE     = 11;
 static const byte M2_DISABLE    = 12;
-static const byte M3_ENABLE     = 13;
-static const byte M3_DISABLE    = 14;
+// M3 does not exist
 static const byte M4_ENABLE     = 15;
 static const byte M4_DISABLE    = 16;
 
@@ -67,23 +66,22 @@ static const int T4_ON           = 6;
 
 static const int M1_ON           = 7;
 static const int M2_ON           = 8;
-static const int M3_ON           = 9;
-static const int M4_ON           = 10;
+static const int M4_ON           = 9;
 
 //////////////////////////////////
 //    Device States Variables   //
 //////////////////////////////////
 
-bool m1_on = false;
-bool m2_on = false;
-bool m3_on = false;
-bool m4_on = false;
 bool t1_on = false;
 bool t2_on = false;
 bool t3_on = false;
 bool t4_on = false;
+bool m1_on = false;
+bool m2_on = false;
+// M3 does not exist
+bool m4_on = false;
 
-int drill_state = 0;
+int drill_mode = 0;
 
 //////////////////////////////////
 //    EasyTransfer Protocol     //
@@ -92,12 +90,14 @@ int drill_state = 0;
 EasyTransfer ETin, ETout; // TODO : Change names after confirmed working
 
 struct RECEIVE_DATA_STRUCTURE { // Must match drill side
-  float sensor_data;
-  int sensor_id;
+  float sensor_data[TOTAL_SENSORS];  // TODO : How important is latency?
+                                     // Do these reset to 0 after each send? Hold value? What if something unassigned?
+  int sensor_id[TOTAL_SENSORS];      // Should size be made to optimize send time (8) or readability (10)
 };
 
 struct SEND_DATA_STRUCTURE { // Must match drill side
-  int device_state;
+  bool sensor_state[TOTAL_SENSORS];  
+  int drill_state;
 };
 
 RECEIVE_DATA_STRUCTURE data_in;
@@ -144,12 +144,7 @@ void loop(){
        case M2_DISABLE:
          m2_on = false;
          break;
-       case M3_ENABLE:
-         m3_on = true;
-         break;
-       case M3_DISABLE:
-         m3_on = false;
-         break;
+       // M3 will not be equipped. Line filled by oscillating crystal.
        case M4_ENABLE:
          m4_on = true;
          break;
@@ -187,13 +182,13 @@ void loop(){
    if(dataID == DRILL_CMD) {
      switch(receivedMsg[0]){
        case DRILL_FWD:
-         drill_state = DRILL_FWD;
+         drill_mode = DRILL_FWD;
          break;
        case DRILL_STOP:
-         drill_state = DRILL_STOP;
+         drill_mode = DRILL_STOP;
          break;
        case DRILL_REV:
-         drill_state = DRILL_REV;
+         drill_mode = DRILL_REV;
          break;
      }
    }
@@ -207,73 +202,30 @@ void loop(){
    }
    
    ///////////////////////////
-   // Sensor controls block //
+   // Device controls block //
    ///////////////////////////
    
-   // Temperature sensor scaled up in drill board
-   if(t1_on) {   
-     /*Serial6.write(T1_ON);
-     dataRead = Serial6.read() / TEMP_SCALE; 
-     roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
-     */
-     cmd_out.device_state = T1_ON;
-     ETout.sendData();
-   } 
-   if(t2_on) {   
-     /*Serial6.write(T2_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);*/
-     cmd_out.device_state = T2_ON;
-     ETout.sendData();
-   } 
-   if(t3_on) {   
-     /* Serial6.write(T3_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x722, sizeof(dataRead), &dataRead);
-     */
-     cmd_out.device_state = T3_ON;
-     ETout.sendData();
-   } 
-   if(t4_on) {   
-     /* Serial6.write(T4_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x723, sizeof(dataRead), &dataRead);
-     */ 
-     cmd_out.device_state = T4_ON;
-     ETout.sendData();
-   } 
-   
-   if(m1_on) {   
-     /* Serial6.write(M1_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x728, sizeof(dataRead), &dataRead);
-     */
-     cmd_out.device_state = M1_ON;
-     ETout.sendData();
-   } 
-   if(m2_on) {   
-     /*Serial6.write(M2_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x729, sizeof(dataRead), &dataRead);
-     */
-     cmd_out.device_state = M2_ON;
-     ETout.sendData();
-   } 
-   
+   // TODO : Figure out how drill board receives
+   cmd_out.sensor_state[T1_ON - 3] = t1_on;
+   cmd_out.sensor_state[T2_ON - 3] = t2_on;
+   cmd_out.sensor_state[T3_ON - 3] = t3_on;
+   cmd_out.sensor_state[T4_ON - 3] = t4_on;
+   cmd_out.sensor_state[M1_ON - 3] = m1_on;
+   cmd_out.sensor_state[M2_ON - 3] = m2_on;
    // M3 slot occupied by the oscillating crystal. No M3 moisture sensor
+   cmd_out.sensor_state[M4_ON - 3] = m4_on;
    
-   if(m4_on) {   
-     /*Serial6.write(M4_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x72B, sizeof(dataRead), &dataRead);
-     */
-     cmd_out.device_state = M4_ON;
-     ETout.sendData();
-   } 
+   cmd_out.drill_state = drill_mode;
    
-   //////////////////////////
-   // Drill controls block //
-   //////////////////////////
+   // This block is first to use the sensor_state array in EasyTransfer for which 
+   // reads are enabled instead of ANOTHER giant set of if statements or a switch case
+   for(int i = 0; i < 5; i++) { // clear buffer
+     ETin.receiveData();
+   }
+   for(int j = 0; j < TOTAL_SENSORS; j++) { 
+     if(cmd_out.sensor_state[j]) // if sensor is enabled
+       roveComm_SendMsg(data_in.sensor_id[j], sizeof(data_in.sensor_data[j]), &data_in.sensor_data[j]);
+   }
    
-   Serial6.write(drill_state);
+   ETout.sendData();
 }

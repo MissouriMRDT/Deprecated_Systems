@@ -3,6 +3,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
+#include <Servo.h>
 
 #include "RoveBoard.h"
 #include "RoveEthernet.h"
@@ -16,7 +17,13 @@
 static const int TOTAL_SENSORS  = 7;
 
 //////////////////////////////////
-//      RoveComm DataID         //
+//          Board Pins          //
+//////////////////////////////////
+
+static const int FUNNEL_SERVO   = PL_5;
+
+//////////////////////////////////
+//       RoveComm DataID        //
 //////////////////////////////////
 
 static const int SCI_CMD        = 1808;
@@ -106,11 +113,13 @@ SEND_DATA_STRUCTURE    cmd_out;
 //////////////////////////////////
 
 Dynamixel Carousel;
+Servo Funnel;
 
 void setup(){
   roveComm_Begin(192, 168, 1, 135); // predetermined science board IP
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
+  Funnel.attach(FUNNEL_SERVO);
   Serial6.begin(9600);
   ETin.begin(details(data_in), &Serial);
   ETout.begin(details(cmd_out), &Serial);
@@ -175,6 +184,13 @@ void loop(){
          break;
        case T4_DISABLE:
          t4_on = false;
+         break;
+         
+       case FUNNEL_OPEN:
+         Funnel.write(180);
+         break;
+       case FUNNEL_CLOSE:
+         Funnel.write(50);
          break;
      }
    }

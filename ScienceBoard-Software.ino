@@ -20,6 +20,7 @@ static const int TEMP_SCALE     = 10;
 //////////////////////////////////
 
 static const int FUNNEL_SERVO   = PL_5;
+static const int LASER_PIN      = PF_3;
 
 //////////////////////////////////
 //       RoveComm DataID        //
@@ -166,6 +167,12 @@ void loop(){
          t4_on = false;
          break;
          
+       case LASER_ENABLE:
+         digitalWrite(LASER_PIN, HIGH);
+         break;
+       case LASER_DISABLE:
+         digitalWrite(LASER_PIN, LOW);
+         break;
        case FUNNEL_OPEN:
          Funnel.write(180);
          break;

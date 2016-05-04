@@ -21,6 +21,8 @@ static const int TEMP_SCALE     = 10;
 
 static const int FUNNEL_SERVO   = PL_5;
 static const int LASER_PIN      = PF_3;
+static const int MAIN_POWER     = PL_3;
+static const int DYNA_POWER     = PL_2;
 
 //////////////////////////////////
 //       RoveComm DataID        //
@@ -95,6 +97,10 @@ Servo Funnel;
 
 void setup(){
   roveComm_Begin(192, 168, 1, 135); // predetermined science board IP
+  pinMode(MAIN_POWER, OUTPUT);
+  digitalWrite(MAIN_POWER, HIGH);
+  pinMode(DYNA_POWER, OUTPUT);
+  digitalWrite(DYNA_POWER, HIGH);
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
   Funnel.attach(FUNNEL_SERVO);

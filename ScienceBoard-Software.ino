@@ -1,3 +1,5 @@
+#include <EasyTransfer.h>
+
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
@@ -12,8 +14,7 @@
 // ===== CONFIG VARIABLES ===== //
 //////////////////////////////////
 
-
-static const int TEMP_SCALE     = 10;
+static const int TOTAL_SENSORS  = 7;
 
 //////////////////////////////////
 //          Board Pins          //
@@ -28,9 +29,9 @@ static const int DYNA_POWER     = PL_2;
 //       RoveComm DataID        //
 //////////////////////////////////
 
-static const int SCI_CMD        = 1808;
-static const int DRILL_CMD      = 866;
-static const int CAROUSEL_CMD   = 1809;
+static const int SCI_CMD_ID      = 1808;
+static const int DRILL_CMD_ID    = 866;
+static const int CAROUSEL_CMD_ID = 1809;
 
 //////////////////////////////////
 // RoveComm received messages   //
@@ -60,6 +61,9 @@ static const byte LASER_DISABLE = 19;
 static const byte FUNNEL_OPEN   = 20;
 static const byte FUNNEL_CLOSE  = 21;
 
+static const byte CS_ENABLE     = 22;
+static const byte CS_DISABLE    = 23;
+
 static const byte DRILL_STOP    = 0;
 static const byte DRILL_FWD     = 1;
 static const byte DRILL_REV     = 2;
@@ -80,17 +84,52 @@ static const int M3_ON           = 9;
 static const int M4_ON           = 10;
 
 //////////////////////////////////
+//    Device States Variables   //
+//////////////////////////////////
 
-bool m1_on = false;
-bool m2_on = false;
-bool m3_on = false;
-bool m4_on = false;
 bool t1_on = false;
 bool t2_on = false;
 bool t3_on = false;
 bool t4_on = false;
+bool m1_on = false;
+bool m2_on = false;
+bool m3_on = false;
+bool m4_on = false;
+bool cs_on = false;
 
-int drill_state = 0;
+int drill_mode = 0;
+
+//////////////////////////////////
+//    EasyTransfer Protocol     //
+//////////////////////////////////
+
+EasyTransfer FromDrillBoard, ToDrillBoard;
+
+struct RECEIVE_DATA_STRUCTURE { // Must match drill side
+  float t1_data;
+  float t2_data;
+  float t3_data;
+  float t4_data;
+  float m1_data;
+  float m2_data;
+  float m3_data;
+  float m4_data;
+  float drill_current;
+};
+
+struct SEND_DATA_STRUCTURE { // Must match drill side
+  uint16_t drill_cmd;
+};
+
+RECEIVE_DATA_STRUCTURE receive_telem;
+SEND_DATA_STRUCTURE    send_cmd;
+
+//////////////////////////////////
+
+float dataRead;
+uint16_t dataID = 0;
+size_t size = 0;
+byte receivedMsg[1];
 
 Dynamixel Carousel;
 Servo Funnel;
@@ -104,50 +143,22 @@ void setup(){
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
   Funnel.attach(FUNNEL_SERVO);
-  Serial6.begin(9600);
+  Serial.begin(9600);  // TODO : Just for debugging
+  FromDrillBoard.begin(details(receive_telem), &Serial6);   // TODO :  pick Serial line. Check pins.
+  ToDrillBoard.begin(details(send_cmd), &Serial6);
 }
 
 void loop(){
-   float dataRead;
-   uint16_t dataID = 0;
-   size_t size = 0;
-   byte receivedMsg[1];
-   
    // Get command from base station
    roveComm_GetMsg(&dataID, &size, receivedMsg);
    
-   if(dataID == SCI_CMD)
+   if(dataID == SCI_CMD_ID)
    {
      //////////////////////////  
      // enable devices block //
      //////////////////////////
      
      switch(receivedMsg[0]){
-       case M1_ENABLE:
-         m1_on = true;
-         break; 
-       case M1_DISABLE:
-         m1_on = false;
-         break;
-       case M2_ENABLE:
-         m2_on = true;
-         break;
-       case M2_DISABLE:
-         m2_on = false;
-         break;
-       case M3_ENABLE:
-         m3_on = true;
-         break;
-       case M3_DISABLE:
-         m3_on = false;
-         break;
-       case M4_ENABLE:
-         m4_on = true;
-         break;
-       case M4_DISABLE:
-         m4_on = false;
-         break;
-         
        case T1_ENABLE:
          t1_on = true;
          break;
@@ -172,6 +183,36 @@ void loop(){
        case T4_DISABLE:
          t4_on = false;
          break;
+       
+       case M1_ENABLE:
+         m1_on = true;
+         break; 
+       case M1_DISABLE:
+         m1_on = false;
+         break;
+       case M2_ENABLE:
+         m2_on = true;
+         break;
+       case M2_DISABLE:
+         m2_on = false;
+         break;
+       // M3 will not be equipped. Line filled by oscillating crystal.
+       case M3_ENABLE:
+         m3_on = true;
+         break;
+       case M4_ENABLE:
+         m4_on = true;
+         break;
+       case M4_DISABLE:
+         m4_on = false;
+         break;
+
+       case CS_ENABLE:
+         cs_on = true;
+         break;
+       case CS_DISABLE:
+         cs_on = false;
+         break;
          
        case LASER_ENABLE:
          digitalWrite(LASER_PIN, HIGH);
@@ -188,21 +229,21 @@ void loop(){
      }
    }
    
-   if(dataID == DRILL_CMD) {
+   if(dataID == DRILL_CMD_ID) {
      switch(receivedMsg[0]){
        case DRILL_FWD:
-         drill_state = DRILL_FWD;
+         drill_mode = DRILL_FWD;
          break;
        case DRILL_STOP:
-         drill_state = DRILL_STOP;
+         drill_mode = DRILL_STOP;
          break;
        case DRILL_REV:
-         drill_state = DRILL_REV;
+         drill_mode = DRILL_REV;
          break;
      }
    }
      
-   if(dataID == CAROUSEL_CMD)
+   if(dataID == CAROUSEL_CMD_ID)
    {
      uint16_t position = *(uint8_t*)(receivedMsg);
      if (position == 5)
@@ -210,57 +251,26 @@ void loop(){
      DynamixelRotateJoint(Carousel, position * 102);
    }
    
-   ///////////////////////////
-   // Sensor controls block //
-   ///////////////////////////
+   //////////////////////////////
+   // Send data to BaseStation //
+   //////////////////////////////
    
-   // Temperature sensor scaled up in drill board
-   if(t1_on) {   
-     Serial6.write(T1_ON);
-     dataRead = Serial6.read() / TEMP_SCALE; 
-     roveComm_SendMsg(0x720, sizeof(dataRead), &dataRead);
-   } 
-   if(t2_on) {   
-     Serial6.write(T2_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x721, sizeof(dataRead), &dataRead);
-   } 
-   if(t3_on) {   
-     Serial6.write(T3_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x722, sizeof(dataRead), &dataRead);
-   } 
-   if(t4_on) {   
-     Serial6.write(T4_ON);
-     dataRead = Serial6.read() / TEMP_SCALE;
-     roveComm_SendMsg(0x723, sizeof(dataRead), &dataRead);
-   } 
-   
-   if(m1_on) {   
-     Serial6.write(M1_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x728, sizeof(dataRead), &dataRead);
-   } 
-   if(m2_on) {   
-     Serial6.write(M2_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x729, sizeof(dataRead), &dataRead);
-   } 
-   if(m3_on) {   
-     Serial6.write(M3_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x72A, sizeof(dataRead), &dataRead);
-   } 
-   if(m4_on) {   
-     Serial6.write(M4_ON);
-     dataRead = Serial6.read();
-     roveComm_SendMsg(0x72B, sizeof(dataRead), &dataRead);
-   } 
-   
-   //////////////////////////
-   // Drill controls block //
-   //////////////////////////
-   
-   Serial6.write(drill_state);
+   if(FromDrillBoard.receiveData()){
+     if(t1_on)
+       roveComm_SendMsg(0x720, sizeof(receive_telem.t1_data), &receive_telem.t1_data);
+     if(t2_on)
+       roveComm_SendMsg(0x721, sizeof(receive_telem.t2_data), &receive_telem.t2_data);
+     if(t3_on)
+       roveComm_SendMsg(0x722, sizeof(receive_telem.t3_data), &receive_telem.t3_data);
+     if(t4_on)
+       roveComm_SendMsg(0x723, sizeof(receive_telem.t4_data), &receive_telem.t4_data);
+     if(m1_on)  
+       roveComm_SendMsg(0x728, sizeof(receive_telem.m1_data), &receive_telem.m1_data);
+     if(m2_on)  
+       roveComm_SendMsg(0x729, sizeof(receive_telem.m2_data), &receive_telem.m2_data);
+     if(m3_on) 
+       roveComm_SendMsg(0x72A, sizeof(receive_telem.m3_data), &receive_telem.m3_data);
+     if(m4_on) 
+       roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
+   }
 }
-

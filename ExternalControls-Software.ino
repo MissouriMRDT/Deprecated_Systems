@@ -4,14 +4,13 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-#include "RoveBoard.h"
-#include "RoveEthernet.h"
+#include <RoveBoard.h>
+#include <RoveEthernet.h>
 
-#include "RoveComm.h"
+#include <RoveComm.h>
 
-//#include <dyna.h>
-#include "EasyTransfer.h"
-#include "RoveDynamixel.h"
+#include <dyna.h>
+
 
 
 //Pin assignments:
@@ -88,9 +87,6 @@ char data[8];
 int counter;
 
 
-Dynamixel dynaHor1;
-Dynamixel dynaVert1;
-
 Servo servo0;
 Servo servo1;
 Servo servo2;
@@ -138,24 +134,35 @@ void setup() {
   
   
   
-
+ 
+  //servo10.attach(P10);
+  //servo11.attach(P11);
+  //servo12.attach(P12);
+  //servo13.attach(P13);
+  //servo20.attach(P20);
+  //servo21.attach(P21);
+  //servo22.attach(P22);
+  //servo23.attach(P23);
+  //servo30.attach(P30);
+  //servo31.attach(P31);
+  //servo32.attach(P32);
+  //servo33.attach(P33);
   
   delay(5000);
-  
+  Serial7.begin(1000000);
   roveComm_Begin(192,168,1,134);
   Serial.begin(9600);
   Ethernet.enableLinkLed();
   Ethernet.enableActivityLed();
   delay(100);
-  
-  DynamixelInit(&dynaHor1, AX, HOR_CAM_1, 7,1000000);
-  DynamixelInit(&dynaVert1, AX, VERT_CAM_1, 7,1000000);
-  
+  //init();//initialize Dynamixel library
   delay(100);
 
   //set dynamixels to be in continuous rotation mode.
-  DynamixelSetMode(dynaHor1, Wheel);
-  DynamixelSetMode(dynaVert1, Wheel);
+  setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
+  setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
+  setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
+  setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
 
   //debug: flash LED's on dynamixel to indicate they are communicating
   blink(5);
@@ -169,11 +176,10 @@ void setup() {
 }
 
 void blink(int num){
-  uint8_t tmp1 = 1, tmp2 = 0;
   for(int i = 0; i < num; i++){
-    DynamixelSendWriteCommand(dynaHor1, 0x19, 1,&tmp1);    
+    setRegister(254,0x19,1);        
     delay(100);
-    DynamixelSendWriteCommand(dynaHor1, 0x19, 1,&tmp2);          
+    setRegister(254,0x19,0);        
     delay(100);
   }
 }
@@ -184,9 +190,8 @@ void loop(){
   else{
     count++;
     if(count>1000){
-      
-      moveDynamixel(0,dynaHor1);
-      moveDynamixel(0,dynaVert1);
+      moveDynamixel(0,HOR_CAM_1);
+      moveDynamixel(0,VERT_CAM_1);
     }
     delay(1);
   }
@@ -219,8 +224,8 @@ boolean roveCommCheck(){
       //xSpeed = 900;
       //ySpeed = 0;
       
-      moveDynamixel(xSpeed,dynaHor1);
-      moveDynamixel(-ySpeed,dynaVert1);
+      moveDynamixel(xSpeed,HOR_CAM_1);
+      moveDynamixel(-ySpeed,VERT_CAM_1);
       
       
       
@@ -319,7 +324,7 @@ void openDropBay(int bay){
 
 
 //moveSpeed: -1000 to 1000
-void moveDynamixel(int moveSpeed, Dynamixel dyna){
+void moveDynamixel(int moveSpeed, int dynaID){
   if(moveSpeed<0){
     moveSpeed = abs(moveSpeed)*1023/1000;
   }
@@ -334,10 +339,8 @@ void moveDynamixel(int moveSpeed, Dynamixel dyna){
   if(moveSpeed>2047){
     moveSpeed=2047;
   }
-  
-  
-  DynamixelSpinWheel(dyna,moveSpeed);
-  //setRegister2(dynaID,ID_SPEED,moveSpeed);
+
+  setRegister2(dynaID,ID_SPEED,moveSpeed);
   
   
 }
@@ -404,5 +407,3 @@ void generateSignal(int amt, int pin){
     delayMicroseconds(20000-amt);
   }
 }
-
-

@@ -248,7 +248,7 @@ void loop(){
      uint16_t position = *(uint8_t*)(receivedMsg);
      if (position == 5)
        position = 4;
-     DynamixelRotateJoint(Carousel, position * 102);
+     DynamixelRotateJoint(Carousel, position * 204);
    }
    
    //////////////////////////////

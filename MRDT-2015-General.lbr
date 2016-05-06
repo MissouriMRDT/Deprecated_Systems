@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8735,26 +8735,25 @@
 <wire x1="-17.78" y1="2.54" x2="-17.78" y2="0" width="0.127" layer="21"/>
 </package>
 <package name="SERVO_JACK">
-<pad name="GND" x="-4.24" y="3.45" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="VCC" x="-1.7" y="3.45" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="SIGNAL" x="0.84" y="3.45" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND" x="-2.5394125" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="VCC" x="0.0005875" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="SIGNAL" x="2.5405875" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="-6.4262" y="15.7988" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-6.35" y="10.795" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="0.586" y1="3.196" x2="1.094" y2="3.704" layer="51"/>
-<rectangle x1="-1.954" y1="3.196" x2="-1.446" y2="3.704" layer="51"/>
-<rectangle x1="-4.494" y1="3.196" x2="-3.986" y2="3.704" layer="51"/>
-<wire x1="-5.6" y1="6.1" x2="-5.6" y2="0.9" width="0.127" layer="21"/>
-<wire x1="-5.6" y1="0.9" x2="-2.5" y2="0.9" width="0.127" layer="21"/>
-<wire x1="-0.9" y1="0.9" x2="2.1" y2="0.9" width="0.127" layer="21"/>
-<wire x1="2.1" y1="0.9" x2="2.1" y2="6.1" width="0.127" layer="21"/>
-<wire x1="2.1" y1="6.1" x2="-5.6" y2="6.1" width="0.127" layer="21"/>
-<text x="0.5" y="4.1" size="1.27" layer="21">*</text>
-<text x="-2.2" y="4.5" size="1.27" layer="21">+</text>
-<text x="-4.5" y="4.7" size="1.27" layer="21">-</text>
-<wire x1="-1.7" y1="1.3" x2="-2.5" y2="1.3" width="0.127" layer="21"/>
-<wire x1="-2.5" y1="1.3" x2="-2.5" y2="0.9" width="0.127" layer="21"/>
-<wire x1="-1.7" y1="1.3" x2="-0.9" y2="1.3" width="0.127" layer="21"/>
-<wire x1="-0.9" y1="1.3" x2="-0.9" y2="0.9" width="0.127" layer="21"/>
+<rectangle x1="2.2865875" y1="-0.254" x2="2.7945875" y2="0.254" layer="51"/>
+<rectangle x1="-0.2534125" y1="-0.254" x2="0.2545875" y2="0.254" layer="51"/>
+<rectangle x1="-2.7934125" y1="-0.254" x2="-2.2854125" y2="0.254" layer="51"/>
+<wire x1="-3.8994125" y1="2.65" x2="-3.8994125" y2="-2.55" width="0.127" layer="21"/>
+<wire x1="-3.8994125" y1="-2.55" x2="-0.7994125" y2="-2.55" width="0.127" layer="21"/>
+<wire x1="0.8005875" y1="-2.55" x2="3.8005875" y2="-2.55" width="0.127" layer="21"/>
+<wire x1="3.8005875" y1="-2.55" x2="3.8005875" y2="2.65" width="0.127" layer="21"/>
+<wire x1="3.8005875" y1="2.65" x2="-3.8994125" y2="2.65" width="0.127" layer="21"/>
+<text x="2.2005875" y="0.65" size="1.27" layer="21">*</text>
+<text x="-0.4994125" y="1.05" size="1.27" layer="21">+</text>
+<text x="-2.7994125" y="1.25" size="1.27" layer="21">-</text>
+<wire x1="-0.7994125" y1="-2.15" x2="-0.7994125" y2="-2.55" width="0.127" layer="21"/>
+<wire x1="-0.7994125" y1="-2.15" x2="0.8005875" y2="-2.15" width="0.127" layer="21"/>
+<wire x1="0.8005875" y1="-2.15" x2="0.8005875" y2="-2.55" width="0.127" layer="21"/>
 </package>
 <package name="DIP14">
 <wire x1="8.89" y1="2.921" x2="-8.89" y2="2.921" width="0.1524" layer="21"/>
@@ -8798,6 +8797,25 @@
 <rectangle x1="2.8899" y1="-1.1001" x2="3.3801" y2="0" layer="51"/>
 <rectangle x1="4.1599" y1="-1.1001" x2="4.6501" y2="0" layer="51"/>
 <circle x="0.595" y="1.0475" radius="0.3175" width="0.127" layer="21"/>
+</package>
+<package name="78208-103HLF">
+<pad name="P$1" x="2.54" y="0" drill="0.8"/>
+<pad name="P$2" x="0" y="0" drill="0.8"/>
+<pad name="P$3" x="-2.54" y="0" drill="0.8"/>
+<wire x1="-3.81" y1="1.6256" x2="-1.27" y2="1.6256" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="1.6256" x2="3.81" y2="1.6256" width="0.127" layer="51"/>
+<wire x1="3.81" y1="1.6256" x2="3.81" y2="11.43" width="0.127" layer="51"/>
+<wire x1="3.81" y1="11.43" x2="1.27" y2="11.43" width="0.127" layer="51"/>
+<wire x1="1.27" y1="11.43" x2="-1.27" y2="11.43" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="11.43" x2="-3.81" y2="11.43" width="0.127" layer="51"/>
+<wire x1="-3.81" y1="11.43" x2="-3.81" y2="1.6256" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="11.43" x2="-1.27" y2="1.6256" width="0.127" layer="51" style="shortdash"/>
+<wire x1="-1.27" y1="1.6256" x2="1.27" y2="1.6256" width="0.127" layer="51" style="longdash"/>
+<wire x1="1.27" y1="1.6256" x2="1.27" y2="11.43" width="0.127" layer="51" style="shortdash"/>
+<wire x1="3.81" y1="-1.27" x2="-3.81" y2="-1.27" width="0.127" layer="51" style="shortdash"/>
+<wire x1="-3.81" y1="-1.27" x2="-3.81" y2="1.6256" width="0.127" layer="51" style="shortdash"/>
+<wire x1="-3.81" y1="1.6256" x2="3.81" y2="1.6256" width="0.127" layer="51" style="shortdash"/>
+<wire x1="3.81" y1="1.6256" x2="3.81" y2="-1.27" width="0.127" layer="51" style="shortdash"/>
 </package>
 </packages>
 <symbols>
@@ -9411,13 +9429,13 @@
 <pin name="VDD" x="-5.08" y="33.02" length="middle"/>
 </symbol>
 <symbol name="SERVO">
-<wire x1="0" y1="2.54" x2="0" y2="12.7" width="0.254" layer="94"/>
-<wire x1="0" y1="12.7" x2="10.16" y2="12.7" width="0.254" layer="94"/>
-<wire x1="10.16" y1="12.7" x2="10.16" y2="2.54" width="0.254" layer="94"/>
-<wire x1="10.16" y1="2.54" x2="0" y2="2.54" width="0.254" layer="94"/>
-<pin name="GND" x="-5.08" y="5.08" length="middle"/>
-<pin name="SIG" x="-5.08" y="7.62" length="middle"/>
-<pin name="+5V" x="-5.08" y="10.16" length="middle"/>
+<wire x1="0" y1="0" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="GND" x="-5.08" y="2.54" length="middle"/>
+<pin name="SIG" x="-5.08" y="5.08" length="middle"/>
+<pin name="VCC" x="-5.08" y="7.62" length="middle"/>
 </symbol>
 <symbol name="HEX_INVERTER">
 <wire x1="5.08" y1="0" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
@@ -10498,9 +10516,19 @@
 <devices>
 <device name="" package="SERVO_JACK">
 <connects>
-<connect gate="G$1" pin="+5V" pad="VCC"/>
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="SIG" pad="SIGNAL"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="HORIZ" package="78208-103HLF">
+<connects>
+<connect gate="G$1" pin="GND" pad="P$1"/>
+<connect gate="G$1" pin="SIG" pad="P$3"/>
+<connect gate="G$1" pin="VCC" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>

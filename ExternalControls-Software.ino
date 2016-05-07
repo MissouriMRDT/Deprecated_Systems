@@ -27,6 +27,7 @@
 #define PWM2_CAM2 PD_5
 #define PWM3_CAM2 PD_1
 
+
 //Servo pins
 #define P00 PK_0
 #define P01 PK_1
@@ -59,8 +60,8 @@
 //Dynamixel ID's
 #define HOR_CAM_1 5
 #define VERT_CAM_1 4
-#define HOR_CAM_2 254
-#define VERT_CAM_2 254
+#define HOR_CAM_2 11
+#define VERT_CAM_2 10
 
 //Dynamixel function ID's
 #define ID_CW_LIMIT 6
@@ -74,11 +75,11 @@
 #define ID_CAMERA_MENU 1569
 #define ID_DROP_BAY 1584
 
+#define ID_CAMERA_COMMAND_2 1570
+#define ID_GIMBAL_SPEED_2 1553
+#define ID_CAMERA_MENU_2 1571
 
 #define DROPBAY_ANGLE_OPEN 170
-
-
-
 
 
 uint16_t dataID = 0;
@@ -88,21 +89,7 @@ int counter;
 
 
 Servo servo0;
-Servo servo1;
-Servo servo2;
-Servo servo3;
-//Servo servo10;
-//Servo servo11;
-//Servo servo12;
-//Servo servo13;
-//Servo servo20;
-///Servo servo21;
-//Servo servo22;
-//Servo servo23;
-//Servo servo30;
-//Servo servo31;
-//Servo servo32;
-//Servo servo33;
+
 
 void setup() {
   
@@ -133,22 +120,9 @@ void setup() {
   
   
   
+
   
- 
-  //servo10.attach(P10);
-  //servo11.attach(P11);
-  //servo12.attach(P12);
-  //servo13.attach(P13);
-  //servo20.attach(P20);
-  //servo21.attach(P21);
-  //servo22.attach(P22);
-  //servo23.attach(P23);
-  //servo30.attach(P30);
-  //servo31.attach(P31);
-  //servo32.attach(P32);
-  //servo33.attach(P33);
-  
-  delay(5000);
+  delay(100);
   Serial7.begin(1000000);
   roveComm_Begin(192,168,1,134);
   Serial.begin(9600);
@@ -160,16 +134,42 @@ void setup() {
 
   //set dynamixels to be in continuous rotation mode.
   setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
-  setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
+  setRegister2(HOR_CAM_1,ID_CCW_LIMIT,0);
   setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
   setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
 
+
+  setRegister2(HOR_CAM_2,ID_CW_LIMIT,0);
+  setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
+  setRegister2(VERT_CAM_2,ID_CW_LIMIT,0);
+  setRegister2(VERT_CAM_2,ID_CCW_LIMIT,0);
+  
+  
   //debug: flash LED's on dynamixel to indicate they are communicating
   blink(5);
 
  
   
- 
+
+      moveDynamixel(-100,HOR_CAM_2);
+      delay(100);
+      moveDynamixel(0,HOR_CAM_2);
+      delay(100);
+      moveDynamixel(100,HOR_CAM_2);
+      delay(100);
+      moveDynamixel(0,HOR_CAM_2);
+      delay(100);
+      moveDynamixel(-100,VERT_CAM_2);
+      delay(100);
+      moveDynamixel(0,VERT_CAM_2);
+      delay(100);
+      moveDynamixel(100,VERT_CAM_2);
+      delay(100);
+      moveDynamixel(0,VERT_CAM_2);
+      delay(100);
+      
+      
+       blink(5);
 
  
  
@@ -192,6 +192,8 @@ void loop(){
     if(count>1000){
       moveDynamixel(0,HOR_CAM_1);
       moveDynamixel(0,VERT_CAM_1);
+      moveDynamixel(0,HOR_CAM_2);
+      moveDynamixel(0,VERT_CAM_2);
     }
     delay(1);
   }
@@ -206,11 +208,12 @@ boolean roveCommCheck(){
   uint8_t tmp;
   int16_t xSpeed;
   int16_t ySpeed;
+  char a[2];
   
   switch(dataID){
     case ID_GIMBAL_SPEED:
       
-      char a[2];
+      
       
       a[0] = data[0];
       a[1] = data[1];
@@ -226,6 +229,29 @@ boolean roveCommCheck(){
       
       moveDynamixel(xSpeed,HOR_CAM_1);
       moveDynamixel(-ySpeed,VERT_CAM_1);
+      
+      
+      
+    break;
+    
+    case ID_GIMBAL_SPEED_2:
+      
+      
+      
+      a[0] = data[0];
+      a[1] = data[1];
+      xSpeed = *(int16_t*)(a);
+      
+      a[0] = data[2];
+      a[1] = data[3];
+      ySpeed = *(int16_t*)(a);
+      
+      
+      //xSpeed = 900;
+      //ySpeed = 0;
+      
+      moveDynamixel(xSpeed,HOR_CAM_2);
+      moveDynamixel(-ySpeed,VERT_CAM_2);
       
       
       
@@ -268,6 +294,53 @@ boolean roveCommCheck(){
         focusOut();
       }
     break;
+    
+    
+    
+    
+    
+    
+    case ID_CAMERA_MENU_2:
+      tmp = *(uint8_t*)(data);
+      if(tmp==0){
+        toggleMenu2();
+      }
+      else if(tmp==1){
+        navigateMenuLeft2();
+      }
+      else if(tmp==2){
+        navigateMenuRight2();
+      }
+      else if(tmp==3){
+        navigateMenuUp2();
+      }
+      else if(tmp==4){
+        navigateMenuDown2();
+      }
+    break;
+    
+    case ID_CAMERA_COMMAND_2:
+      tmp = *(uint8_t*)(data);
+      if(tmp==0){
+        stopZoomAndFocus2();
+      }
+      else if(tmp==1){
+        zoomIn2();
+      }
+      else if(tmp==2){
+        zoomOut2();
+      }
+      else if(tmp==3){
+        focusIn2();
+      }
+      else if(tmp==4){
+        focusOut2();
+      }
+    break;
+    
+    
+    
+    
     
     case ID_DROP_BAY:
       tmp = *(uint8_t*)(data);
@@ -397,6 +470,69 @@ void navigateMenuDown(){
   generateSignal(MID_SIGNAL,PWM0);
   generateSignal(SHORT_SIGNAL,PWM0);
 }
+
+
+
+
+
+
+
+
+
+
+void zoomIn2(){
+  active=true;
+  generateSignal(LONG_SIGNAL,PWM0_CAM2);
+}
+void zoomOut2(){
+  active=true;
+  generateSignal(SHORT_SIGNAL,PWM0_CAM2);
+}
+void focusIn2(){
+  active=true;
+  generateSignal(LONG_SIGNAL,PWM1_CAM2);
+}
+void focusOut2(){
+  active=true;
+  generateSignal(SHORT_SIGNAL,PWM1_CAM2);
+}
+void stopZoomAndFocus2(){
+  if(!active)return;
+  active=false;
+  generateSignal(MID_SIGNAL,PWM0_CAM2);
+  generateSignal(MID_SIGNAL,PWM1_CAM2);
+}
+
+
+
+
+
+
+
+void toggleMenu2(){
+  generateSignal(MID_SIGNAL,PWM2_CAM2);
+  generateSignal(LONG_SIGNAL,PWM2_CAM2);
+}
+void navigateMenuLeft2(){
+  generateSignal(MID_SIGNAL,PWM1_CAM2);
+  generateSignal(SHORT_SIGNAL,PWM1_CAM2);
+}
+void navigateMenuRight2(){
+  generateSignal(MID_SIGNAL,PWM1_CAM2);
+  generateSignal(LONG_SIGNAL,PWM1_CAM2);
+}
+void navigateMenuUp2(){
+  generateSignal(MID_SIGNAL,PWM0_CAM2);
+  generateSignal(LONG_SIGNAL,PWM0_CAM2);
+}
+void navigateMenuDown2(){
+  generateSignal(MID_SIGNAL,PWM0_CAM2);
+  generateSignal(SHORT_SIGNAL,PWM0_CAM2);
+}
+
+
+
+
 
 
 void generateSignal(int amt, int pin){

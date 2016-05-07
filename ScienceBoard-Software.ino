@@ -134,8 +134,9 @@ byte receivedMsg[1];
 Dynamixel Carousel;
 Servo Funnel;
 
-void setup(){
-  roveComm_Begin(192, 168, 1, 135); // predetermined science board IP
+void setup()
+{
+  roveComm_Begin(192, 168, 1, 135); 
   pinMode(MAIN_POWER, OUTPUT);
   digitalWrite(MAIN_POWER, HIGH);
   pinMode(DYNA_POWER, OUTPUT);
@@ -143,9 +144,9 @@ void setup(){
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
   Funnel.attach(FUNNEL_SERVO);
-  Serial.begin(9600);  // TODO : Just for debugging
-  FromDrillBoard.begin(details(receive_telem), &Serial6);   // TODO :  pick Serial line. Check pins.
-  ToDrillBoard.begin(details(send_cmd), &Serial6);
+  Serial5.begin(9600);  
+  FromDrillBoard.begin(details(receive_telem), &Serial5);  
+  ToDrillBoard.begin(details(send_cmd), &Serial5);
 }
 
 void loop(){

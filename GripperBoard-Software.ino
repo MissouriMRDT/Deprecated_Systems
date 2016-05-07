@@ -11,13 +11,18 @@
 
 
 
-#define EN_A 11
-#define EN_B 10
-#define IN_A 13
-#define IN_B 12
-//#define CS_DIS 4
-#define CS A5
-#define PWM 3
+#define EN_A 17
+#define EN_B 3
+#define IN_A A2
+#define IN_B 4
+#define CS_DIS 2
+#define CS A0
+#define PWM 9
+
+#define EN_6V 8
+#define SERVO_1 5
+#define SERVO_2 6
+
 
 // Current sensing constants
 #define K_FACTOR 770.0
@@ -53,22 +58,26 @@ void setup() {
   pinMode(IN_A, OUTPUT); 
   pinMode(IN_B, OUTPUT); 
   pinMode(CS, INPUT); 
-  //pinMode(CS_DIS, OUTPUT); 
+  pinMode(CS_DIS, OUTPUT); 
   pinMode(PWM, OUTPUT); 
   
   //disable motors and enable current sense at start
   digitalWrite(IN_A,0);
   digitalWrite(IN_B,0);
-  //digitalWrite(CS_DIS,0);//CS enabled when CS_DIS=0
+  digitalWrite(CS_DIS,0);//CS enabled when CS_DIS=0
   
   
   
   
   delay(1000);
 
-  rotateMotor(CW,20);
+
+  rotateMotor(CW,50);
   delay(300);
-  rotateMotor(CCW,20);
+  
+  stopRotation();
+  delay(300);
+  rotateMotor(CCW,50);
   delay(300);
   stopRotation();
   
@@ -144,7 +153,7 @@ void dd(int ms){//"diagnostic delay" constantly checks for over current
       stopRotation();      
       delay(5000);      
       
-    }
+    }b6'l 
     else if(readCurrent()>MAX_CURRENT){
       Serial.println("Warning...");
       delay(10);
@@ -191,12 +200,12 @@ void setDirection(int dir){
   
   
   if(dir==CLOCKWISE){
-    digitalWrite(IN_A,1);
-    digitalWrite(IN_B,0);
-  }
-  else{
     digitalWrite(IN_A,0);
     digitalWrite(IN_B,1);
+  }
+  else{
+    digitalWrite(IN_A,1);
+    digitalWrite(IN_B,0);
   }
 }
 

@@ -3,6 +3,8 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
 #include <Servo.h>
 
 #include "RoveBoard.h"
@@ -68,7 +70,6 @@ static const byte DRILL_STOP    = 0;
 static const byte DRILL_FWD     = 1;
 static const byte DRILL_REV     = 2;
 
-
 //////////////////////////////////
 //     DrillBoard Commands      //
 //////////////////////////////////
@@ -97,15 +98,15 @@ bool m3_on = false;
 bool m4_on = false;
 bool cs_on = false;
 
-int drill_mode = 0;
+uint32_t ccd_serial_timeout = 0;
+bool ccd_tcp_req = false;
 
 //////////////////////////////////
 //    EasyTransfer Protocol     //
 //////////////////////////////////
 
-EasyTransfer FromDrillBoard, ToDrillBoard;
-
-struct RECEIVE_DATA_STRUCTURE { // Must match drill side
+struct recieve_drill_data 
+{ 
   float t1_data;
   float t2_data;
   float t3_data;
@@ -117,12 +118,34 @@ struct RECEIVE_DATA_STRUCTURE { // Must match drill side
   float drill_current;
 };
 
-struct SEND_DATA_STRUCTURE { // Must match drill side
+struct send_drill_data 
+{ 
   uint16_t drill_cmd;
 };
 
-RECEIVE_DATA_STRUCTURE receive_telem;
-SEND_DATA_STRUCTURE    send_cmd;
+struct recieve_drill_data receive_telem;
+struct send_drill_data    send_command;
+
+EasyTransfer FromDrillBoard, ToDrillBoard;
+
+const int CCD_IMAGE_SIZE     = 3648;
+const int CCD_SERIAL_TIMEOUT = 3000;
+
+struct ccd_command 
+{ 
+  uint16_t ccd_id;
+};
+
+struct ccd_image 
+{ 
+  uint8_t ccd_image[CCD_IMAGE_SIZE]  = { 0 };;
+  byte recieved_flag;
+};
+
+struct ccd_command  send_ccd_command;
+struct ccd_image    recieve_ccd_image;
+
+EasyTransfer FromCCDBoard, ToCCDBoard;
 
 //////////////////////////////////
 
@@ -134,22 +157,36 @@ byte receivedMsg[1];
 Dynamixel Carousel;
 Servo Funnel;
 
+// telnet defaults to port 23
+EthernetServer local(23);
+EthernetClient remote;
+
 void setup()
 {
   roveComm_Begin(192, 168, 1, 135); 
   pinMode(MAIN_POWER, OUTPUT);
   digitalWrite(MAIN_POWER, HIGH);
+  
   pinMode(DYNA_POWER, OUTPUT);
   digitalWrite(DYNA_POWER, HIGH);
+  
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
+  
   Funnel.attach(FUNNEL_SERVO);
-  Serial5.begin(9600);  
+  
+  Serial5.begin(9600); 
+  Serial7.begin(115200); 
+  
   FromDrillBoard.begin(details(receive_telem), &Serial5);  
-  ToDrillBoard.begin(details(send_cmd), &Serial5);
-}
+  ToDrillBoard.begin(details(send_command), &Serial5);
+  
+  FromCCDBoard.begin(details(recieve_ccd_image), &Serial5);  
+  ToCCDBoard.begin(details(send_ccd_command), &Serial5);
+}//end setup
 
-void loop(){
+void loop()
+{
    // Get command from base station
    roveComm_GetMsg(&dataID, &size, receivedMsg);
    
@@ -159,7 +196,8 @@ void loop(){
      // enable devices block //
      //////////////////////////
      
-     switch(receivedMsg[0]){
+     switch(receivedMsg[0])
+     {
        case T1_ENABLE:
          t1_on = true;
          break;
@@ -227,22 +265,27 @@ void loop(){
        case FUNNEL_CLOSE:
          Funnel.write(50);
          break;
-     }
-   }
+     }//end switch
+   }//end if
    
-   if(dataID == DRILL_CMD_ID) {
-     switch(receivedMsg[0]){
+   if(dataID == DRILL_CMD_ID) 
+   {
+     switch(receivedMsg[0])
+     {
        case DRILL_FWD:
-         drill_mode = DRILL_FWD;
+         send_command.drill_cmd = DRILL_FWD;
+         ToDrillBoard.sendData();
          break;
        case DRILL_STOP:
-         drill_mode = DRILL_STOP;
+         send_command.drill_cmd = DRILL_STOP;
+         ToDrillBoard.sendData();
          break;
        case DRILL_REV:
-         drill_mode = DRILL_REV;
+         send_command.drill_cmd = DRILL_REV;
+         ToDrillBoard.sendData();
          break;
-     }
-   }
+     }//end switch
+   }//end if
      
    if(dataID == CAROUSEL_CMD_ID)
    {
@@ -250,13 +293,48 @@ void loop(){
      if (position == 5)
        position = 4;
      DynamixelRotateJoint(Carousel, position * 204);
-   }
+   }//end if
    
-   //////////////////////////////
-   // Send data to BaseStation //
-   //////////////////////////////
+   if(dataID == CCD_REQ)
+   {
+     send_ccd_command.ccd_id = dataID;
+     recieve_ccd_image.recieved_flag = false;
+     
+     ToCCDBoard.sendData();
+     
+     ccd_serial_timeout = millis() + CCD_SERIAL_TIMEOUT;
+     while(!recieve_ccd_image.recieved_flag && (millis() < ccd_serial_timeout) )
+     {
+       FromCCDBoard.receiveData();
+     }//end fnctn 
+   }//end if
    
-   if(FromDrillBoard.receiveData()){
+   /////////////////////////////////
+   // Send ccd tcp to BaseStation //
+   /////////////////////////////////
+   
+   ccd_tcp_req = false;
+   
+
+  remote = local.available();
+   
+   while (remote) 
+   {
+      remote.read();
+      ccd_tcp_req = true;
+   }//end while
+   
+   if(ccd_tcp_req)
+   {
+      local.write(&(recieve_ccd_image.ccd_image[0]), CCD_IMAGE_SIZE );
+   }//end if
+   
+   /////////////////////////////////////
+   // Send sensor data to BaseStation //
+   /////////////////////////////////////
+   
+   if(FromDrillBoard.receiveData())
+   {
      if(t1_on)
        roveComm_SendMsg(0x720, sizeof(receive_telem.t1_data), &receive_telem.t1_data);
      if(t2_on)
@@ -273,5 +351,6 @@ void loop(){
        roveComm_SendMsg(0x72A, sizeof(receive_telem.m3_data), &receive_telem.m3_data);
      if(m4_on) 
        roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
-   }
-}
+   }//end if
+}//end loop
+  

@@ -22,7 +22,7 @@ static const int TOTAL_SENSORS  = 7;
 //          Board Pins          //
 //////////////////////////////////
 
-static const int FUNNEL_SERVO   = PL_5;
+static const int FUNNEL_SERVO   = PE_3;
 static const int LASER_PIN      = PF_3;
 static const int MAIN_POWER     = PL_3;
 static const int DYNA_POWER     = PL_2;
@@ -173,6 +173,8 @@ void setup()
   DynamixelInit(&Carousel, AX, 1, 7, 1000000);
   DynamixelSetMode(Carousel, Joint);
   
+  pinMode(LASER_PIN, OUTPUT);
+  
   Funnel.attach(FUNNEL_SERVO);
   
   Serial5.begin(9600); 
@@ -263,7 +265,7 @@ void loop()
          Funnel.write(180);
          break;
        case FUNNEL_CLOSE:
-         Funnel.write(50);
+         Funnel.write(37);
          break;
      }//end switch
    }//end if

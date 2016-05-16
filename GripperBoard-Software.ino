@@ -4,7 +4,7 @@
 
 
 
-
+#include <Servo.h> 
 
 
 
@@ -44,10 +44,19 @@
 #define CCW_CHAR 'B'
 #define STOP_CHAR 'X'
 
+#define BOPP_FORWARD_CHAR 'C'
+#define BOPP_REVERSE_CHAR 'D'
+#define BOPP_STOP_CHAR 'E'
+
 
 int presentPWM = 0;
 boolean stoppedMotor = true;
 int presentDirection = CLOCKWISE;
+
+
+
+Servo servo1;
+Servo servo2;
 
 
 void setup() {
@@ -70,12 +79,19 @@ void setup() {
   
   
   delay(1000);
+  
+  
+  
+  
+  
+  servo1.attach(SERVO_1);
+  servo1.attach(SERVO_2);
 
-
+  
+  //dank test stuff
   rotateMotor(CW,50);
   delay(300);
-  
-  stopRotation();
+    stopRotation();
   delay(300);
   rotateMotor(CCW,50);
   delay(300);
@@ -85,7 +101,7 @@ void setup() {
   
   
   
-Serial.println("START");
+  Serial.println("START");
 
 
 }
@@ -127,6 +143,18 @@ void serialCheck(){
       stopRotation();
       
     }
+    else if(tmp == BOPP_FORWARD_CHAR){
+      boppForward();
+      
+    }
+    else if(tmp == BOPP_REVERSE_CHAR){
+      boppReverse();
+      
+    }
+    else if(tmp == BOPP_STOP_CHAR){
+      boppStop();
+      
+    }
 
   }
 }
@@ -153,7 +181,7 @@ void dd(int ms){//"diagnostic delay" constantly checks for over current
       stopRotation();      
       delay(5000);      
       
-    }b6'l 
+    }
     else if(readCurrent()>MAX_CURRENT){
       Serial.println("Warning...");
       delay(10);
@@ -300,6 +328,36 @@ float readCurrent(){
   value/=numValues;
   return value;
 }
+
+
+
+
+
+
+
+
+
+
+//servo position values.
+const int fullCounterClockwise = 45, fullClockwise = 90, stopServo = 135;
+
+void boppForward(){
+  servo1.write(fullCounterClockwise);
+  servo2.write(fullClockwise);
+}
+
+void boppReverse(){
+  servo2.write(fullCounterClockwise);
+  servo1.write(fullClockwise);
+}
+
+void boppStop(){
+  servo1.write(stopServo);
+  servo2.write(stopServo);
+}
+
+
+
 
 
 

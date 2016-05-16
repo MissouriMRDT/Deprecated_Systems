@@ -13,15 +13,15 @@
   Website: http://innovate.mst.edu
   Logo: img/mst-sq-logo.png
 
-- Name: Sierra Circuits
-  Level: Interstellar Aviator
-  Website: http://protoexpress.com
-  Logo: img/sierracircuits-logo.jpg
-
 - Name: Henry A. Jubel Foundation
   Level: Interstellar Aviator
   Website: http://spartanlmp.com
   Logo: img/spartan-logo.svg
+
+- Name: Sierra Circuits
+  Level: Martian Pioneer
+  Website: http://protoexpress.com
+  Logo: img/sierracircuits-logo.jpg
 
 - Name: Academy of Mechanical and Aerospace Engineers
   Level: Martian Pioneer
@@ -40,8 +40,13 @@
 
 - Name: Helene Hardy Pierce
   Level: Martian Pioneer
-  Website: 
+  Website: /#sponsors
   Logo: img/blank-logo.png
+
+- Name: O'Fallon Casting
+  Level: Martian Pioneer
+  Website: http://ofalloncasting.com/
+  Logo: img/ofalloncasting.jpg
 
 - Name: Academy of Civil Engineers
   Level: Space Walker

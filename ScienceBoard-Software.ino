@@ -10,7 +10,6 @@
 #include "RoveBoard.h"
 #include "RoveEthernet.h"
 #include "RoveComm.h"
-#include "RoveDynamixel.h"
 
 //////////////////////////////////
 // ===== CONFIG VARIABLES ===== //
@@ -139,7 +138,7 @@ struct ccd_command
 struct ccd_image 
 { 
   uint8_t ccd_image[CCD_IMAGE_SIZE]  = { 0 };;
-  byte recieved_flag;
+  byte recieved_flag; //i before e, except after c
 };
 
 struct ccd_command  send_ccd_command;
@@ -154,7 +153,7 @@ uint16_t dataID = 0;
 size_t size = 0;
 byte receivedMsg[1];
 
-Dynamixel Carousel;
+//Dynamixel Carousel;
 Servo Funnel;
 
 // telnet defaults to port 23
@@ -169,9 +168,8 @@ void setup()
   
   pinMode(DYNA_POWER, OUTPUT);
   digitalWrite(DYNA_POWER, HIGH);
-  
-  DynamixelInit(&Carousel, AX, 1, 7, 1000000);
-  DynamixelSetMode(Carousel, Joint);
+
+
   
   pinMode(LASER_PIN, OUTPUT);
   
@@ -294,8 +292,11 @@ void loop()
      uint16_t position = *(uint8_t*)(receivedMsg);
      if (position == 5)
        position = 4;
-     DynamixelRotateJoint(Carousel, position * 204);
-   }//end if
+       
+     
+     //DynamixelRotateJoint(Carousel, position * 204);
+     setRegister2(1,0x1e,position*204);//set goal position
+   }
    
    if(dataID == CCD_REQ)
    {
@@ -355,4 +356,51 @@ void loop()
        roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
    }//end if
 }//end loop
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+//sets a 2-byte register value
+void setRegister(unsigned char ID, unsigned char ins, unsigned char data){
+    unsigned char Checksum = (~(ID + 4 + 3 + ins + data))&0xFF;
+    Serial7.write(0xff);                
+    Serial7.write(0xff);
+    Serial7.write(ID);
+    Serial7.write(4);//length
+    Serial7.write(0x03);//write
+    Serial7.write(ins);
+    Serial7.write(data);
+    Serial7.write(Checksum);
+    delay(4);        
+}
+
+//sets a 2-byte register value
+void setRegister2(unsigned char ID, unsigned char ins, int data){
+    unsigned char dataH = data >> 8;  
+    unsigned char dataL = data;
+    unsigned char Checksum = (~(ID + 5 + 3 + ins + dataH + dataL))&0xFF;
+    Serial7.write(0xff);                
+    Serial7.write(0xff);
+    Serial7.write(ID);
+    Serial7.write(5);//length
+    Serial7.write(0x03);//write
+    Serial7.write(ins);
+    Serial7.write(dataL);
+    Serial7.write(dataH);
+    Serial7.write(Checksum);
+    delay(4);              
+}
+
+
+
   

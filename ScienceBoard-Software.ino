@@ -13,12 +13,6 @@
 #include "RoveDynamixel.h"
 
 //////////////////////////////////
-// ===== CONFIG VARIABLES ===== //
-//////////////////////////////////
-
-static const int TOTAL_SENSORS  = 7;
-
-//////////////////////////////////
 //          Board Pins          //
 //////////////////////////////////
 
@@ -98,9 +92,6 @@ bool m3_on = false;
 bool m4_on = false;
 bool cs_on = false;
 
-uint32_t ccd_serial_timeout = 0;
-bool ccd_tcp_req = false;
-
 //////////////////////////////////
 //    EasyTransfer Protocol     //
 //////////////////////////////////
@@ -128,38 +119,17 @@ struct send_drill_data    send_command;
 
 EasyTransfer FromDrillBoard, ToDrillBoard;
 
-const int CCD_IMAGE_SIZE     = 3648;
-const int CCD_SERIAL_TIMEOUT = 3000;
-
-struct ccd_command 
-{ 
-  uint16_t ccd_id;
-};
-
-struct ccd_image 
-{ 
-  uint8_t ccd_image[CCD_IMAGE_SIZE]  = { 0 };;
-  byte recieved_flag;
-};
-
-struct ccd_command  send_ccd_command;
-struct ccd_image    recieve_ccd_image;
-
-EasyTransfer FromCCDBoard, ToCCDBoard;
-
 //////////////////////////////////
 
 float dataRead;
 uint16_t dataID = 0;
 size_t size = 0;
-byte receivedMsg[1];
+byte receivedMsg;
 
 Dynamixel Carousel;
 Servo Funnel;
 
-// telnet defaults to port 23
-EthernetServer local(23);
-EthernetClient remote;
+//////////////////////////////////
 
 void setup()
 {
@@ -170,35 +140,30 @@ void setup()
   pinMode(DYNA_POWER, OUTPUT);
   digitalWrite(DYNA_POWER, HIGH);
   
-  DynamixelInit(&Carousel, AX, 1, 7, 1000000);
-  DynamixelSetMode(Carousel, Joint);
-  
   pinMode(LASER_PIN, OUTPUT);
   
   Funnel.attach(FUNNEL_SERVO);
   
-  Serial5.begin(9600); 
-  Serial7.begin(115200); 
+  Serial.begin(9600); // Debug line
+  Serial5.begin(115200);  // CCD board serial line
+  Serial6.begin(9600);    // Drill Board serial line
+  Serial7.begin(1000000); // Dynamixel serial line
   
   FromDrillBoard.begin(details(receive_telem), &Serial5);  
   ToDrillBoard.begin(details(send_command), &Serial5);
-  
-  FromCCDBoard.begin(details(recieve_ccd_image), &Serial5);  
-  ToCCDBoard.begin(details(send_ccd_command), &Serial5);
-}//end setup
+}
 
 void loop()
 {
-   // Get command from base station
-   roveComm_GetMsg(&dataID, &size, receivedMsg);
-   
-   if(dataID == SCI_CMD_ID)
+  roveComm_GetMsg(&dataID, &size, &receivedMsg);
+  
+  if(dataID == SCI_CMD_ID)
    {
      //////////////////////////  
      // enable devices block //
      //////////////////////////
      
-     switch(receivedMsg[0])
+     switch(receivedMsg)
      {
        case T1_ENABLE:
          t1_on = true;
@@ -241,6 +206,9 @@ void loop()
        case M3_ENABLE:
          m3_on = true;
          break;
+       case M3_DISABLE:
+         m3_on = false;
+         break;
        case M4_ENABLE:
          m4_on = true;
          break;
@@ -254,7 +222,10 @@ void loop()
        case CS_DISABLE:
          cs_on = false;
          break;
-         
+       case CCD_REQ:
+         /*
+          *  TODO: Add CCD Code
+          */ 
        case LASER_ENABLE:
          digitalWrite(LASER_PIN, HIGH);
          break;
@@ -267,12 +238,13 @@ void loop()
        case FUNNEL_CLOSE:
          Funnel.write(37);
          break;
-     }//end switch
-   }//end if
+     }
+   }
    
+   // TODO : Commands from BaseStation NOT validated
    if(dataID == DRILL_CMD_ID) 
    {
-     switch(receivedMsg[0])
+     switch(receivedMsg)
      {
        case DRILL_FWD:
          send_command.drill_cmd = DRILL_FWD;
@@ -288,55 +260,30 @@ void loop()
          break;
      }//end switch
    }//end if
-     
+   
    if(dataID == CAROUSEL_CMD_ID)
    {
      uint16_t position = *(uint8_t*)(receivedMsg);
      if (position == 5)
        position = 4;
-     DynamixelRotateJoint(Carousel, position * 204);
-   }//end if
-   
-   if(dataID == CCD_REQ)
-   {
-     send_ccd_command.ccd_id = dataID;
-     recieve_ccd_image.recieved_flag = false;
-     
-     ToCCDBoard.sendData();
-     
-     ccd_serial_timeout = millis() + CCD_SERIAL_TIMEOUT;
-     while(!recieve_ccd_image.recieved_flag && (millis() < ccd_serial_timeout) )
-     {
-       FromCCDBoard.receiveData();
-     }//end fnctn 
-   }//end if
+     //DynamixelRotateJoint(Carousel, position * 204);
+     setRegister2(1,0x1e,position*204);//set goal position
+   }//end if'
    
    /////////////////////////////////
-   // Send ccd tcp to BaseStation //
+   // Send ccd tcp to BaseStation //    // TODO
    /////////////////////////////////
-   
-   ccd_tcp_req = false;
-   
-
-  remote = local.available();
-   
-   while (remote) 
-   {
-      remote.read();
-      ccd_tcp_req = true;
-   }//end while
-   
-   if(ccd_tcp_req)
-   {
-      local.write(&(recieve_ccd_image.ccd_image[0]), CCD_IMAGE_SIZE );
-   }//end if
    
    /////////////////////////////////////
    // Send sensor data to BaseStation //
    /////////////////////////////////////
-   
+   float temp_data = 3.0;
+   roveComm_SendMsg(0x720, sizeof(temp_data), &temp_data);
+   Serial.println(temp_data);
+
+   /*
    if(FromDrillBoard.receiveData())
-   {
+   {  // TODO : Send from science to RoveComm NOT validated
      if(t1_on)
        roveComm_SendMsg(0x720, sizeof(receive_telem.t1_data), &receive_telem.t1_data);
      if(t2_on)
@@ -351,8 +298,40 @@ void loop()
        roveComm_SendMsg(0x729, sizeof(receive_telem.m2_data), &receive_telem.m2_data);
      if(m3_on) 
        roveComm_SendMsg(0x72A, sizeof(receive_telem.m3_data), &receive_telem.m3_data);
-     if(m4_on) 
+     if(m4_on)
        roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
-   }//end if
-}//end loop
-  
+   }//end if */
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+//sets a 2-byte register value
+void setRegister(unsigned char ID, unsigned char ins, unsigned char data){
+    unsigned char Checksum = (~(ID + 4 + 3 + ins + data))&0xFF;
+    Serial7.write(0xff);                
+    Serial7.write(0xff);
+    Serial7.write(ID);
+    Serial7.write(4);//length
+    Serial7.write(0x03);//write
+    Serial7.write(ins);
+    Serial7.write(data);
+    Serial7.write(Checksum);
+    delay(4);        
+}
+
+//sets a 2-byte register value
+void setRegister2(unsigned char ID, unsigned char ins, int data){
+    unsigned char dataH = data >> 8;  
+    unsigned char dataL = data;
+    unsigned char Checksum = (~(ID + 5 + 3 + ins + dataH + dataL))&0xFF;
+    Serial7.write(0xff);                
+    Serial7.write(0xff);
+    Serial7.write(ID);
+    Serial7.write(5);//length
+    Serial7.write(0x03);//write
+    Serial7.write(ins);
+    Serial7.write(dataL);
+    Serial7.write(dataH);
+    Serial7.write(Checksum);
+    delay(4);              
+}

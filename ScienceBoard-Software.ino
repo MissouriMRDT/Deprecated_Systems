@@ -12,6 +12,8 @@
 #include "RoveComm.h"
 #include "RoveDynamixel.h"
 
+float counter = 0.0;
+
 //////////////////////////////////
 //          Board Pins          //
 //////////////////////////////////
@@ -277,11 +279,7 @@ void loop()
    /////////////////////////////////////
    // Send sensor data to BaseStation //
    /////////////////////////////////////
-   float temp_data = 3.0;
-   roveComm_SendMsg(0x720, sizeof(temp_data), &temp_data);
-   Serial.println(temp_data);
 
-   /*
    if(FromDrillBoard.receiveData())
    {  // TODO : Send from science to RoveComm NOT validated
      if(t1_on)
@@ -301,6 +299,7 @@ void loop()
      if(m4_on)
        roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
    }//end if */
+   delay(100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

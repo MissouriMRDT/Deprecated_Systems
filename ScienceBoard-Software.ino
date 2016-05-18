@@ -243,7 +243,11 @@ void loop()
      }
    }
    
-   // TODO : Commands from BaseStation NOT validated
+   Serial.print("Data ID: ");
+   Serial.println(dataID);
+   Serial.print("receivedMsg: "); 
+   Serial.println(receivedMsg);
+   // TODO : Receiving a dataID of 209 instead of 866. 
    if(dataID == DRILL_CMD_ID) 
    {
      switch(receivedMsg)
@@ -251,14 +255,17 @@ void loop()
        case DRILL_FWD:
          send_command.drill_cmd = DRILL_FWD;
          ToDrillBoard.sendData();
+         Serial.println("Drill FWD");
          break;
        case DRILL_STOP:
          send_command.drill_cmd = DRILL_STOP;
          ToDrillBoard.sendData();
+         Serial.println("Drill STOP");
          break;
        case DRILL_REV:
          send_command.drill_cmd = DRILL_REV;
          ToDrillBoard.sendData();
+         Serial.println("Drill REV");
          break;
      }//end switch
    }//end if
@@ -281,7 +288,7 @@ void loop()
    /////////////////////////////////////
 
    if(FromDrillBoard.receiveData())
-   {  // TODO : Send from science to RoveComm NOT validated
+   { 
      if(t1_on)
        roveComm_SendMsg(0x720, sizeof(receive_telem.t1_data), &receive_telem.t1_data);
      if(t2_on)
@@ -330,7 +337,7 @@ void setRegister2(unsigned char ID, unsigned char ins, int data){
     Serial7.write(0x03);//write
     Serial7.write(ins);
     Serial7.write(dataL);
-    Serial7.write(dataH);
+    Serial7.write(dataH); 
     Serial7.write(Checksum);
     delay(4);              
 }

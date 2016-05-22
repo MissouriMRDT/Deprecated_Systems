@@ -1,7 +1,7 @@
 //Super Lightweight Dynamixel AX-12 Library
 //by Andrew Bischoff
 
-#include "dyna.h"
+#include "BischoffDyna.h"
 
 
 

@@ -30,7 +30,7 @@ humid4_time = []
 
 csv_name = input("Enter name of CSV file: ")
 
-with open(csv_name, 'rb') as csvfile:
+with open(csv_name, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=' ')
     for row in csvfile.readlines():
         if(row[1] == "Temp1"):       

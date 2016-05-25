@@ -1,14 +1,10 @@
 #include "DualVNH5019MotorShield.h"
 
- // Default shield Pin map
- // _INA1 = 2;
- // _INB1 = 4;
- // _EN1DIAG1 = 6;
- // _CS1 = A0; 
- // DualVNH5019MotorShield GripperMotor;
+// %10 of SPEED_5019_MAX
+#define START_UP_ROUTINE_SPEED 40
+#define START_UP_ROUTINE_DELAY 300
  
 #define SPEED_INC_DELAY 2
-
 #define BRAKE_DELAY 250
  
 #define WATCH_TRIGGER_MILLIS    500     
@@ -24,6 +20,14 @@
 
 DualVNH5019MotorShield GripperMotor;
 
+ // Default shield Pin map
+ // _PWM1 = 9
+ // _INA1 = 2;
+ // _INB1 = 4;
+ // _EN1DIAG1 = 6;
+ // _CS1 = A0; 
+
+
 byte command_speed = 0;
 int  motor_speed   = 0;
 int  LED_UNO       = 13;
@@ -38,6 +42,19 @@ void setup()
   pinMode(LED_UNO, OUTPUT); 
   
   GripperMotor.init();
+  
+  GripperMotor.setM1Speed(START_UP_ROUTINE_SPEED); 
+  stopIfFault();
+  delay(START_UP_ROUTINE_DELAY);
+   
+  GripperMotor.setM1Brake(BRAKE_INDUCTIVE_5019);
+  stopIfFault();
+  delay(BRAKE_DELAY);
+   
+  GripperMotor.setM1Speed(-START_UP_ROUTINE_SPEED); 
+  stopIfFault();
+  delay(START_UP_ROUTINE_DELAY); 
+  
   last_watch_clear_millis = millis();
 }//end fnctn
 

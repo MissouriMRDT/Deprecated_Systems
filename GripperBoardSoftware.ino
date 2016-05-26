@@ -7,16 +7,18 @@
 #define SPEED_INC_DELAY 2
 #define BRAKE_DELAY 250
  
-#define WATCH_TRIGGER_MILLIS    500     
-#define BRAKE_INDUCTIVE_5019    400
+#define SOFT_WATCHDOG_MILLIS    500     
+#define BRAKE_5019_INDUCTIVE    400
 
-#define SPEED_5019_MAX_CCW     -400
-#define SPEED_5019_MAX_CW       400
+#define SPEED_5019_OPEN_MAX    -400
+#define SPEED_5019_CLOSE_MAX    400
 
 #define SPEED_NEUTRAL_ZENITH    128
 
-#define SPEED_ZENITH_MAX_CCW    0
-#define SPEED_ZENITH_MAX_CW     255
+#define SPEED_ZENITH_OPEN_MAX   0
+#define SPEED_ZENITH_CLOSE_MAX  255
+
+const int8_t GRIPPER_CURRENT_FAULT = -1.0;
 
 DualVNH5019MotorShield GripperMotor;
 
@@ -47,7 +49,7 @@ void setup()
   stopIfFault();
   delay(START_UP_ROUTINE_DELAY);
    
-  GripperMotor.setM1Brake(BRAKE_INDUCTIVE_5019);
+  GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
   stopIfFault();
   delay(BRAKE_DELAY);
    
@@ -67,13 +69,13 @@ void loop()
      
     if(command_speed == SPEED_NEUTRAL_ZENITH)
     {
-      GripperMotor.setM1Brake(BRAKE_INDUCTIVE_5019);
+      GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
       stopIfFault();
       delay(BRAKE_DELAY);   
     }else{
       
-      motor_speed = map( (int)command_speed, SPEED_ZENITH_MAX_CCW, SPEED_ZENITH_MAX_CW, SPEED_5019_MAX_CCW, SPEED_5019_MAX_CW);
-      motor_speed = constrain(motor_speed,   SPEED_5019_MAX_CCW,   SPEED_5019_MAX_CW);    
+      motor_speed = map( (int)command_speed, SPEED_ZENITH_OPEN_MAX, SPEED_ZENITH_CLOSE_MAX, SPEED_5019_OPEN_MAX, SPEED_5019_CLOSE_MAX);
+      motor_speed = constrain(motor_speed,   SPEED_ZENITH_OPEN_MAX, SPEED_ZENITH_CLOSE_MAX);    
 
       GripperMotor.setM1Speed(motor_speed); 
       stopIfFault(); 
@@ -83,9 +85,9 @@ void loop()
     last_watch_clear_millis = millis();
   }//end while
   
-  if( (millis() - last_watch_clear_millis ) > WATCH_TRIGGER_MILLIS)
+  if( (millis() - last_watch_clear_millis ) > SOFT_WATCHDOG_MILLIS)
   {
-    GripperMotor.setM1Brake(BRAKE_INDUCTIVE_5019);
+    GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
     stopIfFault();
     delay(BRAKE_DELAY);
   }//end if 
@@ -99,9 +101,12 @@ void stopIfFault()
 {
   if (GripperMotor.getM1Fault())
   {
+    GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
+    
     while(1)
     {
       digitalWrite(LED_UNO, HIGH);
+      Serial.write(GRIPPER_CURRENT_FAULT);
     }//end while
   }//end if
 }//end fnctn

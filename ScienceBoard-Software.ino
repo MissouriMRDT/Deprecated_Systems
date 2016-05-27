@@ -243,10 +243,6 @@ void loop()
      }
    }
    
-   Serial.print("Data ID: ");
-   Serial.println(dataID);
-   Serial.print("receivedMsg: "); 
-   Serial.println(receivedMsg);
    // TODO : Receiving a dataID of 209 instead of 866. 
    if(dataID == DRILL_CMD_ID) 
    {

@@ -10,7 +10,6 @@
 #include "RoveBoard.h"
 #include "RoveEthernet.h"
 #include "RoveComm.h"
-#include "RoveDynamixel.h"
 
 static const int CCD_ELEMENTS   = 3648;
 
@@ -129,7 +128,6 @@ size_t size = 0;
 byte receivedMsg;
 int32_t ccd_data[CCD_ELEMENTS];
 
-Dynamixel Carousel;
 Servo Funnel;
 
 //////////////////////////////////
@@ -163,7 +161,7 @@ void loop()
   // TODO : IMPORTANT : UNTESTED CODE.
   // Outside of switch case to prevent backlog. ccd_data should always hold the most recent read
   // Also prevents partial reads with if-statement so data isn't corrupted
-  if(Serial5.available >= CCD_ELEMENTS * 4){
+  if(Serial5.available() >= CCD_ELEMENTS * 4){
     for(int element = 0; element < CCD_ELEMENTS; element++){
       byte MSB = Serial5.read(); // Most significant byte
       byte SSB = Serial5.read(); // Semi-significant byte
@@ -318,7 +316,6 @@ void loop()
      if(m4_on)
        roveComm_SendMsg(0x72B, sizeof(receive_telem.m4_data), &receive_telem.m4_data);
    }//end if */
-   delay(100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

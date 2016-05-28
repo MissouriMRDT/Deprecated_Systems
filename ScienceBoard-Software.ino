@@ -12,7 +12,7 @@
 #include "RoveComm.h"
 #include "RoveDynamixel.h"
 
-float counter = 0.0;
+static const int CCD_ELEMENTS   = 3648;
 
 //////////////////////////////////
 //          Board Pins          //
@@ -127,6 +127,7 @@ float dataRead;
 uint16_t dataID = 0;
 size_t size = 0;
 byte receivedMsg;
+int32_t ccd_data[CCD_ELEMENTS];
 
 Dynamixel Carousel;
 Servo Funnel;
@@ -158,6 +159,21 @@ void setup()
 void loop()
 {
   roveComm_GetMsg(&dataID, &size, &receivedMsg);
+  
+  // TODO : IMPORTANT : UNTESTED CODE.
+  // Outside of switch case to prevent backlog. ccd_data should always hold the most recent read
+  // Also prevents partial reads with if-statement so data isn't corrupted
+  if(Serial5.available >= CCD_ELEMENTS * 4){
+    for(int element = 0; element < CCD_ELEMENTS; element++){
+      byte MSB = Serial5.read(); // Most significant byte
+      byte SSB = Serial5.read(); // Semi-significant byte
+      byte KSB = Serial5.read(); // Kinda significant byte
+      byte LSB = Serial5.read(); // Least significant byte
+          
+      // Change back to an int32_t by bit-shifting and OR together
+      ccd_data[element] = (MSB << 24) | (SSB << 16) | (KSB << 8) | LSB;
+    }
+  }
   
   if(dataID == SCI_CMD_ID)
    {
@@ -224,10 +240,10 @@ void loop()
        case CS_DISABLE:
          cs_on = false;
          break;
+   
        case CCD_REQ:
-         /*
-          *  TODO: Add CCD Code
-          */ 
+         // Send CCD TCP to Basestation block ~50 lines below// 
+         break;
        case LASER_ENABLE:
          digitalWrite(LASER_PIN, HIGH);
          break;

@@ -34,11 +34,11 @@
 #define P02 PK_2
 #define P03 PK_3
 #define P10 PP_0
-//#define P11 PP_1
+#define P11 PP_1
 #define P12 PN_4
 #define P13 PN_5
 #define P20 PL_0
-//#define P21 PL_1
+#define P21 PL_1
 #define P22 PL_2
 #define P23 PL_3
 #define P30 PF_1
@@ -86,9 +86,6 @@ uint16_t dataID = 0;
 size_t size = 0;
 char data[8];
 int counter;
-
-
-Servo servo0;
 
 Servo servoMux1;
 Servo servoMux2;
@@ -177,8 +174,8 @@ void setup() {
        blink(5);
        
         //JUDAH COMMENT Mux support in the style of Bischoff : Each pin controls three states PP_1 = Camera 1, 2. or SecondMux, PL_1 = Camera 3, 4, 5
-       servoMux1.attach(PP_1,1000, 2000);
-       servoMux2.attach(PL_1,1000, 2000);
+       servoMux1.attach(P03,1000, 2000);
+       servoMux2.attach(P13,1000, 2000);
 
  
  
@@ -352,30 +349,24 @@ boolean roveCommCheck(){
     case ID_CAMERA_MUXING:
     tmp = *(uint8_t*)(data);
       if(tmp==0){
-        servoMux1.write(1000);
-        delay(1000);
+        servoMux1.writeMicroseconds(1100);
       }
       else if(tmp==1){
-        servoMux1.write(1500);
-        delay(1000);
+        servoMux1.writeMicroseconds(1500);
       }
       //Mux the daisy chain to the second mux
-      else if(tmp==2 || tmp==3 || tmp==3){
-        servoMux1.write(2000);
-        delay(1000);
+      else if(tmp==2 || tmp==3 || tmp==4){
+        servoMux1.writeMicroseconds(1900);
       }
       
       if(tmp==2){
-        servoMux2.write(1000);
-        delay(1000);
+        servoMux2.writeMicroseconds(1100);
       }
       if(tmp==3){
-        servoMux2.write(1500);
-        delay(1000);
+        servoMux2.writeMicroseconds(1500);
       }
       if(tmp==4){
-        servoMux2.write(2000);
-        delay(1000);
+        servoMux2.writeMicroseconds(1900);
       }
 
     break;
@@ -395,6 +386,7 @@ boolean roveCommCheck(){
 
 
 void openDropBay(int bay){
+  Servo servo0;
   if(bay==0){
     unsigned long time = millis();
     while(millis()<time+1000){

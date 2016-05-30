@@ -1,0 +1,11 @@
+<b>Partlist exported from C:/Users/Mike M/Documents/GitHub/Motor-Controller/Eagle/Converter/Converter_board.sch at 3/9/2015 4:39:33 AM</b>
+<p>
+<table>
+<tr><td><b>Qty</b></td><td><b>Value</b></td><td><b>Device</b></td><td><b>Package</b></td><td><b>Parts</b></td><td><b>Description</b></td><td><b></b></td></tr>
+<tr><td>6</td><td>0.1uF</td><td>CAP1206</td><td>1206</td><td>C1, C2, C3, C4, C5, C6</td><td>Capacitor</td><td></td></tr>
+<tr><td>2</td><td>120</td><td>RESISTOR1206</td><td>1206</td><td>R1, R2</td><td>Resistor</td><td></td></tr>
+<tr><td>1</td><td>DB15</td><td>DB15</td><td>DB15</td><td>U$4</td><td></td><td></td></tr>
+<tr><td>1</td><td>MAX3077ESA</td><td>MAX3077ESA</td><td>SOIC8</td><td>U$1</td><td></td><td></td></tr>
+<tr><td>1</td><td>MAX3232</td><td>MAX3232</td><td>SOIC16</td><td>U$2</td><td></td><td></td></tr>
+<tr><td>1</td><td>RJ45</td><td>RJ45</td><td>RJ45-CAT5E</td><td>U$3</td><td></td><td></td></tr>
+</table>

@@ -78,6 +78,7 @@
 #define ID_CAMERA_MENU_2 1571
 
 #define ID_CAMERA_MUXING 1600
+#define ID_12V_EN 1616
 
 #define DROPBAY_ANGLE_OPEN 170
 
@@ -377,6 +378,13 @@ boolean roveCommCheck(){
       openDropBay(tmp);
     break;
     
+    case ID_12V_EN:
+      tmp = *(uint8_t*)(data);
+      if (tmp == 1)
+        digitalWrite(EN_12V, HIGH);
+      else if (tmp == 0)
+        digitalWrite(EN_12V, LOW);
+      break;
    
     
   }

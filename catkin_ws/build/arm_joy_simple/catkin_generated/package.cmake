@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "arm_joy_simple")
-set(arm_joy_simple_MAINTAINER "ubuntu <ubuntu@todo.todo>")
-set(arm_joy_simple_DEPRECATED "")
-set(arm_joy_simple_VERSION "0.0.0")
-set(arm_joy_simple_BUILD_DEPENDS "sensor_msgs" "rospy" "std_msgs")
-set(arm_joy_simple_RUN_DEPENDS "sensor_msgs" "rospy" "std_msgs")
-set(arm_joy_simple_BUILDTOOL_DEPENDS "catkin")

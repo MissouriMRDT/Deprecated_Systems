@@ -1,0 +1,5 @@
+# ROS / Catkin build files
+catkin_ws/build/
+
+# Python JIT compiler byproducts
+*.pyc

@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "motor_driver")
+set(motor_driver_MAINTAINER "ubuntu <ubuntu@todo.todo>")
+set(motor_driver_DEPRECATED "")
+set(motor_driver_VERSION "0.0.0")
+set(motor_driver_BUILD_DEPENDS "geometry_msgs" "rospy" "std_msgs")
+set(motor_driver_RUN_DEPENDS "geometry_msgs" "rospy" "std_msgs")
+set(motor_driver_BUILDTOOL_DEPENDS "catkin")

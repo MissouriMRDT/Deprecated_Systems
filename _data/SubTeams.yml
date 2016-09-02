@@ -3,22 +3,48 @@
   Description:
   Logo: fa-group
 
-- Name: Power
-  ModalName: power
+- Name: Business
+  ModalName:
+  Description:
+  Logo: fa-file-o
+
+- Name: Ground Support Systems
+  ModalName:
   Description:
   Logo: fa-cogs
 
-- Name: Mechanical
-  ModalName: mechanical
+- Name: RoveCore
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Power Systems
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Drivetrain
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Manipulators
+  ModalName:
   Description:
   Logo: fa-cogs
 
 - Name: Science
-  ModalName: science
+  ModalName:
   Description:
   Logo: fa-cogs
 
-- Name: Telemetry &amp; Controls
-  ModalName: telecon
+- Name: Manufacturing Logistics
+  ModalName:
   Description:
   Logo: fa-cogs
+
+- Name: Development Team
+  ModalName:
+  Description:
+  Logo: fa-cogs
+

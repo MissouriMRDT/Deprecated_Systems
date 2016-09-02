@@ -1,33 +1,34 @@
-- Name: Alyssa McCarthy
+- Name: Chris Lenahan
   Position: Chief Executive Officer
   Abbreviation: CEO
   SubTeams: Public Relations, Outreach
-  Image: img/ceo2.jpg
+  Image: img/ceo.jpg
   Logo: fa-group
   Inquiries: Sponsorships, Membership, General
-  Email: Alyssa.McCarthy@mst.edu
+  Email: Chris.Lenahan@mst.edu
 
-- Name: Katelyn Brinker
-  Position: Chief Technical Officer
+- Name: James Zandstra
+  Position: Chief Technology Officer
   Abbreviation: CTO
   SubTeams: Power, Mechanical, Science, Telemetry and Controls
   Image: img/cto.jpg
   Logo: fa-cogs
   Inquiries: Technical
-  Email: Katelyn.Brinker@mst.edu
+  Email: James.Zandstra@mst.edu
 
-- Name: Andrew Meese
+- Name: Alyssa McCarthy
   Position: Chief Financial Officer
   Abbreviation: CFO
-  SubTeams:
+  SubTeams: 
   Image: img/cfo.jpg
   Logo: fa-money
-  Email: am2q8@mst.edu
+  Inquiries: 
+  Email: Alyssa.McCarthy@mst.edu
 
 - Name: Brianna Zandstra
   Position: Chief Administrative Officer
   Abbreviation: CAO
   SubTeams:
-  Image: img/cao2.jpg
+  Image: img/cao.jpg
   Logo: fa-file-o
-  Email: bedky2@mst.edu
+  Email: Brianna.Zandstra@mst.edu

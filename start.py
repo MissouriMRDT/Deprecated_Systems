@@ -13,6 +13,7 @@ class StartQT4(QtGui.QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.fix_margins()
 
         self.tempGraphFigure = plt.figure(1)
         # create canvas
@@ -42,6 +43,16 @@ class StartQT4(QtGui.QMainWindow):
         ax.plot(data, '*-')
         self.tempGraphCanvas.draw()
 
+    def fix_margins(self):
+        """
+            Spacing doesn't go through with pyuic4 utility for some reason.
+            This block just shifts to how it should be done in ui_mainwindow.py
+        """
+        self.ui.verticalLayout_2.setContentsMargins(0, 11, 11, 11)
+        self.ui.verticalLayout_2.setSpacing(0)
+        self.ui.inputFrame.setContentsMargins(25, 11, 11, 0)
+
+        
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = StartQT4()

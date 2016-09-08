@@ -21,20 +21,62 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QTabWidget" name="digsiteTabs">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="currentSite">
        <attribute name="title">
         <string>Tab 1</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
           <item>
            <layout class="QHBoxLayout" name="inputFrame">
+            <property name="spacing">
+             <number>7</number>
+            </property>
+            <property name="leftMargin">
+             <number>20</number>
+            </property>
             <item>
              <widget class="QRadioButton" name="realtimeButton">
               <property name="text">
@@ -89,10 +131,16 @@
           </item>
           <item>
            <layout class="QHBoxLayout" name="displayFrame">
+            <property name="spacing">
+             <number>0</number>
+            </property>
             <item>
              <layout class="QVBoxLayout" name="sensorEnables">
               <property name="spacing">
-               <number>7</number>
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
               </property>
               <item>
                <widget class="QGroupBox" name="tempSensors">
@@ -149,6 +197,9 @@
                  <string>Humidity</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <property name="spacing">
+                  <number>7</number>
+                 </property>
                  <item>
                   <widget class="QCheckBox" name="hsheath1">
                    <property name="text">
@@ -205,13 +256,28 @@
             <item>
              <widget class="QTabWidget" name="graphTabs">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_1">
                <attribute name="title">
                 <string>Tab 1</string>
                </attribute>
                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QPlainTextEdit" name="plainTextEdit"/>
                 </item>
@@ -222,6 +288,21 @@
                 <string>Tab 2</string>
                </attribute>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
                 </item>
@@ -242,10 +323,13 @@
        <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
          <layout class="QHBoxLayout" name="displayFrame_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
           <item>
            <layout class="QVBoxLayout" name="sensorEnables_2">
             <property name="spacing">
-             <number>7</number>
+             <number>0</number>
             </property>
             <item>
              <widget class="QGroupBox" name="tempSensors_2">
@@ -351,13 +435,25 @@
           <item>
            <widget class="QTabWidget" name="graphTabs_2">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
               <string>Tab 1</string>
              </attribute>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
               </item>
@@ -368,6 +464,18 @@
               <string>Tab 2</string>
              </attribute>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QPlainTextEdit" name="plainTextEdit_4"/>
               </item>

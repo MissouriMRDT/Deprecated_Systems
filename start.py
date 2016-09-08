@@ -13,7 +13,7 @@ class StartQT4(QtGui.QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.fix_margins()
+        self.fix_margins()
 
         self.tempGraphFigure = plt.figure(1)
         # create canvas

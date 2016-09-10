@@ -1409,7 +1409,8 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="M03">
+<deviceset name="MF03">
+<description>Micro-Fit 3.0 3-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M03" x="0" y="0"/>
 </gates>
@@ -1436,12 +1437,13 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="M06">
+<deviceset name="MF06">
+<description>Micro-Fit 3.0 6-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M06" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="MOLEX_0436500600">
+<device name="1X6HORIZ" package="MOLEX_0436500600">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -1469,7 +1471,8 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="M07">
+<deviceset name="MF07">
+<description>Micro-Fit 3.0 7-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M07" x="0" y="0"/>
 </gates>
@@ -1490,7 +1493,8 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="M02">
+<deviceset name="TERM02">
+<description>2 Pin Screw Terminal</description>
 <gates>
 <gate name="G$1" symbol="M02" x="0" y="0"/>
 </gates>
@@ -1533,7 +1537,8 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="M04">
+<deviceset name="MF04">
+<description>Micro-Fit 3.0 4-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M04" x="0" y="0"/>
 </gates>

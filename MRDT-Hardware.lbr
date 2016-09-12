@@ -153,6 +153,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>MRDT Hardware: Mounting holes and some weird things</description>
 <packages>
 <package name="#8_SCREW">
 <description>BOLT DIA.: .162"

@@ -153,6 +153,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>MRDT Connectors: Microfits, RJ45, Molex SL...</description>
 <packages>
 <package name="APP45_PCB_HORIZ_RIGHT_2HIGH">
 <wire x1="0" y1="0" x2="0" y2="7.9375" width="0.127" layer="51"/>

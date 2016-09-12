@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -147,6 +147,7 @@
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>MRDT Passives: Resistors, Capacitors, Inductors, Crystals...</description>
 <packages>
 <package name="B82111BC16">
 <wire x1="0" y1="7.5" x2="29" y2="7.5" width="0.2032" layer="21"/>

@@ -259,7 +259,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="XBEE_802.15.4">
+<deviceset name="XBEE_802.15.4" prefix="U">
 <gates>
 <gate name="G$1" symbol="XBEE_802.15.4" x="0" y="0"/>
 </gates>

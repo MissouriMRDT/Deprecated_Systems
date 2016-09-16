@@ -221,7 +221,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="SWITCH-SPDT">
+<deviceset name="SWITCH-SPDT" prefix="S">
 <gates>
 <gate name="G$1" symbol="SWITCH-SPDT" x="0" y="0"/>
 </gates>
@@ -252,7 +252,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="PUSHBUTTON">
+<deviceset name="PUSHBUTTON" prefix="S">
 <gates>
 <gate name="G$1" symbol="SWITCH-SPST" x="0" y="0"/>
 </gates>

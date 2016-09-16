@@ -1234,7 +1234,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="APP">
+<deviceset name="APP" prefix="J">
 <description>http://www.powerwerx.com/anderson-powerpoles/</description>
 <gates>
 <gate name="G$1" symbol="APP" x="0" y="0"/>
@@ -1272,7 +1272,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="APP_2POS_CONFIG">
+<deviceset name="APP_2POS_CONFIG" prefix="J">
 <gates>
 <gate name="GND" symbol="APP" x="0" y="0"/>
 <gate name="VCC" symbol="APP" x="0" y="5.08"/>
@@ -1352,7 +1352,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="APP_3POS_CONFIG">
+<deviceset name="APP_3POS_CONFIG" prefix="J">
 <gates>
 <gate name="GND" symbol="APP" x="0" y="0"/>
 <gate name="5V" symbol="APP" x="0" y="5.08"/>
@@ -1410,7 +1410,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF03">
+<deviceset name="MF03" prefix="J">
 <description>Micro-Fit 3.0 3-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M03" x="0" y="0"/>
@@ -1438,7 +1438,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF06">
+<deviceset name="MF06" prefix="J">
 <description>Micro-Fit 3.0 6-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M06" x="0" y="0"/>
@@ -1472,7 +1472,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF07">
+<deviceset name="MF07" prefix="J">
 <description>Micro-Fit 3.0 7-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M07" x="0" y="0"/>
@@ -1494,7 +1494,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="TERM02">
+<deviceset name="TERM02" prefix="J">
 <description>2 Pin Screw Terminal</description>
 <gates>
 <gate name="G$1" symbol="M02" x="0" y="0"/>
@@ -1538,7 +1538,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF04">
+<deviceset name="MF04" prefix="J">
 <description>Micro-Fit 3.0 4-pin connector</description>
 <gates>
 <gate name="G$1" symbol="M04" x="0" y="0"/>

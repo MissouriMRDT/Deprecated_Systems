@@ -253,7 +253,7 @@ Most frame-mounted PCB's - M8</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RJ45_PASSTHRU">
+<deviceset name="RJ45_PASSTHRU" prefix="H">
 <gates>
 <gate name="G$1" symbol="RJ45_PASSTHRU" x="0" y="0"/>
 </gates>

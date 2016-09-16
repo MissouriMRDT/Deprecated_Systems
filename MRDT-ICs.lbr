@@ -372,7 +372,7 @@ in mm</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="LTC2645">
+<deviceset name="LTC2645" prefix="U">
 <gates>
 <gate name="G$1" symbol="LTC2645" x="0" y="0"/>
 </gates>
@@ -403,7 +403,7 @@ in mm</text>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SN74AHCT125">
+<deviceset name="SN74AHCT125" prefix="U">
 <description>part # SN74AHCT125
 QUADRUPLE BUS BUFFER GATES
 WITH 3-STATE OUTPUTS
@@ -437,7 +437,7 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="VNH5XXX_HBRIDGE">
+<deviceset name="VNH5XXX_HBRIDGE" prefix="U">
 <gates>
 <gate name="G$1" symbol="VNH5180A" x="0" y="0"/>
 </gates>
@@ -486,7 +486,7 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="RT7258GSP">
+<deviceset name="RT7258GSP" prefix="U">
 <gates>
 <gate name="G$1" symbol="RT7258GSP" x="0" y="0"/>
 </gates>
@@ -510,7 +510,7 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="ACS722">
+<deviceset name="ACS722" prefix="U">
 <gates>
 <gate name="G$1" symbol="ACS722" x="0" y="0"/>
 </gates>

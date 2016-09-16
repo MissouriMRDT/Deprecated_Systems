@@ -209,7 +209,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="IRF7821TRPBF">
+<deviceset name="IRF7821TRPBF" prefix="T">
 <description>MOSFET N-CH 30V 13.6A</description>
 <gates>
 <gate name="G$1" symbol="N-MOSFET" x="0" y="0"/>

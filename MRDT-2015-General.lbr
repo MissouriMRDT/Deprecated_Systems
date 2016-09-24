@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10049,149 +10049,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="TIVA-C-CONNECTED">
-<description>TIVA C CONNECTED LAUNCHPAD</description>
-<gates>
-<gate name="G$1" symbol="TM4C1294" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TIVA-C-CONNECTED">
-<connects>
-<connect gate="G$1" pin="+3V3" pad="+3V3_1 +3V3_2" route="any"/>
-<connect gate="G$1" pin="+5V" pad="+5V_1 +5V_2" route="any"/>
-<connect gate="G$1" pin="GND" pad="GND_1 GND_2 GND_3 GND_4" route="any"/>
-<connect gate="G$1" pin="PA4" pad="PA4"/>
-<connect gate="G$1" pin="PA5" pad="PA5"/>
-<connect gate="G$1" pin="PA6" pad="PA6"/>
-<connect gate="G$1" pin="PA7" pad="PA7"/>
-<connect gate="G$1" pin="PB2" pad="PB2"/>
-<connect gate="G$1" pin="PB3" pad="PB3"/>
-<connect gate="G$1" pin="PB4" pad="PB4"/>
-<connect gate="G$1" pin="PB5" pad="PB5"/>
-<connect gate="G$1" pin="PC4" pad="PC4"/>
-<connect gate="G$1" pin="PC5" pad="PC5"/>
-<connect gate="G$1" pin="PC6" pad="PC6"/>
-<connect gate="G$1" pin="PC7" pad="PC7"/>
-<connect gate="G$1" pin="PD0" pad="PD0"/>
-<connect gate="G$1" pin="PD1" pad="PD1"/>
-<connect gate="G$1" pin="PD2" pad="PD2"/>
-<connect gate="G$1" pin="PD3" pad="PD3"/>
-<connect gate="G$1" pin="PD4" pad="PD4"/>
-<connect gate="G$1" pin="PD5" pad="PD5"/>
-<connect gate="G$1" pin="PD7" pad="PD7"/>
-<connect gate="G$1" pin="PE0" pad="PE0"/>
-<connect gate="G$1" pin="PE1" pad="PE1"/>
-<connect gate="G$1" pin="PE2" pad="PE2"/>
-<connect gate="G$1" pin="PE3" pad="PE3"/>
-<connect gate="G$1" pin="PE4" pad="PE4"/>
-<connect gate="G$1" pin="PE5" pad="PE5"/>
-<connect gate="G$1" pin="PF1" pad="PF1"/>
-<connect gate="G$1" pin="PF2" pad="PF2"/>
-<connect gate="G$1" pin="PF3" pad="PF3"/>
-<connect gate="G$1" pin="PG0" pad="PG0"/>
-<connect gate="G$1" pin="PG1" pad="PG1"/>
-<connect gate="G$1" pin="PH0" pad="PH0"/>
-<connect gate="G$1" pin="PH1" pad="PH1"/>
-<connect gate="G$1" pin="PH2" pad="PH2"/>
-<connect gate="G$1" pin="PH3" pad="PH3"/>
-<connect gate="G$1" pin="PK0" pad="PK0"/>
-<connect gate="G$1" pin="PK1" pad="PK1"/>
-<connect gate="G$1" pin="PK2" pad="PK2"/>
-<connect gate="G$1" pin="PK3" pad="PK3"/>
-<connect gate="G$1" pin="PK4" pad="PK4"/>
-<connect gate="G$1" pin="PK5" pad="PK5"/>
-<connect gate="G$1" pin="PK6" pad="PK6"/>
-<connect gate="G$1" pin="PK7" pad="PK7"/>
-<connect gate="G$1" pin="PL0" pad="PL0"/>
-<connect gate="G$1" pin="PL1" pad="PL1"/>
-<connect gate="G$1" pin="PL2" pad="PL2"/>
-<connect gate="G$1" pin="PL3" pad="PL3"/>
-<connect gate="G$1" pin="PL4" pad="PL4"/>
-<connect gate="G$1" pin="PL5" pad="PL5"/>
-<connect gate="G$1" pin="PM0" pad="PM0"/>
-<connect gate="G$1" pin="PM1" pad="PM1"/>
-<connect gate="G$1" pin="PM2" pad="PM2"/>
-<connect gate="G$1" pin="PM3" pad="PM3"/>
-<connect gate="G$1" pin="PM4" pad="PM4"/>
-<connect gate="G$1" pin="PM5" pad="PM5"/>
-<connect gate="G$1" pin="PM6" pad="PM6"/>
-<connect gate="G$1" pin="PM7" pad="PM7"/>
-<connect gate="G$1" pin="PN2" pad="PN2"/>
-<connect gate="G$1" pin="PN3" pad="PN3"/>
-<connect gate="G$1" pin="PN4" pad="PN4"/>
-<connect gate="G$1" pin="PN5" pad="PN5"/>
-<connect gate="G$1" pin="PP0" pad="PP0"/>
-<connect gate="G$1" pin="PP1" pad="PP1"/>
-<connect gate="G$1" pin="PP2" pad="PP2"/>
-<connect gate="G$1" pin="PP3" pad="PP3"/>
-<connect gate="G$1" pin="PP4" pad="PP4"/>
-<connect gate="G$1" pin="PP5" pad="PP5"/>
-<connect gate="G$1" pin="PQ0" pad="PQ0"/>
-<connect gate="G$1" pin="PQ1" pad="PQ1"/>
-<connect gate="G$1" pin="PQ2/PA3" pad="PQ2/PA3"/>
-<connect gate="G$1" pin="PQ3/PA2" pad="PQ3/PA2"/>
-<connect gate="G$1" pin="RST" pad="RST1 RST_2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="TIVA-C">
-<description>TIVA-C DEV BOARD (NON-CONNECTED)</description>
-<gates>
-<gate name="G$1" symbol="TM4C123G" x="10.16" y="27.94"/>
-</gates>
-<devices>
-<device name="" package="TIVA-C">
-<connects>
-<connect gate="G$1" pin="+3V3" pad="+3V3"/>
-<connect gate="G$1" pin="+5V" pad="+5V"/>
-<connect gate="G$1" pin="GND" pad="GND1 GND2"/>
-<connect gate="G$1" pin="PA2" pad="PA2"/>
-<connect gate="G$1" pin="PA3" pad="PA3"/>
-<connect gate="G$1" pin="PA4" pad="PA4"/>
-<connect gate="G$1" pin="PA5" pad="PA5"/>
-<connect gate="G$1" pin="PA6" pad="PA6"/>
-<connect gate="G$1" pin="PA7" pad="PA7"/>
-<connect gate="G$1" pin="PB0" pad="PB0"/>
-<connect gate="G$1" pin="PB1" pad="PB1"/>
-<connect gate="G$1" pin="PB2" pad="PB2"/>
-<connect gate="G$1" pin="PB3" pad="PB3"/>
-<connect gate="G$1" pin="PB4" pad="PB4"/>
-<connect gate="G$1" pin="PB5" pad="PB5"/>
-<connect gate="G$1" pin="PB6" pad="PB6"/>
-<connect gate="G$1" pin="PB7" pad="PB7"/>
-<connect gate="G$1" pin="PC4" pad="PC4"/>
-<connect gate="G$1" pin="PC5" pad="PC5"/>
-<connect gate="G$1" pin="PC6" pad="PC6"/>
-<connect gate="G$1" pin="PC7" pad="PC7"/>
-<connect gate="G$1" pin="PD0" pad="PD0"/>
-<connect gate="G$1" pin="PD1" pad="PD1"/>
-<connect gate="G$1" pin="PD2" pad="PD2"/>
-<connect gate="G$1" pin="PD3" pad="PD3"/>
-<connect gate="G$1" pin="PD6" pad="PD6"/>
-<connect gate="G$1" pin="PD7" pad="PD7"/>
-<connect gate="G$1" pin="PE0" pad="PE0"/>
-<connect gate="G$1" pin="PE1" pad="PE1"/>
-<connect gate="G$1" pin="PE2" pad="PE2"/>
-<connect gate="G$1" pin="PE3" pad="PE3"/>
-<connect gate="G$1" pin="PE4" pad="PE4"/>
-<connect gate="G$1" pin="PE5" pad="PE5"/>
-<connect gate="G$1" pin="PF0" pad="PF0"/>
-<connect gate="G$1" pin="PF1" pad="PF1"/>
-<connect gate="G$1" pin="PF2" pad="PF2"/>
-<connect gate="G$1" pin="PF3" pad="PF3"/>
-<connect gate="G$1" pin="PF4" pad="PF4"/>
-<connect gate="G$1" pin="RST" pad="RST"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="MLX-2X3-PIN">
 <gates>
 <gate name="G$1" symbol="MLX-2X3-PIN" x="0" y="-5.08"/>
@@ -10206,18 +10063,6 @@
 <connect gate="G$1" pin="GND_1" pad="GND1"/>
 <connect gate="G$1" pin="GND_2" pad="GND2"/>
 </connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MRDT_LOGO">
-<gates>
-<gate name="G$1" symbol="MRDT_LOGO" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MRDT_LOGO">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -10239,99 +10084,6 @@
 <connect gate="G$1" pin="VCC" pad="1"/>
 <connect gate="G$1" pin="Y" pad="5"/>
 <connect gate="G$1" pin="Z" pad="6"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="RJ45-RJHSE5080">
-<gates>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="RJ45">
-<gates>
-<gate name="G$1" symbol="RJ45" x="-7.62" y="-7.62"/>
-</gates>
-<devices>
-<device name="RJ45" package="RJ45-CAT5E">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="8" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PULSE-E5J88-00LJG2-L" package="PULSE-E5J88-00LJG2-L">
-<connects>
-<connect gate="G$1" pin="1" pad="P$8"/>
-<connect gate="G$1" pin="2" pad="P$7"/>
-<connect gate="G$1" pin="3" pad="P$6"/>
-<connect gate="G$1" pin="4" pad="P$5"/>
-<connect gate="G$1" pin="5" pad="P$4"/>
-<connect gate="G$1" pin="6" pad="P$3"/>
-<connect gate="G$1" pin="7" pad="P$2"/>
-<connect gate="G$1" pin="8" pad="P$1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="KEYSTONE-942" package="KEYSTONE-942">
-<connects>
-<connect gate="G$1" pin="1" pad="P$8"/>
-<connect gate="G$1" pin="2" pad="P$7"/>
-<connect gate="G$1" pin="3" pad="P$6"/>
-<connect gate="G$1" pin="4" pad="P$5"/>
-<connect gate="G$1" pin="5" pad="P$4"/>
-<connect gate="G$1" pin="6" pad="P$3"/>
-<connect gate="G$1" pin="7" pad="P$2"/>
-<connect gate="G$1" pin="8" pad="P$1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="FCI-54602-908LF" package="FCI-54602-908LF">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="8" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="KEYSTONE-949" package="KEYSTONE-949">
-<connects>
-<connect gate="G$1" pin="1" pad="P$1"/>
-<connect gate="G$1" pin="2" pad="P$2"/>
-<connect gate="G$1" pin="3" pad="P$3"/>
-<connect gate="G$1" pin="4" pad="P$4"/>
-<connect gate="G$1" pin="5" pad="P$5"/>
-<connect gate="G$1" pin="6" pad="P$6"/>
-<connect gate="G$1" pin="7" pad="P$7"/>
-<connect gate="G$1" pin="8" pad="P$8"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -10502,33 +10254,6 @@
 <connect gate="G$1" pin="SS" pad="SS"/>
 <connect gate="G$1" pin="VAD" pad="VAD"/>
 <connect gate="G$1" pin="VDD" pad="VDD"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="SERVO">
-<gates>
-<gate name="G$1" symbol="SERVO" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SERVO_JACK">
-<connects>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="SIG" pad="SIGNAL"/>
-<connect gate="G$1" pin="VCC" pad="VCC"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="HORIZ" package="78208-103HLF">
-<connects>
-<connect gate="G$1" pin="GND" pad="P$1"/>
-<connect gate="G$1" pin="SIG" pad="P$3"/>
-<connect gate="G$1" pin="VCC" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>

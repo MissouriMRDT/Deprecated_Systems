@@ -15,7 +15,7 @@ except AttributeError:
 class SiteTab(QtGui.QWidget):
     def __init__(self, parent=None):
         """ Initial setup of the UI """
-        super(GraphArea, self).__init__()
+        super(SiteTab, self).__init__()
 
     def setup(self):
         displayFrame = QtGui.QVBoxLayout(self)

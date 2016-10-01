@@ -1866,7 +1866,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="RJ45">
+<deviceset name="RJ45" prefix="J">
 <gates>
 <gate name="G$1" symbol="RJ45" x="-7.62" y="-7.62"/>
 </gates>
@@ -1948,7 +1948,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="SERVO">
+<deviceset name="SERVO" prefix="J">
 <gates>
 <gate name="G$1" symbol="SERVO" x="0" y="0"/>
 </gates>

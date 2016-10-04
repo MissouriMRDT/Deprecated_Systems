@@ -265,7 +265,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="NX3225GA">
+<deviceset name="NX3225GA" prefix="Y">
 <gates>
 <gate name="G$1" symbol="NDK3225GA" x="0" y="0"/>
 </gates>

@@ -2034,7 +2034,10 @@
 <connect gate="G$1" pin="VCC" pad="P$3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="ORIENT" value="HORIZ" constant="no"/>
+<attribute name="PARTNO" value="0015912035" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="MOLEX_SL_THRU_HOLE" package="MOLEX_SL_03_THROUGH_HOLE">
@@ -2044,7 +2047,10 @@
 <connect gate="G$1" pin="VCC" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="ORIENT" value="HORIZ" constant="no"/>
+<attribute name="PARTNO" value="0705550002" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -2084,7 +2090,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="SL03">
+<deviceset name="SL03" prefix="J">
 <description>Molex 3-pin SL connector
 
 Locking 3 pin connector with standard header spacing. Backward compatible with standard RC servo connectors.</description>
@@ -2099,7 +2105,10 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <connect gate="G$1" pin="3" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="ORIENT" value="HORIZ" constant="no"/>
+<attribute name="PARTNO" value="0705550002" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="SMD" package="MOLEX_0015912035">
@@ -2109,7 +2118,10 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <connect gate="G$1" pin="3" pad="P$3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="ORIENT" value="HORIZ" constant="no"/>
+<attribute name="PARTNO" value="0015912035" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>

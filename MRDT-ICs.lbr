@@ -428,6 +428,28 @@ in mm</text>
 <smd name="P$16" x="0" y="8.55" dx="0.76" dy="1.67" layer="1"/>
 <text x="-2.27" y="1.25" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 </package>
+<package name="DRV6_1P6X1">
+<wire x1="-1.3208" y1="-1.3208" x2="1.3208" y2="-1.3208" width="0.1524" layer="21"/>
+<wire x1="1.3208" y1="1.3208" x2="-1.3208" y2="1.3208" width="0.1524" layer="21"/>
+<wire x1="-1.0668" y1="-1.0668" x2="1.0668" y2="-1.0668" width="0.1524" layer="51"/>
+<wire x1="1.0668" y1="-1.0668" x2="1.0668" y2="1.0668" width="0.1524" layer="51"/>
+<wire x1="1.0668" y1="1.0668" x2="0.3048" y2="1.0668" width="0.1524" layer="51"/>
+<wire x1="0.3048" y1="1.0668" x2="-1.0668" y2="1.0668" width="0.1524" layer="51"/>
+<wire x1="-1.0668" y1="1.0668" x2="-1.0668" y2="-1.0668" width="0.1524" layer="51"/>
+<wire x1="0.3048" y1="1.0668" x2="-0.3048" y2="1.0414" width="0" layer="51" curve="-180"/>
+<smd name="1" x="-1.0414" y="0.6604" dx="0.7112" dy="0.3048" layer="1"/>
+<smd name="2" x="-1.0414" y="0" dx="0.7112" dy="0.3048" layer="1"/>
+<smd name="3" x="-1.0414" y="-0.6604" dx="0.7112" dy="0.3048" layer="1"/>
+<smd name="4" x="1.0414" y="-0.6604" dx="0.7112" dy="0.3048" layer="1" rot="R180"/>
+<smd name="5" x="1.0414" y="0" dx="0.7112" dy="0.3048" layer="1" rot="R180"/>
+<smd name="6" x="1.0414" y="0.6604" dx="0.7112" dy="0.3048" layer="1" rot="R180"/>
+<smd name="7" x="0" y="0" dx="1.016" dy="1.6002" layer="1" thermals="no"/>
+<pad name="V" x="0" y="-0.4064" drill="0.254" thermals="no" first="yes"/>
+<pad name="V_2" x="0" y="0.4064" drill="0.254" thermals="no"/>
+<text x="-2.8702" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="-3.4544" y="-0.635" size="1.27" layer="27" ratio="6" rot="SR0">&gt;VALUE</text>
+<text x="-2.286" y="0.127" size="1.27" layer="21">*</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LTC2645">
@@ -712,6 +734,20 @@ in mm</text>
 <pin name="P$8" x="22.86" y="0" length="short" rot="R180"/>
 <text x="5.08" y="2.54" size="1.27" layer="94">&gt;NAME</text>
 </symbol>
+<symbol name="TPS73733_DRV_6">
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-15.24" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-15.24" x2="30.48" y2="-15.24" width="0.1524" layer="94"/>
+<wire x1="30.48" y1="-15.24" x2="30.48" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="30.48" y1="2.54" x2="5.08" y2="2.54" width="0.1524" layer="94"/>
+<pin name="EN" x="0" y="-5.08" length="middle" direction="pas"/>
+<pin name="GND" x="0" y="-10.16" length="middle" direction="pwr"/>
+<pin name="IN" x="0" y="0" length="middle" direction="in"/>
+<pin name="NC" x="35.56" y="-12.7" length="middle" direction="pas" rot="R180"/>
+<pin name="NR/FB" x="35.56" y="-7.62" length="middle" rot="R180"/>
+<pin name="OUT" x="35.56" y="0" length="middle" direction="out" rot="R180"/>
+<text x="10.5156" y="6.5786" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="9.5758" y="4.0386" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="LTC2645" prefix="U">
@@ -956,6 +992,27 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <connect gate="A" pin="P$6" pad="6"/>
 <connect gate="A" pin="P$7" pad="7"/>
 <connect gate="A" pin="P$8" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TPS73733_DRV_6" prefix="U">
+<description>LDO with Reverse Current Protection</description>
+<gates>
+<gate name="A" symbol="TPS73733_DRV_6" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DRV6_1P6X1">
+<connects>
+<connect gate="A" pin="EN" pad="4"/>
+<connect gate="A" pin="GND" pad="3 7 V V_2"/>
+<connect gate="A" pin="IN" pad="6"/>
+<connect gate="A" pin="NC" pad="5"/>
+<connect gate="A" pin="NR/FB" pad="2"/>
+<connect gate="A" pin="OUT" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>

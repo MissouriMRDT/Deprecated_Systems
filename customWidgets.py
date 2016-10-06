@@ -7,6 +7,7 @@ class GraphArea(QtGui.QWidget):
     def __init__(self, parent=None):
         """ Initial setup of the UI """
         super(GraphArea, self).__init__()
+        self.setup()
 
     def setup(self):
         displayFrame = QtGui.QVBoxLayout(self)

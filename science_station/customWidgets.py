@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
@@ -28,6 +29,11 @@ class GraphArea(QtGui.QWidget):
         self.humid3_time = []
         self.humid4_time = []
 
+        #self.ccd_data = [[] for y in range(numline)]
+        self.data_len = []
+        self.max_len = 0
+        self.row_count = 0
+
         self.setup()
 
     def setup(self):
@@ -39,6 +45,7 @@ class GraphArea(QtGui.QWidget):
         displayFrame.addWidget(toolbar)
 
     def graphBasic(self):
+        plt.ion()
         plt.suptitle("Soil Readings", fontsize=17)
 
         # Temperature Subplot
@@ -66,5 +73,16 @@ class GraphArea(QtGui.QWidget):
         plt.plot_date(x=self.humid4_time, y=self.humid4_data, color = "light green", label = "humid4")
 
         plt.show()
+
+    def graphSpectrometer(self):
+        plt.ion()
+        plt.delaxes()
+        plt.grid(True)
+        plt.xlim(xmin=0, xmax=self.max_len)
+        plt.ylim(ymin=0, ymax=1023)
+        plt.plot(np.arange(start=0, stop=self.data_len[self.row_count], step=1), self.ccd_data[self.row_count])
+        plt.show()
+        plt.pause(0.0001)
+
 
 # color picker: http://www.w3schools.com/colors/colors_hex.asp

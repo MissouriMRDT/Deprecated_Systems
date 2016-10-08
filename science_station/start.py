@@ -2,7 +2,7 @@ import csv
 import dateutil.parser
 import sys
 from PyQt4 import QtGui, QtCore
-import customWidgets
+from customWidgets import GraphArea, DataStore
 
 
 # TODO: functions - plot data
@@ -44,14 +44,14 @@ class StartQT4(QtGui.QMainWindow):
         self.basic = QtGui.QWidget()
         self.basicGraphLayout = QtGui.QHBoxLayout(self.basic)
         self.basicGraphLayout.setMargin(0)
-        self.basicGraph = customWidgets.GraphArea(self.basic)
+        self.basicGraph = GraphArea(self.basic)
         self.basicGraphLayout.addWidget(self.basicGraph)
         self.graphTabs.addTab(self.basic, "Temp/Humid")
 
         self.spectrometer = QtGui.QWidget()
         self.spectrometerGraphLayout = QtGui.QHBoxLayout(self.spectrometer)
         self.spectrometerGraphLayout.setMargin(0)
-        self.spectrometerGraph = customWidgets.GraphArea(self.spectrometer)
+        self.spectrometerGraph = GraphArea(self.spectrometer)
         self.spectrometerGraphLayout.addWidget(self.spectrometerGraph)
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
@@ -67,8 +67,10 @@ class StartQT4(QtGui.QMainWindow):
         filename = self.fileInput.text()
         if filename != self.current_file:
             if filename.lower().endswith('.csv'):
+                # Assuming basic temp/humid.
                 self.parsecsv(filename)
                 self.current_file = filename
+                self.basicGraph.graphBasic(self.ds)
             else:
                 print("Unsupported file type. Please input a .csv file.")
         else:
@@ -97,18 +99,6 @@ class StartQT4(QtGui.QMainWindow):
                     self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
                 elif sensor == "Humid4":
                     self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
-
-
-class DataStore:
-    def __init__(self):
-        self.temp1 = []
-        self.temp2 = []
-        self.temp3 = []
-        self.temp4 = []
-        self.humid1 = []
-        self.humid2 = []
-        self.humid3 = []
-        self.humid4 = []
 
 
 def main():

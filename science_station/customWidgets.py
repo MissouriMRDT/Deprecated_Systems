@@ -4,30 +4,23 @@ from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 
+
+class DataStore:
+    def __init__(self):
+        self.temp1 = []
+        self.temp2 = []
+        self.temp3 = []
+        self.temp4 = []
+        self.humid1 = []
+        self.humid2 = []
+        self.humid3 = []
+        self.humid4 = []
+
+
 class GraphArea(QtGui.QWidget):
     def __init__(self, parent=None):
         """ Initial setup of the UI """
         super(GraphArea, self).__init__()
-
-        self.temp1_data = []
-        self.temp2_data = []
-        self.temp3_data = []
-        self.temp4_data = []
-
-        self.temp1_time = []
-        self.temp2_time = []
-        self.temp3_time = []
-        self.temp4_time = []
-
-        self.humid1_data = []
-        self.humid2_data = []
-        self.humid4_data = []
-        self.humid3_data = []
-
-        self.humid1_time = []
-        self.humid2_time = []
-        self.humid3_time = []
-        self.humid4_time = []
 
         #self.ccd_data = [[] for y in range(numline)]
         self.data_len = []
@@ -38,44 +31,74 @@ class GraphArea(QtGui.QWidget):
 
     def setup(self):
         displayFrame = QtGui.QVBoxLayout(self)
-        self.fig = plt.figure(1) # this may cause a problem with multiple figures
-        canvas = FigureCanvas(self.fig)
-        toolbar = NavigationToolbar(canvas, self)
-        displayFrame.addWidget(canvas)
+        # plt.ion()
+        self.fig = plt.figure()  # this may cause a problem with multiple figures
+        self.canvas = FigureCanvas(self.fig)
+        toolbar = NavigationToolbar(self.canvas, self)
+        displayFrame.addWidget(self.canvas)
         displayFrame.addWidget(toolbar)
 
-    def graphBasic(self):
-        plt.ion()
-        plt.suptitle("Soil Readings", fontsize=17)
+    def graphBasic(self, ds: DataStore):
+        # TODO: Add check for zero-element arrays. See humid1 for complete example.
+        temp1_time, temp1_data = np.array(ds.temp1).T
+        temp2_time, temp2_data = np.array(ds.temp2).T
+        temp3_time, temp3_data = np.array(ds.temp3).T
+        temp4_time, temp4_data = np.array(ds.temp4).T
+
+        if len(np.array(ds.humid1)) > 0:
+            humid1_time, humid1_data = np.array(ds.humid1).T
+        if len(np.array(ds.humid2)) > 0:
+            humid2_time, humid2_data = np.array(ds.humid2).T
+        if len(np.array(ds.humid3)) > 0:
+            humid3_time, humid3_data = np.array(ds.humid3).T
+        if len(np.array(ds.humid4)) > 0:
+            humid4_time, humid4_data = np.array(ds.humid4).Test
 
         # Temperature Subplot
-        plt.subplot(2, 1, 1)
-        plt.title("Temperature")
-        plt.ylabel("Temperature (Celsius)")
-        plt.grid(True)
-        plt.ylim(0, 50)
-        plt.xticks(ha='right', rotation=15)
-        plt.plot_date(x=self.temp1_time, y=self.temp1_data, color = "blue", label = "temp1")
-        plt.plot_date(x=self.temp2_time, y=self.temp2_data, color = "black", label = "temp2")
-        plt.plot_date(x=self.temp3_time, y=self.temp3_data, color = "dark green", label = "temp3")
-        plt.plot_date(x=self.temp4_time, y=self.temp4_data, color = "maroon", label = "temp4")
+        temp_subplot = self.fig.add_subplot(2, 1, 1)
+        temp_subplot.set_title("Temperature")
+        temp_subplot.set_ylabel("Temperature (Celsius)")
+        temp_subplot.grid(True)
+        temp_subplot.set_ylim(0, 50)
+        # temp_subplot.set_xticklabels(ha='right', rotation=15)
+        if len(np.array(ds.temp1)) > 0:
+            t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="blue", label="temp1")
+        if len(np.array(ds.temp2)) > 0:
+            t2_plot, = temp_subplot.plot_date(x=temp2_time, y=temp2_data, color="black", label="temp2")
+        if len(np.array(ds.temp3)) > 0:
+            t3_plot, = temp_subplot.plot_date(x=temp3_time, y=temp3_data, color="DarkGreen", label="temp3")
+        if len(np.array(ds.temp4)) > 0:
+            t4_plot, = temp_subplot.plot_date(x=temp4_time, y=temp4_data, color="maroon", label="temp4")
+        try:
+            temp_subplot.legend(handles=[t1_plot, t2_plot, t3_plot, t4_plot])
+        except UnboundLocalError:
+            pass
 
         # Humidity Subplot
-        plt.subplot(2, 1, 2)
-        plt.title("Humidity")
-        plt.ylabel("Water Content (%)")
-        plt.grid(True)
-        plt.ylim(0, 100)
-        plt.xticks(ha='right', rotation=15)
-        plt.plot_date(x=self.humid1_time, y=self.humid1_data, color = "gold", label = "humid1")
-        plt.plot_date(x=self.humid2_time, y=self.humid2_data, color = "salmon", label = "humid2")
-        plt.plot_date(x=self.humid3_time, y=self.humid3_data, color = "medium orchid", label = "humid3")
-        plt.plot_date(x=self.humid4_time, y=self.humid4_data, color = "light green", label = "humid4")
+        humid_subplot = self.fig.add_subplot(2, 1, 2)
+        humid_subplot.set_title("Humidity")
+        humid_subplot.set_ylabel("Water Content (%)")
+        humid_subplot.grid(True)
+        humid_subplot.set_ylim(0, 100)
+        # humid_subplot.xticks(ha='right', rotation=15)
+        if len(np.array(ds.humid1)) > 0:
+            h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1")
+        if len(np.array(ds.humid2)) > 0:
+            h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2")
+        if len(np.array(ds.humid3)) > 0:
+            h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3")
+        if len(np.array(ds.humid4)) > 0:
+            h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4")
+        try:
+            humid_subplot.legend(handles=[h1_plot, h2_plot, h3_plot, h4_plot])
+        except UnboundLocalError:
+            pass
 
-        plt.show()
+        self.fig.set_tight_layout(True)
+        self.canvas.draw()
 
     def graphSpectrometer(self):
-        plt.ion()
+        # plt.ion()
         plt.delaxes()
         plt.grid(True)
         plt.xlim(xmin=0, xmax=self.max_len)
@@ -85,4 +108,6 @@ class GraphArea(QtGui.QWidget):
         plt.pause(0.0001)
 
 
-# color picker: http://www.w3schools.com/colors/colors_hex.asp
+
+
+                # color picker: http://www.w3schools.com/colors/colors_hex.asp

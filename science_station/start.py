@@ -5,7 +5,7 @@ from PyQt4 import QtGui, QtCore
 import customWidgets
 
 
-# TODO: functions - parse file name, parse file matching name if exists, plot data
+# TODO: functions - plot data
 
 class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -97,7 +97,6 @@ class StartQT4(QtGui.QMainWindow):
                     self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
                 elif sensor == "Humid4":
                     self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
-        self.ds.totalentries()
 
 
 class DataStore:

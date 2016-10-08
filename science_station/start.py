@@ -27,11 +27,11 @@ class StartQT4(QtGui.QMainWindow):
         self.fileInput = QtGui.QLineEdit(self.centralWidget)
         self.fileInput.setMinimumSize(QtCore.QSize(400, 0))
         self.fileInput.setMaximumSize(QtCore.QSize(400, 16777215))
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.graphButton = QtGui.QPushButton("Graph", self.centralWidget)
         self.inputFrame.addWidget(self.fileInput)
         self.inputFrame.addWidget(self.graphButton)
-        self.inputFrame.addItem(spacerItem)
+        self.inputFrame.addItem(spacer_item)
 
         self.displayFrame = QtGui.QHBoxLayout()
         self.displayFrame.setMargin(11)
@@ -44,14 +44,14 @@ class StartQT4(QtGui.QMainWindow):
         self.basic = QtGui.QWidget()
         self.basicGraphLayout = QtGui.QHBoxLayout(self.basic)
         self.basicGraphLayout.setMargin(0)
-        self.basicGraph = GraphArea(self.basic)
+        self.basicGraph = GraphArea()
         self.basicGraphLayout.addWidget(self.basicGraph)
         self.graphTabs.addTab(self.basic, "Temp/Humid")
 
         self.spectrometer = QtGui.QWidget()
         self.spectrometerGraphLayout = QtGui.QHBoxLayout(self.spectrometer)
         self.spectrometerGraphLayout.setMargin(0)
-        self.spectrometerGraph = GraphArea(self.spectrometer)
+        self.spectrometerGraph = GraphArea()
         self.spectrometerGraphLayout.addWidget(self.spectrometerGraph)
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
@@ -70,7 +70,7 @@ class StartQT4(QtGui.QMainWindow):
                 # Assuming basic temp/humid.
                 self.parsecsv(filename)
                 self.current_file = filename
-                self.basicGraph.graphBasic(self.ds)
+                self.basicGraph.graph_basic(self.ds)
             else:
                 print("Unsupported file type. Please input a .csv file.")
         else:

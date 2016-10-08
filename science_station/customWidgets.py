@@ -17,28 +17,28 @@ class DataStore:
         self.humid4 = []
 
 
+# noinspection PyUnboundLocalVariable
 class GraphArea(QtGui.QWidget):
-    def __init__(self, parent=None):
+    def __init__(self):
         """ Initial setup of the UI """
         super(GraphArea, self).__init__()
 
-        #self.ccd_data = [[] for y in range(numline)]
+        # self.ccd_data = [[] for y in range(numline)]
+        self.fig = plt.figure()  # this may cause a problem with multiple figures
+        self.canvas = FigureCanvas(self.fig)
         self.data_len = []
         self.max_len = 0
         self.row_count = 0
-
         self.setup()
 
     def setup(self):
-        displayFrame = QtGui.QVBoxLayout(self)
+        display_frame = QtGui.QVBoxLayout(self)
         # plt.ion()
-        self.fig = plt.figure()  # this may cause a problem with multiple figures
-        self.canvas = FigureCanvas(self.fig)
         toolbar = NavigationToolbar(self.canvas, self)
-        displayFrame.addWidget(self.canvas)
-        displayFrame.addWidget(toolbar)
+        display_frame.addWidget(self.canvas)
+        display_frame.addWidget(toolbar)
 
-    def graphBasic(self, ds: DataStore):
+    def graph_basic(self, ds: DataStore):
         # TODO: Add check for zero-element arrays. See humid1 for complete example.
         temp1_time, temp1_data = np.array(ds.temp1).T
         temp2_time, temp2_data = np.array(ds.temp2).T
@@ -52,7 +52,7 @@ class GraphArea(QtGui.QWidget):
         if len(np.array(ds.humid3)) > 0:
             humid3_time, humid3_data = np.array(ds.humid3).T
         if len(np.array(ds.humid4)) > 0:
-            humid4_time, humid4_data = np.array(ds.humid4).Test
+            humid4_time, humid4_data = np.array(ds.humid4).T
 
         # Temperature Subplot
         temp_subplot = self.fig.add_subplot(2, 1, 1)
@@ -60,7 +60,7 @@ class GraphArea(QtGui.QWidget):
         temp_subplot.set_ylabel("Temperature (Celsius)")
         temp_subplot.grid(True)
         temp_subplot.set_ylim(0, 50)
-        # temp_subplot.set_xticklabels(ha='right', rotation=15)
+
         if len(np.array(ds.temp1)) > 0:
             t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="blue", label="temp1")
         if len(np.array(ds.temp2)) > 0:
@@ -80,7 +80,7 @@ class GraphArea(QtGui.QWidget):
         humid_subplot.set_ylabel("Water Content (%)")
         humid_subplot.grid(True)
         humid_subplot.set_ylim(0, 100)
-        # humid_subplot.xticks(ha='right', rotation=15)
+
         if len(np.array(ds.humid1)) > 0:
             h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1")
         if len(np.array(ds.humid2)) > 0:
@@ -97,7 +97,7 @@ class GraphArea(QtGui.QWidget):
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
-    def graphSpectrometer(self):
+    def graph_spectrometer(self):
         # plt.ion()
         plt.delaxes()
         plt.grid(True)
@@ -107,7 +107,4 @@ class GraphArea(QtGui.QWidget):
         plt.show()
         plt.pause(0.0001)
 
-
-
-
-                # color picker: http://www.w3schools.com/colors/colors_hex.asp
+# color picker: http://www.w3schools.com/colors/colors_hex.asp

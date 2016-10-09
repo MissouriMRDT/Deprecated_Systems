@@ -1409,6 +1409,25 @@
 <hole x="-3.937" y="8.636" drill="3.4036"/>
 <hole x="3.937" y="8.636" drill="3.4036"/>
 </package>
+<package name="CON_2X5_50MIL">
+<wire x1="-1.169925" y1="4.50011875" x2="-1.169925" y2="-0.500125" width="0.127" layer="21"/>
+<wire x1="-1.169925" y1="-0.500125" x2="-0.70993125" y2="-0.500125" width="0.127" layer="21"/>
+<wire x1="-1.169925" y1="4.579875" x2="-0.70993125" y2="4.579875" width="0.127" layer="21"/>
+<wire x1="6.249925" y1="4.50011875" x2="5.78993125" y2="4.50011875" width="0.127" layer="21"/>
+<wire x1="5.78993125" y1="-0.500125" x2="6.249925" y2="-0.500125" width="0.127" layer="21"/>
+<wire x1="6.249925" y1="-0.500125" x2="6.249925" y2="4.50011875" width="0.127" layer="21"/>
+<smd name="P1" x="0" y="0" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P2" x="0" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P3" x="1.27" y="0" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P4" x="1.27" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P5" x="2.54" y="0" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P6" x="2.54" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P7" x="3.81" y="0" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P8" x="3.81" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P9" x="5.08" y="0" dx="0.74" dy="2.6" layer="1"/>
+<smd name="P10" x="5.08" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
+<text x="-1.27" y="6.35" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="APP">
@@ -1578,6 +1597,24 @@
 <pin name="1" x="-7.62" y="-2.54" length="middle"/>
 <pin name="2" x="-7.62" y="0" length="middle"/>
 <pin name="3" x="-7.62" y="2.54" length="middle"/>
+</symbol>
+<symbol name="JTAG_ARM_10PIN">
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-12.7" x2="27.94" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-12.7" x2="27.94" y2="2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<pin name="!EXTDBG" x="0" y="-2.54" length="middle"/>
+<pin name="!RESET" x="33.02" y="-10.16" length="middle" rot="R180"/>
+<pin name="GND" x="0" y="-5.08" length="middle"/>
+<pin name="GND1" x="0" y="-10.16" length="middle"/>
+<pin name="P$7" x="0" y="-7.62" length="middle"/>
+<pin name="TCK" x="33.02" y="-2.54" length="middle" rot="R180"/>
+<pin name="TDI" x="33.02" y="-7.62" length="middle" rot="R180"/>
+<pin name="TDO" x="33.02" y="-5.08" length="middle" rot="R180"/>
+<pin name="TMS" x="33.02" y="0" length="middle" rot="R180"/>
+<pin name="VTARGET" x="0" y="0" length="middle"/>
+<text x="5.08" y="2.54" size="1.27" layer="94">&gt;NAME</text>
+<text x="5.08" y="-15.24" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2121,6 +2158,32 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <technology name="">
 <attribute name="ORIENT" value="HORIZ" constant="no"/>
 <attribute name="PARTNO" value="0015912035" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="JTAG_ARM_10PIN" prefix="J">
+<gates>
+<gate name="G$1" symbol="JTAG_ARM_10PIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CON_2X5_50MIL">
+<connects>
+<connect gate="G$1" pin="!EXTDBG" pad="P3"/>
+<connect gate="G$1" pin="!RESET" pad="P10"/>
+<connect gate="G$1" pin="GND" pad="P5"/>
+<connect gate="G$1" pin="GND1" pad="P9"/>
+<connect gate="G$1" pin="P$7" pad="P7"/>
+<connect gate="G$1" pin="TCK" pad="P4"/>
+<connect gate="G$1" pin="TDI" pad="P8"/>
+<connect gate="G$1" pin="TDO" pad="P6"/>
+<connect gate="G$1" pin="TMS" pad="P2"/>
+<connect gate="G$1" pin="VTARGET" pad="P1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PARTNO" value="M50-3600542 "/>
 </technology>
 </technologies>
 </device>

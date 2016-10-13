@@ -17,12 +17,10 @@ class DataStore:
         self.humid4 = []
 
 
-# noinspection PyUnboundLocalVariable
 class GraphArea(QtGui.QWidget):
     def __init__(self):
         """ Initial setup of the UI """
         super(GraphArea, self).__init__()
-
         # self.ccd_data = [[] for y in range(numline)]
         self.fig = plt.figure()  # this may cause a problem with multiple figures
         self.canvas = FigureCanvas(self.fig)
@@ -33,17 +31,19 @@ class GraphArea(QtGui.QWidget):
 
     def setup(self):
         display_frame = QtGui.QVBoxLayout(self)
-        # plt.ion()
         toolbar = NavigationToolbar(self.canvas, self)
         display_frame.addWidget(self.canvas)
         display_frame.addWidget(toolbar)
 
     def graph_basic(self, ds: DataStore):
-        # TODO: Add check for zero-element arrays. See humid1 for complete example.
-        temp1_time, temp1_data = np.array(ds.temp1).T
-        temp2_time, temp2_data = np.array(ds.temp2).T
-        temp3_time, temp3_data = np.array(ds.temp3).T
-        temp4_time, temp4_data = np.array(ds.temp4).T
+        if len(np.array(ds.temp1)) > 0:
+            temp1_time, temp1_data = np.array(ds.temp1).T
+        if len(np.array(ds.temp2)) > 0:
+            temp2_time, temp2_data = np.array(ds.temp2).T
+        if len(np.array(ds.temp3)) > 0:
+            temp3_time, temp3_data = np.array(ds.temp3).T
+        if len(np.array(ds.temp4)) > 0:
+            temp4_time, temp4_data = np.array(ds.temp4).T
 
         if len(np.array(ds.humid1)) > 0:
             humid1_time, humid1_data = np.array(ds.humid1).T
@@ -61,6 +61,7 @@ class GraphArea(QtGui.QWidget):
         temp_subplot.grid(True)
         temp_subplot.set_ylim(0, 50)
 
+        # TODO: Talk to science team about color, markers
         if len(np.array(ds.temp1)) > 0:
             t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="blue", label="temp1")
         if len(np.array(ds.temp2)) > 0:
@@ -81,6 +82,7 @@ class GraphArea(QtGui.QWidget):
         humid_subplot.grid(True)
         humid_subplot.set_ylim(0, 100)
 
+        # TODO: Talk to science team about colors, markers.
         if len(np.array(ds.humid1)) > 0:
             h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1")
         if len(np.array(ds.humid2)) > 0:
@@ -97,6 +99,7 @@ class GraphArea(QtGui.QWidget):
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
+    # TODO: Test after talking with Owen about data formats.
     def graph_spectrometer(self):
         # plt.ion()
         plt.delaxes()

@@ -5,7 +5,7 @@ from PyQt4 import QtGui, QtCore
 from customWidgets import GraphArea, DataStore
 
 
-# TODO: functions - plot data
+# TODO: functions - plot spectrometer data
 
 class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -28,9 +28,9 @@ class StartQT4(QtGui.QMainWindow):
         self.fileInput.setMinimumSize(QtCore.QSize(400, 0))
         self.fileInput.setMaximumSize(QtCore.QSize(400, 16777215))
         spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.graphButton = QtGui.QPushButton("Graph", self.centralWidget)
+        # self.graphButton = QtGui.QPushButton("Graph", self.centralWidget)
         self.inputFrame.addWidget(self.fileInput)
-        self.inputFrame.addWidget(self.graphButton)
+        # self.inputFrame.addWidget(self.graphButton)
         self.inputFrame.addItem(spacer_item)
 
         self.displayFrame = QtGui.QHBoxLayout()
@@ -73,8 +73,10 @@ class StartQT4(QtGui.QMainWindow):
                 self.basicGraph.graph_basic(self.ds)
             else:
                 print("Unsupported file type. Please input a .csv file.")
+                # TODO: Change to dialogue box.
         else:
             print("File requested is already entered.")
+            # TODO: Change to dialogue box.
 
     def parsecsv(self, csv_name):
         with open(csv_name, 'r') as csvfile:

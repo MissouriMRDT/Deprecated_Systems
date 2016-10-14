@@ -29,9 +29,9 @@ class StartQT4(QtGui.QMainWindow):
         self.fileInput.setMinimumSize(QtCore.QSize(400, 0))
         self.fileInput.setMaximumSize(QtCore.QSize(400, 16777215))
         spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        # self.graphButton = QtGui.QPushButton("Graph", self.centralWidget)
+        self.importButton = QtGui.QPushButton("Import", self.centralWidget)
         self.inputFrame.addWidget(self.fileInput)
-        # self.inputFrame.addWidget(self.graphButton)
+        self.inputFrame.addWidget(self.importButton)
         self.inputFrame.addItem(spacer_item)
 
         self.displayFrame = QtGui.QHBoxLayout()
@@ -61,6 +61,7 @@ class StartQT4(QtGui.QMainWindow):
         self.digMainLayout.addLayout(self.displayFrame)
 
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
+        self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
 
         self.setCentralWidget(self.centralWidget)
 

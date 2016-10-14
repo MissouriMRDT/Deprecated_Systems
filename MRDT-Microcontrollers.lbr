@@ -2760,7 +2760,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="TM4C1294NCPDT">
+<deviceset name="TM4C1294NCPDT" prefix="U">
 <gates>
 <gate name="G$1" symbol="TM4C1239ENCPD" x="0" y="0"/>
 <gate name="G$2" symbol="TM4C129ENCPD_PWR" x="0" y="0"/>

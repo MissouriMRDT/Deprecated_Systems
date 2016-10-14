@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -999,7 +999,7 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="HX1198FNL">
+<deviceset name="HX1198FNL" prefix="U">
 <gates>
 <gate name="G$1" symbol="HX1198NL" x="0" y="0"/>
 </gates>
@@ -1025,7 +1025,7 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="SLVU2.8-4">
+<deviceset name="SLVU2.8-4" prefix="U">
 <gates>
 <gate name="A" symbol="SLVU2.8-4" x="0" y="0"/>
 </gates>

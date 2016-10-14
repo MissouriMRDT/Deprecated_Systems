@@ -11,6 +11,7 @@ class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
         self.current_file = ""
         self.ds = DataStore()
+        self.spectrometer_data = []
 
         QtGui.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
@@ -81,27 +82,42 @@ class StartQT4(QtGui.QMainWindow):
 
     def parsecsv(self, csv_name):
         with open(csv_name, 'r') as csvfile:
-            csv.reader(csvfile, delimiter=' ')
+            reader = csv.reader(csvfile, delimiter=' ')
             # check header for Spectrometer or Temp/Humid readings.
             # Assuming Temp/Humid
-            for row in csvfile.readlines():
-                datestamp, sensor, raw_data = row.split(' ')
-                if sensor == "Temp1":
-                    self.ds.temp1.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Temp2":
-                    self.ds.temp2.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Temp3":
-                    self.ds.temp3.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Temp4":
-                    self.ds.temp4.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Humid1":
-                    self.ds.humid1.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Humid2":
-                    self.ds.humid2.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Humid3":
-                    self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
-                elif sensor == "Humid4":
-                    self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
+            header = next(reader)
+            csvfile.seek(0)
+            if header == ['datetime', 'sensor', 'measurement']:
+                csv_type = "basic"
+            elif header == ["wavelength", "intensity"]:
+                csv_type = "spectrometer"
+
+            for row in reader:
+                try:
+                    if csv_type == "basic":
+                        datestamp, sensor, raw_data = row
+                        if sensor == "Temp1":
+                            self.ds.temp1.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Temp2":
+                            self.ds.temp2.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Temp3":
+                            self.ds.temp3.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Temp4":
+                            self.ds.temp4.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Humid1":
+                            self.ds.humid1.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Humid2":
+                            self.ds.humid2.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Humid3":
+                            self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
+                        elif sensor == "Humid4":
+                            self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
+                    if csv_type == "spectrometer":
+                        wavelength, intensity = row.split(' ')
+                        if type(wavelength) != "str" and type(intensity) != "str":
+                            self.spectrometer_data.append((wavelength, intensity))
+                except StopIteration:
+                        pass
 
     def showdialogue(self, errormessage):
         msg = QtGui.QMessageBox()

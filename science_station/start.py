@@ -13,6 +13,7 @@ class StartQT4(QtGui.QMainWindow):
         self.ds = DataStore()
 
         QtGui.QWidget.__init__(self, parent)
+        self.setWindowTitle("Ehrenfreund")
         self.resize(946, 542)
         self.setSizeIncrement(QtCore.QSize(1, 1))
         self.centralWidget = QtGui.QWidget(self)
@@ -72,11 +73,10 @@ class StartQT4(QtGui.QMainWindow):
                 self.current_file = filename
                 self.basicGraph.graph_basic(self.ds)
             else:
-                print("Unsupported file type. Please input a .csv file.")
-                # TODO: Change to dialogue box.
+                self.showdialogue("Unsupported file type. Please input a .csv file.")
+
         else:
-            print("File requested is already entered.")
-            # TODO: Change to dialogue box.
+            self.showdialogue("File requested is already entered.")
 
     def parsecsv(self, csv_name):
         with open(csv_name, 'r') as csvfile:
@@ -101,6 +101,15 @@ class StartQT4(QtGui.QMainWindow):
                     self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
                 elif sensor == "Humid4":
                     self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
+
+    def showdialogue(self, errormessage):
+        msg = QtGui.QMessageBox()
+        msg.setIcon(QtGui.QMessageBox.Critical)
+        msg.setText(errormessage)
+        msg.setWindowTitle("ERROR")
+        msg.setStandardButtons(QtGui.QMessageBox.Ok)
+        msg.exec_()
+
 
 
 def main():

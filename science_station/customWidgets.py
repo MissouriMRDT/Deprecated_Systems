@@ -84,7 +84,7 @@ class GraphArea(QtGui.QWidget):
 
         # TODO: Talk to science team about colors, markers.
         if len(np.array(ds.humid1)) > 0:
-            h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1")
+            h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1", mew = 0)
         if len(np.array(ds.humid2)) > 0:
             h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2")
         if len(np.array(ds.humid3)) > 0:

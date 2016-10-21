@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -785,7 +785,7 @@ in mm</text>
 </symbol>
 <symbol name="MAX3078E">
 <pin name="RO" x="-12.7" y="7.62" length="middle"/>
-<pin name="NRE" x="-12.7" y="2.54" length="middle"/>
+<pin name="!RE" x="-12.7" y="2.54" length="middle"/>
 <pin name="DE" x="-12.7" y="-2.54" length="middle"/>
 <pin name="DI" x="-12.7" y="-7.62" length="middle"/>
 <pin name="VCC" x="10.16" y="7.62" length="middle" rot="R180"/>
@@ -1095,19 +1095,19 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MAX3078E">
+<deviceset name="MAX3078E" prefix="U">
 <gates>
 <gate name="G$1" symbol="MAX3078E" x="2.54" y="0"/>
 </gates>
 <devices>
 <device name="" package="SOIC8">
 <connects>
+<connect gate="G$1" pin="!RE" pad="2"/>
 <connect gate="G$1" pin="A" pad="6"/>
 <connect gate="G$1" pin="B" pad="7"/>
 <connect gate="G$1" pin="DE" pad="3"/>
 <connect gate="G$1" pin="DI" pad="4"/>
 <connect gate="G$1" pin="GND" pad="5"/>
-<connect gate="G$1" pin="NRE" pad="2"/>
 <connect gate="G$1" pin="RO" pad="1"/>
 <connect gate="G$1" pin="VCC" pad="8"/>
 </connects>

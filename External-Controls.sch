@@ -7501,6 +7501,21 @@ Source: AVX .. aphvc.pdf</description>
 <hole x="-3.937" y="8.636" drill="3.4036"/>
 <hole x="3.937" y="8.636" drill="3.4036"/>
 </package>
+<package name="MOLEX-70543-0002">
+<pad name="2" x="0" y="0" drill="1.1"/>
+<pad name="1" x="2.54" y="0" drill="1.1" shape="square"/>
+<pad name="3" x="-2.54" y="0" drill="1.1"/>
+<wire x1="-5.08" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-1.27" x2="-5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-1.27" x2="-5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<text x="6.35" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RJ45">
@@ -7797,8 +7812,8 @@ Source: AVX .. aphvc.pdf</description>
 <device name="MOLEX_SL_SMD" package="MOLEX_0015912035">
 <connects>
 <connect gate="G$1" pin="GND" pad="P$1"/>
-<connect gate="G$1" pin="SIG" pad="P$2"/>
-<connect gate="G$1" pin="VCC" pad="P$3"/>
+<connect gate="G$1" pin="SIG" pad="P$3"/>
+<connect gate="G$1" pin="VCC" pad="P$2"/>
 </connects>
 <technologies>
 <technology name="">
@@ -7810,14 +7825,24 @@ Source: AVX .. aphvc.pdf</description>
 <device name="MOLEX_SL_THRU_HOLE" package="MOLEX_SL_03_TH">
 <connects>
 <connect gate="G$1" pin="GND" pad="1"/>
-<connect gate="G$1" pin="SIG" pad="2"/>
-<connect gate="G$1" pin="VCC" pad="3"/>
+<connect gate="G$1" pin="SIG" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="2"/>
 </connects>
 <technologies>
 <technology name="">
 <attribute name="ORIENT" value="HORIZ" constant="no"/>
 <attribute name="PARTNO" value="0705550002" constant="no"/>
 </technology>
+</technologies>
+</device>
+<device name="MOLEX_SL_VERT_TH" package="MOLEX-70543-0002">
+<connects>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="SIG" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -18481,10 +18506,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U6" library="MRDT-ICs" deviceset="SN74AHCT125" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="J4" library="MRDT-Connectors" deviceset="SERVO" device="VERTICAL"/>
-<part name="J5" library="MRDT-Connectors" deviceset="SERVO" device="VERTICAL"/>
-<part name="J6" library="MRDT-Connectors" deviceset="SERVO" device="VERTICAL"/>
-<part name="J7" library="MRDT-Connectors" deviceset="SERVO" device="VERTICAL"/>
+<part name="J4" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH" value="SERVOMOLEX_SL_VERT_TH"/>
+<part name="J5" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH" value="SERVOMOLEX_SL_VERT_TH"/>
+<part name="J6" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH" value="SERVOMOLEX_SL_VERT_TH"/>
+<part name="J7" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH" value="SERVOMOLEX_SL_VERT_TH"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 </parts>
@@ -19478,13 +19503,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="383.54" y1="129.54" x2="393.7" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="DROPBAY_1" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PP0@118"/>
-<wire x1="66.04" y1="134.62" x2="60.96" y2="134.62" width="0.1524" layer="91"/>
-<label x="60.96" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="DROPBAY_0" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PK0@18"/>
@@ -19500,6 +19518,13 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </segment>
 </net>
 <net name="DROPBAY_3" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PP0@118"/>
+<wire x1="66.04" y1="134.62" x2="60.96" y2="134.62" width="0.1524" layer="91"/>
+<label x="60.96" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="DROPBAY_1" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PF1@43"/>
 <wire x1="104.14" y1="210.82" x2="109.22" y2="210.82" width="0.1524" layer="91"/>

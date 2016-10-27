@@ -63,13 +63,13 @@ class GraphArea(QtGui.QWidget):
 
         # TODO: Talk to science team about color, markers
         if len(np.array(ds.temp1)) > 0:
-            t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="blue", label="temp1")
+            t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="magenta", label="temp1", mew=0)
         if len(np.array(ds.temp2)) > 0:
-            t2_plot, = temp_subplot.plot_date(x=temp2_time, y=temp2_data, color="black", label="temp2")
+            t2_plot, = temp_subplot.plot_date(x=temp2_time, y=temp2_data, color="cyan", label="temp2", mew=0)
         if len(np.array(ds.temp3)) > 0:
-            t3_plot, = temp_subplot.plot_date(x=temp3_time, y=temp3_data, color="DarkGreen", label="temp3")
+            t3_plot, = temp_subplot.plot_date(x=temp3_time, y=temp3_data, color="red", label="temp3", mew=0)
         if len(np.array(ds.temp4)) > 0:
-            t4_plot, = temp_subplot.plot_date(x=temp4_time, y=temp4_data, color="maroon", label="temp4")
+            t4_plot, = temp_subplot.plot_date(x=temp4_time, y=temp4_data, color="black", label="temp4", mew=0)
         try:
             temp_subplot.legend(handles=[t1_plot, t2_plot, t3_plot, t4_plot])
         except UnboundLocalError:
@@ -99,7 +99,7 @@ class GraphArea(QtGui.QWidget):
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
-    # TODO: Test after talking with Owen about data formats.
+    # TODO: Change to (wavelength, intensity) format.
     def graph_spectrometer(self):
         # plt.ion()
         plt.delaxes()

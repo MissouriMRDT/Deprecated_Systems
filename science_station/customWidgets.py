@@ -6,6 +6,7 @@ from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as Navigatio
 
 
 class DataStore:
+    """ Data storage structure formatted for basic readings """
     def __init__(self):
         self.temp1 = []
         self.temp2 = []
@@ -18,11 +19,11 @@ class DataStore:
 
 
 class GraphArea(QtGui.QWidget):
+    """ Creates a Matplotlib graphing area tailored for MRDT 2017 basic and spectrometer readings in Ehrenfreund. """
     def __init__(self):
         """ Initial setup of the UI """
         super(GraphArea, self).__init__()
-        # self.ccd_data = [[] for y in range(numline)]
-        self.fig = plt.figure()  # this may cause a problem with multiple figures
+        self.fig = plt.figure()
         self.canvas = FigureCanvas(self.fig)
         self.data_len = []
         self.max_len = 0
@@ -36,6 +37,7 @@ class GraphArea(QtGui.QWidget):
         display_frame.addWidget(toolbar)
 
     def graph_basic(self, ds: DataStore):
+        """ Graphs basic data """
         if len(np.array(ds.temp1)) > 0:
             temp1_time, temp1_data = np.array(ds.temp1).T
         if len(np.array(ds.temp2)) > 0:
@@ -62,16 +64,22 @@ class GraphArea(QtGui.QWidget):
         temp_subplot.set_ylim(0, 50)
 
         # TODO: Talk to science team about color, markers
+        # Plots data only if that data exists.
+        temp_handles = []
         if len(np.array(ds.temp1)) > 0:
             t1_plot, = temp_subplot.plot_date(x=temp1_time, y=temp1_data, color="magenta", label="temp1", mew=0)
+            temp_handles.append(t1_plot)
         if len(np.array(ds.temp2)) > 0:
             t2_plot, = temp_subplot.plot_date(x=temp2_time, y=temp2_data, color="cyan", label="temp2", mew=0)
+            temp_handles.append(t2_plot)
         if len(np.array(ds.temp3)) > 0:
             t3_plot, = temp_subplot.plot_date(x=temp3_time, y=temp3_data, color="red", label="temp3", mew=0)
+            temp_handles.append(t3_plot)
         if len(np.array(ds.temp4)) > 0:
             t4_plot, = temp_subplot.plot_date(x=temp4_time, y=temp4_data, color="black", label="temp4", mew=0)
+            temp_handles.append(t4_plot)
         try:
-            temp_subplot.legend(handles=[t1_plot, t2_plot, t3_plot, t4_plot])
+            temp_subplot.legend(handles=temp_handles)
         except UnboundLocalError:
             pass
 
@@ -83,16 +91,22 @@ class GraphArea(QtGui.QWidget):
         humid_subplot.set_ylim(0, 100)
 
         # TODO: Talk to science team about colors, markers.
+        # Plots data only if that data exists.
+        humid_handles = []
         if len(np.array(ds.humid1)) > 0:
-            h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1", mew = 0)
+            h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1", mew=0)
+            humid_handles.append(h1_plot)
         if len(np.array(ds.humid2)) > 0:
             h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2")
+            humid_handles.append(h2_plot)
         if len(np.array(ds.humid3)) > 0:
             h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3")
+            humid_handles.append(h3_plot)
         if len(np.array(ds.humid4)) > 0:
             h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4")
-        try:
-            humid_subplot.legend(handles=[h1_plot, h2_plot, h3_plot, h4_plot])
+            humid_handles.append(h4_plot)
+        try:  # Shouldn't ever fail due to conditional append. Try block kept just to be safe.
+            humid_subplot.legend(handles=humid_handles)
         except UnboundLocalError:
             pass
 
@@ -101,7 +115,7 @@ class GraphArea(QtGui.QWidget):
 
     # TODO: Change to (wavelength, intensity) format.
     def graph_spectrometer(self):
-        # plt.ion()
+        """ Graphs spectrometer data """
         plt.delaxes()
         plt.grid(True)
         plt.xlim(xmin=0, xmax=self.max_len)
@@ -110,7 +124,9 @@ class GraphArea(QtGui.QWidget):
         plt.show()
         plt.pause(0.0001)
 
+
 class SensorEnableBox(QtGui.QWidget):
+    """ Contains all elements relevant to enabling and disabling basic sensors. """
     def __init__(self, parent):
         """ Initial setup of the UI """
         super(SensorEnableBox, self).__init__()

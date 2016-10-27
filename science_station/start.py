@@ -1,29 +1,35 @@
 import csv
 import dateutil.parser
 import sys
+import tkinter              # Required for PyInstaller to function.
+import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
 from customWidgets import GraphArea, DataStore, SensorEnableBox
-import tkinter
-from tkinter import filedialog
 
 
-# TODO: functions - plot spectrometer data
+# TODO: Implementation - plot spectrometer data
+
 
 class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
+        # Data variables.
         self.current_file = ""
         self.ds = DataStore()
         self.spectrometer_data = []
 
+        # Main Window information
         QtGui.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
         self.resize(946, 542)
         self.setSizeIncrement(QtCore.QSize(1, 1))
         self.centralWidget = QtGui.QWidget(self)
+
+        # Layout contains all information for a single digsite.
         self.digMainLayout = QtGui.QVBoxLayout(self.centralWidget)
         self.digMainLayout.setMargin(11)
         self.digMainLayout.setSpacing(6)
 
+        # Layout should contain all elements relevant to data input (file or otherwise)
         self.inputFrame = QtGui.QHBoxLayout()
         self.inputFrame.setMargin(11)
         self.inputFrame.setSpacing(6)
@@ -37,22 +43,28 @@ class StartQT4(QtGui.QMainWindow):
         self.inputFrame.addWidget(self.importButton)
         self.inputFrame.addItem(spacer_item)
 
+        # Layout contains all elements required for display of information (essentially everything else)
         self.displayFrame = QtGui.QHBoxLayout()
         self.displayFrame.setMargin(11)
         self.displayFrame.setSpacing(6)
 
+        # Contains a tab for each type of graph. Will eventually contain tabs for additional info (i.e. pictures)
         self.graphTabs = QtGui.QTabWidget()
 
+        # Contains all elements relevant to display of basic sensor data
         self.basic = QtGui.QWidget()
         self.basicGraphLayout = QtGui.QHBoxLayout(self.basic)
         self.basicGraphLayout.setMargin(0)
         self.basicGraphLayout.setSpacing(2)
+        # SensorEnableBox - custom widget for enabling/disabling rover sensor display
         self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
         self.basicGraphLayout.addWidget(self.sensorEnables)
+        # GraphArea - custom widget for display of Matplotlib graphs of basic and spectrometer readings
         self.basicGraph = GraphArea()
         self.basicGraphLayout.addWidget(self.basicGraph)
         self.graphTabs.addTab(self.basic, "Temp/Humid")
 
+        # Contains all elements relevant to display of spectrometer data
         self.spectrometer = QtGui.QWidget()
         self.spectrometerGraphLayout = QtGui.QHBoxLayout(self.spectrometer)
         self.spectrometerGraphLayout.setMargin(0)
@@ -70,12 +82,15 @@ class StartQT4(QtGui.QMainWindow):
         self.setCentralWidget(self.centralWidget)
 
     def enterfile(self):
+        """ Enters the file contents to graphing area. Grabs the name of file entered, parses that file,
+            and graphs its data."""
         filename = self.fileInput.text()
         if filename != self.current_file:
             if filename.lower().endswith('.csv'):
                 # Assuming basic temp/humid.
                 self.parsecsv(filename)
                 self.current_file = filename
+                # TODO: Add check for Spectrometer data and conditional graph call.
                 self.basicGraph.graph_basic(self.ds)
             else:
                 self.showdialogue("Unsupported file type. Please input a .csv file.")
@@ -84,6 +99,8 @@ class StartQT4(QtGui.QMainWindow):
             self.showdialogue("File requested is already entered.")
 
     def parsecsv(self, csv_name):
+        """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.
+            Places data in relevant data store. """
         with open(csv_name, 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=' ')
             # check header for Spectrometer or Temp/Humid readings.
@@ -117,19 +134,20 @@ class StartQT4(QtGui.QMainWindow):
                             self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
                     if csv_type == "spectrometer":
                         wavelength, intensity = row.split(' ')
+                        # TODO: We completely forgot to test this. Ehrenfreund v1.1 needs to add this as well.
                         if type(wavelength) != "str" and type(intensity) != "str":
                             self.spectrometer_data.append((wavelength, intensity))
                 except StopIteration:
                         pass
 
     def showdialogue(self, errormessage):
+        """ Error dialogue window used for file entry. """
         msg = QtGui.QMessageBox()
         msg.setIcon(QtGui.QMessageBox.Critical)
         msg.setText(errormessage)
         msg.setWindowTitle("ERROR")
         msg.setStandardButtons(QtGui.QMessageBox.Ok)
         msg.exec_()
-
 
 
 def main():

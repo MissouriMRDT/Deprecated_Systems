@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 
@@ -109,5 +109,59 @@ class GraphArea(QtGui.QWidget):
         plt.plot(np.arange(start=0, stop=self.data_len[self.row_count], step=1), self.ccd_data[self.row_count])
         plt.show()
         plt.pause(0.0001)
+
+class SensorEnableBox(QtGui.QWidget):
+    def __init__(self, parent):
+        """ Initial setup of the UI """
+        super(SensorEnableBox, self).__init__()
+        self.sensorEnables = QtGui.QVBoxLayout()
+        self.sensorEnables.setSpacing(0)
+        self.sensorEnables.setContentsMargins(-1, 0, -1, -1)
+
+        self.humidSensors = QtGui.QGroupBox()
+        # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
+        self.hsheath1 = QtGui.QCheckBox(self.humidSensors)
+        self.hsheath1.setText("Humid1")
+        self.humidLayout = QtGui.QVBoxLayout(self.humidSensors)
+        self.humidLayout.setSpacing(7)
+        self.humidLayout.addWidget(self.hsheath1)
+        self.hsheath2 = QtGui.QCheckBox(self.humidSensors)
+        self.hsheath2.setText("Humid2")
+        self.humidLayout.addWidget(self.hsheath2)
+        self.hdrill1 = QtGui.QCheckBox(self.humidSensors)
+        self.hdrill1.setText("Humid3")
+        self.humidLayout.addWidget(self.hdrill1)
+        self.hdrill2 = QtGui.QCheckBox(self.humidSensors)
+        self.hdrill2.setText("Humid4")
+        self.humidLayout.addWidget(self.hdrill2)
+        self.sensorEnables.addWidget(self.humidSensors)
+
+        self.tempSensors = QtGui.QGroupBox()
+        # self.tempSensors.setMaximumSize(QtCore.QSize(100, 150))
+        self.tempLayout = QtGui.QVBoxLayout(self.tempSensors)
+        self.tempLayout.setSpacing(7)
+        self.tsheath1 = QtGui.QCheckBox(self.tempSensors)
+        self.tsheath1.setText("Temp1")
+        self.tempLayout.addWidget(self.tsheath1)
+        self.tsheath2 = QtGui.QCheckBox(self.tempSensors)
+        self.tsheath2.setText("Temp2")
+        self.tempLayout.addWidget(self.tsheath2)
+        self.tdrill1 = QtGui.QCheckBox(self.tempSensors)
+        self.tdrill1.setText("Temp3")
+        self.tempLayout.addWidget(self.tdrill1)
+        self.tdrill2 = QtGui.QCheckBox(self.tempSensors)
+        self.tdrill2.setText("Temp4")
+        self.tempLayout.addWidget(self.tdrill2)
+        self.sensorEnables.addWidget(self.tempSensors)
+
+        self.saveGraphsButton = QtGui.QPushButton()
+        self.saveGraphsButton.setText("Refresh Graph")
+        self.sensorEnables.addWidget(self.saveGraphsButton)
+
+        spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.sensorEnables.addItem(spacer_item)
+
+        parent.addLayout(self.sensorEnables)
+
 
 # color picker: http://www.w3schools.com/colors/colors_hex.asp

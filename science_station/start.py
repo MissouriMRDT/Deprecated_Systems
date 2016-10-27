@@ -2,7 +2,9 @@ import csv
 import dateutil.parser
 import sys
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, DataStore
+from customWidgets import GraphArea, DataStore, SensorEnableBox
+import tkinter
+from tkinter import filedialog
 
 
 # TODO: functions - plot spectrometer data
@@ -38,13 +40,14 @@ class StartQT4(QtGui.QMainWindow):
         self.displayFrame.setMargin(11)
         self.displayFrame.setSpacing(6)
 
-        # sensor enables go here
-
         self.graphTabs = QtGui.QTabWidget()
 
         self.basic = QtGui.QWidget()
         self.basicGraphLayout = QtGui.QHBoxLayout(self.basic)
         self.basicGraphLayout.setMargin(0)
+        self.basicGraphLayout.setSpacing(2)
+        self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
+        self.basicGraphLayout.addWidget(self.sensorEnables)
         self.basicGraph = GraphArea()
         self.basicGraphLayout.addWidget(self.basicGraph)
         self.graphTabs.addTab(self.basic, "Temp/Humid")

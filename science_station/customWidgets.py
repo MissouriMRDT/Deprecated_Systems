@@ -109,13 +109,13 @@ class GraphArea(QtGui.QWidget):
             h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1", mew=0)
             humid_handles.append(h1_plot)
         if len(np.array(ds.humid2)) > 0:
-            h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2")
+            h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2", mew=0)
             humid_handles.append(h2_plot)
         if len(np.array(ds.humid3)) > 0:
-            h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3")
+            h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3", mew=0)
             humid_handles.append(h3_plot)
         if len(np.array(ds.humid4)) > 0:
-            h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4")
+            h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4", mew=0)
             humid_handles.append(h4_plot)
         try:  # Shouldn't ever fail due to conditional append. Try block kept just to be safe.
             humid_subplot.legend(handles=humid_handles)
@@ -126,15 +126,27 @@ class GraphArea(QtGui.QWidget):
         self.canvas.draw()
 
     # TODO: Change to (wavelength, intensity) format.
-    def graph_spectrometer(self):
+    # Data must be in format [(#,#),(#,#),(#,#)] i.e. a list of tuples.
+    def graph_spectrometer(self, data_tuples):
         """ Graphs spectrometer data """
-        plt.delaxes()
-        plt.grid(True)
-        plt.xlim(xmin=0, xmax=self.max_len)
-        plt.ylim(ymin=0, ymax=1023)
-        plt.plot(np.arange(start=0, stop=self.data_len[self.row_count], step=1), self.ccd_data[self.row_count])
-        plt.show()
-        plt.pause(0.0001)
+        wavelength, intensity = np.array(data_tuples).T
+        print(wavelength)
+        print(intensity)
+        wavelength_f = []
+        intensity_f = []
+        for i in range(len(wavelength)):
+            wavelength_f.append(float(wavelength[i]))
+        for i in range(len(intensity)):
+            intensity_f.append(float(intensity[i]))
+        spectro_plot = self.fig.add_subplot(1,1,1)
+        spectro_plot.set_title("Spectral Response")
+        spectro_plot.set_ylabel("Intensity")
+        spectro_plot.set_xlabel("Wavelength (nm)")
+        spectro_plot.grid(True)
+        spectro_plot.plot(wavelength_f, intensity_f, 'bo')
+
+        self.fig.set_tight_layout(True)
+        self.canvas.draw()
 
 
 class SensorEnableBox(QtGui.QWidget):
@@ -152,19 +164,19 @@ class SensorEnableBox(QtGui.QWidget):
         self.tempLayout.setSpacing(7)
         self.tsheath1 = QtGui.QCheckBox(self.tempSensors)
         self.tsheath1.setText("Temp1")
-        self.tsheath1.setChecked()
+        self.tsheath1.setChecked(True)
         self.tempLayout.addWidget(self.tsheath1)
         self.tsheath2 = QtGui.QCheckBox(self.tempSensors)
         self.tsheath2.setText("Temp2")
-        self.tsheath2.setChecked()
+        self.tsheath2.setChecked(True)
         self.tempLayout.addWidget(self.tsheath2)
         self.tdrill1 = QtGui.QCheckBox(self.tempSensors)
         self.tdrill1.setText("Temp3")
-        self.tdrill1.setChecked()
+        self.tdrill1.setChecked(True)
         self.tempLayout.addWidget(self.tdrill1)
         self.tdrill2 = QtGui.QCheckBox(self.tempSensors)
         self.tdrill2.setText("Temp4")
-        self.tdrill2.setChecked()
+        self.tdrill2.setChecked(True)
         self.tempLayout.addWidget(self.tdrill2)
         self.sensorEnables.addWidget(self.tempSensors)
 
@@ -172,21 +184,21 @@ class SensorEnableBox(QtGui.QWidget):
         # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
         self.hsheath1 = QtGui.QCheckBox(self.humidSensors)
         self.hsheath1.setText("Humid1")
-        self.hsheath1.setChecked()
+        self.hsheath1.setChecked(True)
         self.humidLayout = QtGui.QVBoxLayout(self.humidSensors)
         self.humidLayout.setSpacing(7)
         self.humidLayout.addWidget(self.hsheath1)
         self.hsheath2 = QtGui.QCheckBox(self.humidSensors)
         self.hsheath2.setText("Humid2")
-        self.hsheath2.setChecked()
+        self.hsheath2.setChecked(True)
         self.humidLayout.addWidget(self.hsheath2)
         self.hdrill1 = QtGui.QCheckBox(self.humidSensors)
         self.hdrill1.setText("Humid3")
-        self.hdrill1.setChecked()
+        self.hdrill1.setChecked(True)
         self.humidLayout.addWidget(self.hdrill1)
         self.hdrill2 = QtGui.QCheckBox(self.humidSensors)
         self.hdrill2.setText("Humid4")
-        self.hdrill2.setChecked()
+        self.hdrill2.setChecked(True)
         self.humidLayout.addWidget(self.hdrill2)
         self.sensorEnables.addWidget(self.humidSensors)
 

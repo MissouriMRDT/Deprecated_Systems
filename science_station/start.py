@@ -4,7 +4,7 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, DataStore, SensorEnableBox
+from customWidgets import GraphArea, DataStore, SensorEnableBox, SensorEnableStates
 
 
 # TODO: Implementation - plot spectrometer data
@@ -91,7 +91,17 @@ class StartQT4(QtGui.QMainWindow):
                 self.parsecsv(filename)
                 self.current_file = filename
                 # TODO: Add check for Spectrometer data and conditional graph call.
-                self.basicGraph.graph_basic(self.ds)
+                sensorEnableBools = SensorEnableStates()
+                sensorEnableBools.temp1 = self.sensorEnables.tsheath1.isChecked()
+                sensorEnableBools.temp2 = self.sensorEnables.tsheath2.isChecked()
+                sensorEnableBools.temp3 = self.sensorEnables.tdrill1.isChecked()
+                sensorEnableBools.temp4 = self.sensorEnables.tdrill2.isChecked()
+                sensorEnableBools.humid1 = self.sensorEnables.hsheath1.isChecked()
+                sensorEnableBools.humid2 = self.sensorEnables.hsheath2.isChecked()
+                sensorEnableBools.humid3 = self.sensorEnables.hdrill1.isChecked()
+                sensorEnableBools.humid4 = self.sensorEnables.hdrill2.isChecked()
+
+                self.basicGraph.graph_basic(self.ds, sensorEnableBools)
             else:
                 self.showdialogue("Unsupported file type. Please input a .csv file.")
 

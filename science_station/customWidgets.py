@@ -17,6 +17,18 @@ class DataStore:
         self.humid3 = []
         self.humid4 = []
 
+class SensorEnableStates:
+    """ Sensor enabled checkbox values """
+    def __init__(self):
+        self.temp1 = True;
+        self.temp2 = True;
+        self.temp3 = True;
+        self.temp4 = True;
+        self.humid1 = True;
+        self.humid2 = True;
+        self.humid3 = True;
+        self.humid4 = True;
+
 
 class GraphArea(QtGui.QWidget):
     """ Creates a Matplotlib graphing area tailored for MRDT 2017 basic and spectrometer readings in Ehrenfreund. """
@@ -36,24 +48,24 @@ class GraphArea(QtGui.QWidget):
         display_frame.addWidget(self.canvas)
         display_frame.addWidget(toolbar)
 
-    def graph_basic(self, ds: DataStore):
+    def graph_basic(self, ds: DataStore, sensorEnableBools):
         """ Graphs basic data """
-        if len(np.array(ds.temp1)) > 0:
+        if len(np.array(ds.temp1)) > 0 and sensorEnableBools.temp1:
             temp1_time, temp1_data = np.array(ds.temp1).T
-        if len(np.array(ds.temp2)) > 0:
+        if len(np.array(ds.temp2)) > 0 and sensorEnableBools.temp2:
             temp2_time, temp2_data = np.array(ds.temp2).T
-        if len(np.array(ds.temp3)) > 0:
+        if len(np.array(ds.temp3)) > 0 and sensorEnableBools.temp3:
             temp3_time, temp3_data = np.array(ds.temp3).T
-        if len(np.array(ds.temp4)) > 0:
+        if len(np.array(ds.temp4)) > 0 and sensorEnableBools.temp4:
             temp4_time, temp4_data = np.array(ds.temp4).T
 
-        if len(np.array(ds.humid1)) > 0:
+        if len(np.array(ds.humid1)) > 0 and sensorEnableBools.humid1:
             humid1_time, humid1_data = np.array(ds.humid1).T
-        if len(np.array(ds.humid2)) > 0:
+        if len(np.array(ds.humid2)) > 0 and sensorEnableBools.humid2:
             humid2_time, humid2_data = np.array(ds.humid2).T
-        if len(np.array(ds.humid3)) > 0:
+        if len(np.array(ds.humid3)) > 0 and sensorEnableBools.humid3:
             humid3_time, humid3_data = np.array(ds.humid3).T
-        if len(np.array(ds.humid4)) > 0:
+        if len(np.array(ds.humid4)) > 0 and sensorEnableBools.humid4:
             humid4_time, humid4_data = np.array(ds.humid4).T
 
         # Temperature Subplot
@@ -140,15 +152,19 @@ class SensorEnableBox(QtGui.QWidget):
         self.tempLayout.setSpacing(7)
         self.tsheath1 = QtGui.QCheckBox(self.tempSensors)
         self.tsheath1.setText("Temp1")
+        self.tsheath1.setChecked()
         self.tempLayout.addWidget(self.tsheath1)
         self.tsheath2 = QtGui.QCheckBox(self.tempSensors)
         self.tsheath2.setText("Temp2")
+        self.tsheath2.setChecked()
         self.tempLayout.addWidget(self.tsheath2)
         self.tdrill1 = QtGui.QCheckBox(self.tempSensors)
         self.tdrill1.setText("Temp3")
+        self.tdrill1.setChecked()
         self.tempLayout.addWidget(self.tdrill1)
         self.tdrill2 = QtGui.QCheckBox(self.tempSensors)
         self.tdrill2.setText("Temp4")
+        self.tdrill2.setChecked()
         self.tempLayout.addWidget(self.tdrill2)
         self.sensorEnables.addWidget(self.tempSensors)
 
@@ -156,17 +172,21 @@ class SensorEnableBox(QtGui.QWidget):
         # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
         self.hsheath1 = QtGui.QCheckBox(self.humidSensors)
         self.hsheath1.setText("Humid1")
+        self.hsheath1.setChecked()
         self.humidLayout = QtGui.QVBoxLayout(self.humidSensors)
         self.humidLayout.setSpacing(7)
         self.humidLayout.addWidget(self.hsheath1)
         self.hsheath2 = QtGui.QCheckBox(self.humidSensors)
         self.hsheath2.setText("Humid2")
+        self.hsheath2.setChecked()
         self.humidLayout.addWidget(self.hsheath2)
         self.hdrill1 = QtGui.QCheckBox(self.humidSensors)
         self.hdrill1.setText("Humid3")
+        self.hdrill1.setChecked()
         self.humidLayout.addWidget(self.hdrill1)
         self.hdrill2 = QtGui.QCheckBox(self.humidSensors)
         self.hdrill2.setText("Humid4")
+        self.hdrill2.setChecked()
         self.humidLayout.addWidget(self.hdrill2)
         self.sensorEnables.addWidget(self.humidSensors)
 

@@ -104,7 +104,6 @@ class StartQT4(QtGui.QMainWindow):
         with open(csv_name, 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=' ')
             # check header for Spectrometer or Temp/Humid readings.
-            # Assuming Temp/Humid
             header = next(reader)
             csvfile.seek(0)
             if header == ['datetime', 'sensor', 'measurement']:

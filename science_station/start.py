@@ -14,6 +14,7 @@ class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
         # Data variables.
         self.current_file = ""
+        self.csv_type = ""
         self.ds = DataStore()
         self.spectrometer_data = []
 
@@ -91,7 +92,10 @@ class StartQT4(QtGui.QMainWindow):
                 self.parsecsv(filename)
                 self.current_file = filename
                 # TODO: Add check for Spectrometer data and conditional graph call.
-                self.basicGraph.graph_basic(self.ds)
+                if self.csv_type == "basic":
+                    self.basicGraph.graph_basic(self.ds)
+                elif self.csv_type == "spectrometer":
+                    self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
             else:
                 self.showdialogue("Unsupported file type. Please input a .csv file.")
 
@@ -106,15 +110,14 @@ class StartQT4(QtGui.QMainWindow):
             # check header for Spectrometer or Temp/Humid readings.
             # Assuming Temp/Humid
             header = next(reader)
-            csvfile.seek(0)
             if header == ['datetime', 'sensor', 'measurement']:
-                csv_type = "basic"
+                self.csv_type = "basic"
             elif header == ["wavelength", "intensity"]:
-                csv_type = "spectrometer"
+                self.csv_type = "spectrometer"
 
             for row in reader:
                 try:
-                    if csv_type == "basic":
+                    if self.csv_type == "basic":
                         datestamp, sensor, raw_data = row
                         if sensor == "Temp1":
                             self.ds.temp1.append((dateutil.parser.parse(datestamp), raw_data))
@@ -132,8 +135,8 @@ class StartQT4(QtGui.QMainWindow):
                             self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid4":
                             self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
-                    if csv_type == "spectrometer":
-                        wavelength, intensity = row.split(' ')
+                    if self.csv_type == "spectrometer":
+                        wavelength, intensity = row
                         # TODO: We completely forgot to test this. Ehrenfreund v1.1 needs to add this as well.
                         if type(wavelength) != "str" and type(intensity) != "str":
                             self.spectrometer_data.append((wavelength, intensity))

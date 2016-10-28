@@ -97,13 +97,13 @@ class GraphArea(QtGui.QWidget):
             h1_plot = humid_subplot.plot_date(x=humid1_time, y=humid1_data, color="gold", label="humid1", mew=0)
             humid_handles.append(h1_plot)
         if len(np.array(ds.humid2)) > 0:
-            h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2")
+            h2_plot = humid_subplot.plot_date(x=humid2_time, y=humid2_data, color="salmon", label="humid2", mew=0)
             humid_handles.append(h2_plot)
         if len(np.array(ds.humid3)) > 0:
-            h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3")
+            h3_plot = humid_subplot.plot_date(x=humid3_time, y=humid3_data, color="medium orchid", label="humid3", mew=0)
             humid_handles.append(h3_plot)
         if len(np.array(ds.humid4)) > 0:
-            h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4")
+            h4_plot = humid_subplot.plot_date(x=humid4_time, y=humid4_data, color="light green", label="humid4", mew=0)
             humid_handles.append(h4_plot)
         try:  # Shouldn't ever fail due to conditional append. Try block kept just to be safe.
             humid_subplot.legend(handles=humid_handles)
@@ -114,15 +114,27 @@ class GraphArea(QtGui.QWidget):
         self.canvas.draw()
 
     # TODO: Change to (wavelength, intensity) format.
-    def graph_spectrometer(self):
+    # Data must be in format [(#,#),(#,#),(#,#)] i.e. a list of tuples.
+    def graph_spectrometer(self, data_tuples):
         """ Graphs spectrometer data """
-        plt.delaxes()
-        plt.grid(True)
-        plt.xlim(xmin=0, xmax=self.max_len)
-        plt.ylim(ymin=0, ymax=1023)
-        plt.plot(np.arange(start=0, stop=self.data_len[self.row_count], step=1), self.ccd_data[self.row_count])
-        plt.show()
-        plt.pause(0.0001)
+        wavelength, intensity = np.array(data_tuples).T
+        print(wavelength)
+        print(intensity)
+        wavelength_f = []
+        intensity_f = []
+        for i in range(len(wavelength)):
+            wavelength_f.append(float(wavelength[i]))
+        for i in range(len(intensity)):
+            intensity_f.append(float(intensity[i]))
+        spectro_plot = self.fig.add_subplot(1,1,1)
+        spectro_plot.set_title("Spectral Response")
+        spectro_plot.set_ylabel("Intensity")
+        spectro_plot.set_xlabel("Wavelength (nm)")
+        spectro_plot.grid(True)
+        spectro_plot.plot(wavelength_f, intensity_f, 'bo')
+
+        self.fig.set_tight_layout(True)
+        self.canvas.draw()
 
 
 class SensorEnableBox(QtGui.QWidget):

@@ -17,6 +17,7 @@ class StartQT4(QtGui.QMainWindow):
         self.csv_type = ""
         self.ds = DataStore()
         self.spectrometer_data = []
+        self.sensorEnableBools = SensorEnableStates()
 
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
@@ -79,8 +80,8 @@ class StartQT4(QtGui.QMainWindow):
 
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
         self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
-        self.connect(self.SensorEnables.saveGraphButton, QtCore.SIGNAL("clicked()"), self.basicGraph.graph_basic(self.ds, self.sensorEnableBools))
-        self.connect(self.sensorEnables.tsheath1.stateChanged.connect(self.updateSensorChecks()))
+        self.connect(self.sensorEnables.saveGraphsButton, QtCore.SIGNAL("clicked()"), lambda: self.basicGraph.graph_basic(self.ds, self.sensorEnableBools))
+        self.connect(self.sensorEnables.tsheath1.stateChanged.connect(lambda: self.updateSensorBools(self.sensorEnables.tsheath1)))
 
         self.setCentralWidget(self.centralWidget)
 
@@ -95,17 +96,9 @@ class StartQT4(QtGui.QMainWindow):
                 self.current_file = filename
                 # TODO: Add check for Spectrometer data and conditional graph call.
                 if self.csv_type == "basic":
-                    self.sensorEnableBools = SensorEnableStates()
-                    self.sensorEnableBools.temp1 = self.sensorEnables.tsheath1.isChecked()
-                    self.sensorEnableBools.temp2 = self.sensorEnables.tsheath2.isChecked()
-                    self.sensorEnableBools.temp3 = self.sensorEnables.tdrill1.isChecked()
-                    self.sensorEnableBools.temp4 = self.sensorEnables.tdrill2.isChecked()
-                    self.sensorEnableBools.humid1 = self.sensorEnables.hsheath1.isChecked()
-                    self.sensorEnableBools.humid2 = self.sensorEnables.hsheath2.isChecked()
-                    self.sensorEnableBools.humid3 = self.sensorEnables.hdrill1.isChecked()
-                    self.sensorEnableBools.humid4 = self.sensorEnables.hdrill2.isChecked()
-
-                    self.basicGraph.graph_basic(self.ds, sensorEnableBools)
+                    # self.basicGraph.graph_basic(self.ds, sensorEnableBools)
+                    # TODO: Refactor to handle sensor class
+                    pass
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
             else:

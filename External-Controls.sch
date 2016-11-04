@@ -20804,7 +20804,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="129.54" y="187.96" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="DROPBAY_2" class="0">
+<net name="DROPBAY_3" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PL0@81"/>
 <wire x1="104.14" y1="180.34" x2="109.22" y2="180.34" width="0.1524" layer="91"/>
@@ -20972,7 +20972,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="38.1" y="132.08" size="1.27" layer="95" rot="MR0" xref="yes"/>
 </segment>
 </net>
-<net name="DROPBAY_3" class="0">
+<net name="DROPBAY_2" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PP0@118"/>
 <wire x1="66.04" y1="134.62" x2="60.96" y2="134.62" width="0.1524" layer="91"/>
@@ -22268,13 +22268,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="53.34" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="DROPBAY_3" class="0">
-<segment>
-<pinref part="U6" gate="G$1" pin="4A"/>
-<wire x1="58.42" y1="86.36" x2="53.34" y2="86.36" width="0.1524" layer="91"/>
-<label x="53.34" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="SERVO_0" class="0">
 <segment>
 <pinref part="U6" gate="G$1" pin="1Y"/>
@@ -22323,6 +22316,13 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="147.32" y="73.66" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="DROPBAY_3" class="0">
+<segment>
+<pinref part="U6" gate="G$1" pin="4A"/>
+<wire x1="58.42" y1="86.36" x2="53.34" y2="86.36" width="0.1524" layer="91"/>
+<label x="53.34" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -22330,10 +22330,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <approved hash="208,1,187.96,266.7,+3V3,sup,,,,"/>
 <approved hash="208,1,157.48,96.52,+3V3,sup,,,,"/>
 <approved hash="208,1,30.48,96.52,+3V3,sup,,,,"/>
-<approved hash="208,1,332.74,132.08,+3V3,sup,,,,"/>
-<approved hash="208,1,307.34,127,+3V3,out,,,,"/>
-<approved hash="208,1,220.98,50.8,+3V3,sup,,,,"/>
-<approved hash="208,1,368.3,134.62,+3V3,sup,,,,"/>
 <approved hash="113,1,215.796,139.596,FRAME1,,,,,"/>
 </errors>
 </schematic>

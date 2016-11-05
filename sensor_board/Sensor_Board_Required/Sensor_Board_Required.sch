@@ -451,20 +451,22 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <wire x1="40.64" y1="71.12" x2="40.64" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="SOIL-TEMP" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="3"/>
 <pinref part="J1" gate="G$1" pin="P$3"/>
 <wire x1="66.04" y1="50.8" x2="45.72" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="50.8" x2="45.72" y2="71.12" width="0.1524" layer="91"/>
+<label x="45.72" y="53.34" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="SOIL-MOISTURE" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="3"/>
 <pinref part="J1" gate="G$1" pin="P$4"/>
 <wire x1="66.04" y1="63.5" x2="50.8" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="63.5" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
+<label x="50.8" y="66.04" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="5V" class="0">

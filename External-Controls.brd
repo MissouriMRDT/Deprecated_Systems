@@ -162,10 +162,12 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="95.25" y2="0" width="0.2032" layer="20"/>
-<wire x1="95.25" y1="0" x2="95.25" y2="64.77" width="0" layer="20"/>
-<wire x1="95.25" y1="64.77" x2="0" y2="64.77" width="0.2032" layer="20"/>
-<wire x1="0" y1="64.77" x2="0" y2="0" width="0.2032" layer="20"/>
+<wire x1="0" y1="0" x2="92.71" y2="0" width="0" layer="20"/>
+<wire x1="92.71" y1="0" x2="95.25" y2="2.54" width="0" layer="20" curve="90"/>
+<wire x1="95.25" y1="2.54" x2="95.25" y2="62.23" width="0" layer="20"/>
+<wire x1="95.25" y1="62.23" x2="92.71" y2="64.77" width="0" layer="20" curve="90"/>
+<wire x1="92.71" y1="64.77" x2="0" y2="64.77" width="0" layer="20"/>
+<wire x1="0" y1="64.77" x2="0" y2="0" width="0" layer="20"/>
 <text x="69.85" y="13.97" size="1.27" layer="21" font="vector" align="center">Missouri S&amp;T
 Mars Rover Design Team
 External Controls

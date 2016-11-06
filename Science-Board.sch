@@ -2306,26 +2306,6 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.127" layer="21"/>
 <text x="6.35" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
 </package>
-<package name="MOLEX-70543-0007">
-<pad name="1" x="11.43" y="0" drill="1.1" shape="square"/>
-<pad name="2" x="8.89" y="0" drill="1.1"/>
-<pad name="3" x="6.35" y="0" drill="1.1"/>
-<pad name="4" x="3.81" y="0" drill="1.1"/>
-<pad name="5" x="1.27" y="0" drill="1.1"/>
-<pad name="6" x="-1.27" y="0" drill="1.1"/>
-<pad name="7" x="-3.81" y="0" drill="1.1"/>
-<pad name="8" x="-6.35" y="0" drill="1.1"/>
-<wire x1="-7.62" y1="1.27" x2="-5.08" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="1.27" x2="10.16" y2="1.27" width="0.127" layer="21"/>
-<wire x1="10.16" y1="1.27" x2="12.7" y2="1.27" width="0.127" layer="21"/>
-<wire x1="12.7" y1="1.27" x2="12.7" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="12.7" y1="-1.27" x2="-7.62" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-7.62" y1="-1.27" x2="-7.62" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="1.27" x2="-5.08" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="2.54" x2="10.16" y2="2.54" width="0.127" layer="21"/>
-<wire x1="10.16" y1="2.54" x2="10.16" y2="1.27" width="0.127" layer="21"/>
-<text x="13.97" y="5.08" size="1.27" layer="21" rot="R270">&gt;NAME</text>
-</package>
 <package name="MOLEX_SL_04_TH">
 <hole x="-5.08" y="8.636" drill="3.4544"/>
 <hole x="5.08" y="8.636" drill="3.4544"/>
@@ -2370,6 +2350,57 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <wire x1="3.81" y1="2.54" x2="3.81" y2="1.27" width="0.127" layer="21"/>
 <text x="7.62" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
 </package>
+<package name="MOLEX-70551-0001">
+<pad name="P$1" x="1.27" y="0" drill="0.8" shape="square"/>
+<pad name="P$2" x="-1.27" y="0" drill="0.8"/>
+<hole x="2.54" y="8.636" drill="3.4036"/>
+<hole x="-2.54" y="8.636" drill="3.4036"/>
+<wire x1="-5.08" y1="13.208" x2="-2.54" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="13.208" x2="2.54" y2="13.208" width="0.127" layer="21"/>
+<wire x1="2.54" y1="13.208" x2="5.08" y2="13.208" width="0.127" layer="21"/>
+<wire x1="5.08" y1="13.208" x2="5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="-3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="1.27" x2="-5.08" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-3.81" y2="0" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="0" x2="-2.54" y2="0" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="3.81" y2="0" width="0.127" layer="21"/>
+<wire x1="3.81" y1="0" x2="2.54" y2="0" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="13.208" x2="-2.54" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="11.43" x2="2.54" y2="11.43" width="0.127" layer="21"/>
+<wire x1="2.54" y1="11.43" x2="2.54" y2="13.208" width="0.127" layer="21"/>
+<text x="-2.54" y="-2.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="7.62" y="1.27" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
+<package name="MOLEX-70551-0007">
+<pad name="P$1" x="8.89" y="0" drill="0.8" shape="square"/>
+<pad name="P$2" x="6.35" y="0" drill="0.8"/>
+<hole x="10.16" y="8.636" drill="3.4036"/>
+<hole x="-10.16" y="8.636" drill="3.4036"/>
+<wire x1="-12.065" y1="13.208" x2="-5.08" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="13.208" x2="5.08" y2="13.208" width="0.127" layer="21"/>
+<wire x1="5.08" y1="13.208" x2="12.065" y2="13.208" width="0.127" layer="21"/>
+<wire x1="12.065" y1="13.208" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="11.43" y1="1.27" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="11.43" y1="1.27" x2="-11.43" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="1.27" x2="-12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-12.065" y1="1.27" x2="-12.065" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="1.27" x2="-11.43" y2="0" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="0" x2="-10.16" y2="0" width="0.127" layer="21"/>
+<wire x1="11.43" y1="1.27" x2="11.43" y2="0" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="13.208" x2="-5.08" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="11.43" x2="5.08" y2="11.43" width="0.127" layer="21"/>
+<wire x1="5.08" y1="11.43" x2="5.08" y2="13.208" width="0.127" layer="21"/>
+<text x="-3.81" y="-2.54" size="1.27" layer="25">&gt;NAME</text>
+<pad name="P$3" x="3.81" y="0" drill="0.8"/>
+<wire x1="10.16" y1="0" x2="11.43" y2="0" width="0.127" layer="21"/>
+<pad name="P$4" x="1.27" y="0" drill="0.8"/>
+<pad name="P$5" x="-1.27" y="0" drill="0.8"/>
+<pad name="P$6" x="-3.81" y="0" drill="0.8"/>
+<pad name="P$7" x="-6.35" y="0" drill="0.8"/>
+<pad name="P$8" x="-8.89" y="0" drill="0.8"/>
+</package>
 </packages>
 <symbols>
 <symbol name="APP">
@@ -2401,22 +2432,6 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <pin name="SIG" x="-5.08" y="5.08" length="middle"/>
 <pin name="VCC" x="-5.08" y="7.62" length="middle"/>
 </symbol>
-<symbol name="SL08">
-<wire x1="0" y1="7.62" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="22.86" y2="0" width="0.254" layer="94"/>
-<wire x1="22.86" y1="0" x2="22.86" y2="7.62" width="0.254" layer="94"/>
-<wire x1="22.86" y1="7.62" x2="0" y2="7.62" width="0.254" layer="94"/>
-<pin name="1" x="2.54" y="-5.08" length="middle" rot="R90"/>
-<pin name="2" x="5.08" y="-5.08" length="middle" rot="R90"/>
-<pin name="3" x="7.62" y="-5.08" length="middle" rot="R90"/>
-<pin name="4" x="10.16" y="-5.08" length="middle" rot="R90"/>
-<pin name="5" x="12.7" y="-5.08" length="middle" rot="R90"/>
-<pin name="6" x="15.24" y="-5.08" length="middle" rot="R90"/>
-<pin name="7" x="17.78" y="-5.08" length="middle" rot="R90"/>
-<pin name="8" x="20.32" y="-5.08" length="middle" rot="R90"/>
-<text x="-1.016" y="0.762" size="1.27" layer="94" rot="R90">&gt;NAME</text>
-<text x="0.254" y="8.89" size="1.27" layer="94">&gt;VALUE</text>
-</symbol>
 <symbol name="SL04">
 <pin name="P$1" x="-7.62" y="7.62" length="middle"/>
 <pin name="P$2" x="-7.62" y="2.54" length="middle"/>
@@ -2428,6 +2443,22 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <wire x1="-2.54" y1="-10.16" x2="-2.54" y2="10.16" width="0.254" layer="94"/>
 <text x="-2.54" y="11.43" size="1.27" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="SL08">
+<wire x1="0" y1="0" x2="22.86" y2="0" width="0.254" layer="94"/>
+<wire x1="22.86" y1="0" x2="22.86" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-10.16" x2="0" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="-10.16" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="P$1" x="2.54" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$2" x="5.08" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$3" x="7.62" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$4" x="10.16" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$5" x="12.7" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$6" x="15.24" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$7" x="17.78" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$8" x="20.32" y="-15.24" length="middle" rot="R90"/>
+<text x="0" y="2.54" size="1.778" layer="94">&gt;VALUE</text>
+<text x="1.016" y="-3.048" size="1.778" layer="94">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2478,6 +2509,15 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SL02-HORIZ" package="MOLEX-70551-0001">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2548,28 +2588,6 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 </device>
 </devices>
 </deviceset>
-<deviceset name="SL08">
-<gates>
-<gate name="G$1" symbol="SL08" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MOLEX-70543-0007">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="8" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SL04" prefix="J">
 <gates>
 <gate name="G$1" symbol="SL04" x="0" y="0"/>
@@ -2592,6 +2610,28 @@ http://www.digikey.com/product-detail/en/SN74AHCT125DR/296-4652-1-ND/405208</des
 <connect gate="G$1" pin="P$2" pad="2"/>
 <connect gate="G$1" pin="P$3" pad="3"/>
 <connect gate="G$1" pin="P$4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SL08">
+<gates>
+<gate name="G$1" symbol="SL08" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MOLEX-70551-0007">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
+<connect gate="G$1" pin="P$4" pad="P$4"/>
+<connect gate="G$1" pin="P$5" pad="P$5"/>
+<connect gate="G$1" pin="P$6" pad="P$6"/>
+<connect gate="G$1" pin="P$7" pad="P$7"/>
+<connect gate="G$1" pin="P$8" pad="P$8"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -15821,7 +15861,7 @@ SIGNITURE</text>
 <part name="OKI-5V-INT" library="MRDT-ICs" deviceset="OKI-78SR-*/1.5-W36?C" device="H" technology="5"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="SPEC-MOTOR" library="MRDT-Connectors" deviceset="SL02" device=""/>
+<part name="SPEC-MOTOR" library="MRDT-Connectors" deviceset="SL02" device="SL02-HORIZ" value="SL02SL02-HORIZ"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="rcl" deviceset="C-US" device="C1206" value="10uF"/>
 <part name="C2" library="rcl" deviceset="C-US" device="C1206" value="22uF"/>
@@ -15832,14 +15872,14 @@ SIGNITURE</text>
 <part name="U$4" library="MRDT-Semiconductors" deviceset="BSS136N" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="M0805"/>
-<part name="LASER" library="MRDT-Connectors" deviceset="SL02" device=""/>
+<part name="LASER" library="MRDT-Connectors" deviceset="SL02" device="SL02-HORIZ" value="SL02SL02-HORIZ"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="U3" library="MRDT-ICs" deviceset="SN74AHCT125" device=""/>
 <part name="CAROUSEL" library="MRDT-Connectors" deviceset="SERVO" device="HORIZ" value="SERVOHORIZ"/>
 <part name="FLAP" library="MRDT-Connectors" deviceset="SERVO" device="HORIZ" value="SERVOHORIZ"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="DIODE1" library="MRDT-Connectors" deviceset="SL02" device=""/>
+<part name="DIODE1" library="MRDT-Connectors" deviceset="SL02" device="SL02-HORIZ" value="SL02SL02-HORIZ"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="U$3" library="MRDT-ICs" deviceset="AP7365-WG-7DICT-ND" device=""/>
 <part name="R2" library="rcl" deviceset="R-US_" device="M0805" value="21.8k"/>
@@ -15862,7 +15902,7 @@ SIGNITURE</text>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" deviceset="C-US" device="C0805" value="0.1uF"/>
-<part name="DIODE2" library="MRDT-Connectors" deviceset="SL02" device=""/>
+<part name="DIODE2" library="MRDT-Connectors" deviceset="SL02" device="SL02-HORIZ" value="SL02SL02-HORIZ"/>
 <part name="U$7" library="MRDT-ICs" deviceset="OPA320" device=""/>
 <part name="R8" library="rcl" deviceset="R-US_" device="M0805" value="32.3k"/>
 <part name="R9" library="rcl" deviceset="R-US_" device="M0805" value="49.9"/>
@@ -15883,7 +15923,6 @@ SIGNITURE</text>
 <part name="R21" library="rcl" deviceset="R-US_" device="R0805" value="19.3k"/>
 <part name="U$8" library="MRDT-ICs" deviceset="TCA9517" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
-<part name="WEATHER-SENSORS" library="MRDT-Connectors" deviceset="SL08" device=""/>
 <part name="R12" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R13" library="rcl" deviceset="R-US_" device="R0805" value="19.3k"/>
 <part name="SOIL-SENSORS" library="MRDT-Connectors" deviceset="SL04" device=""/>
@@ -15895,6 +15934,7 @@ SIGNITURE</text>
 <part name="H3" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
 <part name="H4" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
 <part name="H5" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
+<part name="WEATHER_SENSORS" library="MRDT-Connectors" deviceset="SL08" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16006,7 +16046,6 @@ SIGNITURE</text>
 <instance part="R21" gate="G$1" x="104.14" y="-154.94" rot="R90"/>
 <instance part="U$8" gate="G$1" x="53.34" y="-132.08"/>
 <instance part="GND21" gate="1" x="25.4" y="-147.32"/>
-<instance part="WEATHER-SENSORS" gate="G$1" x="106.68" y="-101.6"/>
 <instance part="R12" gate="G$1" x="134.62" y="-144.78" rot="R90"/>
 <instance part="R13" gate="G$1" x="134.62" y="-157.48" rot="R90"/>
 <instance part="SOIL-SENSORS" gate="G$1" x="149.86" y="-99.06" rot="R90"/>
@@ -16018,6 +16057,7 @@ SIGNITURE</text>
 <instance part="H3" gate="G$1" x="5.08" y="-50.8"/>
 <instance part="H4" gate="G$1" x="20.32" y="-50.8"/>
 <instance part="H5" gate="G$1" x="5.08" y="-43.18"/>
+<instance part="WEATHER_SENSORS" gate="G$1" x="106.68" y="-88.9"/>
 </instances>
 <busses>
 </busses>
@@ -16105,8 +16145,8 @@ SIGNITURE</text>
 </segment>
 <segment>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="127" y1="-106.68" x2="127" y2="-109.22" width="0.1524" layer="91"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="8"/>
+<wire x1="127" y1="-104.14" x2="127" y2="-109.22" width="0.1524" layer="91"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$8"/>
 </segment>
 <segment>
 <pinref part="FLAP" gate="G$1" pin="GND"/>
@@ -16320,9 +16360,9 @@ SIGNITURE</text>
 <junction x="10.16" y="-193.04"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="-106.68" x2="109.22" y2="-111.76" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-104.14" x2="109.22" y2="-111.76" width="0.1524" layer="91"/>
 <label x="109.22" y="-111.76" size="1.27" layer="95" rot="R270" xref="yes"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="1"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="U$5" gate="G$1" pin="IN"/>
@@ -16675,29 +16715,29 @@ SIGNITURE</text>
 </net>
 <net name="N$15" class="0">
 <segment>
-<wire x1="116.84" y1="-129.54" x2="116.84" y2="-106.68" width="0.1524" layer="91"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="4"/>
+<wire x1="116.84" y1="-129.54" x2="116.84" y2="-104.14" width="0.1524" layer="91"/>
 <pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="116.84" y1="-129.54" x2="104.14" y2="-129.54" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="-129.54" x2="104.14" y2="-137.16" width="0.1524" layer="91"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$4"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
-<wire x1="121.92" y1="-106.68" x2="121.92" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="-104.14" x2="121.92" y2="-132.08" width="0.1524" layer="91"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="121.92" y1="-132.08" x2="124.46" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="-132.08" x2="124.46" y2="-139.7" width="0.1524" layer="91"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="6"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$6"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
-<wire x1="119.38" y1="-106.68" x2="119.38" y2="-132.08" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="-104.14" x2="119.38" y2="-132.08" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="119.38" y1="-132.08" x2="114.3" y2="-132.08" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="-132.08" x2="114.3" y2="-139.7" width="0.1524" layer="91"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="5"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$5"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -16750,9 +16790,9 @@ SIGNITURE</text>
 </net>
 <net name="PRESSURE-SDA-5V" class="0">
 <segment>
-<wire x1="111.76" y1="-106.68" x2="111.76" y2="-111.76" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="-104.14" x2="111.76" y2="-111.76" width="0.1524" layer="91"/>
 <label x="111.76" y="-111.76" size="1.27" layer="95" rot="R270" xref="yes"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="2"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="G$1" pin="SDA_B"/>
@@ -16762,9 +16802,9 @@ SIGNITURE</text>
 </net>
 <net name="PRESSURE-SCL-5V" class="0">
 <segment>
-<wire x1="114.3" y1="-106.68" x2="114.3" y2="-111.76" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="-104.14" x2="114.3" y2="-111.76" width="0.1524" layer="91"/>
 <label x="114.3" y="-111.76" size="1.27" layer="95" rot="R270" xref="yes"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="3"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$3"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="G$1" pin="SCL_B"/>
@@ -16800,9 +16840,9 @@ SIGNITURE</text>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="134.62" y1="-139.7" x2="134.62" y2="-129.54" width="0.1524" layer="91"/>
-<pinref part="WEATHER-SENSORS" gate="G$1" pin="7"/>
 <wire x1="134.62" y1="-129.54" x2="124.46" y2="-129.54" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="-129.54" x2="124.46" y2="-106.68" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="-129.54" x2="124.46" y2="-104.14" width="0.1524" layer="91"/>
+<pinref part="WEATHER_SENSORS" gate="G$1" pin="P$7"/>
 </segment>
 </net>
 <net name="N$18" class="0">

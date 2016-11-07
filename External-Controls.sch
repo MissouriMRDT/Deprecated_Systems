@@ -20504,11 +20504,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device="" value="+5V_LOGIC"/>
 <part name="P+2" library="supply1" deviceset="+12V" device="" value="+12V_LOGIC"/>
-<part name="C23" library="resistor" deviceset="C-US" device="C0603" value="10uF"/>
+<part name="C23" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
 <part name="J2" library="MRDT-Connectors" deviceset="JTAG_ARM_10PIN" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="C24" library="resistor" deviceset="C-US" device="C0603" value="10uF"/>
+<part name="C24" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
 <part name="LED3" library="led" deviceset="LED" device="CHIP-LED0603" value="ORANGE"/>
 <part name="R19" library="resistor" deviceset="R-US_" device="R0603" value="330"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
@@ -20526,8 +20526,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U7" library="MRDT-ICs" deviceset="OKI-78SR-*/1.5-W36?C" device="H" technology="5"/>
 <part name="P+7" library="supply1" deviceset="+12V" device="" value="+12V_ACT"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="C25" library="resistor" deviceset="C-US" device="C0603" value="10uF"/>
-<part name="C26" library="resistor" deviceset="C-US" device="C0603" value="10uF"/>
+<part name="C25" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
+<part name="C26" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
 <part name="P+8" library="supply1" deviceset="+5V" device="" value="+5V_ACT"/>
 </parts>
 <sheets>

@@ -46,12 +46,15 @@
 #define P32 PF_3
 #define P33 PH_2
 
+#define DROPBAY0 PK_0
+#define DROPBAY1 PF_1
+#define DROPBAY2 PP_0
+#define DROPBAY3 PL_0
 
 //Camera pulse lengths (ms)
 #define SHORT_SIGNAL 1000
 #define MID_SIGNAL 1500
 #define LONG_SIGNAL 2000
-
 
 
 
@@ -88,6 +91,8 @@ size_t size = 0;
 char data[8];
 int counter;
 
+Servo Dropbay[4];
+
 Servo servoMux1;
 Servo servoMux2;
 
@@ -119,11 +124,10 @@ void setup() {
   digitalWrite(PWM3,0);
   digitalWrite(EN_12V,1);
   
-  
-  
-  
-  
-
+  Dropbay[0].attach(DROPBAY0);
+  Dropbay[1].attach(DROPBAY1);
+  Dropbay[2].attach(DROPBAY2);
+  Dropbay[3].attach(DROPBAY3);
   
   delay(100);
   Serial7.begin(1000000);
@@ -218,6 +222,7 @@ boolean roveCommCheck(){
   char a[2];
   
   switch(dataID){
+		/*
     case ID_GIMBAL_SPEED:
       
       
@@ -371,7 +376,7 @@ boolean roveCommCheck(){
       }
 
     break;
-    
+    */
     
     case ID_DROP_BAY:
       tmp = *(uint8_t*)(data);
@@ -394,43 +399,13 @@ boolean roveCommCheck(){
 
 
 void openDropBay(int bay){
-  Servo servo0;
-  if(bay==0){
-    unsigned long time = millis();
-    while(millis()<time+1000){
-      servo0.attach(P00);
-      servo0.write(DROPBAY_ANGLE_OPEN);
-      delay(1000);
-      servo0.detach();
-    }
+
+  unsigned long time = millis();
+  while(millis()<time+1000){
+    Dropbay[bay].write(DROPBAY_ANGLE_OPEN);
+    delay(1000);
   }
-  if(bay==1){
-    unsigned long time = millis();
-    while(millis()<time+1000){
-      servo0.attach(P10);
-      servo0.write(DROPBAY_ANGLE_OPEN);
-      delay(1000);
-      servo0.detach();
-    }
-  }
-  if(bay==2){
-    unsigned long time = millis();
-    while(millis()<time+1000){
-      servo0.attach(P20);
-      servo0.write(DROPBAY_ANGLE_OPEN);
-      delay(1000);
-      servo0.detach();
-    }
-  }
-  if(bay==3){
-    unsigned long time = millis();
-    while(millis()<time+1000){
-      servo0.attach(P30);
-      servo0.write(DROPBAY_ANGLE_OPEN);
-      delay(1000);
-      servo0.detach();
-    }
-  }
+
 }
 
 

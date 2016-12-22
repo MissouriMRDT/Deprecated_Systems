@@ -54,10 +54,10 @@ class GraphArea(QtGui.QWidget):
                 print(s.isChecked())
                 if s.isChecked():
                     if s.type == "temperature":
-                        handle, = temp_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # color
+                        handle, = temp_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
                         temp_handles.append(handle)
                     elif s.type == "humidity":
-                        handle, = humid_subplot.plot_date(x=t, y=measure, color="gold", label=s.text(), mew=0)
+                        handle, = humid_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
                         humid_handles.append(handle)
 
         try:
@@ -148,6 +148,7 @@ class SensorEnableBox(QtGui.QWidget):
         self.sensors.append(self.tdrill2)
 
         for s in self.sensors:
+            s.setChecked(True)
             if s.type == "humidity":
                 self.humidLayout.addWidget(s)
             elif s.type == "temperature":

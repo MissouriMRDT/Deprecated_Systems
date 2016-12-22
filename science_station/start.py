@@ -4,7 +4,7 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, DataStore, SensorEnableBox
+from customWidgets import GraphArea, Sensor, SensorEnableBox
 
 
 # TODO: Implementation - plot spectrometer data
@@ -15,7 +15,6 @@ class StartQT4(QtGui.QMainWindow):
         # Data variables.
         self.current_file = ""
         self.csv_type = ""
-        self.ds = DataStore()
         self.spectrometer_data = []
 
         # Main Window information
@@ -80,6 +79,11 @@ class StartQT4(QtGui.QMainWindow):
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
         self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
 
+        # Makes the graph refresh when refreshButton is pressed
+        # I hate everything about this. Especially the lambda. God forgive me.
+        self.connect(self.sensorEnables.refreshButton, QtCore.SIGNAL("clicked()"),
+                     lambda: self.basicGraph.graph_basic(self.sensorEnables.sensors))
+
         self.setCentralWidget(self.centralWidget)
 
     def enterfile(self):
@@ -93,7 +97,7 @@ class StartQT4(QtGui.QMainWindow):
                 self.current_file = filename
                 # TODO: Add check for Spectrometer data and conditional graph call.
                 if self.csv_type == "basic":
-                    self.basicGraph.graph_basic(self.ds)
+                    self.basicGraph.graph_basic(self.sensorEnables.sensors)
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
             else:
@@ -120,21 +124,22 @@ class StartQT4(QtGui.QMainWindow):
                     if self.csv_type == "basic":
                         datestamp, sensor, raw_data = row
                         if sensor == "Temp1":
-                            self.ds.temp1.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp2":
-                            self.ds.temp2.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp3":
-                            self.ds.temp3.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp4":
-                            self.ds.temp4.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid1":
-                            self.ds.humid1.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid2":
-                            self.ds.humid2.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid3":
-                            self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid4":
-                            self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
+
                     if self.csv_type == "spectrometer":
                         wavelength, intensity = row
                         # TODO: We completely forgot to test this. Ehrenfreund v1.1 needs to add this as well.
@@ -143,6 +148,7 @@ class StartQT4(QtGui.QMainWindow):
                 except StopIteration:
                         pass
 
+    @staticmethod
     def showdialogue(self, errormessage):
         """ Error dialogue window used for file entry. """
         msg = QtGui.QMessageBox()

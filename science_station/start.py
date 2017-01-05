@@ -4,7 +4,7 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, DataStore, SensorEnableBox, SensorEnableStates
+from customWidgets import GraphArea, Picture #DataStore, SensorEnableBox, SensorEnableStates
 
 
 # TODO: Implementation - plot spectrometer data
@@ -15,9 +15,9 @@ class StartQT4(QtGui.QMainWindow):
         # Data variables.
         self.current_file = ""
         self.csv_type = ""
-        self.ds = DataStore()
+        #self.ds = DataStore()
         self.spectrometer_data = []
-        self.sensorEnableBools = SensorEnableStates()
+        #self.sensorEnableBools = SensorEnableStates()
 
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
@@ -59,8 +59,8 @@ class StartQT4(QtGui.QMainWindow):
         self.basicGraphLayout.setMargin(0)
         self.basicGraphLayout.setSpacing(2)
         # SensorEnableBox - custom widget for enabling/disabling rover sensor display
-        self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
-        self.basicGraphLayout.addWidget(self.sensorEnables)
+        #self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
+        #self.basicGraphLayout.addWidget(self.sensorEnables)
         # GraphArea - custom widget for display of Matplotlib graphs of basic and spectrometer readings
         self.basicGraph = GraphArea()
         self.basicGraphLayout.addWidget(self.basicGraph)
@@ -74,14 +74,23 @@ class StartQT4(QtGui.QMainWindow):
         self.spectrometerGraphLayout.addWidget(self.spectrometerGraph)
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
+        # Contains all elements relevant to display pictures
+        self.picture = QtGui.QWidget()
+        self.pictureLayout = QtGui.QHBoxLayout(self.picture)
+        self.pictureLayout.setMargin(0)
+        self.pictureLayout.setSpacing(2)
+        self.pictureDisplay = Picture()
+        self.pictureLayout.addWidget(self.pictureDisplay)
+        self.graphTabs.addTab(self.picture, "Site Pictures")
+
         self.digMainLayout.addLayout(self.inputFrame)
         self.displayFrame.addWidget(self.graphTabs)
         self.digMainLayout.addLayout(self.displayFrame)
 
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
         self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
-        self.connect(self.sensorEnables.saveGraphsButton, QtCore.SIGNAL("clicked()"), lambda: self.basicGraph.graph_basic(self.ds, self.sensorEnableBools))
-        self.connect(self.sensorEnables.tsheath1.stateChanged.connect(lambda: self.updateSensorBools(self.sensorEnables.tsheath1)))
+        #self.connect(self.sensorEnables.saveGraphsButton, QtCore.SIGNAL("clicked()"), lambda: self.basicGraph.graph_basic(self.ds, self.sensorEnableBools))
+        #self.connect(self.sensorEnables.tsheath1.stateChanged.connect(lambda: self.updateSensorBools(self.sensorEnables.tsheath1)))
 
         self.setCentralWidget(self.centralWidget)
 
@@ -101,6 +110,8 @@ class StartQT4(QtGui.QMainWindow):
                     pass
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
+            # elif filename.lower().endswith('.png'):
+
             else:
                 self.showdialogue("Unsupported file type. Please input a .csv file.")
 

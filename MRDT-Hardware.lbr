@@ -5653,7 +5653,7 @@ HOLE</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MOUNTING_HOLE">
+<deviceset name="MOUNTING_HOLE" prefix="H">
 <description>Mounting hole for M6 bolt.
 Standard use mounting hole for:
 Tiva C Connected - M6
@@ -5695,7 +5695,7 @@ Most frame-mounted PCB's - M8</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MRDT_LOGO">
+<deviceset name="MRDT_LOGO" prefix="LOGO">
 <gates>
 <gate name="G$1" symbol="MRDT_LOGO" x="0" y="0"/>
 </gates>

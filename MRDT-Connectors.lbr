@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -1438,6 +1438,15 @@
 <smd name="P10" x="5.08" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
 <text x="-1.27" y="6.35" size="1.27" layer="25">&gt;NAME</text>
 </package>
+<package name="TEST_POINT_0.1INDIAM">
+<circle x="0" y="0" radius="1.27" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="0.3175" x2="-0.635" y2="-0.3175" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="-0.3175" x2="0.635" y2="-0.3175" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-0.3175" x2="0.635" y2="0.3175" width="0.127" layer="21"/>
+<wire x1="0.635" y1="0.3175" x2="-0.635" y2="0.3175" width="0.127" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="1.016"/>
+<text x="1.27" y="-1.27" size="1.27" layer="25">&gt;NAME</text>
+</package>
 <package name="MOLEX_SL_04_TH">
 <hole x="-5.08" y="8.636" drill="3.4544"/>
 <hole x="5.08" y="8.636" drill="3.4544"/>
@@ -1840,6 +1849,11 @@
 <pin name="VTARGET" x="0" y="0" length="middle"/>
 <text x="5.08" y="2.54" size="1.27" layer="94">&gt;NAME</text>
 <text x="5.08" y="-15.24" size="1.27" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="TEST_POINT">
+<pin name="P$1" x="0" y="0" length="middle" rot="R90"/>
+<wire x1="0" y1="5.08" x2="-1.27" y2="6.35" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="5.08" x2="1.27" y2="6.35" width="0.254" layer="94" curve="90"/>
 </symbol>
 <symbol name="SL04">
 <pin name="P$1" x="-7.62" y="7.62" length="middle"/>
@@ -2514,6 +2528,21 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <technology name="">
 <attribute name="PARTNO" value="M50-3600542 "/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TEST_POINT_0.1INDIAM" prefix="TP">
+<gates>
+<gate name="G$1" symbol="TEST_POINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TEST_POINT_0.1INDIAM">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>

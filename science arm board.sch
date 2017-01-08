@@ -13577,9 +13577,6 @@ Most frame-mounted PCB's - M8</description>
 <part name="R6" library="rcl" deviceset="R-US_" device="R0805" value="100m"/>
 <part name="LOGO1" library="MRDT-Hardware" deviceset="MRDT_LOGO" device=""/>
 <part name="H1" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
-<part name="H2" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
-<part name="H3" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
-<part name="H4" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
 <part name="H5" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
 <part name="J6" library="MRDT-Connectors" deviceset="SL03" device="THROUGH_HOLE"/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
@@ -13662,10 +13659,7 @@ Most frame-mounted PCB's - M8</description>
 <instance part="R6" gate="G$1" x="-10.16" y="-30.48" rot="R90"/>
 <instance part="LOGO1" gate="G$1" x="7.62" y="-45.72"/>
 <instance part="H1" gate="G$1" x="7.62" y="-53.34"/>
-<instance part="H2" gate="G$1" x="7.62" y="-60.96"/>
-<instance part="H3" gate="G$1" x="7.62" y="-68.58"/>
-<instance part="H4" gate="G$1" x="20.32" y="-53.34"/>
-<instance part="H5" gate="G$1" x="20.32" y="-60.96"/>
+<instance part="H5" gate="G$1" x="7.62" y="-60.96"/>
 <instance part="J6" gate="G$1" x="-99.06" y="40.64" rot="R180"/>
 <instance part="GND16" gate="1" x="-83.82" y="33.02"/>
 </instances>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -467,9 +467,9 @@ in mm</text>
 <wire x1="-7.747" y1="10.16" x2="-7.747" y2="15.24" width="0.127" layer="51"/>
 <wire x1="2.667" y1="15.24" x2="2.667" y2="-1.27" width="0.127" layer="51"/>
 <wire x1="-7.747" y1="5.08" x2="-7.747" y2="10.16" width="0.127" layer="51"/>
-<pad name="3" x="-5.08" y="0" drill="0.8" diameter="1.4224"/>
-<pad name="2" x="-2.54" y="0" drill="0.8" diameter="1.4224"/>
-<pad name="1" x="0" y="0" drill="0.8" diameter="1.4224"/>
+<pad name="3" x="-5.08" y="0" drill="0.9" diameter="1.4224"/>
+<pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.4224"/>
+<pad name="1" x="0" y="0" drill="0.9" diameter="1.4224"/>
 <text x="-6.096" y="-2.794" size="1.27" layer="25">&gt;NAME</text>
 <wire x1="-7.747" y1="-1.27" x2="2.667" y2="-1.27" width="0.127" layer="51"/>
 <wire x1="2.667" y1="15.24" x2="-7.747" y2="15.24" width="0.127" layer="51"/>
@@ -498,7 +498,7 @@ in mm</text>
 <text x="-3.81" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="-2.54" y="0" size="0.8128" layer="27">&gt;VALUE</text>
 </package>
-<package name="56-TFSOP">
+<package name="TFSOP-56">
 <smd name="56" x="-6.75" y="3.75" dx="1.55" dy="0.3" layer="1" rot="R90"/>
 <smd name="P$2" x="0" y="0" dx="6.35" dy="3.61" layer="1"/>
 <smd name="55" x="-6.25" y="3.75" dx="1.55" dy="0.3" layer="1" rot="R90"/>
@@ -609,7 +609,7 @@ in mm</text>
 <text x="-3" y="4" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-3" y="-5" size="1.27" layer="27" font="vector">&gt;VALUE</text>
 </package>
-<package name="8-WFDFN">
+<package name="WFDFN-8">
 <wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="21"/>
 <wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="21"/>
 <wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="21"/>
@@ -649,16 +649,6 @@ in mm</text>
 <wire x1="1.9" y1="1.1" x2="2" y2="1.1" width="0.127" layer="21"/>
 <wire x1="2" y1="1.1" x2="2" y2="3.8" width="0.127" layer="21"/>
 <wire x1="2" y1="3.8" x2="1.1" y2="3.8" width="0.127" layer="21"/>
-</package>
-<package name="8-VFSOP">
-<smd name="P$1" x="0.75" y="1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$2" x="0.25" y="1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$3" x="-0.25" y="1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$4" x="-0.75" y="1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$5" x="-0.75" y="-1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$6" x="-0.25" y="-1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$7" x="0.25" y="-1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
-<smd name="P$8" x="0.75" y="-1.55" dx="0.75" dy="0.25" layer="1" rot="R90"/>
 </package>
 </packages>
 <symbols>
@@ -1112,7 +1102,7 @@ in mm</text>
 <text x="-9.906" y="8.382" size="1.27" layer="94">&gt;NAME</text>
 <text x="5.842" y="-9.652" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
-<symbol name="TCA9406">
+<symbol name="TCA9517">
 <wire x1="-10.16" y1="12.7" x2="10.16" y2="12.7" width="0.254" layer="94"/>
 <wire x1="10.16" y1="12.7" x2="10.16" y2="-12.7" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-12.7" x2="-10.16" y2="-12.7" width="0.254" layer="94"/>
@@ -1442,7 +1432,7 @@ Murata</description>
 <gate name="G$1" symbol="DRV8301" x="0" y="10.16"/>
 </gates>
 <devices>
-<device name="" package="56-TFSOP">
+<device name="" package="TFSOP-56">
 <connects>
 <connect gate="G$1" pin="AGND" pad="28"/>
 <connect gate="G$1" pin="AVDD" pad="27"/>
@@ -1583,12 +1573,12 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="DRV8838DSGT">
+<deviceset name="DRV8838DSGT" prefix="U">
 <gates>
 <gate name="G$1" symbol="DRV8838" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="8-WFDFN">
+<device name="" package="WFDFN-8">
 <connects>
 <connect gate="G$1" pin="EN" pad="P$5"/>
 <connect gate="G$1" pin="GND" pad="P$4"/>
@@ -1605,7 +1595,7 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="L78L06ACUTR">
+<deviceset name="L78L06ACUTR" prefix="U">
 <gates>
 <gate name="G$1" symbol="L78L06ACUTR" x="0" y="0"/>
 </gates>
@@ -1622,32 +1612,10 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="TCA9406">
-<gates>
-<gate name="G$1" symbol="TCA9406" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="8-VFSOP">
-<connects>
-<connect gate="G$1" pin="GND" pad="P$2"/>
-<connect gate="G$1" pin="OE" pad="P$6"/>
-<connect gate="G$1" pin="SCL_A" pad="P$5"/>
-<connect gate="G$1" pin="SCL_B" pad="P$8"/>
-<connect gate="G$1" pin="SDA_A" pad="P$4"/>
-<connect gate="G$1" pin="SDA_B" pad="P$1"/>
-<connect gate="G$1" pin="VCCA" pad="P$3"/>
-<connect gate="G$1" pin="VCCB" pad="P$7"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="TCA9517">
+<deviceset name="TCA9517" prefix="U">
 <description>TCA9517 Level-Shifting I2C Bus Repeater</description>
 <gates>
-<gate name="G$1" symbol="TCA9406" x="0" y="0"/>
+<gate name="G$1" symbol="TCA9517" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="SOIC8">

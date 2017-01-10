@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -650,7 +650,7 @@ in mm</text>
 <wire x1="2" y1="1.1" x2="2" y2="3.8" width="0.127" layer="21"/>
 <wire x1="2" y1="3.8" x2="1.1" y2="3.8" width="0.127" layer="21"/>
 </package>
-<package name="4-SMD">
+<package name="LXDC2HN">
 <smd name="P$1" x="0.725" y="0.55" dx="0.85" dy="0.6" layer="1"/>
 <smd name="P$2" x="-0.725" y="0.55" dx="0.85" dy="0.6" layer="1"/>
 <smd name="P$3" x="-0.725" y="-0.55" dx="0.85" dy="0.6" layer="1"/>
@@ -661,6 +661,7 @@ in mm</text>
 <wire x1="-1.8" y1="-1.6" x2="-1.8" y2="1.5" width="0.127" layer="21"/>
 <circle x="1.4" y="1.1" radius="0.2" width="0.127" layer="21"/>
 <text x="-2.6" y="2" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -1139,8 +1140,8 @@ in mm</text>
 <pin name="VIN" x="-15.24" y="-5.08" length="middle"/>
 <pin name="GND" x="0" y="-12.7" length="middle" rot="R90"/>
 <pin name="VOUT" x="15.24" y="-5.08" length="middle" rot="R180"/>
-<text x="-10.16" y="7.62" size="1.27" layer="94">&gt;NAME</text>
-<text x="-7.62" y="0" size="1.27" layer="94">&gt;VALUE</text>
+<text x="-10.16" y="7.62" size="1.27" layer="95">&gt;NAME</text>
+<text x="-10.16" y="5.334" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1659,12 +1660,12 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LXDC2HN">
+<deviceset name="LXDC2HN" prefix="U">
 <gates>
 <gate name="G$1" symbol="LXDC2HN" x="0" y="2.54"/>
 </gates>
 <devices>
-<device name="" package="4-SMD">
+<device name="" package="LXDC2HN">
 <connects>
 <connect gate="G$1" pin="EN" pad="P$2"/>
 <connect gate="G$1" pin="GND" pad="P$4"/>

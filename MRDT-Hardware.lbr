@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12,7 +12,7 @@
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="yes"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="yes"/>
 <layer number="6" name="Route6" color="1" fill="8" visible="no" active="yes"/>
 <layer number="7" name="Route7" color="4" fill="8" visible="no" active="yes"/>
 <layer number="8" name="Route8" color="1" fill="2" visible="no" active="yes"/>
@@ -117,7 +117,7 @@
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="no"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="no"/>
-<layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
+<layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="no"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="no" active="no"/>
 <layer number="203" name="203bmp" color="4" fill="10" visible="no" active="no"/>
@@ -5606,6 +5606,18 @@ HEAD DIA.: .22"</description>
 <rectangle x1="9.5123" y1="10.79626875" x2="9.67485625" y2="10.80135" layer="21"/>
 <rectangle x1="9.53261875" y1="10.80135" x2="9.67485625" y2="10.80643125" layer="21"/>
 </package>
+<package name="BLOCK_3557-2">
+<wire x1="0" y1="0" x2="19.812" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="0" y2="-6.731" width="0.127" layer="21"/>
+<wire x1="0" y1="-6.731" x2="19.812" y2="-6.731" width="0.127" layer="21"/>
+<wire x1="19.812" y1="-6.731" x2="19.812" y2="0" width="0.127" layer="21"/>
+<pad name="OUT_1" x="3.175" y="-1.651" drill="1.6764" shape="square"/>
+<pad name="OUT_2" x="3.175" y="-5.0546" drill="1.6764" shape="square"/>
+<pad name="IN_1" x="16.637" y="-1.651" drill="1.6764" shape="square"/>
+<pad name="IN_2" x="16.637" y="-5.0546" drill="1.6764" shape="square"/>
+<text x="6.35" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="6.35" y="-8.89" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="MOUNTING_HOLES">
@@ -5629,6 +5641,16 @@ HOLE</text>
 <wire x1="12.7" y1="0" x2="12.7" y2="5.08" width="0.254" layer="94"/>
 <wire x1="12.7" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
 <wire x1="0" y1="5.08" x2="0" y2="0" width="0.254" layer="94"/>
+</symbol>
+<symbol name="ATC_FUSE_BLOCK">
+<wire x1="-6.35" y1="2.54" x2="6.35" y2="2.54" width="0.254" layer="94"/>
+<wire x1="6.35" y1="2.54" x2="6.35" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="6.35" y1="-2.54" x2="-6.35" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="-2.54" x2="-6.35" y2="2.54" width="0.254" layer="94"/>
+<pin name="OUT" x="-11.43" y="0" length="middle"/>
+<pin name="IN" x="11.43" y="0" length="middle" rot="R180"/>
+<text x="-7.62" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-7.62" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -5680,6 +5702,23 @@ Most frame-mounted PCB's - M8</description>
 </gates>
 <devices>
 <device name="" package="MRDT_LOGO">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ATC_FUSE_BLOCK" prefix="F">
+<description>FUSE BLOCK BLADE 500V 30A PCB - Part#36-3557-2-ND on Digikey</description>
+<gates>
+<gate name="G$1" symbol="ATC_FUSE_BLOCK" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BLOCK_3557-2">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN_1 IN_2"/>
+<connect gate="G$1" pin="OUT" pad="OUT_1 OUT_2"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>

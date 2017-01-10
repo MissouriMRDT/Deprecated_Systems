@@ -821,55 +821,6 @@
 <text x="3.81" y="10.922" size="0.8128" layer="21">GND</text>
 <text x="4.318" y="4.318" size="0.8128" layer="21">12V</text>
 </package>
-<package name="MRDT_MALE_RJ45_STANDOFF">
-<wire x1="0" y1="0" x2="24.13" y2="0" width="0.127" layer="51"/>
-<wire x1="0" y1="15.24" x2="24.13" y2="15.24" width="0.127" layer="51"/>
-<wire x1="0" y1="0" x2="0" y2="15.24" width="0.127" layer="51" curve="-180"/>
-<wire x1="24.13" y1="0" x2="24.13" y2="15.24" width="0.127" layer="51" curve="180"/>
-<dimension x1="0" y1="7.62" x2="-7.228959375" y2="10.029653125" x3="-14.6286875" y3="12.496228125" textsize="1.27" layer="47" dtype="radius" unit="inch" precision="4" visible="yes"/>
-<dimension x1="0" y1="0" x2="24.13" y2="0" x3="12.065" y3="-6.35" textsize="1.27" layer="47" unit="inch" precision="4" visible="yes"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="15.24" width="0.127" layer="47"/>
-<wire x1="21.59" y1="15.24" x2="21.59" y2="0" width="0.127" layer="47"/>
-<wire x1="4.445" y1="15.24" x2="4.445" y2="1.27" width="0.127" layer="20"/>
-<wire x1="4.445" y1="1.27" x2="19.685" y2="1.27" width="0.127" layer="20"/>
-<wire x1="19.685" y1="1.27" x2="19.685" y2="15.24" width="0.127" layer="20"/>
-<wire x1="19.685" y1="15.24" x2="4.445" y2="15.24" width="0.127" layer="20"/>
-<dimension x1="26.67" y1="9.779" x2="26.67" y2="5.461" x3="35.56" y3="7.62" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="4" visible="yes"/>
-<dimension x1="24.13" y1="7.62" x2="26.67" y2="7.62" x3="25.4" y3="-6.35" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="4" visible="yes"/>
-<wire x1="18.0975" y1="3.175" x2="6.0325" y2="3.175" width="0.127" layer="49" style="shortdash"/>
-<wire x1="6.0325" y1="3.175" x2="6.0325" y2="12.065" width="0.127" layer="49" style="shortdash"/>
-<wire x1="18.0975" y1="3.175" x2="18.0975" y2="12.065" width="0.127" layer="49" style="shortdash"/>
-<wire x1="18.0975" y1="12.065" x2="15.494" y2="12.065" width="0.127" layer="49" style="shortdash"/>
-<wire x1="8.636" y1="12.065" x2="6.0325" y2="12.065" width="0.127" layer="49" style="shortdash"/>
-<wire x1="8.636" y1="12.065" x2="8.636" y2="13.589" width="0.127" layer="49" style="shortdash"/>
-<wire x1="8.636" y1="13.589" x2="15.494" y2="13.589" width="0.127" layer="49" style="shortdash"/>
-<wire x1="15.494" y1="13.589" x2="15.494" y2="12.065" width="0.127" layer="49" style="shortdash"/>
-<dimension x1="2.54" y1="15.24" x2="21.59" y2="12.7" x3="12.065" y3="22.86" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="4" visible="yes"/>
-<dimension x1="19.685" y1="15.24" x2="4.445" y2="15.24" x3="12.065" y3="19.05" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="4" visible="yes"/>
-<dimension x1="19.685" y1="1.27" x2="19.685" y2="15.24" x3="41.91" y3="8.255" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="4" visible="yes"/>
-<circle x="-2.54" y="7.62" radius="2.159" width="0.127" layer="45"/>
-<polygon width="0.127" layer="45">
-<vertex x="-2.54" y="7.62"/>
-<vertex x="-2.54" y="9.779" curve="-90"/>
-<vertex x="-0.381" y="7.62"/>
-</polygon>
-<polygon width="0.127" layer="45">
-<vertex x="-2.54" y="7.62"/>
-<vertex x="-2.54" y="5.461" curve="-90"/>
-<vertex x="-4.699" y="7.62"/>
-</polygon>
-<circle x="26.67" y="7.62" radius="2.159" width="0.127" layer="45"/>
-<polygon width="0.127" layer="45">
-<vertex x="26.67" y="7.62"/>
-<vertex x="26.67" y="9.779" curve="-90"/>
-<vertex x="28.829" y="7.62"/>
-</polygon>
-<polygon width="0.127" layer="45">
-<vertex x="26.67" y="7.62"/>
-<vertex x="26.67" y="5.461" curve="-90"/>
-<vertex x="24.511" y="7.62"/>
-</polygon>
-</package>
 <package name="MOLEX_0436500300">
 <wire x1="1.524" y1="0" x2="0" y2="1.524" width="0.127" layer="51"/>
 <wire x1="0" y1="1.524" x2="0" y2="9.906" width="0.127" layer="51"/>
@@ -1371,9 +1322,9 @@
 <wire x1="-3.935" y1="-5.345" x2="3.935" y2="-5.345" width="0.127" layer="21"/>
 <wire x1="3.935" y1="-5.345" x2="3.935" y2="5.345" width="0.127" layer="21"/>
 <wire x1="3.935" y1="5.345" x2="-3.935" y2="5.345" width="0.127" layer="21"/>
-<smd name="P$3" x="-2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
+<smd name="P$3" x="2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
 <smd name="P$2" x="0" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
-<smd name="P$1" x="2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
+<smd name="P$1" x="-2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
 <hole x="-3.935" y="5.345" drill="3.4"/>
 <hole x="3.935" y="5.345" drill="3.4"/>
 <dimension x1="-3.935" y1="-5.345" x2="3.935" y2="-5.345" x3="0" y3="-10.16" textsize="1.27" layer="47"/>
@@ -1392,22 +1343,32 @@
 <dimension x1="-5.715" y1="9.55" x2="5.715" y2="9.55" x3="0" y3="11.43" textsize="1.27" layer="47"/>
 </package>
 <package name="MOLEX_SL_03_TH">
-<wire x1="-6.35" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-1.27" x2="6.35" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="11.43" width="0.127" layer="21"/>
-<wire x1="6.35" y1="11.43" x2="-6.35" y2="11.43" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="11.43" x2="-6.35" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
-<pad name="1" x="2.54" y="0" drill="1.0922" diameter="1.778"/>
+<pad name="1" x="-2.54" y="0" drill="1.0922" diameter="1.778" shape="square"/>
 <pad name="2" x="0" y="0" drill="1.0922" diameter="1.778"/>
-<pad name="3" x="-2.54" y="0" drill="1.0922" diameter="1.778"/>
-<text x="-3.81" y="5.08" size="1.27" layer="25">&gt;NAME</text>
+<pad name="3" x="2.54" y="0" drill="1.0922" diameter="1.778"/>
 <text x="-3.81" y="3.81" size="1.27" layer="27">&gt;VALUE</text>
-<hole x="-3.937" y="8.636" drill="3.4036"/>
-<hole x="3.937" y="8.636" drill="3.4036"/>
+<hole x="-3.81" y="8.636" drill="3.4544"/>
+<hole x="3.81" y="8.636" drill="3.4544"/>
+<wire x1="-5.715" y1="13.208" x2="-1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="1.905" y1="13.208" x2="5.715" y2="13.208" width="0.127" layer="21"/>
+<wire x1="5.715" y1="13.208" x2="5.715" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.715" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-5.715" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="1.27" x2="-5.715" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-1.27" x2="-3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="-3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="-1.905" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="8.89" x2="-0.635" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="8.89" x2="0.635" y2="8.89" width="0.127" layer="21"/>
+<wire x1="0.635" y1="8.89" x2="1.905" y2="8.89" width="0.127" layer="21"/>
+<wire x1="1.905" y1="8.89" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="8.89" x2="-0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="6.35" x2="0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="0.635" y1="6.35" x2="0.635" y2="8.89" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
 </package>
 <package name="CON_2X5_50MIL">
 <wire x1="-1.169925" y1="4.50011875" x2="-1.169925" y2="-0.500125" width="0.127" layer="21"/>
@@ -1428,13 +1389,22 @@
 <smd name="P10" x="5.08" y="4.00811875" dx="0.74" dy="2.6" layer="1"/>
 <text x="-1.27" y="6.35" size="1.27" layer="25">&gt;NAME</text>
 </package>
+<package name="TEST_POINT_0.1INDIAM">
+<circle x="0" y="0" radius="1.27" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="0.3175" x2="-0.635" y2="-0.3175" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="-0.3175" x2="0.635" y2="-0.3175" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-0.3175" x2="0.635" y2="0.3175" width="0.127" layer="21"/>
+<wire x1="0.635" y1="0.3175" x2="-0.635" y2="0.3175" width="0.127" layer="21"/>
+<pad name="P$1" x="0" y="0" drill="1.016"/>
+<text x="1.27" y="-1.27" size="1.27" layer="25">&gt;NAME</text>
+</package>
 <package name="MOLEX_SL_04_TH">
 <hole x="-5.08" y="8.636" drill="3.4544"/>
 <hole x="5.08" y="8.636" drill="3.4544"/>
-<pad name="2" x="1.27" y="0" drill="1.1684"/>
-<pad name="1" x="3.81" y="0" drill="1.1684"/>
-<pad name="3" x="-1.27" y="0" drill="1.1684"/>
-<pad name="4" x="-3.81" y="0" drill="1.1684"/>
+<pad name="2" x="-1.27" y="0" drill="1.1684"/>
+<pad name="1" x="-3.81" y="0" drill="1.1684" shape="square"/>
+<pad name="3" x="1.27" y="0" drill="1.1684"/>
+<pad name="4" x="3.81" y="0" drill="1.1684"/>
 <wire x1="-6.985" y1="13.208" x2="-2.54" y2="13.208" width="0.127" layer="21"/>
 <wire x1="-2.54" y1="13.208" x2="2.54" y2="13.208" width="0.127" layer="21"/>
 <wire x1="2.54" y1="13.208" x2="6.985" y2="13.208" width="0.127" layer="21"/>
@@ -1460,10 +1430,10 @@
 <hole x="-6.35" y="8.636" drill="3.4544"/>
 <hole x="6.35" y="8.636" drill="3.4544"/>
 <pad name="3" x="0" y="0" drill="1.1684"/>
-<pad name="2" x="2.54" y="0" drill="1.1684"/>
-<pad name="1" x="5.08" y="0" drill="1.1684"/>
-<pad name="4" x="-2.54" y="0" drill="1.1684"/>
-<pad name="5" x="-5.08" y="0" drill="1.1684"/>
+<pad name="2" x="-2.54" y="0" drill="1.1684"/>
+<pad name="1" x="-5.08" y="0" drill="1.1684" shape="square"/>
+<pad name="4" x="2.54" y="0" drill="1.1684"/>
+<pad name="5" x="5.08" y="0" drill="1.1684"/>
 <wire x1="-8.255" y1="13.208" x2="-3.81" y2="13.208" width="0.127" layer="21"/>
 <wire x1="-3.81" y1="13.208" x2="3.81" y2="13.208" width="0.127" layer="21"/>
 <wire x1="3.81" y1="13.208" x2="8.255" y2="13.208" width="0.127" layer="21"/>
@@ -1488,12 +1458,12 @@
 <package name="MOLEX_SL_06_TH">
 <hole x="-7.62" y="8.636" drill="3.4544"/>
 <hole x="7.62" y="8.636" drill="3.4544"/>
-<pad name="3" x="1.27" y="0" drill="1.1684"/>
-<pad name="2" x="3.81" y="0" drill="1.1684"/>
-<pad name="1" x="6.35" y="0" drill="1.1684"/>
-<pad name="4" x="-1.27" y="0" drill="1.1684"/>
-<pad name="5" x="-3.81" y="0" drill="1.1684"/>
-<pad name="6" x="-6.35" y="0" drill="1.1684"/>
+<pad name="3" x="-1.27" y="0" drill="1.1684"/>
+<pad name="2" x="-3.81" y="0" drill="1.1684"/>
+<pad name="1" x="-6.35" y="0" drill="1.1684" shape="square"/>
+<pad name="4" x="1.27" y="0" drill="1.1684"/>
+<pad name="5" x="3.81" y="0" drill="1.1684"/>
+<pad name="6" x="6.35" y="0" drill="1.1684"/>
 <wire x1="-9.525" y1="13.208" x2="-5.08" y2="13.208" width="0.127" layer="21"/>
 <wire x1="-5.08" y1="13.208" x2="5.08" y2="13.208" width="0.127" layer="21"/>
 <wire x1="5.08" y1="13.208" x2="9.525" y2="13.208" width="0.127" layer="21"/>
@@ -1619,6 +1589,98 @@
 <wire x1="-11.43" y1="2.54" x2="11.43" y2="2.54" width="0.127" layer="21"/>
 <wire x1="11.43" y1="2.54" x2="11.43" y2="1.27" width="0.127" layer="21"/>
 <text x="16.51" y="-1.27" size="1.27" layer="21" rot="R90">&gt;NAME</text>
+</package>
+<package name="MOLEX-70551-0008">
+<hole x="-11.43" y="8.636" drill="3.4544"/>
+<hole x="11.43" y="8.636" drill="3.4544"/>
+<pad name="3" x="-5.08" y="0" drill="1.1684"/>
+<pad name="2" x="-7.62" y="0" drill="1.1684"/>
+<pad name="1" x="-10.16" y="0" drill="1.1684" shape="square"/>
+<pad name="4" x="-2.54" y="0" drill="1.1684"/>
+<pad name="5" x="0" y="0" drill="1.1684"/>
+<pad name="6" x="2.54" y="0" drill="1.1684"/>
+<wire x1="-13.335" y1="13.208" x2="-8.89" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="13.208" x2="8.89" y2="13.208" width="0.127" layer="21"/>
+<wire x1="8.89" y1="13.208" x2="13.335" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-13.335" y1="1.27" x2="-11.43" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="1.27" x2="11.43" y2="1.27" width="0.127" layer="21"/>
+<wire x1="11.43" y1="1.27" x2="13.335" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-13.335" y1="13.208" x2="-13.335" y2="1.27" width="0.127" layer="21"/>
+<wire x1="13.335" y1="13.208" x2="13.335" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="1.27" x2="-11.43" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-11.43" y1="-1.27" x2="11.43" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="11.43" y1="-1.27" x2="11.43" y2="1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="13.208" x2="8.89" y2="8.89" width="0.127" layer="21"/>
+<wire x1="8.89" y1="8.89" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="1.27" y1="8.89" x2="-1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-8.89" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="8.89" x2="-8.89" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="5.08" x2="1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="1.27" y1="5.08" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
+<pad name="7" x="5.08" y="0" drill="1.1684"/>
+<pad name="8" x="7.62" y="0" drill="1.1684"/>
+<pad name="9" x="10.16" y="0" drill="1.1684"/>
+</package>
+<package name="MOLEX-70551-0007">
+<hole x="-10.16" y="8.636" drill="3.4544"/>
+<hole x="10.16" y="8.636" drill="3.4544"/>
+<pad name="3" x="-3.81" y="0" drill="1.1684"/>
+<pad name="2" x="-6.35" y="0" drill="1.1684"/>
+<pad name="1" x="-8.89" y="0" drill="1.1684" shape="square"/>
+<pad name="4" x="-1.27" y="0" drill="1.1684"/>
+<pad name="5" x="1.27" y="0" drill="1.1684"/>
+<pad name="6" x="3.81" y="0" drill="1.1684"/>
+<wire x1="-12.065" y1="13.208" x2="-7.62" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="13.208" x2="7.62" y2="13.208" width="0.127" layer="21"/>
+<wire x1="7.62" y1="13.208" x2="12.065" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-12.065" y1="1.27" x2="-10.16" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-10.16" y1="1.27" x2="10.16" y2="1.27" width="0.127" layer="21"/>
+<wire x1="10.16" y1="1.27" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-12.065" y1="13.208" x2="-12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="12.065" y1="13.208" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-10.16" y1="1.27" x2="-10.16" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-10.16" y1="-1.27" x2="10.16" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-1.27" x2="10.16" y2="1.27" width="0.127" layer="21"/>
+<wire x1="7.62" y1="13.208" x2="7.62" y2="8.89" width="0.127" layer="21"/>
+<wire x1="7.62" y1="8.89" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="1.27" y1="8.89" x2="-1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-7.62" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="8.89" x2="-7.62" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="5.08" x2="1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="1.27" y1="5.08" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<text x="-3.81" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
+<pad name="7" x="6.35" y="0" drill="1.1684"/>
+<pad name="8" x="8.89" y="0" drill="1.1684"/>
+</package>
+<package name="MOLEX-70551-0001">
+<text x="7.62" y="1.27" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<pad name="1" x="-1.27" y="0" drill="1.0922" diameter="1.778" shape="square"/>
+<pad name="2" x="1.27" y="0" drill="1.0922" diameter="1.778"/>
+<hole x="-2.54" y="8.636" drill="3.4544"/>
+<hole x="2.54" y="8.636" drill="3.4544"/>
+<wire x1="-4.445" y1="13.208" x2="-1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="1.905" y1="13.208" x2="4.445" y2="13.208" width="0.127" layer="21"/>
+<wire x1="4.445" y1="13.208" x2="4.445" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-4.445" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="1.27" x2="-4.445" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="4.445" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-1.27" x2="-2.54" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="-1.905" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="11.43" x2="-0.635" y2="11.43" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="11.43" x2="0.635" y2="11.43" width="0.127" layer="21"/>
+<wire x1="0.635" y1="11.43" x2="1.905" y2="11.43" width="0.127" layer="21"/>
+<wire x1="1.905" y1="11.43" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="11.43" x2="-0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="6.35" x2="0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="0.635" y1="6.35" x2="0.635" y2="11.43" width="0.127" layer="21"/>
+<text x="-1.27" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
 </package>
 <package name="MOLEX-70543-0007">
 <pad name="1" x="11.43" y="0" drill="1.1" shape="square"/>
@@ -1828,6 +1890,11 @@
 <text x="5.08" y="2.54" size="1.27" layer="94">&gt;NAME</text>
 <text x="5.08" y="-15.24" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
+<symbol name="TEST_POINT">
+<pin name="P$1" x="0" y="0" length="middle" rot="R90"/>
+<wire x1="0" y1="5.08" x2="-1.27" y2="6.35" width="0.254" layer="94" curve="-90"/>
+<wire x1="0" y1="5.08" x2="1.27" y2="6.35" width="0.254" layer="94" curve="90"/>
+</symbol>
 <symbol name="SL04">
 <pin name="P$1" x="-7.62" y="7.62" length="middle"/>
 <pin name="P$2" x="-7.62" y="2.54" length="middle"/>
@@ -1913,20 +1980,20 @@
 <text x="0" y="1.524" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
 <symbol name="SL08">
-<wire x1="0" y1="7.62" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="22.86" y2="0" width="0.254" layer="94"/>
-<wire x1="22.86" y1="0" x2="22.86" y2="7.62" width="0.254" layer="94"/>
-<wire x1="22.86" y1="7.62" x2="0" y2="7.62" width="0.254" layer="94"/>
-<pin name="1" x="2.54" y="-5.08" length="middle" rot="R90"/>
-<pin name="2" x="5.08" y="-5.08" length="middle" rot="R90"/>
-<pin name="3" x="7.62" y="-5.08" length="middle" rot="R90"/>
-<pin name="4" x="10.16" y="-5.08" length="middle" rot="R90"/>
-<pin name="5" x="12.7" y="-5.08" length="middle" rot="R90"/>
-<pin name="6" x="15.24" y="-5.08" length="middle" rot="R90"/>
-<pin name="7" x="17.78" y="-5.08" length="middle" rot="R90"/>
-<pin name="8" x="20.32" y="-5.08" length="middle" rot="R90"/>
-<text x="-1.016" y="0.762" size="1.27" layer="94" rot="R90">&gt;NAME</text>
-<text x="0.254" y="8.89" size="1.27" layer="94">&gt;VALUE</text>
+<wire x1="22.86" y1="0" x2="22.86" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-10.16" x2="0" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="-10.16" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="P$1" x="2.54" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$2" x="5.08" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$3" x="7.62" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$4" x="10.16" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$5" x="12.7" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$6" x="15.24" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$7" x="17.78" y="-15.24" length="middle" rot="R90"/>
+<pin name="P$8" x="20.32" y="-15.24" length="middle" rot="R90"/>
+<text x="0" y="2.54" size="1.778" layer="94">&gt;VALUE</text>
+<text x="1.016" y="-3.048" size="1.778" layer="94">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2521,6 +2588,21 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 </device>
 </devices>
 </deviceset>
+<deviceset name="TEST_POINT_0.1INDIAM" prefix="TP">
+<gates>
+<gate name="G$1" symbol="TEST_POINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TEST_POINT_0.1INDIAM">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="SL04" prefix="J">
 <gates>
 <gate name="G$1" symbol="SL04" x="0" y="0"/>
@@ -2615,6 +2697,15 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <technology name=""/>
 </technologies>
 </device>
+<device name="-HORIZ" package="MOLEX-70551-0001">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="SL09" prefix="J">
@@ -2638,9 +2729,25 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 <technology name=""/>
 </technologies>
 </device>
+<device name="-HORIZ" package="MOLEX-70551-0008">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="9" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
-<deviceset name="SL10">
+<deviceset name="SL10" prefix="J">
 <gates>
 <gate name="G$1" symbol="SL10" x="0" y="0"/>
 </gates>
@@ -2664,21 +2771,36 @@ Locking 3 pin connector with standard header spacing. Backward compatible with s
 </device>
 </devices>
 </deviceset>
-<deviceset name="SL08">
+<deviceset name="SL08" prefix="J">
 <gates>
 <gate name="G$1" symbol="SL08" x="0" y="0"/>
 </gates>
 <devices>
+<device name="_HORIZ" package="MOLEX-70551-0007">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+<connect gate="G$1" pin="P$4" pad="4"/>
+<connect gate="G$1" pin="P$5" pad="5"/>
+<connect gate="G$1" pin="P$6" pad="6"/>
+<connect gate="G$1" pin="P$7" pad="7"/>
+<connect gate="G$1" pin="P$8" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 <device name="" package="MOLEX-70543-0007">
 <connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="8" pad="8"/>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+<connect gate="G$1" pin="P$4" pad="4"/>
+<connect gate="G$1" pin="P$5" pad="5"/>
+<connect gate="G$1" pin="P$6" pad="6"/>
+<connect gate="G$1" pin="P$7" pad="7"/>
+<connect gate="G$1" pin="P$8" pad="8"/>
 </connects>
 <technologies>
 <technology name=""/>

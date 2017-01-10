@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -498,7 +498,7 @@ in mm</text>
 <text x="-3.81" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="-2.54" y="0" size="0.8128" layer="27">&gt;VALUE</text>
 </package>
-<package name="56-TFSOP">
+<package name="TFSOP-56">
 <smd name="56" x="-6.75" y="3.75" dx="1.55" dy="0.3" layer="1" rot="R90"/>
 <smd name="P$2" x="0" y="0" dx="6.35" dy="3.61" layer="1"/>
 <smd name="55" x="-6.25" y="3.75" dx="1.55" dy="0.3" layer="1" rot="R90"/>
@@ -608,6 +608,47 @@ in mm</text>
 <circle x="-4.3" y="-1.3" radius="0.316225" width="0.127" layer="21"/>
 <text x="-3" y="4" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-3" y="-5" size="1.27" layer="27" font="vector">&gt;VALUE</text>
+</package>
+<package name="WFDFN-8">
+<wire x1="-1" y1="1" x2="1" y2="1" width="0.127" layer="21"/>
+<wire x1="1" y1="1" x2="1" y2="-1" width="0.127" layer="21"/>
+<wire x1="1" y1="-1" x2="-1" y2="-1" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1" x2="-1" y2="1" width="0.127" layer="21"/>
+<smd name="P$1" x="0.75" y="0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$2" x="0.25" y="0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$3" x="-0.25" y="0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$4" x="-0.75" y="0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$5" x="-0.75" y="-0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$6" x="-0.25" y="-0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$7" x="0.25" y="-0.725" dx="0.25" dy="0.5" layer="1"/>
+<smd name="P$8" x="0.75" y="-0.725" dx="0.25" dy="0.5" layer="1"/>
+<text x="-1.9" y="1.2" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.8" y="-2.5" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="TO-243AA">
+<smd name="3" x="1.5" y="0.7" dx="1.4" dy="0.57" layer="1" rot="R90"/>
+<smd name="1" x="-1.5" y="0.7" dx="1.4" dy="0.57" layer="1" rot="R90"/>
+<polygon width="0" layer="1">
+<vertex x="-0.325" y="0"/>
+<vertex x="0.325" y="0"/>
+<vertex x="0.325" y="1.4"/>
+<vertex x="1" y="1.9"/>
+<vertex x="1" y="4.35"/>
+<vertex x="-1" y="4.35"/>
+<vertex x="-1" y="1.9"/>
+<vertex x="-0.325" y="1.4"/>
+</polygon>
+<smd name="2" x="0" y="0.7" dx="1.27" dy="0.635" layer="1" rot="R90"/>
+<text x="-1.905" y="4.445" size="1.27" layer="21">&gt;NAME</text>
+<text x="-1.905" y="-1.905" size="1.27" layer="21">&gt;VALUE</text>
+<wire x1="-1.1" y1="3.8" x2="-2" y2="3.8" width="0.127" layer="21"/>
+<wire x1="-2" y1="3.8" x2="-2" y2="1.1" width="0.127" layer="21"/>
+<wire x1="-2" y1="1.1" x2="-1.9" y2="1.1" width="0.127" layer="21"/>
+<wire x1="-1.1" y1="1.1" x2="-0.4" y2="1.1" width="0.127" layer="21"/>
+<wire x1="0.4" y1="1.1" x2="1.1" y2="1.1" width="0.127" layer="21"/>
+<wire x1="1.9" y1="1.1" x2="2" y2="1.1" width="0.127" layer="21"/>
+<wire x1="2" y1="1.1" x2="2" y2="3.8" width="0.127" layer="21"/>
+<wire x1="2" y1="3.8" x2="1.1" y2="3.8" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -1034,6 +1075,49 @@ in mm</text>
 <text x="-7.62" y="12.7" size="1.778" layer="95">&gt;NAME</text>
 <text x="-7.62" y="10.16" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="DRV8838">
+<pin name="VM" x="-20.32" y="7.62" length="middle"/>
+<pin name="OUT1" x="-20.32" y="2.54" length="middle"/>
+<pin name="OUT2" x="-20.32" y="-2.54" length="middle"/>
+<pin name="GND" x="-20.32" y="-7.62" length="middle"/>
+<pin name="EN" x="20.32" y="-7.62" length="middle" rot="R180"/>
+<pin name="PH" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="NSLEEP" x="20.32" y="2.54" length="middle" rot="R180"/>
+<pin name="VCC" x="20.32" y="7.62" length="middle" rot="R180"/>
+<wire x1="-15.24" y1="15.24" x2="-15.24" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-15.24" x2="15.24" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-15.24" x2="15.24" y2="15.24" width="0.254" layer="94"/>
+<wire x1="15.24" y1="15.24" x2="-15.24" y2="15.24" width="0.254" layer="94"/>
+<text x="-14.478" y="16.51" size="1.27" layer="94">&gt;NAME</text>
+<text x="-14.986" y="-17.526" size="1.27" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="L78L06ACUTR">
+<wire x1="-10.16" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-7.62" x2="10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<pin name="VOUT" x="-5.08" y="-12.7" length="middle" rot="R90"/>
+<pin name="GND" x="0" y="-12.7" length="middle" rot="R90"/>
+<pin name="VIN" x="5.08" y="-12.7" length="middle" rot="R90"/>
+<text x="-9.906" y="8.382" size="1.27" layer="94">&gt;NAME</text>
+<text x="5.842" y="-9.652" size="1.27" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="TCA9517">
+<wire x1="-10.16" y1="12.7" x2="10.16" y2="12.7" width="0.254" layer="94"/>
+<wire x1="10.16" y1="12.7" x2="10.16" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-12.7" x2="-10.16" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-12.7" x2="-10.16" y2="12.7" width="0.254" layer="94"/>
+<pin name="VCCA" x="-15.24" y="7.62" length="middle"/>
+<pin name="SDA_A" x="-15.24" y="2.54" length="middle"/>
+<pin name="SCL_A" x="-15.24" y="-2.54" length="middle"/>
+<pin name="GND" x="-15.24" y="-7.62" length="middle"/>
+<pin name="VCCB" x="15.24" y="7.62" length="middle" rot="R180"/>
+<pin name="SDA_B" x="15.24" y="2.54" length="middle" rot="R180"/>
+<pin name="SCL_B" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="OE" x="15.24" y="-7.62" length="middle" rot="R180"/>
+<text x="-10.16" y="15.24" size="1.27" layer="94">&gt;Name</text>
+<text x="-10.16" y="-15.24" size="1.27" layer="94">&gt;Value</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="LTC2645" prefix="U">
@@ -1348,7 +1432,7 @@ Murata</description>
 <gate name="G$1" symbol="DRV8301" x="0" y="10.16"/>
 </gates>
 <devices>
-<device name="" package="56-TFSOP">
+<device name="" package="TFSOP-56">
 <connects>
 <connect gate="G$1" pin="AGND" pad="28"/>
 <connect gate="G$1" pin="AVDD" pad="27"/>
@@ -1482,6 +1566,68 @@ Murata</description>
 <connect gate="G$1" pin="GND" pad="5"/>
 <connect gate="G$1" pin="RO" pad="1"/>
 <connect gate="G$1" pin="VCC" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DRV8838DSGT" prefix="U">
+<gates>
+<gate name="G$1" symbol="DRV8838" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="WFDFN-8">
+<connects>
+<connect gate="G$1" pin="EN" pad="P$5"/>
+<connect gate="G$1" pin="GND" pad="P$4"/>
+<connect gate="G$1" pin="NSLEEP" pad="P$7"/>
+<connect gate="G$1" pin="OUT1" pad="P$2"/>
+<connect gate="G$1" pin="OUT2" pad="P$3"/>
+<connect gate="G$1" pin="PH" pad="P$6"/>
+<connect gate="G$1" pin="VCC" pad="P$8"/>
+<connect gate="G$1" pin="VM" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="L78L06ACUTR" prefix="U">
+<gates>
+<gate name="G$1" symbol="L78L06ACUTR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TO-243AA">
+<connects>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VIN" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TCA9517" prefix="U">
+<description>TCA9517 Level-Shifting I2C Bus Repeater</description>
+<gates>
+<gate name="G$1" symbol="TCA9517" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOIC8">
+<connects>
+<connect gate="G$1" pin="GND" pad="4"/>
+<connect gate="G$1" pin="OE" pad="5"/>
+<connect gate="G$1" pin="SCL_A" pad="2"/>
+<connect gate="G$1" pin="SCL_B" pad="7"/>
+<connect gate="G$1" pin="SDA_A" pad="3"/>
+<connect gate="G$1" pin="SDA_B" pad="6"/>
+<connect gate="G$1" pin="VCCA" pad="1"/>
+<connect gate="G$1" pin="VCCB" pad="8"/>
 </connects>
 <technologies>
 <technology name=""/>

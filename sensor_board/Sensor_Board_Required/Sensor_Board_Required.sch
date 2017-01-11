@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -168,10 +168,10 @@
 <package name="MOLEX_SL_04_TH">
 <hole x="-5.08" y="8.636" drill="3.4544"/>
 <hole x="5.08" y="8.636" drill="3.4544"/>
-<pad name="2" x="1.27" y="0" drill="1.1684"/>
-<pad name="1" x="3.81" y="0" drill="1.1684"/>
-<pad name="3" x="-1.27" y="0" drill="1.1684"/>
-<pad name="4" x="-3.81" y="0" drill="1.1684"/>
+<pad name="2" x="-1.27" y="0" drill="1.1684"/>
+<pad name="1" x="-3.81" y="0" drill="1.1684" shape="square"/>
+<pad name="3" x="1.27" y="0" drill="1.1684"/>
+<pad name="4" x="3.81" y="0" drill="1.1684"/>
 <wire x1="-6.985" y1="13.208" x2="-2.54" y2="13.208" width="0.127" layer="21"/>
 <wire x1="-2.54" y1="13.208" x2="2.54" y2="13.208" width="0.127" layer="21"/>
 <wire x1="2.54" y1="13.208" x2="6.985" y2="13.208" width="0.127" layer="21"/>
@@ -210,31 +210,56 @@
 <text x="7.62" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="MOLEX_SL_03_TH">
-<wire x1="-6.35" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-1.27" x2="6.35" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="11.43" width="0.127" layer="21"/>
-<wire x1="6.35" y1="11.43" x2="-6.35" y2="11.43" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="11.43" x2="-6.35" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
-<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
-<pad name="1" x="2.54" y="0" drill="1.0922" diameter="1.778"/>
+<pad name="1" x="-2.54" y="0" drill="1.0922" diameter="1.778" shape="square"/>
 <pad name="2" x="0" y="0" drill="1.0922" diameter="1.778"/>
-<pad name="3" x="-2.54" y="0" drill="1.0922" diameter="1.778"/>
-<text x="-3.81" y="5.08" size="1.27" layer="25">&gt;NAME</text>
+<pad name="3" x="2.54" y="0" drill="1.0922" diameter="1.778"/>
 <text x="-3.81" y="3.81" size="1.27" layer="27">&gt;VALUE</text>
-<hole x="-3.937" y="8.636" drill="3.4036"/>
-<hole x="3.937" y="8.636" drill="3.4036"/>
+<hole x="-3.81" y="8.636" drill="3.4544"/>
+<hole x="3.81" y="8.636" drill="3.4544"/>
+<wire x1="-5.715" y1="13.208" x2="-1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="1.905" y1="13.208" x2="5.715" y2="13.208" width="0.127" layer="21"/>
+<wire x1="5.715" y1="13.208" x2="5.715" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.715" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-5.715" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="1.27" x2="-5.715" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-1.27" x2="-3.81" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="-3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="13.208" x2="-1.905" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="8.89" x2="-0.635" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="8.89" x2="0.635" y2="8.89" width="0.127" layer="21"/>
+<wire x1="0.635" y1="8.89" x2="1.905" y2="8.89" width="0.127" layer="21"/>
+<wire x1="1.905" y1="8.89" x2="1.905" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="8.89" x2="-0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="6.35" x2="0.635" y2="6.35" width="0.127" layer="21"/>
+<wire x1="0.635" y1="6.35" x2="0.635" y2="8.89" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
+</package>
+<package name="MOLEX-70543-0002">
+<pad name="2" x="0" y="0" drill="1.1"/>
+<pad name="1" x="2.54" y="0" drill="1.1" shape="square"/>
+<pad name="3" x="-2.54" y="0" drill="1.1"/>
+<wire x1="-5.08" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.27" x2="5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-1.27" x2="-5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-1.27" x2="-5.08" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.127" layer="21"/>
+<text x="6.35" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="MOLEX_0015912035">
 <wire x1="-3.935" y1="5.345" x2="-3.935" y2="-5.345" width="0.127" layer="21"/>
 <wire x1="-3.935" y1="-5.345" x2="3.935" y2="-5.345" width="0.127" layer="21"/>
 <wire x1="3.935" y1="-5.345" x2="3.935" y2="5.345" width="0.127" layer="21"/>
 <wire x1="3.935" y1="5.345" x2="-3.935" y2="5.345" width="0.127" layer="21"/>
-<smd name="P$3" x="-2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
+<smd name="P$3" x="2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
 <smd name="P$2" x="0" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
-<smd name="P$1" x="2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
+<smd name="P$1" x="-2.54" y="-5.345" dx="1.65" dy="5.33" layer="1"/>
 <hole x="-3.935" y="5.345" drill="3.4"/>
 <hole x="3.935" y="5.345" drill="3.4"/>
 <dimension x1="-3.935" y1="-5.345" x2="3.935" y2="-5.345" x3="0" y3="-10.16" textsize="1.27" layer="47"/>
@@ -251,21 +276,6 @@
 <wire x1="-2.54" y1="6.985" x2="2.54" y2="6.985" width="0.127" layer="21"/>
 <wire x1="2.54" y1="6.985" x2="2.54" y2="9.525" width="0.127" layer="21"/>
 <dimension x1="-5.715" y1="9.55" x2="5.715" y2="9.55" x3="0" y3="11.43" textsize="1.27" layer="47"/>
-</package>
-<package name="MOLEX-70543-0002">
-<pad name="2" x="0" y="0" drill="1.1"/>
-<pad name="1" x="2.54" y="0" drill="1.1" shape="square"/>
-<pad name="3" x="-2.54" y="0" drill="1.1"/>
-<wire x1="-5.08" y1="1.27" x2="-2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<wire x1="2.54" y1="1.27" x2="5.08" y2="1.27" width="0.127" layer="21"/>
-<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="5.08" y1="-1.27" x2="-5.08" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="-1.27" x2="-5.08" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.127" layer="21"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.127" layer="21"/>
-<text x="6.35" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
 </package>
 </packages>
 <symbols>

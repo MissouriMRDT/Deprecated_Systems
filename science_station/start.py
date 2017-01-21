@@ -1,6 +1,8 @@
 import csv
 import dateutil.parser
 import sys
+import png
+import os
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
@@ -79,8 +81,17 @@ class StartQT4(QtGui.QMainWindow):
         self.pictureLayout = QtGui.QHBoxLayout(self.picture)
         self.pictureLayout.setMargin(0)
         self.pictureLayout.setSpacing(2)
-        self.pictureDisplay = Picture()
-        self.pictureLayout.addWidget(self.pictureDisplay)
+        # self.pictureDisplay = Picture()
+        self.pictureLabel1 = QtGui.QLabel()
+        self.picturePixmap1 = QtGui.QPixmap('grass.png')
+        self.pictureLabel1.setPixmap(self.picturePixmap1)
+        self.pictureLabel2 = QtGui.QLabel()
+        self.picturePixmap2 = QtGui.QPixmap('dice.png')
+        self.pictureLabel2.setPixmap(self.picturePixmap2)
+        self.pictureLayout.addWidget(self.pictureLabel1)
+        self.pictureLayout.addWidget(self.pictureLabel2)
+        self.pictureLayout.addWidget(self.picture)
+        self.picture.show()
         self.graphTabs.addTab(self.picture, "Site Pictures")
 
         self.digMainLayout.addLayout(self.inputFrame)
@@ -111,6 +122,15 @@ class StartQT4(QtGui.QMainWindow):
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
             # elif filename.lower().endswith('.png'):
+            #     # app = QtGui.QApplication(sys.argv)
+            #     w = QtGui.QWidget()
+            #     label = QtGui.QLabel(w)
+            #     pixmap = QtGui.QPixmap(os.getcwd() + '/logo.png')
+            #     label.setPixmap(pixmap)
+            #     w.show()
+            #     # app.exec_()
+            #     # r = png.Reader(file=urllib.urlopen('http://www.schaik.com/pngsuite/basn0g02.png'))
+            #     # r.read()
 
             else:
                 self.showdialogue("Unsupported file type. Please input a .csv file.")

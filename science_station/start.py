@@ -1,7 +1,6 @@
 import csv
 import dateutil.parser
 import sys
-import png
 import os
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
@@ -85,10 +84,10 @@ class StartQT4(QtGui.QMainWindow):
         self.pictureLabel1 = QtGui.QLabel()
         self.picturePixmap1 = QtGui.QPixmap('grass.png')
         self.pictureLabel1.setPixmap(self.picturePixmap1)
+        self.pictureLayout.addWidget(self.pictureLabel1)
         self.pictureLabel2 = QtGui.QLabel()
         self.picturePixmap2 = QtGui.QPixmap('dice.png')
         self.pictureLabel2.setPixmap(self.picturePixmap2)
-        self.pictureLayout.addWidget(self.pictureLabel1)
         self.pictureLayout.addWidget(self.pictureLabel2)
         self.pictureLayout.addWidget(self.picture)
         self.picture.show()

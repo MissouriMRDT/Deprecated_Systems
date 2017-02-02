@@ -123,9 +123,6 @@ class StartQT4(QtGui.QMainWindow):
         self.pictureLabel1.setPixmap(self.picturePixmap1)
         self.pictureLayout.addWidget(self.pictureLabel1)
         self.pictureLabel2 = QtGui.QLabel()
-        # self.picturePixmap2 = QtGui.QPixmap('dice.png')
-        # self.pictureLabel2.setPixmap(self.picturePixmap2)
-        # self.pictureLayout.addWidget(self.pictureLabel2)
         self.pictureLayout.addWidget(self.picture)
         self.picture.show()
 

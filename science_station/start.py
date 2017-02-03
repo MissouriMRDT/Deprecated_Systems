@@ -4,7 +4,7 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea #DataStore, SensorEnableBox, SensorEnableStates
+from customWidgets import GraphArea, Sensor, SensorEnableBox
 
 
 # TODO: Implementation - plot spectrometer data
@@ -15,9 +15,7 @@ class StartQT4(QtGui.QMainWindow):
         # Data variables.
         self.current_file = ""
         self.csv_type = ""
-        #self.ds = DataStore()
         self.spectrometer_data = []
-        #self.sensorEnableBools = SensorEnableStates()
 
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
@@ -59,8 +57,8 @@ class StartQT4(QtGui.QMainWindow):
         self.basicGraphLayout.setMargin(0)
         self.basicGraphLayout.setSpacing(2)
         # SensorEnableBox - custom widget for enabling/disabling rover sensor display
-        #self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
-        #self.basicGraphLayout.addWidget(self.sensorEnables)
+        self.sensorEnables = SensorEnableBox(self.basicGraphLayout)
+        self.basicGraphLayout.addWidget(self.sensorEnables)
         # GraphArea - custom widget for display of Matplotlib graphs of basic and spectrometer readings
         self.basicGraph = GraphArea()
         self.basicGraphLayout.addWidget(self.basicGraph)
@@ -74,22 +72,17 @@ class StartQT4(QtGui.QMainWindow):
         self.spectrometerGraphLayout.addWidget(self.spectrometerGraph)
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
-        # Contains all elements relevant to display pictures
-        self.picture = QtGui.QWidget()
-        self.scrollbar = QtGui.QScrollBar()
-        self.pictureLayout = QtGui.QHBoxLayout(self.picture)
-        self.pictureLayout.setMargin(0)
-        self.pictureLayout.setSpacing(2)
-        self.graphTabs.addTab(self.picture, "Site Pictures")
-
         self.digMainLayout.addLayout(self.inputFrame)
         self.displayFrame.addWidget(self.graphTabs)
         self.digMainLayout.addLayout(self.displayFrame)
 
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
         self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
-        #self.connect(self.sensorEnables.saveGraphsButton, QtCore.SIGNAL("clicked()"), lambda: self.basicGraph.graph_basic(self.ds, self.sensorEnableBools))
-        #self.connect(self.sensorEnables.tsheath1.stateChanged.connect(lambda: self.updateSensorBools(self.sensorEnables.tsheath1)))
+
+        # Makes the graph refresh when refreshButton is pressed
+        # I hate everything about this. Especially the lambda. God forgive me.
+        self.connect(self.sensorEnables.refreshButton, QtCore.SIGNAL("clicked()"),
+                     lambda: self.basicGraph.graph_basic(self.sensorEnables.sensors))
 
         self.setCentralWidget(self.centralWidget)
 
@@ -104,28 +97,14 @@ class StartQT4(QtGui.QMainWindow):
                 self.current_file = filename
                 # TODO: Add check for Spectrometer data and conditional graph call.
                 if self.csv_type == "basic":
-                    # self.basicGraph.graph_basic(self.ds, sensorEnableBools)
-                    # TODO: Refactor to handle sensor class
-                    pass
+                    self.basicGraph.graph_basic(self.sensorEnables.sensors)
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
-            elif filename.lower().endswith('.png'):
-                self.showpicture(filename)
             else:
-                self.showdialogue("Unsupported file type. Please input a .csv or .png file.")
+                self.showdialogue("Unsupported file type. Please input a .csv file.")
 
         else:
             self.showdialogue("File requested is already entered.")
-
-    def showpicture(self, pic_name):
-        """" Displays a picture """
-        self.pictureLabel = QtGui.QLabel()
-        self.picturePixmap = QtGui.QPixmap(pic_name)
-        self.pictureLabel.setPixmap(self.picturePixmap)
-        self.pictureLayout.addWidget(self.pictureLabel)
-        self.pictureLayout.addWidget(self.picture)
-        self.picture.show()
-        self.pictureLayout.addWidget(self.scrollbar)
 
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.
@@ -133,6 +112,7 @@ class StartQT4(QtGui.QMainWindow):
         with open(csv_name, 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=' ')
             # check header for Spectrometer or Temp/Humid readings.
+            # Assuming Temp/Humid
             header = next(reader)
             if header == ['datetime', 'sensor', 'measurement']:
                 self.csv_type = "basic"
@@ -144,21 +124,22 @@ class StartQT4(QtGui.QMainWindow):
                     if self.csv_type == "basic":
                         datestamp, sensor, raw_data = row
                         if sensor == "Temp1":
-                            self.ds.temp1.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp2":
-                            self.ds.temp2.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp3":
-                            self.ds.temp3.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Temp4":
-                            self.ds.temp4.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.tdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid1":
-                            self.ds.humid1.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid2":
-                            self.ds.humid2.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid3":
-                            self.ds.humid3.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
                         elif sensor == "Humid4":
-                            self.ds.humid4.append((dateutil.parser.parse(datestamp), raw_data))
+                            self.sensorEnables.hdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
+
                     if self.csv_type == "spectrometer":
                         wavelength, intensity = row
                         # TODO: We completely forgot to test this. Ehrenfreund v1.1 needs to add this as well.
@@ -167,6 +148,7 @@ class StartQT4(QtGui.QMainWindow):
                 except StopIteration:
                         pass
 
+    @staticmethod
     def showdialogue(self, errormessage):
         """ Error dialogue window used for file entry. """
         msg = QtGui.QMessageBox()

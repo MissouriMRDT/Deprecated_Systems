@@ -1,11 +1,10 @@
 import csv
 import dateutil.parser
 import sys
-import os
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, Picture #DataStore, SensorEnableBox, SensorEnableStates
+from customWidgets import GraphArea #DataStore, SensorEnableBox, SensorEnableStates
 
 
 # TODO: Implementation - plot spectrometer data
@@ -77,6 +76,7 @@ class StartQT4(QtGui.QMainWindow):
 
         # Contains all elements relevant to display pictures
         self.picture = QtGui.QWidget()
+        self.scrollbar = QtGui.QScrollBar()
         self.pictureLayout = QtGui.QHBoxLayout(self.picture)
         self.pictureLayout.setMargin(0)
         self.pictureLayout.setSpacing(2)
@@ -112,19 +112,20 @@ class StartQT4(QtGui.QMainWindow):
             elif filename.lower().endswith('.png'):
                 self.showpicture(filename)
             else:
-                self.showdialogue("Unsupported file type. Please input a .csv file.")
+                self.showdialogue("Unsupported file type. Please input a .csv or .png file.")
 
         else:
             self.showdialogue("File requested is already entered.")
 
-    def showpicture(self, png_name):
-        self.pictureLabel1 = QtGui.QLabel()
-        self.picturePixmap1 = QtGui.QPixmap(png_name)
-        self.pictureLabel1.setPixmap(self.picturePixmap1)
-        self.pictureLayout.addWidget(self.pictureLabel1)
-        self.pictureLabel2 = QtGui.QLabel()
+    def showpicture(self, pic_name):
+        """" Displays a picture """
+        self.pictureLabel = QtGui.QLabel()
+        self.picturePixmap = QtGui.QPixmap(pic_name)
+        self.pictureLabel.setPixmap(self.picturePixmap)
+        self.pictureLayout.addWidget(self.pictureLabel)
         self.pictureLayout.addWidget(self.picture)
         self.picture.show()
+        self.pictureLayout.addWidget(self.scrollbar)
 
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.

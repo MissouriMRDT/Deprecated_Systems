@@ -1239,92 +1239,6 @@ Murata</description>
 <dimension x1="36.068" y1="3.9497" x2="0" y2="0" x3="18.034" y3="-20.1422" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="4" visible="yes"/>
 <text x="3.556" y="3.81" size="0.8128" layer="21">5V(top), GND(bot)</text>
 </package>
-<package name="APP45_PCB_HORIZ_RIGHT_2HIGH">
-<wire x1="0" y1="0" x2="0" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="0" y1="7.9375" x2="8.001" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="8.001" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="11.176" y1="7.9375" x2="24.638" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="24.638" y1="7.9375" x2="24.638" y2="0" width="0.127" layer="51"/>
-<wire x1="24.638" y1="0" x2="11.176" y2="0" width="0.127" layer="51"/>
-<wire x1="8.89" y1="0" x2="8.001" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="8.001" y2="7.9375" width="0.127" layer="51" style="shortdash"/>
-<pad name="P$2" x="36.068" y="3.96875" drill="4.064" thermals="no"/>
-<wire x1="11.176" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51" curve="-180"/>
-<wire x1="8.89" y1="0" x2="11.176" y2="0" width="0.127" layer="51" curve="-180"/>
-<wire x1="24.638" y1="0" x2="24.638" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="-0.508" x2="12.319" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="-0.508" x2="12.319" y2="0" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="7.874" x2="24.638" y2="7.366" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="7.366" x2="12.319" y2="7.366" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="7.366" x2="12.319" y2="7.874" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="2.286" x2="12.319" y2="2.286" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="2.286" x2="12.319" y2="5.588" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="5.588" x2="24.638" y2="5.588" width="0.127" layer="49" style="shortdash"/>
-</package>
-<package name="APP45_PCB_HORIZ_RIGHT">
-<pad name="P$1" x="28.194" y="3.96875" drill="4.064" thermals="no"/>
-<wire x1="0" y1="0" x2="0" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="0" y1="7.9375" x2="8.001" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="8.001" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="11.176" y1="7.9375" x2="24.638" y2="7.9375" width="0.127" layer="51"/>
-<wire x1="24.638" y1="7.9375" x2="24.638" y2="0" width="0.127" layer="51"/>
-<wire x1="24.638" y1="0" x2="11.176" y2="0" width="0.127" layer="51"/>
-<wire x1="8.89" y1="0" x2="8.001" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
-<wire x1="8.001" y1="0" x2="8.001" y2="7.9375" width="0.127" layer="51" style="shortdash"/>
-<wire x1="11.176" y1="7.9375" x2="8.89" y2="7.9375" width="0.127" layer="51" curve="-180"/>
-<wire x1="8.89" y1="0" x2="11.176" y2="0" width="0.127" layer="51" curve="-180"/>
-<wire x1="24.638" y1="0" x2="24.638" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="-0.508" x2="12.319" y2="-0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="-0.508" x2="12.319" y2="0" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="7.874" x2="24.638" y2="7.366" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="7.366" x2="12.319" y2="7.366" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="7.366" x2="12.319" y2="7.874" width="0.127" layer="49" style="shortdash"/>
-<wire x1="24.638" y1="2.286" x2="12.319" y2="2.286" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="2.286" x2="12.319" y2="5.588" width="0.127" layer="49" style="shortdash"/>
-<wire x1="12.319" y1="5.588" x2="24.638" y2="5.588" width="0.127" layer="49" style="shortdash"/>
-<dimension x1="24.638" y1="0" x2="0" y2="0" x3="12.319" y3="-11.684" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
-<dimension x1="0" y1="0" x2="10.033" y2="0" x3="5.0165" y3="-7.62" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
-<dimension x1="0" y1="0" x2="8.001" y2="0" x3="4.0005" y3="-3.048" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
-<dimension x1="0" y1="0" x2="28.194" y2="3.937" x3="14.097" y3="-16.256" textsize="1.27" layer="47" dtype="horizontal" unit="inch" precision="3" visible="yes"/>
-<dimension x1="11.176" y1="7.874" x2="8.89" y2="7.874" x3="10.033" y3="9.398" textsize="1.27" layer="47" dtype="diameter" unit="inch" precision="3" visible="yes"/>
-<dimension x1="24.638" y1="7.9375" x2="24.638" y2="0" x3="36.83" y3="3.96875" textsize="1.27" layer="47" unit="inch" precision="4"/>
-</package>
-<package name="APP45_PCB_VERT">
-<wire x1="0" y1="0" x2="0" y2="7.874" width="0.127" layer="51"/>
-<wire x1="0" y1="7.874" x2="7.874" y2="7.874" width="0.127" layer="51"/>
-<wire x1="7.874" y1="7.874" x2="7.874" y2="0" width="0.127" layer="51"/>
-<wire x1="7.874" y1="0" x2="0" y2="0" width="0.127" layer="51"/>
-<pad name="P$1" x="3.937" y="3.175" drill="4.064" thermals="no"/>
-<wire x1="0" y1="4.572" x2="0.762" y2="4.572" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0.762" y1="4.572" x2="0.762" y2="7.112" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0.762" y1="7.112" x2="7.112" y2="7.112" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.112" y1="7.112" x2="7.112" y2="4.572" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.112" y1="4.572" x2="7.874" y2="4.572" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.874" y1="6.223" x2="8.382" y2="6.223" width="0.127" layer="49" style="shortdash"/>
-<wire x1="8.382" y1="6.223" x2="8.382" y2="1.651" width="0.127" layer="49" style="shortdash"/>
-<wire x1="8.382" y1="1.651" x2="7.874" y2="1.651" width="0.127" layer="49" style="shortdash"/>
-<wire x1="1.651" y1="8.382" x2="1.651" y2="7.874" width="0.127" layer="49" style="shortdash"/>
-<wire x1="6.223" y1="7.874" x2="6.223" y2="8.382" width="0.127" layer="49" style="shortdash"/>
-<wire x1="1.651" y1="8.382" x2="6.223" y2="8.382" width="0.127" layer="49" style="shortdash"/>
-<polygon width="0.127" layer="49" pour="hatch">
-<vertex x="0.762" y="4.318"/>
-<vertex x="7.112" y="4.318"/>
-<vertex x="7.112" y="0.762"/>
-<vertex x="0.762" y="0.762"/>
-</polygon>
-<wire x1="0" y1="6.223" x2="0.508" y2="6.223" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0.508" y1="6.223" x2="0.508" y2="1.651" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0.508" y1="1.651" x2="0" y2="1.651" width="0.127" layer="49" style="shortdash"/>
-<wire x1="1.651" y1="0.508" x2="1.651" y2="0" width="0.127" layer="49" style="shortdash"/>
-<wire x1="6.223" y1="0" x2="6.223" y2="0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="1.651" y1="0.508" x2="6.223" y2="0.508" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0" y1="0" x2="7.874" y2="0" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.874" y1="0" x2="7.874" y2="7.874" width="0.127" layer="49" style="shortdash"/>
-<wire x1="7.874" y1="7.874" x2="0" y2="7.874" width="0.127" layer="49" style="shortdash"/>
-<wire x1="0" y1="7.874" x2="0" y2="0" width="0.127" layer="49" style="shortdash"/>
-</package>
 <package name="MOLEX-0731711640-BNC">
 <pad name="P$1" x="0" y="0" drill="1.17"/>
 <pad name="P$2" x="-3.3" y="3.3" drill="2.11"/>
@@ -1604,44 +1518,6 @@ Murata</description>
 <technology name="">
 <attribute name="COLOR1" value="RED"/>
 <attribute name="COLOR2" value="BLACK"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="APP" prefix="J">
-<description>http://www.powerwerx.com/anderson-powerpoles/</description>
-<gates>
-<gate name="G$1" symbol="APP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="PP45_PCB_HORIZ_RIGHT_2HIGH" package="APP45_PCB_HORIZ_RIGHT_2HIGH">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COLOR1" value="" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="PP45_PCB_HORIZ_RIGHT" package="APP45_PCB_HORIZ_RIGHT">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COLOR1" value="" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="PP45_PCB_VERT" package="APP45_PCB_VERT">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COLOR1" value="" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -18499,14 +18375,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="P+3" library="supply1" deviceset="+12V" device="" value="+12V_LOGIC"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="MRDT-UserInput" deviceset="SWITCH_TACTILE" device=""/>
-<part name="J8" library="MRDT-Connectors" deviceset="APP" device="PP45_PCB_HORIZ_RIGHT"/>
-<part name="P+6" library="supply1" deviceset="+12V" device="" value="+12V_ACT"/>
-<part name="U7" library="MRDT-ICs" deviceset="OKI-78SR-*/1.5-W36?C" device="H" technology="5"/>
-<part name="P+7" library="supply1" deviceset="+12V" device="" value="+12V_ACT"/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="C25" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
-<part name="C26" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
-<part name="P+8" library="supply1" deviceset="+5V" device="" value="+5V_ACT"/>
 <part name="U6" library="MRDT-ICs" deviceset="MAX4312E?E" device="S"/>
 <part name="P+4" library="supply1" deviceset="+5V" device="" value="+5V_LOGIC"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
@@ -18670,14 +18538,6 @@ Signals</text>
 <instance part="P+3" gate="1" x="259.08" y="30.48"/>
 <instance part="GND20" gate="1" x="271.78" y="12.7"/>
 <instance part="S1" gate="G$1" x="10.16" y="68.58" rot="R90"/>
-<instance part="J8" gate="G$1" x="281.94" y="27.94"/>
-<instance part="P+6" gate="1" x="266.7" y="38.1"/>
-<instance part="U7" gate="G$1" x="198.12" y="66.04"/>
-<instance part="P+7" gate="1" x="182.88" y="76.2"/>
-<instance part="GND23" gate="1" x="200.66" y="45.72"/>
-<instance part="C25" gate="G$1" x="182.88" y="58.42"/>
-<instance part="C26" gate="G$1" x="215.9" y="58.42"/>
-<instance part="P+8" gate="1" x="215.9" y="76.2"/>
 </instances>
 <busses>
 </busses>
@@ -19086,19 +18946,6 @@ Signals</text>
 <pinref part="GND20" gate="1" pin="GND"/>
 <wire x1="274.32" y1="17.78" x2="271.78" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="17.78" x2="271.78" y2="15.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND23" gate="1" pin="GND"/>
-<pinref part="U7" gate="G$1" pin="GND"/>
-<wire x1="200.66" y1="48.26" x2="200.66" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="C25" gate="G$1" pin="2"/>
-<wire x1="200.66" y1="50.8" x2="200.66" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="53.34" x2="182.88" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="50.8" x2="200.66" y2="50.8" width="0.1524" layer="91"/>
-<junction x="200.66" y="50.8"/>
-<pinref part="C26" gate="G$1" pin="2"/>
-<wire x1="215.9" y1="53.34" x2="215.9" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="50.8" x2="200.66" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N_$1" class="0">
@@ -19562,23 +19409,6 @@ Signals</text>
 <label x="60.96" y="256.54" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="+12V_ACT" class="0">
-<segment>
-<pinref part="J8" gate="G$1" pin="P$1"/>
-<pinref part="P+6" gate="1" pin="+12V"/>
-<wire x1="274.32" y1="27.94" x2="266.7" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="266.7" y1="27.94" x2="266.7" y2="35.56" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U7" gate="G$1" pin="VI"/>
-<pinref part="P+7" gate="1" pin="+12V"/>
-<wire x1="190.5" y1="66.04" x2="182.88" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="66.04" x2="182.88" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="C25" gate="G$1" pin="1"/>
-<wire x1="182.88" y1="60.96" x2="182.88" y2="66.04" width="0.1524" layer="91"/>
-<junction x="182.88" y="66.04"/>
-</segment>
-</net>
 <net name="+5V_LOGIC" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="VO"/>
@@ -19598,17 +19428,6 @@ Signals</text>
 <pinref part="C24" gate="G$1" pin="1"/>
 <wire x1="210.82" y1="116.84" x2="210.82" y2="127" width="0.1524" layer="91"/>
 <junction x="210.82" y="127"/>
-</segment>
-</net>
-<net name="+5V_ACT" class="0">
-<segment>
-<pinref part="C26" gate="G$1" pin="1"/>
-<pinref part="U7" gate="G$1" pin="VO"/>
-<wire x1="215.9" y1="60.96" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="66.04" x2="210.82" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="P+8" gate="1" pin="+5V"/>
-<wire x1="215.9" y1="66.04" x2="215.9" y2="73.66" width="0.1524" layer="91"/>
-<junction x="215.9" y="66.04"/>
 </segment>
 </net>
 </nets>
@@ -19964,11 +19783,6 @@ Signals</text>
 <wire x1="137.16" y1="152.4" x2="142.24" y2="152.4" width="0.1524" layer="91"/>
 <label x="142.24" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="R33" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="152.4" x2="185.42" y2="152.4" width="0.1524" layer="91"/>
-<label x="185.42" y="152.4" size="1.27" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -19996,6 +19810,11 @@ Signals</text>
 <pinref part="R22" gate="G$1" pin="2"/>
 <wire x1="71.12" y1="162.56" x2="78.74" y2="162.56" width="0.1524" layer="91"/>
 <junction x="71.12" y="162.56"/>
+</segment>
+<segment>
+<pinref part="R33" gate="G$1" pin="2"/>
+<wire x1="180.34" y1="152.4" x2="185.42" y2="152.4" width="0.1524" layer="91"/>
+<label x="185.42" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="MUX0_0" class="0">
@@ -20075,15 +19894,6 @@ Signals</text>
 <approved hash="102,1,236.22,134.62,+5V,+5V_LOGIC,,,,"/>
 <approved hash="102,1,177.8,132.08,+12V,+12V_LOGIC,,,,"/>
 <approved hash="102,1,259.08,27.94,+12V,+12V_LOGIC,,,,"/>
-<approved hash="102,1,266.7,35.56,+12V,+12V_ACT,,,,"/>
-<approved hash="102,1,182.88,73.66,+12V,+12V_ACT,,,,"/>
-<approved hash="102,1,215.9,73.66,+5V,+5V_ACT,,,,"/>
-<approved hash="201,1,182.88,73.66,+12V,+12V_LOGIC\, +12V_ACT,,,,"/>
-<approved hash="201,1,266.7,35.56,+12V,+12V_LOGIC\, +12V_ACT,,,,"/>
-<approved hash="201,1,259.08,27.94,+12V,+12V_LOGIC\, +12V_ACT,,,,"/>
-<approved hash="201,1,177.8,132.08,+12V,+12V_LOGIC\, +12V_ACT,,,,"/>
-<approved hash="201,1,215.9,73.66,+5V,+5V_LOGIC\, +5V_ACT,,,,"/>
-<approved hash="201,1,236.22,134.62,+5V,+5V_LOGIC\, +5V_ACT,,,,"/>
 <approved hash="208,1,187.96,266.7,+3V3,sup,,,,"/>
 <approved hash="208,1,157.48,96.52,+3V3,sup,,,,"/>
 <approved hash="208,1,30.48,96.52,+3V3,sup,,,,"/>

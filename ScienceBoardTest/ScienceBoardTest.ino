@@ -12,8 +12,10 @@
 
 #include "arm.h"
 
+
+
 FeedbackDevice* feedbackDevice;//encoder
-JointInterface * inHerFace;//abstract joint/motor
+JointInterface * interFace;//abstract joint/motor
 OutputDevice * controller;//the motor controller
 IOAlgorithm * algorithm;//PI loop
 
@@ -30,6 +32,8 @@ IOAlgorithm * algorithm;//PI loop
   //create servos
   Servo flap, carousel;
 
+  
+
 void setup() {
 
   flap.attach(PM_5);
@@ -38,20 +42,23 @@ void setup() {
   roveComm_Begin(192, 168, 1, 131);
   Serial.begin(9600);
 
-  pinMode(PQ_3, OUTPUT) 
+  pinMode(PQ_3, OUTPUT);
+ // pinMode(PP_3, OUTPUT);
+  //pinMode(PQ_1, OUTPUT);
+//  pinMode(PM_6, OUTPUT);
 
   //init control devices
   //feedbackDevice = new Ma3Encoder12b(PA_2); //used for absolutely nothing, but hey demonstration of setting it up. 
 
 /**************************************/
-  controller = new DRV8388(PA_4, PK_2, false);
-  inHerFace = new SingleMotorJoint(spd, controller);
+  controller = new DRV8388(PP_3, PQ_1, PM_6, false);
+  interFace = new SingleMotorJoint(spd, controller);
 
  /************************************/
   
   //algorithm = new PIAlgorithm(3,3,3);
   
-} //fuck you drue
+}
 
 
 void loop() {
@@ -59,8 +66,12 @@ void loop() {
 
 
   //move motor
-  inHerFace -> runOutputControl(500);
+  interFace -> runOutputControl(500);
 
+  //digitalWrite(
+  
+
+/*
   //read analog data
   analog1 = analogRead(PD_0);
   //some command here to send this value to base station
@@ -99,6 +110,7 @@ void loop() {
   delay(500);
   carousel.write(180);
   delay(500);
+  */
  
 }
 

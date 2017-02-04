@@ -531,7 +531,7 @@ class DRV8388 : public OutputDevice
   private:
     //constants for hardware pins
     //value ranges for min/max PWM 
-    int ENABLE_PIN, PHASE_PIN;//enable does PWM
+    int ENABLE_PIN, PHASE_PIN, SLEEP_PIN;//enable does PWM
     const int PWM_MIN = 0, PWM_MAX = 255;
 
 
@@ -542,7 +542,7 @@ class DRV8388 : public OutputDevice
 
     //constructor here
     //pin asignments for enable pin and phase pin, also a bool to determine the orientation of da motor
-    DRV8388 (const int EN_PIN, const int PH_PIN, bool upsideDown);
+    DRV8388 (const int EN_PIN, const int PH_PIN, const int SLEEP_PIN, bool upsideDown);
 };
                                            /******************************************************************************
                                            *

@@ -618,14 +618,17 @@ void DirectDiscreteHBridge::move(const long movement)
 
 //DRV8388 constructor here
 // pin asignments for enable pin and phase pin, also a bool to determine the orientation of da motor
-DRV8388::DRV8388 (const int EN_PIN, const int PH_PIN, bool upsideDown) : OutputDevice()
+DRV8388::DRV8388 (const int EN_PIN, const int PH_PIN, const int SL_PIN, bool upsideDown) : OutputDevice()
 {
   ENABLE_PIN = EN_PIN;
   PHASE_PIN = PH_PIN;
   inType = spd;
   invert = upsideDown;
+  SLEEP_PIN = SL_PIN;
 
   pinMode(PHASE_PIN, OUTPUT);
+  pinMode(ENABLE_PIN, OUTPUT);
+  pinMode(SLEEP_PIN, OUTPUT);
 }
 
 
@@ -634,6 +637,9 @@ void DRV8388::move(const long movement)
 {
   int mov = movement;
   int pwm = 0;
+
+//  sleep nSLEEP to high, which is not sleeping, because it's active low
+  digitalWrite(SLEEP_PIN, HIGH);
   
   //if mounted upside down then invert the signal passed to it and move accordingly
   if (invert)

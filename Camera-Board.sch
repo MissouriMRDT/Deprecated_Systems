@@ -19430,6 +19430,62 @@ Signals</text>
 <junction x="210.82" y="127"/>
 </segment>
 </net>
+<net name="MUX0_SHDN" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD4@125"/>
+<label x="111.76" y="226.06" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="226.06" x2="111.76" y2="226.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MUX0_2" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD5@126"/>
+<label x="111.76" y="223.52" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="223.52" x2="111.76" y2="223.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="MUX0_1" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD6@127"/>
+<wire x1="104.14" y1="220.98" x2="111.76" y2="220.98" width="0.1524" layer="91"/>
+<label x="111.76" y="220.98" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MUX0_0" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD7@128"/>
+<wire x1="104.14" y1="218.44" x2="111.76" y2="218.44" width="0.1524" layer="91"/>
+<label x="111.76" y="218.44" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MUX1_0" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD0@1"/>
+<wire x1="104.14" y1="236.22" x2="111.76" y2="236.22" width="0.1524" layer="91"/>
+<label x="111.76" y="236.22" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MUX1_1" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD1@2"/>
+<wire x1="104.14" y1="233.68" x2="111.76" y2="233.68" width="0.1524" layer="91"/>
+<label x="111.76" y="233.68" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MUX1_2" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD2@3"/>
+<wire x1="104.14" y1="231.14" x2="111.76" y2="231.14" width="0.1524" layer="91"/>
+<label x="111.76" y="231.14" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MUX1_SHDN" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD3@4"/>
+<wire x1="104.14" y1="228.6" x2="111.76" y2="228.6" width="0.1524" layer="91"/>
+<label x="111.76" y="228.6" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>

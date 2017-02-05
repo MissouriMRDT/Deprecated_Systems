@@ -32,7 +32,7 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
@@ -1713,6 +1713,10 @@
 <wire x1="5.26" y1="-22.63" x2="5.26" y2="0" width="0.127" layer="21"/>
 <wire x1="-5.26" y1="0" x2="5.26" y2="0" width="0.127" layer="21" curve="-180"/>
 <text x="0" y="-8.89" size="1.27" layer="25" align="center">&gt;NAME</text>
+<wire x1="7.62" y1="-24.13" x2="-7.62" y2="-24.13" width="0.127" layer="39"/>
+<wire x1="-7.62" y1="-24.13" x2="-7.62" y2="5.08" width="0.127" layer="39"/>
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.127" layer="39"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-24.13" width="0.127" layer="39"/>
 </package>
 </packages>
 <symbols>

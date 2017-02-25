@@ -10,14 +10,12 @@
  * //need to add rove comm functionality and feedback for photodiode and error messages
  */
 
-#include "arm.h"
 
 
 
 FeedbackDevice* feedbackDevice;//encoder
 JointInterface * interFace;//abstract joint/motor
 OutputDevice * controller;//the motor controller
-IOAlgorithm * algorithm;//PI loop
 
 
   CommandResult result;

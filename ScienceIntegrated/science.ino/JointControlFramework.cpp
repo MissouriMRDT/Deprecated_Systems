@@ -56,17 +56,6 @@ bool JointInterface::verifyInput(long inputToVerify)
   }
 }
 
-void JointInterface::coupleJoint(JointInterface* otherJoint)
-{
-  //only couple the joint if it isn't already coupled to avoid infinite recursion
-  if(!coupled)
-  {
-    coupledJoint = otherJoint;
-    coupled = true;
-    otherJoint -> coupleJoint(this);
-  }
-}
-
 //constructor for single motor joints with feedback device
 //inputType: What kind of movement this joint should be controlled by, such as speed or position input.
 //alg: The IOAlgorithm to be used by this joint
@@ -264,41 +253,11 @@ JointControlStatus TiltJoint::runOutputControl(const long movement)
   	//runs the algorithm on the input
   	mov = manip->runAlgorithm(movement, &motionComplete);
 
-    motorOneSpeed = mov;
-    motorTwoSpeed = mov;
-
-    //this only happens if this joint has been coupled with another joint
-    //the coupled logic will modify the speed calculated by the algorithm
-    //to allow smooth tilting and rotating at the same time
-    if(coupled)
-    {
-      motorOneSpeed += coupledJoint->motorOneSpeed;
-      if (motorOneSpeed > 1000)
-      {
-        motorOneSpeed = 1000;
-      }
-      if (motorOneSpeed < -1000)
-      {
-        motorOneSpeed = -1000;
-      }
-
-      motorTwoSpeed += coupledJoint->motorTwoSpeed;
-      if (motorTwoSpeed > 1000)
-      {
-        motorTwoSpeed = 1000;
-      }
-      if (motorTwoSpeed < -1000)
-      {
-        motorTwoSpeed = -1000;
-      }
-    }
-    
-
   	//send to the motor move command
-  	controller1->move(motorOneSpeed);
+  	controller1->move(mov);
 
   	//both the controllers should move the arm in the same direction. send command to motor 2
-  	controller2->move(motorTwoSpeed);
+  	controller2->move(mov);
 
     if(motionComplete == true)
     {
@@ -408,40 +367,11 @@ JointControlStatus RotateJoint::runOutputControl(const long movement)
     //runs the algorithm on the input
     mov = manip->runAlgorithm(movement, &motionComplete);
 
-    motorOneSpeed = mov;
-    motorTwoSpeed = -mov;
-
-    //this only happens if this joint has been coupled with another joint
-    //the coupled logic will modify the speed calculated by the algorithm
-    //to allow smooth tilting and rotating at the same time
-    if(coupled)
-    {
-      motorOneSpeed += coupledJoint->motorOneSpeed;
-      if (motorOneSpeed > 1000)
-      {
-        motorOneSpeed = 1000;
-      }
-      if (motorOneSpeed < -1000)
-      {
-        motorOneSpeed = -1000;
-      }
-
-      motorTwoSpeed += coupledJoint->motorTwoSpeed;
-      if (motorTwoSpeed > 1000)
-      {
-        motorTwoSpeed = 1000;
-      }
-      if (motorTwoSpeed < -1000)
-      {
-        motorTwoSpeed = -1000;
-      }
-    }
-
     //send to the motor move command
-    controller1->move(motorOneSpeed);
+    controller1->move(mov);
 
     //send command to motor 2. Since this is a rotate joint, the motors need to go in opposite directions so send the second one a negafied value
-    controller2->move(motorTwoSpeed);
+    controller2->move(-1 * mov);
 
     if(motionComplete == true)
     {
@@ -688,14 +618,17 @@ void DirectDiscreteHBridge::move(const long movement)
 
 //DRV8388 constructor here
 // pin asignments for enable pin and phase pin, also a bool to determine the orientation of da motor
-DRV8388::DRV8388 (const int EN_PIN, const int PH_PIN, bool upsideDown) : OutputDevice()
+DRV8388::DRV8388 (const int EN_PIN, const int PH_PIN, const int SL_PIN, bool upsideDown) : OutputDevice()
 {
   ENABLE_PIN = EN_PIN;
   PHASE_PIN = PH_PIN;
   inType = spd;
   invert = upsideDown;
+  SLEEP_PIN = SL_PIN;
 
   pinMode(PHASE_PIN, OUTPUT);
+  pinMode(ENABLE_PIN, OUTPUT);
+  pinMode(SLEEP_PIN, OUTPUT);
 }
 
 
@@ -704,6 +637,9 @@ void DRV8388::move(const long movement)
 {
   int mov = movement;
   int pwm = 0;
+
+//  sleep nSLEEP to high, which is not sleeping, because it's active low
+  digitalWrite(SLEEP_PIN, HIGH);
   
   //if mounted upside down then invert the signal passed to it and move accordingly
   if (invert)
@@ -748,56 +684,6 @@ void DRV8388::move(const long movement)
 }
 
 
-//DRV8871
-DRV8871::DRV8871(const int IN_PIN_1, const int IN_PIN_2, const bool upsideDown) : OutputDevice()
-{
-  IN_1 = IN_PIN_1;
-  IN_2 = IN_PIN_2;
-  inType = spd;
-  invert = upsideDown;
-
-  pinMode(IN_1, OUTPUT);
-  pinMode(IN_2, OUTPUT);
-  
-}
-
-void DRV8871::move(const long movement)
-{
-  int mov = movement;
-  int pwm = 0;
-  
-  if(mov > 0)
-  {
-      //low high
-      pwm = map(mov, 0, SPEED_MAX, PWM_MIN, PWM_MAX);
-      digitalWrite(IN_1, LOW);
-      PwmWrite(IN_2, pwm);
-    //pwm
-    
-  }
-  
-  else if (mov < 0)
-  {
-    mov = abs(mov);
-    pwm = map(mov, 0, SPEED_MAX, PWM_MIN, PWM_MAX);
-    digitalWrite(IN_2, LOW);
-    PwmWrite(IN_1, pwm);
-    //high low
-    
-    //pwm
-    
-  }
-  else
-  {
-    //mov == 0
-    //low low = coast, sleep
-    //high high = brake, immediate stop
-    digitalWrite(IN_1, LOW);
-    digitalWrite(IN_2, LOW);
-  }
-
-return;
-}
 
 
 

@@ -21,7 +21,7 @@ void setup() {
   
   Serial.begin(9600);
 
-  pinMode(PF_0, OUTPUT);
+  pinMode(PF_0, OUTPUT);//LED
  // pinMode(PP_3, OUTPUT);
  // pinMode(PQ_3, OUTPUT);//LED
 //  pinMode(PM_6, OUTPUT);
@@ -66,13 +66,13 @@ void loop() {
 
 void servoToPos(int pos)
 {
-  if(pos > 90)
+  if(pos > 170)
   {
-    pos = 90;
+    pos = 170;
   }
-  if (pos < -90)
+  if (pos < 0)
   {
-    pos = -90;
+    pos = 0;
   }
   flap.write(pos);
   carousel.write(pos);

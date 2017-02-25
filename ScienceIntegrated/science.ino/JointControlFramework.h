@@ -40,9 +40,9 @@
 #define JOINTCONTROLFRAMEWORK_H_
 
 #include "Energia.h"
-#include <RoveDynamixel.h>
-#include <PwmReader.h>
-#include <pwmWriter.h>
+#include "RoveDynamixel.h"
+#include "PwmReader.h"
+#include "pwmWriter.h"
 
 
 //All the types of values that can be passed to and be returned from the clases in the control framework
@@ -90,9 +90,7 @@ class OutputDevice;
 class DirectDiscreteHBridge;
 class DynamixelController;
 class Sdc2130;
-class DRV8388;//spectrometer motor gryphon
-class DRV8871;//drill motor gryphon
-class DRV8842;//science main arm gryphon
+class DVR8388;
   //feedback devices and derived classes
 class FeedbackDevice;
 
@@ -120,12 +118,6 @@ class JointInterface
     //tracks whether or not the parameters passed via construction were valid
     bool validConstruction;
 
-    //the other joint with which this joint may be coupled with
-    JointInterface* coupledJoint;
-
-    //tracks whether or not the joint is coupled with another joint
-    bool coupled = false;
-
     //function that checks to see if the user put in a proper input value when calling the runOutputControl function
     //returns true if the input is in a valid range, false if it's not
     bool verifyInput(long inputToVerify);
@@ -137,20 +129,12 @@ class JointInterface
 
   public:
 
-    //variables to store the speed of either motor
-    int motorOneSpeed = 0;
-    int motorTwoSpeed = 0;
-
     //Runs the output control for this joint, IE making it move or checking
     //feedback to see if it needs to move, whatever the algorithm for
     //this joint is deemed to be, it runs it.
     //Must pass an integer for this implementation. Will break otherwise.
     //returns: The status of attempting to control this joint. Such as if the output is now running, or if it's complete, or if there was an error
     virtual JointControlStatus runOutputControl(const long movement);
-
-    //couples this joint with the other joint
-    //so they can point to eachother
-    void coupleJoint(JointInterface* otherJoint);
 };
 
 //feedback devices used to help determine where the arm is and what steps need to be taken
@@ -547,7 +531,7 @@ class DRV8388 : public OutputDevice
   private:
     //constants for hardware pins
     //value ranges for min/max PWM 
-    int ENABLE_PIN, PHASE_PIN;//enable does PWM
+    int ENABLE_PIN, PHASE_PIN, SLEEP_PIN;//enable does PWM
     const int PWM_MIN = 0, PWM_MAX = 255;
 
 
@@ -558,30 +542,8 @@ class DRV8388 : public OutputDevice
 
     //constructor here
     //pin asignments for enable pin and phase pin, also a bool to determine the orientation of da motor
-    DRV8388 (const int EN_PIN, const int PH_PIN, bool upsideDown);
+    DRV8388 (const int EN_PIN, const int PH_PIN, const int SLEEP_PIN, bool upsideDown);
 };
-
-//DRV8871 H bridge IC
-class DRV8871 : public OutputDevice
-{
-  private:
-    //input pins to H bridge and min/max vals for pwm
-    int IN_1, IN_2;
-    const int PWM_MIN = 0, PWM_MAX = 255;
-
-  protected:
-    //pass speed to move function
-    void move (const long movement);
-
-  public:
-    //in constructor, declare pins for in 1 and 2
-    DRV8871 (const int IN_PIN_1, const int IN_PIN_2, bool upsideDown);
-    
-    
-};
-                               
-                                           
-                                           
                                            /******************************************************************************
                                            *
                                            * Feedback Device derived classes

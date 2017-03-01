@@ -20923,6 +20923,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="C26" library="resistor" deviceset="C-US" device="C1206" value="10uF"/>
 <part name="P+8" library="supply1" deviceset="+5V" device="" value="+5V_ACT"/>
 <part name="U$6" library="MRDT-Connectors" deviceset="DYNAMIXEL-1X03" device="VERT"/>
+<part name="U$7" library="MRDT-Connectors" deviceset="DYNAMIXEL-1X03" device="VERT"/>
 </parts>
 <sheets>
 <sheet>
@@ -22568,6 +22569,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="P+5" gate="1" x="132.08" y="152.4"/>
 <instance part="GND22" gate="1" x="137.16" y="63.5"/>
 <instance part="U$6" gate="G$1" x="170.18" y="139.7" rot="R180"/>
+<instance part="U$7" gate="G$1" x="170.18" y="165.1" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -22642,6 +22644,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="162.56" y1="142.24" x2="137.16" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="142.24" x2="137.16" y2="116.84" width="0.1524" layer="91"/>
 <junction x="137.16" y="116.84"/>
+<pinref part="U$7" gate="G$1" pin="GND"/>
+<wire x1="162.56" y1="167.64" x2="137.16" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="167.64" x2="137.16" y2="142.24" width="0.1524" layer="91"/>
+<junction x="137.16" y="142.24"/>
 </segment>
 </net>
 <net name="DROPBAY_0" class="0">
@@ -22726,12 +22732,22 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="162.56" y1="137.16" x2="160.02" y2="137.16" width="0.1524" layer="91"/>
 <label x="160.02" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="DATA"/>
+<wire x1="162.56" y1="162.56" x2="160.02" y2="162.56" width="0.1524" layer="91"/>
+<label x="160.02" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="+12V_ACT" class="0">
 <segment>
 <pinref part="U$6" gate="G$1" pin="VCC"/>
 <wire x1="160.02" y1="139.7" x2="162.56" y2="139.7" width="0.1524" layer="91"/>
 <label x="160.02" y="139.7" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="VCC"/>
+<wire x1="162.56" y1="165.1" x2="160.02" y2="165.1" width="0.1524" layer="91"/>
+<label x="160.02" y="165.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

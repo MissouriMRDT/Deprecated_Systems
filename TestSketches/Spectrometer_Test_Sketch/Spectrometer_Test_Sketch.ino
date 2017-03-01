@@ -23,7 +23,7 @@ void setup() {
   * Spectrometer motor Initiaslization
   /***********************************/
   pinMode(PM_6, OUTPUT);//sleep
-  pinMode(PQ_1, OUTPUT);//phase
+  pinMode(PQ_1, OUTPUT);//phase high=reverse, low=forward
   pinMode(PP_3, OUTPUT);//enable
   pinMode(PF_0, OUTPUT);//LED
   pinMode(PK_7, OUTPUT);//enable voltage reg
@@ -36,7 +36,9 @@ void loop() {
 
    //turn on motor, run for 5s before continuing
    //direction is a bool! change true/false for direction
-   spectroMotorOn(true);
+   spectroMotorForward();
+
+
    
    //do nothing except leave motor on for 5s
    delay(5000);
@@ -75,7 +77,7 @@ void loop() {
 
    //return motor to start position
    //opposite direction than what was called earlier!
-   spectroMotorOn(false);
+   spectroMotorReverse();
 
    //wait 35s for motor to return
    delay(35000);
@@ -91,15 +93,20 @@ void loop() {
   
 }
 
-void spectroMotorOn(bool dir)
+
+
+void spectroMotorForward()
 {
-  digitalWrite(PM_6, HIGH);//nsleep
-  if (dir)
-    digitalWrite(PQ_1, HIGH);//phase
-  if (!dir)
-    digitalWrite(PQ_1, LOW);//opposoite phase
-  
-  digitalWrite(PP_3, HIGH);//ennable the motor
+    digitalWrite(PQ_1, LOW);//phase, low = forward
+   digitalWrite(PP_3, HIGH);//enable
+   digitalWrite(PM_6, HIGH);//nSleep
+}
+
+void spectroMotorReverse()
+{
+   digitalWrite(PQ_1, HIGH);
+   digitalWrite(PP_3, HIGH);
+   digitalWrite(PM_6, HIGH);
 }
 
 void spectroMotorOff()

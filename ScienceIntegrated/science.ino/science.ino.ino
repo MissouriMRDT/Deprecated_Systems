@@ -6,7 +6,7 @@
 #include <SPI.h>
 #include "Servo.h"
 #include <Wire.h>
-#include "BMP085_t.h"
+//#include "BMP085_t.h"
 
 //Variable declaration
 CommandResult result;
@@ -15,7 +15,7 @@ size_t commandSize;
 int16_t commandData;
 uint32_t watchdogTimer_us = 0;
 Servo flap, carousel;
-BMP085<0> PSensor;
+//BMP085<0> PSensor;
 
 void setup() {}
 
@@ -46,53 +46,97 @@ void loop() {
       Serial.println(commandSize);
       Serial.println("");
 
-       if(commandId == 0x720)
-         sensor_enable[0]=commandId;
-       else if(commandId == 0x721)
-         sensor_enable[1]=commandId;
-       else if(commandId == 0x722)
-         sensor_enable[2]=commandId;
-       else if(commandId == 0x723)
-         sensor_enable[3]=commandId;
-       else if(commandId == 0x728)
-         sensor_enable[4]=commandId;
-       else if(commandId == 0x729)
-         sensor_enable[5]=commandId;
-       else if(commandId == 0x72A)
-         sensor_enable[6]=commandId;
-       else if(commandId == 0x711)//Carosel
-         rotateCarousel(commandData);
-       else if(commandId == 0x710)//Spectrometer sub-routine
-         spectrometer();
-       else if(commandId == 0x72B)//
-         partial_spec(commandData);
+       if(commandId == 0x710)
+       {
+         if(commandData == 1)
+           sensor_enable[0]=1;
+         else if(commandData == 2)
+           sensor_enable[0]=0;
+         else if(commandData == 3)
+           sensor_enable[1]=1;
+         else if(commandData == 4)
+           sensor_enable[1]=0;
+         else if(commandData == 5)
+           sensor_enable[2]=1;
+         else if(commandData == 6)
+           sensor_enable[2]=0;
+         else if(commandData == 7)
+           sensor_enable[3]=1;
+         else if(commandData == 8)
+           sensor_enable[3]=0;
+         else if(commandData == 9)
+           sensor_enable[4]=1;
+         else if(commandData == 10)
+           sensor_enable[4]=0;
+         else if(commandData == 11)
+           sensor_enable[5]=1;
+         else if(commandData == 12)
+           sensor_enable[5]=0;
+         else if(commandData == 13)
+           sensor_enable[6]=1;
+         else if(commandData == 14)
+           sensor_enable[6]=0;
+         else if(commandData == 18)
+           turnOnLaser();
+         else if(commandData == 19)
+           turnOffLaser();
+         else if(commandData == 20)
+           openFlap();
+         else if(commandData == 21)
+           closeFlap();
+         else if(commandData == 17)
+           spectrometer();
+
+           
+       }
+       else if(commandId == 0x711)//Carousel
+       {
+        if(commandData!=5)//We have 5 positions (1-5) and 6 commands (0-6)
+          rotateCarousel(commandData);
+       }
        
-       //check for sensors, and then send through rovecomm if applicable
-       if(sensor_enable[0])
-         //AirTemp
-         delay(1);
-       else if(sensor_enable[1])
-         //AirHumidity
-         delay(1);
-       else if(sensor_enable[2])
-         //Soil Temp
-         delay(1);
-       else if(sensor_enable[3])
-         //Soil Humidity
-         delay(1);
-         else if(sensor_enable[4])
-         //Methane
-         delay(1);
-       else if(sensor_enable[5])
-         //UV Intensity
-         delay(1);
-       else if(sensor_enable[6])
-         //Pressure
-         delay(1);      
-        
+
     }
-    else//No message
+    else //No message and send sensor data
     {
+       float sensorTestData = 100.0;
+       //check for sensors, and then send through rovecomm if applicable
+       if(sensor_enable[0])//AirTemp
+       {
+        sensorTestData = 100.0;
+         roveComm_SendMsg(0x720, sizeof(100.0), &sensorTestData); 
+       }
+       else if(sensor_enable[1]) //AirHumidity
+       {
+        sensorTestData = 101.0;
+         roveComm_SendMsg(0x721, sizeof(101.0), &sensorTestData);
+       }
+       else if(sensor_enable[2]) //Soil Temp
+       {
+        sensorTestData = 102.0;
+         roveComm_SendMsg(0x722, sizeof(102.0), &sensorTestData);
+       }
+       else if(sensor_enable[3]) //Soil Humidity
+       {
+        sensorTestData = 103.0;
+         roveComm_SendMsg(0x723, sizeof(103.0), &sensorTestData);
+       }
+       else if(sensor_enable[4]) //Methane
+       {
+        sensorTestData = 104.0;
+         roveComm_SendMsg(0x728, sizeof(104.0), &sensorTestData);
+       }
+       else if(sensor_enable[5]) //UV Intensity
+       {
+        sensorTestData = 105.0;
+         roveComm_SendMsg(0x729, sizeof(105.0), &sensorTestData);
+       }
+       else if(sensor_enable[6]) //Pressure
+       {
+        sensorTestData = 106.0;
+         roveComm_SendMsg(0x72A, sizeof(106.0), &sensorTestData);
+       }        
+
       uint8_t microsecondDelay = 10;
       delayMicroseconds(microsecondDelay);
 
@@ -120,7 +164,7 @@ void initialize()
   pinMode(PD_1, INPUT);//photodiode2
   flap.attach(PM_5);
   carousel.attach(PM_4);
-  PSensor.begin();//Initalize pressure Sensor
+  //PSensor.begin();//Initalize pressure Sensor
   /************************************
   * Spectrometer motor Initiaslization
   /***********************************/
@@ -138,18 +182,66 @@ void initialize()
 
 void spectrometer()//Spec sub-routine
 {
-  //Motor on
-  //5 sec
-  //laser on
-  //start reading pd
-  //30 sec
-  //laser off
-  //motor off
-  //delay 2
-  //motor reverse
-  //stop reading 
-  //delay 35
-  //motor off
+
+   uint16_t photo1, photo2;
+   
+   //turn on motor, run for 5s before continuing
+   //direction is a bool! change true/false for direction
+   spectroMotorForward();
+
+
+   
+   //do nothing except leave motor on for 5s
+   delay(5000);
+
+   //turn on laser
+   turnOnLaser();
+   
+   //laser is on, motor should still be going?
+   //keep laser and motor on for 30s
+   int timer = 0;
+
+    //loop takes analog readings 
+    //delays for 1/8 second
+    //should repeat until roughly 30s have passed.
+   while (timer <= 30000)
+   {
+    //read photo diodes
+    photo1 = analogRead(PD_0);
+    photo2 = analogRead(PD_1);
+    //print data
+    Serial.println("Data for photodiodes 1 & 2, respectively:");
+    Serial.println(photo1);
+    Serial.println(photo2);
+    timer += 125;
+    delay(125); 
+   }
+
+   //turn off laser
+   turnOffLaser();
+
+   //turn off motor
+   spectroMotorOff();
+
+   //delay couple seconds
+   delay(2000);
+
+   //return motor to start position
+   //opposite direction than what was called earlier!
+   spectroMotorReverse();
+
+   //wait 35s for motor to return
+   delay(35000);
+
+   //stop motor again
+   spectroMotorOff();
+
+   //wait 10 seconds before repeating the loop
+   delay(10000);
+  
+   
+   
+  
 }
 
 void partial_spec(const uint16_t data)
@@ -163,9 +255,9 @@ void partial_spec(const uint16_t data)
     else if(data==3)
     turnOffLaser();
     else if(data==4)
-    spectroMotorOn(0);
+    spectroMotorForward();
     else if(data==5)
-    spectroMotorOn(1);
+    spectroMotorReverse();
     else if(data==6)
     spectroMotorOff();
     else if(data==7)
@@ -207,16 +299,6 @@ void rotateCarousel(const uint16_t pos)//need to discuss best implementation of 
   carousel.write(180/4 * pos);  //cache positions must be tweeked here.
 }
 
-void spectroMotorOn(const bool dir)
-{
-  digitalWrite(PM_6, HIGH);//nsleep
-  if (dir)
-    digitalWrite(PQ_1, HIGH);//phase
-  if (!dir)
-    digitalWrite(PQ_1, LOW);//opposoite phase
-  
-  digitalWrite(PP_3, HIGH);//ennable the motor
-}
 
 void spectroMotorOff()
 {
@@ -246,34 +328,8 @@ float instantUV()
  //Enable pin here
   float uvInten = mapfloat(analogRead(PK_0), .99, 2.8, 0, 15);
   return uvInten;
-
-
-  /*  //Old unused version of UV reading
-  int uvLevel = averageAnalogRead();         //Needs correct PIN   PK_0
-  int refLevel = averageAnalogRead();      //Needs correct PIN
-
-  //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
-  float outputVoltage = 3.3 / refLevel * uvLevel;
-  float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); //Convert the voltage to a UV intensity level
-  return uvIntensity;
-  */
 }
 
-/*  //Old function for UV reading
-//Takes an average of readings on a given pin
-//Returns the average
-int averageAnalogRead(int pinToRead)
-{
-  byte numberOfReadings = 8;
-  unsigned int runningValue = 0; 
-
-  for(int x = 0 ; x < numberOfReadings ; x++)
-    runningValue += analogRead(pinToRead);
-  runningValue /= numberOfReadings;
-
-  return(runningValue);  
-}
-*/
 
 //The Arduino Map function but for floats
 //From: http://forum.arduino.cc/index.php?topic=3922.0
@@ -282,12 +338,14 @@ float mapfloat(float x, float in_min, float in_max, float out_min, float out_max
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
+/*
 float instantPressure()
 {
   PSensor.refresh();
   PSensor.calculate();
   return PSensor.pressure;
 }
+*/
 
 int readPhotoDiode1()
 {
@@ -297,5 +355,37 @@ int readPhotoDiode1()
 int readPhotoDiode2()
 {
   return analogRead(PD_1);
+}
+
+void spectroMotorForward()
+{
+   digitalWrite(PQ_1, LOW);//phase, low = forward
+   digitalWrite(PP_3, HIGH);//enable
+   digitalWrite(PM_6, HIGH);//nSleep
+}
+
+void spectroMotorReverse()
+{
+   digitalWrite(PQ_1, HIGH);
+   digitalWrite(PP_3, HIGH);
+   digitalWrite(PM_6, HIGH);
+}
+
+float instantAirHumidity()
+{
+  float holderOfPlace = 0.0;
+  return holderOfPlace;  
+}
+
+float instantSoilHumidity()
+{
+  float holderOfPlace = 0.0;
+  return holderOfPlace;    
+}
+
+float instantMethane()
+{
+  float holderOfPlace = 0.0;
+  return holderOfPlace;  
 }
 

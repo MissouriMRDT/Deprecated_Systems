@@ -1,5 +1,5 @@
 //Programmers: Chris Dutcher & Jimmy Haviland
-// Febuary 24, 2017
+//Febuary 24, 2017
 //Missouri S&T  Mars Rover Design Team
 //Science Board Main program
 
@@ -9,6 +9,8 @@
 #include "Servo.h"
 #include <Wire.h>
 //#include "BMP085_t.h"   This file is causing compilation problems
+
+//TODO:Get a list of buttons to put on RED
 
 //Variable declaration:
 //Stores the result (if any) of commands received and executed
@@ -35,6 +37,7 @@ void setup() {}
 void loop() {
   //All important pre-loop setup is done here
   initialize();
+  bool sensor_enable[7] = {true,true,true,true,true,true,true}; //Determines which sensors will send data back
 
   //Main execution loop
   while(1)
@@ -43,10 +46,6 @@ void loop() {
     commandSize = 0;
     commandId = 0;
     commandData = 0;
-
-    
-    bool sensor_enable[7] = {1,1,1,1,1,1,1};//Determines which sensors send data back  TODO:Does this re-initialize the vars each time?
-
     //Receives a command form base station and stores the message
     roveComm_GetMsg(&commandId, &commandSize, &commandData);
     
@@ -61,47 +60,70 @@ void loop() {
       Serial.println(commandSize);
       Serial.println("");
 
-       //Checks the value of the command, and if applicable, executes it
+       //Checks the value of the command, and if applicable, executes it TODO: Make command ID and command Data constants (header)
        if(commandId == 0x710)
        {
-         if(commandData == 1)
-           sensor_enable[0]=1;
-         else if(commandData == 2)
-           sensor_enable[0]=0;
-         else if(commandData == 3)
-           sensor_enable[1]=1;
-         else if(commandData == 4)
-           sensor_enable[1]=0;
-         else if(commandData == 5)
-           sensor_enable[2]=1;
-         else if(commandData == 6)
-           sensor_enable[2]=0;
-         else if(commandData == 7)
-           sensor_enable[3]=1;
-         else if(commandData == 8)
-           sensor_enable[3]=0;
-         else if(commandData == 9)
-           sensor_enable[4]=1;
-         else if(commandData == 10)
-           sensor_enable[4]=0;
-         else if(commandData == 11)
-           sensor_enable[5]=1;
-         else if(commandData == 12)
-           sensor_enable[5]=0;
-         else if(commandData == 13)
-           sensor_enable[6]=1;
-         else if(commandData == 14)
-           sensor_enable[6]=0;
-         else if(commandData == 18)
-           turnOnLaser();
-         else if(commandData == 19)
-           turnOffLaser();
-         else if(commandData == 20)
-           openFlap();
-         else if(commandData == 21)
-           closeFlap();
-         else if(commandData == 17)
-           spectrometer();
+        //Switch case
+        switch(commandData) {
+        case 1:
+        sensor_enable[0]=true;
+        break;
+        case 2:
+        sensor_enable[0]=false;
+        break;
+        switch(commandData)
+        case 3:
+        sensor_enable[1]=true;
+        break;
+        case 4:
+        sensor_enable[1]=false;
+        break;
+        case 5:
+        sensor_enable[2]=true;
+        break;
+        case 6:
+        sensor_enable[2]=false;
+        break;
+        case 7:
+        sensor_enable[3]=true;
+        break;
+        case 8:
+        sensor_enable[3]=false;
+        break;
+        case 9:
+        sensor_enable[4]=true;
+        break;
+        case 10:
+        sensor_enable[4]=false;
+        break;
+        case 11:
+        sensor_enable[5]=true;
+        break;
+        case 12:
+        sensor_enable[5]=false;
+        break;
+        case 13:
+        sensor_enable[6]=true;
+        break;
+        case 14:
+        sensor_enable[6]=false;
+        break;
+        case 18:
+        turnOnLaser();
+        break;
+        case 19:
+        turnOffLaser();
+        break;
+        case 20:
+        openFlap();
+        break;
+        case 21:
+        closeFlap();
+        break;
+        case 17:
+        spectrometer();
+        break;
+         }   
        }
        else if(commandId == 0x711)//Carousel
        {
@@ -111,43 +133,44 @@ void loop() {
     }
     else //No message was received and we send sensor data
     {
+       //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors (to keep them seperate)
        //Temporary sensor variable, future variable will be altered by sensor functions before being sent
        float sensorTestData = 100.0;
        //check for which sensors to record, and then send through rovecomm
        if(sensor_enable[0])//AirTemp
        {
         sensorTestData = 100.0;
-         roveComm_SendMsg(0x720, sizeof(100.0), &sensorTestData); 
+        roveComm_SendMsg(0x720, sizeof(sensorTestData), &sensorTestData); 
        }
        else if(sensor_enable[1]) //AirHumidity
        {
         sensorTestData = 101.0;
-         roveComm_SendMsg(0x721, sizeof(101.0), &sensorTestData);
+        roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
        }
        else if(sensor_enable[2]) //Soil Temp
        {
         sensorTestData = 102.0;
-         roveComm_SendMsg(0x722, sizeof(102.0), &sensorTestData);
+        roveComm_SendMsg(0x722, sizeof(sensorTestData), &sensorTestData);
        }
        else if(sensor_enable[3]) //Soil Humidity
        {
         sensorTestData = 103.0;
-         roveComm_SendMsg(0x723, sizeof(103.0), &sensorTestData);
+        roveComm_SendMsg(0x723, sizeof(sensorTestData), &sensorTestData);
        }
        else if(sensor_enable[4]) //Methane
        {
         sensorTestData = 104.0;
-         roveComm_SendMsg(0x728, sizeof(104.0), &sensorTestData);
+        roveComm_SendMsg(0x728, sizeof(sensorTestData), &sensorTestData);
        }
        else if(sensor_enable[5]) //UV Intensity
        {
         sensorTestData = 105.0;
-         roveComm_SendMsg(0x729, sizeof(105.0), &sensorTestData);
+        roveComm_SendMsg(0x729, sizeof(sensorTestData), &sensorTestData);
        }
        else if(sensor_enable[6]) //Pressure
        {
         sensorTestData = 106.0;
-         roveComm_SendMsg(0x72A, sizeof(106.0), &sensorTestData);
+        roveComm_SendMsg(0x72A, sizeof(sensorTestData), &sensorTestData);
        }        
 
       //Delay before we check for another command from base station

@@ -19023,13 +19023,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="129.54" y="251.46" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="CTRL_2" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PD1@2"/>
-<wire x1="104.14" y1="233.68" x2="109.22" y2="233.68" width="0.1524" layer="91"/>
-<label x="109.22" y="233.68" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="PD4" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PD4@125"/>
@@ -20398,13 +20391,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="38.1" y="170.18" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="CTRL_4" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PD2@3"/>
-<wire x1="104.14" y1="231.14" x2="109.22" y2="231.14" width="0.1524" layer="91"/>
-<label x="109.22" y="231.14" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="DYN_2" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PA7@41"/>
@@ -20476,6 +20462,13 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="38.1" y="177.8" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="CTRL_1" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD3@4"/>
+<wire x1="104.14" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
+<label x="109.22" y="228.6" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
 <net name="CTRL_3" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="PD0@1"/>
@@ -20483,11 +20476,18 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="109.22" y="236.22" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="CTRL_1" class="0">
+<net name="CTRL_2" class="0">
 <segment>
-<pinref part="U1" gate="G$1" pin="PD3@4"/>
-<wire x1="104.14" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
-<label x="109.22" y="228.6" size="1.27" layer="95" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="PD1@2"/>
+<wire x1="104.14" y1="233.68" x2="109.22" y2="233.68" width="0.1524" layer="91"/>
+<label x="109.22" y="233.68" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="CTRL_0" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PD2@3"/>
+<wire x1="104.14" y1="231.14" x2="109.22" y2="231.14" width="0.1524" layer="91"/>
+<label x="109.22" y="231.14" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
@@ -20522,9 +20522,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="P+9" gate="1" x="-106.68" y="127"/>
 <instance part="GND24" gate="1" x="-91.44" y="71.12"/>
 <instance part="LED" gate="G$1" x="132.08" y="152.4"/>
-<instance part="CAMERA" gate="G$1" x="25.4" y="119.38" rot="R180"/>
-<instance part="GND28" gate="1" x="10.16" y="93.98"/>
-<instance part="P+12" gate="1" x="12.7" y="124.46"/>
+<instance part="CAMERA" gate="G$1" x="25.4" y="101.6" rot="MR0"/>
+<instance part="GND28" gate="1" x="12.7" y="86.36"/>
+<instance part="P+12" gate="1" x="10.16" y="124.46"/>
 </instances>
 <busses>
 </busses>
@@ -20691,10 +20691,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="-91.44" y="106.68"/>
 </segment>
 <segment>
-<pinref part="CAMERA" gate="G$1" pin="1"/>
 <pinref part="GND28" gate="1" pin="GND"/>
-<wire x1="10.16" y1="96.52" x2="10.16" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="116.84" x2="15.24" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="88.9" x2="12.7" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="7"/>
+<wire x1="12.7" y1="119.38" x2="15.24" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DROPBAY_0" class="0">
@@ -20789,79 +20789,24 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <junction x="162.56" y="109.22"/>
 </segment>
 <segment>
-<pinref part="CAMERA" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="121.92" x2="12.7" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="114.3" x2="15.24" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="P+12" gate="1" pin="+12V"/>
-</segment>
-</net>
-<net name="DYN_1" class="0">
-<segment>
-<pinref part="CAMERA" gate="G$1" pin="3"/>
-<wire x1="15.24" y1="111.76" x2="5.08" y2="111.76" width="0.1524" layer="91"/>
-<label x="5.08" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="10.16" y1="116.84" x2="10.16" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="6"/>
+<wire x1="15.24" y1="116.84" x2="10.16" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CTRL_1" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="1A"/>
-<wire x1="-27.94" y1="101.6" x2="-33.02" y2="101.6" width="0.1524" layer="91"/>
-<label x="-33.02" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="CTRL_2" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="2A"/>
 <wire x1="-27.94" y1="96.52" x2="-33.02" y2="96.52" width="0.1524" layer="91"/>
 <label x="-33.02" y="96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="CTRL_4" class="0">
+<net name="CTRL_3" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="4A"/>
 <wire x1="-27.94" y1="86.36" x2="-33.02" y2="86.36" width="0.1524" layer="91"/>
 <label x="-33.02" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="PWM_0" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="1Y"/>
-<pinref part="CAMERA" gate="G$1" pin="4"/>
-<wire x1="-2.54" y1="109.22" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="PWM_3" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="4Y"/>
-<wire x1="5.08" y1="93.98" x2="-2.54" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="93.98" x2="5.08" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="7"/>
-<wire x1="5.08" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="CTRL_3" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="3A"/>
-<wire x1="-27.94" y1="91.44" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
-<label x="-33.02" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="PWM_1" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="2Y"/>
-<wire x1="-2.54" y1="104.14" x2="0" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="0" y1="104.14" x2="0" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="5"/>
-<wire x1="0" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="PWM_2" class="0">
-<segment>
-<pinref part="U8" gate="G$1" pin="3Y"/>
-<wire x1="-2.54" y1="99.06" x2="2.54" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="99.06" x2="2.54" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="6"/>
-<wire x1="2.54" y1="104.14" x2="15.24" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DYN_3" class="0">
@@ -20928,6 +20873,63 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="LED" gate="G$1" pin="SIG"/>
 <wire x1="127" y1="157.48" x2="124.46" y2="157.48" width="0.1524" layer="91"/>
 <label x="124.46" y="157.48" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="DYN_1" class="0">
+<segment>
+<pinref part="CAMERA" gate="G$1" pin="5"/>
+<wire x1="15.24" y1="114.3" x2="10.16" y2="114.3" width="0.1524" layer="91"/>
+<label x="10.16" y="114.3" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="CAM_PWM_0" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="1Y"/>
+<wire x1="-2.54" y1="109.22" x2="0" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="0" y1="109.22" x2="0" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="4"/>
+<wire x1="0" y1="111.76" x2="15.24" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CAM_PWM_1" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="2Y"/>
+<wire x1="-2.54" y1="104.14" x2="2.54" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="104.14" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="3"/>
+<wire x1="2.54" y1="109.22" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CAM_PWM_2" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="3Y"/>
+<wire x1="-2.54" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="99.06" x2="5.08" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="2"/>
+<wire x1="5.08" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CAM_PWM_3" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="4Y"/>
+<wire x1="-2.54" y1="93.98" x2="7.62" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="93.98" x2="7.62" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="CAMERA" gate="G$1" pin="1"/>
+<wire x1="7.62" y1="104.14" x2="15.24" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CTRL_0" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="1A"/>
+<wire x1="-27.94" y1="101.6" x2="-33.02" y2="101.6" width="0.1524" layer="91"/>
+<label x="-33.02" y="101.6" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="CTRL_2" class="0">
+<segment>
+<pinref part="U8" gate="G$1" pin="3A"/>
+<wire x1="-27.94" y1="91.44" x2="-33.02" y2="91.44" width="0.1524" layer="91"/>
+<label x="-33.02" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

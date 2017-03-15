@@ -10,6 +10,31 @@ typedef enum CommandResult
   Fail
 } CommandResult;
 
+typedef enum ScienceCommands
+{
+  sensorAllEnable=0,
+  sensorAllDisable=1,
+  sensor1Enable=2,
+  sensor1Disable=3,
+  sensor2Enable=4,
+  sensor2Disable=5,
+  sensor3Enable=6,
+  sensor3Disable=7,
+  sensor4Enable=8,
+  sensor4Disable=9,
+  sensor5Enable=10,
+  sensor5Disable=11,
+  sensor6Enable=12,
+  sensor6Disable=13,
+  sensor7Enable=14,
+  sensor7Disable=15,
+  laserOn=16,
+  laserOff=17,
+  flapOpen=18,
+  flapClose=19,
+  spectro=20
+    
+} ScienceCommands;
 
 //var or pins
 const uint32_t WATCHDOG_TIMEOUT_US = 2000000; //the amount of microseconds that should pass without getting a transmission from base station before the arm ceases moving for safety

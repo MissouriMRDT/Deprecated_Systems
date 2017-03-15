@@ -10,7 +10,6 @@
 #include <Wire.h>
 //#include "BMP085_t.h"   This file is causing compilation problems
 
-//TODO:Get a list of buttons to put on RED
 
 //Variable declaration:
 //Stores the result (if any) of commands received and executed
@@ -23,6 +22,8 @@ size_t commandSize;
 int16_t commandData;
 //Stores the value of watchdog, which times out after not receiving a command from base station, to terminate any potential dangerous operations
 uint32_t watchdogTimer_us = 0;
+//Stores the time value since the most recent sensor information send
+uint32_t sensorTimer = 0;
 
 //Device objects
 //Energia standard servo device class from Servo.h
@@ -37,7 +38,7 @@ void setup() {}
 void loop() {
   //All important pre-loop setup is done here
   initialize();
-  bool sensor_enable[7] = {true,true,true,true,true,true,true}; //Determines which sensors will send data back
+  bool sensor_enable[7] = {false,false,false,false,false,false,false}; //Determines which sensors will send data back
 
   //Main execution loop
   while(1)
@@ -60,70 +61,81 @@ void loop() {
       Serial.println(commandSize);
       Serial.println("");
 
-       //Checks the value of the command, and if applicable, executes it TODO: Make command ID and command Data constants (header)
+       //Checks the value of the command, and if applicable, executes it
        if(commandId == 0x710)
        {
         //Switch case
         switch(commandData) {
-        case 1:
+        case sensorAllEnable:
+        for(int i=0;i<7;i++)
+        {
+          sensor_enable[i]=true;
+        }
+        break;
+        case sensorAllDisable:
+        for(int i=0;i<7;i++)
+        {
+          sensor_enable[i]=false;
+        }
+        break;
+        case sensor1Enable:
         sensor_enable[0]=true;
         break;
-        case 2:
+        case sensor1Disable:
         sensor_enable[0]=false;
         break;
-        switch(commandData)
-        case 3:
+        case sensor2Enable:
         sensor_enable[1]=true;
         break;
-        case 4:
+        case sensor2Disable:
         sensor_enable[1]=false;
         break;
-        case 5:
+        case sensor3Enable:
         sensor_enable[2]=true;
         break;
-        case 6:
+        case sensor3Disable:
         sensor_enable[2]=false;
         break;
-        case 7:
+        case sensor4Enable:
         sensor_enable[3]=true;
         break;
-        case 8:
+        case sensor4Disable:
         sensor_enable[3]=false;
         break;
-        case 9:
+        case sensor5Enable:
         sensor_enable[4]=true;
         break;
-        case 10:
+        case sensor5Disable:
         sensor_enable[4]=false;
         break;
-        case 11:
+        case sensor6Enable:
         sensor_enable[5]=true;
         break;
-        case 12:
+        case sensor6Disable:
         sensor_enable[5]=false;
         break;
-        case 13:
+        case sensor7Enable:
         sensor_enable[6]=true;
         break;
-        case 14:
+        case sensor7Disable:
         sensor_enable[6]=false;
         break;
-        case 18:
+        case laserOn:
         turnOnLaser();
         break;
-        case 19:
+        case laserOff:
         turnOffLaser();
         break;
-        case 20:
+        case flapOpen:
         openFlap();
         break;
-        case 21:
+        case flapClose:
         closeFlap();
         break;
-        case 17:
+        case spectro:
         spectrometer();
         break;
-         }   
+         }//End Switch   
        }
        else if(commandId == 0x711)//Carousel
        {
@@ -133,46 +145,49 @@ void loop() {
     }
     else //No message was received and we send sensor data
     {
-       //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors (to keep them seperate)
+       //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors
        //Temporary sensor variable, future variable will be altered by sensor functions before being sent
        float sensorTestData = 100.0;
        //check for which sensors to record, and then send through rovecomm
+    if((millis()-sensorTimer)>250)
+    {
+       sensorTimer=millis();
        if(sensor_enable[0])//AirTemp
        {
         sensorTestData = 100.0;
         roveComm_SendMsg(0x720, sizeof(sensorTestData), &sensorTestData); 
        }
-       else if(sensor_enable[1]) //AirHumidity
+       if(sensor_enable[1]) //AirHumidity
        {
         sensorTestData = 101.0;
         roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
        }
-       else if(sensor_enable[2]) //Soil Temp
+       if(sensor_enable[2]) //Soil Temp
        {
         sensorTestData = 102.0;
         roveComm_SendMsg(0x722, sizeof(sensorTestData), &sensorTestData);
        }
-       else if(sensor_enable[3]) //Soil Humidity
+       if(sensor_enable[3]) //Soil Humidity
        {
         sensorTestData = 103.0;
         roveComm_SendMsg(0x723, sizeof(sensorTestData), &sensorTestData);
        }
-       else if(sensor_enable[4]) //Methane
+       if(sensor_enable[4]) //Methane
        {
         sensorTestData = 104.0;
         roveComm_SendMsg(0x728, sizeof(sensorTestData), &sensorTestData);
        }
-       else if(sensor_enable[5]) //UV Intensity
+       if(sensor_enable[5]) //UV Intensity
        {
         sensorTestData = 105.0;
         roveComm_SendMsg(0x729, sizeof(sensorTestData), &sensorTestData);
        }
-       else if(sensor_enable[6]) //Pressure
+       if(sensor_enable[6]) //Pressure
        {
         sensorTestData = 106.0;
         roveComm_SendMsg(0x72A, sizeof(sensorTestData), &sensorTestData);
        }        
-
+    }
       //Delay before we check for another command from base station
       uint8_t microsecondDelay = 10;
       delayMicroseconds(microsecondDelay);
@@ -186,7 +201,6 @@ void loop() {
       }
 
     }//End else
-    
   }//End while
 }//End loop()
 
@@ -244,6 +258,7 @@ void spectrometer()
     Serial.println("Data for photodiodes 1 & 2, respectively:");
     Serial.println(photo1);
     Serial.println(photo2);
+    //roveComm_SendMsg(...) here
     timer += 125;
     delay(125); 
    }
@@ -310,16 +325,18 @@ void turnOffLaser()
 //Opens the sample cache cover flap
 void openFlap()
 {
-  //does flap open at 180 degrees or 0?
+  //Flap should open as it goes away from 180
   flap.write(170);
+  delay(5000);//Delay to let servo catch up
   return;
 }
 
 //Closes the sample cache cover flap
 void closeFlap()
 {
-  //again, does flap close at 180 degrees or 0?
+  //Flap should close at 180
   flap.write(0);
+  delay(5000);//Delay to let servo catch up
   return;
 }
 
@@ -327,6 +344,7 @@ void closeFlap()
 void rotateCarousel(const uint16_t pos)
 {
   carousel.write(180/4 * pos);  // TODO: cache positions must be tweeked here.
+  delay(5000);//Delay to let servo catch up
   return;
 }
 

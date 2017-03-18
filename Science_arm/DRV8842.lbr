@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="7.4.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="yes"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="yes"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="yes"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="yes"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="yes"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="yes"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="yes"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="yes"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="yes"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="DRV8842">
+<smd name="VCP" x="-2.794" y="2.921" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="VM" x="-2.794" y="2.275840625" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="OUT1" x="-2.794" y="1.6256" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="ISEN" x="-2.794" y="0.975359375" dx="1.599946875" dy="0.299975" layer="1" rot="R180"/>
+<smd name="OUT2" x="-2.794" y="0.32511875" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="ISEN1" x="-2.794" y="-0.975359375" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="OUTPUT2" x="-2.794" y="-0.32511875" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="OUTPUT1" x="-2.794" y="-1.6256" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="VM1" x="-2.794" y="-2.275840625" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="VREF1" x="-2.794" y="-3.5814" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="VREF" x="-2.794" y="-2.921" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="CP2" x="-2.794" y="3.5814" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="CP1" x="-2.794" y="4.2164" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="GND" x="-2.794" y="-4.2164" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="I3" x="2.794" y="2.921" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="I2" x="2.794" y="2.275840625" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="I1" x="2.794" y="1.6256" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="I0" x="2.794" y="0.975359375" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="NC" x="2.794" y="0.32511875" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="IN1" x="2.794" y="-0.32511875" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="IN2" x="2.794" y="-0.975359375" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="DECAY" x="2.794" y="-1.6256" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="NFAULT" x="2.794" y="-2.275840625" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="NSLEEP" x="2.794" y="-2.921" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="NRESET" x="2.794" y="-3.5814" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="I4" x="2.794" y="3.5814" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="GND1" x="2.794" y="4.2164" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="V3P3OUT" x="2.794" y="-4.2164" dx="1.599946875" dy="0.299975" layer="1"/>
+<smd name="PPAD" x="0" y="0" dx="5.1816" dy="3.0988" layer="1" rot="R90"/>
+<wire x1="-2.2479" y1="4.8514" x2="-2.250440625" y2="-4.8514" width="0.127" layer="51"/>
+<wire x1="-2.250440625" y1="-4.8514" x2="2.250440625" y2="-4.8514" width="0.127" layer="51"/>
+<wire x1="2.250440625" y1="-4.8514" x2="2.2479" y2="4.8514" width="0.127" layer="51"/>
+<wire x1="2.2479" y1="4.8514" x2="-2.2479" y2="4.8514" width="0.127" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="DRV8842">
+<wire x1="-12.7" y1="17.78" x2="-12.7" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-20.32" x2="10.16" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-20.32" x2="10.16" y2="17.78" width="0.254" layer="94"/>
+<wire x1="10.16" y1="17.78" x2="-12.7" y2="17.78" width="0.254" layer="94"/>
+<pin name="VM" x="-17.78" y="7.62" length="middle"/>
+<pin name="OUT1" x="-17.78" y="5.08" length="middle"/>
+<pin name="ISEN" x="-17.78" y="2.54" length="middle"/>
+<pin name="OUT2" x="-17.78" y="0" length="middle"/>
+<pin name="OUTPUT2" x="-17.78" y="-2.54" length="middle"/>
+<pin name="ISEN1" x="-17.78" y="-5.08" length="middle"/>
+<pin name="OUTPUT1" x="-17.78" y="-7.62" length="middle"/>
+<pin name="VM1" x="-17.78" y="-10.16" length="middle"/>
+<pin name="VREF" x="-17.78" y="-12.7" length="middle"/>
+<pin name="VREF1" x="-17.78" y="-15.24" length="middle"/>
+<pin name="GND" x="-17.78" y="-17.78" length="middle"/>
+<pin name="VCP" x="-17.78" y="10.16" length="middle"/>
+<pin name="CP2" x="-17.78" y="12.7" length="middle"/>
+<pin name="CP1" x="-17.78" y="15.24" length="middle"/>
+<pin name="GND1" x="15.24" y="15.24" length="middle" rot="R180"/>
+<pin name="I4" x="15.24" y="12.7" length="middle" rot="R180"/>
+<pin name="I3" x="15.24" y="10.16" length="middle" rot="R180"/>
+<pin name="I2" x="15.24" y="7.62" length="middle" rot="R180"/>
+<pin name="I1" x="15.24" y="5.08" length="middle" rot="R180"/>
+<pin name="I0" x="15.24" y="2.54" length="middle" rot="R180"/>
+<pin name="NC" x="15.24" y="0" length="middle" rot="R180"/>
+<pin name="IN1" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="IN2" x="15.24" y="-5.08" length="middle" rot="R180"/>
+<pin name="DECAY" x="15.24" y="-7.62" length="middle" rot="R180"/>
+<pin name="NFAULT" x="15.24" y="-10.16" length="middle" rot="R180"/>
+<pin name="NSLEEP" x="15.24" y="-12.7" length="middle" rot="R180"/>
+<pin name="NRESET" x="15.24" y="-15.24" length="middle" rot="R180"/>
+<pin name="V3P3OUT" x="15.24" y="-17.78" length="middle" rot="R180"/>
+<text x="-11.938" y="18.796" size="1.27" layer="95">DRV8842</text>
+<pin name="PPAD" x="-2.54" y="-25.4" length="middle" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DRV8842">
+<gates>
+<gate name="G$1" symbol="DRV8842" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="" package="DRV8842">
+<connects>
+<connect gate="G$1" pin="CP1" pad="CP1"/>
+<connect gate="G$1" pin="CP2" pad="CP2"/>
+<connect gate="G$1" pin="DECAY" pad="DECAY"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="GND1" pad="GND1"/>
+<connect gate="G$1" pin="I0" pad="I0"/>
+<connect gate="G$1" pin="I1" pad="I1"/>
+<connect gate="G$1" pin="I2" pad="I2"/>
+<connect gate="G$1" pin="I3" pad="I3"/>
+<connect gate="G$1" pin="I4" pad="I4"/>
+<connect gate="G$1" pin="IN1" pad="IN1"/>
+<connect gate="G$1" pin="IN2" pad="IN2"/>
+<connect gate="G$1" pin="ISEN" pad="ISEN"/>
+<connect gate="G$1" pin="ISEN1" pad="ISEN1"/>
+<connect gate="G$1" pin="NC" pad="NC"/>
+<connect gate="G$1" pin="NFAULT" pad="NFAULT"/>
+<connect gate="G$1" pin="NRESET" pad="NRESET"/>
+<connect gate="G$1" pin="NSLEEP" pad="NSLEEP"/>
+<connect gate="G$1" pin="OUT1" pad="OUT1"/>
+<connect gate="G$1" pin="OUT2" pad="OUT2"/>
+<connect gate="G$1" pin="OUTPUT1" pad="OUTPUT1"/>
+<connect gate="G$1" pin="OUTPUT2" pad="OUTPUT2"/>
+<connect gate="G$1" pin="PPAD" pad="PPAD"/>
+<connect gate="G$1" pin="V3P3OUT" pad="V3P3OUT"/>
+<connect gate="G$1" pin="VCP" pad="VCP"/>
+<connect gate="G$1" pin="VM" pad="VM"/>
+<connect gate="G$1" pin="VM1" pad="VM1"/>
+<connect gate="G$1" pin="VREF" pad="VREF"/>
+<connect gate="G$1" pin="VREF1" pad="VREF1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>

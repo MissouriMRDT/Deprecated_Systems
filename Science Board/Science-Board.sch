@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18606,27 +18606,6 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <pinref part="GND9" gate="1" pin="GND"/>
 </segment>
 </net>
-<net name="PHASE" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="PQ1"/>
-<wire x1="373.38" y1="-124.46" x2="381" y2="-124.46" width="0.1524" layer="91"/>
-<label x="381" y="-124.46" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="EN" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="PP3"/>
-<wire x1="337.82" y1="-124.46" x2="327.66" y2="-124.46" width="0.1524" layer="91"/>
-<label x="327.66" y="-124.46" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="SLEEP" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="PM6"/>
-<wire x1="337.82" y1="-109.22" x2="327.66" y2="-109.22" width="0.1524" layer="91"/>
-<label x="327.66" y="-109.22" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="5V-EXT" class="0">
 <segment>
 <pinref part="OKI-5V-EXT" gate="G$1" pin="VO"/>
@@ -18682,10 +18661,23 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <segment>
 <wire x1="190.5" y1="-165.1" x2="195.58" y2="-165.1" width="0.1524" layer="91"/>
 <label x="190.5" y="-165.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="PRESSURE" gate="G$1" pin="P$4"/>
 </segment>
 <segment>
-<wire x1="81.28" y1="-142.24" x2="76.2" y2="-142.24" width="0.1524" layer="91"/>
 <label x="81.28" y="-142.24" size="1.27" layer="95" xref="yes"/>
+<pinref part="U$8" gate="G$1" pin="VCCB"/>
+<wire x1="81.28" y1="-142.24" x2="76.2" y2="-142.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="VIN"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="-114.3" x2="25.4" y2="-114.3" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="EN"/>
+<wire x1="33.02" y1="-106.68" x2="33.02" y2="-114.3" width="0.1524" layer="91"/>
+<junction x="33.02" y="-114.3"/>
+<wire x1="25.4" y1="-114.3" x2="17.78" y2="-114.3" width="0.1524" layer="91"/>
+<junction x="25.4" y="-114.3"/>
+<label x="17.78" y="-114.3" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="5V-INT" class="0">
@@ -18732,19 +18724,6 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <pinref part="U$1" gate="G$1" pin="+5V"/>
 <wire x1="373.38" y1="-17.78" x2="386.08" y2="-17.78" width="0.1524" layer="91"/>
 <label x="386.08" y="-17.78" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U$2" gate="G$1" pin="VIN"/>
-<wire x1="33.02" y1="-114.3" x2="30.48" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-114.3" x2="25.4" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-114.3" x2="20.32" y2="-114.3" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="EN"/>
-<wire x1="33.02" y1="-106.68" x2="30.48" y2="-106.68" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="-106.68" x2="30.48" y2="-114.3" width="0.1524" layer="91"/>
-<junction x="30.48" y="-114.3"/>
-<pinref part="C13" gate="G$1" pin="1"/>
-<junction x="25.4" y="-114.3"/>
-<label x="20.32" y="-114.3" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LASER-CTRL" class="0">
@@ -18839,13 +18818,6 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <pinref part="U$1" gate="G$1" pin="PL0"/>
 <wire x1="373.38" y1="-91.44" x2="381" y2="-91.44" width="0.1524" layer="91"/>
 <label x="381" y="-91.44" size="1.27" layer="95"/>
-</segment>
-</net>
-<net name="3V-ENABLE" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="PK7"/>
-<wire x1="337.82" y1="-88.9" x2="325.12" y2="-88.9" width="0.1524" layer="91"/>
-<label x="325.12" y="-88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -18983,8 +18955,28 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <net name="3.3V" class="0">
 <segment>
 <pinref part="U$8" gate="G$1" pin="VCCA"/>
-<wire x1="45.72" y1="-142.24" x2="38.1" y2="-142.24" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-142.24" x2="43.18" y2="-142.24" width="0.1524" layer="91"/>
 <label x="38.1" y="-142.24" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="43.18" y1="-142.24" x2="38.1" y2="-142.24" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="-142.24" x2="43.18" y2="-134.62" width="0.1524" layer="91"/>
+<junction x="43.18" y="-142.24"/>
+<pinref part="U$2" gate="G$1" pin="VOUT"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<junction x="68.58" y="-114.3"/>
+<wire x1="76.2" y1="-114.3" x2="68.58" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-114.3" x2="63.5" y2="-114.3" width="0.1524" layer="91"/>
+<pinref part="LIGHT" gate="G$1" pin="P$1"/>
+<wire x1="76.2" y1="-114.3" x2="76.2" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="LIGHT" gate="G$1" pin="P$4"/>
+<wire x1="76.2" y1="-114.3" x2="91.44" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="-114.3" x2="91.44" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="76.2" y="-114.3"/>
+<pinref part="SOIL-TEMP" gate="G$1" pin="2"/>
+<wire x1="91.44" y1="-114.3" x2="104.14" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-114.3" x2="104.14" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="91.44" y="-114.3"/>
+<wire x1="43.18" y1="-134.62" x2="76.2" y2="-134.62" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="-134.62" x2="76.2" y2="-114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PRESSURE-SDA-3V3" class="0">
@@ -19095,25 +19087,6 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <wire x1="233.68" y1="-116.84" x2="233.68" y2="-111.76" width="0.1524" layer="91"/>
 <pinref part="SPEC-MOTOR" gate="G$1" pin="1"/>
 <wire x1="233.68" y1="-111.76" x2="231.14" y2="-111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="UV-3.3" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="VOUT"/>
-<pinref part="C14" gate="G$1" pin="1"/>
-<junction x="68.58" y="-114.3"/>
-<wire x1="76.2" y1="-114.3" x2="68.58" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="-114.3" x2="63.5" y2="-114.3" width="0.1524" layer="91"/>
-<pinref part="LIGHT" gate="G$1" pin="P$1"/>
-<wire x1="76.2" y1="-114.3" x2="76.2" y2="-106.68" width="0.1524" layer="91"/>
-<pinref part="LIGHT" gate="G$1" pin="P$4"/>
-<wire x1="76.2" y1="-114.3" x2="91.44" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="-114.3" x2="91.44" y2="-106.68" width="0.1524" layer="91"/>
-<junction x="76.2" y="-114.3"/>
-<pinref part="SOIL-TEMP" gate="G$1" pin="2"/>
-<wire x1="91.44" y1="-114.3" x2="104.14" y2="-114.3" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="-114.3" x2="104.14" y2="-106.68" width="0.1524" layer="91"/>
-<junction x="91.44" y="-114.3"/>
 </segment>
 </net>
 <net name="N$21" class="0">

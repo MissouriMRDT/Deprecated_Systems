@@ -151,6 +151,7 @@ void loop() {
        //check for which sensors to record, and then send through rovecomm
     if((millis()-sensorTimer)>250)
     {
+      Serial.println("Sending Sensor Data");
        sensorTimer=millis();
        if(sensor_enable[0])//AirTemp
        {
@@ -235,6 +236,7 @@ void initialize()
 //Spectometer sub-routine TODO: roveComm_SendMsg(...) the data
 void spectrometer()
 {
+   Serial.println("Start spectro routine.");
    uint16_t photo1, photo2;
    //turn on motor, run for 5s before continuing
    //direction is a bool! change true/false for direction
@@ -307,6 +309,7 @@ void partial_spec(const uint16_t data)
 //Turns on the spectrometer laser
 void turnOnLaser()
 {
+  Serial.println("Laser on");
   //turn on laser by setting pin to High
   digitalWrite(PQ_3, HIGH);//laser
   digitalWrite(PF_0, HIGH);//LED
@@ -316,6 +319,7 @@ void turnOnLaser()
 //Turns off the spectormeter laser
 void turnOffLaser()
 {
+  Serial.println("Laser off");
   //turn off laser by setting pin to low
   digitalWrite(PQ_3, LOW);//laser
   digitalWrite(PF_0, LOW);//led
@@ -325,32 +329,40 @@ void turnOffLaser()
 //Opens the sample cache cover flap
 void openFlap()
 {
+  Serial.println("Opening flap.");
   //Flap should open as it goes away from 180
-  flap.write(170);
-  delay(5000);//Delay to let servo catch up
+  flap.write(0);
+  //flap.writeMicroseconds(1);
+  //delay(5000);//Delay to let servo catch up
   return;
 }
 
 //Closes the sample cache cover flap
 void closeFlap()
 {
+  Serial.println("Closing flap.");
   //Flap should close at 180
-  flap.write(0);
-  delay(5000);//Delay to let servo catch up
+  flap.write(170);
+  //flap.writeMicroseconds(2);
+  //delay(5000);//Delay to let servo catch up
   return;
 }
 
 //Rotates the sample cache carousel to the given position
 void rotateCarousel(const uint16_t pos)
 {
-  carousel.write(180/4 * pos);  // TODO: cache positions must be tweeked here.
-  delay(5000);//Delay to let servo catch up
+  Serial.print("Rotating carousel to pos = ");
+  Serial.print(pos);
+  Serial.print("\n");
+  carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here.
+  //delay(5000);//Delay to let servo catch up
   return;
 }
 
 //Turns off the spectrometer motor
 void spectroMotorOff()
 {
+  Serial.println("Spectro motor off");
   digitalWrite(PP_3, LOW);//en
   digitalWrite(PM_6, LOW);//nsleep
   return;
@@ -404,6 +416,7 @@ int readPhotoDiode2()
 //Turns on the spectrometer motor on in the forward direction (the direction it will go when reading the photo-diodes)
 void spectroMotorForward()
 {
+   Serial.println("Spectro motor forward");
    digitalWrite(PQ_1, LOW);//phase, low = forward
    digitalWrite(PP_3, HIGH);//enable
    digitalWrite(PM_6, HIGH);//nSleep
@@ -413,6 +426,7 @@ void spectroMotorForward()
 //Turns the spectrometer motor on in the backwards direciton (when the spectrometer resets)
 void spectroMotorReverse()
 {
+   Serial.println("Spectro motor reverse");
    digitalWrite(PQ_1, HIGH);
    digitalWrite(PP_3, HIGH);
    digitalWrite(PM_6, HIGH);

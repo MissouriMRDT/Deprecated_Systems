@@ -18175,7 +18175,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <part name="LOGO1" library="MRDT-Hardware" deviceset="MRDT_LOGO" device=""/>
 <part name="H3" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
 <part name="H4" library="MRDT-Hardware" deviceset="MOUNTING_HOLE" device="#6"/>
-<part name="LED1" library="led" deviceset="LED" device="CHIP-LED0805"/>
+<part name="PWR" library="led" deviceset="LED" device="CHIP-LED0805"/>
 <part name="R14" library="rcl" deviceset="R-US_" device="M0805" value="1k"/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="U$10" library="Custom" deviceset="LB1930MC" device=""/>
@@ -18304,7 +18304,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <instance part="LOGO1" gate="G$1" x="299.72" y="-170.18"/>
 <instance part="H3" gate="G$1" x="299.72" y="-160.02"/>
 <instance part="H4" gate="G$1" x="314.96" y="-160.02"/>
-<instance part="LED1" gate="G$1" x="55.88" y="-38.1" rot="R270"/>
+<instance part="PWR" gate="G$1" x="55.88" y="-38.1" rot="R270"/>
 <instance part="R14" gate="G$1" x="66.04" y="-38.1"/>
 <instance part="GND23" gate="1" x="45.72" y="-38.1" rot="R270"/>
 <instance part="U$10" gate="G$1" x="264.16" y="-106.68" rot="R180"/>
@@ -18528,7 +18528,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <wire x1="22.86" y1="-226.06" x2="15.24" y2="-226.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="PWR" gate="G$1" pin="C"/>
 <wire x1="50.8" y1="-38.1" x2="48.26" y2="-38.1" width="0.1524" layer="91"/>
 <pinref part="GND23" gate="1" pin="GND"/>
 </segment>
@@ -18805,7 +18805,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PL2"/>
 <wire x1="373.38" y1="-96.52" x2="381" y2="-96.52" width="0.1524" layer="91"/>
-<label x="381" y="-96.52" size="1.27" layer="95"/>
+<label x="381" y="-96.52" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SERVO-FLAP" class="0">
@@ -18817,7 +18817,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PL0"/>
 <wire x1="373.38" y1="-91.44" x2="381" y2="-91.44" width="0.1524" layer="91"/>
-<label x="381" y="-91.44" size="1.27" layer="95"/>
+<label x="381" y="-91.44" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -19066,7 +19066,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
+<pinref part="PWR" gate="G$1" pin="A"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="58.42" y1="-38.1" x2="60.96" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
@@ -19138,7 +19138,7 @@ NC1, NC2, and NC3 are not connected to anything.</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PM5"/>
 <wire x1="337.82" y1="-106.68" x2="330.2" y2="-106.68" width="0.1524" layer="91"/>
-<label x="327.66" y="-106.68" size="1.27" layer="95"/>
+<label x="330.2" y="-106.68" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$6" class="0">

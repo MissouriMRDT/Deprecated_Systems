@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="8.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1508,34 +1508,6 @@ Murata</description>
 <dimension x1="5" y1="0" x2="5" y2="-1.3" x3="9.6" y3="-0.65" textsize="0.6096" layer="47" precision="3"/>
 <text x="12.05" y="-3.95" size="0.6096" layer="47">All units in mm</text>
 </package>
-<package name="MOLEX_43650-07">
-<rectangle x1="-14.605" y1="-1.27" x2="-11.303" y2="0.254" layer="1"/>
-<rectangle x1="11.2522" y1="-1.27" x2="14.5542" y2="0.254" layer="1"/>
-<dimension x1="-9.652" y1="3.4544" x2="-6.6548" y2="3.4544" x3="-8.1534" y3="2.54" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="-6.6548" y1="6.2484" x2="-5.3848" y2="6.2484" x3="-6.0198" y3="7.112" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="9.6012" y1="6.2484" x2="9.6012" y2="3.4544" x3="10.414" y3="4.8514" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="3"/>
-<smd name="P_7" x="-9.017" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_6" x="-6.0198" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_5" x="-3.0226" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_4" x="-0.0254" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_3" x="2.9718" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_2" x="5.969" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<smd name="P_1" x="8.9662" y="4.8514" dx="2.794" dy="1.27" layer="1" rot="R90"/>
-<text x="8.763" y="1.27" size="1.27" layer="21">1</text>
-<dimension x1="-9.652" y1="6.35" x2="-14.605" y2="0.254" x3="-12.1285" y3="10.922" textsize="0.254" layer="47" dtype="horizontal" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="-14.605" y1="-1.27" x2="-11.303" y2="-1.27" x3="-12.954" y3="-3.556" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="14.5542" y1="0.254" x2="14.5542" y2="-1.27" x3="17.272" y3="-0.508" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="6"/>
-<dimension x1="-14.605" y1="-1.27" x2="14.5542" y2="-1.27" x3="-0.0254" y3="-8.128" textsize="0.254" layer="47" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="-9.652" y1="6.2484" x2="-9.652" y2="5.4864" x3="-16.764" y3="5.8674" textsize="0.254" layer="47" dtype="vertical" width="0.0254" unit="inch" precision="3"/>
-<dimension x1="-12.3444" y1="5.5118" x2="12.2936" y2="5.5118" x3="-0.0254" y3="9.0678" textsize="0.254" layer="47" dtype="horizontal" width="0.0254" unit="inch" precision="3"/>
-<wire x1="-12.3444" y1="5.5118" x2="12.2936" y2="5.5118" width="0.127" layer="51"/>
-<dimension x1="12.2936" y1="5.5118" x2="12.2936" y2="-4.3942" x3="20.1676" y3="0.5588" textsize="0.254" layer="47" dtype="vertical" width="0.0254" unit="inch" precision="3"/>
-<wire x1="12.2936" y1="5.5118" x2="12.2936" y2="-2.8702" width="0.127" layer="51"/>
-<wire x1="12.2936" y1="-2.8702" x2="10.7696" y2="-4.3942" width="0.127" layer="51"/>
-<wire x1="-12.3444" y1="5.5118" x2="-12.3444" y2="-2.8702" width="0.127" layer="51"/>
-<wire x1="-12.3444" y1="-2.8702" x2="-10.8204" y2="-4.3942" width="0.127" layer="51"/>
-<wire x1="-10.8204" y1="-4.3942" x2="10.7696" y2="-4.3942" width="0.127" layer="51"/>
-</package>
 <package name="MOLEX_SL_04_TH">
 <hole x="-5.08" y="8.636" drill="3.4544"/>
 <hole x="5.08" y="8.636" drill="3.4544"/>
@@ -1579,6 +1551,56 @@ Murata</description>
 <wire x1="-3.81" y1="2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
 <wire x1="3.81" y1="2.54" x2="3.81" y2="1.27" width="0.127" layer="21"/>
 <text x="7.62" y="-0.635" size="1.27" layer="21">&gt;NAME</text>
+</package>
+<package name="MOLEX-70543-0006">
+<pad name="1" x="7.62" y="0" drill="1.1" shape="square"/>
+<pad name="2" x="5.08" y="0" drill="1.1"/>
+<pad name="3" x="2.54" y="0" drill="1.1"/>
+<pad name="4" x="0" y="0" drill="1.1"/>
+<pad name="5" x="-2.54" y="0" drill="1.1"/>
+<pad name="6" x="-5.08" y="0" drill="1.1"/>
+<pad name="7" x="-7.62" y="0" drill="1.1"/>
+<wire x1="-8.89" y1="1.27" x2="-6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="6.35" y1="1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="1.27" x2="8.89" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="-1.27" x2="-8.89" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="-1.27" x2="-8.89" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="-6.35" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="2.54" x2="6.35" y2="2.54" width="0.127" layer="21"/>
+<wire x1="6.35" y1="2.54" x2="6.35" y2="1.27" width="0.127" layer="21"/>
+<text x="10.16" y="5.08" size="1.27" layer="21" rot="R270">&gt;NAME</text>
+</package>
+<package name="MOLEX-70551-0006">
+<hole x="-8.89" y="8.636" drill="3.4544"/>
+<hole x="8.89" y="8.636" drill="3.4544"/>
+<pad name="3" x="-2.54" y="0" drill="1.1684"/>
+<pad name="2" x="-5.08" y="0" drill="1.1684"/>
+<pad name="1" x="-7.62" y="0" drill="1.1684" shape="square"/>
+<pad name="4" x="0" y="0" drill="1.1684"/>
+<pad name="5" x="2.54" y="0" drill="1.1684"/>
+<pad name="6" x="5.08" y="0" drill="1.1684"/>
+<wire x1="-12.065" y1="13.208" x2="-6.35" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="13.208" x2="6.35" y2="13.208" width="0.127" layer="21"/>
+<wire x1="6.35" y1="13.208" x2="12.065" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-12.065" y1="1.27" x2="-8.89" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="1.27" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-12.065" y1="13.208" x2="-12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="12.065" y1="13.208" x2="12.065" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="1.27" x2="-8.89" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-8.89" y1="-1.27" x2="8.89" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="-1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
+<wire x1="6.35" y1="13.208" x2="6.35" y2="8.89" width="0.127" layer="21"/>
+<wire x1="6.35" y1="8.89" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="1.27" y1="8.89" x2="-1.27" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-6.35" y2="8.89" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="8.89" x2="-6.35" y2="13.208" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="8.89" x2="-1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="5.08" x2="1.27" y2="5.08" width="0.127" layer="21"/>
+<wire x1="1.27" y1="5.08" x2="1.27" y2="8.89" width="0.127" layer="21"/>
+<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
+<pad name="7" x="7.62" y="0" drill="1.1684"/>
 </package>
 </packages>
 <symbols>
@@ -1672,28 +1694,6 @@ Murata</description>
 <pin name="VCC" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="DATA" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
-<symbol name="M07">
-<wire x1="6.35" y1="0" x2="0" y2="0" width="0.4064" layer="94"/>
-<wire x1="3.81" y1="7.62" x2="5.08" y2="7.62" width="0.6096" layer="94"/>
-<wire x1="3.81" y1="5.08" x2="5.08" y2="5.08" width="0.6096" layer="94"/>
-<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.6096" layer="94"/>
-<wire x1="0" y1="20.32" x2="0" y2="0" width="0.4064" layer="94"/>
-<wire x1="6.35" y1="0" x2="6.35" y2="20.32" width="0.4064" layer="94"/>
-<wire x1="0" y1="20.32" x2="6.35" y2="20.32" width="0.4064" layer="94"/>
-<wire x1="3.81" y1="12.7" x2="5.08" y2="12.7" width="0.6096" layer="94"/>
-<wire x1="3.81" y1="10.16" x2="5.08" y2="10.16" width="0.6096" layer="94"/>
-<wire x1="3.81" y1="15.24" x2="5.08" y2="15.24" width="0.6096" layer="94"/>
-<text x="0" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
-<text x="0" y="21.082" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1" x="10.16" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="2" x="10.16" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="3" x="10.16" y="7.62" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="4" x="10.16" y="10.16" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="5" x="10.16" y="12.7" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="6" x="10.16" y="15.24" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="7" x="10.16" y="17.78" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<wire x1="3.81" y1="17.78" x2="5.08" y2="17.78" width="0.6096" layer="94"/>
-</symbol>
 <symbol name="SL04">
 <pin name="P$1" x="-7.62" y="7.62" length="middle"/>
 <pin name="P$2" x="-7.62" y="2.54" length="middle"/>
@@ -1705,6 +1705,21 @@ Murata</description>
 <wire x1="-2.54" y1="-10.16" x2="-2.54" y2="10.16" width="0.254" layer="94"/>
 <text x="-2.54" y="11.43" size="1.27" layer="95">&gt;NAME</text>
 <text x="-2.54" y="-12.7" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="SL07">
+<wire x1="0" y1="0" x2="0" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="-7.62" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="0" width="0.254" layer="94"/>
+<wire x1="20.32" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="1" x="2.54" y="-12.7" length="middle" rot="R90"/>
+<pin name="2" x="5.08" y="-12.7" length="middle" rot="R90"/>
+<pin name="3" x="7.62" y="-12.7" length="middle" rot="R90"/>
+<pin name="4" x="10.16" y="-12.7" length="middle" rot="R90"/>
+<pin name="5" x="12.7" y="-12.7" length="middle" rot="R90"/>
+<pin name="6" x="15.24" y="-12.7" length="middle" rot="R90"/>
+<pin name="7" x="17.78" y="-12.7" length="middle" rot="R90"/>
+<text x="-1.016" y="-6.858" size="1.27" layer="94" rot="R90">&gt;NAME</text>
+<text x="0.254" y="1.27" size="1.27" layer="94">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2032,28 +2047,6 @@ Murata</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="MF07" prefix="J">
-<description>Micro-Fit 3.0 7-pin connector</description>
-<gates>
-<gate name="G$1" symbol="M07" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MOLEX_43650-07">
-<connects>
-<connect gate="G$1" pin="1" pad="P_1"/>
-<connect gate="G$1" pin="2" pad="P_2"/>
-<connect gate="G$1" pin="3" pad="P_3"/>
-<connect gate="G$1" pin="4" pad="P_4"/>
-<connect gate="G$1" pin="5" pad="P_5"/>
-<connect gate="G$1" pin="6" pad="P_6"/>
-<connect gate="G$1" pin="7" pad="P_7"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SL04" prefix="J">
 <gates>
 <gate name="G$1" symbol="SL04" x="0" y="0"/>
@@ -2076,6 +2069,41 @@ Murata</description>
 <connect gate="G$1" pin="P$2" pad="2"/>
 <connect gate="G$1" pin="P$3" pad="3"/>
 <connect gate="G$1" pin="P$4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SL07" prefix="J">
+<gates>
+<gate name="G$1" symbol="SL07" x="0" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="MOLEX-70543-0006">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-HORIZ" package="MOLEX-70551-0006">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -19034,7 +19062,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="U9" library="MRDT-ICs" deviceset="SN74AHCT125" device=""/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
-<part name="CAMERA" library="MRDT-Connectors" deviceset="MF07" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="P+12" library="supply1" deviceset="+12V" device="" value="+12V_ACT"/>
 <part name="P+13" library="supply1" deviceset="+5V" device=""/>
@@ -19051,6 +19078,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="DROP1" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH"/>
 <part name="DROP2" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH"/>
 <part name="DROP3" library="MRDT-Connectors" deviceset="SERVO" device="MOLEX_SL_VERT_TH"/>
+<part name="CAMERA_CONTROL" library="MRDT-Connectors" deviceset="SL07" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19554,27 +19582,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U1" gate="G$1" pin="PK7@60"/>
 <wire x1="66.04" y1="162.56" x2="38.1" y2="162.56" width="0.1524" layer="91"/>
 <label x="38.1" y="162.56" size="1.27" layer="95" rot="MR0" xref="yes"/>
-</segment>
-</net>
-<net name="RED_SIG" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PM0@78"/>
-<wire x1="66.04" y1="157.48" x2="60.96" y2="157.48" width="0.1524" layer="91"/>
-<label x="60.96" y="157.48" size="1.27" layer="95" rot="MR0" xref="yes"/>
-</segment>
-</net>
-<net name="GREEN_SIG" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PM1@77"/>
-<wire x1="66.04" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
-<label x="60.96" y="154.94" size="1.27" layer="95" rot="MR0" xref="yes"/>
-</segment>
-</net>
-<net name="BLUE_SIG" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PM2@76"/>
-<wire x1="66.04" y1="152.4" x2="60.96" y2="152.4" width="0.1524" layer="91"/>
-<label x="60.96" y="152.4" size="1.27" layer="95" rot="MR0" xref="yes"/>
 </segment>
 </net>
 <net name="PM3" class="0">
@@ -20673,6 +20680,27 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="129.54" y="256.54" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
+<net name="GREEN_SIG" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PM0@78"/>
+<wire x1="66.04" y1="157.48" x2="60.96" y2="157.48" width="0.1524" layer="91"/>
+<label x="60.96" y="157.48" size="1.27" layer="95" rot="MR0" xref="yes"/>
+</segment>
+</net>
+<net name="BLUE_SIG" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PM1@77"/>
+<wire x1="66.04" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
+<label x="60.96" y="154.94" size="1.27" layer="95" rot="MR0" xref="yes"/>
+</segment>
+</net>
+<net name="RED_SIG" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PM2@76"/>
+<wire x1="66.04" y1="152.4" x2="60.96" y2="152.4" width="0.1524" layer="91"/>
+<label x="60.96" y="152.4" size="1.27" layer="95" rot="MR0" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>
@@ -20699,7 +20727,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="U9" gate="G$1" x="-83.82" y="73.66"/>
 <instance part="P+9" gate="1" x="-106.68" y="127"/>
 <instance part="GND24" gate="1" x="-91.44" y="71.12"/>
-<instance part="CAMERA" gate="G$1" x="25.4" y="101.6" rot="MR0"/>
 <instance part="GND28" gate="1" x="12.7" y="86.36"/>
 <instance part="P+12" gate="1" x="10.16" y="124.46"/>
 <instance part="P+13" gate="1" x="109.22" y="147.32"/>
@@ -20716,6 +20743,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="DROP1" gate="G$1" x="132.08" y="91.44"/>
 <instance part="DROP2" gate="G$1" x="132.08" y="76.2"/>
 <instance part="DROP3" gate="G$1" x="132.08" y="60.96"/>
+<instance part="CAMERA_CONTROL" gate="G$1" x="27.94" y="121.92" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -20875,8 +20903,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="GND28" gate="1" pin="GND"/>
 <wire x1="12.7" y1="88.9" x2="12.7" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="7"/>
 <wire x1="12.7" y1="119.38" x2="15.24" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND26" gate="1" pin="GND"/>
@@ -20987,8 +21015,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="P+12" gate="1" pin="+12V"/>
 <wire x1="10.16" y1="116.84" x2="10.16" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="6"/>
 <wire x1="15.24" y1="116.84" x2="10.16" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="P+5" gate="1" pin="+12V"/>
@@ -21084,9 +21112,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </net>
 <net name="DYN_1" class="0">
 <segment>
-<pinref part="CAMERA" gate="G$1" pin="5"/>
 <wire x1="15.24" y1="114.3" x2="10.16" y2="114.3" width="0.1524" layer="91"/>
 <label x="10.16" y="114.3" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="3"/>
 </segment>
 </net>
 <net name="CAM_PWM_0" class="0">
@@ -21094,8 +21122,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U8" gate="G$1" pin="1Y"/>
 <wire x1="-2.54" y1="109.22" x2="0" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="0" y1="109.22" x2="0" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="4"/>
 <wire x1="0" y1="111.76" x2="15.24" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="4"/>
 </segment>
 </net>
 <net name="CAM_PWM_1" class="0">
@@ -21103,8 +21131,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U8" gate="G$1" pin="2Y"/>
 <wire x1="-2.54" y1="104.14" x2="2.54" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="104.14" x2="2.54" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="3"/>
 <wire x1="2.54" y1="109.22" x2="15.24" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="CAM_PWM_2" class="0">
@@ -21112,8 +21140,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U8" gate="G$1" pin="3Y"/>
 <wire x1="-2.54" y1="99.06" x2="5.08" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="99.06" x2="5.08" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="2"/>
 <wire x1="5.08" y1="106.68" x2="15.24" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="6"/>
 </segment>
 </net>
 <net name="CAM_PWM_3" class="0">
@@ -21121,8 +21149,8 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="U8" gate="G$1" pin="4Y"/>
 <wire x1="-2.54" y1="93.98" x2="7.62" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="93.98" x2="7.62" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="CAMERA" gate="G$1" pin="1"/>
 <wire x1="7.62" y1="104.14" x2="15.24" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="CAMERA_CONTROL" gate="G$1" pin="7"/>
 </segment>
 </net>
 <net name="CTRL_0" class="0">

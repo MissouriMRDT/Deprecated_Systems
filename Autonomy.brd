@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.000000123031" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -190,7 +190,7 @@ Mars Rover Design Team
 Autonomy Board
 2017 | Gryphon | Rev 1
 Gbenga Osibodu</text>
-<text x="12.7" y="17.78" size="12.7" layer="1">ROVE</text>
+<text x="12.7" y="17.78" size="12.9032" layer="1">ROVE</text>
 </plain>
 <libraries>
 <library name="MRDT-Connectors">
@@ -7301,6 +7301,10 @@ design rules under a new name.</description>
 <contactref element="C1" pad="2"/>
 <contactref element="C2" pad="2"/>
 <contactref element="LED1" pad="C"/>
+<via x="16.761478125" y="26.192803125" extent="1-16" drill="0.6" shape="square"/>
+<via x="29.00205625" y="24.40485625" extent="1-16" drill="0.6" shape="square"/>
+<via x="40.930378125" y="20.47365625" extent="1-16" drill="0.6" shape="square"/>
+<via x="55.218725" y="24.2444375" extent="1-16" drill="0.6" shape="square"/>
 </signal>
 <signal name="+5V">
 <contactref element="K1" pad="2"/>

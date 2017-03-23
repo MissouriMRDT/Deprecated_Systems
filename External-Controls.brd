@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.1.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.0125" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -10187,11 +10187,11 @@ design rules under a new name.</description>
 <wire x1="74.93" y1="16.35" x2="74.93" y2="14.605" width="0.2032" layer="1"/>
 <wire x1="74.93" y1="14.605" x2="75.8825" y2="13.6525" width="0.2032" layer="1"/>
 <via x="83.185" y="14.2875" extent="1-16" drill="0.3048"/>
-<wire x1="83.185" y1="14.2875" x2="87.63" y2="18.7325" width="0.2032" layer="16"/>
+<wire x1="83.185" y1="14.2875" x2="87.3125" y2="18.415" width="0.2032" layer="16"/>
 <wire x1="75.8825" y1="13.6525" x2="82.55" y2="13.6525" width="0.2032" layer="1"/>
 <wire x1="82.55" y1="13.6525" x2="83.185" y2="14.2875" width="0.2032" layer="1"/>
-<wire x1="87.63" y1="18.7325" x2="91.44" y2="18.7325" width="0.2032" layer="16"/>
-<wire x1="91.44" y1="18.7325" x2="94.2975" y2="21.59" width="0.2032" layer="16"/>
+<wire x1="87.3125" y1="18.415" x2="91.1225" y2="18.415" width="0.2032" layer="16"/>
+<wire x1="91.1225" y1="18.415" x2="94.2975" y2="21.59" width="0.2032" layer="16"/>
 <via x="94.2975" y="21.59" extent="1-16" drill="0.3048"/>
 <wire x1="94.2975" y1="21.59" x2="99.06" y2="21.59" width="0.2032" layer="1"/>
 </signal>

@@ -18829,9 +18829,9 @@ Source: www.kingbright.com</description>
 <junction x="-30.48" y="-15.24"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="PD1"/>
-<wire x1="147.32" y1="71.12" x2="152.4" y2="71.12" width="0.1524" layer="91"/>
-<label x="152.4" y="71.12" size="1.27" layer="95" xref="yes"/>
+<pinref part="U$1" gate="G$1" pin="PL5"/>
+<wire x1="147.32" y1="15.24" x2="152.4" y2="15.24" width="0.1524" layer="91"/>
+<label x="152.4" y="15.24" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="IN2-MAIN" class="0">
@@ -18891,9 +18891,9 @@ Source: www.kingbright.com</description>
 <junction x="-22.86" y="48.26"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="PC7"/>
-<wire x1="111.76" y1="76.2" x2="109.22" y2="76.2" width="0.1524" layer="91"/>
-<label x="109.22" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$1" gate="G$1" pin="PD3"/>
+<wire x1="147.32" y1="66.04" x2="152.4" y2="66.04" width="0.1524" layer="91"/>
+<label x="152.4" y="66.04" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SOIL-TEMP" class="0">
@@ -18904,9 +18904,9 @@ Source: www.kingbright.com</description>
 <wire x1="-25.4" y1="35.56" x2="-22.86" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="PF1"/>
-<wire x1="111.76" y1="71.12" x2="109.22" y2="71.12" width="0.1524" layer="91"/>
-<label x="109.22" y="71.12" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$1" gate="G$1" pin="PD1"/>
+<wire x1="147.32" y1="71.12" x2="152.4" y2="71.12" width="0.1524" layer="91"/>
+<label x="152.4" y="71.12" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="OUTPUT1" class="0">

@@ -62,7 +62,7 @@ void loop() {
       Serial.println("");
 
        //Checks the value of the command, and if applicable, executes it
-       if(commandId == 0x710)
+       if(commandId == ScienceCommand)
        {
         //Switch case
         switch(commandData) {
@@ -137,10 +137,9 @@ void loop() {
         break;
          }//End Switch   
        }
-       else if(commandId == 0x711)//Carousel
+       else if(commandId == ScienceCarousel)//Carousel
        {
-        if(commandData!=5)//We have 5 positions (1-5) and 6 commands (0-6), rotate the carousel if it is a valid position
-          rotateCarousel(commandData);
+         rotateCarousel(commandData);
        }
     }
     else //No message was received and we send sensor data
@@ -280,30 +279,6 @@ void spectrometer()
    //wait 10 seconds before repeating the loop
    delay(10000); 
    return;
-}
-
-//Given a specific part command, runs individual parts of the spectrometer (not currently used)
-void partial_spec(const uint16_t data)
-{
-    if(data==0)
-    openFlap();
-    else if(data==1)
-    closeFlap();
-    else if(data==2)
-    turnOnLaser();
-    else if(data==3)
-    turnOffLaser();
-    else if(data==4)
-    spectroMotorForward();
-    else if(data==5)
-    spectroMotorReverse();
-    else if(data==6)
-    spectroMotorOff();
-    else if(data==7)
-    readPhotoDiode1();
-    else if(data==8)
-    readPhotoDiode1();
-    return;
 }
 
 //Turns on the spectrometer laser

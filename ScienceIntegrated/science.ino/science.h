@@ -10,6 +10,12 @@ typedef enum CommandResult
   Fail
 } CommandResult;
 
+typedef enum CommandIDs
+{
+  ScienceCommand=0x710,
+  ScienceCarousel=0x711  
+}CommandIDs;
+
 typedef enum ScienceCommands
 {
   sensorAllEnable=0,
@@ -44,7 +50,6 @@ const uint8_t IP_ADDRESS [4] = {192, 168, 1, 135};
 
 void initialize();//All important pre-loop setup goes here
 void spectrometer();//Full spectrometer sub-routine
-void partial_spec(const uint16_t data);//(Currently unused) runs individual spectrometer parts
 
 void turnOnLaser();//Turns On the Spectrometer Laser
 void turnOffLaser();//Turns Off the Spectrometer Laser

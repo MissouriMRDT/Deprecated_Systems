@@ -57,7 +57,7 @@ void loop() {
       Serial.println("");
 
        //Science Arm Drive
-       if(commandId == 0x710)
+       if(commandId == 0x710)//TODO: Wrong commandID, this is for science board
        {   
          if(commandData==18)
              motorOn();
@@ -67,7 +67,7 @@ void loop() {
              motorCoast();
        }
        //Science Arm Position
-       else if(commandId == 0x711)
+       else if(commandId == 0x711)//TODO: Wrong commandID, this is for science board
        {
           if(commandData==0)
              drillForward();
@@ -77,6 +77,34 @@ void loop() {
              drillReverse();
        }
     }
+    
+    //Future Code 
+    /*
+     if(commandId == ScienceArmDrive)
+       {
+         if(commandData==armForward)
+           motorOn();
+         else if(commandData==armReverse)
+           motorReverse();
+         else if(commandData==armOff)
+           motorCoast();
+       }
+       else if(commandId == ScienceArmPosition)
+       {
+         //Some positional arm movement function, if we even get that far       
+       }
+       else if(commandId == ScienceDrillDrive)
+       {
+         if(commandData==DrillF)
+           drillForward();
+         else if(commandData==DrillR)
+           drillReverse();
+         else if(commandData==DrillOff)
+           drillCoast();
+       }
+       */
+ 
+    
     else //No message was received and we send sensor data
     {
       //Delay before we check for another command from base station
@@ -151,9 +179,7 @@ void motorOn()
   //one high, one low. swap for other direction
   digitalWrite(PD_1, HIGH);//IN1
   digitalWrite(PD_0, LOW);//IN2
-  digitalWrite(PF_0, HIGH);//LED
-
-  
+  digitalWrite(PF_0, HIGH);//LED 
 }
 
 void motorReverse()
@@ -192,7 +218,6 @@ void motorCoast()
   digitalWrite(PD_1, LOW); //IN1   
   digitalWrite(PD_0, LOW);//IN2
   digitalWrite(PF_0, LOW);//LED
-  
 }
 
 void motorBrake()
@@ -236,5 +261,8 @@ void drillCoast()
   digitalWrite(PB_2, LOW);
 }
 
-
+void kill()
+{
+  //add digitalWrite(..) to disable the pins that turn off the arm and the drill (or just call motorCoast() and drillCoast()?)
+}
 

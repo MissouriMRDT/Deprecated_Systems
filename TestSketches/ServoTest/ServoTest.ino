@@ -86,13 +86,13 @@ void rotateCarousel(int pos)//need to discuss bets implementation of this
 void openFlap()
 {
   //does flap open at 180 degrees or 0?
-  flap.write(170);
+  flap.write(0);
 }
 
 void closeFlap()
 {
   //again, does flap close at 180 degrees or 0?
-  flap.write(0);
+  flap.write(110);
 }
 
 void turnOnLaser()

@@ -150,7 +150,7 @@ void loop() {
        //check for which sensors to record, and then send through rovecomm
     if((millis()-sensorTimer)>250)
     {
-      Serial.println("Sending Sensor Data");
+      //Serial.println("Checking Sensors");
        sensorTimer=millis();
        if(sensor_enable[0])//AirTemp
        {
@@ -196,7 +196,7 @@ void loop() {
       if(watchdogTimer_us >= WATCHDOG_TIMEOUT_US)
       {
         //End dangerous operations here
-        Serial.println("Watch out dog!!!!!!");
+        //Serial.println("Watch out dog!!!!!!");
         watchdogTimer_us = 0;
       }
 

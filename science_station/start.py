@@ -7,9 +7,6 @@ from PyQt4 import QtGui, QtCore
 from customWidgets import GraphArea, Sensor, SensorEnableBox
 
 
-# TODO: Implementation - plot spectrometer data
-
-
 class StartQT4(QtGui.QMainWindow):
     def __init__(self, parent=None):
         # Data variables.
@@ -142,7 +139,6 @@ class StartQT4(QtGui.QMainWindow):
 
                     if self.csv_type == "spectrometer":
                         wavelength, intensity = row
-                        # TODO: We completely forgot to test this. Ehrenfreund v1.1 needs to add this as well.
                         if type(wavelength) != "str" and type(intensity) != "str":
                             self.spectrometer_data.append((wavelength, intensity))
                 except StopIteration:

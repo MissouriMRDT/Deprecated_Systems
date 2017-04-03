@@ -1,13 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 
 
 class Sensor(QtGui.QCheckBox):
     def __init__(self, sensor_type, parent=None):
-        # def __init__(self, parent=None):
         super(Sensor, self).__init__()
         self.data = []
         self.type = sensor_type
@@ -33,7 +32,7 @@ class GraphArea(QtGui.QWidget):
         display_frame.addWidget(toolbar)
 
     def graph_basic(self, sensors):
-
+        self.fig.clf()
         temp_subplot = self.fig.add_subplot(2, 1, 1)
         temp_subplot.set_title("Temperature")
         temp_subplot.set_ylabel("Temperature (Celsius)")
@@ -52,7 +51,6 @@ class GraphArea(QtGui.QWidget):
         for s in sensors:
             if len(np.array(s.data)) > 0:  # skip sensors with no readings
                 t, measure = np.array(s.data).T  # transpose two-tuples into two data sets
-                print(s.isChecked())
                 if s.isChecked():
                     if s.type == "temperature":
                         handle, = temp_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
@@ -73,20 +71,18 @@ class GraphArea(QtGui.QWidget):
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
-    # TODO: Change to (wavelength, intensity) format.
     # Data must be in format [(#,#),(#,#),(#,#)] i.e. a list of tuples.
     def graph_spectrometer(self, data_tuples):
         """ Graphs spectrometer data """
         wavelength, intensity = np.array(data_tuples).T
-        print(wavelength)
-        print(intensity)
         wavelength_f = []
         intensity_f = []
         for i in range(len(wavelength)):
             wavelength_f.append(float(wavelength[i]))
         for i in range(len(intensity)):
             intensity_f.append(float(intensity[i]))
-        spectro_plot = self.fig.add_subplot(1,1,1)
+        self.fig.clf()
+        spectro_plot = self.fig.add_subplot(1, 1, 1)
         spectro_plot.set_title("Spectral Response")
         spectro_plot.set_ylabel("Intensity")
         spectro_plot.set_xlabel("Wavelength (nm)")

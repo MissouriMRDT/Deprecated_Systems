@@ -106,46 +106,49 @@ class StartQT4(QtGui.QMainWindow):
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.
             Places data in relevant data store. """
-        with open(csv_name, 'r') as csvfile:
-            reader = csv.reader(csvfile, delimiter=' ')
-            # check header for Spectrometer or Temp/Humid readings.
-            # Assuming Temp/Humid
-            header = next(reader)
-            if header == ['datetime', 'sensor', 'measurement']:
-                self.csv_type = "basic"
-            elif header == ["wavelength", "intensity"]:
-                self.csv_type = "spectrometer"
+        try:
+            with open(csv_name, 'r') as csvfile:
+                reader = csv.reader(csvfile, delimiter=' ')
+                # check header for Spectrometer or Temp/Humid readings.
+                # Assuming Temp/Humid
+                header = next(reader)
+                if header == ['datetime', 'sensor', 'measurement']:
+                    self.csv_type = "basic"
+                elif header == ["wavelength", "intensity"]:
+                    self.csv_type = "spectrometer"
 
-            for row in reader:
-                try:
-                    if self.csv_type == "basic":
-                        datestamp, sensor, raw_data = row
-                        if sensor == "Temp1":
-                            self.sensorEnables.tsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Temp2":
-                            self.sensorEnables.tsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Temp3":
-                            self.sensorEnables.tdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Temp4":
-                            self.sensorEnables.tdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Humid1":
-                            self.sensorEnables.hsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Humid2":
-                            self.sensorEnables.hsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Humid3":
-                            self.sensorEnables.hdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
-                        elif sensor == "Humid4":
-                            self.sensorEnables.hdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
+                for row in reader:
+                    try:
+                        if self.csv_type == "basic":
+                            datestamp, sensor, raw_data = row
+                            if sensor == "Temp1":
+                                self.sensorEnables.tsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Temp2":
+                                self.sensorEnables.tsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Temp3":
+                                self.sensorEnables.tdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Temp4":
+                                self.sensorEnables.tdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Humid1":
+                                self.sensorEnables.hsheath1.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Humid2":
+                                self.sensorEnables.hsheath2.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Humid3":
+                                self.sensorEnables.hdrill1.data.append((dateutil.parser.parse(datestamp), raw_data))
+                            elif sensor == "Humid4":
+                                self.sensorEnables.hdrill2.data.append((dateutil.parser.parse(datestamp), raw_data))
 
-                    if self.csv_type == "spectrometer":
-                        wavelength, intensity = row
-                        if type(wavelength) != "str" and type(intensity) != "str":
-                            self.spectrometer_data.append((wavelength, intensity))
-                except StopIteration:
-                        pass
+                        if self.csv_type == "spectrometer":
+                            wavelength, intensity = row
+                            if type(wavelength) != "str" and type(intensity) != "str":
+                                self.spectrometer_data.append((wavelength, intensity))
+                    except StopIteration:
+                            pass
+        except FileNotFoundError:
+            self.showdialogue("Error 404: Could not find file %s" % csv_name)
 
     @staticmethod
-    def showdialogue(self, errormessage):
+    def showdialogue(errormessage):
         """ Error dialogue window used for file entry. """
         msg = QtGui.QMessageBox()
         msg.setIcon(QtGui.QMessageBox.Critical)

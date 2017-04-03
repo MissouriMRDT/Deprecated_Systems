@@ -6,11 +6,12 @@ from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as Navigatio
 
 
 class Sensor(QtGui.QCheckBox):
-    def __init__(self, sensor_type, parent=None):
+    def __init__(self, sensor_type, name, parent=None, color=""):
         super(Sensor, self).__init__()
         self.data = []
         self.type = sensor_type
-        self.color = ""
+        self.setText(name)
+        self.color = color
 
 
 class GraphArea(QtGui.QWidget):
@@ -109,15 +110,10 @@ class SensorEnableBox(QtGui.QWidget):
         self.humidLayout.setSpacing(7)
 
         # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
-        self.hsheath1 = Sensor("humidity", self.humidSensors)
-        self.hsheath2 = Sensor("humidity", self.humidSensors)
-        self.hdrill1 = Sensor("humidity", self.humidSensors)
-        self.hdrill2 = Sensor("humidity", self.humidSensors)
-
-        self.hsheath1.setText("HSheath1")
-        self.hsheath2.setText("HSheath2")
-        self.hdrill1.setText("HDrill1")
-        self.hdrill2.setText("HDrill2")
+        self.hsheath1 = Sensor("humidity", name="HSheath1")
+        self.hsheath2 = Sensor("humidity", name="HSheath2")
+        self.hdrill1 = Sensor("humidity", name="HDrill1")
+        self.hdrill2 = Sensor("humidity", name="HDrill2")
 
         self.sensors.append(self.hsheath1)
         self.sensors.append(self.hsheath2)
@@ -129,15 +125,10 @@ class SensorEnableBox(QtGui.QWidget):
         self.tempLayout = QtGui.QVBoxLayout(self.tempSensors)
 
         self.tempLayout.setSpacing(7)
-        self.tsheath1 = Sensor("temperature", parent=self.tempSensors)
-        self.tsheath2 = Sensor("temperature", parent=self.tempSensors)
-        self.tdrill1 = Sensor("temperature", parent=self.tempSensors)
-        self.tdrill2 = Sensor("temperature", parent=self.tempSensors)
-
-        self.tsheath1.setText("TSheath1")
-        self.tsheath2.setText("TSheath2")
-        self.tdrill1.setText("TDrill1")
-        self.tdrill2.setText("TDrill2")
+        self.tsheath1 = Sensor("temperature", name="TSheath1")
+        self.tsheath2 = Sensor("temperature", name="TSheath2")
+        self.tdrill1 = Sensor("temperature", name="TDrill1")
+        self.tdrill2 = Sensor("temperature", name="TDrill2")
 
         self.sensors.append(self.tsheath1)
         self.sensors.append(self.tsheath2)

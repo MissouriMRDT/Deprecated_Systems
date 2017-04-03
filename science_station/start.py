@@ -69,6 +69,14 @@ class StartQT4(QtGui.QMainWindow):
         self.spectrometerGraphLayout.addWidget(self.spectrometerGraph)
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
+        # Contains all elements relevant to display picture
+        self.picture = QtGui.QWidget()
+        self.scrollbar = QtGui.QScrollBar()
+        self.pictureLayout = QtGui.QHBoxLayout(self.picture)
+        self.pictureLayout.setMargin(0)
+        self.pictureLayout.setSpacing(2)
+        self.graphTabs.addTab(self.picture, "Site Pictures")
+
         self.digMainLayout.addLayout(self.inputFrame)
         self.displayFrame.addWidget(self.graphTabs)
         self.digMainLayout.addLayout(self.displayFrame)
@@ -97,11 +105,21 @@ class StartQT4(QtGui.QMainWindow):
                     self.basicGraph.graph_basic(self.sensorEnables.sensors)
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
+            elif filename.lower().endswith('.png'):
+                print(".PNG file given")
+                self.showpicture(filename)
             else:
-                self.showdialogue("Unsupported file type. Please input a .csv file.")
-
+                self.showdialogue("Unsupported file type. Please input a .csv or .png file")
         else:
             self.showdialogue("File requested is already entered.")
+
+    def showpicture(self, pic_name):
+        """ Displays a picture within the given window """
+        picturelabel = QtGui.QLabel()
+        picturelabel.setPixmap(QtGui.QPixmap(pic_name))
+        self.pictureLayout.addWidget(picturelabel)
+        self.picture.show()
+        
 
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.

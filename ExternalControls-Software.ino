@@ -6,21 +6,17 @@
 
 #include <RoveBoard.h>
 #include <RoveEthernet.h>
-
 #include <RoveComm.h>
-
-#include <BischoffDyna.h>
-
-
+#include <Dynamixel.h>
 
 //Pin assignments:
 #define EN_12V PM_6
 #define I_MEAS_12V PB_4
 
-#define PWM0 26
-#define PWM1 25
-#define PWM2 24
-#define PWM3 23
+#define PWM0 PD_0
+#define PWM1 PD_1
+#define PWM2 PD_2
+#define PWM3 PD_3
 
 #define PWM0_CAM2 PA_5
 #define PWM1_CAM2 PA_4
@@ -96,12 +92,11 @@ Servo Dropbay[4];
 Servo servoMux1;
 Servo servoMux2;
 
-  
-
+// create objects to manage dynamixel comms
+Dynamixel gimb1(Serial3);
+Dynamixel gimb2(Serial2);
 
 void setup() {
-  
-
   pinMode(PWM0,OUTPUT);
   pinMode(PWM1,OUTPUT);
   pinMode(PWM2,OUTPUT);
@@ -130,26 +125,31 @@ void setup() {
   Dropbay[3].attach(DROPBAY3);
   
   delay(100);
-  Serial7.begin(1000000);
+
+  Serial3.begin(1000000); // DYN_1 / Camera 1 Gimbal
+  Serial2.begin(1000000); // DYN_2 / Camera 2 Gimbal
+
+  // Serial5.begin(1000000); DYN_3 / Extra dynamixel #1
+  // Serial7.begin(1000000); DYN_4 / Extra dynamixel #2
+  
   roveComm_Begin(192,168,1,134);
   Serial.begin(9600);
   Ethernet.enableLinkLed();
   Ethernet.enableActivityLed();
   delay(100);
-  //init();//initialize Dynamixel library
   delay(100);
 
   //set dynamixels to be in continuous rotation mode.
-  setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
-  setRegister2(HOR_CAM_1,ID_CCW_LIMIT,0);
-  setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
-  setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
+  gimb1.setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
+  gimb1.setRegister2(HOR_CAM_1,ID_CCW_LIMIT,0);
+  gimb1.setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
+  gimb1.setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
 
 
-  setRegister2(HOR_CAM_2,ID_CW_LIMIT,0);
-  setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
-  setRegister2(VERT_CAM_2,ID_CW_LIMIT,0);
-  setRegister2(VERT_CAM_2,ID_CCW_LIMIT,0);
+  gimb2.setRegister2(HOR_CAM_2,ID_CW_LIMIT,0);
+  gimb2.setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
+  gimb2.setRegister2(VERT_CAM_2,ID_CW_LIMIT,0);
+  gimb2.setRegister2(VERT_CAM_2,ID_CCW_LIMIT,0);
   
   
   //debug: flash LED's on dynamixel to indicate they are communicating
@@ -188,9 +188,9 @@ void setup() {
 
 void blink(int num){
   for(int i = 0; i < num; i++){
-    setRegister(254,0x19,1);        
+    gimb1.setRegister(254,0x19,1);        
     delay(100);
-    setRegister(254,0x19,0);        
+    gimb1.setRegister(254,0x19,0);        
     delay(100);
   }
 }
@@ -427,7 +427,7 @@ void moveDynamixel(int moveSpeed, int dynaID){
     moveSpeed=2047;
   }
 
-  setRegister2(dynaID,ID_SPEED,moveSpeed);
+  gimb1.setRegister2(dynaID,ID_SPEED,moveSpeed);
   
   
 }

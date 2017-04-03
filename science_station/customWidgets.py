@@ -6,18 +6,19 @@ from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as Navigatio
 
 
 class Sensor(QtGui.QCheckBox):
-    def __init__(self):
-        super().__init__()
-        self.data = [] # Array of tuples of form (time, data)
-        self.type = '' # temp or humid
-        self.color = ''
-        self.displayname = ''
+    def __init__(self, sensor_type, parent=None):
+        # def __init__(self, parent=None):
+        super(Sensor, self).__init__()
+        self.data = []
+        self.type = sensor_type
+        self.color = ""
+
 
 class GraphArea(QtGui.QWidget):
     """ Creates a Matplotlib graphing area tailored for MRDT 2017 basic and spectrometer readings in Ehrenfreund. """
     def __init__(self):
         """ Initial setup of the UI """
-        super().__init__()
+        super(GraphArea, self).__init__()
         self.fig = plt.figure()
         self.canvas = FigureCanvas(self.fig)
         self.data_len = []
@@ -31,41 +32,40 @@ class GraphArea(QtGui.QWidget):
         display_frame.addWidget(self.canvas)
         display_frame.addWidget(toolbar)
 
-    def graph_basic(self, sensorArray):
-        """ Graphs basic data """
-        # Temperature Subplot
+    def graph_basic(self, sensors):
+
         temp_subplot = self.fig.add_subplot(2, 1, 1)
         temp_subplot.set_title("Temperature")
         temp_subplot.set_ylabel("Temperature (Celsius)")
         temp_subplot.grid(True)
         temp_subplot.set_ylim(0, 50)
-        temp_handles = []
 
-        # Humidity Subplot
         humid_subplot = self.fig.add_subplot(2, 1, 2)
         humid_subplot.set_title("Humidity")
         humid_subplot.set_ylabel("Water Content (%)")
         humid_subplot.grid(True)
         humid_subplot.set_ylim(0, 100)
+
+        temp_handles = []
         humid_handles = []
 
-        for sensor in sensorArray:
-            if sensor.isChecked() and len(np.array(sensor.data)):
-                if sensor.type == "temp":
-                    time, data = np.array(sensor.data).T
-                    temp_plot, = temp_subplot.plot_date(x=time, y=data, color=sensor.color, label=sensor.displayname, mew=0)
-                    temp_handles.append(temp_plot)
-                elif sensor.type == "humid":
-                    time, data = np.array(sensor.data).T
-                    humid_plot, = humid_subplot.plot_date(x=time, y=data, color=sensor.color, label=sensor.displayname, mew=0)
-                    humid_handles.append(humid_plot)
+        for s in sensors:
+            if len(np.array(s.data)) > 0:  # skip sensors with no readings
+                t, measure = np.array(s.data).T  # transpose two-tuples into two data sets
+                print(s.isChecked())
+                if s.isChecked():
+                    if s.type == "temperature":
+                        handle, = temp_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
+                        temp_handles.append(handle)
+                    elif s.type == "humidity":
+                        handle, = humid_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
+                        humid_handles.append(handle)
 
         try:
             temp_subplot.legend(handles=temp_handles)
         except UnboundLocalError:
             pass
-
-        try:  # Shouldn't ever fail due to conditional append. Try block kept just to be safe.
+        try:
             humid_subplot.legend(handles=humid_handles)
         except UnboundLocalError:
             pass
@@ -96,62 +96,71 @@ class GraphArea(QtGui.QWidget):
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
+
 class SensorEnableBox(QtGui.QWidget):
     """ Contains all elements relevant to enabling and disabling basic sensors. """
     def __init__(self, parent):
         """ Initial setup of the UI """
         super(SensorEnableBox, self).__init__()
+        self.sensors = []
+
         self.sensorEnables = QtGui.QVBoxLayout()
         self.sensorEnables.setSpacing(0)
         self.sensorEnables.setContentsMargins(-1, 0, -1, -1)
 
+        self.humidSensors = QtGui.QGroupBox()
+        self.humidLayout = QtGui.QVBoxLayout(self.humidSensors)
+        self.humidLayout.setSpacing(7)
+
+        # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
+        self.hsheath1 = Sensor("humidity", self.humidSensors)
+        self.hsheath2 = Sensor("humidity", self.humidSensors)
+        self.hdrill1 = Sensor("humidity", self.humidSensors)
+        self.hdrill2 = Sensor("humidity", self.humidSensors)
+
+        self.hsheath1.setText("HSheath1")
+        self.hsheath2.setText("HSheath2")
+        self.hdrill1.setText("HDrill1")
+        self.hdrill2.setText("HDrill2")
+
+        self.sensors.append(self.hsheath1)
+        self.sensors.append(self.hsheath2)
+        self.sensors.append(self.hdrill1)
+        self.sensors.append(self.hdrill2)
+
         self.tempSensors = QtGui.QGroupBox()
         # self.tempSensors.setMaximumSize(QtCore.QSize(100, 150))
         self.tempLayout = QtGui.QVBoxLayout(self.tempSensors)
+
         self.tempLayout.setSpacing(7)
-        self.tsheath1 = Sensor()
-        self.tsheath1.setText("Temp1")
-        self.tsheath1.setChecked(True)
-        self.tempLayout.addWidget(self.tsheath1)
-        self.tsheath2 = QtGui.QCheckBox(self.tempSensors)
-        self.tsheath2.setText("Temp2")
-        self.tsheath2.setChecked(True)
-        self.tempLayout.addWidget(self.tsheath2)
-        self.tdrill1 = QtGui.QCheckBox(self.tempSensors)
-        self.tdrill1.setText("Temp3")
-        self.tdrill1.setChecked(True)
-        self.tempLayout.addWidget(self.tdrill1)
-        self.tdrill2 = QtGui.QCheckBox(self.tempSensors)
-        self.tdrill2.setText("Temp4")
-        self.tdrill2.setChecked(True)
-        self.tempLayout.addWidget(self.tdrill2)
+        self.tsheath1 = Sensor("temperature", parent=self.tempSensors)
+        self.tsheath2 = Sensor("temperature", parent=self.tempSensors)
+        self.tdrill1 = Sensor("temperature", parent=self.tempSensors)
+        self.tdrill2 = Sensor("temperature", parent=self.tempSensors)
+
+        self.tsheath1.setText("TSheath1")
+        self.tsheath2.setText("TSheath2")
+        self.tdrill1.setText("TDrill1")
+        self.tdrill2.setText("TDrill2")
+
+        self.sensors.append(self.tsheath1)
+        self.sensors.append(self.tsheath2)
+        self.sensors.append(self.tdrill1)
+        self.sensors.append(self.tdrill2)
+
+        for s in self.sensors:
+            s.setChecked(True)
+            if s.type == "humidity":
+                self.humidLayout.addWidget(s)
+            elif s.type == "temperature":
+                self.tempLayout.addWidget(s)
+
+        self.sensorEnables.addWidget(self.humidSensors)
         self.sensorEnables.addWidget(self.tempSensors)
 
-        self.humidSensors = QtGui.QGroupBox()
-        # self.humidSensors.setMaximumSize(QtCore.QSize(100, 150))
-        self.hsheath1 = QtGui.QCheckBox(self.humidSensors)
-        self.hsheath1.setText("Humid1")
-        self.hsheath1.setChecked(True)
-        self.humidLayout = QtGui.QVBoxLayout(self.humidSensors)
-        self.humidLayout.setSpacing(7)
-        self.humidLayout.addWidget(self.hsheath1)
-        self.hsheath2 = QtGui.QCheckBox(self.humidSensors)
-        self.hsheath2.setText("Humid2")
-        self.hsheath2.setChecked(True)
-        self.humidLayout.addWidget(self.hsheath2)
-        self.hdrill1 = QtGui.QCheckBox(self.humidSensors)
-        self.hdrill1.setText("Humid3")
-        self.hdrill1.setChecked(True)
-        self.humidLayout.addWidget(self.hdrill1)
-        self.hdrill2 = QtGui.QCheckBox(self.humidSensors)
-        self.hdrill2.setText("Humid4")
-        self.hdrill2.setChecked(True)
-        self.humidLayout.addWidget(self.hdrill2)
-        self.sensorEnables.addWidget(self.humidSensors)
-
-        self.saveGraphsButton = QtGui.QPushButton()
-        self.saveGraphsButton.setText("Refresh Graph")
-        self.sensorEnables.addWidget(self.saveGraphsButton)
+        self.refreshButton = QtGui.QPushButton()
+        self.refreshButton.setText("Refresh Graph")
+        self.sensorEnables.addWidget(self.refreshButton)
 
         spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.sensorEnables.addItem(spacer_item)

@@ -1,6 +1,7 @@
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 
@@ -34,17 +35,19 @@ class GraphArea(QtGui.QWidget):
 
     def graph_basic(self, sensors):
         self.fig.clf()
-        temp_subplot = self.fig.add_subplot(2, 1, 1)
-        temp_subplot.set_title("Temperature")
-        temp_subplot.set_ylabel("Temperature (Celsius)")
-        temp_subplot.grid(True)
-        temp_subplot.set_ylim(0, 50)
+        myFmt = mdates.DateFormatter('%h-%m-%s')
 
-        humid_subplot = self.fig.add_subplot(2, 1, 2)
-        humid_subplot.set_title("Humidity")
-        humid_subplot.set_ylabel("Water Content (%)")
-        humid_subplot.grid(True)
-        humid_subplot.set_ylim(0, 100)
+        temp_ax = self.fig.add_subplot(211)
+        temp_ax.set_title("Temperature")
+        temp_ax.set_ylabel("Temperature (Celsius)")
+        temp_ax.grid(True)
+        temp_ax.set_ylim(0, 50)
+
+        humid_ax = self.fig.add_subplot(212, sharex=temp_ax)
+        humid_ax.set_title("Humidity")
+        humid_ax.set_ylabel("Water Content (%)")
+        humid_ax.grid(True)
+        humid_ax.set_ylim(0, 100)
 
         temp_handles = []
         humid_handles = []
@@ -54,18 +57,18 @@ class GraphArea(QtGui.QWidget):
                 t, measure = np.array(s.data).T  # transpose two-tuples into two data sets
                 if s.isChecked():
                     if s.type == "temperature":
-                        handle, = temp_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
+                        handle, = temp_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
                         temp_handles.append(handle)
                     elif s.type == "humidity":
-                        handle, = humid_subplot.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
+                        handle, = humid_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
                         humid_handles.append(handle)
 
         try:
-            temp_subplot.legend(handles=temp_handles)
+            temp_ax.legend(handles=temp_handles)
         except UnboundLocalError:
             pass
         try:
-            humid_subplot.legend(handles=humid_handles)
+            humid_ax.legend(handles=humid_handles)
         except UnboundLocalError:
             pass
 
@@ -154,5 +157,20 @@ class SensorEnableBox(QtGui.QWidget):
 
         parent.addLayout(self.sensorEnables)
 
+
+class Picture(QtGui.QLabel):
+    def __init__(self, image):
+        super(Picture, self).__init__()
+        self.setFrameStyle(QtGui.QFrame.StyledPanel)
+        self.pixmap = QtGui.QPixmap(image)
+
+    def paintEvent(self, event):
+        size = self.size()
+        painter = QtGui.QPainter(self)
+        point = QtCore.QPoint(0, 0)  # This change?
+        scaledPix = self.pixmap.scaled(size, QtCore.Qt.KeepAspectRatio)
+        point.setX((size.width() - scaledPix.width())/2)
+        point.setY((size.height() - scaledPix.height())/2)
+        painter.drawPixmap(point, scaledPix)
 
 # color picker: http://www.w3schools.com/colors/colors_hex.asp

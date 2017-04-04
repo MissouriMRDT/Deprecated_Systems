@@ -4,7 +4,7 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 from PyQt4 import QtGui, QtCore
-from customWidgets import GraphArea, Sensor, SensorEnableBox
+from customWidgets import GraphArea, Picture, SensorEnableBox
 
 
 class StartQT4(QtGui.QMainWindow):
@@ -12,6 +12,7 @@ class StartQT4(QtGui.QMainWindow):
         # Data variables.
         self.current_file = ""
         self.csv_type = ""
+        self.pictures_held = []
         self.spectrometer_data = []
 
         # Main Window information
@@ -70,12 +71,11 @@ class StartQT4(QtGui.QMainWindow):
         self.graphTabs.addTab(self.spectrometer, "Spectrometer")
 
         # Contains all elements relevant to display picture
-        self.picture = QtGui.QWidget()
-        self.scrollbar = QtGui.QScrollBar()
-        self.pictureLayout = QtGui.QHBoxLayout(self.picture)
-        self.pictureLayout.setMargin(0)
+        self.picture_tab = QtGui.QWidget()
+        self.pictureLayout = QtGui.QGridLayout(self.picture_tab)
+        self.pictureLayout.setMargin(2)
         self.pictureLayout.setSpacing(2)
-        self.graphTabs.addTab(self.picture, "Site Pictures")
+        self.graphTabs.addTab(self.picture_tab, "Site Pictures")
 
         self.digMainLayout.addLayout(self.inputFrame)
         self.displayFrame.addWidget(self.graphTabs)
@@ -105,21 +105,22 @@ class StartQT4(QtGui.QMainWindow):
                     self.basicGraph.graph_basic(self.sensorEnables.sensors)
                 elif self.csv_type == "spectrometer":
                     self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
-            elif filename.lower().endswith('.png'):
-                print(".PNG file given")
+            elif any([filename.lower().endswith(x) for x in ['.png', '.jpeg', '.jpg']]):
                 self.showpicture(filename)
             else:
-                self.showdialogue("Unsupported file type. Please input a .csv or .png file")
+                self.showdialogue("Unsupported file type. Please input a .csv, .png, .jpeg file")
         else:
             self.showdialogue("File requested is already entered.")
 
     def showpicture(self, pic_name):
         """ Displays a picture within the given window """
-        picturelabel = QtGui.QLabel()
-        picturelabel.setPixmap(QtGui.QPixmap(pic_name))
-        self.pictureLayout.addWidget(picturelabel)
-        self.picture.show()
-        
+        picture = Picture(pic_name)
+        pos = [(1, 1), (1, 2), (2, 1), (2, 2)]
+        x, y = pos[len(self.pictures_held)]
+        print(x, y)
+        self.pictures_held.append(pic_name)
+        self.pictureLayout.addWidget(picture, x, y)
+        self.picture_tab.show()
 
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.

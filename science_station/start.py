@@ -1,9 +1,12 @@
 import csv
-import dateutil.parser
+import os.path
 import sys
+
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
+import dateutil.parser
 from PyQt4 import QtGui, QtCore
+
 from customWidgets import GraphArea, Picture, SensorEnableBox
 
 
@@ -73,8 +76,8 @@ class StartQT4(QtGui.QMainWindow):
         # Contains all elements relevant to display picture
         self.picture_tab = QtGui.QWidget()
         self.pictureLayout = QtGui.QGridLayout(self.picture_tab)
-        self.pictureLayout.setMargin(2)
-        self.pictureLayout.setSpacing(2)
+        self.pictureLayout.setMargin(3)
+        self.pictureLayout.setSpacing(0)
         self.graphTabs.addTab(self.picture_tab, "Site Pictures")
 
         self.digMainLayout.addLayout(self.inputFrame)
@@ -90,34 +93,41 @@ class StartQT4(QtGui.QMainWindow):
                      lambda: self.basicGraph.graph_basic(self.sensorEnables.sensors))
 
         self.setCentralWidget(self.centralWidget)
+        self.showMaximized()
 
     def enterfile(self):
         """ Enters the file contents to graphing area. Grabs the name of file entered, parses that file,
             and graphs its data."""
         filename = self.fileInput.text()
-        if filename != self.current_file:
-            if filename.lower().endswith('.csv'):
-                # Assuming basic temp/humid.
-                self.parsecsv(filename)
-                self.current_file = filename
-                # TODO: Add check for Spectrometer data and conditional graph call.
-                if self.csv_type == "basic":
-                    self.basicGraph.graph_basic(self.sensorEnables.sensors)
-                elif self.csv_type == "spectrometer":
-                    self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
-            elif any([filename.lower().endswith(x) for x in ['.png', '.jpeg', '.jpg']]):
-                self.showpicture(filename)
+        if os.path.isfile(filename):
+            if filename != self.current_file:
+                if filename.lower().endswith('.csv'):
+                    # Assuming basic temp/humid.
+                    self.parsecsv(filename)
+                    self.current_file = filename
+                    if self.csv_type == "basic":
+                        self.basicGraph.graph_basic(self.sensorEnables.sensors)
+                        self.graphTabs.setCurrentWidget(self.basic)
+                    elif self.csv_type == "spectrometer":
+                        self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
+                        self.graphTabs.setCurrentWidget(self.spectrometer)
+                elif any([filename.lower().endswith(x) for x in ['.png', '.jpeg', '.jpg']]):
+                    self.showpicture(filename)
+                    self.graphTabs.setCurrentWidget(self.picture_tab)
+                else:
+                    self.showdialogue("Unsupported file type. Please input a .csv, .png, .jpeg file")
             else:
-                self.showdialogue("Unsupported file type. Please input a .csv, .png, .jpeg file")
+                self.showdialogue("File requested is already entered.")
         else:
-            self.showdialogue("File requested is already entered.")
+            self.showdialogue("File does not exist")
+        self.fileInput.clear()
 
     def showpicture(self, pic_name):
         """ Displays a picture within the given window """
         picture = Picture(pic_name)
         pos = [(1, 1), (1, 2), (2, 1), (2, 2)]
         x, y = pos[len(self.pictures_held)]
-        print(x, y)
+
         self.pictures_held.append(pic_name)
         self.pictureLayout.addWidget(picture, x, y)
         self.picture_tab.show()

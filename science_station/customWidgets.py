@@ -7,7 +7,7 @@ from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as Navigatio
 
 
 class Sensor(QtGui.QCheckBox):
-    def __init__(self, sensor_type, name, parent=None, color=""):
+    def __init__(self, sensor_type, name, color=""):
         super(Sensor, self).__init__()
         self.data = []
         self.type = sensor_type
@@ -35,7 +35,6 @@ class GraphArea(QtGui.QWidget):
 
     def graph_basic(self, sensors):
         self.fig.clf()
-        myFmt = mdates.DateFormatter('%h-%m-%s')
 
         temp_ax = self.fig.add_subplot(211)
         temp_ax.set_title("Temperature")
@@ -45,6 +44,7 @@ class GraphArea(QtGui.QWidget):
 
         humid_ax = self.fig.add_subplot(212, sharex=temp_ax)
         humid_ax.set_title("Humidity")
+        humid_ax.set_xlabel("Time (min:sec)")
         humid_ax.set_ylabel("Water Content (%)")
         humid_ax.grid(True)
         humid_ax.set_ylim(0, 100)
@@ -72,6 +72,11 @@ class GraphArea(QtGui.QWidget):
         except UnboundLocalError:
             pass
 
+        fmt = mdates.DateFormatter('%M:%S')
+        temp_ax.xaxis.set_major_formatter(fmt)
+        humid_ax.xaxis.set_major_formatter(fmt)
+
+        self.fig.autofmt_xdate(rotation=15)
         self.fig.set_tight_layout(True)
         self.canvas.draw()
 
@@ -158,9 +163,9 @@ class SensorEnableBox(QtGui.QWidget):
         parent.addLayout(self.sensorEnables)
 
 
-class Picture(QtGui.QLabel):
+class PictureLabel(QtGui.QLabel):
     def __init__(self, image):
-        super(Picture, self).__init__()
+        super(PictureLabel, self).__init__()
         self.setFrameStyle(QtGui.QFrame.StyledPanel)
         self.pixmap = QtGui.QPixmap(image)
 
@@ -172,5 +177,22 @@ class Picture(QtGui.QLabel):
         point.setX((size.width() - scaledPix.width())/2)
         point.setY((size.height() - scaledPix.height())/2)
         painter.drawPixmap(point, scaledPix)
+
+
+class Picture(QtGui.QWidget):
+    def __init__(self, image):
+        super(Picture, self).__init__()
+        vbox = QtGui.QVBoxLayout()
+        vbox.setSpacing(0)
+        vbox.setMargin(0)
+
+        text, ok = QtGui.QInputDialog.getText(self, "Add description of photo", "Description: ")
+        desc = QtGui.QLabel()
+        desc.setText(text)
+        desc.setMaximumHeight(30)
+
+        vbox.addWidget(PictureLabel(image))
+        vbox.addWidget(desc, 0, QtCore.Qt.AlignHCenter)
+        self.setLayout(vbox)
 
 # color picker: http://www.w3schools.com/colors/colors_hex.asp

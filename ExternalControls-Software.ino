@@ -7,80 +7,59 @@
 #include <RoveBoard.h>
 #include <RoveEthernet.h>
 #include <RoveComm.h>
-#include <Dynamixel.h>
+#include <RoveDynamixel.h>
 
-//Pin assignments:
-#define EN_12V PM_6
-#define I_MEAS_12V PB_4
+//---Pin assignments:
+// Camera PWM Controls
+#define PWM0 PD_2
+#define PWM1 PD_3
+#define PWM2 PD_1
+#define PWM3 PD_0
 
-#define PWM0 PD_0
-#define PWM1 PD_1
-#define PWM2 PD_2
-#define PWM3 PD_3
-
-#define PWM0_CAM2 PA_5
-#define PWM1_CAM2 PA_4
-#define PWM2_CAM2 PD_5
-#define PWM3_CAM2 PD_1
-
-
-//Servo pins
-#define P00 PK_0
-#define P01 PK_1
-#define P02 PK_2
-#define P03 PK_3
-#define P10 PP_0
-#define P11 PP_1
-#define P12 PN_4
-#define P13 PN_5
-#define P20 PL_0
-#define P21 PL_1
-#define P22 PL_2
-#define P23 PL_3
-#define P30 PF_1
-#define P31 PF_2
-#define P32 PF_3
-#define P33 PH_2
-
+// Dropbays
 #define DROPBAY0 PK_0
 #define DROPBAY1 PF_1
 #define DROPBAY2 PP_0
 #define DROPBAY3 PL_0
+
+// Dynamixel Channels
+#define GIMB1_SER 7
+#define GIMB2_SER 5
+#define DYN1_SER  3
+#define DYN2_SER  2
+//-------------------
 
 //Camera pulse lengths (ms)
 #define SHORT_SIGNAL 1000
 #define MID_SIGNAL 1500
 #define LONG_SIGNAL 2000
 
-
-
 //Dynamixel ID's
-#define HOR_CAM_1 5
-#define VERT_CAM_1 4
-#define HOR_CAM_2 11
-#define VERT_CAM_2 10
+#define HOR_CAM_1  0 
+#define VERT_CAM_1 0
+#define HOR_CAM_2  0
+#define VERT_CAM_2 0
 
 //Dynamixel function ID's
 #define ID_CW_LIMIT 6
 #define ID_CCW_LIMIT 8
 #define ID_SPEED 32
 
-
 //Basestation command ID's
 #define ID_CAMERA_COMMAND 1568
 #define ID_GIMBAL_SPEED 1552
 #define ID_CAMERA_MENU 1569
 #define ID_DROP_BAY 1584
-
-#define ID_CAMERA_COMMAND_2 1570
 #define ID_GIMBAL_SPEED_2 1553
-#define ID_CAMERA_MENU_2 1571
-
-#define ID_CAMERA_MUXING 1600
-#define ID_12V_EN 1616
 
 #define DROPBAY_ANGLE_OPEN 170
 
+#define TIMEOUT_TICKS 1000
+
+#define DYNA_BAUD 1000000
+
+Dynamixel gimb1_hor, gimb1_vert;
+Dynamixel gimb2_hor, gimb2_vert;
 
 uint16_t dataID = 0;
 size_t size = 0;
@@ -89,36 +68,32 @@ int counter;
 
 Servo Dropbay[4];
 
-Servo servoMux1;
-Servo servoMux2;
-
-// create objects to manage dynamixel comms
-Dynamixel gimb1(Serial3);
-Dynamixel gimb2(Serial2);
-
 void setup() {
+  // initialize gimbal dynamixels ??? does this function need a 5 second wait time?
+  DynamixelInit(&gimb1_hor,  AX, HOR_CAM_1, GIMB1_SER, DYNA_BAUD);
+  DynamixelInit(&gimb1_vert, AX, HOR_CAM_1, GIMB1_SER, DYNA_BAUD);
+  DynamixelInit(&gimb2_hor,  AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
+  DynamixelInit(&gimb2_vert, AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
+
+  //set dynamixels to be in continuous rotation (Wheel) mode.
+  DynamixelSetMode(gimb1_hor, Wheel);
+  DynamixelSetMode(gimb1_vert, Wheel);
+  DynamixelSetMode(gimb2_hor, Wheel);
+  DynamixelSetMode(gimb1_vert, Wheel);
+    
+  // set camera control pins to output
   pinMode(PWM0,OUTPUT);
   pinMode(PWM1,OUTPUT);
   pinMode(PWM2,OUTPUT);
   pinMode(PWM3,OUTPUT);
-  pinMode(EN_12V,OUTPUT);
   
-  
-  pinMode(P00,OUTPUT);
-  pinMode(P01,OUTPUT);
-  pinMode(P02,OUTPUT);
-  pinMode(P03,OUTPUT);
-  //digitalWrite(P00,0);
-  //digitalWrite(P01,0);
-  //digitalWrite(P02,0);
-  //digitalWrite(P03,0);
-  
+  // write low signal to camera pins
   digitalWrite(PWM0,0);
   digitalWrite(PWM1,0);
   digitalWrite(PWM2,0);
   digitalWrite(PWM3,0);
-  digitalWrite(EN_12V,1);
   
+  // pair servos to correct PWM pins
   Dropbay[0].attach(DROPBAY0);
   Dropbay[1].attach(DROPBAY1);
   Dropbay[2].attach(DROPBAY2);
@@ -126,93 +101,49 @@ void setup() {
   
   delay(100);
 
-  Serial3.begin(1000000); // DYN_1 / Camera 1 Gimbal
-  Serial2.begin(1000000); // DYN_2 / Camera 2 Gimbal
-
-  // Serial5.begin(1000000); DYN_3 / Extra dynamixel #1
-  // Serial7.begin(1000000); DYN_4 / Extra dynamixel #2
-  
+  // begin communicating with Monitor and RED
   roveComm_Begin(192,168,1,134);
   Serial.begin(9600);
   Ethernet.enableLinkLed();
   Ethernet.enableActivityLed();
+  
   delay(100);
-  delay(100);
 
-  //set dynamixels to be in continuous rotation mode.
-  gimb1.setRegister2(HOR_CAM_1,ID_CW_LIMIT,0);
-  gimb1.setRegister2(HOR_CAM_1,ID_CCW_LIMIT,0);
-  gimb1.setRegister2(VERT_CAM_1,ID_CW_LIMIT,0);
-  gimb1.setRegister2(VERT_CAM_1,ID_CCW_LIMIT,0);
-
-
-  gimb2.setRegister2(HOR_CAM_2,ID_CW_LIMIT,0);
-  gimb2.setRegister2(HOR_CAM_2,ID_CCW_LIMIT,0);
-  gimb2.setRegister2(VERT_CAM_2,ID_CW_LIMIT,0);
-  gimb2.setRegister2(VERT_CAM_2,ID_CCW_LIMIT,0);
-  
-  
-  //debug: flash LED's on dynamixel to indicate they are communicating
-  blink(5);
-
- 
-  
-
-      moveDynamixel(-100,HOR_CAM_2);
-      delay(100);
-      moveDynamixel(0,HOR_CAM_2);
-      delay(100);
-      moveDynamixel(100,HOR_CAM_2);
-      delay(100);
-      moveDynamixel(0,HOR_CAM_2);
-      delay(100);
-      moveDynamixel(-100,VERT_CAM_2);
-      delay(100);
-      moveDynamixel(0,VERT_CAM_2);
-      delay(100);
-      moveDynamixel(100,VERT_CAM_2);
-      delay(100);
-      moveDynamixel(0,VERT_CAM_2);
-      delay(100);
-      
-      
-       blink(5);
-       
-        //JUDAH COMMENT Mux support in the style of Bischoff : Each pin controls three states PP_1 = Camera 1, 2. or SecondMux, PL_1 = Camera 3, 4, 5
-       servoMux1.attach(P03,1000, 2000);
-       servoMux2.attach(P13,1000, 2000);
-
- 
- 
+  //TODO: debug: flash LED's on dynamixel to indicate they are communicating
+//  blink(3);
 }
 
-void blink(int num){
-  for(int i = 0; i < num; i++){
-    gimb1.setRegister(254,0x19,1);        
-    delay(100);
-    gimb1.setRegister(254,0x19,0);        
-    delay(100);
+void blink(int num_times){
+  for(int i = 0; i < num_times; i++)
+  {
+    
   }
 }
 
 int count = 0;
-void loop(){
-  if(roveCommCheck()) count=0;
-  else{
+void loop()
+{
+  // ensure constant connection with RED
+  if(roveCommCheck()) 
+    count = 0;
+  else
+  {
     count++;
-    if(count>1000){
-      moveDynamixel(0,HOR_CAM_1);
-      moveDynamixel(0,VERT_CAM_1);
-      moveDynamixel(0,HOR_CAM_2);
-      moveDynamixel(0,VERT_CAM_2);
+    if(count > TIMEOUT_TICKS)
+    {
+      // currently set to 500 to check speed writing without RoveComm
+      moveDynamixel(gimb1_hor,  500);
+      moveDynamixel(gimb1_vert, 500);
+      moveDynamixel(gimb2_hor,  500);
+      moveDynamixel(gimb2_vert, 500);
+      // TODO: stop dynamixels
     }
     delay(1);
   }
-  //delay(1);
 }
 
-boolean roveCommCheck(){
-  
+boolean roveCommCheck()
+{  
   roveComm_GetMsg(&dataID, &size, data);
   if(dataID==0) return false;
   
@@ -222,219 +153,43 @@ boolean roveCommCheck(){
   char a[2];
   
   switch(dataID){
-		/*
-    case ID_GIMBAL_SPEED:
-      
-      
-      
-      a[0] = data[0];
-      a[1] = data[1];
-      xSpeed = *(int16_t*)(a);
-      
-      a[0] = data[2];
-      a[1] = data[3];
-      ySpeed = *(int16_t*)(a);
-      
-      
-      //xSpeed = 900;
-      //ySpeed = 0;
-      
-      moveDynamixel(xSpeed,HOR_CAM_1);
-      moveDynamixel(-ySpeed,VERT_CAM_1);
-      
-      
-      
-    break;
-    
-    case ID_GIMBAL_SPEED_2:
-      
-      
-      
-      a[0] = data[0];
-      a[1] = data[1];
-      xSpeed = *(int16_t*)(a);
-      
-      a[0] = data[2];
-      a[1] = data[3];
-      ySpeed = *(int16_t*)(a);
-      
-      
-      //xSpeed = 900;
-      //ySpeed = 0;
-      
-      moveDynamixel(xSpeed,HOR_CAM_2);
-      moveDynamixel(-ySpeed,VERT_CAM_2);
-      
-      
-      
-    break;
-    
-    case ID_CAMERA_MENU:
-      tmp = *(uint8_t*)(data);
-      if(tmp==0){
-        toggleMenu();
-      }
-      else if(tmp==1){
-        navigateMenuLeft();
-      }
-      else if(tmp==2){
-        navigateMenuRight();
-      }
-      else if(tmp==3){
-        navigateMenuUp();
-      }
-      else if(tmp==4){
-        navigateMenuDown();
-      }
-    break;
-    
-    case ID_CAMERA_COMMAND:
-      tmp = *(uint8_t*)(data);
-      if(tmp==0){
-        stopZoomAndFocus();
-      }
-      else if(tmp==1){
-        zoomIn();
-      }
-      else if(tmp==2){
-        zoomOut();
-      }
-      else if(tmp==3){
-        focusIn();
-      }
-      else if(tmp==4){
-        focusOut();
-      }
-    break;
-    
-    
-    
-    
-    
-    
-    case ID_CAMERA_MENU_2:
-      tmp = *(uint8_t*)(data);
-      if(tmp==0){
-        toggleMenu2();
-      }
-      else if(tmp==1){
-        navigateMenuLeft2();
-      }
-      else if(tmp==2){
-        navigateMenuRight2();
-      }
-      else if(tmp==3){
-        navigateMenuUp2();
-      }
-      else if(tmp==4){
-        navigateMenuDown2();
-      }
-    break;
-    
-    case ID_CAMERA_COMMAND_2:
-      tmp = *(uint8_t*)(data);
-      if(tmp==0){
-        stopZoomAndFocus2();
-      }
-      else if(tmp==1){
-        zoomIn2();
-      }
-      else if(tmp==2){
-        zoomOut2();
-      }
-      else if(tmp==3){
-        focusIn2();
-      }
-      else if(tmp==4){
-        focusOut2();
-      }
-    break;
-    
-    
-    //JUDAH COMMENT Mux support in the style of Bischoff : Each pin controls three states PP_1 = Camera 1, 2. or SecondMux, PL_1 = Camera 3, 4, 5
-    case ID_CAMERA_MUXING:
-    tmp = *(uint8_t*)(data);
-      if(tmp==0){
-        servoMux1.writeMicroseconds(1100);
-      }
-      else if(tmp==1){
-        servoMux1.writeMicroseconds(1500);
-      }
-      //Mux the daisy chain to the second mux
-      else if(tmp==2 || tmp==3 || tmp==4){
-        servoMux1.writeMicroseconds(1900);
-      }
-      
-      if(tmp==2){
-        servoMux2.writeMicroseconds(1100);
-      }
-      if(tmp==3){
-        servoMux2.writeMicroseconds(1500);
-      }
-      if(tmp==4){
-        servoMux2.writeMicroseconds(1900);
-      }
-
-    break;
-    */
-    
     case ID_DROP_BAY:
       tmp = *(uint8_t*)(data);
       openDropBay(tmp);
-    break;
-    
-    case ID_12V_EN:
-      tmp = *(uint8_t*)(data);
-      if (tmp == 1)
-        digitalWrite(EN_12V, HIGH);
-      else if (tmp == 0)
-        digitalWrite(EN_12V, LOW);
       break;
-   
-    
   }
-  
   return true;
 }
 
-
 void openDropBay(int bay){
-
   unsigned long time = millis();
   while(millis()<time+1000){
     Dropbay[bay].write(DROPBAY_ANGLE_OPEN);
     delay(1000);
   }
-
 }
 
-
-
 //moveSpeed: -1000 to 1000
-void moveDynamixel(int moveSpeed, int dynaID){
-  if(moveSpeed<0){
+void moveDynamixel(Dynamixel dyn, int moveSpeed){
+  if(moveSpeed<0)
+  {
     moveSpeed = abs(moveSpeed)*1023/1000;
   }
-  else{
+  else
+  {
     moveSpeed = moveSpeed*1023/1000+1024;
   }
   
-  
-  if(moveSpeed<0){
-    moveSpeed=0;
-  }
-  if(moveSpeed>2047){
-    moveSpeed=2047;
-  }
+  if(moveSpeed<0){ moveSpeed=0; }
+  if(moveSpeed>2047){ moveSpeed=2047; }
 
-  gimb1.setRegister2(dynaID,ID_SPEED,moveSpeed);
-  
-  
+  // write speed to dynamixel
+  DynamixelSpinWheel(dyn, moveSpeed);
 }
 
-
+/// Camera Control
 boolean active = false;
-
+/*   CAMERA 1 CONTROLS   */
 void zoomIn(){
   active=true;
   generateSignal(LONG_SIGNAL,PWM0);
@@ -458,12 +213,6 @@ void stopZoomAndFocus(){
   generateSignal(MID_SIGNAL,PWM1);
 }
 
-
-
-
-
-
-
 void toggleMenu(){
   generateSignal(MID_SIGNAL,PWM2);
   generateSignal(LONG_SIGNAL,PWM2);
@@ -484,70 +233,6 @@ void navigateMenuDown(){
   generateSignal(MID_SIGNAL,PWM0);
   generateSignal(SHORT_SIGNAL,PWM0);
 }
-
-
-
-
-
-
-
-
-
-
-void zoomIn2(){
-  active=true;
-  generateSignal(LONG_SIGNAL,PWM0_CAM2);
-}
-void zoomOut2(){
-  active=true;
-  generateSignal(SHORT_SIGNAL,PWM0_CAM2);
-}
-void focusIn2(){
-  active=true;
-  generateSignal(LONG_SIGNAL,PWM1_CAM2);
-}
-void focusOut2(){
-  active=true;
-  generateSignal(SHORT_SIGNAL,PWM1_CAM2);
-}
-void stopZoomAndFocus2(){
-  if(!active)return;
-  active=false;
-  generateSignal(MID_SIGNAL,PWM0_CAM2);
-  generateSignal(MID_SIGNAL,PWM1_CAM2);
-}
-
-
-
-
-
-
-
-void toggleMenu2(){
-  generateSignal(MID_SIGNAL,PWM2_CAM2);
-  generateSignal(LONG_SIGNAL,PWM2_CAM2);
-}
-void navigateMenuLeft2(){
-  generateSignal(MID_SIGNAL,PWM1_CAM2);
-  generateSignal(SHORT_SIGNAL,PWM1_CAM2);
-}
-void navigateMenuRight2(){
-  generateSignal(MID_SIGNAL,PWM1_CAM2);
-  generateSignal(LONG_SIGNAL,PWM1_CAM2);
-}
-void navigateMenuUp2(){
-  generateSignal(MID_SIGNAL,PWM0_CAM2);
-  generateSignal(LONG_SIGNAL,PWM0_CAM2);
-}
-void navigateMenuDown2(){
-  generateSignal(MID_SIGNAL,PWM0_CAM2);
-  generateSignal(SHORT_SIGNAL,PWM0_CAM2);
-}
-
-
-
-
-
 
 void generateSignal(int amt, int pin){
   for(int i = 0; i < 5; i++){

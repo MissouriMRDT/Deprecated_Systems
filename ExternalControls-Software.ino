@@ -47,10 +47,10 @@
 
 //Basestation command ID's
 #define ID_CAMERA_COMMAND 1568
-#define ID_GIMBAL_SPEED 1552
+#define ID_GIMBAL1_SPEED 1552
 #define ID_CAMERA_MENU 1569
 #define ID_DROP_BAY 1584
-#define ID_GIMBAL_SPEED_2 1553
+#define ID_GIMBAL2_SPEED 1553
 
 #define DROPBAY_ANGLE_OPEN 170
 
@@ -153,6 +153,35 @@ boolean roveCommCheck()
   char a[2];
   
   switch(dataID){
+
+    case ID_GIMBAL1_SPEED:
+      a[0] = data[0];
+      a[1] = data[1];
+      xSpeed = *(int16_t*)(a);
+      
+      a[0] = data[2];
+      a[1] = data[3];
+      ySpeed = *(int16_t*)(a);
+
+      moveDynamixel(gimb1_hor,  xSpeed);
+      moveDynamixel(gimb1_vert, ySpeed);
+      
+      break;
+
+    case ID_GIMBAL2_SPEED:
+      a[0] = data[0];
+      a[1] = data[1];
+      xSpeed = *(int16_t*)(a);
+      
+      a[0] = data[2];
+      a[1] = data[3];
+      ySpeed = *(int16_t*)(a);
+
+      moveDynamixel(gimb2_hor,  xSpeed);
+      moveDynamixel(gimb2_vert, ySpeed);
+      
+      break;
+      
     case ID_DROP_BAY:
       tmp = *(uint8_t*)(data);
       openDropBay(tmp);

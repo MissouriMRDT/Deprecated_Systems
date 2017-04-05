@@ -110,13 +110,24 @@ void setup() {
   delay(100);
 
   //TODO: debug: flash LED's on dynamixel to indicate they are communicating
-//  blink(3);
+  blink(3);
 }
 
+uint8_t* OFF = new uint8_t(0);
+uint8_t* ON = new uint8_t(1);
 void blink(int num_times){
   for(int i = 0; i < num_times; i++)
   {
-    
+    DynamixelSendWriteCommand(gimb1_hor, DYNAMIXEL_LED, 1, ON); // turn on LED
+    DynamixelSendWriteCommand(gimb1_vert, DYNAMIXEL_LED, 1, ON); // turn on LED
+    DynamixelSendWriteCommand(gimb2_hor, DYNAMIXEL_LED, 1, ON); // turn on LED
+    DynamixelSendWriteCommand(gimb2_vert, DYNAMIXEL_LED, 1, ON); // turn on LED
+    delay(100);
+    DynamixelSendWriteCommand(gimb1_hor, DYNAMIXEL_LED, 1, OFF); // turn off LED
+    DynamixelSendWriteCommand(gimb1_vert, DYNAMIXEL_LED, 1, OFF); // turn off LED
+    DynamixelSendWriteCommand(gimb2_hor, DYNAMIXEL_LED, 1, OFF); // turn off LED
+    DynamixelSendWriteCommand(gimb2_vert, DYNAMIXEL_LED, 1, OFF); // turn off LED    
+    delay(100);
   }
 }
 

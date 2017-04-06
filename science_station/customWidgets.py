@@ -7,12 +7,21 @@ from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as Navigatio
 
 
 class Sensor(QtGui.QCheckBox):
-    def __init__(self, sensor_type, name, color=""):
+    def __init__(self, reading_type, name, color=""):
         super(Sensor, self).__init__()
         self.data = []
-        self.type = sensor_type
-        self.setText(name)
+        self._type = reading_type
+        self._name = name
+        self.setText(self.name)
         self.color = color
+
+    @property
+    def type(self):
+        return self._type
+
+    @property
+    def name(self):
+        return self._name
 
 
 class GraphArea(QtGui.QWidget):
@@ -33,7 +42,42 @@ class GraphArea(QtGui.QWidget):
         display_frame.addWidget(self.canvas)
         display_frame.addWidget(toolbar)
 
-    def graph_basic(self, sensors):
+    def graph_weather(self, sensors):
+        self.fig.clf()
+
+        # Barometric Pressure
+        pressure_ax = self.fig.add_subplot(311)
+        pressure_ax.set_title("Barometric Pressure")
+        pressure_ax.set_ylabel("Pressure (atms)")
+        pressure_ax.grid(True)
+        # pressure_ax.set_ylim(ymin, ymax)  # TODO: Barometer y-limits?
+
+        # Methane levels
+        methane_ax = self.fig.add_subplot(312)
+        methane_ax.set_title("Methane Concentration")
+        methane_ax.set_ylabel("Concentration (ppm)")
+        methane_ax.grid(True)
+        # methane_ax.set_ylim(ymin, ymax)  # TODO: Methane y-limits?
+
+        # UV Intensity
+        uv_ax = self.fig.add_subplot(313)
+        uv_ax.set_title("UV Intensity")
+        uv_ax.set_ylabel("Irradiance (unit)")
+        uv_ax.grid(True)
+        # uv_ax.set_ylim(ymin, ymax)  # TODO: UV y-limits?
+
+        # Iterate through sensors marked as weather sensors
+        for s in list(filter(lambda x: x.type == 'weather', sensors)):
+            if len(np.array(s.data)) > 0:  # Skip those with no readings
+                t, measure = np.array(s.data).T  # Transpose two-tuples into two data sets
+                if s.name == 'methane':
+                    methane_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: Color
+                elif s.name == 'pressure':
+                    pressure_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: Color
+                elif s.name == 'uv':
+                    uv_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: Color
+
+    def graph_temp_humid(self, sensors):
         self.fig.clf()
 
         temp_ax = self.fig.add_subplot(211)
@@ -49,28 +93,13 @@ class GraphArea(QtGui.QWidget):
         humid_ax.grid(True)
         humid_ax.set_ylim(0, 100)
 
-        temp_handles = []
-        humid_handles = []
-
         for s in sensors:
-            if len(np.array(s.data)) > 0:  # skip sensors with no readings
+            if len(np.array(s.data)) > 0:  # skip sensors with no readings*
                 t, measure = np.array(s.data).T  # transpose two-tuples into two data sets
-                if s.isChecked():
-                    if s.type == "temperature":
-                        handle, = temp_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
-                        temp_handles.append(handle)
-                    elif s.type == "humidity":
-                        handle, = humid_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
-                        humid_handles.append(handle)
-
-        try:
-            temp_ax.legend(handles=temp_handles)
-        except UnboundLocalError:
-            pass
-        try:
-            humid_ax.legend(handles=humid_handles)
-        except UnboundLocalError:
-            pass
+                if s.name.endswith('temp'):
+                    temp_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
+                elif s.name.endswith('humid'):
+                    humid_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: color
 
         fmt = mdates.DateFormatter('%M:%S')
         temp_ax.xaxis.set_major_formatter(fmt)
@@ -106,6 +135,7 @@ class SensorEnableBox(QtGui.QWidget):
     """ Contains all elements relevant to enabling and disabling basic sensors. """
     def __init__(self, parent):
         """ Initial setup of the UI """
+        # TODO: Modify to accept list of sensors as parameter. Make box for that list.
         super(SensorEnableBox, self).__init__()
         self.sensors = []
 
@@ -167,7 +197,8 @@ class PictureLabel(QtGui.QLabel):
     def __init__(self, image):
         super(PictureLabel, self).__init__()
         self.setFrameStyle(QtGui.QFrame.StyledPanel)
-        self.pixmap = QtGui.QPixmap(image)
+        self._image = QtGui.QImage(image)
+        self.pixmap = QtGui.QPixmap(self._image)
 
     def paintEvent(self, event):
         size = self.size()
@@ -179,20 +210,51 @@ class PictureLabel(QtGui.QLabel):
         painter.drawPixmap(point, scaledPix)
 
 
+class PicturePopup(QtGui.QWidget):
+    def __init__(self, image):
+        super(PicturePopup, self).__init__()
+        self.pixmap = QtGui.QPixmap(image)
+
+    def paintEvent(self, QPaintEvent):
+        size = self.size()
+        painter = QtGui.QPainter(self)
+        point = QtCore.QPoint(0, 0)  # This change?
+        scaledPix = self.pixmap.scaled(size, QtCore.Qt.KeepAspectRatio)
+        point.setX((size.width() - scaledPix.width())/2)
+        point.setY((size.height() - scaledPix.height())/2)
+        painter.drawPixmap(point, scaledPix)
+
+    def keyPressEvent(self, e):
+        if e.key() == QtCore.Qt.Key_Escape:
+            self.close()
+
+
 class Picture(QtGui.QWidget):
     def __init__(self, image):
         super(Picture, self).__init__()
+        self._image = image
+
         vbox = QtGui.QVBoxLayout()
         vbox.setSpacing(0)
         vbox.setMargin(0)
 
-        text, ok = QtGui.QInputDialog.getText(self, "Add description of photo", "Description: ")
-        desc = QtGui.QLabel()
-        desc.setText(text)
-        desc.setMaximumHeight(30)
+        self._desc_text, ok = QtGui.QInputDialog.getText(self, "Add description of photo", "Description: ")
+        self.desc = QtGui.QLabel()
+        self.desc.setText(self._desc_text)
+        self.desc.setMaximumHeight(30)
 
-        vbox.addWidget(PictureLabel(image))
-        vbox.addWidget(desc, 0, QtCore.Qt.AlignHCenter)
+        vbox.addWidget(PictureLabel(self._image))
+        vbox.addWidget(self.desc, 0, QtCore.Qt.AlignHCenter)
         self.setLayout(vbox)
+
+        self.popup = QtGui.QWidget()
+        self.mouseDoubleClickEvent = self.fullscreenPicture
+
+    def fullscreenPicture(self, event):
+        # TODO: Full-screen widget
+        self.popup = PicturePopup(self._image)
+        self.popup.setWindowTitle(self._desc_text)
+        self.popup.showFullScreen()
+
 
 # color picker: http://www.w3schools.com/colors/colors_hex.asp

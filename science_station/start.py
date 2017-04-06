@@ -29,6 +29,7 @@ class StartQT4(QtGui.QMainWindow):
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
+        self.setWindowIcon(QtGui.QIcon("mrdt_logo.jpg"))
         self.resize(946, 542)
         self.setSizeIncrement(QtCore.QSize(1, 1))
         self.centralWidget = QtGui.QWidget(self)

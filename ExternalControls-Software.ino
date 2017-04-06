@@ -1,3 +1,4 @@
+// github version
 #include <Servo.h>
 
 #include <SPI.h>
@@ -23,10 +24,10 @@
 #define DROPBAY3 PL_0
 
 // Dynamixel Channels
-#define GIMB1_SER 3
-#define GIMB2_SER 2
-#define DYN1_SER  5
-#define DYN2_SER  7
+#define GIMB1_SER 7 //3
+#define GIMB2_SER 2 //2
+#define DYN1_SER  5 //5
+#define DYN2_SER  7 //7
 //-------------------
 
 //Camera pulse lengths (ms)
@@ -35,10 +36,10 @@
 #define LONG_SIGNAL 2000
 
 //Dynamixel ID's
-#define HOR_CAM_1  0 
-#define VERT_CAM_1 0
-#define HOR_CAM_2  0
-#define VERT_CAM_2 0
+#define HOR_CAM_1  1
+#define VERT_CAM_1 2
+#define HOR_CAM_2  1
+#define VERT_CAM_2 2
 
 //Dynamixel function ID's
 #define ID_CW_LIMIT 6
@@ -58,6 +59,10 @@
 
 #define DYNA_BAUD 1000000
 
+// bools for use of gimbals (writing to unused Dynamixels results in program hangs)
+#define USE_GIMB1 true 
+#define USE_GIMB2 true
+
 Dynamixel gimb1_hor, gimb1_vert;
 Dynamixel gimb2_hor, gimb2_vert;
 
@@ -69,18 +74,27 @@ int counter;
 Servo Dropbay[4];
 
 void setup() {
-  // initialize gimbal dynamixels ??? does this function need a 5 second wait time?
-  DynamixelInit(&gimb1_hor,  AX, HOR_CAM_1, GIMB1_SER, DYNA_BAUD);
-  DynamixelInit(&gimb1_vert, AX, HOR_CAM_1, GIMB1_SER, DYNA_BAUD);
-  DynamixelInit(&gimb2_hor,  AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
-  DynamixelInit(&gimb2_vert, AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
-
-  //set dynamixels to be in continuous rotation (Wheel) mode.
-  DynamixelSetMode(gimb1_hor, Wheel);
-  DynamixelSetMode(gimb1_vert, Wheel);
-  DynamixelSetMode(gimb2_hor, Wheel);
-  DynamixelSetMode(gimb1_vert, Wheel);
-    
+  // begin comms with Monitor
+  Serial.begin(9600);
+  delay(100);
+  // initialize gimbal dynamixels
+  if(USE_GIMB1){
+    DynamixelInit(&gimb1_hor,  AX, HOR_CAM_1, GIMB1_SER, DYNA_BAUD);
+    DynamixelInit(&gimb1_vert, AX, VERT_CAM_1, GIMB1_SER, DYNA_BAUD);
+    DynamixelSetMode(gimb1_hor, Wheel);
+    DynamixelSetMode(gimb1_vert, Wheel);
+    blink(5, gimb1_hor);
+    blink(5, gimb1_vert);
+ }
+  if(USE_GIMB2){
+    DynamixelInit(&gimb2_hor,  AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
+    DynamixelInit(&gimb2_vert, AX, VERT_CAM_2, GIMB2_SER, DYNA_BAUD);    
+    DynamixelSetMode(gimb2_hor, Wheel);
+    DynamixelSetMode(gimb2_vert, Wheel);
+    blink(5, gimb2_hor);
+    blink(5, gimb2_vert);    
+  }
+  
   // set camera control pins to output
   pinMode(PWM0,OUTPUT);
   pinMode(PWM1,OUTPUT);
@@ -101,32 +115,24 @@ void setup() {
   
   delay(100);
 
-  // begin communicating with Monitor and RED
+  // begin communicating with RED
   roveComm_Begin(192,168,1,134);
-  Serial.begin(9600);
+
+  // enable connection LEDs
   Ethernet.enableLinkLed();
   Ethernet.enableActivityLed();
   
   delay(100);
-
-  //TODO: debug: flash LED's on dynamixel to indicate they are communicating
-  blink(3);
 }
 
 uint8_t* OFF = new uint8_t(0);
 uint8_t* ON = new uint8_t(1);
-void blink(int num_times){
+void blink(int num_times, Dynamixel dyn){
   for(int i = 0; i < num_times; i++)
   {
-    DynamixelSendWriteCommand(gimb1_hor, DYNAMIXEL_LED, 1, ON); // turn on LED
-    DynamixelSendWriteCommand(gimb1_vert, DYNAMIXEL_LED, 1, ON); // turn on LED
-    DynamixelSendWriteCommand(gimb2_hor, DYNAMIXEL_LED, 1, ON); // turn on LED
-    DynamixelSendWriteCommand(gimb2_vert, DYNAMIXEL_LED, 1, ON); // turn on LED
+    DynamixelSendWriteCommand(dyn, DYNAMIXEL_LED, 1, ON); // turn on LED
     delay(100);
-    DynamixelSendWriteCommand(gimb1_hor, DYNAMIXEL_LED, 1, OFF); // turn off LED
-    DynamixelSendWriteCommand(gimb1_vert, DYNAMIXEL_LED, 1, OFF); // turn off LED
-    DynamixelSendWriteCommand(gimb2_hor, DYNAMIXEL_LED, 1, OFF); // turn off LED
-    DynamixelSendWriteCommand(gimb2_vert, DYNAMIXEL_LED, 1, OFF); // turn off LED    
+    DynamixelSendWriteCommand(dyn, DYNAMIXEL_LED, 1, OFF); // turn off LED    
     delay(100);
   }
 }
@@ -136,18 +142,25 @@ void loop()
 {
   // ensure constant connection with RED
   if(roveCommCheck()) 
+  {
     count = 0;
+  }
   else
   {
     count++;
+    //stop dynamixels if no comms
     if(count > TIMEOUT_TICKS)
     {
-      // currently set to 500 to check speed writing without RoveComm
-      moveDynamixel(gimb1_hor,  500);
-      moveDynamixel(gimb1_vert, 500);
-      moveDynamixel(gimb2_hor,  500);
-      moveDynamixel(gimb2_vert, 500);
-      // TODO: stop dynamixels
+      if(USE_GIMB1)
+      {
+        moveDynamixel(gimb1_hor,  0);
+        moveDynamixel(gimb1_vert, 0);
+      }
+      if(USE_GIMB2)
+      {
+        moveDynamixel(gimb2_hor,  0);
+        moveDynamixel(gimb2_vert, 0);
+      }
     }
     delay(1);
   }
@@ -156,49 +169,57 @@ void loop()
 boolean roveCommCheck()
 {  
   roveComm_GetMsg(&dataID, &size, data);
-  if(dataID==0) return false;
-  
-  uint8_t tmp;
-  int16_t xSpeed;
-  int16_t ySpeed;
-  char a[2];
-  
-  switch(dataID){
-
-    case ID_GIMBAL1_SPEED:
-      a[0] = data[0];
-      a[1] = data[1];
-      xSpeed = *(int16_t*)(a);
-      
-      a[0] = data[2];
-      a[1] = data[3];
-      ySpeed = *(int16_t*)(a);
-
-      moveDynamixel(gimb1_hor,  xSpeed);
-      moveDynamixel(gimb1_vert, ySpeed);
-      
-      break;
-
-    case ID_GIMBAL2_SPEED:
-      a[0] = data[0];
-      a[1] = data[1];
-      xSpeed = *(int16_t*)(a);
-      
-      a[0] = data[2];
-      a[1] = data[3];
-      ySpeed = *(int16_t*)(a);
-
-      moveDynamixel(gimb2_hor,  xSpeed);
-      moveDynamixel(gimb2_vert, ySpeed);
-      
-      break;
-      
-    case ID_DROP_BAY:
-      tmp = *(uint8_t*)(data);
-      openDropBay(tmp);
-      break;
+  if(dataID==0) 
+  {
+    return false;
   }
-  return true;
+  else
+  {
+    uint8_t tmp;
+    int16_t xSpeed;
+    int16_t ySpeed;
+    char a[2];
+    
+    switch(dataID){
+      case ID_GIMBAL1_SPEED:
+        if(USE_GIMB1)
+        {
+          a[0] = data[0];
+          a[1] = data[1];
+          xSpeed = *(int16_t*)(a);
+          
+          a[0] = data[2];
+          a[1] = data[3];
+          ySpeed = *(int16_t*)(a);
+    
+          moveDynamixel(gimb1_hor,  xSpeed);
+          moveDynamixel(gimb1_vert, ySpeed);
+        }
+        break;
+  
+      case ID_GIMBAL2_SPEED:
+        if(USE_GIMB2)
+        {
+          a[0] = data[0];
+          a[1] = data[1];
+          xSpeed = *(int16_t*)(a);
+          
+          a[0] = data[2];
+          a[1] = data[3];
+          ySpeed = *(int16_t*)(a);
+    
+          moveDynamixel(gimb2_hor,  xSpeed);
+          moveDynamixel(gimb2_vert, ySpeed);
+        }
+        break;
+        
+      case ID_DROP_BAY:
+        tmp = *(uint8_t*)(data);
+        openDropBay(tmp);
+        break;
+    }
+    return true;    
+  }
 }
 
 void openDropBay(int bay){
@@ -210,21 +231,22 @@ void openDropBay(int bay){
 }
 
 //moveSpeed: -1000 to 1000
-void moveDynamixel(Dynamixel dyn, int moveSpeed){
-  if(moveSpeed<0)
-  {
+void moveDynamixel(Dynamixel dyna, int moveSpeed){
+  if(moveSpeed<0){
     moveSpeed = abs(moveSpeed)*1023/1000;
   }
-  else
-  {
+  else{
     moveSpeed = moveSpeed*1023/1000+1024;
   }
   
-  if(moveSpeed<0){ moveSpeed=0; }
-  if(moveSpeed>2047){ moveSpeed=2047; }
-
-  // write speed to dynamixel
-  DynamixelSpinWheel(dyn, moveSpeed);
+  
+  if(moveSpeed<0){
+    moveSpeed=0;
+  }
+  if(moveSpeed>2047){
+    moveSpeed=2047;
+  }
+  DynamixelSpinWheel(dyna,moveSpeed);
 }
 
 /// Camera Control
@@ -282,3 +304,4 @@ void generateSignal(int amt, int pin){
     delayMicroseconds(20000-amt);
   }
 }
+

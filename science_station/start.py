@@ -29,37 +29,36 @@ class StartQT4(QtGui.QMainWindow):
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
-        self.setWindowIcon(QtGui.QIcon("mrdt_logo.jpg"))
         self.resize(946, 542)
         self.setSizeIncrement(QtCore.QSize(1, 1))
-        self.centralWidget = QtGui.QWidget(self)
+        centralWidget = QtGui.QWidget(self)
 
         # Layout contains all information for a single digsite.
-        self.digMainLayout = QtGui.QVBoxLayout(self.centralWidget)
-        self.digMainLayout.setMargin(11)
-        self.digMainLayout.setSpacing(6)
+        digMainLayout = QtGui.QVBoxLayout(centralWidget)
+        digMainLayout.setMargin(11)
+        digMainLayout.setSpacing(6)
 
         # Layout should contain all elements relevant to data input (file or otherwise)
-        self.inputFrame = QtGui.QHBoxLayout()
-        self.inputFrame.setMargin(11)
-        self.inputFrame.setSpacing(6)
+        inputFrame = QtGui.QHBoxLayout()
+        inputFrame.setMargin(11)
+        inputFrame.setSpacing(6)
 
-        self.fileInput = QtGui.QLineEdit(self.centralWidget)
+        self.fileInput = QtGui.QLineEdit(centralWidget)
         self.fileInput.setMinimumSize(QtCore.QSize(400, 0))
         self.fileInput.setMaximumSize(QtCore.QSize(400, 16777215))
         spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.importButton = QtGui.QPushButton("Import", self.centralWidget)
-        fileBrowseButton = QtGui.QPushButton("Browse", self.centralWidget)
+        importButton = QtGui.QPushButton("Import", centralWidget)
+        fileBrowseButton = QtGui.QPushButton("Browse", centralWidget)
 
-        self.inputFrame.addWidget(self.fileInput)
-        self.inputFrame.addWidget(self.importButton)
-        self.inputFrame.addWidget(fileBrowseButton)
-        self.inputFrame.addItem(spacer_item)
+        inputFrame.addWidget(self.fileInput)
+        inputFrame.addWidget(importButton)
+        inputFrame.addWidget(fileBrowseButton)
+        inputFrame.addItem(spacer_item)
 
         # Layout contains all elements required for display of information (essentially everything else)
-        self.displayFrame = QtGui.QHBoxLayout()
-        self.displayFrame.setMargin(11)
-        self.displayFrame.setSpacing(6)
+        displayFrame = QtGui.QHBoxLayout()
+        displayFrame.setMargin(11)
+        displayFrame.setSpacing(6)
 
         # Contains a tab for each type of graph. Will eventually contain tabs for additional info (i.e. pictures)
         self.graphTabs = QtGui.QTabWidget()
@@ -87,15 +86,15 @@ class StartQT4(QtGui.QMainWindow):
         self.pictureLayout.setSpacing(0)
         self.graphTabs.addTab(self.picture_tab, "Site Pictures")
 
-        self.digMainLayout.addLayout(self.inputFrame)
-        self.displayFrame.addWidget(self.graphTabs)
-        self.digMainLayout.addLayout(self.displayFrame)
+        digMainLayout.addLayout(inputFrame)
+        displayFrame.addWidget(self.graphTabs)
+        digMainLayout.addLayout(displayFrame)
 
         self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
-        self.connect(self.importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
+        self.connect(importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
         self.connect(fileBrowseButton, QtCore.SIGNAL("clicked()"), self.selectfile)
 
-        self.setCentralWidget(self.centralWidget)
+        self.setCentralWidget(centralWidget)
         self.showMaximized()
 
     def enterfile(self):
@@ -199,6 +198,7 @@ class StartQT4(QtGui.QMainWindow):
 def main():
     app = QtGui.QApplication(sys.argv)
     myapp = StartQT4()
+    myapp.setWindowIcon(QtGui.QIcon("mrdt_logo.jpg"))
     myapp.show()
     sys.exit(app.exec_())
 

@@ -23,10 +23,10 @@
 #define DROPBAY3 PL_0
 
 // Dynamixel Channels
-#define GIMB1_SER 7
-#define GIMB2_SER 5
-#define DYN1_SER  3
-#define DYN2_SER  2
+#define GIMB1_SER 3
+#define GIMB2_SER 2
+#define DYN1_SER  5
+#define DYN2_SER  7
 //-------------------
 
 //Camera pulse lengths (ms)

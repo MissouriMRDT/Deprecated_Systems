@@ -55,7 +55,7 @@ void loop() {
       Serial.println(commandData);
       Serial.println(commandSize);
       Serial.println("");
-
+/*
        //Science Arm Drive
        if(commandId == 0x710)//TODO: Wrong commandID, this is for science board
        {   
@@ -75,18 +75,18 @@ void loop() {
              drillCoast();
           else if(commandData==4)
              drillReverse();
-       }
-    }
+       }*/
+    
     
     //Future Code 
-    /*
+    
      if(commandId == ScienceArmDrive)
        {
-         if(commandData==armForward)
+         if(commandData>=armForward)
            motorOn();
-         else if(commandData==armReverse)
+         else if(commandData<=armReverse)
            motorReverse();
-         else if(commandData==armOff)
+         else// if(commandData==armOff)
            motorCoast();
        }
        else if(commandId == ScienceArmPosition)
@@ -95,14 +95,14 @@ void loop() {
        }
        else if(commandId == ScienceDrillDrive)
        {
-         if(commandData==DrillF)
+         if(commandData>=DrillF)
            drillForward();
-         else if(commandData==DrillR)
+         else if(commandData<=DrillR)
            drillReverse();
-         else if(commandData==DrillOff)
+         else// if(commandData==DrillOff)
            drillCoast();
        }
-       */
+    } 
  
     
     else //No message was received and we send sensor data
@@ -264,5 +264,7 @@ void drillCoast()
 void kill()
 {
   //add digitalWrite(..) to disable the pins that turn off the arm and the drill (or just call motorCoast() and drillCoast()?)
+  drillCoast();
+  motorCoast();
 }
 

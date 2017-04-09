@@ -31,19 +31,35 @@ void setup() {
 void loop() {
 
   //function to open flap
-  openFlap();
+  //openFlap();
 
-  digitalWrite(PF_0, HIGH);
-
+  /*for(int i = 0; i <= 4; i++)
+  {
+    flapToPos(i*45);
+    delay(5000); 
+  }*/
+  flapToPos(5);//pos 1
+  delay (5000);
+  flapToPos(41);//pos2
   delay(5000);
+  flapToPos(77);//pos3
+  delay(5000);
+  flapToPos(123);//pos4
+  delay(5000);
+  flapToPos(159);//pos5
+  delay(5000);
+  digitalWrite(PF_0, HIGH);//led
 
+  delay(5000);//wait 5 seconds to repeat loop. LED indicates wait
+  //flapToPos(0);
   //function to close flap
-  closeFlap();
+  //closeFlap();
+  
 
   digitalWrite(PF_0, LOW);
   
-  delay(5000);
-
+ // delay(5000);
+  
   //return motor to original position
 
 /*
@@ -92,7 +108,12 @@ void openFlap()
 void closeFlap()
 {
   //again, does flap close at 180 degrees or 0?
-  flap.write(110);
+  flap.write(60);
+}
+
+void flapToPos(int pos)
+{
+  flap.write(pos);
 }
 
 void turnOnLaser()

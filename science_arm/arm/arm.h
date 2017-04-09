@@ -18,7 +18,7 @@ typedef enum CommmandID
 
 typedef enum ArmDrive
 {
-  armForward=775,
+  armForward=500,
   armReverse=-775,
   armOff=0    
 }ArmDrive;

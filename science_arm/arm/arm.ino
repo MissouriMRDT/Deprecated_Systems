@@ -132,7 +132,7 @@ void initialize()
   //Arm Initialization
     pinMode(PF_0, OUTPUT);
   //main motor
-   pinMode(PD_1, OUTPUT);//IN1
+   pinMode(PL_5, OUTPUT);//IN1
    pinMode(PD_0, OUTPUT);//IN2
    pinMode(PN_2, OUTPUT);//decay
    pinMode(PL_2, INPUT); //THE ONLY INPUT//nFault
@@ -177,7 +177,7 @@ void motorOn()
   digitalWrite(PL_4, HIGH);//I0
 
   //one high, one low. swap for other direction
-  digitalWrite(PD_1, HIGH);//IN1
+  digitalWrite(PL_5, HIGH);//IN1
   digitalWrite(PD_0, LOW);//IN2
   digitalWrite(PF_0, HIGH);//LED 
 }
@@ -195,7 +195,7 @@ void motorReverse()
   digitalWrite(PL_4, HIGH);//I0
 
   //one high, one low. swap for other direction
-  digitalWrite(PD_1, LOW);//IN1
+  digitalWrite(PL_5, LOW);//IN1
   digitalWrite(PD_0, HIGH);//IN2
   digitalWrite(PF_0, HIGH);//LED
 }
@@ -215,7 +215,7 @@ void motorCoast()
 
   //brake = both high
   //coast = both low
-  digitalWrite(PD_1, LOW); //IN1   
+  digitalWrite(PL_5, LOW); //IN1   
   digitalWrite(PD_0, LOW);//IN2
   digitalWrite(PF_0, LOW);//LED
 }
@@ -234,7 +234,7 @@ void motorBrake()
 
   //brake = both high
   //coast = both low
-  digitalWrite(PD_1, HIGH); //IN1   
+  digitalWrite(PL_5, HIGH); //IN1   
   digitalWrite(PD_0, HIGH);//IN2
   digitalWrite(PF_0, LOW);//LED
 }

@@ -35,7 +35,7 @@
 */
 
 //Hardware pin definitions
-int UVOUT = PK_0; //Output from the sensor, Pin PE2
+int UVOUT = PE_1; //Output from the sensor, Pin PE2
 //int REF_3V3 = 24; //3.3V power on the Arduino board, Pin PE1
 
 void setup()
@@ -57,8 +57,8 @@ void loop()
   //float outputVoltage = 3.3 / uvLevel; //refLevel * uvLevel;
   //float outputVoltage = (analogRead(PK_0) / 4095); //analog resolution
   
-  int reading = analogRead(PK_0);
-  float outputVoltage = reading * 3.24;
+  int reading = analogRead(PE_1);
+  float outputVoltage = reading * 3.3333;
   outputVoltage = outputVoltage / 4095;
 
   float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); //Convert the voltage to a UV intensity level
@@ -68,7 +68,7 @@ void loop()
   //Serial.print(refLevel);
 
   Serial.print("ML8511 output: ");
-  Serial.print(uvLevel);
+  Serial.print(reading);
 
   Serial.print(" / ML8511 voltage: ");
   Serial.print(outputVoltage);

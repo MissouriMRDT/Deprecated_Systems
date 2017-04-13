@@ -8,7 +8,7 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly:
-  int reading = analogRead(port_here);   //whichever port is being read from
+  int reading = analogRead(PE_3);   //whichever port is being read from
   
   Serial.print("Analog Output: "); Serial.println(reading);
   

@@ -334,14 +334,6 @@ void rotateCarousel(const uint16_t pos)
   return;
 }
 
-//Turns off the spectrometer motor
-void spectroMotorOff()
-{
-  Serial.println("Spectro motor off");
-  digitalWrite(PP_3, LOW);//en
-  digitalWrite(PM_6, LOW);//nsleep
-  return;
-}
 
 //Returns one soil temperature reading
 float instantSoilTemp()
@@ -406,6 +398,15 @@ void spectroMotorReverse()
    digitalWrite(PP_3, HIGH);
    digitalWrite(PM_6, HIGH);
    return;
+}
+
+//Turns off the spectrometer motor
+void spectroMotorOff()
+{
+  Serial.println("Spectro motor off");
+  digitalWrite(PP_3, LOW);//en
+  digitalWrite(PM_6, LOW);//nsleep
+  return;
 }
 
 //Returns one reading of the air humidity TODO: Insert actual sensor code

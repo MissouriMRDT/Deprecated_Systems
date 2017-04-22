@@ -9,11 +9,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly: 
   motorForward();
-  delay(5000);
+  delay(10000);
   motorOff();
   delay(500);
-  motorReverse();
-  delay(5000);
+  //motorReverse();
+  delay(1000);
   motorOff();
   delay(500);
 }

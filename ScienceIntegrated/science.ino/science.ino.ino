@@ -211,22 +211,18 @@ void initialize()
 {
   roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
   Serial.begin(9600);
-  pinMode(PQ_3, OUTPUT);//laser
+  pinMode(PD_5, OUTPUT);//laser
   pinMode(PF_0, OUTPUT);//LED
-  pinMode(PD_0, INPUT);//photodiode1
-  pinMode(PD_1, INPUT);//photodiode2
-  flap.attach(PM_5);
-  carousel.attach(PM_4);
+  pinMode(PD_2, INPUT);//photodiode1
+  pinMode(PD_3, INPUT);//photodiode2
+  flap.attach(PL_0);
+  carousel.attach(PL_2);
   //PSensor.begin();//Initalize pressure Sensor (non-compiling)
   /************************************
   * Spectrometer motor Initiaslization
   /***********************************/
-  pinMode(PM_6, OUTPUT);//sleep
-  pinMode(PQ_1, OUTPUT);//phase
-  pinMode(PP_3, OUTPUT);//enable
-  pinMode(PF_0, OUTPUT);//LED
-  pinMode(PK_7, OUTPUT);//enable voltage reg
-  digitalWrite(PK_7, HIGH);//turn on voltage reg
+  pinMode(PM_5, OUTPUT);//in 1
+  pinMode(PB_3, OUTPUT);//in 2
   
   Serial.println("Initialized!");
 }
@@ -286,7 +282,7 @@ void turnOnLaser()
 {
   Serial.println("Laser on");
   //turn on laser by setting pin to High
-  digitalWrite(PQ_3, HIGH);//laser
+  digitalWrite(PD_5, HIGH);//laser
   digitalWrite(PF_0, HIGH);//LED
   return;
 }
@@ -296,7 +292,7 @@ void turnOffLaser()
 {
   Serial.println("Laser off");
   //turn off laser by setting pin to low
-  digitalWrite(PQ_3, LOW);//laser
+  digitalWrite(PD_5, LOW);//laser
   digitalWrite(PF_0, LOW);//led
   return;
 }
@@ -317,7 +313,7 @@ void closeFlap()
 {
   Serial.println("Closing flap.");
   //Flap should close at 180
-  flap.write(170);
+  flap.write(90);
   //flap.writeMicroseconds(2);
   //delay(5000);//Delay to let servo catch up
   return;
@@ -384,9 +380,8 @@ int readPhotoDiode2()
 void spectroMotorForward()
 {
    Serial.println("Spectro motor forward");
-   digitalWrite(PQ_1, LOW);//phase, low = forward
-   digitalWrite(PP_3, HIGH);//enable
-   digitalWrite(PM_6, HIGH);//nSleep
+   digitalWrite(PM_5, HIGH);//phase, low = forward
+   digitalWrite(PB_3, LOW);//enable
    return;
 }
 
@@ -394,9 +389,9 @@ void spectroMotorForward()
 void spectroMotorReverse()
 {
    Serial.println("Spectro motor reverse");
-   digitalWrite(PQ_1, HIGH);
-   digitalWrite(PP_3, HIGH);
-   digitalWrite(PM_6, HIGH);
+   digitalWrite(PM_5, LOW);
+   digitalWrite(PB_3, HIGH);
+
    return;
 }
 
@@ -404,8 +399,8 @@ void spectroMotorReverse()
 void spectroMotorOff()
 {
   Serial.println("Spectro motor off");
-  digitalWrite(PP_3, LOW);//en
-  digitalWrite(PM_6, LOW);//nsleep
+  digitalWrite(PB_3, LOW);
+  digitalWrite(PM_5, LOW);
   return;
 }
 

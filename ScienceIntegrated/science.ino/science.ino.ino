@@ -33,12 +33,28 @@ Servo flap, carousel;
 //BMP085<0> PSensor;
 
 //All non-important pre-loop setup is done here
-void setup() {}
+void setup() {
+  roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
+  Serial.begin(9600);
+  pinMode(laserPin, OUTPUT);//laser
+  pinMode(LEDPin, OUTPUT);//LED
+  pinMode(PD_2, INPUT);//photodiode1
+  pinMode(PD_3, INPUT);//photodiode2
+  flap.attach(PL_0);
+  carousel.attach(PL_2);
+  //PSensor.begin();//Initalize pressure Sensor (non-compiling)
+  /************************************
+  * Spectrometer motor Initiaslization
+  /***********************************/
+  pinMode(PM_5, OUTPUT);//in 1
+  pinMode(PB_3, OUTPUT);//in 2
+  
+  Serial.println("Initialized!");
+  }
 
 
 void loop() {
   //All important pre-loop setup is done here
-  initialize();//TODO: Move initialization into setup(), use the globals
   bool sensor_enable[7] = {false,false,false,false,false,false,false}; //Determines which sensors will send data back
 
   //Main execution loop
@@ -209,28 +225,6 @@ void loop() {
 //TODO: Eventually, define all pins in the header
 //TODO: Add a calibration file for sensors
 
-//All important pre-loop setup is done here outside of setup, for some reason
-void initialize()
-{
-  roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
-  Serial.begin(9600);
-  pinMode(PD_5, OUTPUT);//laser
-  pinMode(PF_0, OUTPUT);//LED
-  pinMode(PD_2, INPUT);//photodiode1
-  pinMode(PD_3, INPUT);//photodiode2
-  flap.attach(PL_0);
-  carousel.attach(PL_2);
-  //PSensor.begin();//Initalize pressure Sensor (non-compiling)
-  /************************************
-  * Spectrometer motor Initiaslization
-  /***********************************/
-  pinMode(PM_5, OUTPUT);//in 1
-  pinMode(PB_3, OUTPUT);//in 2
-  
-  Serial.println("Initialized!");
-}
-
-
 //Spectometer sub-routine TODO: roveComm_SendMsg(...) the data
 void spectrometer()
 {
@@ -285,8 +279,8 @@ void turnOnLaser()
 {
   Serial.println("Laser on");
   //turn on laser by setting pin to High
-  digitalWrite(PD_5, HIGH);//laser
-  digitalWrite(PF_0, HIGH);//LED
+  digitalWrite(laserPin, HIGH);//laser
+  digitalWrite(LEDPin, HIGH);//LED
   return;
 }
 
@@ -295,8 +289,8 @@ void turnOffLaser()
 {
   Serial.println("Laser off");
   //turn off laser by setting pin to low
-  digitalWrite(PD_5, LOW);//laser
-  digitalWrite(PF_0, LOW);//led
+  digitalWrite(laserPin, LOW);//laser
+  digitalWrite(LEDPin, LOW);//led
   return;
 }
 

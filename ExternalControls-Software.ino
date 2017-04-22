@@ -24,7 +24,7 @@
 #define DROPBAY3 PL_0
 
 // Dynamixel Channels
-#define GIMB1_SER 7 //3
+#define GIMB1_SER 3 //3
 #define GIMB2_SER 2 //2
 #define DYN1_SER  5 //5
 #define DYN2_SER  7 //7
@@ -216,6 +216,44 @@ boolean roveCommCheck()
       case ID_DROP_BAY:
         tmp = *(uint8_t*)(data);
         openDropBay(tmp);
+        break;
+        
+      case ID_CAMERA_MENU:
+        tmp = *(uint8_t*)(data);
+        if(tmp==0){
+          toggleMenu();
+        }
+        else if(tmp==1){
+          navigateMenuLeft();
+        }
+        else if(tmp==2){
+          navigateMenuRight();
+        }
+        else if(tmp==3){
+          navigateMenuUp();
+        }
+        else if(tmp==4){
+          navigateMenuDown();
+        }
+        break;
+    
+      case ID_CAMERA_COMMAND:
+        tmp = *(uint8_t*)(data);
+        if(tmp==0){
+          stopZoomAndFocus();
+        }
+        else if(tmp==1){
+          zoomIn();
+        }
+        else if(tmp==2){
+          zoomOut();
+        }
+        else if(tmp==3){
+          focusIn();
+        }
+        else if(tmp==4){
+          focusOut();
+        }
         break;
     }
     return true;    

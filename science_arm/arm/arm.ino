@@ -3,6 +3,7 @@
 //Missouri S&T  Mars Rover Design Team
 //Science Board Main program
 
+//TODO: Clean up includes (move to energia's folder, not github's)
 #include "arm.h"
 #include "RoveEthernet.h"
 #include <SPI.h>
@@ -33,7 +34,7 @@ void setup() {}
 
 void loop() {
   //All important pre-loop setup is done here
-  initialize();
+  initialize();//TODO: Move initialization into setup(), use the globals
 
   //Main execution loop
   while(1)
@@ -55,31 +56,8 @@ void loop() {
       Serial.println(commandData);
       Serial.println(commandSize);
       Serial.println("");
-/*
-       //Science Arm Drive
-       if(commandId == 0x710)//TODO: Wrong commandID, this is for science board
-       {   
-         if(commandData==18)
-             motorOn();
-         else if(commandData==19)
-             motorReverse();
-         else if(commandData==20)
-             motorCoast();
-       }
-       //Science Arm Position
-       else if(commandId == 0x711)//TODO: Wrong commandID, this is for science board
-       {
-          if(commandData==0)
-             drillForward();
-          else if(commandData==2)
-             drillCoast();
-          else if(commandData==4)
-             drillReverse();
-       }*/
-    
-    
-    //Future Code 
-    
+
+    //TODO: Switch to switch case
      if(commandId == ScienceArmDrive)
        {
          if(commandData>=armForward)
@@ -115,6 +93,7 @@ void loop() {
       if(watchdogTimer_us >= WATCHDOG_TIMEOUT_US)
       {
         //End dangerous operations here
+        kill();
         Serial.println("Watch out dog!!!!!!");
         watchdogTimer_us = 0;
       }//End if
@@ -123,6 +102,7 @@ void loop() {
 }//End loop()
 
 //Functions:
+//TODO: Define pins as constants in header
 
 //All important pre-loop setup is done here outside of setup, for some reason
 void initialize()

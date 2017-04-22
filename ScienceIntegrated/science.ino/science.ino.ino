@@ -3,6 +3,7 @@
 //Missouri S&T  Mars Rover Design Team
 //Science Board Main program
 
+//TODO: Clean up includes (move to energia's folder, not github's)
 #include "science.h"
 #include "RoveEthernet.h"
 #include <SPI.h>
@@ -37,7 +38,7 @@ void setup() {}
 
 void loop() {
   //All important pre-loop setup is done here
-  initialize();
+  initialize();//TODO: Move initialization into setup(), use the globals
   bool sensor_enable[7] = {false,false,false,false,false,false,false}; //Determines which sensors will send data back
 
   //Main execution loop
@@ -64,20 +65,20 @@ void loop() {
        //Checks the value of the command, and if applicable, executes it
        if(commandId == ScienceCommand)
        {
-        //Switch case
+        //Switch case  //TODO: Add indents
         switch(commandData) {
-        case sensorAllEnable:
-        for(int i=0;i<7;i++)
-        {
-          sensor_enable[i]=true;
-        }
-        break;
-        case sensorAllDisable:
-        for(int i=0;i<7;i++)
-        {
-          sensor_enable[i]=false;
-        }
-        break;
+          case sensorAllEnable:
+            for(int i=0;i<7;i++)
+              {
+                sensor_enable[i]=true;
+              }
+              break;
+          case sensorAllDisable:
+            for(int i=0;i<7;i++)
+              {
+                sensor_enable[i]=false;
+              }
+              break;
         case sensor1Enable:
         sensor_enable[0]=true;
         break;
@@ -142,7 +143,7 @@ void loop() {
          rotateCarousel(commandData);
        }
     }
-    else //No message was received and we send sensor data
+    else //No message was received and we send sensor data //TODO: Move sensor data out of this else, but still within the loop(), so that it executes regarless of wheather a command was receives
     {
        //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors
        //Temporary sensor variable, future variable will be altered by sensor functions before being sent
@@ -205,6 +206,8 @@ void loop() {
 }//End loop()
 
 //Functions:
+//TODO: Eventually, define all pins in the header
+//TODO: Add a calibration file for sensors
 
 //All important pre-loop setup is done here outside of setup, for some reason
 void initialize()
@@ -325,7 +328,7 @@ void rotateCarousel(const uint16_t pos)
   Serial.print("Rotating carousel to pos = ");
   Serial.print(pos);
   Serial.print("\n");
-  carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here.
+  carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here. //TODO: have array to store cache positions and use pos as index
   //delay(5000);//Delay to let servo catch up
   return;
 }

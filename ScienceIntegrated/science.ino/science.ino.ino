@@ -9,7 +9,7 @@
 #include <SPI.h>
 #include "Servo.h"
 #include <Wire.h>
-#include "BMP085_t.h"
+//#include "BMP085_t.h"
 
 
 //Variable declaration:
@@ -30,7 +30,7 @@ uint32_t sensorTimer = 0;
 //Energia standard servo device class from Servo.h
 Servo flap, carousel;
 //Pressure sensor object
-BMP085<0, airPressurePin> PSensor;
+//BMP085<0, airPressurePin> PSensor;
 
 //All non-important pre-loop setup is done here
 void setup() {
@@ -43,7 +43,7 @@ void setup() {
   flap.attach(PL_0);
   carousel.attach(PL_2);
   Wire.begin();
-  PSensor.begin();//Initalize pressure Sensor
+  //PSensor.begin();//Initalize pressure Sensor
   /************************************
   * Spectrometer motor Initiaslization
   /***********************************/
@@ -182,18 +182,27 @@ void loop() {
        if(sensor_enable[0])//AirTemp
        {
         sensorTestData = 100.0;
-        roveComm_SendMsg(0x720, sizeof(sensorTestData), &sensorTestData); 
+        float temp = instantAirTemp();
+        Serial.print("MAIN__temp data received: ");
+        Serial.print(temp);
+        Serial.print("\n");
+        roveComm_SendMsg(0x720, sizeof(temp), &temp); 
        }
-       if(sensor_enable[1]) //AirHumidity
-       {
-        sensorTestData = 101.0;
-        roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
-       }
-       if(sensor_enable[2]) //Soil Temp
+       if(sensor_enable[1]) //Soil Temp
        {
         sensorTestData = 102.0;
-        roveComm_SendMsg(0x722, sizeof(sensorTestData), &sensorTestData);
+        roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
        }
+       if(sensor_enable[2]) //AirHumidity
+       {
+        sensorTestData = 101.0;
+        float airHum = instantAirHumidity();
+        Serial.print("MAIN__humidity data received: ");
+        Serial.print(airHum);
+        Serial.print("\n");
+        roveComm_SendMsg(0x722, sizeof(airHum), &airHum);
+       }
+
        if(sensor_enable[3]) //Soil Humidity
        {
         sensorTestData = 103.0;
@@ -329,10 +338,12 @@ void closeFlap()
 //Rotates the sample cache carousel to the given position
 void rotateCarousel(const uint16_t pos)
 {
+  int positions[5] = {0, 45, 90, 135, 170};
   Serial.print("Rotating carousel to pos = ");
   Serial.print(pos);
   Serial.print("\n");
-  carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here. //TODO: have array to store cache positions and use pos as index
+  carousel.write(positions[pos - 1]);
+  //carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here. //TODO: have array to store cache positions and use pos as index
   //delay(5000);//Delay to let servo catch up
   return;
 }
@@ -378,9 +389,11 @@ float instantSoilTemp()
 float instantAirTemp()
 {
   const int analogRes = 4095;
-  float voltage = (analogRead(airTempPin) * 5 / analogRes);
+  float voltage = analogRead(airTempPin) * 5;
+  voltage = voltage / analogRes;
   float degC = (voltage - 0.5) * 100.0;
-  return degC;
+  float degF = (degC * 1.8) + 32;
+  return degF;
 }
 
 //Returns on UV intensity reading
@@ -419,6 +432,8 @@ float instantAirHumidity()
   int reading = analogRead(airHumidityPin);
   int max_voltage = 5;
   float RH = ((((reading/1023)*5)-0.8)/max_voltage)*100;
+  Serial.print("air humidity: "); Serial.print(RH);
+  Serial.print(" data: "); Serial.print(reading); Serial.print("\n");
   return RH;  
 }
 
@@ -443,9 +458,10 @@ float instantMethane()
 //Returns one air pressure reading TODO: Insert actual sensor code
 float instantPressure()
 {
-  PSensor.refresh();
-  PSensor.calculate();
-  float pressure = (PSensor.pressure + 50) / 100;
+  //PSensor.refresh();
+  //PSensor.calculate();
+  //float pressure = (PSensor.pressure + 50) / 100;
+  int pressure = 99;
   return pressure;
   //TODO: adjust this conversion? current unit is hPa
 }

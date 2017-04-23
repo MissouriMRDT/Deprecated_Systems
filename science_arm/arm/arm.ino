@@ -36,6 +36,10 @@ void loop() {
   //All important pre-loop setup is done here
   initialize();//TODO: Move initialization into setup(), use the globals
 
+  //TESTING to see if i can send anything to RED at all
+  float testData = 77;
+  roveComm_SendMsg(0x729, sizeof(testData), &testData);
+  
   //Main execution loop
   while(1)
   {
@@ -74,19 +78,30 @@ void loop() {
        else if(commandId == ScienceDrillDrive)
        {
          if(commandData>=DrillF)
+         {
            drillForward();
+         }
          else if(commandData<=DrillR)
+         {
            drillReverse();
+         }
          else
            drillCoast();
        }
        else if (commandId == ScienceSoilSensors)
        {
         if(commandData == temp)
-          instantSoilTemp();
+        {
+          float soilTemp = instantSoilTemp();
+          roveComm_SendMsg(0x721, sizeof(soilTemp), &soilTemp);
+        }
         else if (commandData == moisture)
-          instantSoilHumidity();
+        {
+          float soilMoist = instantSoilHumidity();
+          roveComm_SendMsg(0x723, sizeof(soilMoist), &soilMoist);
           //TODO: send this data back to RED
+          //TODO: copy millis setup from science.ino to get continuous readings from sensors
+        }
        }
     } 
  
@@ -142,7 +157,11 @@ void initialize()
 
   //Drill Initialization
   pinMode(PB_3, OUTPUT);//pin one of drill H bridge
-  pinMode(PB_2, OUTPUT);//pin two of drill H bridge  
+  pinMode(PB_2, OUTPUT);//pin two of drill H bridge 
+
+   //init sensor pins
+  pinMode(tempPin, INPUT);
+  pinMode(moistPin, INPUT);
   
   Serial.println("Initialized!");
 }
@@ -260,16 +279,33 @@ void kill()
 float instantSoilTemp()
 {
   const int analogRes = 4095;
-  float voltage = (analogRead(PB_5) * 5 / analogRes);
+  float voltage = analogRead(tempPin) * 5;
+  voltage = voltage / analogRes;
   float degC = (voltage - 0.5) * 100.0;
-  return degC;
+  float degF = (degC * 1.8) + 32;
+  Serial.print("soil temp sensor read val celsius: ");
+  Serial.print(degC);
+  Serial.print("\n");
+  Serial.print("soil temp sensor read val farenheit: ");
+  Serial.print(degF);
+  Serial.print("\n");
+  Serial.print("raw temp data = ");
+  Serial.print(analogRead(tempPin));
+  Serial.print("\n");
+  Serial.print("raw temp voltaghe = ");
+  Serial.print(voltage);
+  Serial.print("\n");
+  return degF;
 }
 
 //Returns one reading of the soil humidity
 float instantSoilHumidity()
 {
-  int reading = analogRead(PE_3);
+  int reading = analogRead(moistPin);
   float voltage = ((reading * 5.0) / 4095);
+  Serial.print("soil moisture sensor value read: ");
+  Serial.print(voltage);
+  Serial.print("\n");
   return voltage; //returning raw voltage for now
                   //TODO: convert to measurement of moisture
 }

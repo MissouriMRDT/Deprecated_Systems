@@ -14,7 +14,7 @@ typedef enum CommmandID
   ScienceArmDrive = 0x730,
   ScienceArmPosition = 0x731,//not yet used 
   ScienceDrillDrive = 209,//TODO: Wrong value, use 0x362
-  ScienceSoilSensors = 0//TODO need command ID for soil sensors
+  ScienceSoilSensors = 0x710//TODO need command ID for soil sensors
 }CommandID;
 
 typedef enum ArmDrive
@@ -33,8 +33,8 @@ typedef enum DrillDrive
 
 typedef enum SoilSensor
 {
-  temp = 1,
-  moisture = 2
+  temp = 4,
+  moisture = 8
 }SoilSensor;
 
 //var or pins
@@ -56,5 +56,7 @@ void drillCoast();//Turns the drill off
 float instantSoilHumidity();//Placeholder
 float instantSoilTemp();//Returns one Soil Temperature reading
 
+uint8_t moistPin = PE_3;
+uint8_t tempPin = PE_2;
 
 

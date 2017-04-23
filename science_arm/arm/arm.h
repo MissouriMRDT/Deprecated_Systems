@@ -13,7 +13,8 @@ typedef enum CommmandID
 {
   ScienceArmDrive = 0x730,
   ScienceArmPosition = 0x731,//not yet used 
-  ScienceDrillDrive = 209//TODO: Wrong value, use 0x362
+  ScienceDrillDrive = 209,//TODO: Wrong value, use 0x362
+  ScienceSoilSensors = 0//TODO need command ID for soil sensors
 }CommandID;
 
 typedef enum ArmDrive
@@ -30,6 +31,12 @@ typedef enum DrillDrive
   DrillR=-775
 }DrillDrive;
 
+typedef enum SoilSensor
+{
+  temp = 1,
+  moisture = 2
+}SoilSensor;
+
 //var or pins
 const uint32_t WATCHDOG_TIMEOUT_US = 2000000; //the amount of microseconds that should pass without getting a transmission from base station before the arm ceases moving for safety
 const uint8_t IP_ADDRESS [4] = {192, 168, 1, 139};//TODO: 135 is the science IP and is used for testing only, 139 is science arm board
@@ -45,6 +52,9 @@ void motorBrake();//Turns the arm's motor to an activly stopped state
 void drillForward();//Turns the drill on, forward
 void drillReverse();//Turns the drill on, backward
 void drillCoast();//Turns the drill off
+
+float instantSoilHumidity();//Placeholder
+float instantSoilTemp();//Returns one Soil Temperature reading
 
 
 

@@ -43,7 +43,7 @@ void loop() {
     commandSize = 0;
     commandId = 0;
     commandData = 0;
-    //Receives a command form base station and stores the message
+    //Receives a command from base station and stores the message
     roveComm_GetMsg(&commandId, &commandSize, &commandData);
     
     //Checks the message for an actual command
@@ -77,8 +77,16 @@ void loop() {
            drillForward();
          else if(commandData<=DrillR)
            drillReverse();
-         else// if(commandData==DrillOff)
+         else
            drillCoast();
+       }
+       else if (commandId == ScienceSoilSensors)
+       {
+        if(commandData == temp)
+          instantSoilTemp();
+        else if (commandData == moisture)
+          instantSoilHumidity();
+          //TODO: send this data back to RED
        }
     } 
  
@@ -248,3 +256,20 @@ void kill()
   motorCoast();
 }
 
+//Returns one soil temperature reading
+float instantSoilTemp()
+{
+  const int analogRes = 4095;
+  float voltage = (analogRead(PB_5) * 5 / analogRes);
+  float degC = (voltage - 0.5) * 100.0;
+  return degC;
+}
+
+//Returns one reading of the soil humidity
+float instantSoilHumidity()
+{
+  int reading = analogRead(PE_3);
+  float voltage = ((reading * 5.0) / 4095);
+  return voltage; //returning raw voltage for now
+                  //TODO: convert to measurement of moisture
+}

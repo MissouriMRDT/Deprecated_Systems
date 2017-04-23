@@ -47,8 +47,13 @@ const uint32_t WATCHDOG_TIMEOUT_US = 2000000; //the amount of microseconds that 
 const uint8_t IP_ADDRESS [4] = {192, 168, 1, 135};
 uint8_t laserPin = 46; // PD_5
 uint8_t LEDPin = PF_0;
-
-
+uint8_t UVPin = PE_1;
+uint8_t airTempPin = PK_2;
+uint8_t soilTempPin = PB_5;
+uint8_t methanePin = PK_1;
+uint8_t airHumidityPin = PD_0;
+uint8_t soilMoisturePin = PE_3;
+const uint8_t airPressurePin = PM_4;
 
 //functions
 
@@ -70,7 +75,7 @@ int readPhotoDiode1();//Returns one int reading from Photo Diode 1
 int readPhotoDiode2();//Returns one int reading from Photo Diode 2
 void spectroMotorForward();//Turns the spectrometer motor on, in the forward direction
 void spectroMotorReverse();//Turns the spectrometer motor on, but in the reverse direction
-float instantAirHumidity();//Placeholder
-float instantSoilHumidity();//Placeholder
-float instantMethane();//Placeholder
-float instantPressure();//Placeholder
+float instantAirHumidity();//Returns one Humidity sensor reading
+float instantSoilHumidity();//Returns reading from Soil Moisture sensor
+float instantMethane();//Returns Methane sensor reading
+float instantPressure();//Returns Air Pressure sensor reading

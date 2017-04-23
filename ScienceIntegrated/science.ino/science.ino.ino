@@ -9,7 +9,7 @@
 #include <SPI.h>
 #include "Servo.h"
 #include <Wire.h>
-//#include "BMP085_t.h"   This file is causing compilation problems
+#include "BMP085_t.h"
 
 
 //Variable declaration:
@@ -29,8 +29,8 @@ uint32_t sensorTimer = 0;
 //Device objects
 //Energia standard servo device class from Servo.h
 Servo flap, carousel;
-//Pressure sensor object, currently uses problematic file
-//BMP085<0> PSensor;
+//Pressure sensor object
+BMP085<0, airPressurePin> PSensor;
 
 //All non-important pre-loop setup is done here
 void setup() {
@@ -42,12 +42,22 @@ void setup() {
   pinMode(PD_3, INPUT);//photodiode2
   flap.attach(PL_0);
   carousel.attach(PL_2);
-  //PSensor.begin();//Initalize pressure Sensor (non-compiling)
+  Wire.begin();
+  PSensor.begin();//Initalize pressure Sensor
   /************************************
   * Spectrometer motor Initiaslization
   /***********************************/
   pinMode(PM_5, OUTPUT);//in 1
   pinMode(PB_3, OUTPUT);//in 2
+
+  //Init sensor pins
+  pinMode(UVPin, INPUT);//UV
+  pinMode(airTempPin, INPUT);//air temp
+  pinMode(soilTempPin, INPUT);
+  pinMode(methanePin, INPUT);
+  pinMode(airHumidityPin, INPUT);
+  pinMode(soilMoisturePin, INPUT);
+  //TODO: set pinmodes for all sensor pins to INPUT
   
   Serial.println("Initialized!");
   }
@@ -327,52 +337,6 @@ void rotateCarousel(const uint16_t pos)
   return;
 }
 
-
-//Returns one soil temperature reading
-float instantSoilTemp()
-{
-  const int analogRes = 4095;
-  float voltage = (analogRead(PB_5) * 3.24 / analogRes);
-  float degC = (voltage - 0.5) * 100.0;
-  return degC;
-}
-
-//Returns one air temperature reading
-float instantAirTemp()
-{
-  const int analogRes = 4095;
-  float voltage = (analogRead(PK_2) * 3.24 / analogRes);
-  float degC = (voltage - 0.5) * 100.0;
-  return degC;
-}
-
-//Returns on UV intensity reading
-float instantUV()
-{
- //Enable pin here
-  float uvInten = mapfloat(analogRead(PK_0), .99, 2.8, 0, 15);
-  return uvInten;
-}
-
-//The Arduino Map function but for floats (used in UV intensity)
-//From: http://forum.arduino.cc/index.php?topic=3922.0
-float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
-{
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
-//Returns one PhotoDiode 1 reading
-int readPhotoDiode1()
-{
-  return analogRead(PD_0);  
-}
-
-//Returns one PhotoDiode 2 reading
-int readPhotoDiode2()
-{
-  return analogRead(PD_1);
-}
-
 //Turns on the spectrometer motor on in the forward direction (the direction it will go when reading the photo-diodes)
 void spectroMotorForward()
 {
@@ -401,31 +365,88 @@ void spectroMotorOff()
   return;
 }
 
-//Returns one reading of the air humidity TODO: Insert actual sensor code
+//Returns one soil temperature reading
+float instantSoilTemp()
+{
+  const int analogRes = 4095;
+  float voltage = (analogRead(soilTempPin) * 5 / analogRes);
+  float degC = (voltage - 0.5) * 100.0;
+  return degC;
+}
+
+//Returns one air temperature reading
+float instantAirTemp()
+{
+  const int analogRes = 4095;
+  float voltage = (analogRead(airTempPin) * 5 / analogRes);
+  float degC = (voltage - 0.5) * 100.0;
+  return degC;
+}
+
+//Returns on UV intensity reading
+float instantUV()
+{
+  //Enable pin here
+  int reading = analogRead(UVPin);
+  float outputVoltage = (reading * 3.3333) / 4095;
+  float uvInten = mapfloat(outputVoltage, 0.99, 2.8, 0, 15);
+  return uvInten;
+}
+
+//The Arduino Map function but for floats (used in UV intensity)
+//From: http://forum.arduino.cc/index.php?topic=3922.0
+float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+//Returns one PhotoDiode 1 reading
+int readPhotoDiode1()
+{
+  return analogRead(PD_0);  
+}
+
+//Returns one PhotoDiode 2 reading
+int readPhotoDiode2()
+{
+  return analogRead(PD_1);
+}
+
+
+//Returns one reading of the air humidity
 float instantAirHumidity()
 {
-  float holderOfPlace = 0.0;
-  return holderOfPlace;  
+  int reading = analogRead(airHumidityPin);
+  int max_voltage = 5;
+  float RH = ((((reading/1023)*5)-0.8)/max_voltage)*100;
+  return RH;  
 }
 
-//Returns one reading of the soil humidity TODO: Insert actual sensor code
+//Returns one reading of the soil humidity
 float instantSoilHumidity()
 {
-  float holderOfPlace = 0.0;
-  return holderOfPlace;    
+  int reading = analogRead(soilMoisturePin);
+  float voltage = ((reading * 5.0) / 4095);
+  return voltage; //returning raw voltage for now
+                  //TODO: convert to measurement of moisture
 }
 
-//Returns one reading of methane TODO: Insert actual sensor code
+//Returns one reading of methane
 float instantMethane()
 {
-  float holderOfPlace = 0.0;
-  return holderOfPlace;  
+  int reading = analogRead(methanePin);
+  float voltage = (reading * 5.0) / 4095.0;
+  return voltage;
+  //TODO: convert voltage to measurement of methane
 }
 
 //Returns one air pressure reading TODO: Insert actual sensor code
 float instantPressure()
 {
-  float holderOfPlace = 0.0;
-  return holderOfPlace;
+  PSensor.refresh();
+  PSensor.calculate();
+  float pressure = (PSensor.pressure + 50) / 100;
+  return pressure;
+  //TODO: adjust this conversion? current unit is hPa
 }
 

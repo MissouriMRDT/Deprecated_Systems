@@ -19,7 +19,7 @@ typedef enum CommmandID
 
 typedef enum ArmDrive
 {
-  armForward=500,
+  armForward=775,
   armReverse=-775,
   armOff=0    
 }ArmDrive;
@@ -33,8 +33,10 @@ typedef enum DrillDrive
 
 typedef enum SoilSensor
 {
-  temp = 4,
-  moisture = 8
+  temp_ON = 4,
+  temp_OFF = 5,
+  moisture_ON = 8,
+  moisture_OFF = 9
 }SoilSensor;
 
 //var or pins

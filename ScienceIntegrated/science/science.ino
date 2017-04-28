@@ -1,4 +1,4 @@
-//Programmers: Chris Dutcher & Jimmy Haviland
+//Programmers: Chris Dutcher™ & Jimmy Haviland
 //Febuary 24, 2017
 //Missouri S&T  Mars Rover Design Team
 //Science Board Main program
@@ -15,16 +15,24 @@
 //Variable declaration:
 //Stores the result (if any) of commands received and executed
 CommandResult result;
+
 //Stores the value received from base station, of which command to execute
 uint16_t commandId;
+
 //Stores the size of the commandData received from base station
 size_t commandSize;
+
 //Stores the command arguement, sent by base station, to send through to the command
 int16_t commandData;
+
 //Stores the value of watchdog, which times out after not receiving a command from base station, to terminate any potential dangerous operations
 uint32_t watchdogTimer_us = 0;
+
 //Stores the time value since the most recent sensor information send
 uint32_t sensorTimer = 0;
+
+ //Determines which sensors will send data back
+bool sensor_enable[7] = {false,false,false,false,false,false,false};
 
 //Device objects
 //Energia standard servo device class from Servo.h
@@ -64,180 +72,174 @@ void setup() {
 
 
 void loop() {
-  //All important pre-loop setup is done here
-  bool sensor_enable[7] = {false,false,false,false,false,false,false}; //Determines which sensors will send data back
-
-  //Main execution loop
-  while(1)
+  //Resets the message to nothing
+  commandSize = 0;
+  commandId = 0;
+  commandData = 0;
+  //Receives a command form base station and stores the message
+  roveComm_GetMsg(&commandId, &commandSize, &commandData);
+  
+  //Checks the message for an actual command
+  if(commandId != 0)
   {
-    //Resets the message to nothing
-    commandSize = 0;
-    commandId = 0;
-    commandData = 0;
-    //Receives a command form base station and stores the message
-    roveComm_GetMsg(&commandId, &commandSize, &commandData);
-    
-    //Checks the message for an actual command
-    if(commandId != 0)
-    {
-      //We have received a command, so watchdog is reset
-      watchdogTimer_us = 0;
-
-      Serial.println(commandId);
-      Serial.println(commandData);
-      Serial.println(commandSize);
-      Serial.println("");
-
-       //Checks the value of the command, and if applicable, executes it
-       if(commandId == ScienceCommand)
-       {
-        //Switch case  //TODO: Add indents
-        switch(commandData) {
-          case sensorAllEnable:
-            for(int i=0;i<7;i++)
-              {
-                sensor_enable[i]=true;
-              }
-              break;
-          case sensorAllDisable:
-            for(int i=0;i<7;i++)
-              {
-                sensor_enable[i]=false;
-              }
-              break;
+    //We have received a command, so watchdog is reset
+    watchdogTimer_us = 0;
+  
+    Serial.println(commandId);
+    Serial.println(commandData);
+    Serial.println(commandSize);
+    Serial.println("");
+  
+     //Checks the value of the command, and if applicable, executes it
+     if(commandId == ScienceCommand)
+     {
+      switch(commandData) {
+        case sensorAllEnable:
+          for(int i=0;i<7;i++)
+            {
+              sensor_enable[i]=true;
+            }
+            break;
+        case sensorAllDisable:
+          for(int i=0;i<7;i++)
+            {
+              sensor_enable[i]=false;
+            }
+            break;
         case sensor1Enable:
-        sensor_enable[0]=true;
-        break;
+          sensor_enable[0]=true;
+          break;
         case sensor1Disable:
-        sensor_enable[0]=false;
-        break;
+          sensor_enable[0]=false;
+          break;
         case sensor2Enable:
-        sensor_enable[1]=true;
-        break;
+          sensor_enable[1]=true;
+          break;
         case sensor2Disable:
-        sensor_enable[1]=false;
-        break;
+          sensor_enable[1]=false;
+          break;
         case sensor3Enable:
-        sensor_enable[2]=true;
-        break;
+          sensor_enable[2]=true;
+          break;
         case sensor3Disable:
-        sensor_enable[2]=false;
-        break;
+          sensor_enable[2]=false;
+          break;
         case sensor4Enable:
-        sensor_enable[3]=true;
-        break;
+          sensor_enable[3]=true;
+          break;
         case sensor4Disable:
-        sensor_enable[3]=false;
-        break;
+          sensor_enable[3]=false;
+          break;
         case sensor5Enable:
-        sensor_enable[4]=true;
-        break;
+          sensor_enable[4]=true;
+          break;
         case sensor5Disable:
-        sensor_enable[4]=false;
-        break;
+          sensor_enable[4]=false;
+          break;
         case sensor6Enable:
-        sensor_enable[5]=true;
-        break;
+          sensor_enable[5]=true;
+          break;
         case sensor6Disable:
-        sensor_enable[5]=false;
-        break;
+          sensor_enable[5]=false;
+          break;
         case sensor7Enable:
-        sensor_enable[6]=true;
-        break;
+          sensor_enable[6]=true;
+          break;
         case sensor7Disable:
-        sensor_enable[6]=false;
-        break;
+          sensor_enable[6]=false;
+          break;
         case laserOn:
-        turnOnLaser();
-        break;
+          turnOnLaser();
+          break;
         case laserOff:
-        turnOffLaser();
-        break;
+          turnOffLaser();
+          break;
         case flapOpen:
-        openFlap();
-        break;
+          openFlap();
+          break;
         case flapClose:
-        closeFlap();
-        break;
+          closeFlap();
+          break;
         case spectro:
-        spectrometer();
-        break;
-         }//End Switch   
-       }
-       else if(commandId == ScienceCarousel)//Carousel
-       {
-         rotateCarousel(commandData);
-       }
-    }
-    else //No message was received and we send sensor data //TODO: Move sensor data out of this else, but still within the loop(), so that it executes regarless of wheather a command was receives
+          spectrometer();
+          break;
+       }//End Switch   
+     }
+     else if(commandId == ScienceCarousel)//Carousel
+     {
+       rotateCarousel(commandData);
+     }
+  }
+  else //No message was received and we send sensor data
+  {
+    //Delay before we check for another command from base station
+    uint8_t microsecondDelay = 10;
+    delayMicroseconds(microsecondDelay);
+    watchdogTimer_us += microsecondDelay;
+    //Once we have spend two seconds delaying for commands, we terminate potentially dangerous (to astronaughts or the rover) operations and keep them disabled until we receive a command again
+    if(watchdogTimer_us >= WATCHDOG_TIMEOUT_US)
     {
-       //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors
-       //Temporary sensor variable, future variable will be altered by sensor functions before being sent
-       float sensorTestData = 100.0;
-       //check for which sensors to record, and then send through rovecomm
-    if((millis()-sensorTimer)>250)
-    {
-      //Serial.println("Checking Sensors");
-       sensorTimer=millis();
-       if(sensor_enable[0])//AirTemp
-       {
-        sensorTestData = 100.0;
-        float temp = instantAirTemp();
-        Serial.print("MAIN__temp data received: ");
-        Serial.print(temp);
-        Serial.print("\n");
-        roveComm_SendMsg(0x720, sizeof(temp), &temp); 
-       }
-       if(sensor_enable[1]) //Soil Temp
-       {
-        sensorTestData = 102.0;
-        roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
-       }
-       if(sensor_enable[2]) //AirHumidity
-       {
-        sensorTestData = 101.0;
-        float airHum = instantAirHumidity();
-        Serial.print("MAIN__humidity data received: ");
-        Serial.print(airHum);
-        Serial.print("\n");
-        roveComm_SendMsg(0x722, sizeof(airHum), &airHum);
-       }
+      //End dangerous operations here
+      //Serial.println("Watch out dog!!!!!!");
+      watchdogTimer_us = 0;
+    }//end if for watchdog timeout
+    
+  }//End else go to watchdog (no message received)
+  
+   //millis()   returns milliseconds since program started, can use like a watch dog, but for sensors
+   //Temporary sensor variable, future variable will be altered by sensor functions before being sent
+   float sensorTestData = 100.0;
+   //check for which sensors to record, and then send through rovecomm
+  if((millis()-sensorTimer)>250)
+  {
+    //Serial.println("Checking Sensors");
+     sensorTimer=millis();
+     if(sensor_enable[0])//AirTemp
+     {
+      sensorTestData = 100.0;
+      float temp = instantAirTemp();
+      Serial.print("MAIN__temp data received: ");
+      Serial.print(temp);
+      Serial.print("\n");
+      roveComm_SendMsg(0x720, sizeof(temp), &temp); 
+     }
+     if(sensor_enable[1]) //Soil Temp
+     {
+      sensorTestData = 102.0;
+      roveComm_SendMsg(0x721, sizeof(sensorTestData), &sensorTestData);
+     }
+     if(sensor_enable[2]) //AirHumidity
+     {
+      sensorTestData = 101.0;
+      float airHum = instantAirHumidity();
+      Serial.print("MAIN__humidity data received: ");
+      Serial.print(airHum);
+      Serial.print("\n");
+      roveComm_SendMsg(0x722, sizeof(airHum), &airHum);
+     }
+  
+     if(sensor_enable[3]) //Soil Humidity
+     {
+      sensorTestData = 103.0;
+      roveComm_SendMsg(0x723, sizeof(sensorTestData), &sensorTestData);
+     }
+     if(sensor_enable[4]) //Methane
+     {
+      sensorTestData = 104.0;
+      roveComm_SendMsg(0x728, sizeof(sensorTestData), &sensorTestData);
+     }
+     if(sensor_enable[5]) //UV Intensity
+     {
+      sensorTestData = 105.0;
+      roveComm_SendMsg(0x729, sizeof(sensorTestData), &sensorTestData);
+     }
+     if(sensor_enable[6]) //Pressure
+     {
+      sensorTestData = 106.0;
+      roveComm_SendMsg(0x72A, sizeof(sensorTestData), &sensorTestData);
+     }
+  }//end if millis, send sensor data
 
-       if(sensor_enable[3]) //Soil Humidity
-       {
-        sensorTestData = 103.0;
-        roveComm_SendMsg(0x723, sizeof(sensorTestData), &sensorTestData);
-       }
-       if(sensor_enable[4]) //Methane
-       {
-        sensorTestData = 104.0;
-        roveComm_SendMsg(0x728, sizeof(sensorTestData), &sensorTestData);
-       }
-       if(sensor_enable[5]) //UV Intensity
-       {
-        sensorTestData = 105.0;
-        roveComm_SendMsg(0x729, sizeof(sensorTestData), &sensorTestData);
-       }
-       if(sensor_enable[6]) //Pressure
-       {
-        sensorTestData = 106.0;
-        roveComm_SendMsg(0x72A, sizeof(sensorTestData), &sensorTestData);
-       }        
-    }
-      //Delay before we check for another command from base station
-      uint8_t microsecondDelay = 10;
-      delayMicroseconds(microsecondDelay);
-      watchdogTimer_us += microsecondDelay;
-      //Once we have spend two seconds delaying for commands, we terminate potentially dangerous (to astronaughts or the rover) operations and keep them disabled until we receive a command again
-      if(watchdogTimer_us >= WATCHDOG_TIMEOUT_US)
-      {
-        //End dangerous operations here
-        //Serial.println("Watch out dog!!!!!!");
-        watchdogTimer_us = 0;
-      }
-
-    }//End else
-  }//End while
 }//End loop()
 
 //Functions:

@@ -1,4 +1,4 @@
-//Programmers: Chris Dutcher & Jimmy Haviland
+//Programmers: Chris Dutcher™ & Jimmy Haviland
 //March 22, 2017
 //Missouri S&T  Mars Rover Design Team
 //Science Board Main program
@@ -15,15 +15,24 @@
 //Variable declaration:
 //Stores the result (if any) of commands received and executed (not used)
 CommandResult result;
+
 //Stores the value received from base station, of which command to execute
 uint16_t commandId;
+
 //Stores the size of the commandData received from base station
 size_t commandSize;
+
 //Stores the command arguement, sent by base station, to send through to the command
 int16_t commandData;
+
 //Stores the value of watchdog, which times out after not receiving a command from base station, to terminate any potential dangerous operations
 uint32_t watchdogTimer_us = 0;
 
+//Stores the time value since the most recent sensor information send
+uint32_t sensorTimer = 0;
+
+//Determines which sensors will send data back
+bool sensor_enable[2] = {false,false};
 
 //Device objects
 
@@ -90,22 +99,30 @@ void loop() {
        }
        else if (commandId == ScienceSoilSensors)
        {
-        if(commandData == temp)
+        if(commandData == temp_ON)
         {
+          sensor_enable[0] = true;
           float soilTemp = instantSoilTemp();
           roveComm_SendMsg(0x721, sizeof(soilTemp), &soilTemp);
         }
-        else if (commandData == moisture)
+        else if(commandData == temp_OFF)
         {
+          sensor_enable[0] = false;
+        }
+        else if (commandData == moisture_ON)
+        {
+          sensor_enable[1] = true;
           float soilMoist = instantSoilHumidity();
           roveComm_SendMsg(0x723, sizeof(soilMoist), &soilMoist);
           //TODO: send this data back to RED
           //TODO: copy millis setup from science.ino to get continuous readings from sensors
         }
+        else if (commandData == moisture_OFF)
+        {
+          sensor_enable[1] = false;
+        }
        }
-    } 
- 
-    
+    }//end if there was a message, else.....
     else //No message was received and we send sensor data
     {
       //Delay before we check for another command from base station
@@ -120,7 +137,23 @@ void loop() {
         Serial.println("Watch out dog!!!!!!");
         watchdogTimer_us = 0;
       }//End if
-    }//End else
+    }//End else no message
+
+   if((millis()-sensorTimer)>250)
+  {
+    //Serial.println("Checking Sensors");
+     sensorTimer=millis();
+    if(sensor_enable[0]) //Soil Temp
+     {
+      float soilTemp = instantSoilTemp();
+      roveComm_SendMsg(0x721, sizeof(soilTemp), &soilTemp);
+     }
+    if(sensor_enable[1]) //soil moisture
+    {
+      float soilMoist = instantSoilHumidity();
+      roveComm_SendMsg(0x721, sizeof(soilMoist), &soilMoist);
+    }
+   }//end if millis (send sensor data every ¼ second
   }//End while
 }//End loop()
 

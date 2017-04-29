@@ -2310,6 +2310,18 @@ Murata</description>
 </technology>
 </technologies>
 </device>
+<device name="AZ1117EH-5.0" package="SOT223">
+<connects>
+<connect gate="G$1" pin="ADJ/GND" pad="1"/>
+<connect gate="G$1" pin="VIN" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="2 4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="VOUT" value="5v" constant="no"/>
+</technology>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="74LVC1T45">

@@ -53,6 +53,10 @@
 #define ID_DROP_BAY 1584
 #define ID_GIMBAL2_SPEED 1553
 
+#define GREEN 75
+#define BLUE  76
+#define RED   77
+
 #define DROPBAY_ANGLE_OPEN 170
 
 #define TIMEOUT_TICKS 1000
@@ -112,9 +116,20 @@ void setup() {
   Dropbay[1].attach(DROPBAY1);
   Dropbay[2].attach(DROPBAY2);
   Dropbay[3].attach(DROPBAY3);
-  
-  delay(100);
 
+  // Setup LED pins
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+  digitalWrite(RED, LOW);
+  digitalWrite(GREEN, LOW);
+  digitalWrite(BLUE, LOW);
+
+  // pulse testing
+  pulse(0,255,0,3);
+
+  delay(100);
+  
   // begin communicating with RED
   roveComm_Begin(192,168,1,134);
 
@@ -334,6 +349,29 @@ void navigateMenuDown(){
   generateSignal(SHORT_SIGNAL,PWM0);
 }
 
+void pulse(int r, int g, int b, int times)
+{
+  for(int j = 0; j < times; j++)
+  {
+    for(int i = 0; i <= 255; i++)
+    {
+      setLEDColor(r*i/255.0,g*i/255.0,b*i/255.0);
+      delay(5);
+    } 
+    for(int i = 255; i > 0; i--)
+    {
+      setLEDColor(r*i/255.0,g*i/255.0,b*i/255.0);
+      delay(5);
+    }
+  }
+  setLEDColor(0,0,0);
+}
+void setLEDColor(byte r, byte g, byte b)
+{
+  analogWrite(RED,  r);
+  analogWrite(GREEN,g);
+  analogWrite(BLUE, b);
+}
 void generateSignal(int amt, int pin){
   for(int i = 0; i < 5; i++){
     digitalWrite(pin,1);

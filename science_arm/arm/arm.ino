@@ -4,13 +4,12 @@
 //Science Board Main program
 
 //TODO: Clean up includes (move to energia's folder, not github's)
+#include "config.h"
 #include "arm.h"
 #include "RoveEthernet.h"
 #include <SPI.h>
 #include "Servo.h"
 #include <Wire.h>
-
-
 
 //Variable declaration:
 //Stores the result (if any) of commands received and executed (not used)
@@ -38,12 +37,47 @@ bool sensor_enable[2] = {false,false};
 
 
 //All non-important pre-loop setup is done here
-void setup() {}
+void setup() 
+{
+  roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
+  Serial.begin(9600);
+  //Arm Initialization
+   pinMode(LEDPin, OUTPUT);
+  //main motor
+   pinMode(arm_in_1, OUTPUT);//IN1
+   pinMode(arm_in_2, OUTPUT);//IN2
+   pinMode(arm_decay, OUTPUT);//decay
+   pinMode(arm_nFault, INPUT); //THE ONLY INPUT//nFault
+   pinMode(arm_nSleep, OUTPUT);//nSLeep
+   pinMode(arm_nReset, OUTPUT);//nReset
+   pinMode(arm_I0, OUTPUT);//I0
+   pinMode(arm_I1, OUTPUT);//I1
+   pinMode(arm_I2, OUTPUT);//I2
+   pinMode(arm_I3, OUTPUT);//I3
+   pinMode(arm_I4, OUTPUT);//I4
+   
+  digitalWrite(arm_I4, HIGH);//I4
+  digitalWrite(arm_I3, HIGH);//I3
+  digitalWrite(arm_I2, HIGH);//I2
+  digitalWrite(arm_I1, HIGH);//I1
+  digitalWrite(arm_I0, HIGH);//I0
+  digitalWrite(arm_decay, HIGH);//Decay
+  digitalWrite(arm_nReset, HIGH);//disable Reset Mode
+
+  //Drill Initialization
+  pinMode(drill_pin_1, OUTPUT);//pin one of drill H bridge
+  pinMode(drill_pin_2, OUTPUT);//pin two of drill H bridge 
+
+   //init sensor pins
+  pinMode(tempPin, INPUT);
+  pinMode(moistPin, INPUT);
+  
+  Serial.println("Initialized!");
+  }
 
 
 void loop() {
   //All important pre-loop setup is done here
-  initialize();//TODO: Move initialization into setup(), use the globals
 
   //TESTING to see if i can send anything to RED at all
   float testData = 77;
@@ -70,7 +104,6 @@ void loop() {
       Serial.println(commandSize);
       Serial.println("");
 
-    //TODO: Switch to switch case
      if(commandId == ScienceArmDrive)
        {
          if(commandData>=armForward)
@@ -114,8 +147,6 @@ void loop() {
           sensor_enable[1] = true;
           float soilMoist = instantSoilHumidity();
           roveComm_SendMsg(0x723, sizeof(soilMoist), &soilMoist);
-          //TODO: send this data back to RED
-          //TODO: copy millis setup from science.ino to get continuous readings from sensors
         }
         else if (commandData == moisture_OFF)
         {
@@ -146,59 +177,18 @@ void loop() {
     if(sensor_enable[0]) //Soil Temp
      {
       float soilTemp = instantSoilTemp();
-      roveComm_SendMsg(0x721, sizeof(soilTemp), &soilTemp);
+      roveComm_SendMsg(ScienceSoilTemp, sizeof(soilTemp), &soilTemp);
      }
     if(sensor_enable[1]) //soil moisture
     {
       float soilMoist = instantSoilHumidity();
-      roveComm_SendMsg(0x721, sizeof(soilMoist), &soilMoist);
+      roveComm_SendMsg(ScienceSoilMoisture, sizeof(soilMoist), &soilMoist);
     }
    }//end if millis (send sensor data every ¼ second
   }//End while
 }//End loop()
 
 //Functions:
-//TODO: Define pins as constants in header
-
-//All important pre-loop setup is done here outside of setup, for some reason
-void initialize()
-{
-  roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
-  Serial.begin(9600);
-  //Arm Initialization
-    pinMode(PF_0, OUTPUT);
-  //main motor
-   pinMode(PL_5, OUTPUT);//IN1
-   pinMode(PD_0, OUTPUT);//IN2
-   pinMode(PN_2, OUTPUT);//decay
-   pinMode(PL_2, INPUT); //THE ONLY INPUT//nFault
-   pinMode(PN_3, OUTPUT);//nSLeep
-   pinMode(PL_3, OUTPUT);//nReset
-   pinMode(PL_4, OUTPUT);//I0
-   pinMode(PH_3, OUTPUT);//I1
-   pinMode(PG_0, OUTPUT);//I2
-   pinMode(PH_2, OUTPUT);//I3
-   pinMode(PF_3, OUTPUT);//I4
-   //
-  digitalWrite(PF_3, HIGH);//I4
-  digitalWrite(PH_2, HIGH);//I3
-  digitalWrite(PG_0, HIGH);//I2
-  digitalWrite(PH_3, HIGH);//I1
-  digitalWrite(PL_4, HIGH);//I0
-  digitalWrite(PN_2, HIGH);//Decay
-  digitalWrite(PL_3, HIGH);//disable Reset Mode
-
-  //Drill Initialization
-  pinMode(PB_3, OUTPUT);//pin one of drill H bridge
-  pinMode(PB_2, OUTPUT);//pin two of drill H bridge 
-
-   //init sensor pins
-  pinMode(tempPin, INPUT);
-  pinMode(moistPin, INPUT);
-  
-  Serial.println("Initialized!");
-}
-
 /*
  *   Arm Functions
  */
@@ -206,77 +196,77 @@ void initialize()
 
 void motorOn()
 {
-  digitalWrite(PN_3, HIGH);//nSLeep
-  digitalWrite(PN_2, LOW);//Decay
+  digitalWrite(arm_nSleep, HIGH);//nSLeep
+  digitalWrite(arm_decay, LOW);//Decay
   //0x0B = 01011 = 50% for testing purposes, I4 is MSB, I0 is LSB
   //the I-Bus is used to control motor current speed
-  digitalWrite(PF_3, HIGH);//I4
-  digitalWrite(PH_2, HIGH);//I3
-  digitalWrite(PG_0, HIGH);//I2
-  digitalWrite(PH_3, HIGH);//I1
-  digitalWrite(PL_4, HIGH);//I0
+  digitalWrite(arm_I4, HIGH);//I4
+  digitalWrite(arm_I3, HIGH);//I3
+  digitalWrite(arm_I2, HIGH);//I2
+  digitalWrite(arm_I1, HIGH);//I1
+  digitalWrite(arm_I0, HIGH);//I0
 
   //one high, one low. swap for other direction
-  digitalWrite(PL_5, HIGH);//IN1
-  digitalWrite(PD_0, LOW);//IN2
-  digitalWrite(PF_0, HIGH);//LED 
+  digitalWrite(arm_in_1, HIGH);//IN1
+  digitalWrite(arm_in_2, LOW);//IN2
+  digitalWrite(LEDPin, HIGH);//LED 
 }
 
 void motorReverse()
 {
-  digitalWrite(PN_3, HIGH);//nSLeep
-  digitalWrite(PN_2, LOW);//Decay
+  digitalWrite(arm_nSleep, HIGH);//nSLeep
+  digitalWrite(arm_decay, LOW);//Decay
   //0x0B = 01011 = 50% for testing purposes, I4 is MSB, I0 is LSB
   //the I-Bus is used to control motor current speed
-  digitalWrite(PF_3, HIGH);//I4
-  digitalWrite(PH_2, HIGH);//I3
-  digitalWrite(PG_0, HIGH);//I2
-  digitalWrite(PH_3, HIGH);//I1
-  digitalWrite(PL_4, HIGH);//I0
+  digitalWrite(arm_I4, HIGH);//I4
+  digitalWrite(arm_I3, HIGH);//I3
+  digitalWrite(arm_I2, HIGH);//I2
+  digitalWrite(arm_I1, HIGH);//I1
+  digitalWrite(arm_I0, HIGH);//I0
 
   //one high, one low. swap for other direction
-  digitalWrite(PL_5, LOW);//IN1
-  digitalWrite(PD_0, HIGH);//IN2
-  digitalWrite(PF_0, HIGH);//LED
+  digitalWrite(arm_in_1, LOW);//IN1
+  digitalWrite(arm_in_2, HIGH);//IN2
+  digitalWrite(LEDPin, HIGH);//LED
 }
 
 
 void motorCoast()
 {
-  digitalWrite(PN_3, LOW);//nSLeep
-  digitalWrite(PN_2, LOW);//Decay
+  digitalWrite(arm_nSleep, LOW);//nSLeep
+  digitalWrite(arm_decay, LOW);//Decay
   //0x0B = 01011 = 50% for testing purposes, I4 is MSB, I0 is LSB
   //the I-Bus is used to control motor curent speed
-  digitalWrite(PF_3, LOW);//I4
-  digitalWrite(PH_2, HIGH);//I3
-  digitalWrite(PG_0, LOW);//I2
-  digitalWrite(PH_3, HIGH);//I1
-  digitalWrite(PL_4, HIGH);//I0
+  digitalWrite(arm_I4, LOW);//I4
+  digitalWrite(arm_I3, HIGH);//I3
+  digitalWrite(arm_I2, LOW);//I2
+  digitalWrite(arm_I1, HIGH);//I1
+  digitalWrite(arm_I0, HIGH);//I0
 
   //brake = both high
   //coast = both low
-  digitalWrite(PL_5, LOW); //IN1   
-  digitalWrite(PD_0, LOW);//IN2
-  digitalWrite(PF_0, LOW);//LED
+  digitalWrite(arm_in_1, LOW); //IN1   
+  digitalWrite(arm_in_2, LOW);//IN2
+  digitalWrite(LEDPin, LOW);//LED
 }
 
 void motorBrake()
 {
-  digitalWrite(PN_3, LOW);//nSLeep
-  digitalWrite(PN_2, LOW);//Decay
+  digitalWrite(arm_nSleep, LOW);//nSLeep
+  digitalWrite(arm_decay, LOW);//Decay
   //0x0B = 01011 = 50% for testing purposes, I4 is MSB, I0 is LSB
   //the I-Bus is used to control motor curent speed
-  digitalWrite(PF_3, LOW);//I4
-  digitalWrite(PH_2, HIGH);//I3
-  digitalWrite(PG_0, LOW);//I2
-  digitalWrite(PH_3, HIGH);//I1
-  digitalWrite(PL_4, HIGH);//I0
+  digitalWrite(arm_I4, LOW);//I4
+  digitalWrite(arm_I3, HIGH);//I3
+  digitalWrite(arm_I2, LOW);//I2
+  digitalWrite(arm_I1, HIGH);//I1
+  digitalWrite(arm_I0, HIGH);//I0
 
   //brake = both high
   //coast = both low
-  digitalWrite(PL_5, HIGH); //IN1   
-  digitalWrite(PD_0, HIGH);//IN2
-  digitalWrite(PF_0, LOW);//LED
+  digitalWrite(arm_in_1, HIGH); //IN1   
+  digitalWrite(arm_in_2, HIGH);//IN2
+  digitalWrite(LEDPin, LOW);//LED
 }
 
 /*
@@ -285,20 +275,20 @@ void motorBrake()
 
 void drillForward()
 {
-   digitalWrite(PB_3, HIGH);
-   digitalWrite(PB_2, LOW);
+   digitalWrite(drill_pin_1, HIGH);
+   digitalWrite(drill_pin_2, LOW);
 }
 
 void drillReverse()
 {
-    digitalWrite(PB_3, LOW);
-    digitalWrite(PB_2, HIGH);
+    digitalWrite(drill_pin_1, LOW);
+    digitalWrite(drill_pin_2, HIGH);
 }
 
 void drillCoast()
 {
-  digitalWrite(PB_3, LOW);
-  digitalWrite(PB_2, LOW);
+  digitalWrite(drill_pin_1, LOW);
+  digitalWrite(drill_pin_2, LOW);
 }
 
 void kill()

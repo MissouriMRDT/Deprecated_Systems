@@ -17,6 +17,12 @@ typedef enum CommmandID
   ScienceSoilSensors = 0x710//TODO need command ID for soil sensors
 }CommandID;
 
+typedef enum DataID
+{
+  ScienceSoilTemp = 0x72B,
+  ScienceSoilMoisture = 0x72C
+} DataID;
+
 typedef enum ArmDrive
 {
   armForward=775,
@@ -44,7 +50,6 @@ const uint32_t WATCHDOG_TIMEOUT_US = 2000000; //the amount of microseconds that 
 const uint8_t IP_ADDRESS [4] = {192, 168, 1, 139};//TODO: 135 is the science IP and is used for testing only, 139 is science arm board
 
 //functions
-void initialize();//All important pre-loop setup goes here
 void kill();//Disables all motion to the arm
 void motorOn();//Turns the arm's motor on, in the forward direction
 void motorReverse();//Turns the arm's motor on, in the backward direction
@@ -58,6 +63,27 @@ void drillCoast();//Turns the drill off
 float instantSoilHumidity();//Placeholder
 float instantSoilTemp();//Returns one Soil Temperature reading
 
+
+//pin definitions
+//arm motor pins
+uint8_t arm_in_1 = PL_5;
+uint8_t arm_in_2 = PD_0;
+uint8_t arm_decay = PN_2;
+uint8_t arm_nFault = PL_2;
+uint8_t arm_nSleep = PN_3;
+uint8_t arm_nReset = PL_3;
+uint8_t arm_I0 = PL_4;
+uint8_t arm_I1 = PH_3;
+uint8_t arm_I2 = PG_0;
+uint8_t arm_I3 = PH_2;
+uint8_t arm_I4 = PF_3;
+
+//drill pins
+uint8_t drill_pin_1 = PB_3;
+uint8_t drill_pin_2 = PB_2;
+
+//other pins
+uint8_t LEDPin = PF_0;
 uint8_t moistPin = PE_3;
 uint8_t tempPin = PE_2;
 

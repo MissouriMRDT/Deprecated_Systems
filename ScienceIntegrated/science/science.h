@@ -42,11 +42,32 @@ typedef enum ScienceCommands
     
 } ScienceCommands;
 
+typedef enum SensorDataIDs
+{
+ air_temperature_ID = 0x720,
+ soil_temperature_ID = 0x721,
+ air_humidity_ID = 0x722,
+ soil_humidity_ID = 0x723,
+ UV_intensity_ID = 0x729,
+ pressure_ID = 0x72A,
+ methane_ID = 0x728 
+}SensorDataIDs;
+
+
 //var or pins
 const uint32_t WATCHDOG_TIMEOUT_US = 2000000; //the amount of microseconds that should pass without getting a transmission from base station before the arm ceases moving for safety
 const uint8_t IP_ADDRESS [4] = {192, 168, 1, 135};
+
+uint8_t spectro_motor_in_1 = PM_5;
+uint8_t spectro_motor_in_2 = PB_3;
+uint8_t flapPin = PL_0;
+uint8_t carouselPin = PL_2;
+
 uint8_t laserPin = 46; // PD_5
+uint8_t photoPin1 = PD_2;
+uint8_t photoPin2 = PD_3;
 uint8_t LEDPin = PF_0;
+
 uint8_t UVPin = PE_1;
 uint8_t airTempPin = PD_1;
 uint8_t soilTempPin = PB_5;
@@ -71,11 +92,10 @@ float instantAirTemp();//Returns one Air Termperature reading
 float instantUV();//Return one UV intensisty reading
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max);//Maps the float value for UV intensity
 //float instantPressure();//Returns one pressure reading but has problems so is not implemented
-int readPhotoDiode1();//Returns one int reading from Photo Diode 1
-int readPhotoDiode2();//Returns one int reading from Photo Diode 2
 void spectroMotorForward();//Turns the spectrometer motor on, in the forward direction
 void spectroMotorReverse();//Turns the spectrometer motor on, but in the reverse direction
 float instantAirHumidity();//Returns one Humidity sensor reading
 float instantSoilHumidity();//Returns reading from Soil Moisture sensor
 float instantMethane();//Returns Methane sensor reading
 float instantPressure();//Returns Air Pressure sensor reading
+void kill();

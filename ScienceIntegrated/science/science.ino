@@ -41,6 +41,9 @@ Servo flap, carousel;
 //Pressure sensor object
 //BMP085<0, airPressurePin> PSensor;
 
+//global current position for carousel
+int curPos = 0;
+
 //All non-important pre-loop setup is done here
 void setup() {
   roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
@@ -267,13 +270,13 @@ void spectrometer()
    while (timer <= 30000)
    {
     //read photo diodes
-    photo1 = analogRead(PD_0);
-    photo2 = analogRead(PD_1);
+    photo1 = analogRead(photoPin1);
+    photo2 = analogRead(photoPin2);
     //print data
     Serial.println("Data for photodiodes 1 & 2, respectively:");
     Serial.println(photo1);
     Serial.println(photo2);
-    //roveComm_SendMsg(0x, sizeof(photo1), &photo1);
+    roveComm_SendMsg(sensor9_ID, sizeof(photo1), &photo1);
     //roveComm_SendMsg(0x, sizeof(photo2), &photo2);
     
     timer += 125;
@@ -342,13 +345,50 @@ void closeFlap()
 //Rotates the sample cache carousel to the given position
 void rotateCarousel(const uint16_t pos)
 {
-  int positions[5] = {0, 45, 90, 135, 170};
   Serial.print("Rotating carousel to pos = ");
   Serial.print(pos);
   Serial.print("\n");
-  carousel.write(positions[pos - 1]);
+  carousel.write(car_positions[pos]);
   //carousel.write(170/4 * pos);  // TODO: cache positions must be tweeked here. 
   //delay(5000);//Delay to let servo catch up
+
+/******This is my attempt to slow down the carousel servo motor. 
+  Serial.print("carousel rotate: from pos = ");
+  Serial.print(curPos);
+  Serial.print(". to pos = ");
+  Serial.print(pos);
+  Serial.print(". \n");
+  
+  int delay_val = 100; //Change this val to slow down motor.
+  if(pos>curPos)       //Do not make it too small or the servo will freak out!
+  {
+    Serial.println("Going up! (rotating to greater pos)");
+    for(int i = car_positions[curPos]; i < car_positions[pos]; i++)
+    {
+      Serial.print(i);
+      carousel.write(i);
+      delay(delay_val);
+    }
+  }
+  else if(pos<curPos)
+  {
+    Serial.println("Goin' Down. (rotating to lower pos)");
+    for(int i = car_positions[curPos]; i > car_positions[pos]; i--)
+    {
+      Serial.print(i);
+      carousel.write(i);
+      delay(delay_val);
+    }
+  }
+   else
+   {
+    Serial.println("pos is same");
+   }
+   
+  Serial.print("\n");
+*/
+  
+  curPos = pos;
   return;
 }
 

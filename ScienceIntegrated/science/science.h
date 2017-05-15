@@ -50,7 +50,8 @@ typedef enum SensorDataIDs
  soil_humidity_ID = 0x723,
  UV_intensity_ID = 0x729,
  pressure_ID = 0x72A,
- methane_ID = 0x728 
+ methane_ID = 0x728,
+ sensor9_ID = 0x72D 
 }SensorDataIDs;
 
 
@@ -62,6 +63,8 @@ uint8_t spectro_motor_in_1 = PM_5;
 uint8_t spectro_motor_in_2 = PB_3;
 uint8_t flapPin = PL_0;
 uint8_t carouselPin = PL_2;
+int car_positions[5] = {0, 36, 108, 144, 180};
+
 
 uint8_t laserPin = 46; // PD_5
 uint8_t photoPin1 = PD_2;

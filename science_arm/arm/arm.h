@@ -13,7 +13,7 @@ typedef enum CommmandID
 {
   ScienceArmDrive = 0x730,
   ScienceArmPosition = 0x731,//not yet used 
-  ScienceDrillDrive = 209,//TODO: Wrong value, use 0x362
+  ScienceDrillDrive = 866,//TODO: Wrong value, use 0x362
   ScienceSoilSensors = 0x710//TODO need command ID for soil sensors
 }CommandID;
 

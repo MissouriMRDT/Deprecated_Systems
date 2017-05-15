@@ -48,6 +48,7 @@ int curPos = 0;
 void setup() {
   roveComm_Begin(IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
   Serial.begin(9600);
+  PhotoServer.begin();
   pinMode(laserPin, OUTPUT);//laser
   pinMode(LEDPin, OUTPUT);//LED
   pinMode(photoPin1, INPUT);//photodiode1
@@ -253,50 +254,95 @@ void loop() {
 void spectrometer()
 {
    Serial.println("Start spectro routine.");
-   uint16_t photo1, photo2;
-   //turn on motor, run for 5s before continuing
-   //direction is a bool! change true/false for direction
-   spectroMotorForward();   
-   //do nothing except leave motor on for 5s
-   delay(5000);
-   //turn on laser
-   turnOnLaser();   
-   //laser is on, motor should still be going?
-   //keep laser and motor on for 30s
-   int timer = 0;
-   //loop takes analog readings 
-   //delays for 1/8 second
-   //should repeat until roughly 30s have passed.
-   while (timer <= 30000)
+
+   EthernetClient client = PhotoServer.available();
+
+   if(client)//only run the routine if TCP available!
    {
-    //read photo diodes
-    photo1 = analogRead(photoPin1);
-    photo2 = analogRead(photoPin2);
-    //print data
-    Serial.println("Data for photodiodes 1 & 2, respectively:");
-    Serial.println(photo1);
-    Serial.println(photo2);
-    roveComm_SendMsg(sensor9_ID, sizeof(photo1), &photo1);
-    //roveComm_SendMsg(0x, sizeof(photo2), &photo2);
-    
-    timer += 125;
-    delay(125); 
+     uint16_t photo1, photo2;
+     String tcp_buffer;
+     //turn on motor, run for 5s before continuing
+     //direction is a bool! change true/false for direction
+     spectroMotorForward();   
+     //do nothing except leave motor on for 5s
+     delay(5000);
+     //turn on laser
+     turnOnLaser();   
+     //laser is on, motor should still be going?
+     //keep laser and motor on for 30s
+     int timer = 0;
+     //loop takes analog readings 
+     //delays for 1/8 second
+     //should repeat until roughly 30s have passed.
+     while (timer <= 30000)
+     {
+      //read photo diodes
+      photo1 = analogRead(photoPin1);//analog read returns 10 bit integer (0 to 1023)
+      photo2 = analogRead(photoPin2);
+      //print data
+      Serial.println("Data for photodiodes 1 & 2, respectively:");
+      Serial.println(photo1);
+      Serial.println(photo2);
+      //roveComm_SendMsg(sensor9_ID, sizeof(photo1), &photo1);
+      //roveComm_SendMsg(0x, sizeof(photo2), &photo2);
+
+      if(photo1 > 255 || photo2 > 255)
+      {
+        Serial.println("Photo data greater than 8 bit!!!!!!!!!!!!!!!!!!!!!!!!!! ");
+      }
+
+      PhotoServer.println("photodiode 1:");
+      PhotoServer.println(photo1);
+      //PhotoServer.print("\n");
+
+      PhotoServer.println("photodiode 2:");
+      PhotoServer.println(photo2);
+      //PhotoServer.print("\n");
+
+      //TCP needs 8 bit values
+      uint8_t photo1_8 = photo1;
+      uint8_t photo2_8 = photo2;
+
+      //PhotoServer.write(&photo1_8,sizeof(photo1_8));
+      //PhotoServer.write(&photo2_8,sizeof(photo2_8));
+      
+      timer += 125;
+      delay(125); 
+     }
+
+     //turn off laser
+     turnOffLaser();
+     
+     //turn off motor
+     spectroMotorOff();
+
+     //end tcp connection
+     client.stop();
+     
+     //delay couple seconds
+     delay(2000);
+     
+     //return motor to start position
+     //opposite direction than what was called earlier!
+     spectroMotorReverse();
+     
+     //wait 35s for motor to return
+     delay(35000);
+     
+     //stop motor again
+     spectroMotorOff();
+     
+     //wait 10 seconds before repeating the loop
+     delay(10000); 
+
+     
+   }//end if client
+   else
+   {
+    Serial.println("TCP not available. Spectrometer routine not run.");
    }
-   //turn off laser
-   turnOffLaser();
-   //turn off motor
-   spectroMotorOff();
-   //delay couple seconds
-   delay(2000);
-   //return motor to start position
-   //opposite direction than what was called earlier!
-   spectroMotorReverse();
-   //wait 35s for motor to return
-   delay(35000);
-   //stop motor again
-   spectroMotorOff();
-   //wait 10 seconds before repeating the loop
-   delay(10000); 
+   
+     
    return;
 }
 

@@ -135,8 +135,8 @@ void loop() {
         if(commandData == temp_ON)
         {
           sensor_enable[0] = true;
-          float soilTemp = instantSoilTemp();
-          roveComm_SendMsg(0x721, sizeof(soilTemp), &soilTemp);
+          //float soilTemp = instantSoilTemp();
+          //roveComm_SendMsg(0x72B, sizeof(soilTemp), &soilTemp);
           //Serial.print("Soil temp = ");
           //Serial.print(soilMoist);
           //Serial.print("\n");
@@ -148,8 +148,8 @@ void loop() {
         else if (commandData == moisture_ON)
         {
           sensor_enable[1] = true;
-          float soilMoist = instantSoilHumidity();
-          roveComm_SendMsg(0x723, sizeof(soilMoist), &soilMoist);
+          //float soilMoist = instantSoilHumidity();
+          //roveComm_SendMsg(0x72C, sizeof(soilMoist), &soilMoist);
           //Serial.print("Soil moisture = ");
           //Serial.print(soilMoist);
           //Serial.print("\n");

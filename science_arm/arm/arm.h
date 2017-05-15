@@ -13,8 +13,8 @@ typedef enum CommmandID
 {
   ScienceArmDrive = 0x730,
   ScienceArmPosition = 0x731,//not yet used 
-  ScienceDrillDrive = 866,//TODO: Wrong value, use 0x362
-  ScienceSoilSensors = 0x710//TODO need command ID for soil sensors
+  ScienceDrillDrive = 866,//866 = 0x362
+  ScienceSoilSensors = 0x712//TODO need command ID for soil sensors
 }CommandID;
 
 typedef enum DataID
@@ -39,10 +39,10 @@ typedef enum DrillDrive
 
 typedef enum SoilSensor
 {
-  temp_ON = 4,
-  temp_OFF = 5,
-  moisture_ON = 8,
-  moisture_OFF = 9
+  temp_ON = 30,
+  temp_OFF = 31,
+  moisture_ON = 32,
+  moisture_OFF = 33
 }SoilSensor;
 
 //var or pins

@@ -127,8 +127,9 @@ calibration = calib_sampled(srtidx);
 spectra = signal_observed(srtidx);
 
 % Plot sorted data
-         plot(wavelength, calibration, '-b.');
-hold on; plot(wavelength, spectra, '-r.');
+plot(wavelength, calibration, '-b.');
+hold on; 
+plot(wavelength, spectra, '-r.');
 title('Algorithmically recovered signal (RESULTS)');
 legend('calibration', 'spectra')
 xlim([FMIN, FMAX]);

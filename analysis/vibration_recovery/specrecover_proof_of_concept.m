@@ -37,7 +37,7 @@ sp = filter(filterCoeff, 1, sp);
 % Offset
 sp = sp + 400;
 % Add Random Noise
-sp = sp + 5 * randn(size(sp),1);
+sp = sp + 5 * randn(length(sp),1);
 
 
 subplot(5,1,2);
@@ -48,13 +48,12 @@ title('Irregular Slide Movement / Sampling');
 xlim([FMIN, FMAX]);
 xlabel('Slide Position (nm)');
 ylabel('Time');
-
 %calib_observed = calib_ref(sample_points);
 %signal_observed = ideal_signal(sample_points);
 
 
 % Read from the ideal data at the specified sample points
-calib_sampled = zeros(size(sp));
+calib_sampled = zeros(length(sp));
 signal_observed = zeros(size(sp));
 for idx = 1:length(sp)
   % Find the index of the ideal data where the slide is
@@ -70,9 +69,9 @@ end
 subplot(5, 1, 3); plot(1:length(calib_sampled), calib_sampled, 'b');
 hold on; plot(1:length(signal_observed), signal_observed, 'r');
 legend('Calibration Signal', 'Sample Spectra');
-title("Vibration-scrambled signal, 500 samples");
-xlabel("Sample Point ");
-ylabel("Amplitude");
+title('Vibration-scrambled signal, 500 samples');
+xlabel('Sample Point');
+ylabel('Amplitude');
 
 %----------------------------------------------------
 % Plot best possible reconstruction results
@@ -85,8 +84,8 @@ signal_observed_ordered = signal_observed(sortIndex);
 plot(sortedSP, calib_sampled_ordered  , '-b.'); hold on;
 plot(sortedSP, signal_observed_ordered, '-r.');
 xlim([FMIN FMAX]);
-title("Theoretical best recovered signal");
-xlabel("Wavelenth (nm)");
+title('Theoretical best recovered signal');
+xlabel('Wavelenth (nm)');
 
 %%---------------------------------------------------
 %% Reconstruction Algorithm
@@ -109,7 +108,7 @@ for idx=1:length(calib_sampled)
   
   plot(recovered_timestamp(1:idx), calib_sampled(1:idx));
   xlim([FMIN-100 FMAX+100]);
-  title("Reconstructing Calibration Signal");
+  title('Reconstructing Calibration Signal');
   pause(0.01);
 end  
 
@@ -130,5 +129,6 @@ spectra = signal_observed(srtidx);
 % Plot sorted data
          plot(wavelength, calibration, '-b.');
 hold on; plot(wavelength, spectra, '-r.');
-title("Algorithmically recovered signal (RESULTS)");
-xlim(FMIN, FMAX);
+title('Algorithmically recovered signal (RESULTS)');
+legend('calibration', 'spectra')
+xlim([FMIN, FMAX]);

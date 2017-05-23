@@ -17,7 +17,39 @@ for i=1:data_length
     diode(i) = str2double(data{3*i});
 end
 
+diode1(1)=diode(1);
+for i=1:(length(diode)/2)-1
+    diode1(i+1)=diode(2*i+1);
+    diode2(i)=diode(2*i);
+end
 
-for i=1:length(diode)
-    diode1(i+1)=(
+subplot(2,1,1)
+plot(diode1);
+title('Diode 1');
+subplot(2,1,2);
+plot(diode2);
+title('Diode 2');
 
+%-------------------------------------------
+FMAX = 800; %Max optical frequency in nm
+FMIN = 400;
+
+f_ref = linspace(FMAX, FMIN, length(diode2));
+avg = mean(diode2);
+max = max(diode2);
+min
+calib_ref = (sin((f_ref + 50) /31)) / 2 + avg;
+
+% Make a nice spiky waveform with noise as our spectrometer signal
+ideal_signal = diode2;
+
+figure('Position', [50 50 1000 900]);
+subplot(5,1,1);
+plot(f_ref, calib_ref, 'b');
+title('Ideal Calibration and Spectrometer Signal');
+
+hold on;
+plot(f_ref, ideal_signal, 'r');
+legend('Calibration Signal', 'Sample Spectra');
+xlabel('wavelength / Slide Position (nm)');
+ylabel('Amplitude');

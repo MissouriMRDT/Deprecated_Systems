@@ -53,16 +53,17 @@ class GraphArea(QtGui.QWidget):
         # pressure_ax.set_ylim(ymin, ymax)  # TODO: Barometer y-limits?
 
         # Methane levels
-        methane_ax = self.fig.add_subplot(312)
+        methane_ax = self.fig.add_subplot(312, sharex=pressure_ax)
         methane_ax.set_title("Methane Concentration")
         methane_ax.set_ylabel("Concentration (ppm)")
         methane_ax.grid(True)
         # methane_ax.set_ylim(ymin, ymax)  # TODO: Methane y-limits?
 
         # UV Intensity
-        uv_ax = self.fig.add_subplot(313)
+        uv_ax = self.fig.add_subplot(313, sharex=pressure_ax)
         uv_ax.set_title("UV Intensity")
-        uv_ax.set_ylabel("Irradiance (unit)")
+        uv_ax.set_xlabel("Time (min:sec)")
+        uv_ax.set_ylabel(r'Irradiance (mW / c$^2$)')
         uv_ax.grid(True)
         # uv_ax.set_ylim(ymin, ymax)  # TODO: UV y-limits?
 
@@ -77,6 +78,15 @@ class GraphArea(QtGui.QWidget):
                 elif s.name == 'uv':
                     uv_ax.plot_date(x=t, y=measure, label=s.text(), mew=0)  # TODO: Color
 
+        fmt = mdates.DateFormatter('%M:%S')
+        pressure_ax.xaxis.set_major_formatter(fmt)
+        methane_ax.xaxis.set_major_formatter(fmt)
+        uv_ax.xaxis.set_major_formatter(fmt)
+
+        self.fig.autofmt_xdate(rotation=15)
+        self.fig.set_tight_layout(True)
+        self.canvas.draw()
+
     def graph_temp_humid(self, sensors):
         self.fig.clf()
 
@@ -84,14 +94,14 @@ class GraphArea(QtGui.QWidget):
         temp_ax.set_title("Temperature")
         temp_ax.set_ylabel("Temperature (Celsius)")
         temp_ax.grid(True)
-        temp_ax.set_ylim(0, 50)
+        # temp_ax.set_ylim(0, 50)
 
         humid_ax = self.fig.add_subplot(212, sharex=temp_ax)
         humid_ax.set_title("Humidity")
         humid_ax.set_xlabel("Time (min:sec)")
         humid_ax.set_ylabel("Water Content (%)")
         humid_ax.grid(True)
-        humid_ax.set_ylim(0, 100)
+        # humid_ax.set_ylim(0, 100)
 
         for s in sensors:
             if len(np.array(s.data)) > 0:  # skip sensors with no readings*
@@ -116,9 +126,15 @@ class GraphArea(QtGui.QWidget):
         wavelength_f = []
         intensity_f = []
         for i in range(len(wavelength)):
-            wavelength_f.append(float(wavelength[i]))
+            try:
+                wavelength_f.append(float(wavelength[i]))
+            except ValueError:  # If the given file has a header this will be thrown. Skips any line of text.
+                pass
         for i in range(len(intensity)):
-            intensity_f.append(float(intensity[i]))
+            try:
+                intensity_f.append(float(intensity[i]))
+            except ValueError:  # If the given file has a header this will be thrown. Skips any line of text.
+                pass
         self.fig.clf()
         spectro_plot = self.fig.add_subplot(1, 1, 1)
         spectro_plot.set_title("Spectral Response")

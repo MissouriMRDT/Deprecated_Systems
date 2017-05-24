@@ -26,6 +26,10 @@ class StartQT4(QtGui.QMainWindow):
                             Sensor(reading_type='soil', name='soil_temp'),
                             Sensor(reading_type='soil', name='soil_humid')]
 
+        self.air_sensors = list(filter(lambda x: x.type == 'air', self.sensor_list))
+        self.soil_sensors = list(filter(lambda x: x.type == 'soil', self.sensor_list))
+        self.weather_sensors = list(filter(lambda x: x.type == 'weather', self.sensor_list))
+
         # Main Window information
         QtGui.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
@@ -50,6 +54,7 @@ class StartQT4(QtGui.QMainWindow):
         importButton = QtGui.QPushButton("Import", centralWidget)
         fileBrowseButton = QtGui.QPushButton("Browse", centralWidget)
 
+        # Add widgets in left->right order
         inputFrame.addWidget(self.fileInput)
         inputFrame.addWidget(importButton)
         inputFrame.addWidget(fileBrowseButton)
@@ -60,7 +65,7 @@ class StartQT4(QtGui.QMainWindow):
         displayFrame.setMargin(11)
         displayFrame.setSpacing(6)
 
-        # Contains a tab for each type of graph. Will eventually contain tabs for additional info (i.e. pictures)
+        # Contains a tab for each type of graph, and other displayed information (e.g. pictures)
         self.graphTabs = QtGui.QTabWidget()
 
         # Soil Temperature and Humidity
@@ -103,17 +108,19 @@ class StartQT4(QtGui.QMainWindow):
         filename = self.fileInput.text()
         if os.path.isfile(filename):
             if filename != self.current_file:
-                if filename.lower().endswith('.csv'):
+                if filename.lower().endswith('.csv') or filename.lower().endswith('.dat'):
                     # Assuming basic temp/humid.
-                    self.parsecsv(filename)
-                    self.current_file = filename
-                    if self.csv_type == "basic":
-                        self.soilGraph.graph_temp_humid(self.soil_sensors)
-                        self.airGraph.graph_temp_humid(self.air_sensors)
-                        self.weatherGraph.graph_weather(self.weather_sensors)
-                    elif self.csv_type == "spectrometer":
-                        self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
-                        self.graphTabs.setCurrentWidget(self.spectrometerGraph)
+                    print(filename)
+                    if self.parsecsv(filename):
+                        self.current_file = filename
+                        if self.csv_type == "basic":
+                            self.soilGraph.graph_temp_humid(self.soil_sensors)
+                            self.airGraph.graph_temp_humid(self.air_sensors)
+                            self.weatherGraph.graph_weather(self.weather_sensors)
+                            self.graphTabs.setCurrentWidget(self.soilGraph)
+                        elif self.csv_type == "spectrometer":
+                            self.spectrometerGraph.graph_spectrometer(self.spectrometer_data)
+                            self.graphTabs.setCurrentWidget(self.spectrometerGraph)
                 elif any([filename.lower().endswith(x) for x in ['.png', '.jpeg', '.jpg']]):
                     self.showpicture(filename)
                     self.graphTabs.setCurrentWidget(self.picture_tab)
@@ -144,25 +151,22 @@ class StartQT4(QtGui.QMainWindow):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.
             Places data in relevant data store. """
 
+        print("Parse: %s" % csv_name)
+
         # Easy dictionary conversion from RED standard sensor identifier to more readable names
-        sensor_ids = {'Sensor1': 'air_temp',
-                      'Sensor2': 'soil_temp',
-                      'Sensor3': 'air_humid',
-                      'Sensor4': 'soil_humid',
-                      'Sensor5': 'uv',
-                      'Sensor6': 'pressure',
-                      'Sensor7': 'methane'}
+        sensor_ids = {'Sensor00': 'air_temp',
+                      'Sensor01': 'soil_temp',
+                      'Sensor02': 'air_humid',
+                      'Sensor03': 'soil_humid',
+                      'Sensor04': 'uv',
+                      'Sensor05': 'pressure',
+                      'Sensor06': 'methane'}
 
         try:
             with open(csv_name, 'r') as csvfile:
                 reader = csv.reader(csvfile, delimiter=' ')
-                # check header for Spectrometer or Temp/Humid readings.
-                # Assuming Temp/Humid
-                header = next(reader)
-                if header == ['datetime', 'sensor', 'measurement']:
-                    self.csv_type = "basic"
-                elif header == ["wavelength", "intensity"]:
-                    self.csv_type = "spectrometer"
+
+                self.csv_type = None
 
                 # Clear old data so plots don't overlap
                 for s in self.sensor_list:
@@ -170,6 +174,15 @@ class StartQT4(QtGui.QMainWindow):
 
                 for row in reader:
                     try:
+                        # On first line, determine type of readings from number of columns
+                        # Note: I hate that we don't use CSV headers but I don't write the generator for it.
+                        #       This breaks as soon as we introduce data files with a header line because lazy.
+                        if self.csv_type is None:
+                            if len(row) == 3:
+                                self.csv_type = "basic"
+                            else:  # len(row) == 2:
+                                self.csv_type = "spectrometer"
+
                         if self.csv_type == "basic":
                             datestamp, sid, raw_data = row
                             s = next(filter(lambda x: x.name == sensor_ids[sid], self.sensor_list))
@@ -179,10 +192,16 @@ class StartQT4(QtGui.QMainWindow):
                             if type(wavelength) != 'str' and type(intensity) != 'str':
                                 self.spectrometer_data.append((wavelength, intensity))
                     except StopIteration:
-                        pass
+                        return True
+                    except KeyError:
+                        self.showdialogue("KeyError: CSV could not be parsed properly because a sensor name did not "
+                                          "match. Check format of file.")
+                        return False
+            return True
 
         except FileNotFoundError:
             self.showdialogue("Error 404: Could not find file %s" % csv_name)
+            return False
 
     @staticmethod
     def showdialogue(errormessage):

@@ -45,6 +45,9 @@
 #define ID_CAMERA_MENU 1569
 #define ID_GIMBAL2_SPEED 1553
 
+#define CARABINER_OPEN 1616
+#define CARABINER_CLOSE 1617
+
 #define OPEN_DROP_BAY 1584
 #define CLOSE_DROP_BAY 1585
 
@@ -59,9 +62,11 @@
 // bools for use of gimbals (writing to unused Dynamixels results in program hangs)
 #define USE_GIMB1 true
 #define USE_GIMB2 true
+#define USE_CARABINER true
 
 Dynamixel gimb1_hor, gimb1_vert;
 Dynamixel gimb2_hor, gimb2_vert;
+Dynamixel carabiner;
 
 uint16_t dataID = 0;
 size_t size = 0;
@@ -90,6 +95,11 @@ void setup() {
     DynamixelSetMode(gimb2_vert, Wheel);
     blink(5, gimb2_hor);
     blink(5, gimb2_vert);
+  }
+
+  if (USE_CARABINER){
+    DynamixelInit(&carabiner, AX, 3, DYN1_SER, DYNA_BAUD);
+    DynamixelSetMode(carabiner, Joint);
   }
 
   // set camera control pins to output
@@ -169,6 +179,9 @@ void loop()
       {
         moveDynamixel(gimb2_hor,  0);
         moveDynamixel(gimb2_vert, 0);
+      }
+      if (USE_CARABINER){
+        moveDynamixel(carabiner, 0);
       }
     }
     delay(1);
@@ -253,6 +266,16 @@ boolean roveCommCheck()
         else if(tmp==4){
           navigateMenuDown();
         }
+        break;
+
+      case CARABINER_OPEN:
+        if (USE_CARABINER)
+          moveDynamixel(carabiner, 100);
+        break;
+
+      case CARABINER_CLOSE:
+        if (USE_CARABINER)
+          moveDynamixel(carabiner, -100);
         break;
 
       case ID_CAMERA_COMMAND:

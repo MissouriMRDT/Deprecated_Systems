@@ -50,6 +50,7 @@
 
 #define OPEN_DROP_BAY 1584
 #define CLOSE_DROP_BAY 1585
+#define LED_CHANGE_COLOR 2320
 
 #define GREEN 75
 #define BLUE  76
@@ -130,7 +131,7 @@ void setup() {
   digitalWrite(BLUE, LOW);
 
   // pulse testing
-  pulse(0,255,0,3);
+  //pulse(0,255,0,3);
 
   delay(100);
 
@@ -295,6 +296,9 @@ boolean roveCommCheck()
         else if(tmp==4){
           focusOut();
         }
+        break;
+      case LED_CHANGE_COLOR:
+        setLEDColor(data[0], data[1], data[2]);
         break;
     }
     return true;

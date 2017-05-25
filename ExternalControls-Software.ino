@@ -45,8 +45,7 @@
 #define ID_CAMERA_MENU 1569
 #define ID_GIMBAL2_SPEED 1553
 
-#define CARABINER_OPEN 1616
-#define CARABINER_CLOSE 1617
+#define CARABINER_CONTROL 1616
 
 #define OPEN_DROP_BAY 1584
 #define CLOSE_DROP_BAY 1585
@@ -68,6 +67,9 @@
 Dynamixel gimb1_hor, gimb1_vert;
 Dynamixel gimb2_hor, gimb2_vert;
 Dynamixel carabiner;
+
+const uint16_t CARABINER_OPEN_SPEED = 1000;
+const uint16_t CARABINER_CLOSE_SPEED = 1074;
 
 uint16_t dataID = 0;
 size_t size = 0;
@@ -91,7 +93,7 @@ void setup() {
  }
   if(USE_GIMB2){
     DynamixelInit(&gimb2_hor,  AX, HOR_CAM_2, GIMB2_SER, DYNA_BAUD);
-    DynamixelInit(&gimb2_vert, AX, VERT_CAM_2, GIMB2_SER, DYNA_BAUD);
+    DynamixelInit(&gimb2_vert, MX, VERT_CAM_2, GIMB2_SER, DYNA_BAUD);
     DynamixelSetMode(gimb2_hor, Wheel);
     DynamixelSetMode(gimb2_vert, Wheel);
     blink(5, gimb2_hor);
@@ -100,7 +102,7 @@ void setup() {
 
   if (USE_CARABINER){
     DynamixelInit(&carabiner, AX, 3, DYN1_SER, DYNA_BAUD);
-    DynamixelSetMode(carabiner, Joint);
+    DynamixelSetMode(carabiner, Wheel);
   }
 
   // set camera control pins to output
@@ -269,14 +271,17 @@ boolean roveCommCheck()
         }
         break;
 
-      case CARABINER_OPEN:
-        if (USE_CARABINER)
-          moveDynamixel(carabiner, 100);
-        break;
-
-      case CARABINER_CLOSE:
-        if (USE_CARABINER)
-          moveDynamixel(carabiner, -100);
+      case CARABINER_CONTROL:
+        if (USE_CARABINER) {
+          Serial.println(*(int16_t*)(data));
+          if (*(int16_t*)(data) = 0)
+            DynamixelSpinWheel(carabiner,0);
+          else if (*(int16_t*)(data) > 0){
+            DynamixelSpinWheel(carabiner,CARABINER_OPEN_SPEED);
+          }
+          else if (*(int16_t*)(data) < 0)
+            DynamixelSpinWheel(carabiner,CARABINER_CLOSE_SPEED);
+        }
         break;
 
       case ID_CAMERA_COMMAND:

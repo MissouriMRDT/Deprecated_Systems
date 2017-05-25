@@ -1,7 +1,8 @@
 clc; clear all; close all;
 
 path = '\\minerfiles.mst.edu\dfs\users\krbzhb\Desktop\Science Data\';
-file = 'REDSpectrometerData20170522T192836';
+file = 'REDSpectrometerData20170523T223817';
+file1 = 'REDSpectrometerData20170523T235435';
 ext = '.dat';
 
 lookup = [path file ext];
@@ -29,7 +30,7 @@ title('Diode 1');
 subplot(2,1,2);
 plot(diode2);
 title('Diode 2');
-
+return;
 %-------------------------------------------
 FMAX = 800; %Max optical frequency in nm
 FMIN = 400;
@@ -128,7 +129,6 @@ recovered_timestamp = zeros(size(calib_sampled));
 last_pos = FMIN;
 pl = subplot(5,1,5);
 
-return;
 for idx=1:length(calib_sampled)
   delete(pl);
   pl = subplot(5,1,5);

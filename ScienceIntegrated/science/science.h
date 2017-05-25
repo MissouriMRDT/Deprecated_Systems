@@ -20,25 +20,25 @@ typedef enum ScienceCommands
 {
   sensorAllEnable=0,
   sensorAllDisable=1,
-  sensor1Enable=2,
-  sensor1Disable=3,
-  sensor2Enable=4,
-  sensor2Disable=5,
-  sensor3Enable=6,
-  sensor3Disable=7,
-  sensor4Enable=8,
-  sensor4Disable=9,
-  sensor5Enable=10,
-  sensor5Disable=11,
-  sensor6Enable=12,
-  sensor6Disable=13,
-  sensor7Enable=14,
-  sensor7Disable=15,
-  laserOn=16,
-  laserOff=17,
-  flapOpen=18,
-  flapClose=19,
-  spectro=20
+  sensor0Enable=16,
+  sensor0Disable=17,
+  sensor1Enable=18,
+  sensor1Disable=19,
+  sensor2Enable=20,
+  sensor2Disable=21,
+  sensor3Enable=22,
+  sensor3Disable=23,
+  sensor4Enable=24,
+  sensor4Disable=25,
+  sensor5Enable=26,
+  sensor5Disable=27,
+  sensor6Enable=28,
+  sensor6Disable=29,
+  laserOn=2,
+  laserOff=3,
+  flapOpen=4,
+  flapClose=5,
+  spectro=6
     
 } ScienceCommands;
 
@@ -48,10 +48,9 @@ typedef enum SensorDataIDs
  soil_temperature_ID = 0x721,
  air_humidity_ID = 0x722,
  soil_humidity_ID = 0x723,
- UV_intensity_ID = 0x729,
- pressure_ID = 0x72A,
- methane_ID = 0x728,
- sensor9_ID = 0x72D 
+ UV_intensity_ID = 0x724,
+ pressure_ID = 0x725,
+ methane_ID = 0x726,
 }SensorDataIDs;
 
 
@@ -64,7 +63,7 @@ uint8_t spectro_motor_in_1 = PM_5;
 uint8_t spectro_motor_in_2 = PB_3;
 uint8_t flapPin = PL_0;
 uint8_t carouselPin = PL_2;
-int car_positions[5] = {0, 36, 108, 144, 180};
+int car_positions[5] = {15, 55, 90, 144, 170};
 
 
 uint8_t laserPin = 46; // PD_5

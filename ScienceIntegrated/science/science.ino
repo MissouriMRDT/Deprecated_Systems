@@ -72,6 +72,7 @@ void setup() {
   pinMode(soilMoisturePin, INPUT);
   
   Serial.println("Initialized!");
+  closeFlap();
   }
 
 
@@ -93,7 +94,7 @@ void loop() {
     Serial.println(commandData);
     Serial.println(commandSize);
     Serial.println("");
-  
+    
      //Checks the value of the command, and if applicable, executes it
      if(commandId == ScienceCommand)
      {
@@ -101,7 +102,8 @@ void loop() {
         case sensorAllEnable:
           for(int i=0;i<7;i++)
             {
-              sensor_enable[i]=true;
+              if(i!=1||i!=3)
+                 sensor_enable[i]=true;
             }
             break;
         case sensorAllDisable:
@@ -110,46 +112,46 @@ void loop() {
               sensor_enable[i]=false;
             }
             break;
-        case sensor1Enable:
+        case sensor0Enable:
           sensor_enable[0]=true;
           break;
-        case sensor1Disable:
+        case sensor0Disable:
           sensor_enable[0]=false;
           break;
-        case sensor2Enable:
+        case sensor1Enable:
           sensor_enable[1]=true;
           break;
-        case sensor2Disable:
+        case sensor1Disable:
           sensor_enable[1]=false;
           break;
-        case sensor3Enable:
+        case sensor2Enable:
           sensor_enable[2]=true;
           break;
-        case sensor3Disable:
+        case sensor2Disable:
           sensor_enable[2]=false;
           break;
-        case sensor4Enable:
+        case sensor3Enable:
           sensor_enable[3]=true;
           break;
-        case sensor4Disable:
+        case sensor3Disable:
           sensor_enable[3]=false;
           break;
-        case sensor5Enable:
+        case sensor4Enable:
           sensor_enable[4]=true;
           break;
-        case sensor5Disable:
+        case sensor4Disable:
           sensor_enable[4]=false;
           break;
-        case sensor6Enable:
+        case sensor5Enable:
           sensor_enable[5]=true;
           break;
-        case sensor6Disable:
+        case sensor5Disable:
           sensor_enable[5]=false;
           break;
-        case sensor7Enable:
+        case sensor6Enable:
           sensor_enable[6]=true;
           break;
-        case sensor7Disable:
+        case sensor6Disable:
           sensor_enable[6]=false;
           break;
         case laserOn:
@@ -228,20 +230,21 @@ void loop() {
       float temp = instantSoilHumidity();
       roveComm_SendMsg(soil_humidity_ID, sizeof(temp), &temp);
      }
-     if(sensor_enable[4]) //Methane
-     {
-      float temp = instantMethane();
-      roveComm_SendMsg(methane_ID, sizeof(temp), &temp);
-     }
-     if(sensor_enable[5]) //UV Intensity
+     if(sensor_enable[4]) //UVIntensity
      {
       float temp = instantUV();
       roveComm_SendMsg(UV_intensity_ID, sizeof(temp), &temp);
+      
      }
-     if(sensor_enable[6]) //Pressure
+     if(sensor_enable[5]) //Pressure
      {
       float temp = instantPressure();
       roveComm_SendMsg(pressure_ID, sizeof(temp), &temp);
+     }
+     if(sensor_enable[6]) //Methane
+     {
+      float temp = instantMethane();
+      roveComm_SendMsg(methane_ID, sizeof(temp), &temp);
      }
   }//end if millis, send sensor data
 
@@ -268,7 +271,6 @@ void spectrometer()
      delay(5000);
      //turn on laser
      turnOnLaser();   
-     //laser is on, motor should still be going?
      //keep laser and motor on for 30s
      int timer = 0;
      //loop takes analog readings 
@@ -327,7 +329,7 @@ void spectrometer()
      spectroMotorReverse();
      
      //wait 35s for motor to return
-     delay(35000);
+     delay(30000);
      
      //stop motor again
      spectroMotorOff();
@@ -371,7 +373,7 @@ void openFlap()
 {
   Serial.println("Opening flap.");
   //Flap should open as it goes away from 180
-  flap.write(0);
+  flap.write(20);
   //flap.writeMicroseconds(1);
   //delay(5000);//Delay to let servo catch up
   return;
@@ -382,7 +384,7 @@ void closeFlap()
 {
   Serial.println("Closing flap.");
   //Flap should close at 180
-  flap.write(90);
+  flap.write(170);
   //flap.writeMicroseconds(2);
   //delay(5000);//Delay to let servo catch up
   return;
@@ -469,10 +471,11 @@ void spectroMotorOff()
 //Returns one soil temperature reading
 float instantSoilTemp()
 {
-  const int analogRes = 4095;
-  float voltage = (analogRead(soilTempPin) * 5 / analogRes);
-  float degC = (voltage - 0.5) * 100.0;
-  return degC;
+  //const int analogRes = 4095;
+  //float voltage = (analogRead(soilTempPin) * 5 / analogRes);
+  //float degC = (voltage - 0.5) * 100.0;
+  //float degC = -1.0;
+  //return degC;
 }
 
 //Returns one air temperature reading
@@ -480,9 +483,12 @@ float instantAirTemp()
 {
   const int analogRes = 4095;
   float voltage = analogRead(airTempPin) * 5;
+  Serial.print("voltage:");Serial.print(voltage);Serial.print("\n");
   voltage = voltage / analogRes;
-  float degC = (voltage - 0.5) * 100.0;
+  //float degC = (voltage - 0.5) * 100.0;
+  float degC = voltage * 100.0;
   float degF = (degC * 1.8) + 32;
+  Serial.print("TempF:");Serial.print(degF);Serial.print("\n");
   return degF;
 }
 
@@ -495,6 +501,7 @@ float instantUV()
   int reading = analogRead(UVPin);
   float outputVoltage = (reading * 3.3333) / 4095;
   float uvInten = mapfloat(outputVoltage, UV_in_min, UV_in_max, UV_out_min, UV_out_max); // these values defined in config.h
+  Serial.print("UV:"); Serial.print(uvInten); Serial.print("\n");
   return uvInten;
 }
 
@@ -519,9 +526,10 @@ float instantAirHumidity()
 //Returns one reading of the soil humidity
 float instantSoilHumidity()
 {
-  int reading = analogRead(soilMoisturePin);
-  float voltage = ((reading * 5.0) / 4095);
-  return voltage; //returning raw voltage for now
+  //int reading = analogRead(soilMoisturePin);
+  //float voltage = ((reading * 5.0) / 4095);
+  //float voltage = -1.0;
+  //return voltage; //returning raw voltage for now
                   //TODO: convert to measurement of moisture
 }
 
@@ -530,6 +538,7 @@ float instantMethane()
 {
   int reading = analogRead(methanePin);
   float voltage = (reading * 5.0) / 4095.0;
+  Serial.print("methane data:"); Serial.print(voltage); Serial.print("\n");
   return voltage;
   //TODO: convert voltage to measurement of methane
 }
@@ -541,6 +550,7 @@ float instantPressure()
   //PSensor.calculate();
   //float pressure = (PSensor.pressure + 50) / 100;
   int pressure = 99;
+  Serial.print("Pressure:");Serial.print(pressure);Serial.print("\n");
   return pressure;
   //TODO: adjust this conversion? current unit is hPa
   //TODO: this sensor only works on pins configuerd for I2C

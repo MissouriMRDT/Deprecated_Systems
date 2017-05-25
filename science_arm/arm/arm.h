@@ -19,8 +19,8 @@ typedef enum CommmandID
 
 typedef enum DataID
 {
-  ScienceSoilTemp = 0x72B,
-  ScienceSoilMoisture = 0x72C
+  ScienceSoilTemp = 0x727,
+  ScienceSoilMoisture = 0x728
 } DataID;
 
 typedef enum ArmDrive
@@ -39,9 +39,9 @@ typedef enum DrillDrive
 
 typedef enum SoilSensor
 {
-  temp_ON = 30,
+  temp_ON = 30,//sensor 7
   temp_OFF = 31,
-  moisture_ON = 32,
+  moisture_ON = 32,//sensor 8
   moisture_OFF = 33
 }SoilSensor;
 

@@ -3,9 +3,13 @@ clc; clear all; close all;
 path = '\\minerfiles.mst.edu\dfs\users\krbzhb\Desktop\Science Data\';
 file = 'REDSpectrometerData20170523T223817';
 file1 = 'REDSpectrometerData20170523T235435';
+file2 ='REDSpectrometerData20170525T232604';
+file3 = 'REDSpectrometerData20170525T233110';
+file4 = 'REDSpectrometerData20170525T233107';
+file5 = 'REDSpectrometerData20170526T003319';
 ext = '.dat';
 
-lookup = [path file ext];
+lookup = [path file5 ext];
 fid = fopen(lookup);
 data1=textscan(fid, '%s');
 fclose(fid);
@@ -47,7 +51,7 @@ cal_max2 = max(diode1);
 cal_min2= min(diode1);
 amplitude2 = (cal_max2 - cal_min2)/2;
 calib_ref = amplitude*(sin((f_ref + 50) /20)) / 2 + avg;
-calib_ref1 = amplitude2*(sin((f_ref + 50) /5.5)) / 2 + avg2;
+calib_ref1 = amplitude2*(sin((f_ref + 50) /12)) / 2 + avg2;
 
 
 ideal_signal = diode2;

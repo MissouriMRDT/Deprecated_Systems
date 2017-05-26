@@ -55,7 +55,7 @@ plot(f_ref, ideal_signal, 'r');
 legend('Calibration Signal', 'Sample Spectra');
 xlabel('wavelength / Slide Position (nm)');
 ylabel('Amplitude');
-return;
+
 %--------------------------------------
 % Generate "Jumpy" sample points. 
 % Slide generally advances in halting jumps, with 
@@ -137,7 +137,7 @@ for idx=1:length(signal_observed)%1-501
   % Find the nearest point to the last one
   % where the simulated calibration signal 
   % matches our observed calibration signal
-  loc = find_nearest(calib_sampled(idx), signal_observed, last_pos, 5, 50);
+  loc = find_nearest(calib_sampled(idx), calib_ref, last_pos, 2, 50);
   recovered_timestamp(idx) = f_ref(loc);
   last_pos = loc;
   if loc > last_pos; last_pos = loc; end;

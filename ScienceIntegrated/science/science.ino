@@ -206,9 +206,6 @@ void loop() {
      {
       sensorTestData = 100.0;
       float temp = instantAirTemp();
-      Serial.print("MAIN__temp data received: ");
-      Serial.print(temp);
-      Serial.print("\n");
       roveComm_SendMsg(air_temperature_ID, sizeof(temp), &temp); 
      }
      if(sensor_enable[1]) //Soil Temp
@@ -220,9 +217,6 @@ void loop() {
      {
       sensorTestData = 101.0;
       float airHum = instantAirHumidity();
-      Serial.print("MAIN__humidity data received: ");
-      Serial.print(airHum);
-      Serial.print("\n");
       roveComm_SendMsg(air_humidity_ID, sizeof(airHum), &airHum);
      }
      if(sensor_enable[3]) //Soil Humidity
@@ -329,7 +323,7 @@ void spectrometer()
      spectroMotorReverse();
      
      //wait 35s for motor to return
-     delay(30000);
+     delay(40000);
      
      //stop motor again
      spectroMotorOff();
@@ -485,9 +479,8 @@ float instantAirTemp()
   float voltage = analogRead(airTempPin) * 5;
   Serial.print("voltage:");Serial.print(voltage);Serial.print("\n");
   voltage = voltage / analogRes;
-  //float degC = (voltage - 0.5) * 100.0;
-  float degC = voltage * 100.0;
-  float degF = (degC * 1.8) + 32;
+  float degC = (voltage - 0.5) * 100.0;
+  float degF = (degC * 1.8)+32;
   Serial.print("TempF:");Serial.print(degF);Serial.print("\n");
   return degF;
 }
@@ -516,10 +509,15 @@ float mapfloat(float x, float in_min, float in_max, float out_min, float out_max
 float instantAirHumidity()
 {
   int reading = analogRead(airHumidityPin);
+  Serial.print("reading:");Serial.print(reading);Serial.print("\n");
   int max_voltage = 5;
-  float RH = ((((reading/1023)*5)-0.8)/max_voltage)*100;
-  Serial.print("air humidity: "); Serial.print(RH);
-  Serial.print(" data: "); Serial.print(reading); Serial.print("\n");
+  float RH = reading/1023;
+  RH=RH*5;
+  RH=RH-2.4;
+  RH=RH/max_voltage;
+  Serial.print(" data: "); Serial.print(RH); Serial.print("\n");
+  RH=RH*100;
+  Serial.print("air humidity: "); Serial.print(RH); Serial.print("\n");
   return RH;  
 }
 

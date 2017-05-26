@@ -63,7 +63,7 @@ uint8_t spectro_motor_in_1 = PM_5;
 uint8_t spectro_motor_in_2 = PB_3;
 uint8_t flapPin = PL_0;
 uint8_t carouselPin = PL_2;
-int car_positions[5] = {15, 55, 90, 144, 170};
+int car_positions[5] = {15, 55, 90, 125, 165};
 
 
 uint8_t laserPin = 46; // PD_5

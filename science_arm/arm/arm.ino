@@ -310,14 +310,9 @@ float instantSoilTemp()
   const int analogRes = 4095;
   float voltage = analogRead(tempPin) * 5;
   voltage = voltage / analogRes;
-  float degC = (voltage - 0.5) * 100.0;
-  float degF = (degC * 1.8) + 32;
-  Serial.print("soil temp sensor read val celsius: ");
-  Serial.print(degC);
-  Serial.print("\n");
-  Serial.print("soil temp sensor read val farenheit: ");
-  Serial.print(degF);
-  Serial.print("\n");
+  float degC = (voltage - 0.75) * 100.0;
+  float degF = (degC * 1.8)+32;
+  Serial.print("soil temp sensor read val farenheit: "); Serial.print(degF);Serial.print("\n");
   Serial.print("raw temp data = ");
   Serial.print(analogRead(tempPin));
   Serial.print("\n");
@@ -331,10 +326,17 @@ float instantSoilTemp()
 float instantSoilHumidity()
 {
   int reading = analogRead(moistPin);
+  Serial.print(reading);Serial.print("\n");
   float voltage = ((reading * 5.0) / 4095);
+  float hum=voltage*31.646;
+  hum=hum-26.58;
+  if (hum > 100)
+  {
+    hum=100;
+  }
   Serial.print("soil moisture sensor value read: ");
-  Serial.print(voltage);
+  Serial.print(hum);
   Serial.print("\n");
-  return voltage; //returning raw voltage for now
+  return hum; //returning raw voltage for now
                   //TODO: convert to measurement of moisture
 }

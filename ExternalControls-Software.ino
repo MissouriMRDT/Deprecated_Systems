@@ -273,12 +273,10 @@ boolean roveCommCheck()
 
       case CARABINER_CONTROL:
         if (USE_CARABINER) {
-          Serial.println(*(int16_t*)(data));
-          if (*(int16_t*)(data) = 0)
+          if (*(int16_t*)(data) == 0)
             DynamixelSpinWheel(carabiner,0);
-          else if (*(int16_t*)(data) > 0){
+          else if (*(int16_t*)(data) > 0)
             DynamixelSpinWheel(carabiner,CARABINER_OPEN_SPEED);
-          }
           else if (*(int16_t*)(data) < 0)
             DynamixelSpinWheel(carabiner,CARABINER_CLOSE_SPEED);
         }

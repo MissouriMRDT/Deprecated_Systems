@@ -217,6 +217,8 @@ boolean roveCommCheck()
           a[1] = data[3];
           ySpeed = *(int16_t*)(a);
 
+          ySpeed = map(ySpeed, -1000, 1000, 1000, -1000);
+
           moveDynamixel(gimb1_hor,  xSpeed);
           moveDynamixel(gimb1_vert, ySpeed);
         }
@@ -232,6 +234,9 @@ boolean roveCommCheck()
           a[0] = data[2];
           a[1] = data[3];
           ySpeed = *(int16_t*)(a);
+
+          xSpeed = map(xSpeed, -1000, 1000, -300, 300);
+          ySpeed = map(ySpeed, -1000, 1000, -150, 150);
 
           moveDynamixel(gimb2_hor,  xSpeed);
           moveDynamixel(gimb2_vert, ySpeed);

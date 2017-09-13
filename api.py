@@ -143,8 +143,8 @@ def soil_humidity():
 @api.route('/weather/', methods=['GET'])
 def weather():
     weather_dict = {
-        "temperature": __fetch_specific_readings('weather_temperature'),
-        "humidity": __fetch_specific_readings('weather_humidity'),
+        "temperature": __fetch_specific_readings('air_humidity'),
+        "humidity": __fetch_specific_readings('air_humidity'),
         "pressure": __fetch_specific_readings('air_pressure'),
         "methane": __fetch_specific_readings('methane'),
         "uv": __fetch_specific_readings('ultraviolet')
@@ -154,11 +154,11 @@ def weather():
 # Only use on historical database
 @api.route('/weather/temperature/', methods=['GET'])
 def weather_temperature():
-    return json.dumps(__fetch_specific_readings('weather_temperature'))
+    return json.dumps(__fetch_specific_readings('air_temperature'))
     
 @api.route('/weather/humidity/', methods=['GET'])
 def weather_humidity():
-    return json.dumps(__fetch_specific_readings('weather_humidity'))
+    return json.dumps(__fetch_specific_readings('air_humidity'))
     
 @api.route('/weather/pressure/', methods=['GET'])
 def weather_pressure():

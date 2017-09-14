@@ -19,7 +19,7 @@ app.config.update({
 
 # Following line for eventual progression.
 # Separate configuration file loaded into envvar, then set
-app.config.from_envvar('ALEXANDRIA_SETTINGS', silent=True)
+app.config.from_envvar('ROVEDB_SETTINGS', silent=True)
 
 app.register_blueprint(api)
     

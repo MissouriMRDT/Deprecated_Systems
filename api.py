@@ -1,6 +1,8 @@
 import json
 import sys
 
+import traceback
+
 from flask import abort, Blueprint, current_app, Flask, request, jsonify
 
 from database import connect_db, close_db, init_db, get_db
@@ -50,29 +52,18 @@ def spectrometer_raw():
 # '{"username":"xyz","password":"xyz"}' '127.0.0.1:5000/spectrometer/processed/'
 @api.route('/spectrometer/processed/', methods=['GET', 'POST'])
 def spectrometer_processed():
-    if request.method == 'POST':
-        if request.is_json is not True:
-            abort(404)
-        print(request.get_json(), file=sys.stderr)
-        return('', 201)
-    else:
-        return json.dumps(__fetch_specific_readings('spectra_processed'))
-
-def holder():
     """ 
     GET returns only the readings and processed table, not the peaks. The use is
     to see which readings have processed spectra, and their waveforms. Peaks can
     be requested through a separate endpoint for individual spectra.
     """  # TODO: Could make this just return the peaks on its own but, ehh...
     if request.method == 'POST':
-        print(request.is_json, file=sys.stderr)
         if request.is_json is not True:
             abort(404)
-        body = request.get_json()
-        print(body, file=sys.stderr)
-        if not (body["data"] and body["peaks"] and body["reading"]):
+        post_json = request.get_json()
+        if not (post_json["data"] and post_json["reading"] and post_json["peaks"]):
             abort(400)
-        insert_processed_spectra(body)
+        insert_processed_spectra(post_json)
         return('', 201)
     else:
         return json.dumps(__fetch_specific_readings('spectra_processed'))
@@ -92,32 +83,39 @@ def spectrometer_peaks(rid):
 def insert_processed_spectra(obj):
     db = get_db()
     try:
-        # TODO: figure out how to store list. Either serialize or store as table        
-        db.execute("""
-            INSERT INTO 
+        def value_generator():
+            for idx in range(len(obj["data"])):
+                yield (obj["reading"], idx, obj["data"][idx])
+        
+        db.executemany("""
+            INSERT INTO
                 spectra_processed
-                (reading, measurement)
-            VALUES (?, ?)
-        """, [obj["reading"], obj["data"]])
+                (rid, arr_idx, measurement)
+            VALUES
+                (?, ?, ?)
+        """, value_generator())
         
         peak_entries = [{
             "spectra": obj["reading"],
             "center": peak["center"],
             "amplitude": peak["amplitude"],
             "fwhm": peak["fwhm"],
-            "tag": peak["tag"]
+            "tag": peak["tag"],
+            "tag_key": ''.join(e for e in peak["tag"] if e.isalnum()).upper()
         } for peak in obj["peaks"]]
         
         db.executemany("""
             INSERT INTO
                 spectra_peaks
-                (spectra, center, amplitude, tag, fwhm)
+                (rid, center, amplitude, tag, tag_key, fwhm)
             VALUES 
-                (:spectra_p, :center_p, :amplitude_p, :tag, :fwhm)
+                (:spectra, :center, :amplitude, :tag, :tag_key, :fwhm)
         """, peak_entries)
         
         db.commit()
-    except Exception:
+    except Exception as e:
+        print(e, file=sys.stderr)
+        traceback.print_exc()
         abort(422)
 
     

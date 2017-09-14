@@ -22,6 +22,8 @@ def init_db():
     # Execute `schema.sql` file on database
     with current_app.open_resource('schema.sql', mode='r') as f:
         db.cursor().executescript(f.read())
+    with current_app.open_resource('datatypes.sql', mode='r') as f:
+        db.cursor().executescript(f.read())
     db.commit()
     
     

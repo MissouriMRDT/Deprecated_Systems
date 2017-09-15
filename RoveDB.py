@@ -4,7 +4,7 @@ import os
 from flask import Flask
 
 from api import api, soil
-from database import close_db, get_db, init_db
+from database import close_db, gen_test_data, get_db, init_db
 
 
 app = Flask(__name__)
@@ -28,6 +28,12 @@ app.register_blueprint(api)
 def initdb_command():
     """ Initializes the database. """
     init_db()
+    
+@app.cli.command('gendata')
+def gendata_command():
+    """ Generates test data for the database. """
+    init_db()
+    gen_test_data()
     
     
 @app.teardown_appcontext

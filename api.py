@@ -1,6 +1,5 @@
 import json
 import sys
-
 import traceback
 
 from flask import abort, Blueprint, current_app, Flask, request, jsonify
@@ -18,7 +17,6 @@ api = Blueprint('api', __name__)
 def __fetch_results(query, params):
     db = get_db()
     cur = db.execute(query, params)
-
     rows_dict_list = [dict(row) for row in cur.fetchall()]
     return rows_dict_list
     
@@ -28,11 +26,14 @@ def __fetch_specific_readings(table):
     Gathers the readings for a specific table. Returns the results as a list of
     all entries, represented as a dictionary. 
     """
-    print(table, file=sys.stderr)
     db = get_db()
-    # TODO: Interpolation of table name stopped working
-    cur = db.execute('SELECT * FROM readings NATURAL JOIN %s' % table)
-
+    cur = db.execute("""
+        SELECT * 
+        FROM readings, %s
+        WHERE
+            readings.rid=%s.rid 
+    """ % (table, table))
+    
     rows_dict_list = [dict(row) for row in cur.fetchall()]
     return rows_dict_list
     
@@ -72,10 +73,12 @@ def spectrometer_processed():
 @api.route('/spectrometer/processed/peaks/<int:rid>', methods=['GET'])
 def spectrometer_peaks(rid):
     query = """
-        SELECT * FROM 
-        (SELECT * FROM readings WHERE rid=?) AS x
-        NATURAL JOIN spectra_processed
-        NATURAL JOIN spectra_peaks;
+        SELECT * 
+        FROM readings, spectra_processed, spectra_peaks
+        WHERE
+            readings.rid=?
+            AND readings.rid=spectra_processed.rid
+            AND spectra_peaks.rid=readings.rid
     """
     return json.dumps(__fetch_results(query, [rid]))
     
@@ -114,7 +117,6 @@ def insert_processed_spectra(obj):
         
         db.commit()
     except Exception as e:
-        print(e, file=sys.stderr)
         traceback.print_exc()
         abort(422)
 
@@ -125,14 +127,16 @@ def soil():
         "temperature": __fetch_specific_readings('soil_temperature'),
         "humidity": __fetch_specific_readings('soil_humidity')
     }
-    return json.dumps(soil_dict)  # TODO: fix SQL
+    return json.dumps(soil_dict)
 
+    
 # These can be hidden. /soil/ returns all.
 # Only use on historical database
 @api.route('/soil/temperature/', methods=['GET'])
 def soil_temperature():
     return json.dumps(__fetch_specific_readings('soil_temperature'))
 
+    
 @api.route('/soil/humidity/', methods=['GET'])
 def soil_humidity():
     return json.dumps(__fetch_specific_readings('soil_humidity'))
@@ -147,6 +151,7 @@ def weather():
         "methane": __fetch_specific_readings('methane'),
         "uv": __fetch_specific_readings('ultraviolet')
     }
+    return json.dumps(weather_dict)
 
 # These can be hidden. /weather/ returns all.
 # Only use on historical database

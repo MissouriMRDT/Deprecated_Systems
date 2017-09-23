@@ -31,26 +31,30 @@ def __fetch_specific_readings(table):
         SELECT * 
         FROM readings, %s
         WHERE
-            readings.rid=%s.rid 
+            readings.rid=%s.rid;
     """ % (table, table))
     
     rows_dict_list = [dict(row) for row in cur.fetchall()]
     return rows_dict_list
     
  
+ # TODO: How do front-end get corresponding RID to POST with data
 @api.route('/spectrometer/raw/', methods=['GET', 'POST'])    
 def spectrometer_raw():
     if request.method == 'POST':
         if request.is_json is not True:
             abort(404)
-        body = request.get_json()
-        raise NotImplementedError
+        post_json = request.get_json()
+        if not (post_json["data"] and post_json["reading"]):
+            abort(400)
+        insert_spectra(post_json)
+        return('', 201)
     else:
-        return json.dump(__fetch_specific_readings('spectra_raw'))
+        # TODO: Process data from database instead of shipping out direct
+        return json.dumps(__fetch_specific_readings('spectra_raw'))
     
-    
-# curl -H "Content-Type: application/json" -X POST -d \
-# '{"username":"xyz","password":"xyz"}' '127.0.0.1:5000/spectrometer/processed/'
+ 
+# TODO: How do front-end get corresponding RID to POST with data 
 @api.route('/spectrometer/processed/', methods=['GET', 'POST'])
 def spectrometer_processed():
     """ 
@@ -64,9 +68,10 @@ def spectrometer_processed():
         post_json = request.get_json()
         if not (post_json["data"] and post_json["reading"] and post_json["peaks"]):
             abort(400)
-        insert_processed_spectra(post_json)
+        insert_spectra(post_json, processed=True)
         return('', 201)
     else:
+        # TODO: Process data from database instead of shipping out direct
         return json.dumps(__fetch_specific_readings('spectra_processed'))
         
         
@@ -78,44 +83,44 @@ def spectrometer_peaks(rid):
         WHERE
             readings.rid=?
             AND readings.rid=spectra_processed.rid
-            AND spectra_peaks.rid=readings.rid
+            AND spectra_peaks.rid=readings.rid;
     """
     return json.dumps(__fetch_results(query, [rid]))
     
     
-def insert_processed_spectra(obj):
-    db = get_db()
+def insert_spectra(obj, processed=False):
+    def value_generator():
+        for idx in range(len(obj["data"])):
+            yield (obj["reading"], idx, obj["data"][idx])
+            
     try:
-        def value_generator():
-            for idx in range(len(obj["data"])):
-                yield (obj["reading"], idx, obj["data"][idx])
-        
+        db = get_db()
+        table = 'spectra_processed' if processed else 'spectra_raw'
         db.executemany("""
-            INSERT INTO
-                spectra_processed
-                (rid, arr_idx, measurement)
-            VALUES
-                (?, ?, ?)
-        """, value_generator())
+            INSERT INTO %s (rid, arr_idx, measurement)
+            VALUES (?, ?, ?);
+        """ % table, value_generator() )
         
-        peak_entries = [{
-            "spectra": obj["reading"],
-            "center": peak["center"],
-            "amplitude": peak["amplitude"],
-            "fwhm": peak["fwhm"],
-            "tag": peak["tag"],
-            "tag_key": ''.join(e for e in peak["tag"] if e.isalnum()).upper()
-        } for peak in obj["peaks"]]
-        
-        db.executemany("""
-            INSERT INTO
-                spectra_peaks
-                (rid, center, amplitude, tag, tag_key, fwhm)
-            VALUES 
-                (:spectra, :center, :amplitude, :tag, :tag_key, :fwhm)
-        """, peak_entries)
-        
+        if processed:
+            peak_entries = [{
+                "spectra": obj["reading"],
+                "center": peak["center"],
+                "amplitude": peak["amplitude"],
+                "fwhm": peak["fwhm"],
+                "tag": peak["tag"],
+                "tag_key": ''.join(e for e in peak["tag"] if e.isalnum()).upper()
+            } for peak in obj["peaks"]]
+            
+            db.executemany("""
+                INSERT INTO
+                    spectra_peaks
+                    (rid, center, amplitude, tag, tag_key, fwhm)
+                VALUES 
+                    (:spectra, :center, :amplitude, :tag, :tag_key, :fwhm)
+            """, peak_entries)
+            
         db.commit()
+        
     except Exception as e:
         traceback.print_exc()
         abort(422)
@@ -130,8 +135,6 @@ def soil():
     return json.dumps(soil_dict)
 
     
-# These can be hidden. /soil/ returns all.
-# Only use on historical database
 @api.route('/soil/temperature/', methods=['GET'])
 def soil_temperature():
     return json.dumps(__fetch_specific_readings('soil_temperature'))
@@ -181,8 +184,6 @@ def weather_uv():
 def navigation():
     raise NotImplementedError
     
-# These can be hidden. /location/ returns all
-# Only use on historical database
 @api.route('/navigation/coordinates/', methods=['GET'])
 def navigation_coordinates():
     raise NotImplementedError

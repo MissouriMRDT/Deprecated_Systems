@@ -1,5 +1,8 @@
+# From dir: #ROVESODRIVE/2017 (Gryphon)/4_Architecture/Software Architecture/
 --- 
-DataIds: 
+# Taken from ./DataId Allocations.xlsx
+# .xlsx file last modified Jul 21, 2017 by Olugbenga Osibodu
+DataIds:  
   - 
     DataType: ""
     Description: Reserved
@@ -966,7 +969,91 @@ DataIds:
     Id: 2855
     Name: CameraOnOffInput8
     Subsystem: Camera
+
+# Taken from ./Device IP Address Allocations.xlsx
+# .xlsx file last modified May 24, 2017 by Joshua Reed
 IpAddresses: 
   - 
-    Address: "127.0.0.1"
-    Board: PlaceholderBoard
+    Address: "192.168.1.32"
+    Device: "Haptic Controller"
+  - 
+    Address: "192.168.1.66"
+    Device: "Bullet 1"
+  - 
+    Address: "192.168.1.67"
+    Device: "Bullet 2"
+  - 
+    Address: "192.168.1.68"
+    Device: "Bullet 3"
+  - 
+    Address: "192.168.1.69"
+    Device: "Bullet 4"
+  - 
+    Address: "192.168.1.70"
+    Device: "Bullet 5"
+  - 
+    Address: "192.168.1.71"
+    Device: "Bullet 6"
+  - 
+    Address: "192.168.1.72"
+    Device: "Bullet 7"
+  - 
+    Address: "192.168.1.73"
+    Device: "Bullet 8"
+  - 
+    Address: "192.168.1.82"
+    Device: "Rocket Rover"
+  - 
+    Address: "192.168.1.83"
+    Device: "Rocket Base Station"
+  - 
+    Address: "192.168.1.130"
+    Device: "Drive Board"
+  - 
+    Address: "192.168.1.131"
+    Device: "Arm Board"
+  - 
+    Address: "192.168.1.132"
+    Device: "Power Board"
+  - 
+    Address: "192.168.1.133"
+    Device: "Sensor Board"
+  - 
+    Address: "192.168.1.134"
+    Device: "External Controls Board"
+  - 
+    Address: "192.168.1.135"
+    Device: "Science Board"
+  - 
+    Address: "192.168.1.136"
+    Device: "Media Board"
+  - 
+    Address: "192.168.1.137"
+    Device: "Lighting Board"
+  - 
+    Address: "192.168.1.138"
+    Device: "Autonomy Board"
+  - 
+    Address: "192.168.1.139"
+    Device: "Science Arm Board"
+  - 
+    Address: "Camera Board"
+    Device: "192.168.1.140"
+  - 
+    Address: "Grandstream 1"
+    Device: "192.168.1.226"
+  - 
+    Address: "Grandstream 2"
+    Device: "192.168.1.227"
+  - 
+    Address: "IP Cam 1"
+    Device: "192.168.1.194"
+  - 
+    Address: "IP Cam 2"
+    Device: "192.168.1.195"
+  - 
+    Address: "IP Cam 3"
+    Device: "192.168.1.196"
+  - 
+    Address: "IP Cam 4"
+    Device: "192.168.1.197"

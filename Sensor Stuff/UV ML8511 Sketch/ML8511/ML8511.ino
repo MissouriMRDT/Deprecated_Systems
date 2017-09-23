@@ -35,15 +35,15 @@
 */
 
 //Hardware pin definitions
-int UVOUT = 25; //Output from the sensor, Pin PE2
-int REF_3V3 = 24; //3.3V power on the Arduino board, Pin PE1
+int UVOUT = PE_1; //Output from the sensor, Pin PE2
+//int REF_3V3 = 24; //3.3V power on the Arduino board, Pin PE1
 
 void setup()
 {
   Serial.begin(9600);
 
   pinMode(UVOUT, INPUT);
-  pinMode(REF_3V3, INPUT);
+  //pinMode(REF_3V3, INPUT);
 
   Serial.println("ML8511 example");
 }
@@ -51,28 +51,37 @@ void setup()
 void loop()
 {
   int uvLevel = averageAnalogRead(UVOUT);
-  int refLevel = averageAnalogRead(REF_3V3);
+  //int refLevel = averageAnalogRead(REF_3V3);
 
   //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
-  float outputVoltage = 3.3 / refLevel * uvLevel;
+  //float outputVoltage = 3.3 / uvLevel; //refLevel * uvLevel;
+  //float outputVoltage = (analogRead(PK_0) / 4095); //analog resolution
+  
+  int reading = analogRead(PE_1);
+  float outputVoltage = reading * 3.3333;
+  outputVoltage = outputVoltage / 4095;
 
   float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); //Convert the voltage to a UV intensity level
+  float uvIndex = (uvIntensity * 10) * 40; //multiply by ten to get in W/m^2 and then multiply by 40 for conversion to UV index
 
-  Serial.print("output: ");
-  Serial.print(refLevel);
+  //Serial.print("output: ");
+  //Serial.print(refLevel);
 
   Serial.print("ML8511 output: ");
-  Serial.print(uvLevel);
+  Serial.print(reading);
 
   Serial.print(" / ML8511 voltage: ");
   Serial.print(outputVoltage);
 
   Serial.print(" / UV Intensity (mW/cm^2): ");
   Serial.print(uvIntensity);
+  
+  Serial.print(" / UV index: ");
+  Serial.print(uvIndex);
 
   Serial.println();
 
-  delay(100);
+  delay(1000);
 }
 
 //Takes an average of readings on a given pin

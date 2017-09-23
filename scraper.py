@@ -3,12 +3,10 @@ import os
 import struct
 import yaml
 
-# from rovecomm import RoveComm
+from rovecomm import RoveComm
 
-# rc = RoveComm()
 
-# TODO: What the almighty fuck
-datatype_to_fmtstr = {
+fmt_dict = {
     'uint8': '>B',
     'int16': '>h',
     'uint16': '>H',
@@ -18,6 +16,7 @@ datatype_to_fmtstr = {
     'single[6]': '>ffffff',
     'single': '>f',
 }
+rc = RoveComm()
 
 CONFIG_YAML = os.path.join(os.path.dirname(__file__), 'dataId.yml')
 ROVER_IP = '127.0.0.1'
@@ -25,20 +24,26 @@ ROVER_IP = '127.0.0.1'
 def callback(data, format):
     data_tuple = struct.unpack(data, format)
     print("Data: %s\nFormat: %s" % (data, format))
-    # TODO: Switch on name/format to insert to DB
-                                                
+    # TODO: Any preprocessing
+    # TODO: Switch to insertion into database
+ 
+ 
 def configure_rovecomm():
     with open(CONFIG_YAML, 'r') as f:
         rovecomm_settings = yaml.safe_load(f)
-    print("datapoints: %s" % type(datapoints))
-    
-    
-    rc.subscribe(ROVER_IP)
-    for point in datapoints:
-        fmt = datatype_to_fmtstr[point["DataType"]]
-        rc.callbacks[point["DataId"]] = functools.partial(callback,
-                                                          format=fmt)
-                                                        
-                                                        
+    data_ids = rovecomm_settings['DataIds']
+    ip_addrs = rovecomm_settings['IpAddresses']
+        
+    for addr in ip_addrs:
+        rc.subscribe(addr["Address"])
+    for id in data_ids:
+        try:
+            fmt = fmt_dict[id["DataType"]]
+            rc.callbacks[id["DataId"]] = functools.partial(callback,
+                                                           format=fmt)
+        except KeyError:
+            continue
+
+
 if __name__=="__main__":
     configure_rovecomm()

@@ -1,0 +1,972 @@
+--- 
+DataIds: 
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 0
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: void
+    Description: ""
+    Id: 1
+    Name: Ping
+    Subsystem: Reserved
+  - 
+    DataType: uint16
+    Description: "sequence number of ping"
+    Id: 2
+    Name: "Ping Reply"
+    Subsystem: Reserved
+  - 
+    DataType: uint16
+    Description: dataid
+    Id: 3
+    Name: Subscribe
+    Subsystem: Reserved
+  - 
+    DataType: uint16
+    Description: dataid
+    Id: 4
+    Name: Unsubscribe
+    Subsystem: Reserved
+  - 
+    DataType: uint16
+    Description: dataid
+    Id: 5
+    Name: "Force Unsubscribe"
+    Subsystem: Reserved
+  - 
+    DataType: struct
+    Description: "dataid(uint16), sequence number of packet (uint16)"
+    Id: 6
+    Name: ACK
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 7
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 8
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 9
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 10
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 11
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 12
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 13
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 14
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 15
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 248
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 249
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 250
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 251
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 252
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 253
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 254
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: ""
+    Description: Reserved
+    Id: 255
+    Name: Reserved
+    Subsystem: Reserved
+  - 
+    DataType: "int16[2]"
+    Description: "Left wheels speed followed by right wheels speed"
+    Id: 528
+    Name: DriveLeftRight
+    Subsystem: Drive
+  - 
+    DataType: "int32[2]"
+    Description: "???"
+    Id: 529
+    Name: DriveVector
+    Subsystem: Drive
+  - 
+    DataType: uint16
+    Description: "Disables the wheels specified. Bitmasked"
+    Id: 544
+    Name: WheelDisable
+    Subsystem: Drive
+  - 
+    DataType: "single[6]"
+    Description: "Sets position based on six absolute angles"
+    Id: 784
+    Name: ArmAbsoluteAngle
+    Subsystem: Arm
+  - 
+    DataType: "single[6]"
+    Description: "Sets position based on absolute orientation (using IK)"
+    Id: 785
+    Name: ArmAbsoluteXYZ
+    Subsystem: Arm
+  - 
+    DataType: "single[6]"
+    Description: "Contains the current angles from each joint"
+    Id: 792
+    Name: ArmCurrentPosition
+    Subsystem: Arm
+  - 
+    DataType: void
+    Description: "Requests Current Position"
+    Id: 793
+    Name: ArmGetPosition
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Stops all arm movement"
+    Id: 800
+    Name: ArmStop
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is forward. Negative is backward."
+    Id: 801
+    Name: ArmJ1
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 802
+    Name: ArmJ2
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is up. Negative is down."
+    Id: 803
+    Name: ArmJ3
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 804
+    Name: ArmJ4
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is up. Negative is down."
+    Id: 805
+    Name: ArmJ5
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 806
+    Name: ArmJ6
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to all Joints"
+    Id: 816
+    Name: ArmEnableAll
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to 12V Bus"
+    Id: 817
+    Name: ArmEnableMain
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J1"
+    Id: 818
+    Name: ArmEnableJ1
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J2"
+    Id: 819
+    Name: ArmEnableJ2
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J3"
+    Id: 820
+    Name: ArmEnableJ3
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J4"
+    Id: 821
+    Name: ArmEnableJ4
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J5"
+    Id: 822
+    Name: ArmEnableJ5
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to J6"
+    Id: 823
+    Name: ArmEnableJ6
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to Endeffector"
+    Id: 824
+    Name: ArmEnableEndeff
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Enables/Disables Power to Endeffector Servo"
+    Id: 825
+    Name: ArmEnableServe
+    Subsystem: Arm
+  - 
+    DataType: uint8
+    Description: "Indicates when a joint reports a fault condition. The data payloads represent the specific fault. 1-5 means motors 1-5 faulted. 8 = gripper fault. 16 = arm overall overcurrent"
+    Id: 832
+    Name: ArmFault
+    Subsystem: Arm
+  - 
+    DataType: uint16
+    Description: "Torque reading from Arm motor 1"
+    Id: 833
+    Name: TorqueMotor1
+    Subsystem: Arm
+  - 
+    DataType: uint16
+    Description: "Torque reading from Arm motor 2"
+    Id: 834
+    Name: TorqueMotor2
+    Subsystem: Arm
+  - 
+    DataType: uint16
+    Description: "Torque reading from Arm motor 3"
+    Id: 835
+    Name: TorqueMotor3
+    Subsystem: Arm
+  - 
+    DataType: uint16
+    Description: "Torque reading from Arm motor 4"
+    Id: 836
+    Name: TorqueMotor4
+    Subsystem: Arm
+  - 
+    DataType: uint16
+    Description: "Torque reading from Arm motor 5"
+    Id: 837
+    Name: TorqueMotor5
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: ""
+    Id: 848
+    Name: HapticStop
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is forward. Negative is backward."
+    Id: 849
+    Name: HapticJ1
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 850
+    Name: HapticJ2
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is up. Negative is down."
+    Id: 851
+    Name: HapticJ3
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 852
+    Name: HapticJ4
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is up. Negative is down."
+    Id: 853
+    Name: HapticJ5
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counter-clockwise."
+    Id: 854
+    Name: HapticJ6
+    Subsystem: Arm
+  - 
+    DataType: int16
+    Description: "Positive is open. Negative is close."
+    Id: 864
+    Name: Gripper
+    Subsystem: Endeffector
+  - 
+    DataType: single
+    Description: "Current reading from gripper motor"
+    Id: 865
+    Name: GripperCurrent
+    Subsystem: Endeffector
+  - 
+    DataType: int16
+    Description: "0 is stop. 1 is forward. 2 is reverse."
+    Id: 866
+    Name: Drill
+    Subsystem: Endeffector
+  - 
+    DataType: single
+    Description: "Current reading from drill motor"
+    Id: 867
+    Name: DrillCurrent
+    Subsystem: Endeffector
+  - 
+    DataType: int16
+    Description: "Positive is clockwise. Negative is counterclockwise."
+    Id: 868
+    Name: EndeffectorServo
+    Subsystem: Endeffector
+  - 
+    DataType: single
+    Description: "Current reading for main power"
+    Id: 880
+    Name: ArmCurrentMain
+    Subsystem: Arm
+  - 
+    DataType: void
+    Description: "BMS E-stop"
+    Id: 1040
+    Name: BMSStop
+    Subsystem: BMS
+  - 
+    DataType: void
+    Description: "BMS E-stop with reboot"
+    Id: 1041
+    Name: BMSReboot
+    Subsystem: BMS
+  - 
+    DataType: uint16
+    Description: ""
+    Id: 1042
+    Name: BMSCommand
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1056
+    Name: Cell1Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1057
+    Name: Cell2Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1058
+    Name: Cell3Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1059
+    Name: Cell4Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1060
+    Name: Cell5Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1061
+    Name: Cell6Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1062
+    Name: Cell7Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1063
+    Name: Cell8Voltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1072
+    Name: TotalPackCurrent
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1073
+    Name: TotalPackVoltage
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: "Sensor 1 temperature"
+    Id: 1074
+    Name: BMSTemperature1
+    Subsystem: BMS
+  - 
+    DataType: single
+    Description: "Sensor 2 temperature"
+    Id: 1075
+    Name: BMSTemperature2
+    Subsystem: BMS
+  - 
+    DataType: uint16
+    Description: ""
+    Id: 1076
+    Name: BMSPackOvercurrent
+    Subsystem: BMS
+  - 
+    DataType: uint16
+    Description: ""
+    Id: 1077
+    Name: BMSPackUndervoltage
+    Subsystem: BMS
+  - 
+    DataType: uint8
+    Description: "0=off, 1=on"
+    Id: 1078
+    Name: BMSFanControl
+    Subsystem: BMS
+  - 
+    DataType: uint8
+    Description: "0=off, 1=on"
+    Id: 1079
+    Name: BMSBuzzerControl
+    Subsystem: BMS
+  - 
+    DataType: uint8
+    Description: "Enables power bus specified by index"
+    Id: 1088
+    Name: PowerBusEnable
+    Subsystem: Powerboard
+  - 
+    DataType: uint8
+    Description: "Disables power bus specified by index"
+    Id: 1089
+    Name: PowerBusDisable
+    Subsystem: Powerboard
+  - 
+    DataType: uint8
+    Description: "Sent if a bus is disabled due to overcurrent. Value indicates bus"
+    Id: 1090
+    Name: PowerBusOverCurrentNotification
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1104
+    Name: Motor1Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1105
+    Name: Motor2Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1106
+    Name: Motor3Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1107
+    Name: Motor4Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1108
+    Name: Motor5Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1109
+    Name: Motor6Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1110
+    Name: Motor7Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1111
+    Name: Motor8Current
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1112
+    Name: Bus5VCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1113
+    Name: Bus12VCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1114
+    Name: ExtraCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1115
+    Name: ActuationCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1116
+    Name: LogicCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Amperes
+    Id: 1117
+    Name: CommunicationsCurrent
+    Subsystem: Powerboard
+  - 
+    DataType: single
+    Description: Volts
+    Id: 1120
+    Name: InputVoltage
+    Subsystem: Powerboard
+  - 
+    DataType: uint8
+    Description: "Quality of GPS signal"
+    Id: 1296
+    Name: GPSQuality
+    Subsystem: Sensor
+  - 
+    DataType: uint64
+    Description: "GPS Position. Latitude followed by Longitude. Values expressed in millionths of a degree"
+    Id: 1297
+    Name: GPSPosition
+    Subsystem: Sensor
+  - 
+    DataType: single
+    Description: "Speed of GPS delta"
+    Id: 1298
+    Name: GPSSpeed
+    Subsystem: Sensor
+  - 
+    DataType: single
+    Description: "Angle of GPS delta in degrees"
+    Id: 1299
+    Name: GPSSpeedAngle
+    Subsystem: Sensor
+  - 
+    DataType: single
+    Description: "GPS Altitude"
+    Id: 1300
+    Name: GPSAltitude
+    Subsystem: Sensor
+  - 
+    DataType: uint8
+    Description: "Number of GPS Satellites"
+    Id: 1301
+    Name: GPSSatellites
+    Subsystem: Sensor
+  - 
+    DataType: single
+    Description: "The direction of the heading of the rover"
+    Id: 1312
+    Name: Heading
+    Subsystem: Sensor
+  - 
+    DataType: single
+    Description: ""
+    Id: 1313
+    Name: IMUTemperature
+    Subsystem: Sensor
+  - 
+    DataType: "single[3]"
+    Description: "Components X, Y, Z"
+    Id: 1314
+    Name: IMUAccelerometer
+    Subsystem: Sensor
+  - 
+    DataType: "single[3]"
+    Description: "Components Roll, Pitch, Yaw"
+    Id: 1315
+    Name: IMUGyroscope
+    Subsystem: Sensor
+  - 
+    DataType: "single[3]"
+    Description: "Components X, Y, Z"
+    Id: 1316
+    Name: IMUMagnetometer
+    Subsystem: Sensor
+  - 
+    DataType: "int16[2]"
+    Description: "XY speed of pan/tilt mount 1 (-1000 to 1000)"
+    Id: 1552
+    Name: PTZ1Speed
+    Subsystem: "External Controls"
+  - 
+    DataType: "int16[2]"
+    Description: "XY speed of pan/tilt mount 2 (-1000 to 1000)"
+    Id: 1553
+    Name: PTZ2Speed
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Enables/Disables 12V Power from External Controls Board"
+    Id: 1567
+    Name: GimbalEnableAll
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Zoom/Focus Command. Enumerated: 0=Stop 1=ZoomIn 2=ZoomOut 3=FocusNear 4=FocusFar"
+    Id: 1568
+    Name: Camera1Command
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Menu Button. Enumerated: 0=Menu 1=MenuLeft 2=MenuRight 3=MenuUp 4=MenuDown"
+    Id: 1569
+    Name: Camera1Menu
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Zoom/Focus Command. Enumerated: 0=Stop 1=ZoomIn 2=ZoomOut 3=FocusNear 4=FocusFar"
+    Id: 1570
+    Name: Camera2Command
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Menu Button. Enumerated: 0=Menu 1=MenuLeft 2=MenuRight 3=MenuUp 4=MenuDown"
+    Id: 1571
+    Name: Camera2Menu
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Commands the specified drop bay to open"
+    Id: 1584
+    Name: DropBayOpen
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Commands the specified drop bay to open"
+    Id: 1585
+    Name: DropBayClose
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Sets camera mux to feed with given index"
+    Id: 1600
+    Name: CameraMuxSet
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Sets speed of carabiner hook (-1000 to 1000)"
+    Id: 1616
+    Name: CarabinerSpeed
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Reset command to external controls board"
+    Id: 1632
+    Name: ExternalControlsReset
+    Subsystem: "External Controls"
+  - 
+    DataType: uint8
+    Description: "Sends command/request to the Science experiment. Enumerated value indicates type of request."
+    Id: 1808
+    Name: ScienceCommand
+    Subsystem: Science
+  - 
+    DataType: uint8
+    Description: "Commands carousel to rotate to indexed position"
+    Id: 1809
+    Name: ""
+    Subsystem: Science
+  - 
+    DataType: uint8
+    Description: "Sends command/request to the Science Arm. Enumerated value indicates type of request."
+    Id: 1810
+    Name: ""
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 0 reading from Science Experiment"
+    Id: 1824
+    Name: SciSensor0
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 1 reading from Science Experiment"
+    Id: 1825
+    Name: SciSensor1
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 2 reading from Science Experiment"
+    Id: 1826
+    Name: SciSensor2
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 3 reading from Science Experiment"
+    Id: 1827
+    Name: SciSensor3
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 4 reading from Science Experiment"
+    Id: 1828
+    Name: SciSensor4
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 5 reading from Science Experiment"
+    Id: 1829
+    Name: SciSensor5
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 6 reading from Science Experiment"
+    Id: 1830
+    Name: SciSensor6
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 7 reading from Science Experiment"
+    Id: 1831
+    Name: SciSensor7
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 8 reading from Science Experiment"
+    Id: 1832
+    Name: SciSensor8
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Sensor 9 reading from Science Experiment"
+    Id: 1833
+    Name: SciSensor9
+    Subsystem: Science
+  - 
+    DataType: int16
+    Description: "Positive is forward. Negative is backward."
+    Id: 1840
+    Name: ScienceArmDrive
+    Subsystem: Science
+  - 
+    DataType: single
+    Description: "Go to specified coordinate"
+    Id: 1841
+    Name: ScienceArmPosition
+    Subsystem: Science
+  - 
+    DataType: ""
+    Description: ""
+    Id: 2064
+    Name: ""
+    Subsystem: Media
+  - 
+    DataType: "uint8[3]"
+    Description: "RGB color of underglow"
+    Id: 2320
+    Name: UnderglowColor
+    Subsystem: Lighting
+  - 
+    DataType: uint8
+    Description: "0=off, 1=on"
+    Id: 2336
+    Name: Headlights
+    Subsystem: Lighting
+  - 
+    DataType: void
+    Description: ""
+    Id: 2576
+    Name: AutonomousModeEnable
+    Subsystem: Autonomy
+  - 
+    DataType: void
+    Description: ""
+    Id: 2577
+    Name: AutonomousModeDisable
+    Subsystem: Autonomy
+  - 
+    DataType: "single[2]"
+    Description: ""
+    Id: 2578
+    Name: WaypointAdd
+    Subsystem: Autonomy
+  - 
+    DataType: void
+    Description: ""
+    Id: 2579
+    Name: WaypointsClearAll
+    Subsystem: Autonomy
+  - 
+    DataType: void
+    Description: ""
+    Id: 2580
+    Name: WaypointReached
+    Subsystem: Autonomy
+  - 
+    DataType: void
+    Description: "Begin calibration process"
+    Id: 2581
+    Name: AutonomyCalibrate
+    Subsystem: Autonomy
+  - 
+    DataType: uint8
+    Description: "Selection for Camera Mux Channel 1"
+    Id: 2832
+    Name: CameraMuxChannel1
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "Selection for Camera Mux Channel 2"
+    Id: 2833
+    Name: CameraMuxChannel2
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 1"
+    Id: 2848
+    Name: CameraOnOffInput1
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 2"
+    Id: 2849
+    Name: CameraOnOffInput2
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 3"
+    Id: 2850
+    Name: CameraOnOffInput3
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 4"
+    Id: 2851
+    Name: CameraOnOffInput4
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 5"
+    Id: 2852
+    Name: CameraOnOffInput5
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 6"
+    Id: 2853
+    Name: CameraOnOffInput6
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 7"
+    Id: 2854
+    Name: CameraOnOffInput7
+    Subsystem: Camera
+  - 
+    DataType: uint8
+    Description: "On-off command for Camera Input 8"
+    Id: 2855
+    Name: CameraOnOffInput8
+    Subsystem: Camera
+IpAddresses: 
+  - 
+    Address: "127.0.0.1"
+    Board: PlaceholderBoard

@@ -1,12 +1,14 @@
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
-from PyQt4 import QtGui, QtCore
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
+
+from PyQt5 import QtWidgets, QtCore, QtGui
+
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 
-class Sensor(QtGui.QCheckBox):
+class Sensor(QtWidgets.QCheckBox):
     def __init__(self, reading_type, name, color=""):
         super(Sensor, self).__init__()
         self.data = []
@@ -24,7 +26,7 @@ class Sensor(QtGui.QCheckBox):
         return self._name
 
 
-class GraphArea(QtGui.QWidget):
+class GraphArea(QtWidgets.QWidget):
     """ Creates a Matplotlib graphing area tailored for MRDT 2017 basic and spectrometer readings in Ehrenfreund. """
     def __init__(self):
         """ Initial setup of the UI """
@@ -37,7 +39,7 @@ class GraphArea(QtGui.QWidget):
         self.setup()
 
     def setup(self):
-        display_frame = QtGui.QVBoxLayout(self)
+        display_frame = QtWidgets.QVBoxLayout(self)
         toolbar = NavigationToolbar(self.canvas, self)
         display_frame.addWidget(self.canvas)
         display_frame.addWidget(toolbar)
@@ -147,7 +149,7 @@ class GraphArea(QtGui.QWidget):
         self.canvas.draw()
 
 
-class SensorEnableBox(QtGui.QWidget):
+class SensorEnableBox(QtWidgets.QWidget):
     """ Contains all elements relevant to enabling and disabling basic sensors. """
     def __init__(self, parent):
         """ Initial setup of the UI """
@@ -209,10 +211,10 @@ class SensorEnableBox(QtGui.QWidget):
         parent.addLayout(self.sensorEnables)
 
 
-class PictureLabel(QtGui.QLabel):
+class PictureLabel(QtWidgets.QLabel):
     def __init__(self, image):
         super(PictureLabel, self).__init__()
-        self.setFrameStyle(QtGui.QFrame.StyledPanel)
+        self.setFrameStyle(QtWidgets.QFrame.StyledPanel)
         self._image = QtGui.QImage(image)
         self.pixmap = QtGui.QPixmap(self._image)
 
@@ -226,7 +228,7 @@ class PictureLabel(QtGui.QLabel):
         painter.drawPixmap(point, scaledPix)
 
 
-class PicturePopup(QtGui.QWidget):
+class PicturePopup(QtWidgets.QWidget):
     def __init__(self, image):
         super(PicturePopup, self).__init__()
         self.pixmap = QtGui.QPixmap(image)
@@ -245,17 +247,16 @@ class PicturePopup(QtGui.QWidget):
             self.close()
 
 
-class Picture(QtGui.QWidget):
+class Picture(QtWidgets.QWidget):
     def __init__(self, image):
         super(Picture, self).__init__()
         self._image = image
-
-        vbox = QtGui.QVBoxLayout()
+        vbox = QtWidgets.QVBoxLayout()
         vbox.setSpacing(0)
-        vbox.setMargin(0)
+        vbox.setContentsMargins(0, 0, 0, 0)
 
-        self._desc_text, ok = QtGui.QInputDialog.getText(self, "Add description of photo", "Description: ")
-        self.desc = QtGui.QLabel()
+        self._desc_text, ok = QtWidgets.QInputDialog.getText(self, "Add description of photo", "Description: ")
+        self.desc = QtWidgets.QLabel()
         self.desc.setText(self._desc_text)
         self.desc.setMaximumHeight(30)
 
@@ -263,7 +264,7 @@ class Picture(QtGui.QWidget):
         vbox.addWidget(self.desc, 0, QtCore.Qt.AlignHCenter)
         self.setLayout(vbox)
 
-        self.popup = QtGui.QWidget()
+        self.popup = QtWidgets.QWidget()
         self.mouseDoubleClickEvent = self.fullscreenPicture
 
     def fullscreenPicture(self, event):

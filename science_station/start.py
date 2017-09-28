@@ -5,12 +5,12 @@ import sys
 import tkinter              # Required for PyInstaller to function.
 import tkinter.filedialog   # Required for PyInstaller to function.
 import dateutil.parser
-from PyQt4 import QtGui, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
-from customWidgets import GraphArea, Picture, Sensor
+from science_station.customWidgets import GraphArea, Picture, Sensor
 
 
-class StartQT4(QtGui.QMainWindow):
+class StartQT4(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         # Data variables.
         self.current_file = ""
@@ -31,28 +31,28 @@ class StartQT4(QtGui.QMainWindow):
         self.weather_sensors = list(filter(lambda x: x.type == 'weather', self.sensor_list))
 
         # Main Window information
-        QtGui.QWidget.__init__(self, parent)
+        QtWidgets.QWidget.__init__(self, parent)
         self.setWindowTitle("Ehrenfreund")
         self.resize(946, 542)
         self.setSizeIncrement(QtCore.QSize(1, 1))
-        centralWidget = QtGui.QWidget(self)
+        centralWidget = QtWidgets.QWidget(self)
 
         # Layout contains all information for a single digsite.
-        digMainLayout = QtGui.QVBoxLayout(centralWidget)
-        digMainLayout.setMargin(11)
+        digMainLayout = QtWidgets.QVBoxLayout(centralWidget)
+        digMainLayout.setContentsMargins(11, 11, 11, 11)
         digMainLayout.setSpacing(6)
 
         # Layout should contain all elements relevant to data input (file or otherwise)
-        inputFrame = QtGui.QHBoxLayout()
-        inputFrame.setMargin(11)
+        inputFrame = QtWidgets.QHBoxLayout()
+        inputFrame.setContentsMargins(11, 11, 11, 11)
         inputFrame.setSpacing(6)
 
-        self.fileInput = QtGui.QLineEdit(centralWidget)
+        self.fileInput = QtWidgets.QLineEdit(centralWidget)
         self.fileInput.setMinimumSize(QtCore.QSize(400, 0))
         self.fileInput.setMaximumSize(QtCore.QSize(400, 16777215))
-        spacer_item = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        importButton = QtGui.QPushButton("Import", centralWidget)
-        fileBrowseButton = QtGui.QPushButton("Browse", centralWidget)
+        spacer_item = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        importButton = QtWidgets.QPushButton("Import", centralWidget)
+        fileBrowseButton = QtWidgets.QPushButton("Browse", centralWidget)
 
         # Add widgets in left->right order
         inputFrame.addWidget(self.fileInput)
@@ -61,12 +61,12 @@ class StartQT4(QtGui.QMainWindow):
         inputFrame.addItem(spacer_item)
 
         # Layout contains all elements required for display of information (essentially everything else)
-        displayFrame = QtGui.QHBoxLayout()
-        displayFrame.setMargin(11)
+        displayFrame = QtWidgets.QHBoxLayout()
+        displayFrame.setContentsMargins(11, 11, 11, 11)
         displayFrame.setSpacing(6)
 
         # Contains a tab for each type of graph, and other displayed information (e.g. pictures)
-        self.graphTabs = QtGui.QTabWidget()
+        self.graphTabs = QtWidgets.QTabWidget()
 
         # Soil Temperature and Humidity
         self.soilGraph = GraphArea()
@@ -85,9 +85,9 @@ class StartQT4(QtGui.QMainWindow):
         self.graphTabs.addTab(self.weatherGraph, "Weather")
 
         # Site Pictures
-        self.picture_tab = QtGui.QWidget()
-        self.pictureLayout = QtGui.QGridLayout(self.picture_tab)
-        self.pictureLayout.setMargin(3)
+        self.picture_tab = QtWidgets.QWidget()
+        self.pictureLayout = QtWidgets.QGridLayout(self.picture_tab)
+        self.pictureLayout.setContentsMargins(3, 3, 3, 3)
         self.pictureLayout.setSpacing(0)
         self.graphTabs.addTab(self.picture_tab, "Site Pictures")
 
@@ -95,9 +95,9 @@ class StartQT4(QtGui.QMainWindow):
         displayFrame.addWidget(self.graphTabs)
         digMainLayout.addLayout(displayFrame)
 
-        self.connect(self.fileInput, QtCore.SIGNAL("returnPressed()"), self.enterfile)
-        self.connect(importButton, QtCore.SIGNAL("clicked()"), self.enterfile)
-        self.connect(fileBrowseButton, QtCore.SIGNAL("clicked()"), self.selectfile)
+        self.fileInput.returnPressed.connect(self.enterfile)
+        importButton.clicked.connect(self.enterfile)
+        fileBrowseButton.clicked.connect(self.selectfile)
 
         self.setCentralWidget(centralWidget)
         self.showMaximized()
@@ -133,11 +133,15 @@ class StartQT4(QtGui.QMainWindow):
         self.fileInput.clear()
 
     def selectfile(self):
-        self.fileInput.setText(QtGui.QFileDialog.getOpenFileName())
+        # getOpenFileName() returns a tuple, idx 0 is the one we want, idx 1 is all files...
+        self.fileInput.setText(QtWidgets.QFileDialog.getOpenFileName()[0])
         self.enterfile()
 
     def showpicture(self, pic_name):
         """ Displays a picture within the given window """
+        if len(self.pictures_held) >= 4:
+            self.showdialogue("Maximum pictures held")
+            return
         picture = Picture(pic_name)
         pos = [(1, 1), (1, 2), (2, 1), (2, 2)]
         x, y = pos[len(self.pictures_held)]
@@ -150,8 +154,6 @@ class StartQT4(QtGui.QMainWindow):
     def parsecsv(self, csv_name):
         """ Parses a CSV file containing MRDT-2016 formatted basic or spectrometer data.
             Places data in relevant data store. """
-
-        print("Parse: %s" % csv_name)
 
         # Easy dictionary conversion from RED standard sensor identifier to more readable names
         sensor_ids = {'Sensor00': 'air_temp',
@@ -206,16 +208,16 @@ class StartQT4(QtGui.QMainWindow):
     @staticmethod
     def showdialogue(errormessage):
         """ Error dialogue window used for file entry. """
-        msg = QtGui.QMessageBox()
-        msg.setIcon(QtGui.QMessageBox.Critical)
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Critical)
         msg.setText(errormessage)
         msg.setWindowTitle("ERROR")
-        msg.setStandardButtons(QtGui.QMessageBox.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
 
 
 def main():
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     myapp = StartQT4()
     myapp.setWindowIcon(QtGui.QIcon("mrdt_logo.jpg"))
     myapp.show()

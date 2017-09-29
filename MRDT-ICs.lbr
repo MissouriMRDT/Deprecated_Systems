@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -993,6 +993,21 @@ Source: http://cds.linear.com/docs/Datasheet/623012fb.pdf</description>
 <text x="-3.8" y="-2.7" size="1.27" layer="21">&gt;VALUE</text>
 <circle x="-3.3" y="11" radius="0.22360625" width="0.01" layer="21"/>
 </package>
+<package name="TSSOP-6">
+<wire x1="0.85" y1="-1.5" x2="0.85" y2="1.5" width="0.05" layer="21"/>
+<wire x1="0.85" y1="1.5" x2="-0.85" y2="1.5" width="0.05" layer="21"/>
+<wire x1="-0.85" y1="1.5" x2="-0.85" y2="-1.5" width="0.05" layer="21"/>
+<wire x1="-0.85" y1="-1.5" x2="0.85" y2="-1.5" width="0.05" layer="21"/>
+<smd name="2" x="-1.2" y="0" dx="0.8" dy="0.45" layer="1"/>
+<smd name="5" x="1.2" y="0" dx="0.8" dy="0.45" layer="1"/>
+<smd name="1" x="-1.2" y="0.95" dx="0.8" dy="0.45" layer="1"/>
+<smd name="3" x="-1.2" y="-0.95" dx="0.8" dy="0.45" layer="1"/>
+<smd name="4" x="1.2" y="-0.95" dx="0.8" dy="0.45" layer="1"/>
+<smd name="6" x="1.2" y="0.95" dx="0.8" dy="0.45" layer="1"/>
+<text x="-0.9" y="1.8" size="0.5" layer="21">&gt;NAME</text>
+<text x="-1" y="-2.2" size="0.5" layer="21">&gt;VALUE</text>
+<circle x="-0.508" y="1.143" radius="0.127" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LTC2645">
@@ -1657,16 +1672,15 @@ Source: http://cds.linear.com/docs/Datasheet/623012fb.pdf</description>
 <text x="0" y="-10.16" size="1.27" layer="94">&gt;Value</text>
 </symbol>
 <symbol name="ACS781">
-<wire x1="0" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="15.24" x2="10.16" y2="-15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-15.24" x2="-10.16" y2="-15.24" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-15.24" x2="-10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="15.24" x2="0" y2="15.24" width="0.254" layer="94"/>
-<pin name="IP+" x="-15.24" y="10.16" length="middle"/>
-<pin name="IP-" x="-15.24" y="-10.16" length="middle"/>
-<pin name="VCC" x="15.24" y="7.62" length="middle" rot="R180"/>
-<pin name="VOUT" x="15.24" y="0" length="middle" rot="R180"/>
-<pin name="GND" x="15.24" y="-7.62" length="middle" rot="R180"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<pin name="IP+" x="-12.7" y="2.54" length="middle"/>
+<pin name="IP-" x="-12.7" y="-2.54" length="middle"/>
+<pin name="VCC" x="12.7" y="2.54" length="middle" rot="R180"/>
+<pin name="VOUT" x="12.7" y="-2.54" length="middle" rot="R180"/>
+<pin name="GND" x="0" y="-7.62" length="short" rot="R90"/>
 </symbol>
 <symbol name="BTM7752G">
 <wire x1="15.24" y1="10.16" x2="15.24" y2="-10.16" width="0.254" layer="94"/>
@@ -1683,6 +1697,21 @@ Source: http://cds.linear.com/docs/Datasheet/623012fb.pdf</description>
 <pin name="GND" x="20.32" y="7.62" length="middle" rot="R180"/>
 <text x="-15.24" y="12.7" size="1.778" layer="94">&gt;NAME</text>
 <text x="-15.24" y="-15.24" size="1.27" layer="94">&gt;VALUE</text>
+<text x="5.08" y="-12.7" size="1.27" layer="94">BTM7752G</text>
+</symbol>
+<symbol name="74LVC">
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-10.16" x2="7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-10.16" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<pin name="Y1" x="-12.7" y="5.08" length="middle"/>
+<pin name="Y0" x="-12.7" y="0" length="middle"/>
+<pin name="GND" x="-2.54" y="-15.24" length="middle" rot="R90"/>
+<pin name="VCC" x="2.54" y="-15.24" length="middle" rot="R90"/>
+<pin name="Z" x="12.7" y="0" length="middle" rot="R180"/>
+<pin name="S" x="12.7" y="5.08" length="middle" rot="R180"/>
+<text x="-7.62" y="10.16" size="1.27" layer="94">&gt;NAME</text>
+<text x="2.54" y="10.16" size="1.27" layer="94">74LVC</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2495,6 +2524,7 @@ Murata</description>
 </devices>
 </deviceset>
 <deviceset name="BTM7752G">
+<description>12V 10A H-Bridge</description>
 <gates>
 <gate name="G$1" symbol="BTM7752G" x="0" y="0"/>
 </gates>
@@ -2509,6 +2539,27 @@ Murata</description>
 <connect gate="G$1" pin="OUT1" pad="1 2 3 4 33 34 35 36"/>
 <connect gate="G$1" pin="OUT2" pad="15 16 17 18 19 20 21 22"/>
 <connect gate="G$1" pin="VS" pad="11 12 13 14 29 30 31 32"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="74LVC1G3157">
+<description>2-1 Demultiplexer</description>
+<gates>
+<gate name="G$1" symbol="74LVC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TSSOP-6">
+<connects>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="S" pad="6"/>
+<connect gate="G$1" pin="VCC" pad="5"/>
+<connect gate="G$1" pin="Y0" pad="3"/>
+<connect gate="G$1" pin="Y1" pad="1"/>
+<connect gate="G$1" pin="Z" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>

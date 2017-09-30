@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -940,13 +940,12 @@ Source: http://cds.linear.com/docs/Datasheet/623012fb.pdf</description>
 <wire x1="-3.2" y1="1.2" x2="-3" y2="0.8" width="0.1" layer="21"/>
 <wire x1="-3" y1="0.8" x2="-3" y2="-0.8" width="0.1" layer="21"/>
 <wire x1="-3" y1="-0.8" x2="-3.2" y2="-1.2" width="0.1" layer="21"/>
-<text x="-3" y="3.8" size="1.27" layer="21">$NAME</text>
+<text x="-3" y="3.8" size="1.27" layer="21">&gt;NAME</text>
 </package>
 <package name="36-BSSOP">
 <wire x1="-4.865" y1="0" x2="-4.86" y2="0" width="0.01" layer="21"/>
 <smd name="18" x="-4.87" y="0" dx="1.67" dy="0.45" layer="1"/>
-<wire x1="3.8" y1="0" x2="4.86" y2="0" width="0.01" layer="21"/>
-<wire x1="4.86" y1="0" x2="4.865" y2="0" width="0.01" layer="21"/>
+<wire x1="3.8" y1="0" x2="4.865" y2="0" width="0.01" layer="21"/>
 <wire x1="-4.86" y1="0" x2="-4.86" y2="0.65" width="0.01" layer="21"/>
 <smd name="17" x="-4.86" y="0.65" dx="1.67" dy="0.45" layer="1"/>
 <smd name="16" x="-4.86" y="1.3" dx="1.67" dy="0.45" layer="1"/>
@@ -969,20 +968,20 @@ Source: http://cds.linear.com/docs/Datasheet/623012fb.pdf</description>
 <smd name="20" x="4.86" y="0.65" dx="1.67" dy="0.45" layer="1"/>
 <smd name="21" x="4.86" y="1.3" dx="1.67" dy="0.45" layer="1"/>
 <smd name="22" x="4.86" y="1.95" dx="1.67" dy="0.45" layer="1"/>
-<smd name="23" x="4.86" y="2.55" dx="1.67" dy="0.45" layer="1"/>
-<smd name="24" x="4.86" y="3.2" dx="1.67" dy="0.45" layer="1"/>
-<smd name="25" x="4.86" y="3.85" dx="1.67" dy="0.45" layer="1"/>
-<smd name="26" x="4.86" y="4.5" dx="1.67" dy="0.45" layer="1"/>
-<smd name="27" x="4.86" y="5.14" dx="1.67" dy="0.45" layer="1"/>
-<smd name="28" x="4.86" y="5.8" dx="1.67" dy="0.45" layer="1"/>
-<smd name="29" x="4.86" y="6.45" dx="1.67" dy="0.45" layer="1"/>
-<smd name="30" x="4.86" y="7.1" dx="1.67" dy="0.45" layer="1"/>
-<smd name="31" x="4.86" y="7.75" dx="1.67" dy="0.45" layer="1"/>
-<smd name="32" x="4.86" y="8.4" dx="1.67" dy="0.45" layer="1"/>
-<smd name="33" x="4.86" y="9.05" dx="1.67" dy="0.45" layer="1"/>
-<smd name="34" x="4.86" y="9.7" dx="1.67" dy="0.45" layer="1"/>
-<smd name="35" x="4.86" y="10.35" dx="1.67" dy="0.45" layer="1"/>
-<smd name="36" x="4.86" y="11" dx="1.67" dy="0.45" layer="1"/>
+<smd name="23" x="4.86" y="2.6" dx="1.67" dy="0.45" layer="1"/>
+<smd name="24" x="4.86" y="3.25" dx="1.67" dy="0.45" layer="1"/>
+<smd name="25" x="4.86" y="3.9" dx="1.67" dy="0.45" layer="1"/>
+<smd name="26" x="4.86" y="4.55" dx="1.67" dy="0.45" layer="1"/>
+<smd name="27" x="4.86" y="5.2" dx="1.67" dy="0.45" layer="1"/>
+<smd name="28" x="4.86" y="5.85" dx="1.67" dy="0.45" layer="1"/>
+<smd name="29" x="4.86" y="6.5" dx="1.67" dy="0.45" layer="1"/>
+<smd name="30" x="4.86" y="7.15" dx="1.67" dy="0.45" layer="1"/>
+<smd name="31" x="4.86" y="7.8" dx="1.67" dy="0.45" layer="1"/>
+<smd name="32" x="4.86" y="8.45" dx="1.67" dy="0.45" layer="1"/>
+<smd name="33" x="4.86" y="9.1" dx="1.67" dy="0.45" layer="1"/>
+<smd name="34" x="4.86" y="9.75" dx="1.67" dy="0.45" layer="1"/>
+<smd name="35" x="4.86" y="10.4" dx="1.67" dy="0.45" layer="1"/>
+<smd name="36" x="4.86" y="11.05" dx="1.67" dy="0.45" layer="1"/>
 <wire x1="3.8" y1="5.5" x2="3.8" y2="0" width="0.01" layer="21"/>
 <wire x1="3.8" y1="-0.9" x2="3.8" y2="11.9" width="0.1" layer="21"/>
 <wire x1="-3.8" y1="11.9" x2="-3.8" y2="-0.9" width="0.1" layer="21"/>

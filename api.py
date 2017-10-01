@@ -30,13 +30,33 @@ def __fetch_specific_readings(table):
     """
     db = get_db()
     cur = db.execute("""
-        SELECT * 
+        SELECT readings.rid, dataid, measured_at, datatype, measurement, sensor_type, unit
         FROM readings, %s, datatypes
         WHERE
-            readings.rid=%s.rid and datatypes.code=readings.datatype;
+            readings.rid=%s.rid
+            AND datatypes.code=readings.datatype;
 
     """ % (table, table))
     
+    rows_dict_list = [dict(row) for row in cur.fetchall()]
+    return rows_dict_list
+
+
+def __fetch_spectra_readings(table):
+    """
+    Gathers the readings for a specific table. Returns the results as a list of
+    all entries, represented as a dictionary.
+    """
+    db = get_db()
+    cur = db.execute("""
+        SELECT readings.rid, dataid, measured_at, datatype, measurement, sensor_type, unit, arr_idx
+        FROM readings, %s, datatypes
+        WHERE
+            readings.rid=%s.rid
+            AND datatypes.code=readings.datatype;
+
+    """ % (table, table))
+
     rows_dict_list = [dict(row) for row in cur.fetchall()]
     return rows_dict_list
 
@@ -49,11 +69,9 @@ def __transform_spectra_data(raw_db_entries):
             reading_dict = readings[rid]  # Check to initialize entry
         except KeyError:
             readings[rid] = {
-                "inserted": entry["row_inserted"],
                 "data_id": entry["dataid"],
                 "measured_at": entry["measured_at"],
                 "datatype": entry["datatype"],
-                "id": entry["id"],
                 "values": []
             }
             reading_dict = readings[rid]
@@ -73,7 +91,7 @@ def spectrometer_raw():
         insert_spectra(post_json)
         return '', 201
     else:
-        db_entries = __fetch_specific_readings('spectra_raw')
+        db_entries = __fetch_spectra_readings('spectra_raw')
         return json.dumps(__transform_spectra_data(db_entries))
     
 
@@ -93,7 +111,7 @@ def spectrometer_processed():
         insert_spectra(post_json, processed=True)
         return '', 201
     else:
-        db_entries = __fetch_specific_readings('spectra_processed')
+        db_entries = __fetch_spectra_readings('spectra_processed')
         return json.dumps(__transform_spectra_data(db_entries))
         
         

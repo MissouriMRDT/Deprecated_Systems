@@ -17,6 +17,11 @@ VALUES (7, 700, 701, 6);  -- Methane levels
 INSERT OR IGNORE INTO readings (rid, dataid, measured_at, datatype) 
 VALUES (8, 800, 801, 7);  -- UV Intensity
 
+INSERT OR IGNORE INTO readings (rid, dataid, measured_at, datatype)
+VALUES (9, 900, 901, 8);  -- Joint Angle
+INSERT OR IGNORE INTO readings (rid, dataid, measured_at, datatype)
+VALUES (10, 1000, 1001, 9);  --Joint Speed
+
 INSERT OR IGNORE INTO spectra_raw (rid, arr_idx, measurement)
 VALUES (0, 0, 0.01);
 INSERT OR IGNORE INTO spectra_raw (rid, arr_idx, measurement)
@@ -49,3 +54,7 @@ INSERT OR IGNORE INTO air_temperature (rid, measurement) VALUES (5, 50);
 INSERT OR IGNORE INTO air_pressure (rid, measurement) VALUES (6, 6);
 INSERT OR IGNORE INTO methane (rid, measurement) VALUES (7, 7);
 INSERT OR IGNORE INTO ultraviolet (rid, measurement) VALUES (8, 8);
+
+
+INSERT OR IGNORE INTO joint_angle (rid, measurement) VALUES (9,2);
+INSERT OR IGNORE INTO joint_speed (rid, measurement) VALUES (10,1)

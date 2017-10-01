@@ -223,7 +223,6 @@ def weather_methane():
 def weather_uv():
     return json.dumps(__fetch_specific_readings('ultraviolet'))
 
-    
 
 @api.route('/navigation/', methods=['GET'])
 def navigation():
@@ -248,8 +247,16 @@ def navigation_bearing():
 
 
 # Controls
+# TODO: add parameter for which joint
 # TODO: joint angle
+@api.route('/controls/jointangle/', methods=['GET'])
+def joint_angle():
+    return json.dumps(__fetch_specific_readings('joint_angle'))
+
 # TODO: joint speed
+@api.route('/controls/jointspeed/', methods=['GET'])
+def joint_speed():
+    return json.dumps(__fetch_specific_readings('joint_speed'))
 
 @api.route('/motors/', methods=['GET'])
 def motors():

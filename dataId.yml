@@ -1037,23 +1037,23 @@ IpAddresses:
     Address: "192.168.1.139"
     Device: "Science Arm Board"
   - 
-    Address: "Camera Board"
-    Device: "192.168.1.140"
+    Address: "192.168.1.140"
+    Device: "Camera Board"
   - 
-    Address: "Grandstream 1"
-    Device: "192.168.1.226"
+    Address: "192.168.1.226"
+    Device: "Grandstream 1"
   - 
-    Address: "Grandstream 2"
-    Device: "192.168.1.227"
+    Address: "192.168.1.227"
+    Device: "Grandstream 2"
   - 
-    Address: "IP Cam 1"
-    Device: "192.168.1.194"
+    Address: "192.168.1.194"
+    Device: "IP Cam 1"
   - 
-    Address: "IP Cam 2"
-    Device: "192.168.1.195"
+    Address: "192.168.1.195"
+    Device: "IP Cam 2"
   - 
-    Address: "IP Cam 3"
-    Device: "192.168.1.196"
+    Address: "192.168.1.196"
+    Device: "IP Cam 3"
   - 
-    Address: "IP Cam 4"
-    Device: "192.168.1.197"
+    Address: "192.168.1.197"
+    Device: "IP Cam 4"

@@ -4,6 +4,7 @@ import os
 import struct
 import yaml
 
+from collections import namedtuple
 from rovecomm import RoveComm
 
 
@@ -29,7 +30,7 @@ def callback(data, format, data_id):
                                data_id["Name"], 
                                data_id["Id"], 
                                rc_data)
-    logging.info(log_tuple)
+    logging.info("Received transmission: %s" % log_tuple)
     # TODO: Create a logging file? 
     # TODO: Any preprocessing
     # TODO: Switch to insertion into database
@@ -40,7 +41,7 @@ def configure_rovecomm():
         rovecomm_settings = yaml.safe_load(f)
     data_ids = rovecomm_settings['DataIds']
     ip_addrs = rovecomm_settings['IpAddresses']
-    
+
     for addr in ip_addrs:
         rc.subscribe(addr["Address"])
     for id in data_ids:

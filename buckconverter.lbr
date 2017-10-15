@@ -145,12 +145,12 @@
 <package name="CAP_POL_220UF">
 <circle x="0" y="0" radius="6.35" width="0.1524" layer="21"/>
 <text x="-2.54" y="2.54" size="1.27" layer="21">+</text>
-<circle x="0" y="2.4892" radius="0.283978125" width="0.127" layer="20"/>
-<circle x="0" y="-2.54" radius="0.2794" width="0.127" layer="20"/>
-<pad name="GND" x="0" y="-2.54" drill="1" diameter="1.4224" shape="square"/>
+<circle x="0" y="2.4892" radius="0.283978125" width="0.127" layer="21"/>
+<circle x="0" y="-2.54" radius="0.2794" width="0.127" layer="21"/>
+<pad name="GND" x="0" y="-2.54" drill="1" diameter="1.4224" shape="square" thermals="no"/>
 <text x="-3.1242" y="3.9878" size="1.27" layer="25">&gt;Name</text>
 <text x="-3.3528" y="-8.1026" size="1.27" layer="27">&gt;Value</text>
-<pad name="+" x="0" y="2.4892" drill="1" diameter="1.6256"/>
+<pad name="+" x="0" y="2.4892" drill="1" diameter="1.6256" thermals="no"/>
 </package>
 <package name="CAP_POL_22UF">
 <wire x1="-5.08" y1="-5.1562" x2="5.207" y2="-5.1562" width="0.127" layer="21"/>
@@ -384,7 +384,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="RB160MM-30TR">
+<deviceset name="RBR3MM30ATR">
 <gates>
 <gate name="G$1" symbol="D_SCHOTTKY" x="0" y="0"/>
 </gates>

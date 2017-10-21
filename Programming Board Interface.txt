@@ -1,0 +1,7 @@
+1-TCK-->Pin 67
+2-TDI-->Pin 71
+3-TDO-->Pin 70
+4-TMS-->Pin 72
+5-TRST-->Pin 12
+6-3.3V--> 3.3 V
+7-GND-->GND

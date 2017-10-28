@@ -9,7 +9,9 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
+EthernetUDP UdpReceiver;
 
-void roveComm_Begin(uint8_t IP_octet1, uint8_t IP_octet2, uint8_t IP_octet3, uint8_t IP_octet4);
+void roveComm_Begin(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3, uint8_t ip_octet_4);
+void roveComm_SendTo(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3, uint8_t ip_octet_4, uint16_t data_id, size_t data_byte_count, const void* data)
 
 #endif

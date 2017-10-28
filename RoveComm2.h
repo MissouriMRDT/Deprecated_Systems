@@ -1,6 +1,10 @@
 #ifndef ROVECOMM2
 #define ROVECOMM2
 
+//#include <stdio.h>
+//#include <stdint.h>
+//#include <string.h>
+
 #include <Energia.h>
 #include <SPI.h>
 #include <Ethernet.h>

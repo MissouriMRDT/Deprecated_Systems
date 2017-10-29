@@ -3289,14 +3289,14 @@ W = angled&lt;p&gt;
 </class>
 </classes>
 <parts>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220uF"/>
-<part name="C3" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
-<part name="C4" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
-<part name="C5" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
-<part name="C6" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
-<part name="C7" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
-<part name="C8" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
+<part name="C5" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
+<part name="C6" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
+<part name="C7" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
+<part name="C8" library="SparkFun-Passives" deviceset="CAP_POL" device="PTH4" value="220u"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="3.3"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C9" library="SparkFun-Passives" deviceset="CAP" device="0805" value="0.1uF"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.3.1">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2684,7 +2684,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </deviceset>
 </devicesets>
 </library>
-<library name="con-lstb" urn="urn:adsk.eagle:library:162">
+<library name="con-lstb">
 <description>&lt;b&gt;Pin Headers&lt;/b&gt;&lt;p&gt;
 Naming:&lt;p&gt;
 MA = male&lt;p&gt;
@@ -2692,7 +2692,7 @@ MA = male&lt;p&gt;
 W = angled&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="MA13-1" urn="urn:adsk.eagle:footprint:8324/1" library_version="1">
+<package name="MA13-1">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-15.875" y1="1.27" x2="-14.605" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-14.605" y1="1.27" x2="-13.97" y2="0.635" width="0.1524" layer="21"/>
@@ -2806,13 +2806,8 @@ W = angled&lt;p&gt;
 <rectangle x1="14.986" y1="-0.254" x2="15.494" y2="0.254" layer="51"/>
 </package>
 </packages>
-<packages3d>
-<package3d name="MA13-1" urn="urn:adsk.eagle:package:8367/1" type="box" library_version="1">
-<description>PIN HEADER</description>
-</package3d>
-</packages3d>
 <symbols>
-<symbol name="MA13-1" urn="urn:adsk.eagle:symbol:8323/1" library_version="1">
+<symbol name="MA13-1">
 <wire x1="3.81" y1="-17.78" x2="-1.27" y2="-17.78" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="-10.16" x2="2.54" y2="-10.16" width="0.6096" layer="94"/>
 <wire x1="1.27" y1="-12.7" x2="2.54" y2="-12.7" width="0.6096" layer="94"/>
@@ -2848,7 +2843,7 @@ W = angled&lt;p&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="MA13-1" urn="urn:adsk.eagle:component:8407/1" prefix="SV" uservalue="yes" library_version="1">
+<deviceset name="MA13-1" prefix="SV" uservalue="yes">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="MA13-1" x="0" y="0"/>
@@ -2870,9 +2865,6 @@ W = angled&lt;p&gt;
 <connect gate="G$1" pin="8" pad="8"/>
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8367/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="MF" value="" constant="no"/>
@@ -10890,8 +10882,8 @@ by exp-project-lbr.ulp</description>
 <part name="D7" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="GND30" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="330"/>
-<part name="SV1" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA13-1" device="" package3d_urn="urn:adsk.eagle:package:8367/1"/>
-<part name="SV2" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA13-1" device="" package3d_urn="urn:adsk.eagle:package:8367/1"/>
+<part name="SV1" library="con-lstb" deviceset="MA13-1" device=""/>
+<part name="SV2" library="con-lstb" deviceset="MA13-1" device=""/>
 <part name="U3" library="LAUNCHXL-F28027" deviceset="TMS320F28069PZS" device="R" value="TMS320F28069MPZT"/>
 <part name="VCC" library="supply1" deviceset="+3V3" device="" value="VCC"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
@@ -12620,21 +12612,4 @@ by exp-project-lbr.ulp</description>
 </sheets>
 </schematic>
 </drawing>
-<compatibility>
-<note version="8.2" severity="warning">
-Since Version 8.2, EAGLE supports online libraries. The ids
-of those online libraries will not be understood (or retained)
-with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports URNs for individual library
-assets (packages, symbols, and devices). The URNs of those assets
-will not be understood (or retained) with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports the association of 3D packages
-with devices in libraries, schematics, and board files. Those 3D
-packages will not be understood (or retained) with this version.
-</note>
-</compatibility>
 </eagle>

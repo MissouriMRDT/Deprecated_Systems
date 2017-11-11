@@ -114,28 +114,40 @@ void roveComm_Begin(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3, 
 void roveComm_SendTo(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3, uint8_t ip_octet_4, uint16_t data_id, size_t data_byte_count, const void* data)
 {
 	uint32_t data_sequence_count = 0;
+
+	// Loop through IDs this board handles
+    bool isNotFound = true;
+
 	int i = 0;
 	for (i=0; i < ROVECOMM_MAX_DATA_ID_COUNT; i++) 
 	{
+		// Determine if the id has been sent
 		if (data_sequence_ids[i] == data_id)
 		{
+			// If it has, increment the count array at the id index, lower flag
 			data_sequence_counts[i]++;
 			data_sequence_count = data_sequence_counts[i];
+			isNotFound = false;
 			
-		} else {
-			
-			int j = 0;
-			for (j=0; j < ROVECOMM_MAX_DATA_ID_COUNT; j++) 
-			{
-				if (data_sequence_ids[j] == 0)
-				{
-					data_sequence_ids[j] = data_id;
-					data_sequence_counts[j] = 1;
-					data_sequence_count = data_sequence_counts[j];					
-			}
 		}
 	}
+
+	// If the id was not found, add it to the arrays
+	if(isNotFound) {
+		
+		int i = 0;
+		for (i=0; i < ROVECOMM_MAX_DATA_ID_COUNT; i++) 
+		{
+			if (data_sequence_ids[i] == 0)
+			{
+				data_sequence_ids[i] = data_id;
+				data_sequence_counts[i] = 1;
+				data_sequence_count = data_sequence_counts[i];					
+		}
+	}
+
 	
+	// Create the packet:
 	size_t packet_byte_count = ROVECOMM_PACKET_HEADER_BYTE_COUNT + ROVECOMM_DATA_HEADER_BYTE_COUNT + data_byte_count;
 	uint8_t packet_buffer[packet_byte_count];
 	
@@ -153,17 +165,25 @@ void roveComm_SendTo(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3,
 	memcpy(&(packet_buffer[ROVECOMM_PACKET_HEADER_BYTE_COUNT]), RoveCommDataHeader, ROVECOMM_DATA_HEADER_BYTE_COUNT);
 	memcpy(&(packet_buffer[ROVECOMM_PACKET_HEADER_BYTE_COUNT + ROVECOMM_DATA_HEADER_BYTE_COUNT]), data, data_byte_count);
 	
+	// Send logic:
 	IPAddress ip_address = IPAddress(first_octet, second_octet, third_octet, fourth_octet);
+
+	// If the given ip is 0.0.0.0
 	if(ip_address == IP_ADDRESS_NONE)
 	{
+
+		// Loop through subscribers
 		int i = 0;	
 		for (i=0; i < ROVECOMM_MAX_SUBSCRIBER_COUNT; i++) 
 		{
+			// If subscriber is a legit ip
 			if (RoveCommSubscribers[i].ip_address != IP_ADDRESS_NONE)
 			{
+				// Loop through this subscriber's ids
 				int j = 0;
 				for (j=0; j < ROVECOMM_MAX_DATA_ID_COUNT; j++) 
 				{
+					// If the subscriber wants this id, send it to them
 					if (RoveCommSubscribers[i].data_ids[j] == data_id)
 					{	
 						UdpReceiver.beginPacket(RoveCommSubscribers[i].ip_address, ROVECOMM_PORT);
@@ -177,6 +197,7 @@ void roveComm_SendTo(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t ip_octet_3,
 		
 	} else {
 		
+		// Send the packet to the ip given if not 0.0.0.0
 		UdpReceiver.beginPacket(ip_address, ROVECOMM_PORT);
 		UdpReceiver.write(packet_buffer, packet_byte_count);
 		UdpReceiver.endPacket();	

@@ -22,7 +22,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="yes"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="yes"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -172,7 +172,7 @@
 <wire x1="45.136" y1="57.94504375" x2="41.115109375" y2="61.9881625" width="0" layer="20" curve="89.662897"/>
 <wire x1="41.115109375" y1="61.9881625" x2="4.277715625" y2="61.9881625" width="0" layer="20"/>
 <wire x1="4.277715625" y1="61.9881625" x2="0.008746875" y2="57.7108625" width="0" layer="20" curve="90.284396"/>
-<text x="42.672" y="52.578" size="1.27" layer="22" font="vector" rot="MR0">USB to JTAG IC Programming Board
+<text x="12.954" y="59.69" size="1.27" layer="22" font="vector" rot="MR180">USB to JTAG IC Programming Board
 Mars Rover 2017 Rev 1
 Missouri S&amp;T
 Andrew Van Horn</text>
@@ -8367,11 +8367,11 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="1.397" y="51.689" size="1.27" layer="27"/>
 </element>
 <element name="C17" library="rcl" package="C0402" value="36p" x="14.478" y="43.18" smashed="yes" rot="MR270">
-<attribute name="NAME" x="14.859" y="41.529" size="0.8128" layer="26" font="vector" rot="MR270"/>
+<attribute name="NAME" x="14.859" y="46.609" size="0.8128" layer="26" font="vector" rot="MR270"/>
 <attribute name="VALUE" x="16.383" y="43.815" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C18" library="rcl" package="C0402" value="36p" x="15.748" y="44.958" smashed="yes" rot="MR90">
-<attribute name="NAME" x="15.367" y="41.529" size="0.8128" layer="26" font="vector" rot="MR90"/>
+<attribute name="NAME" x="15.367" y="46.609" size="0.8128" layer="26" font="vector" rot="MR90"/>
 <attribute name="VALUE" x="13.843" y="44.323" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C43" library="rcl" package="C0402" value="0.1u" x="14.224" y="36.068" smashed="yes" rot="R180">
@@ -8408,7 +8408,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="1.651" y="52.959" size="1.27" layer="27"/>
 </element>
 <element name="F1" library="rcl" package="L1812" value="500mA" x="12.7" y="37.846" smashed="yes" rot="MR90">
-<attribute name="NAME" x="14.605" y="35.941" size="0.8128" layer="26" font="vector" rot="MR90"/>
+<attribute name="NAME" x="14.351" y="37.465" size="1.27" layer="26" rot="MR90"/>
 <attribute name="VALUE" x="9.525" y="35.941" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="L1" library="rcl" package="R0402" value="BLM15AG601SN1D" x="18.288" y="38.354" smashed="yes" rot="R90">
@@ -8426,7 +8426,7 @@ design rules under a new name.</description>
 <element name="Q3" library="crystal" package="HC49UP" value="12M" x="19.558" y="43.688" smashed="yes" rot="MR90">
 <attribute name="MF" value="" x="19.558" y="43.688" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MPN" value="" x="19.558" y="43.688" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="20.828" y="42.037" size="0.8128" layer="26" font="vector" ratio="10" rot="MR90"/>
+<attribute name="NAME" x="22.606" y="40.259" size="0.8128" layer="26" font="vector" ratio="10" rot="MR90"/>
 <attribute name="OC_FARNELL" value="unknown" x="19.558" y="43.688" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="19.558" y="43.688" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="15.367" y="37.973" size="1.27" layer="28" ratio="10" rot="MR90"/>
@@ -8531,7 +8531,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="2.413" y="31.242" size="0.0254" layer="27"/>
 </element>
 <element name="U$1" library="MRDT-Connectors" package="1.27MM_2X5_BOX_HEADER_STRAIGHT" value="1175-1733-ND" x="42.926" y="53.086" smashed="yes" rot="R180"/>
-<element name="U$2" library="MRDT-Signatures" package="ANDREW_VAN_HORN_SIGNATURE" value="ANDREW_VAN_HORN_SIGNATURE" x="43.18" y="29.972" rot="MR0"/>
+<element name="U$2" library="MRDT-Signatures" package="ANDREW_VAN_HORN_SIGNATURE" value="ANDREW_VAN_HORN_SIGNATURE" x="44.196" y="29.972" rot="MR0"/>
 <element name="LOGO1" library="MRDT-Hardware" package="MRDT_LOGO" value="MRDT_LOGO" x="16.764" y="49.276" rot="MR0"/>
 </elements>
 <signals>
@@ -8928,6 +8928,13 @@ design rules under a new name.</description>
 <wire x1="11.938" y1="34.874" x2="11.608" y2="34.544" width="0.254" layer="1"/>
 <wire x1="11.608" y1="34.544" x2="9.144" y2="34.544" width="0.254" layer="1"/>
 <via x="9.144" y="34.544" extent="1-16" drill="0.35"/>
+<via x="17.78" y="46.236" extent="1-16" drill="0.35"/>
+<wire x1="11.998" y1="48.6114" x2="11.3926" y2="48.006" width="0.1524" layer="1"/>
+<wire x1="11.3926" y1="48.006" x2="10.414" y2="48.006" width="0.1524" layer="1"/>
+<via x="10.414" y="48.006" extent="1-16" drill="0.35"/>
+<via x="20.828" y="43.942" extent="1-16" drill="0.35"/>
+<via x="3.048" y="58.928" extent="1-16" drill="0.35"/>
+<via x="10.16" y="38.608" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="FTDI_3V3">
 <contactref element="U6" pad="P$20"/>

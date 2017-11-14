@@ -1,0 +1,5 @@
+Layers-2
+Width-34.05mm
+Length-45.13mm
+Copper Weight-1oz
+Laser Sencil-Yes

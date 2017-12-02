@@ -108,10 +108,13 @@ class RoveComm(object):
                         ip_address.append(data)
                 else:
                     self.Subscribers[ip_address] = [data]
+                data_id, data_byte_count, data = 0
             elif data_id == ROVECOMM_UNSUBSCRIBE_DATA_ID:
                 if ip_address in self.Subscribers:
                     if data in ip_address :
                         ip_address.remove(data)
                     if not self.Subscribers[ip_address]:
                         self.Subscribers.pop(ip_address, None)
-            return data_id, data
+                #keeping with the C code
+                data_id, data_byte_count, data = 0
+            return data_id, data_byte_count, data

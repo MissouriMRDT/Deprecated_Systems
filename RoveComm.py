@@ -60,18 +60,18 @@ class RoveComm(object):
         self.DataSequenceCounts= {}
         self.PacketHeader= struct.pack(
                                        ">BBBH",
-                                       ROVECOMM_VERSION ,
+                                       ROVECOMM_VERSION,
                                        ROVER_ID,
                                        board_id,
                                        session_count)
-        try:
+        try: #Not actually handling the exception just obscuring it.
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self._socket.bind(("", ROVECOMM_PORT ))
         except socket.error:
             raise Exception("Error: Could not claim port. "
                             "Either another program or another copy or rovecomm"
                             "is using port %d " % ROVECOMM_PORT )
-
+        #data_byte_count may be unnecessary in python but needed in C
         def roveComm_SendTo(self, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, data_id, data_byte_count, data):
             self.packet_byte_count = len(data)
             if data_id in self.DataSequenceCounts.keys():
@@ -95,22 +95,23 @@ class RoveComm(object):
                         self._socket.sendto(bytes(packet_buffer), (Ip_address, ROVECOMM_PORT ))
 
         def roveComm_Recieve(self):
-            packet_buffer, ip_address= self._socket.recvfrom(2048)
-            packet_header = packet_buffer[0:PACKET_HEADER_BYTE_COUNT]
-            data_header = packet_buffer[PACKET_HEADER_BYTE_COUNT:PACKET_HEADER_BYTE_COUNT + DATA_HEADER_BYTE_COUNT]
-            data= packet[PACKET_HEADER_BYTE_COUNT + DATA_HEADER_BYTE_COUNT: ]
-            (version, rover_id, board_id, session_count) = struct.unpack(">BBBH", packet_header)
+            packet_buffer, ip_address = self._socket.recvfrom(2048)
+            packet_header = packet_buffer[0 : PACKET_HEADER_BYTE_COUNT]
+            data_header = packet_buffer[PACKET_HEADER_BYTE_COUNT : (PACKET_HEADER_BYTE_COUNT + DATA_HEADER_BYTE_COUNT)]
+            data = packet[(PACKET_HEADER_BYTE_COUNT + DATA_HEADER_BYTE_COUNT) : ]
+            (version, rover_id, board_id, session_count) = struct.unpack(">BBBH", packet_header) #Database stuff
             (data_id, data_sequence_count, data_byte_count) = struct.unpack(">HLH", data_header )
             if data_id == ROVECOMM_SUBSCRIBE_DATA_ID:
                 if ip_address in self.Subscribers:
-                    if not data in ip_address :
+                    #Check order of not
+                    if data not in ip_address :
                         ip_address.append(data)
-                    else:
-                        self.Subscribers[ip_address] = [data]
-                elif data_id == ROVECOMM_UNSUBSCRIBE_DATA_ID:
-                    if ip_address in self.Subscribers:
-                        if data in ip_address :
-                            ip_address.remove(data)
-                        if not self.Subscribers[ip_address]:
-                            self.Subscribers.pop(ip_address, None)
+                else:
+                    self.Subscribers[ip_address] = [data]
+            elif data_id == ROVECOMM_UNSUBSCRIBE_DATA_ID:
+                if ip_address in self.Subscribers:
+                    if data in ip_address :
+                        ip_address.remove(data)
+                    if not self.Subscribers[ip_address]:
+                        self.Subscribers.pop(ip_address, None)
             return data_id, data

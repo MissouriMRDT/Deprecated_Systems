@@ -75,23 +75,35 @@ class RoveComm(object):
             self.DataSequenceCounts[data_id] += 1
         else:
             self.DataSequenceCounts[data_id] = 1
-
+        print("data_id:", data_id)
+        print("data_byte: ", data_byte_count)
+        print("data: ", data)
+        print("self.PacketHeader: ", self.PacketHeader)
         DataHeader = struct.pack(
                                  ">HLH",
                                  data_id,
                                  self.DataSequenceCounts[data_id],
                                  data_byte_count)
-        packet_buffer = bytes(self.PacketHeader) + bytes(DataHeader) + bytes(data)
+        print("dataheader: ", DataHeader)
+        print("bytesData: ", bytes([data]))
+        # print("bytes: ", chr(65000))
+        #print(type(bytes(data)), type(chr(data)), type(int(data)), type(hex(data)))
+        print(type(DataHeader), type(data))
+        # print this is still bugged bytes(data)
+        packet_buffer = self.PacketHeader + DataHeader + bytes(data)
+        print("packet_buffer:", packet_buffer)
         if ip_octet_1 == 0 and ip_octet_2 == 0 and ip_octet_3 == 0 and ip_octet_4 == 0:
             for ip_address in self.Subscribers:
                 if data_id in ip_address:
                     self._socket.sendto(bytes(packet_buffer), (ip_address, ROVECOMM_PORT))
         else:
-            Ip_address = ip_octet_1 + '.' + ip_octet_2 + '.' + ip_octet_3 + '.' + ip_octet_4
-            self._socket.sendto(bytes(packet_buffer), (Ip_address, ROVECOMM_PORT))
+            ip_address_send = str(ip_octet_1) + '.' + str(ip_octet_2) + '.' + str(ip_octet_3) + '.' + str(ip_octet_4)
+            self._socket.sendto(bytes(packet_buffer), (ip_address_send, ROVECOMM_PORT))
 
     def roveComm_Recieve(self):
         packet_buffer, ip_address = self._socket.recvfrom(2048)
+       # print("packet_buffer:", packet_buffer)
+        # print("ip:", ip_address)
         packet_header = packet_buffer[0: ROVECOMM_PACKET_HEADER_BYTE_COUNT]
         data_header = packet_buffer[ROVECOMM_PACKET_HEADER_BYTE_COUNT: (ROVECOMM_PACKET_HEADER_BYTE_COUNT + ROVECOMM_DATA_HEADER_BYTE_COUNT)]
         data = packet_buffer[(ROVECOMM_PACKET_HEADER_BYTE_COUNT + ROVECOMM_DATA_HEADER_BYTE_COUNT):]
@@ -116,4 +128,5 @@ class RoveComm(object):
                     self.Subscribers.pop(ip_address, None)
             # keeping with the C code
             data_byte_count, data = 0, 0
+        print(data)
         return data_id, data_byte_count, data

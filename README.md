@@ -6,11 +6,16 @@ This will run on a raspberry pi with raspian wheezy or ubuntu 16.04.
 
 1. Install raspbian on the raspberry pi and connect it to the internet
 2. Install the Xbox controller driver
-    sudo apt-get instal xboxdrv
+
+       sudo apt-get instal xboxdrv
+       
 3. Clone the repo to your raspberry pi
-    git clone https://github.com/MST-MRDT/DriveBoard-PR.git
+
+       git clone https://github.com/MST-MRDT/DriveBoard-PR.git
+       
 4. Mark the file as executable
-    chmod +x DriveBoard-PR/xbox_remote_control.py
+
+       chmod +x DriveBoard-PR/xbox_remote_control.py
 
 # Running
 

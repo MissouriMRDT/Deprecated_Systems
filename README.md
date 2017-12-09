@@ -33,29 +33,29 @@ part in the repo.
 
 1) Create the file `/etc/systemd/system/xbox_remote.service`
 
-    [Unit]
-    Description=Allows driving the rover through an Xbox controller
-    After=multi-user.target
-    After=network.target
-
-    [Service]
-    ExecStart=/home/pi/DriveBoard-PR/xbox_remote_control.py
-    WorkingDirectory=/home/pi/DriveBoard-PR
-    Type=idle
-    Restart=always
-
-    [Install]
-    WantedBy=multi-user.target
+        [Unit]
+        Description=Allows driving the rover through an Xbox controller
+        After=multi-user.target
+        After=network.target
+        
+        [Service]
+        ExecStart=/home/pi/DriveBoard-PR/xbox_remote_control.py
+        WorkingDirectory=/home/pi/DriveBoard-PR
+        Type=idle
+        Restart=always
+        
+        [Install]
+        WantedBy=multi-user.target
 
 2) Set the file permissions
 
-    sudo chmod 644 /etc/systemd/system/xbox_remote.service
+        sudo chmod 644 /etc/systemd/system/xbox_remote.service
 
 3) Enable the service
 
-    sudo systemctl daemon-reload
-    sudo systemctl enable xbox_remote.service
-    sudo reboot
+        sudo systemctl daemon-reload
+        sudo systemctl enable xbox_remote.service
+        sudo reboot
 
 To view program output logs
 
@@ -65,4 +65,5 @@ To view program output logs
 # Credits
 
 Written by Owen Chiaventone
+
 Depends on work by Steven Jacobs. Attributions are in the relevant source files.

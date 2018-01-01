@@ -1,0 +1,10 @@
+1-3V3
+2-TMS
+3-GND
+4-TCK/TCLK
+5-GND
+6-TDO
+7-Unused, Leave Open
+8-TDI
+9-GND
+10-RST/TRST

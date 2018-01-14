@@ -1,0 +1,15 @@
+Proc cable and box header for mastboard. 
+Crack Arduino ATMEGA
+Gyro Wiring over SPI or I2C
+12V logic bus
+
+Rev 1
+XBEE to mastboard
+Convert 12V to 5V and 3.3V
+Read sensors
+Write PWM to camera
+
+
+Rev2
+CC3200?? Wifi-ESP8266
+Serial camera control

@@ -121,12 +121,14 @@ class RoveComm(object):
             self.DataSequenceCounts[data_id] += 1
         else:
             self.DataSequenceCounts[data_id] = 1
-            newData = struct.pack(">H", data)
+            newData = data.to_bytes((data.bit_length() + 7) // 8, 'big') or b'\0'
             data_byte_count = len(newData)
             DataHeader = struct.pack(">HLH", data_id, self.DataSequenceCounts[data_id], data_byte_count)
-
             packet_buffer = self.PacketHeader + DataHeader + newData
-            print("bytesData", newData)
+            #the bytes is showing the utf-8 object that the hexadecimal number relates to. Its not an issue if we convert correctly
+            testSlice = packet_buffer[(ROVECOMM_PACKET_HEADER_BYTE_COUNT + ROVECOMM_DATA_HEADER_BYTE_COUNT):]
+            print('newData decoded to int: ', int.from_bytes(testSlice, byteorder='big'))
+            print("newData ", newData)
             print("send_buffer: ", packet_buffer)
 
             if ip_octet_1 == 0 and ip_octet_2 == 0 and ip_octet_3 == 0 and ip_octet_4 == 0:

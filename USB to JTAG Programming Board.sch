@@ -11694,76 +11694,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="MRDT-Connectors">
-<description>MRDT Connectors: Microfits, RJ45, Molex SL...</description>
-<packages>
-<package name="1.27MM_2X5_BOX_HEADER_STRAIGHT">
-<wire x1="0" y1="0" x2="0" y2="3.975" width="0.1524" layer="21"/>
-<wire x1="0" y1="3.975" x2="0" y2="8.675" width="0.1524" layer="21"/>
-<wire x1="0" y1="8.675" x2="0" y2="12.65" width="0.1524" layer="21"/>
-<wire x1="0" y1="12.65" x2="5.1" y2="12.65" width="0.1524" layer="21"/>
-<wire x1="5.1" y1="12.65" x2="5.1" y2="0" width="0.1524" layer="21"/>
-<wire x1="5.1" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
-<pad name="9" x="1.915" y="3.785" drill="0.5"/>
-<pad name="10" x="3.185" y="3.785" drill="0.5"/>
-<pad name="7" x="1.915" y="5.055" drill="0.5"/>
-<pad name="8" x="3.185" y="5.055" drill="0.5"/>
-<pad name="5" x="1.915" y="6.325" drill="0.5"/>
-<pad name="6" x="3.185" y="6.325" drill="0.5"/>
-<pad name="3" x="1.915" y="7.595" drill="0.5"/>
-<pad name="4" x="3.185" y="7.595" drill="0.5"/>
-<pad name="1" x="1.915" y="8.865" drill="0.5"/>
-<pad name="2" x="3.185" y="8.865" drill="0.5"/>
-<wire x1="0" y1="8.675" x2="-1.27" y2="8.675" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="8.675" x2="-1.27" y2="3.975" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="3.975" x2="0" y2="3.975" width="0.1524" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="2X5_BOX_HEADER_STRAIGHT">
-<wire x1="0" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<pin name="10-RST" x="0" y="0" length="middle" rot="R180"/>
-<pin name="9-GND" x="0" y="2.54" length="middle" rot="R180"/>
-<pin name="8-TDI" x="0" y="5.08" length="middle" rot="R180"/>
-<pin name="7-RTCK" x="0" y="7.62" length="middle" rot="R180"/>
-<pin name="6-TDO" x="0" y="10.16" length="middle" rot="R180"/>
-<pin name="5-GND" x="0" y="12.7" length="middle" rot="R180"/>
-<pin name="4-TCK" x="0" y="15.24" length="middle" rot="R180"/>
-<pin name="3-GND" x="0" y="17.78" length="middle" rot="R180"/>
-<wire x1="0" y1="0" x2="0" y2="22.86" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="22.86" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<wire x1="0" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="94"/>
-<pin name="2-TMS" x="0" y="20.32" length="middle" rot="R180"/>
-<pin name="1-VCC" x="0" y="22.86" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="1175-1733-ND">
-<gates>
-<gate name="1" symbol="2X5_BOX_HEADER_STRAIGHT" x="-12.7" y="0"/>
-</gates>
-<devices>
-<device name="" package="1.27MM_2X5_BOX_HEADER_STRAIGHT">
-<connects>
-<connect gate="1" pin="1-VCC" pad="1"/>
-<connect gate="1" pin="10-RST" pad="10"/>
-<connect gate="1" pin="2-TMS" pad="2"/>
-<connect gate="1" pin="3-GND" pad="3"/>
-<connect gate="1" pin="4-TCK" pad="4"/>
-<connect gate="1" pin="5-GND" pad="5"/>
-<connect gate="1" pin="6-TDO" pad="6"/>
-<connect gate="1" pin="7-RTCK" pad="7"/>
-<connect gate="1" pin="8-TDI" pad="8"/>
-<connect gate="1" pin="9-GND" pad="9"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="MRDT-Signatures">
 <packages>
 <package name="ANDREW_VAN_HORN_SIGNATURE">
@@ -22603,6 +22533,77 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="MRDT-Connectors">
+<description>MRDT Connectors: Microfits, RJ45, Molex SL...</description>
+<packages>
+<package name="1.27MM_2X5_BOX_HEADER_STRAIGHT">
+<wire x1="0" y1="0" x2="0" y2="3.975" width="0.1524" layer="21"/>
+<wire x1="0" y1="3.975" x2="0" y2="8.675" width="0.1524" layer="21"/>
+<wire x1="0" y1="8.675" x2="0" y2="12.65" width="0.1524" layer="21"/>
+<wire x1="0" y1="12.65" x2="5.1" y2="12.65" width="0.1524" layer="21"/>
+<wire x1="5.1" y1="12.65" x2="5.1" y2="0" width="0.1524" layer="21"/>
+<wire x1="5.1" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
+<pad name="9" x="1.915" y="3.785" drill="0.5"/>
+<pad name="10" x="3.185" y="3.785" drill="0.5"/>
+<pad name="7" x="1.915" y="5.055" drill="0.5"/>
+<pad name="8" x="3.185" y="5.055" drill="0.5"/>
+<pad name="5" x="1.915" y="6.325" drill="0.5"/>
+<pad name="6" x="3.185" y="6.325" drill="0.5"/>
+<pad name="3" x="1.915" y="7.595" drill="0.5"/>
+<pad name="4" x="3.185" y="7.595" drill="0.5"/>
+<pad name="1" x="1.915" y="8.865" drill="0.5"/>
+<pad name="2" x="3.185" y="8.865" drill="0.5"/>
+<wire x1="0" y1="8.675" x2="-1.27" y2="8.675" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="8.675" x2="-1.27" y2="3.975" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="3.975" x2="0" y2="3.975" width="0.1524" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="2X5_BOX_HEADER_STRAIGHT">
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<pin name="10-RST" x="-5.08" y="0" length="middle"/>
+<pin name="9-GND" x="-5.08" y="2.54" length="middle"/>
+<pin name="8-TDI" x="-5.08" y="5.08" length="middle"/>
+<pin name="7-RTCK" x="-5.08" y="7.62" length="middle"/>
+<pin name="6-TDO" x="-5.08" y="10.16" length="middle"/>
+<pin name="5-GND" x="-5.08" y="12.7" length="middle"/>
+<pin name="4-TCK" x="-5.08" y="15.24" length="middle"/>
+<pin name="3-GND" x="-5.08" y="17.78" length="middle"/>
+<wire x1="0" y1="0" x2="0" y2="22.86" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="22.86" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="0" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="94"/>
+<pin name="2-TMS" x="-5.08" y="20.32" length="middle"/>
+<pin name="1-VCC" x="-5.08" y="22.86" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="IDC_BOX_HEADER_2X5_1.27MM">
+<description>1175-1733-ND</description>
+<gates>
+<gate name="1" symbol="2X5_BOX_HEADER_STRAIGHT" x="-12.7" y="0"/>
+</gates>
+<devices>
+<device name="" package="1.27MM_2X5_BOX_HEADER_STRAIGHT">
+<connects>
+<connect gate="1" pin="1-VCC" pad="1"/>
+<connect gate="1" pin="10-RST" pad="10"/>
+<connect gate="1" pin="2-TMS" pad="2"/>
+<connect gate="1" pin="3-GND" pad="3"/>
+<connect gate="1" pin="4-TCK" pad="4"/>
+<connect gate="1" pin="5-GND" pad="5"/>
+<connect gate="1" pin="6-TDO" pad="6"/>
+<connect gate="1" pin="7-RTCK" pad="7"/>
+<connect gate="1" pin="8-TDI" pad="8"/>
+<connect gate="1" pin="9-GND" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -22675,7 +22676,6 @@ Source: AVX .. aphvc.pdf</description>
 <part name="AGND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="GROUND" library="RF430FRL152H_EVM_a" deviceset="TESTPAD_TP" device="B1,27"/>
 <part name="3V3" library="RF430FRL152H_EVM_a" deviceset="TESTPAD_TP" device="B1,27"/>
-<part name="U$1" library="MRDT-Connectors" deviceset="1175-1733-ND" device=""/>
 <part name="U$2" library="MRDT-Signatures" deviceset="ANDREW_VAN_HORN_SIGNATURE" device=""/>
 <part name="LOGO1" library="MRDT-Hardware" deviceset="MRDT_LOGO" device=""/>
 <part name="R1" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="R" device="R0603" package3d_urn="urn:adsk.eagle:package:13302/1" value="10k"/>
@@ -22683,6 +22683,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="C1" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C0603" package3d_urn="urn:adsk.eagle:package:13262/1" value=".1u"/>
 <part name="C2" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C0603" package3d_urn="urn:adsk.eagle:package:13262/1" value="36p"/>
 <part name="C3" library="eagle-ltspice" library_urn="urn:adsk.eagle:library:217" deviceset="C" device="C0603" package3d_urn="urn:adsk.eagle:package:13262/1" value="36p"/>
+<part name="U$1" library="MRDT-Connectors" deviceset="IDC_BOX_HEADER_2X5_1.27MM" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -23030,7 +23031,6 @@ Source: AVX .. aphvc.pdf</description>
 </instance>
 <instance part="GROUND" gate="G$1" x="72.39" y="21.59" rot="R90"/>
 <instance part="3V3" gate="G$1" x="173.99" y="204.47"/>
-<instance part="U$1" gate="1" x="304.8" y="101.6"/>
 <instance part="U$2" gate="G$1" x="302.26" y="5.08"/>
 <instance part="LOGO1" gate="G$1" x="307.34" y="25.4"/>
 <instance part="R1" gate="G$1" x="66.04" y="81.28" rot="R90"/>
@@ -23038,6 +23038,7 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="C1" gate="G$1" x="10.16" y="71.12" rot="R180"/>
 <instance part="C2" gate="G$1" x="83.82" y="38.1" rot="R180"/>
 <instance part="C3" gate="G$1" x="93.98" y="38.1" rot="R180"/>
+<instance part="U$1" gate="1" x="309.88" y="101.6"/>
 </instances>
 <busses>
 </busses>
@@ -23121,10 +23122,8 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="251.46" y1="96.52" x2="251.46" y2="53.34" width="0.1524" layer="91"/>
 <junction x="251.46" y="96.52"/>
-<wire x1="251.46" y1="106.68" x2="294.64" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="251.46" y1="106.68" x2="304.8" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="1" pin="8-TDI"/>
-<wire x1="294.64" y1="106.68" x2="297.18" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="106.68" x2="297.18" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TDO" class="0">
@@ -23449,10 +23448,10 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="304.8" y1="109.22" x2="281.94" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="104.14" x2="281.94" y2="104.14" width="0.1524" layer="91"/>
 <junction x="281.94" y="104.14"/>
-<pinref part="U$1" gate="1" pin="3-GND"/>
-<pinref part="U$1" gate="1" pin="5-GND"/>
-<pinref part="U$1" gate="1" pin="7-RTCK"/>
 <pinref part="U$1" gate="1" pin="9-GND"/>
+<pinref part="U$1" gate="1" pin="7-RTCK"/>
+<pinref part="U$1" gate="1" pin="5-GND"/>
+<pinref part="U$1" gate="1" pin="3-GND"/>
 </segment>
 <segment>
 <wire x1="175.26" y1="104.14" x2="177.8" y2="104.14" width="0.1524" layer="91"/>
@@ -23776,10 +23775,8 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="259.08" y="93.98"/>
 <wire x1="259.08" y1="96.52" x2="284.48" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="284.48" y1="96.52" x2="284.48" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="284.48" y1="101.6" x2="294.64" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="101.6" x2="304.8" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="1" pin="10-RST"/>
-<wire x1="294.64" y1="101.6" x2="297.18" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="304.8" y1="101.6" x2="297.18" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$38" class="0">

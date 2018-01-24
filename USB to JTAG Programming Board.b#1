@@ -173,7 +173,7 @@
 <wire x1="0.039603125" y1="58.205665625" x2="0.232634375" y2="31.365078125" width="0" layer="20"/>
 <wire x1="0.232634375" y1="31.365078125" x2="4.450015625" y2="27.178" width="0" layer="20" curve="89.587938"/>
 <text x="13.208" y="62.23" size="1.27" layer="22" font="vector" rot="MR180">USB to JTAG IC Programming Board
-Mars Rover 2017 Rev 1
+Mars Rover 2017 Rev 3
 Missouri S&amp;T
 Andrew Van Horn</text>
 </plain>

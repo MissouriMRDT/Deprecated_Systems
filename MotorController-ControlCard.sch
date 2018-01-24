@@ -1096,56 +1096,6 @@ FQP27P06 -
 </library>
 <library name="MRDT-Connectors">
 <packages>
-<package name="MOLEX-70543-0006">
-<pad name="1" x="7.62" y="0" drill="1.1" shape="square"/>
-<pad name="2" x="5.08" y="0" drill="1.1"/>
-<pad name="3" x="2.54" y="0" drill="1.1"/>
-<pad name="4" x="0" y="0" drill="1.1"/>
-<pad name="5" x="-2.54" y="0" drill="1.1"/>
-<pad name="6" x="-5.08" y="0" drill="1.1"/>
-<pad name="7" x="-7.62" y="0" drill="1.1"/>
-<wire x1="-8.89" y1="1.27" x2="-6.35" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="1.27" x2="6.35" y2="1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
-<wire x1="8.89" y1="1.27" x2="8.89" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="8.89" y1="-1.27" x2="-8.89" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="-1.27" x2="-8.89" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="1.27" x2="-6.35" y2="2.54" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="2.54" x2="6.35" y2="2.54" width="0.127" layer="21"/>
-<wire x1="6.35" y1="2.54" x2="6.35" y2="1.27" width="0.127" layer="21"/>
-<text x="10.16" y="5.08" size="1.27" layer="21" rot="R270">&gt;NAME</text>
-</package>
-<package name="MOLEX-70551-0006">
-<hole x="-8.89" y="8.636" drill="3.4544"/>
-<hole x="8.89" y="8.636" drill="3.4544"/>
-<pad name="3" x="-2.54" y="0" drill="1.1684"/>
-<pad name="2" x="-5.08" y="0" drill="1.1684"/>
-<pad name="1" x="-7.62" y="0" drill="1.1684" shape="square"/>
-<pad name="4" x="0" y="0" drill="1.1684"/>
-<pad name="5" x="2.54" y="0" drill="1.1684"/>
-<pad name="6" x="5.08" y="0" drill="1.1684"/>
-<wire x1="-12.065" y1="13.208" x2="-6.35" y2="13.208" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="13.208" x2="6.35" y2="13.208" width="0.127" layer="21"/>
-<wire x1="6.35" y1="13.208" x2="12.065" y2="13.208" width="0.127" layer="21"/>
-<wire x1="-12.065" y1="1.27" x2="-8.89" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
-<wire x1="8.89" y1="1.27" x2="12.065" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-12.065" y1="13.208" x2="-12.065" y2="1.27" width="0.127" layer="21"/>
-<wire x1="12.065" y1="13.208" x2="12.065" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="1.27" x2="-8.89" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="-1.27" x2="8.89" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="8.89" y1="-1.27" x2="8.89" y2="1.27" width="0.127" layer="21"/>
-<wire x1="6.35" y1="13.208" x2="6.35" y2="8.89" width="0.127" layer="21"/>
-<wire x1="6.35" y1="8.89" x2="1.27" y2="8.89" width="0.127" layer="21"/>
-<wire x1="1.27" y1="8.89" x2="-1.27" y2="8.89" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="8.89" x2="-6.35" y2="8.89" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="8.89" x2="-6.35" y2="13.208" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="8.89" x2="-1.27" y2="5.08" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="5.08" x2="1.27" y2="5.08" width="0.127" layer="21"/>
-<wire x1="1.27" y1="5.08" x2="1.27" y2="8.89" width="0.127" layer="21"/>
-<text x="-2.54" y="-3.81" size="1.27" layer="25">&gt;NAME</text>
-<pad name="7" x="7.62" y="0" drill="1.1684"/>
-</package>
 <package name="MOLEX_SL_03_TH">
 <pad name="1" x="-2.54" y="0" drill="1.0922" diameter="1.778" shape="square"/>
 <pad name="2" x="0" y="0" drill="1.0922" diameter="1.778"/>
@@ -1237,21 +1187,6 @@ FQP27P06 -
 </package>
 </packages>
 <symbols>
-<symbol name="SL07">
-<wire x1="0" y1="0" x2="0" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="0" y1="-7.62" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="20.32" y1="-7.62" x2="20.32" y2="0" width="0.254" layer="94"/>
-<wire x1="20.32" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<pin name="1" x="2.54" y="-12.7" length="middle" rot="R90"/>
-<pin name="2" x="5.08" y="-12.7" length="middle" rot="R90"/>
-<pin name="3" x="7.62" y="-12.7" length="middle" rot="R90"/>
-<pin name="4" x="10.16" y="-12.7" length="middle" rot="R90"/>
-<pin name="5" x="12.7" y="-12.7" length="middle" rot="R90"/>
-<pin name="6" x="15.24" y="-12.7" length="middle" rot="R90"/>
-<pin name="7" x="17.78" y="-12.7" length="middle" rot="R90"/>
-<text x="-1.016" y="-6.858" size="1.27" layer="94" rot="R90">&gt;NAME</text>
-<text x="0.254" y="1.27" size="1.27" layer="94">&gt;VALUE</text>
-</symbol>
 <symbol name="SL03">
 <wire x1="-2.54" y1="-5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
@@ -1279,41 +1214,6 @@ FQP27P06 -
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="SL07" prefix="J">
-<gates>
-<gate name="G$1" symbol="SL07" x="0" y="7.62"/>
-</gates>
-<devices>
-<device name="" package="MOLEX-70543-0006">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-HORIZ" package="MOLEX-70551-0006">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SL03" prefix="J">
 <description>Molex 3-pin SL connector
 
@@ -10468,7 +10368,6 @@ by exp-project-lbr.ulp</description>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device="" value="VCC"/>
 <part name="C39" library="rcl" deviceset="C-US" device="C0402" value="0.1u"/>
 <part name="GND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="J1" library="MRDT-Connectors" deviceset="SL07" device="-HORIZ"/>
 <part name="R12" library="rcl" deviceset="R-US_" device="R0402" value="2.2k"/>
 <part name="R14" library="rcl" deviceset="R-US_" device="R0402" value="2.2k"/>
 <part name="R15" library="rcl" deviceset="R-US_" device="R0402" value="820"/>
@@ -10631,7 +10530,6 @@ by exp-project-lbr.ulp</description>
 </instance>
 <instance part="C39" gate="G$1" x="210.82" y="15.24" rot="MR0"/>
 <instance part="GND39" gate="1" x="210.82" y="5.08" rot="MR0"/>
-<instance part="J1" gate="G$1" x="114.3" y="-40.64" rot="R270"/>
 <instance part="R12" gate="G$1" x="81.28" y="109.22" rot="MR90"/>
 <instance part="R14" gate="G$1" x="66.04" y="109.22" rot="MR90"/>
 <instance part="R15" gate="G$1" x="40.64" y="142.24" rot="MR90"/>
@@ -10820,7 +10718,6 @@ by exp-project-lbr.ulp</description>
 <wire x1="210.82" y1="7.62" x2="210.82" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="7"/>
 <wire x1="101.6" y1="-58.42" x2="83.82" y2="-58.42" width="0.1524" layer="91"/>
 <label x="83.82" y="-58.42" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -10946,7 +10843,6 @@ by exp-project-lbr.ulp</description>
 <label x="-111.76" y="-59.69" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="6"/>
 <wire x1="101.6" y1="-55.88" x2="83.82" y2="-55.88" width="0.1524" layer="91"/>
 <label x="83.82" y="-55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -11191,7 +11087,7 @@ by exp-project-lbr.ulp</description>
 <label x="45.72" y="-57.15" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="GPIO34" class="0">
+<net name="GPIO34_BOOT" class="0">
 <segment>
 <wire x1="81.28" y1="134.62" x2="81.28" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="2"/>
@@ -11265,7 +11161,6 @@ by exp-project-lbr.ulp</description>
 <wire x1="165.1" y1="127" x2="139.7" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="1"/>
 <wire x1="101.6" y1="-43.18" x2="83.82" y2="-43.18" width="0.1524" layer="91"/>
 <label x="83.82" y="-43.18" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -11282,7 +11177,6 @@ by exp-project-lbr.ulp</description>
 <wire x1="165.1" y1="121.92" x2="139.7" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="2"/>
 <wire x1="101.6" y1="-45.72" x2="83.82" y2="-45.72" width="0.1524" layer="91"/>
 <label x="83.82" y="-45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -11294,7 +11188,6 @@ by exp-project-lbr.ulp</description>
 </net>
 <net name="TDO" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="3"/>
 <wire x1="101.6" y1="-48.26" x2="83.82" y2="-48.26" width="0.1524" layer="91"/>
 <label x="83.82" y="-48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -11324,7 +11217,6 @@ by exp-project-lbr.ulp</description>
 <wire x1="165.1" y1="124.46" x2="139.7" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="4"/>
 <wire x1="101.6" y1="-50.8" x2="83.82" y2="-50.8" width="0.1524" layer="91"/>
 <label x="83.82" y="-50.8" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -11336,7 +11228,6 @@ by exp-project-lbr.ulp</description>
 </net>
 <net name="TRST" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="5"/>
 <wire x1="101.6" y1="-53.34" x2="83.82" y2="-53.34" width="0.1524" layer="91"/>
 <label x="83.82" y="-53.34" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>

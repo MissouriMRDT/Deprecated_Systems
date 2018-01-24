@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.5.2">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10502,6 +10502,7 @@ by exp-project-lbr.ulp</description>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U4" library="LAUNCHXL-F28027" deviceset="TMS320F28069PZS" device="R" value="TMS320F28069MPZT"/>
+<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10677,6 +10678,7 @@ by exp-project-lbr.ulp</description>
 <attribute name="VALUE" x="36.068" y="72.39" size="1.27" layer="96"/>
 </instance>
 <instance part="U4" gate="G$3" x="-35.56" y="121.92"/>
+<instance part="GND5" gate="1" x="83.82" y="-96.52" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -10885,6 +10887,11 @@ by exp-project-lbr.ulp</description>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="35.56" y1="-113.03" x2="40.64" y2="-113.03" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND5" gate="1" pin="GND"/>
+<pinref part="U$2" gate="1" pin="7-RTCK"/>
+<wire x1="86.36" y1="-96.52" x2="106.68" y2="-96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NOCTW" class="0">

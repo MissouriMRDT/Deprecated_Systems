@@ -1,0 +1,48 @@
+Partlist exported from C:/Users/shotp/Documents/GitHub/MotorController-ControlCard/MotorController-ControlCard.sch at 1/24/2018 7:32 PM
+
+Part Value                     Device                    Package                        Description                      OPERATING_VOLTAGE ORIENT PARTNO     PROD_ID     TP_SIGNAL_NAME
+C15  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C19  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C20  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C21  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C22  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C23  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C24  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C25  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C26  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C27  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C28  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C29  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C30  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C31  2.2u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C34  0.1u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C39  0.1u                      C-USC0402                 C0402                          CAPACITOR, American symbol                                                                     
+C44  0.1u                      CAP0805                   0805                           Capacitor                                                                                      
+C45  0.1u                      CAP0805                   0805                           Capacitor                                                                                      
+C46  0.1u                      CAP0805                   0805                           Capacitor                                                                                      
+C47  0.1u                      CAP0805                   0805                           Capacitor                                                                                      
+C48  0.1u                      CAP0805                   0805                           Capacitor                                                                                      
+D7                             LED1206                   LED-1206                       LEDs                                                                                           
+D8                             LED1206                   LED-1206                       LEDs                                                                                           
+D9                             LED1206                   LED-1206                       LEDs                                                                                           
+J2   SL03THROUGH_HOLE          SL03THROUGH_HOLE          MOLEX_SL_03_TH                 Molex 3-pin SL connector                           HORIZ  0705550002                           
+L3   BKP1005HS221-T            L-US0402                  R0402                          INDUCTOR, American symbol                                                                      
+L4   BLM15PD600SN1D            L-US0402                  R0402                          INDUCTOR, American symbol                                                                      
+Q7   MOSFET-PCHANNEL           MOSFET-PCHANNEL           SOT23-3                        Generic PMOSFET                                                      TRANS-08285               
+Q8   MOSFET-PCHANNEL           MOSFET-PCHANNEL           SOT23-3                        Generic PMOSFET                                                      TRANS-08285               
+R11  2.2k                      R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R12  2.2k                      R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R14  2.2k                      R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R15  820                       R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R16  820                       R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R17  2.2k                      R-US_R0402                R0402                          RESISTOR, American symbol                                                                      
+R33  330                       RESISTOR0805-RES          0805                           Resistor                                                                                       
+R34  330                       RESISTOR0805-RES          0805                           Resistor                                                                                       
+R35  330                       RESISTOR0805-RES          0805                           Resistor                                                                                       
+S2   TP-1138K9-BE1125          FSMJSMA                   FSMJSMA                                                                                                                       
+TP19 TESTPAD_TPB1,27           TESTPAD_TPB1,27           TESTPAD_B1,27                  Test pad                                                                                       
+U$1  TIVA-123                  TIVA-123                  TIVA-C                         TIVA-C DEV BOARD (NON-CONNECTED)                                                               
+U$2  IDC_BOX_HEADER_2X5_1.27MM IDC_BOX_HEADER_2X5_1.27MM 1.27MM_2X5_BOX_HEADER_STRAIGHT 1175-1733-ND                                                                                   
+U$4  5PIN                      5PIN                      5PIN                                                                                                                          
+U2   MAX3232D                  MAX3232D                  SOIC16                                                          3V3                                                           
+U4   TMS320F28069MPZT          TMS320F28069PZSR          PQFP100                                                                                                                       

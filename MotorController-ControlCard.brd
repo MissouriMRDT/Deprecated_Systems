@@ -1549,9 +1549,9 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="GND2"/>
 <contactref element="U$2" pad="7"/>
 <via x="93.218" y="43.688" extent="1-16" drill="0.35"/>
-<via x="102.87" y="93.472" extent="1-16" drill="0.35"/>
-<via x="102.87" y="91.694" extent="1-16" drill="0.35"/>
-<via x="102.87" y="89.916" extent="1-16" drill="0.35"/>
+<via x="102.87" y="92.202" extent="1-16" drill="0.35"/>
+<via x="102.87" y="90.678" extent="1-16" drill="0.35"/>
+<via x="102.87" y="89.154" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="NOCTW">
 <contactref element="Q8" pad="1"/>

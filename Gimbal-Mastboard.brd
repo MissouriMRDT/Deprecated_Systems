@@ -182,6 +182,8 @@ GND</text>
 Mars Rover 2018
 Missouri S&amp;T
 Andrew Van Horn</text>
+<text x="31.496" y="8.636" size="1.778" layer="25" rot="R90">&lt;--
+</text>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors">
@@ -8417,13 +8419,8 @@ design rules under a new name.</description>
 <wire x1="49.7752" y1="53.03893125" x2="49.276" y2="52.53973125" width="0.4064" layer="1"/>
 <wire x1="49.276" y1="52.53973125" x2="49.276" y2="51.816" width="0.4064" layer="1"/>
 <via x="49.276" y="51.816" extent="1-16" drill="0.35"/>
-<wire x1="5.207" y1="18.288" x2="1.27" y2="18.288" width="0.1524" layer="1"/>
 <via x="1.27" y="18.288" extent="1-16" drill="0.35"/>
-<wire x1="26.416" y1="31.172" x2="26.448" y2="31.14" width="0.1524" layer="1"/>
-<wire x1="26.416" y1="31.172" x2="26.416" y2="33.02" width="0.1524" layer="1"/>
 <via x="26.416" y="33.02" extent="1-16" drill="0.35"/>
-<wire x1="26.448" y1="31.14" x2="20.32" y2="37.268" width="0.1524" layer="1"/>
-<wire x1="20.32" y1="37.268" x2="20.32" y2="40.64" width="0.1524" layer="1"/>
 <via x="20.32" y="40.64" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="+5V">
@@ -8541,21 +8538,6 @@ design rules under a new name.</description>
 <wire x1="46.482" y1="32.258" x2="48.768" y2="32.258" width="0.254" layer="1"/>
 <wire x1="45.466" y1="50.165" x2="45.466" y2="33.274" width="0.254" layer="1"/>
 </signal>
-<signal name="RESET">
-<contactref element="ZU4" pad="1"/>
-<contactref element="RESET" pad="A"/>
-<contactref element="S1" pad="P$2"/>
-<contactref element="R4" pad="1"/>
-<wire x1="41.148" y1="50.038" x2="41.148" y2="53.456" width="0.254" layer="1"/>
-<wire x1="33.704" y1="54.356" x2="35.306" y2="54.356" width="0.254" layer="1"/>
-<wire x1="35.306" y1="54.356" x2="37.338" y2="52.324" width="0.254" layer="1"/>
-<wire x1="37.3126" y1="48.6156" x2="37.4396" y2="48.6156" width="0.254" layer="1"/>
-<wire x1="37.4396" y1="48.6156" x2="38.862" y2="50.038" width="0.254" layer="1"/>
-<wire x1="38.862" y1="50.038" x2="41.148" y2="50.038" width="0.254" layer="1"/>
-<wire x1="37.338" y1="52.324" x2="38.608" y2="52.324" width="0.254" layer="1"/>
-<wire x1="38.608" y1="52.324" x2="40.894" y2="50.038" width="0.254" layer="1"/>
-<wire x1="40.894" y1="50.038" x2="41.148" y2="50.038" width="0.254" layer="1"/>
-</signal>
 <signal name="PWM_3">
 <contactref element="ZU4" pad="12"/>
 <wire x1="26.67" y1="20.574" x2="28.194" y2="22.098" width="0.254" layer="1"/>
@@ -8633,6 +8615,22 @@ design rules under a new name.</description>
 <wire x1="37.962" y1="32.17" x2="36.068" y2="32.17" width="0.254" layer="1"/>
 <wire x1="38.1" y1="30.568" x2="40.298" y2="30.568" width="0.254" layer="1"/>
 <wire x1="40.298" y1="30.568" x2="41.148" y2="29.718" width="0.254" layer="1"/>
+</signal>
+<signal name="N$2">
+<contactref element="ZU4" pad="1"/>
+<contactref element="RESET" pad="A"/>
+<wire x1="33.704" y1="54.356" x2="35.306" y2="54.356" width="0.254" layer="1"/>
+<wire x1="35.306" y1="54.356" x2="37.338" y2="52.324" width="0.254" layer="1"/>
+<wire x1="37.338" y1="52.324" x2="38.608" y2="52.324" width="0.254" layer="1"/>
+<wire x1="38.608" y1="52.324" x2="40.894" y2="50.038" width="0.254" layer="1"/>
+<wire x1="40.894" y1="50.038" x2="41.148" y2="50.038" width="0.254" layer="1"/>
+<contactref element="S1" pad="P$2"/>
+<contactref element="R4" pad="1"/>
+<wire x1="41.148" y1="53.456" x2="41.148" y2="50.038" width="0.254" layer="1"/>
+<wire x1="41.148" y1="50.038" x2="40.386" y2="50.038" width="0.254" layer="1"/>
+<wire x1="40.386" y1="50.038" x2="39.116" y2="48.768" width="0.254" layer="1"/>
+<wire x1="39.116" y1="48.768" x2="37.465" y2="48.768" width="0.254" layer="1"/>
+<wire x1="37.465" y1="48.768" x2="37.3126" y2="48.6156" width="0.254" layer="1"/>
 </signal>
 </signals>
 <errors>

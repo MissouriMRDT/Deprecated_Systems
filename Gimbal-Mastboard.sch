@@ -17932,21 +17932,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="C4" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="RESET" class="0">
-<segment>
-<wire x1="-55.88" y1="-15.24" x2="-63.5" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="-15.24" x2="-69.85" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-69.85" y1="-15.24" x2="-91.44" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="-10.16" x2="-63.5" y2="-15.24" width="0.1524" layer="91"/>
-<junction x="-63.5" y="-15.24"/>
-<label x="-60.96" y="-14.605" size="1.778" layer="95"/>
-<pinref part="ZU4" gate="G$1" pin="RESET"/>
-<pinref part="RESET" gate="G$1" pin="A"/>
-<pinref part="S1" gate="G$1" pin="S"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="-69.85" y1="-12.7" x2="-69.85" y2="-15.24" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="PWM_3" class="0">
 <segment>
 <wire x1="-12.7" y1="-53.34" x2="-17.78" y2="-53.34" width="0.1524" layer="91"/>
@@ -18035,6 +18020,21 @@ In this library the device names are the same as the pin names of the symbols, t
 <junction x="-66.04" y="-27.94"/>
 <pinref part="ZU4" gate="G$1" pin="XTAL1"/>
 <wire x1="-66.04" y1="-27.94" x2="-55.88" y2="-27.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="RESET" gate="G$1" pin="A"/>
+<wire x1="-63.5" y1="-10.16" x2="-63.5" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-55.88" y1="-15.24" x2="-63.5" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="ZU4" gate="G$1" pin="RESET"/>
+<label x="-60.96" y="-14.605" size="1.778" layer="95"/>
+<pinref part="S1" gate="G$1" pin="S"/>
+<wire x1="-63.5" y1="-15.24" x2="-69.85" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="-63.5" y="-15.24"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="-69.85" y1="-15.24" x2="-91.44" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-69.85" y1="-12.7" x2="-69.85" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

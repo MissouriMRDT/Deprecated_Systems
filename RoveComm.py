@@ -1,5 +1,6 @@
 import socket  # IP Networking library for Udp layer
 import struct  # Byte structure packing to emulate "type" support (uint8_t, etc ~ stdint.h)
+import sqlite3
 
 #####################################################################
 # Todo => Move init config like this to a SqlLite database   
@@ -96,7 +97,7 @@ class RoveComm(object):
 
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._socket.bind(("", PORT))
-
+        self.session_count()
     """end def"""
 
     #########################################################################################################
@@ -236,3 +237,25 @@ class RoveComm(object):
         return data_id, data_byte_count, data
 
     """end def"""
+
+    def session_count(self):
+        database = sqlite3.connect('session_count_table.db')
+        database_cursor = database.cursor()
+        
+        database_cursor.execute('CREATE TABLE IF NOT EXISTS session_count_table( primary_key INTEGER PRIMARY KEY NOT NULL, session_count_column INTEGER NOT NULL DEFAULT 7 )')
+        database_cursor.execute("SELECT session_count_column FROM session_count_table WHERE primary_key = 1")
+        data = database_cursor.fetchall()
+        print(data)
+        if data == []:
+            database_cursor.execute('INSERT INTO session_count_table values(1, 1)')
+            database_cursor.execute('SELECT session_count_column FROM session_count_table')
+            rows = database_cursor.fetchone()
+            print("rows:", rows)
+        else:
+            database_cursor.execute('SELECT session_count_column FROM session_count_table')
+            rows = database_cursor.fetchone()
+            #print("rows:", rows)
+            ##new = list(rows)
+            #passer = new[0] + 1
+            #database_cursor.execute('UPDATE INTO session_count_table values(1, passer)')
+        #database.commit()

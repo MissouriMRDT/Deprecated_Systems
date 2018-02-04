@@ -1,1 +1,1 @@
-# RoveComm-Training
+# 2018 Development on individual branches for RoveComm2 in Python, C++, C#, and Android

@@ -1,4 +1,4 @@
-#2018 Development RoveComm2, individual branches for Python, C++ Wiring (Todo: WPF C#, Android SDK)
+# 2018 Development RoveComm2, individual branches for Python, C++ Wiring (Todo: WPF C#, Android SDK)
 
 Supports:
 sendTo all subscribers or sendTo specific ip address,

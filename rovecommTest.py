@@ -8,7 +8,7 @@ from RoveComm import RoveComm
 # data_id => must be an unsigned integer between 0 and 65535
 # data    => must be a struct.Struct instance
 
-RoveComm = RoveComm(1, 1)
+RoveComm = RoveComm(1)
 telem_data_id_tx = 7
 i = 0
 
@@ -22,11 +22,11 @@ while True:
     command_data_id_rx, command_data_byte_count_rx, command_data_rx = RoveComm.recieveFrom()
     command_data_rx = struct.unpack("BBHHLLHHBB", command_data_rx)
 
-    print("\n########################")
-    print("\n", "i", i, "\n")
-    print("command_data_id_rx:        ", command_data_id_rx, "\n")
-    print("command_data_byte_count_rx:", command_data_byte_count_rx, "\n")
-    print("command_data_rx:           ", command_data_rx, "\n")
+    #print("################################################################################")
+    #print("\n", "i", i, "\n")
+    #print("command_id_rx:      ", command_data_id_rx, "\n")
+    #print("command_byte_cnt_rx:", command_data_byte_count_rx, "\n")
+    #print("command_rx:         ", command_data_rx, "\n")
 
     time.sleep(2)
     i += 1

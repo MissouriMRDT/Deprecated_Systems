@@ -35,7 +35,10 @@ class RoveComm(object):
     
     def sendTo(self, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, data_id, data):
         
-        #if isinstance(data, struct.Struct): # Todo return values
+        if not isinstance(data, bytes): 
+            raise TypeError(data, "Should be of Bytes type, consider using struct module.")
+
+         # Todo return values
         if data_id in self.data_sequence_count.keys():        
             self.data_sequence_count[data_id] += 1
         else:

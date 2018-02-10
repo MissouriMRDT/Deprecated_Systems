@@ -14,6 +14,16 @@ presentation during the science task of URC.
 
 ##  Installation
 
+With a fresh install of Python3
+
+```
+pip3 install python-dateutil
+pip3 install PyQt5
+pip3 install matplotlib
+
+python3 start.py
+```
+
 ##  Licensing
 
 ##  Contacts

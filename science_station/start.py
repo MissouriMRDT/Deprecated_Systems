@@ -7,7 +7,7 @@ import tkinter.filedialog   # Required for PyInstaller to function.
 import dateutil.parser
 from PyQt5 import QtWidgets, QtCore, QtGui
 
-from science_station.customWidgets import GraphArea, Picture, Sensor
+from customWidgets import GraphArea, Picture, Sensor
 
 
 class StartQT4(QtWidgets.QMainWindow):

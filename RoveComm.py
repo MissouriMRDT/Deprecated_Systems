@@ -62,7 +62,7 @@ class RoveComm(object):
 
     #################################################################################################################
     
-    def recieveFrom(self):
+    def receiveFrom(self):
   
         packet_buffer, ip_address = self._socket.recvfrom(2048)
 

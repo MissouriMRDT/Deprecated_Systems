@@ -29,6 +29,7 @@ class RoveComm(object):
         self.packet_header = struct.pack(">BBBH", ROVECOMM_VERSION, ROVER_ID, board_id, self.session_count())
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._socket.bind(("", PORT))
+        self._rove_db_header_dict
     """end def"""
 
     ###################################################################################################################
@@ -65,7 +66,7 @@ class RoveComm(object):
 
     #################################################################################################################
     
-    def receiveFrom(self):
+    def receiveFrom(self, recv_header=False):
   
         packet_buffer, ip_address = self._socket.recvfrom(2048)
 
@@ -104,7 +105,17 @@ class RoveComm(object):
             """end if"""
         """end if"""
         
-        return data_id, data_byte_count, data
+        if recv_header:
+            return {'version':             version, 
+                    'rover_id':            rover_id, 
+                    'board_id':            board_id, 
+                    'session_count':       session_count, 
+                    'data_id':             data_id, 
+                    'data_sequence_count': data_sequence_count, 
+                    'data_byte_count':     data_byte_count, 
+                    'data':                data }
+        else:
+            return data_id, data_byte_count, data
     """end def"""
 
     #####################################################################################################

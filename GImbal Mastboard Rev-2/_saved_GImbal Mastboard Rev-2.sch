@@ -63,8 +63,8 @@ L TIVA_Rear_Headers U5
 U 1 1 5A7CA59D
 P 9450 3550
 F 0 "U5" H 9550 3500 60  0001 C CNN
-F 1 "TIVA_Rear_Headers" H 9700 5950 60  0000 C CNN
-F 2 "MRDT_KICAD_PACKAGES:TIVA_REAR_HEADERS" H 9600 7550 60  0001 C CNN
+F 1 "TM4C129E_Rear_Headers" H 9700 5950 60  0000 C CNN
+F 2 "MRDT_KICAD_PACKAGES:TM4C129E_HALF_HEADERS" H 9600 7550 60  0001 C CNN
 F 3 "" H 9600 7550 60  0001 C CNN
 	1    9450 3550
 	1    0    0    -1  
@@ -74,7 +74,7 @@ L OKI U2
 U 1 1 5A7CB182
 P 2600 2050
 F 0 "U2" H 2450 1800 60  0001 C CNN
-F 1 "OKI-5V" H 2750 2400 60  0000 C CNN
+F 1 "OKI_12Vto3V3" H 2750 2400 60  0000 C CNN
 F 2 "MRDT_KICAD_PACKAGES:OKI" H 2350 1950 60  0001 C CNN
 F 3 "" H 2350 1950 60  0001 C CNN
 	1    2600 2050
@@ -155,7 +155,7 @@ Text Label 2000 950  0    60   ~ 0
 Text Label 2250 1200 0    60   ~ 0
 GND
 Text GLabel 1700 2250 0    60   Input ~ 0
-+5V
++3V3
 $Comp
 L Raspberry_Pi_Header U4
 U 1 1 5A7CC2AE
@@ -167,13 +167,9 @@ F 3 "" H 7300 4350 60  0001 C CNN
 	1    7300 3200
 	1    0    0    -1  
 $EndComp
-Text GLabel 8100 1250 2    59   Input ~ 0
-+5V
-Text GLabel 8100 1350 2    59   Input ~ 0
-+5V
-Text GLabel 8100 1450 2    60   Input ~ 0
+Text GLabel 8100 1450 2    60   UnSpc ~ 0
 GND
-Text GLabel 7100 1250 0    60   Output ~ 0
+Text GLabel 7100 1250 0    60   Input ~ 0
 +3V3
 Text GLabel 7100 1650 0    60   Input ~ 0
 GND
@@ -189,9 +185,7 @@ Text GLabel 8100 2650 2    60   Input ~ 0
 GND
 Text GLabel 9250 1350 0    60   Input ~ 0
 +3V3
-Text GLabel 10100 1350 2    60   Input ~ 0
-+5V
-Text GLabel 10100 1450 2    60   Input ~ 0
+Text GLabel 10100 1450 2    60   UnSpc ~ 0
 GND
 Text GLabel 10100 2600 2    60   Input ~ 0
 GND
@@ -327,9 +321,9 @@ F 3 "" H 9450 6150 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9250 5900 0    60   Input ~ 0
-TX_4
+TX_2
 Text GLabel 9250 6000 0    60   Input ~ 0
-RX_4
+RX_2
 Text GLabel 1550 5550 0    60   Input ~ 0
 RX_3
 Text GLabel 1550 5450 0    60   Output ~ 0
@@ -634,7 +628,7 @@ Wire Wire Line
 	2000 7150 2000 7100
 Text GLabel 9250 1450 0    60   Input ~ 0
 TIVA_RX
-Text GLabel 9250 1550 0    60   Input ~ 0
+Text GLabel 9250 1550 0    60   Output ~ 0
 TIVA_TX
 Text GLabel 1550 5650 0    60   Output ~ 0
 TX_4
@@ -653,9 +647,9 @@ Wire Wire Line
 Wire Wire Line
 	5200 2000 5750 2000
 Text GLabel 5200 1450 0    60   Input ~ 0
-TX_2
+TX_4
 Text GLabel 5200 1600 0    60   Output ~ 0
-RX_2
+RX_4
 Text GLabel 5750 1450 2    60   Output ~ 0
 PI_RX
 Text GLabel 5750 1600 2    60   Input ~ 0
@@ -665,9 +659,14 @@ Wire Wire Line
 Wire Wire Line
 	5200 1600 5750 1600
 Text GLabel 3700 900  1    60   Input ~ 0
-+5V
++3V3
 Text GLabel 800  4100 1    60   Input ~ 0
 +3V3
 Text GLabel 1800 7150 0    60   Input ~ 0
 +3V3
+Connection ~ 2300 4400
+Connection ~ 3000 4400
+Connection ~ 2900 4400
+Connection ~ 2700 4400
+Connection ~ 4150 4300
 $EndSCHEMATC

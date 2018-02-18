@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:GImbal Mastboard Rev-2-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -59,17 +60,6 @@ F 3 "" H 9450 4750 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L TIVA_Rear_Headers U5
-U 1 1 5A7CA59D
-P 9450 3550
-F 0 "U5" H 9550 3500 60  0001 C CNN
-F 1 "TM4C129E_Rear_Headers" H 9700 5950 60  0000 C CNN
-F 2 "MRDT_KICAD_PACKAGES:TM4C129E_HALF_HEADERS" H 9600 7550 60  0001 C CNN
-F 3 "" H 9600 7550 60  0001 C CNN
-	1    9450 3550
-	1    0    0    -1  
-$EndComp
-$Comp
 L OKI U2
 U 1 1 5A7CB182
 P 2600 2050
@@ -114,42 +104,16 @@ F 3 "" H 2650 750 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L GND #PWR2
 U 1 1 5A7CBBE1
 P 2450 1300
-F 0 "#PWR01" H 2450 1050 50  0001 C CNN
+F 0 "#PWR2" H 2450 1050 50  0001 C CNN
 F 1 "GND" H 2450 1150 50  0000 C CNN
 F 2 "" H 2450 1300 50  0001 C CNN
 F 3 "" H 2450 1300 50  0001 C CNN
 	1    2450 1300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2000 950  2700 950 
-Wire Wire Line
-	2250 1200 2700 1200
-Wire Wire Line
-	2250 1200 2250 1900
-Wire Wire Line
-	2000 1900 2400 1900
-Wire Wire Line
-	2450 1200 2450 1300
-Connection ~ 2450 1200
-Wire Wire Line
-	2000 1850 2000 1950
-Wire Wire Line
-	2000 950  2000 1550
-Connection ~ 2000 1900
-Connection ~ 2250 1900
-Wire Wire Line
-	2400 2250 2400 2000
-Wire Wire Line
-	1700 2250 2400 2250
-Wire Wire Line
-	2400 1800 2400 1550
-Wire Wire Line
-	2400 1550 2000 1550
-Connection ~ 2000 2250
 Text Label 2000 950  0    60   ~ 0
 12V
 Text Label 2250 1200 0    60   ~ 0
@@ -185,9 +149,9 @@ Text GLabel 8100 2650 2    60   Input ~ 0
 GND
 Text GLabel 9250 1350 0    60   Input ~ 0
 +3V3
-Text GLabel 10100 1450 2    60   UnSpc ~ 0
+Text GLabel 10200 1450 2    60   UnSpc ~ 0
 GND
-Text GLabel 10100 2600 2    60   Input ~ 0
+Text GLabel 10200 2600 2    60   UnSpc ~ 0
 GND
 Text GLabel 9250 4700 0    60   Input ~ 0
 GND
@@ -202,23 +166,23 @@ F 3 "" H 6450 5550 60  0001 C CNN
 	1    6750 5550
 	1    0    0    -1  
 $EndComp
-Text GLabel 1550 6450 0    60   Output ~ 0
-SCL_1
-Text GLabel 1550 6550 0    60   Output ~ 0
-SDA_1
+Text GLabel 1550 6450 0    60   Input ~ 0
+PA6
+Text GLabel 1550 6550 0    60   Input ~ 0
+PA7
 Text GLabel 6200 5100 0    60   Input ~ 0
-SDA_1
+IMU_SDA
 Text GLabel 6200 5000 0    60   Input ~ 0
-SCL_1
+IMU_SCL
 Text GLabel 6200 4900 0    60   Input ~ 0
 +3V3
 Text GLabel 7300 4950 2    60   Input ~ 0
 GND
 $Comp
-L GND #PWR02
+L GND #PWR4
 U 1 1 5A7CB122
 P 3100 7150
-F 0 "#PWR02" H 3100 6900 50  0001 C CNN
+F 0 "#PWR4" H 3100 6900 50  0001 C CNN
 F 1 "GND" H 3100 7000 50  0000 C CNN
 F 2 "" H 3100 7150 50  0001 C CNN
 F 3 "" H 3100 7150 50  0001 C CNN
@@ -253,9 +217,9 @@ GND
 Text GLabel 9250 5550 0    60   Input ~ 0
 +3V3
 Text GLabel 9250 5350 0    60   Input ~ 0
-SCL_0
+SCL_Out
 Text GLabel 9250 5450 0    60   Input ~ 0
-SDA_0
+SDA_Out
 Text GLabel 9250 4300 0    60   Input ~ 0
 +3V3
 Text GLabel 10100 4300 2    60   Input ~ 0
@@ -289,22 +253,16 @@ F 3 "" H 3700 1450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #GND03
+L GND #GND1
 U 1 1 5A7CB6C5
 P 3700 1650
-F 0 "#GND03" H 3700 1400 50  0001 C CNN
+F 0 "#GND1" H 3700 1400 50  0001 C CNN
 F 1 "GND" H 3700 1500 50  0000 C CNN
 F 2 "" H 3700 1650 50  0001 C CNN
 F 3 "" H 3700 1650 50  0001 C CNN
 	1    3700 1650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3700 1650 3700 1600
-Wire Wire Line
-	3700 1300 3700 1250
-Wire Wire Line
-	3700 950  3700 900 
 Text Notes 10000 5350 3    60   ~ 0
 I2C\n
 Text Notes 10000 5900 3    60   ~ 0
@@ -321,17 +279,17 @@ F 3 "" H 9450 6150 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9250 5900 0    60   Input ~ 0
-TX_2
+TX_Out
 Text GLabel 9250 6000 0    60   Input ~ 0
-RX_2
+RX_Out
 Text GLabel 1550 5550 0    60   Input ~ 0
-RX_3
-Text GLabel 1550 5450 0    60   Output ~ 0
-TX_3
+PC6
+Text GLabel 1550 5450 0    60   Input ~ 0
+PC7
 Text GLabel 3450 6050 2    60   Input ~ 0
-RX_2
-Text GLabel 1550 5350 0    60   Output ~ 0
-TX_2
+PD6
+Text GLabel 1550 5350 0    60   Input ~ 0
+PD7
 Text GLabel 8100 1550 2    60   Output ~ 0
 PI_TX
 Text GLabel 8100 1650 2    60   Input ~ 0
@@ -347,27 +305,10 @@ F 3 "" H 1550 5200 60  0001 C CNN
 	1    1750 6900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2600 7100 3100 7100
-Connection ~ 2700 7100
-Connection ~ 2800 7100
-Connection ~ 2900 7100
-Wire Wire Line
-	3100 7100 3100 7150
-Connection ~ 3000 7100
-Wire Wire Line
-	2900 4400 3000 4400
-Wire Wire Line
-	2300 4400 2700 4400
-Connection ~ 2600 4400
-Connection ~ 2500 4400
-Connection ~ 2400 4400
-Wire Wire Line
-	2300 4150 2300 4400
-Text GLabel 3450 5450 2    60   Output ~ 0
-SCL_0
-Text GLabel 3450 5550 2    60   Output ~ 0
-SDA_0
+Text GLabel 3450 5450 2    60   Input ~ 0
+PB2
+Text GLabel 3450 5550 2    60   Input ~ 0
+PB3
 $Comp
 L C_Small C3
 U 1 1 5A7F99AD
@@ -402,46 +343,17 @@ F 4 "100 OHM, .5pF" H 3750 4900 60  0001 C CNN "Notes"
 	1    3750 4900
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3450 4850 3500 4850
-Wire Wire Line
-	3500 4850 3500 4750
-Wire Wire Line
-	3500 4750 3900 4750
-Wire Wire Line
-	3450 4950 3500 4950
-Wire Wire Line
-	3500 4950 3500 5050
-Wire Wire Line
-	3500 5050 3900 5050
-Wire Wire Line
-	3900 4750 3900 4800
-Wire Wire Line
-	3900 4800 3950 4800
-Connection ~ 3750 4750
-Connection ~ 3750 5050
-Wire Wire Line
-	3900 5050 3900 5000
-Wire Wire Line
-	3900 5000 3950 5000
-Wire Wire Line
-	4150 4800 4150 5000
 $Comp
-L GND #PWR04
+L GND #PWR6
 U 1 1 5A7F9F37
 P 4250 4950
-F 0 "#PWR04" H 4250 4700 50  0001 C CNN
+F 0 "#PWR6" H 4250 4700 50  0001 C CNN
 F 1 "GND" H 4250 4800 50  0000 C CNN
 F 2 "" H 4250 4950 50  0001 C CNN
 F 3 "" H 4250 4950 50  0001 C CNN
 	1    4250 4950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4150 4900 4250 4900
-Wire Wire Line
-	4250 4900 4250 4950
-Connection ~ 4150 4900
 $Comp
 L C_Small C5
 U 1 1 5A7FA513
@@ -509,35 +421,16 @@ F 3 "" H 1100 4250 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR05
+L GND #PWR1
 U 1 1 5A7FACA5
 P 800 4400
-F 0 "#PWR05" H 800 4150 50  0001 C CNN
+F 0 "#PWR1" H 800 4150 50  0001 C CNN
 F 1 "GND" H 800 4250 50  0000 C CNN
 F 2 "" H 800 4400 50  0001 C CNN
 F 3 "" H 800 4400 50  0001 C CNN
 	1    800  4400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	800  4150 800  4100
-Wire Wire Line
-	800  4150 2300 4150
-Connection ~ 1100 4150
-Connection ~ 1300 4150
-Connection ~ 1500 4150
-Connection ~ 1700 4150
-Connection ~ 1900 4150
-Wire Wire Line
-	800  4350 2100 4350
-Connection ~ 1900 4350
-Connection ~ 1700 4350
-Connection ~ 1500 4350
-Connection ~ 1300 4350
-Wire Wire Line
-	800  4350 800  4400
-Connection ~ 1100 4350
-Connection ~ 2100 4150
 $Comp
 L C_Small C11
 U 1 1 5A7FBF5E
@@ -582,6 +475,220 @@ F 3 "" H 4150 4400 50  0001 C CNN
 	1    4150 4400
 	-1   0    0    1   
 $EndComp
+$Comp
+L GND #PWR5
+U 1 1 5A7FD627
+P 4250 4550
+F 0 "#PWR5" H 4250 4300 50  0001 C CNN
+F 1 "GND" H 4250 4400 50  0000 C CNN
+F 2 "" H 4250 4550 50  0001 C CNN
+F 3 "" H 4250 4550 50  0001 C CNN
+	1    4250 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR3
+U 1 1 5A7FDF03
+P 2500 7150
+F 0 "#PWR3" H 2500 6900 50  0001 C CNN
+F 1 "GND" H 2500 7000 50  0000 C CNN
+F 2 "" H 2500 7150 50  0001 C CNN
+F 3 "" H 2500 7150 50  0001 C CNN
+	1    2500 7150
+	1    0    0    -1  
+$EndComp
+Text GLabel 9250 1550 0    60   Input ~ 0
+TIVA_RX
+Text GLabel 9250 1650 0    60   Output ~ 0
+TIVA_TX
+Text GLabel 1550 5650 0    60   Input ~ 0
+PC5
+Text GLabel 1550 5750 0    60   Input ~ 0
+PC4
+Text GLabel 5850 1900 2    60   Output ~ 0
+TIVA_RX
+Text GLabel 5850 2100 2    60   Input ~ 0
+TIVA_TX
+Text GLabel 3700 900  1    60   Input ~ 0
++3V3
+Text GLabel 800  4100 1    60   Input ~ 0
++3V3
+Text GLabel 1800 7150 0    60   Input ~ 0
++3V3
+$Comp
+L TIVA_C_TM4C123_Launchpad_Shield U5
+U 1 1 5A8758BD
+P 9450 3550
+F 0 "U5" H 9550 4750 60  0001 C CNN
+F 1 "TIVA_C_TM4C123_Launchpad_Shield" H 9700 5950 60  0000 C CNN
+F 2 "MRDT_KICAD_PACKAGES:TM4C123G_Booster" H 9450 4800 60  0001 C CNN
+F 3 "" H 9450 4800 60  0001 C CNN
+	1    9450 3550
+	1    0    0    -1  
+$EndComp
+Text GLabel 3450 5250 2    60   Input ~ 0
+PB0
+Text GLabel 3450 5350 2    60   Input ~ 0
+PB1
+Text GLabel 3450 6150 2    60   Input ~ 0
+PB5
+Text GLabel 3450 6350 2    60   Input ~ 0
+PE4
+Text GLabel 3450 6250 2    60   Input ~ 0
+PB4
+Text GLabel 1550 6350 0    60   Input ~ 0
+PA5
+Text GLabel 1550 5250 0    60   Input ~ 0
+PE0
+Text GLabel 1550 6650 0    60   Input ~ 0
+PF0
+Text GLabel 1550 4750 0    60   Input ~ 0
+PB7
+Text GLabel 1550 4650 0    60   Input ~ 0
+PB6
+Text GLabel 1550 6250 0    60   Input ~ 0
+PA4
+Text GLabel 1550 6150 0    60   Input ~ 0
+PA3
+Text GLabel 1550 6050 0    60   Input ~ 0
+PA2
+Text GLabel 3450 6550 2    60   Input ~ 0
+PD0
+Text GLabel 3450 6650 2    60   Input ~ 0
+PD1
+Text GLabel 3450 6750 2    60   Input ~ 0
+PD2
+Text GLabel 3450 6850 2    60   Input ~ 0
+PD3
+Text GLabel 1550 5150 0    60   Input ~ 0
+PE1
+Text GLabel 1550 5050 0    60   Input ~ 0
+PE2
+Text GLabel 1550 4950 0    60   Input ~ 0
+PE3
+Text GLabel 1550 6750 0    60   Input ~ 0
+PF1
+Text GLabel 1550 6850 0    60   Input ~ 0
+PF2
+Text GLabel 3450 4650 2    60   Input ~ 0
+PF3
+Text GLabel 1550 4850 0    60   Input ~ 0
+PF4
+Text GLabel 3450 6450 2    60   Input ~ 0
+PE5
+Text GLabel 5750 2300 2    60   Output ~ 0
+IMU_SCL
+Text GLabel 5750 2400 2    60   Output ~ 0
+IMU_SDA
+Text GLabel 5750 1600 2    60   Output ~ 0
+TX_Out
+Text GLabel 5750 1700 2    60   Input ~ 0
+RX_Out
+Text GLabel 5750 2600 2    60   Output ~ 0
+SCL_Out
+Text GLabel 5750 2700 2    60   Output ~ 0
+SDA_Out
+Text GLabel 9000 4600 0    60   Input ~ 0
+TX_0
+Text GLabel 9000 4450 0    60   Output ~ 0
+RX_0
+Wire Wire Line
+	2000 950  2700 950 
+Wire Wire Line
+	2250 1200 2700 1200
+Wire Wire Line
+	2250 1200 2250 1900
+Wire Wire Line
+	2000 1900 2400 1900
+Wire Wire Line
+	2450 1200 2450 1300
+Connection ~ 2450 1200
+Wire Wire Line
+	2000 1850 2000 1950
+Wire Wire Line
+	2000 950  2000 1550
+Connection ~ 2000 1900
+Connection ~ 2250 1900
+Wire Wire Line
+	2400 2250 2400 2000
+Wire Wire Line
+	1700 2250 2400 2250
+Wire Wire Line
+	2400 1800 2400 1550
+Wire Wire Line
+	2400 1550 2000 1550
+Connection ~ 2000 2250
+Wire Wire Line
+	3700 1650 3700 1600
+Wire Wire Line
+	3700 1300 3700 1250
+Wire Wire Line
+	3700 950  3700 900 
+Wire Wire Line
+	2600 7100 3100 7100
+Connection ~ 2700 7100
+Connection ~ 2800 7100
+Connection ~ 2900 7100
+Wire Wire Line
+	3100 7100 3100 7150
+Connection ~ 3000 7100
+Wire Wire Line
+	2900 4400 3000 4400
+Wire Wire Line
+	2300 4400 2700 4400
+Connection ~ 2600 4400
+Connection ~ 2500 4400
+Connection ~ 2400 4400
+Wire Wire Line
+	2300 4150 2300 4400
+Wire Wire Line
+	3450 4850 3500 4850
+Wire Wire Line
+	3500 4850 3500 4750
+Wire Wire Line
+	3500 4750 3900 4750
+Wire Wire Line
+	3450 4950 3750 4950
+Wire Wire Line
+	3750 4950 3750 5050
+Wire Wire Line
+	3750 5050 3900 5050
+Wire Wire Line
+	3900 4750 3900 4800
+Wire Wire Line
+	3900 4800 3950 4800
+Connection ~ 3750 4750
+Connection ~ 3750 5050
+Wire Wire Line
+	3900 5050 3900 5000
+Wire Wire Line
+	3900 5000 3950 5000
+Wire Wire Line
+	4150 4800 4150 5000
+Wire Wire Line
+	4150 4900 4250 4900
+Wire Wire Line
+	4250 4900 4250 4950
+Connection ~ 4150 4900
+Wire Wire Line
+	800  4150 800  4100
+Wire Wire Line
+	800  4150 2300 4150
+Connection ~ 1100 4150
+Connection ~ 1300 4150
+Connection ~ 1500 4150
+Connection ~ 1700 4150
+Connection ~ 1900 4150
+Wire Wire Line
+	800  4350 2100 4350
+Connection ~ 1900 4350
+Connection ~ 1700 4350
+Connection ~ 1500 4350
+Connection ~ 1300 4350
+Wire Wire Line
+	800  4350 800  4400
+Connection ~ 1100 4350
+Connection ~ 2100 4150
 Connection ~ 3950 4300
 Connection ~ 3750 4300
 Connection ~ 3550 4300
@@ -593,80 +700,182 @@ Connection ~ 3950 4500
 Connection ~ 3750 4500
 Wire Wire Line
 	3000 4400 3000 4300
-$Comp
-L GND #PWR06
-U 1 1 5A7FD627
-P 4250 4550
-F 0 "#PWR06" H 4250 4300 50  0001 C CNN
-F 1 "GND" H 4250 4400 50  0000 C CNN
-F 2 "" H 4250 4550 50  0001 C CNN
-F 3 "" H 4250 4550 50  0001 C CNN
-	1    4250 4550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4250 4500 4250 4550
 Connection ~ 4150 4500
 Connection ~ 3550 4500
 Connection ~ 2100 4350
-$Comp
-L GND #PWR07
-U 1 1 5A7FDF03
-P 2500 7150
-F 0 "#PWR07" H 2500 6900 50  0001 C CNN
-F 1 "GND" H 2500 7000 50  0000 C CNN
-F 2 "" H 2500 7150 50  0001 C CNN
-F 3 "" H 2500 7150 50  0001 C CNN
-	1    2500 7150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2500 7100 2500 7150
 Wire Wire Line
 	1800 7150 2000 7150
 Wire Wire Line
 	2000 7150 2000 7100
-Text GLabel 9250 1450 0    60   Input ~ 0
-TIVA_RX
-Text GLabel 9250 1550 0    60   Output ~ 0
-TIVA_TX
-Text GLabel 1550 5650 0    60   Output ~ 0
-TX_4
-Text GLabel 1550 5750 0    60   Input ~ 0
-RX_4
-Text GLabel 5200 1850 0    60   Input ~ 0
-TX_3
-Text GLabel 5200 2000 0    60   Output ~ 0
-RX_3
-Text GLabel 5750 1850 2    60   Output ~ 0
-TIVA_RX
-Text GLabel 5750 2000 2    60   Input ~ 0
-TIVA_TX
-Wire Wire Line
-	5200 1850 5750 1850
-Wire Wire Line
-	5200 2000 5750 2000
-Text GLabel 5200 1450 0    60   Input ~ 0
-TX_4
-Text GLabel 5200 1600 0    60   Output ~ 0
-RX_4
-Text GLabel 5750 1450 2    60   Output ~ 0
-PI_RX
-Text GLabel 5750 1600 2    60   Input ~ 0
-PI_TX
-Wire Wire Line
-	5750 1450 5200 1450
-Wire Wire Line
-	5200 1600 5750 1600
-Text GLabel 3700 900  1    60   Input ~ 0
-+3V3
-Text GLabel 800  4100 1    60   Input ~ 0
-+3V3
-Text GLabel 1800 7150 0    60   Input ~ 0
-+3V3
 Connection ~ 2300 4400
 Connection ~ 3000 4400
 Connection ~ 2900 4400
 Connection ~ 2700 4400
 Connection ~ 4150 4300
+$Comp
+L Jumper JP1
+U 1 1 5A87BBB2
+P 5450 1900
+F 0 "JP1" H 5450 2050 50  0000 C CNN
+F 1 "Jumper" H 5450 1820 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 1900 50  0001 C CNN
+F 3 "" H 5450 1900 50  0001 C CNN
+	1    5450 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper JP2
+U 1 1 5A87BBF5
+P 5450 2100
+F 0 "JP2" H 5450 2250 50  0000 C CNN
+F 1 "Jumper" H 5450 2020 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 2100 50  0001 C CNN
+F 3 "" H 5450 2100 50  0001 C CNN
+	1    5450 2100
+	1    0    0    -1  
+$EndComp
+Text GLabel 9250 1450 0    60   Input ~ 0
+PB5
+Text GLabel 9250 1950 0    60   Input ~ 0
+PB4
+Text GLabel 9250 2050 0    60   Input ~ 0
+PA5
+Text GLabel 9250 2150 0    60   Input ~ 0
+PA6
+Text GLabel 9250 2250 0    60   Input ~ 0
+PA7
+Text GLabel 10200 1550 2    60   Input ~ 0
+PD0
+Text GLabel 10200 1650 2    60   Input ~ 0
+PD1
+Text GLabel 10200 1750 2    60   Input ~ 0
+PD2
+Text GLabel 10200 1850 2    60   Input ~ 0
+PD3
+Text GLabel 10200 1950 2    60   Input ~ 0
+PE1
+Text GLabel 10200 2050 2    60   Input ~ 0
+PE2
+Text GLabel 10200 2150 2    60   Input ~ 0
+PE3
+Text GLabel 10200 2250 2    60   Input ~ 0
+PF1
+Text GLabel 3450 5150 2    60   Input ~ 0
+PD5
+Text GLabel 3450 5050 2    60   Input ~ 0
+PD4
+Text GLabel 5150 1700 0    60   Output ~ 0
+PD6
+Text GLabel 5150 1600 0    60   Input ~ 0
+PD7
+Wire Wire Line
+	5150 1600 5750 1600
+Wire Wire Line
+	5150 1700 5750 1700
+Text GLabel 5050 2100 0    60   Output ~ 0
+PB0
+Text GLabel 5050 1900 0    60   Input ~ 0
+PB1
+Text GLabel 5150 2600 0    60   Input ~ 0
+PA6
+Text GLabel 5150 2700 0    60   Input ~ 0
+PA7
+Wire Wire Line
+	5150 2600 5750 2600
+Wire Wire Line
+	5150 2700 5750 2700
+Text GLabel 5150 2300 0    60   Input ~ 0
+PE4
+Text GLabel 5150 2400 0    60   Input ~ 0
+PE5
+Wire Wire Line
+	5150 2300 5750 2300
+Wire Wire Line
+	5150 2400 5750 2400
+Text GLabel 9250 2600 0    60   Input ~ 0
+PF2
+Text GLabel 9250 2700 0    60   Input ~ 0
+PF3
+Text GLabel 9250 2800 0    60   Input ~ 0
+PB3
+Text GLabel 9250 2900 0    60   Input ~ 0
+PC4
+Text GLabel 9250 3000 0    60   Input ~ 0
+PC5
+Text GLabel 9250 3100 0    60   Input ~ 0
+PC6
+Text GLabel 9250 3200 0    60   Input ~ 0
+PC7
+Text GLabel 9250 3500 0    60   Input ~ 0
+PF4
+Text GLabel 10200 2700 2    60   Input ~ 0
+PB2
+Text GLabel 10200 2800 2    60   Input ~ 0
+PE0
+Text GLabel 10200 2900 2    60   Input ~ 0
+PF0
+Text GLabel 10200 3100 2    60   Input ~ 0
+PB7
+Text GLabel 10200 3200 2    60   Input ~ 0
+PB6
+Text GLabel 10200 3300 2    60   Input ~ 0
+PA4
+Text GLabel 10200 3400 2    60   Input ~ 0
+PA3
+Text GLabel 10200 3500 2    60   Input ~ 0
+PA2
+Wire Wire Line
+	5850 1900 5750 1900
+Wire Wire Line
+	5850 2100 5750 2100
+Wire Wire Line
+	5150 1900 5050 1900
+Wire Wire Line
+	5050 2100 5150 2100
+Text GLabel 5450 3050 3    60   Input ~ 0
+PI_TX
+Text GLabel 5450 3600 3    60   Output ~ 0
+PI_RX
+Text GLabel 5150 2950 0    60   Input ~ 0
+PD4
+Text GLabel 5150 3500 0    60   Input ~ 0
+PD5
+Text GLabel 5750 2950 2    60   Input ~ 0
+PC4
+Text GLabel 5750 3500 2    60   Input ~ 0
+PC5
+$Comp
+L Jumper_NC_Dual JP3
+U 1 1 5A8911BB
+P 5450 2950
+F 0 "JP3" H 5500 2850 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3050 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5450 2950 50  0001 C CNN
+F 3 "" H 5450 2950 50  0001 C CNN
+	1    5450 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper_NC_Dual JP4
+U 1 1 5A89121D
+P 5450 3500
+F 0 "JP4" H 5500 3400 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3600 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch1.27mm" H 5450 3500 50  0001 C CNN
+F 3 "" H 5450 3500 50  0001 C CNN
+	1    5450 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2950 5700 2950
+Wire Wire Line
+	5750 3500 5700 3500
+Wire Wire Line
+	5200 3500 5150 3500
+Wire Wire Line
+	5150 2950 5200 2950
 $EndSCHEMATC

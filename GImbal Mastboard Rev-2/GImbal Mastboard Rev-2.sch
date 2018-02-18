@@ -505,9 +505,9 @@ Text GLabel 1550 5650 0    60   Input ~ 0
 PC5
 Text GLabel 1550 5750 0    60   Input ~ 0
 PC4
-Text GLabel 5750 1900 2    60   Output ~ 0
+Text GLabel 5850 1900 2    60   Output ~ 0
 TIVA_RX
-Text GLabel 5750 2100 2    60   Input ~ 0
+Text GLabel 5850 2100 2    60   Input ~ 0
 TIVA_TX
 Text GLabel 3700 900  1    60   Input ~ 0
 +3V3
@@ -722,7 +722,7 @@ U 1 1 5A87BBB2
 P 5450 1900
 F 0 "JP1" H 5450 2050 50  0000 C CNN
 F 1 "Jumper" H 5450 1820 50  0000 C CNN
-F 2 "" H 5450 1900 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 1900 50  0001 C CNN
 F 3 "" H 5450 1900 50  0001 C CNN
 	1    5450 1900
 	1    0    0    -1  
@@ -733,17 +733,13 @@ U 1 1 5A87BBF5
 P 5450 2100
 F 0 "JP2" H 5450 2250 50  0000 C CNN
 F 1 "Jumper" H 5450 2020 50  0000 C CNN
-F 2 "" H 5450 2100 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 2100 50  0001 C CNN
 F 3 "" H 5450 2100 50  0001 C CNN
 	1    5450 2100
 	1    0    0    -1  
 $EndComp
 Text GLabel 9250 1450 0    60   Input ~ 0
 PB5
-Text GLabel 9250 1750 0    60   Input ~ 0
-PE4
-Text GLabel 9250 1850 0    60   Input ~ 0
-PE5
 Text GLabel 9250 1950 0    60   Input ~ 0
 PB4
 Text GLabel 9250 2050 0    60   Input ~ 0
@@ -768,10 +764,10 @@ Text GLabel 10200 2150 2    60   Input ~ 0
 PE3
 Text GLabel 10200 2250 2    60   Input ~ 0
 PF1
-Text GLabel 3450 5150 2    60   Output ~ 0
-Pi_RX
+Text GLabel 3450 5150 2    60   Input ~ 0
+PD5
 Text GLabel 3450 5050 2    60   Input ~ 0
-Pi_TX
+PD4
 Text GLabel 5150 1700 0    60   Output ~ 0
 PD6
 Text GLabel 5150 1600 0    60   Input ~ 0
@@ -780,9 +776,9 @@ Wire Wire Line
 	5150 1600 5750 1600
 Wire Wire Line
 	5150 1700 5750 1700
-Text GLabel 5150 2100 0    60   Output ~ 0
+Text GLabel 5050 2100 0    60   Output ~ 0
 PB0
-Text GLabel 5150 1900 0    60   Input ~ 0
+Text GLabel 5050 1900 0    60   Input ~ 0
 PB1
 Text GLabel 5150 2600 0    60   Input ~ 0
 PA6
@@ -800,4 +796,86 @@ Wire Wire Line
 	5150 2300 5750 2300
 Wire Wire Line
 	5150 2400 5750 2400
+Text GLabel 9250 2600 0    60   Input ~ 0
+PF2
+Text GLabel 9250 2700 0    60   Input ~ 0
+PF3
+Text GLabel 9250 2800 0    60   Input ~ 0
+PB3
+Text GLabel 9250 2900 0    60   Input ~ 0
+PC4
+Text GLabel 9250 3000 0    60   Input ~ 0
+PC5
+Text GLabel 9250 3100 0    60   Input ~ 0
+PC6
+Text GLabel 9250 3200 0    60   Input ~ 0
+PC7
+Text GLabel 9250 3500 0    60   Input ~ 0
+PF4
+Text GLabel 10200 2700 2    60   Input ~ 0
+PB2
+Text GLabel 10200 2800 2    60   Input ~ 0
+PE0
+Text GLabel 10200 2900 2    60   Input ~ 0
+PF0
+Text GLabel 10200 3100 2    60   Input ~ 0
+PB7
+Text GLabel 10200 3200 2    60   Input ~ 0
+PB6
+Text GLabel 10200 3300 2    60   Input ~ 0
+PA4
+Text GLabel 10200 3400 2    60   Input ~ 0
+PA3
+Text GLabel 10200 3500 2    60   Input ~ 0
+PA2
+Wire Wire Line
+	5850 1900 5750 1900
+Wire Wire Line
+	5850 2100 5750 2100
+Wire Wire Line
+	5150 1900 5050 1900
+Wire Wire Line
+	5050 2100 5150 2100
+Text GLabel 5450 3050 3    60   Input ~ 0
+PI_TX
+Text GLabel 5450 3600 3    60   Output ~ 0
+PI_RX
+Text GLabel 5150 2950 0    60   Input ~ 0
+PD4
+Text GLabel 5150 3500 0    60   Input ~ 0
+PD5
+Text GLabel 5750 2950 2    60   Input ~ 0
+PC4
+Text GLabel 5750 3500 2    60   Input ~ 0
+PC5
+$Comp
+L Jumper_NC_Dual JP3
+U 1 1 5A8911BB
+P 5450 2950
+F 0 "JP3" H 5500 2850 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3050 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 2950 50  0001 C CNN
+F 3 "" H 5450 2950 50  0001 C CNN
+	1    5450 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper_NC_Dual JP4
+U 1 1 5A89121D
+P 5450 3500
+F 0 "JP4" H 5500 3400 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3600 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 3500 50  0001 C CNN
+F 3 "" H 5450 3500 50  0001 C CNN
+	1    5450 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 2950 5700 2950
+Wire Wire Line
+	5750 3500 5700 3500
+Wire Wire Line
+	5200 3500 5150 3500
+Wire Wire Line
+	5150 2950 5200 2950
 $EndSCHEMATC

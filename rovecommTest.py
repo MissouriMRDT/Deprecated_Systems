@@ -1,3 +1,4 @@
+#python C:\Users\T420\Desktop\Repos\RoveComm2-Developement\rovecommTest.py
 
 import struct
 import time
@@ -17,16 +18,16 @@ i = 0
 while True:
 
     telem_data_tx = struct.pack("BBHHLLHHBB", 1+i, 2+i, 7777+i, 8888+i, 123456789+i, 123456789+i, 6666+i, 5555+i, 4+i, 3+i)
-    RoveComm.sendTo(127, 0, 0, 1, telem_data_id_tx, telem_data_tx)
+    RoveComm.sendTo(127, 0, 0, 1, telem_data_id_tx+i, telem_data_tx)
 
-    command_data_id_rx, command_data_byte_count_rx, command_data_rx = RoveComm.recieveFrom()
+    command_data_id_rx, command_data_byte_count_rx, command_data_rx = RoveComm.receiveFrom()
     command_data_rx = struct.unpack("BBHHLLHHBB", command_data_rx)
 
-    #print("################################################################################")
+    print("################################################################################")
     #print("\n", "i", i, "\n")
-    #print("command_id_rx:      ", command_data_id_rx, "\n")
-    #print("command_byte_cnt_rx:", command_data_byte_count_rx, "\n")
-    #print("command_rx:         ", command_data_rx, "\n")
+    print("command_id_rx:      ", command_data_id_rx, "\n")
+    print("command_byte_cnt_rx:", command_data_byte_count_rx, "\n")
+    print("command_rx:         ", command_data_rx, "\n")
 
     time.sleep(2)
     i += 1

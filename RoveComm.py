@@ -29,7 +29,6 @@ class RoveComm(object):
         self.packet_header = struct.pack(">BBBH", ROVECOMM_VERSION, ROVER_ID, board_id, self.session_count())
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._socket.bind(("", PORT))
-        self._rove_db_header_dict
     """end def"""
 
     ###################################################################################################################
@@ -39,7 +38,7 @@ class RoveComm(object):
         if not isinstance(data, bytes): 
             raise TypeError(data, "Should be of Bytes type, consider using struct module.")
 
-         # Todo return values
+        # Todo return values
         if data_id in self.data_sequence_count.keys():        
             self.data_sequence_count[data_id] += 1
         else:
@@ -54,7 +53,7 @@ class RoveComm(object):
             for ip_address in self.subscriber_manifest:
         
                 if data_id in ip_address:
-                    self._socket.sendto(packet_buffer, (ip_address, ROVECOMM_PORT))
+                    self._socket.sendto(packet_buffer, (ip_address, PORT))
                 """end if"""
             """end for"""
         else:
@@ -63,7 +62,7 @@ class RoveComm(object):
             """end else"""
         """end else"""       
     """end def"""
-
+    
     #################################################################################################################
     
     def receiveFrom(self, recv_header=False):
@@ -79,21 +78,17 @@ class RoveComm(object):
       
         if data_id == SUBSCRIBE_DATA_ID:
         
-            data_byte_count, data = 0, None
-
             if ip_address in self.subscriber_manifest:
 
-                if data_subscription not in ip_address:
-                    ip_address.append(data_subscription)
+                if data not in ip_address:
+                    ip_address.append(data)
                 """end if"""              
             else:
-                self.subscriber_manifest[ip_address] = [data_subscription]
+                self.subscriber_manifest[ip_address] = [data]
             """end if"""
             
         elif data_id == UNSUBSCRIBE_DATA_ID:
-        
-            data_byte_count, data = 0, None
-            
+                        
             if ip_address in self.subscriber_manifest:
             
                 if data in ip_address:

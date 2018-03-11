@@ -1,0 +1,337 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:MRDT-Actives
+LIBS:MRDT-Connectors
+LIBS:MRDT-Devices
+LIBS:MRDT-Drill_Holes
+LIBS:MRDT-Headers
+LIBS:MRDT-ICs
+LIBS:MRDT-Passives
+LIBS:MRDT-Shields
+LIBS:MRDT-Silkscreens
+LIBS:MRDT-Switches
+LIBS:BatteryVoltageTransmitter-Hardware-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MSP_EXP432P401R_Launchpad_Shield U1
+U 1 1 5AA4548A
+P 2750 3050
+F 0 "U1" H 2800 1550 60  0000 C CNN
+F 1 "MSP_EXP432P401R_Launchpad_Shield" H 3000 4400 60  0000 C CNN
+F 2 "MRDT-Shields:MSP_EXP432P401R_Launchpad_FULL_Booster" H 2750 3050 60  0001 C CNN
+F 3 "" H 2750 3050 60  0001 C CNN
+	1    2750 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Raspberry_Pi U2
+U 1 1 5AA454D4
+P 6400 3900
+F 0 "U2" H 6450 3850 60  0000 C CNN
+F 1 "Raspberry_Pi" H 6700 5950 60  0000 C CNN
+F 2 "MRDT-Shields:RASPBERRY_PI_HEADERS" H 6400 5050 60  0001 C CNN
+F 3 "" H 6400 5050 60  0001 C CNN
+	1    6400 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 2000 3650 2100
+Wire Wire Line
+	3500 2100 3900 2100
+Wire Wire Line
+	7400 1850 7400 2050
+Wire Wire Line
+	7200 1950 7400 1950
+Wire Wire Line
+	7200 2550 7400 2550
+Wire Wire Line
+	7400 4100 7400 2150
+Wire Wire Line
+	7400 2150 7200 2150
+Connection ~ 7400 2550
+Wire Wire Line
+	7200 2850 7400 2850
+Connection ~ 7400 2850
+Wire Wire Line
+	7200 3350 7400 3350
+Connection ~ 7400 3350
+Wire Wire Line
+	7400 3550 7200 3550
+Connection ~ 7400 3550
+Wire Wire Line
+	7400 2050 7200 2050
+Connection ~ 7400 1950
+Wire Wire Line
+	6200 2350 5950 2350
+Wire Wire Line
+	5950 2350 5950 4100
+Wire Wire Line
+	6200 3850 5950 3850
+Connection ~ 5950 3850
+Wire Wire Line
+	6200 3150 5950 3150
+Connection ~ 5950 3150
+Wire Wire Line
+	5950 4100 7400 4100
+Wire Wire Line
+	6700 4200 6700 4100
+Connection ~ 6700 4100
+Wire Wire Line
+	3500 2200 4800 2200
+Wire Wire Line
+	4000 2200 4000 3500
+Wire Wire Line
+	4000 3450 3500 3450
+Connection ~ 4000 3450
+$Comp
+L R R1
+U 1 1 5AA45B26
+P 4050 2050
+F 0 "R1" V 4130 2050 50  0000 C CNN
+F 1 "100" V 4050 2050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3980 2050 50  0001 C CNN
+F 3 "" H 4050 2050 50  0001 C CNN
+	1    4050 2050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3900 2100 3900 2050
+Connection ~ 3650 2100
+$Comp
+L LED D1
+U 1 1 5AA45B9B
+P 4650 2050
+F 0 "D1" H 4650 2150 50  0000 C CNN
+F 1 "LED" H 4650 1950 50  0000 C CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 4650 2050 50  0001 C CNN
+F 3 "" H 4650 2050 50  0001 C CNN
+	1    4650 2050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4500 2050 4200 2050
+Wire Wire Line
+	4800 2200 4800 2050
+Connection ~ 4000 2200
+NoConn ~ 7200 2250
+NoConn ~ 7200 2450
+NoConn ~ 7200 2650
+NoConn ~ 7200 2750
+NoConn ~ 7200 2950
+NoConn ~ 7200 3050
+NoConn ~ 7200 3150
+NoConn ~ 7200 3250
+NoConn ~ 7200 3450
+NoConn ~ 7200 3650
+NoConn ~ 7200 3750
+NoConn ~ 7200 3850
+NoConn ~ 6200 3750
+NoConn ~ 6200 3650
+NoConn ~ 6200 3550
+NoConn ~ 6200 3450
+NoConn ~ 6200 3350
+NoConn ~ 6200 3250
+NoConn ~ 6200 3050
+NoConn ~ 6200 2950
+NoConn ~ 6200 2850
+NoConn ~ 6200 2750
+NoConn ~ 6200 2650
+NoConn ~ 6200 2550
+NoConn ~ 6200 2450
+NoConn ~ 6200 2250
+NoConn ~ 6200 2150
+NoConn ~ 6200 2050
+NoConn ~ 6200 1950
+NoConn ~ 3500 2300
+NoConn ~ 3500 2400
+NoConn ~ 3500 2500
+NoConn ~ 3500 2600
+NoConn ~ 3500 2700
+NoConn ~ 3500 2800
+NoConn ~ 3500 2900
+NoConn ~ 3500 3000
+NoConn ~ 3500 3550
+NoConn ~ 3500 3650
+NoConn ~ 3500 3750
+NoConn ~ 3500 3850
+NoConn ~ 3500 3950
+NoConn ~ 3500 4050
+NoConn ~ 3500 4150
+NoConn ~ 3500 4250
+NoConn ~ 3500 4350
+NoConn ~ 2550 2100
+NoConn ~ 2550 2200
+NoConn ~ 2550 2300
+NoConn ~ 2550 2400
+NoConn ~ 2550 2500
+NoConn ~ 2550 2600
+NoConn ~ 2550 2700
+NoConn ~ 2550 2800
+NoConn ~ 2550 2900
+NoConn ~ 2550 3000
+NoConn ~ 2550 3450
+NoConn ~ 2550 3550
+NoConn ~ 2550 3650
+NoConn ~ 2550 3750
+NoConn ~ 2550 3850
+NoConn ~ 2550 3950
+NoConn ~ 2550 4150
+NoConn ~ 2550 4250
+NoConn ~ 2550 4350
+Connection ~ 6200 3850
+Connection ~ 6200 3150
+Connection ~ 6200 2350
+Connection ~ 7200 2550
+Connection ~ 7200 2850
+Connection ~ 7200 3350
+Connection ~ 7200 3550
+Connection ~ 7400 2050
+Connection ~ 3900 2050
+Connection ~ 4200 2050
+Connection ~ 4500 2050
+Connection ~ 4800 2050
+$Comp
+L PWR_FLAG #FLG01
+U 1 1 5AA47E1D
+P 1050 1300
+F 0 "#FLG01" H 1050 1375 50  0001 C CNN
+F 1 "PWR_FLAG" H 1050 1450 50  0000 C CNN
+F 2 "" H 1050 1300 50  0001 C CNN
+F 3 "" H 1050 1300 50  0001 C CNN
+	1    1050 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1050 1300 1050 1600
+Wire Wire Line
+	1600 1300 1600 1600
+$Comp
+L PWR_FLAG #FLG02
+U 1 1 5AA47F8B
+P 1600 1300
+F 0 "#FLG02" H 1600 1375 50  0001 C CNN
+F 1 "PWR_FLAG" H 1600 1450 50  0000 C CNN
+F 2 "" H 1600 1300 50  0001 C CNN
+F 3 "" H 1600 1300 50  0001 C CNN
+	1    1600 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR03
+U 1 1 5AA47FFD
+P 1600 1600
+F 0 "#PWR03" H 1600 1350 50  0001 C CNN
+F 1 "GND" H 1600 1450 50  0000 C CNN
+F 2 "" H 1600 1600 50  0001 C CNN
+F 3 "" H 1600 1600 50  0001 C CNN
+	1    1600 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR04
+U 1 1 5AA4801D
+P 1050 1600
+F 0 "#PWR04" H 1050 1450 50  0001 C CNN
+F 1 "+5V" H 1050 1740 50  0000 C CNN
+F 2 "" H 1050 1600 50  0001 C CNN
+F 3 "" H 1050 1600 50  0001 C CNN
+	1    1050 1600
+	-1   0    0    1   
+$EndComp
+$Comp
+L +5V #PWR05
+U 1 1 5AA480F1
+P 7400 1850
+F 0 "#PWR05" H 7400 1700 50  0001 C CNN
+F 1 "+5V" H 7400 1990 50  0000 C CNN
+F 2 "" H 7400 1850 50  0001 C CNN
+F 3 "" H 7400 1850 50  0001 C CNN
+	1    7400 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR06
+U 1 1 5AA48151
+P 3650 2000
+F 0 "#PWR06" H 3650 1850 50  0001 C CNN
+F 1 "+5V" H 3650 2140 50  0000 C CNN
+F 2 "" H 3650 2000 50  0001 C CNN
+F 3 "" H 3650 2000 50  0001 C CNN
+	1    3650 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR07
+U 1 1 5AA4829D
+P 4000 3500
+F 0 "#PWR07" H 4000 3250 50  0001 C CNN
+F 1 "GND" H 4000 3350 50  0000 C CNN
+F 2 "" H 4000 3500 50  0001 C CNN
+F 3 "" H 4000 3500 50  0001 C CNN
+	1    4000 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR08
+U 1 1 5AA48309
+P 6700 4200
+F 0 "#PWR08" H 6700 3950 50  0001 C CNN
+F 1 "GND" H 6700 4050 50  0000 C CNN
+F 2 "" H 6700 4200 50  0001 C CNN
+F 3 "" H 6700 4200 50  0001 C CNN
+	1    6700 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 4050 2150 4050
+Text GLabel 2150 4050 0    60   Output ~ 0
+MSP432_TX_to_PI_RX
+Wire Wire Line
+	7200 2350 7650 2350
+Text GLabel 7650 2350 2    60   Input ~ 0
+MSP432_TX_to_PI_RX
+$EndSCHEMATC

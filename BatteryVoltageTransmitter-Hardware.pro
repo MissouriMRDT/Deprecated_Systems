@@ -1,4 +1,4 @@
-update=3/10/2018 6:15:28 PM
+update=3/11/2018 12:36:24 AM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -69,5 +71,3 @@ LibName39=C:/Users/Jacob Lipina/Documents/1.) Mars Rover/2017-18 Atlas/KiCad-Lib
 LibName40=C:/Users/Jacob Lipina/Documents/1.) Mars Rover/2017-18 Atlas/KiCad-Libraries-Hardware/Device/MRDT-Shields
 LibName41=C:/Users/Jacob Lipina/Documents/1.) Mars Rover/2017-18 Atlas/KiCad-Libraries-Hardware/Device/MRDT-Silkscreens
 LibName42=C:/Users/Jacob Lipina/Documents/1.) Mars Rover/2017-18 Atlas/KiCad-Libraries-Hardware/Device/MRDT-Switches
-[general]
-version=1

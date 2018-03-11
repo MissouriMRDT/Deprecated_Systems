@@ -47,14 +47,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Battery Voltage Transmitter"
+Date "2018-03-10"
+Rev "1"
+Comp "Missouri S&T's Mars Rover Design Team"
 Comment1 ""
-Comment2 ""
-Comment3 ""
-Comment4 ""
+Comment2 "for easy remote monitoring of the pack."
+Comment3 "Raspberry PI Zero W. The PI will transmit batt pack data over wifi to a Slack channel"
+Comment4 "This is a booster that sits on top of an MSP_EXP432 launchpad that has headers for a "
 $EndDescr
 $Comp
 L MSP_EXP432P401R_Launchpad_Shield U1
@@ -70,58 +70,58 @@ $EndComp
 $Comp
 L Raspberry_Pi U2
 U 1 1 5AA454D4
-P 6400 3900
-F 0 "U2" H 6450 3850 60  0000 C CNN
-F 1 "Raspberry_Pi" H 6700 5950 60  0000 C CNN
-F 2 "MRDT-Shields:RASPBERRY_PI_HEADERS" H 6400 5050 60  0001 C CNN
-F 3 "" H 6400 5050 60  0001 C CNN
-	1    6400 3900
+P 5600 3900
+F 0 "U2" H 5650 3850 60  0000 C CNN
+F 1 "Raspberry_Pi" H 5900 6100 60  0000 C CNN
+F 2 "MRDT-Shields:RASPBERRY_PI_HEADERS" H 5600 5050 60  0001 C CNN
+F 3 "" H 5600 5050 60  0001 C CNN
+	1    5600 3900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3650 2000 3650 2100
+	3600 2000 3600 2100
 Wire Wire Line
-	3500 2100 3900 2100
+	3500 2100 3750 2100
 Wire Wire Line
-	7400 1850 7400 2050
+	6600 1850 6600 2050
 Wire Wire Line
-	7200 1950 7400 1950
+	6400 1950 6600 1950
 Wire Wire Line
-	7200 2550 7400 2550
+	6400 2550 6600 2550
 Wire Wire Line
-	7400 4100 7400 2150
+	6600 4100 6600 2150
 Wire Wire Line
-	7400 2150 7200 2150
-Connection ~ 7400 2550
+	6600 2150 6400 2150
+Connection ~ 6600 2550
 Wire Wire Line
-	7200 2850 7400 2850
-Connection ~ 7400 2850
+	6400 2850 6600 2850
+Connection ~ 6600 2850
 Wire Wire Line
-	7200 3350 7400 3350
-Connection ~ 7400 3350
+	6400 3350 6600 3350
+Connection ~ 6600 3350
 Wire Wire Line
-	7400 3550 7200 3550
-Connection ~ 7400 3550
+	6600 3550 6400 3550
+Connection ~ 6600 3550
 Wire Wire Line
-	7400 2050 7200 2050
-Connection ~ 7400 1950
+	6600 2050 6400 2050
+Connection ~ 6600 1950
 Wire Wire Line
-	6200 2350 5950 2350
+	5400 2350 5150 2350
 Wire Wire Line
-	5950 2350 5950 4100
+	5150 2350 5150 4100
 Wire Wire Line
-	6200 3850 5950 3850
-Connection ~ 5950 3850
+	5400 3850 5150 3850
+Connection ~ 5150 3850
 Wire Wire Line
-	6200 3150 5950 3150
-Connection ~ 5950 3150
+	5400 3150 5150 3150
+Connection ~ 5150 3150
 Wire Wire Line
-	5950 4100 7400 4100
+	5150 4100 6600 4100
 Wire Wire Line
-	6700 4200 6700 4100
-Connection ~ 6700 4100
+	5900 4200 5900 4100
+Connection ~ 5900 4100
 Wire Wire Line
-	3500 2200 4800 2200
+	3500 2200 4000 2200
 Wire Wire Line
 	4000 2200 4000 3500
 Wire Wire Line
@@ -130,62 +130,58 @@ Connection ~ 4000 3450
 $Comp
 L R R1
 U 1 1 5AA45B26
-P 4050 2050
-F 0 "R1" V 4130 2050 50  0000 C CNN
-F 1 "100" V 4050 2050 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3980 2050 50  0001 C CNN
-F 3 "" H 4050 2050 50  0001 C CNN
-	1    4050 2050
+P 3900 2100
+F 0 "R1" V 3800 2100 50  0000 C CNN
+F 1 "100" V 3900 2100 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3830 2100 50  0001 C CNN
+F 3 "" H 3900 2100 50  0001 C CNN
+	1    3900 2100
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3900 2100 3900 2050
-Connection ~ 3650 2100
+Connection ~ 3600 2100
 $Comp
 L LED D1
 U 1 1 5AA45B9B
-P 4650 2050
-F 0 "D1" H 4650 2150 50  0000 C CNN
-F 1 "LED" H 4650 1950 50  0000 C CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 4650 2050 50  0001 C CNN
-F 3 "" H 4650 2050 50  0001 C CNN
-	1    4650 2050
-	-1   0    0    1   
+P 4250 2250
+F 0 "D1" H 4250 2350 50  0000 C CNN
+F 1 "LED" H 4250 2150 50  0000 C CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 4250 2250 50  0001 C CNN
+F 3 "" H 4250 2250 50  0001 C CNN
+	1    4250 2250
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4500 2050 4200 2050
-Wire Wire Line
-	4800 2200 4800 2050
+	4250 2100 4050 2100
 Connection ~ 4000 2200
-NoConn ~ 7200 2250
-NoConn ~ 7200 2450
-NoConn ~ 7200 2650
-NoConn ~ 7200 2750
-NoConn ~ 7200 2950
-NoConn ~ 7200 3050
-NoConn ~ 7200 3150
-NoConn ~ 7200 3250
-NoConn ~ 7200 3450
-NoConn ~ 7200 3650
-NoConn ~ 7200 3750
-NoConn ~ 7200 3850
-NoConn ~ 6200 3750
-NoConn ~ 6200 3650
-NoConn ~ 6200 3550
-NoConn ~ 6200 3450
-NoConn ~ 6200 3350
-NoConn ~ 6200 3250
-NoConn ~ 6200 3050
-NoConn ~ 6200 2950
-NoConn ~ 6200 2850
-NoConn ~ 6200 2750
-NoConn ~ 6200 2650
-NoConn ~ 6200 2550
-NoConn ~ 6200 2450
-NoConn ~ 6200 2250
-NoConn ~ 6200 2150
-NoConn ~ 6200 2050
-NoConn ~ 6200 1950
+NoConn ~ 6400 2250
+NoConn ~ 6400 2450
+NoConn ~ 6400 2650
+NoConn ~ 6400 2750
+NoConn ~ 6400 2950
+NoConn ~ 6400 3050
+NoConn ~ 6400 3150
+NoConn ~ 6400 3250
+NoConn ~ 6400 3450
+NoConn ~ 6400 3650
+NoConn ~ 6400 3750
+NoConn ~ 6400 3850
+NoConn ~ 5400 3750
+NoConn ~ 5400 3650
+NoConn ~ 5400 3550
+NoConn ~ 5400 3450
+NoConn ~ 5400 3350
+NoConn ~ 5400 3250
+NoConn ~ 5400 3050
+NoConn ~ 5400 2950
+NoConn ~ 5400 2850
+NoConn ~ 5400 2750
+NoConn ~ 5400 2650
+NoConn ~ 5400 2550
+NoConn ~ 5400 2450
+NoConn ~ 5400 2250
+NoConn ~ 5400 2150
+NoConn ~ 5400 2050
+NoConn ~ 5400 1950
 NoConn ~ 3500 2300
 NoConn ~ 3500 2400
 NoConn ~ 3500 2500
@@ -222,18 +218,14 @@ NoConn ~ 2550 3950
 NoConn ~ 2550 4150
 NoConn ~ 2550 4250
 NoConn ~ 2550 4350
-Connection ~ 6200 3850
-Connection ~ 6200 3150
-Connection ~ 6200 2350
-Connection ~ 7200 2550
-Connection ~ 7200 2850
-Connection ~ 7200 3350
-Connection ~ 7200 3550
-Connection ~ 7400 2050
-Connection ~ 3900 2050
-Connection ~ 4200 2050
-Connection ~ 4500 2050
-Connection ~ 4800 2050
+Connection ~ 5400 3850
+Connection ~ 5400 3150
+Connection ~ 5400 2350
+Connection ~ 6400 2550
+Connection ~ 6400 2850
+Connection ~ 6400 3350
+Connection ~ 6400 3550
+Connection ~ 6600 2050
 $Comp
 L PWR_FLAG #FLG01
 U 1 1 5AA47E1D
@@ -285,23 +277,23 @@ $EndComp
 $Comp
 L +5V #PWR05
 U 1 1 5AA480F1
-P 7400 1850
-F 0 "#PWR05" H 7400 1700 50  0001 C CNN
-F 1 "+5V" H 7400 1990 50  0000 C CNN
-F 2 "" H 7400 1850 50  0001 C CNN
-F 3 "" H 7400 1850 50  0001 C CNN
-	1    7400 1850
+P 6600 1850
+F 0 "#PWR05" H 6600 1700 50  0001 C CNN
+F 1 "+5V" H 6600 1990 50  0000 C CNN
+F 2 "" H 6600 1850 50  0001 C CNN
+F 3 "" H 6600 1850 50  0001 C CNN
+	1    6600 1850
 	1    0    0    -1  
 $EndComp
 $Comp
 L +5V #PWR06
 U 1 1 5AA48151
-P 3650 2000
-F 0 "#PWR06" H 3650 1850 50  0001 C CNN
-F 1 "+5V" H 3650 2140 50  0000 C CNN
-F 2 "" H 3650 2000 50  0001 C CNN
-F 3 "" H 3650 2000 50  0001 C CNN
-	1    3650 2000
+P 3600 2000
+F 0 "#PWR06" H 3600 1850 50  0001 C CNN
+F 1 "+5V" H 3600 2140 50  0000 C CNN
+F 2 "" H 3600 2000 50  0001 C CNN
+F 3 "" H 3600 2000 50  0001 C CNN
+	1    3600 2000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -318,12 +310,12 @@ $EndComp
 $Comp
 L GND #PWR08
 U 1 1 5AA48309
-P 6700 4200
-F 0 "#PWR08" H 6700 3950 50  0001 C CNN
-F 1 "GND" H 6700 4050 50  0000 C CNN
-F 2 "" H 6700 4200 50  0001 C CNN
-F 3 "" H 6700 4200 50  0001 C CNN
-	1    6700 4200
+P 5900 4200
+F 0 "#PWR08" H 5900 3950 50  0001 C CNN
+F 1 "GND" H 5900 4050 50  0000 C CNN
+F 2 "" H 5900 4200 50  0001 C CNN
+F 3 "" H 5900 4200 50  0001 C CNN
+	1    5900 4200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -331,7 +323,21 @@ Wire Wire Line
 Text GLabel 2150 4050 0    60   Output ~ 0
 MSP432_TX_to_PI_RX
 Wire Wire Line
-	7200 2350 7650 2350
-Text GLabel 7650 2350 2    60   Input ~ 0
+	6400 2350 6850 2350
+Text GLabel 6850 2350 2    60   Input ~ 0
 MSP432_TX_to_PI_RX
+Wire Wire Line
+	4250 2400 4000 2400
+Connection ~ 4000 2400
+$Comp
+L MRDT_Logo S1
+U 1 1 5AA4D166
+P 1050 2100
+F 0 "S1" H 1100 2050 60  0000 C CNN
+F 1 "MRDT_Logo" H 1300 2150 60  0000 C CNN
+F 2 "MRDT-Silkscreens:MRDT_Logo_7.5mm" H 1050 2100 60  0001 C CNN
+F 3 "" H 1050 2100 60  0001 C CNN
+	1    1050 2100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

@@ -32,15 +32,15 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:MRDT-Connectors
-LIBS:MRDT-ICs
-LIBS:MRDT-Devices
-LIBS:MRDT-Shields
 LIBS:MRDT-Actives
+LIBS:MRDT-Connectors
+LIBS:MRDT-Devices
 LIBS:MRDT-Drill_Holes
 LIBS:MRDT-Headers
+LIBS:MRDT-ICs
 LIBS:MRDT-Passives
-LIBS:MRST-Silkscreens
+LIBS:MRDT-Shields
+LIBS:MRDT-Silkscreens
 LIBS:MRDT-Switches
 LIBS:GImbal Mastboard Rev-2-cache
 EELAYER 25 0
@@ -167,25 +167,25 @@ GND
 $Comp
 L IMU-LSM90S1 U3
 U 1 1 5A7CC898
-P 6750 5550
-F 0 "U3" H 6450 5500 60  0001 C CNN
-F 1 "IMU-LSM90S1" H 6750 6300 60  0000 C CNN
-F 2 "MRDT-Devices:IMU-LSM9DS1" H 6450 5550 60  0001 C CNN
-F 3 "" H 6450 5550 60  0001 C CNN
-	1    6750 5550
+P 6750 5100
+F 0 "U3" H 6450 5050 60  0001 C CNN
+F 1 "IMU-LSM90S1" H 6750 5850 60  0000 C CNN
+F 2 "MRDT-Devices:IMU-LSM9DS1" H 6450 5100 60  0001 C CNN
+F 3 "" H 6450 5100 60  0001 C CNN
+	1    6750 5100
 	1    0    0    -1  
 $EndComp
 Text GLabel 1550 6450 0    60   Input ~ 0
 PA6
 Text GLabel 1550 6550 0    60   Input ~ 0
 PA7
-Text GLabel 6200 5100 0    60   Input ~ 0
+Text GLabel 6200 4650 0    60   Input ~ 0
 IMU_SDA
-Text GLabel 6200 5000 0    60   Input ~ 0
+Text GLabel 6200 4550 0    60   Input ~ 0
 IMU_SCL
-Text GLabel 6200 4900 0    60   Input ~ 0
+Text GLabel 6200 4450 0    60   Input ~ 0
 +3V3
-Text GLabel 7300 4950 2    60   Input ~ 0
+Text GLabel 7300 4500 2    60   Input ~ 0
 GND
 $Comp
 L GND #PWR02
@@ -771,7 +771,7 @@ Text GLabel 10200 2050 2    60   Input ~ 0
 PE2
 Text GLabel 10200 2150 2    60   Input ~ 0
 PE3
-Text GLabel 10200 2250 2    60   Input ~ 0
+Text GLabel 10550 2250 2    60   Input ~ 0
 PF1
 Text GLabel 3450 5150 2    60   Input ~ 0
 PD5
@@ -887,4 +887,27 @@ Wire Wire Line
 	5200 3500 5150 3500
 Wire Wire Line
 	5150 2950 5200 2950
+Text GLabel 10550 2350 2    60   Input ~ 0
+PWM_OUT
+Wire Wire Line
+	10200 2250 10550 2250
+Wire Wire Line
+	10550 2250 10550 2350
+Text GLabel 7400 5650 0    60   Input ~ 0
+PWM_OUT
+$Comp
+L Conn_01x03_Female J1
+U 1 1 5AA6FEDF
+P 7600 5550
+F 0 "J1" H 7600 5750 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 7600 5350 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm" H 7600 5550 50  0001 C CNN
+F 3 "" H 7600 5550 50  0001 C CNN
+	1    7600 5550
+	1    0    0    -1  
+$EndComp
+Text GLabel 7400 5450 0    60   UnSpc ~ 0
+GND
+Text GLabel 7400 5550 0    60   Input ~ 0
++3V3
 $EndSCHEMATC

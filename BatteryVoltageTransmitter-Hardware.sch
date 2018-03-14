@@ -330,14 +330,25 @@ Wire Wire Line
 	4250 2400 4000 2400
 Connection ~ 4000 2400
 $Comp
-L MRDT_Logo S1
-U 1 1 5AA4D166
-P 1050 2100
-F 0 "S1" H 1100 2050 60  0000 C CNN
-F 1 "MRDT_Logo" H 1300 2150 60  0000 C CNN
-F 2 "MRDT-Silkscreens:MRDT_Logo_7.5mm" H 1050 2100 60  0001 C CNN
-F 3 "" H 1050 2100 60  0001 C CNN
-	1    1050 2100
+L Logo_or_Signature S1
+U 1 1 5AA585EB
+P 900 2150
+F 0 "S1" H 950 2100 60  0000 C CNN
+F 1 "Logo_or_Signature" H 1350 2200 60  0000 C CNN
+F 2 "MRDT-Silkscreens:MRDT_Logo_7.5mm" H 900 2150 60  0001 C CNN
+F 3 "" H 900 2150 60  0001 C CNN
+	1    900  2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Logo_or_Signature S2
+U 1 1 5AA5861E
+P 900 2350
+F 0 "S2" H 950 2300 60  0000 C CNN
+F 1 "Logo_or_Signature" H 1350 2400 60  0000 C CNN
+F 2 "MRDT-Silkscreens:Atlas_Logo_28.6mmX37.3mm" H 900 2350 60  0001 C CNN
+F 3 "" H 900 2350 60  0001 C CNN
+	1    900  2350
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:GImbal Mastboard Rev-2-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -32,16 +31,16 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:MRDT-Actives
-LIBS:MRDT-Connectors
-LIBS:MRDT-Devices
-LIBS:MRDT-Drill_Holes
-LIBS:MRDT-Headers
-LIBS:MRDT-ICs
-LIBS:MRDT-Passives
-LIBS:MRDT-Shields
-LIBS:MRDT-Silkscreens
-LIBS:MRDT-Switches
+LIBS:MRDT_Actives
+LIBS:MRDT_Devices
+LIBS:MRDT_Drill_Holes
+LIBS:MRDT_Headers
+LIBS:MRDT_ICs
+LIBS:MRDT_Passives
+LIBS:MRDT_Shields
+LIBS:MRDT_Silkscreens
+LIBS:MRDT_Switches
+LIBS:MRDT_Connectors
 LIBS:GImbal Mastboard Rev-2-cache
 EELAYER 25 0
 EELAYER END
@@ -58,12 +57,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L JAG_ARM_Connector-10pin U6
+L JAG_ARM_Connector_10pin U6
 U 1 1 5A7CA4FE
 P 9450 4750
 F 0 "U6" H 9500 4700 60  0001 C CNN
 F 1 "JAG_ARM_Connector-10pin" H 9650 5350 60  0000 C CNN
-F 2 "MRDT-Connectors:JTAG_ARM_Connector-10_Pin" H 9450 4750 60  0001 C CNN
+F 2 "MRDT_Connectors:JTAG_ARM_Connector_10_Pin" H 9450 4750 60  0001 C CNN
 F 3 "" H 9450 4750 60  0001 C CNN
 	1    9450 4750
 	1    0    0    -1  
@@ -74,7 +73,7 @@ U 1 1 5A7CB182
 P 2600 2050
 F 0 "U2" H 2450 1800 60  0001 C CNN
 F 1 "OKI_12Vto3V3" H 2750 2400 60  0000 C CNN
-F 2 "MRDT-Devices:OKI" H 2350 1950 60  0001 C CNN
+F 2 "MRDT_Devices:OKI_Horisontal" H 2350 1950 60  0001 C CNN
 F 3 "" H 2350 1950 60  0001 C CNN
 	1    2600 2050
 	1    0    0    -1  
@@ -102,12 +101,12 @@ F 3 "" H 2000 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L APP_2 C15
+L Anderson_2 C15
 U 1 1 5A7CB8EC
 P 2600 1300
 F 0 "C15" H 2650 1250 60  0000 C CNN
 F 1 "APP_2" H 2700 1800 60  0000 C CNN
-F 2 "MRDT-Connectors:Anderson_2_Side-by-Side" H 2650 750 60  0001 C CNN
+F 2 "MRDT_Connectors:Anderson_2_Horisontal_Side_by_Side" H 2650 750 60  0001 C CNN
 F 3 "" H 2650 750 60  0001 C CNN
 	1    2600 1300
 	1    0    0    -1  
@@ -130,12 +129,12 @@ GND
 Text GLabel 1700 2250 0    60   Input ~ 0
 +3V3
 $Comp
-L Raspberry_Pi_Header U4
+L Raspberry_Pi U4
 U 1 1 5A7CC2AE
 P 7300 3200
 F 0 "U4" H 7350 3150 60  0001 C CNN
 F 1 "Raspberry_Pi_Header" H 7550 5250 60  0000 C CNN
-F 2 "MRDT-Shields:RASPBERRY_PI_HEADERS" H 7300 4350 60  0001 C CNN
+F 2 "MRDT_Shields:RASPBERRY_PI_HEADERS" H 7300 4350 60  0001 C CNN
 F 3 "" H 7300 4350 60  0001 C CNN
 	1    7300 3200
 	1    0    0    -1  
@@ -162,15 +161,13 @@ Text GLabel 10200 1450 2    60   UnSpc ~ 0
 GND
 Text GLabel 10200 2600 2    60   UnSpc ~ 0
 GND
-Text GLabel 9250 4700 0    60   Input ~ 0
-GND
 $Comp
-L IMU-LSM90S1 U3
+L IMU_LSM90S1 U3
 U 1 1 5A7CC898
 P 6750 5100
 F 0 "U3" H 6450 5050 60  0001 C CNN
 F 1 "IMU-LSM90S1" H 6750 5850 60  0000 C CNN
-F 2 "MRDT-Devices:IMU-LSM9DS1" H 6450 5100 60  0001 C CNN
+F 2 "MRDT_Devices:IMU_LSM90S1" H 6450 5100 60  0001 C CNN
 F 3 "" H 6450 5100 60  0001 C CNN
 	1    6750 5100
 	1    0    0    -1  
@@ -211,12 +208,12 @@ TX_0
 Text GLabel 1550 5850 0    60   Input ~ 0
 RX_0
 $Comp
-L Molex_SL-4 U7
+L Molex_SL_4 U7
 U 1 1 5A7CB2F2
 P 9450 5600
 F 0 "U7" H 9500 5550 60  0001 C CNN
 F 1 "Molex_SL-4" H 9650 6050 60  0000 C CNN
-F 2 "MRDT-Connectors:MOLEX_SL_4" H 9450 5600 60  0001 C CNN
+F 2 "MRDT_Connectors:MOLEX_SL_4" H 9450 5600 60  0001 C CNN
 F 3 "" H 9450 5600 60  0001 C CNN
 	1    9450 5600
 	1    0    0    -1  
@@ -277,12 +274,12 @@ I2C\n
 Text Notes 9650 5850 3    60   ~ 0
 Serial\n
 $Comp
-L Molex_SL-3 U8
+L Molex_SL_3 U8
 U 1 1 5A7CBA7D
 P 9450 6150
 F 0 "U8" H 9500 6100 60  0001 C CNN
 F 1 "Molex_SL-3" H 9650 6500 60  0000 C CNN
-F 2 "MRDT-Connectors:MOLEX_SL_3" H 9450 6150 60  0001 C CNN
+F 2 "MRDT_Connectors:MOLEX_SL_3" H 9450 6150 60  0001 C CNN
 F 3 "" H 9450 6150 60  0001 C CNN
 	1    9450 6150
 	1    0    0    -1  
@@ -346,7 +343,7 @@ U 1 1 5A7F9C53
 P 3750 4900
 F 0 "Y1" H 3750 5050 50  0000 C CNN
 F 1 "16MHz" H 3750 4750 50  0000 C CNN
-F 2 "MRDT-Actives:CRYSTAL_SMT" H 3750 4900 50  0001 C CNN
+F 2 "MRDT_Actives:CRYSTAL_SMT" H 3750 4900 50  0001 C CNN
 F 3 "" H 3750 4900 50  0001 C CNN
 F 4 "100 OHM, .5pF" H 3750 4900 60  0001 C CNN "Notes"
 	1    3750 4900
@@ -524,17 +521,6 @@ Text GLabel 800  4100 1    60   Input ~ 0
 +3V3
 Text GLabel 1800 7150 0    60   Input ~ 0
 +3V3
-$Comp
-L TIVA_C_TM4C123_Launchpad_Shield U5
-U 1 1 5A8758BD
-P 9450 3550
-F 0 "U5" H 9550 4750 60  0001 C CNN
-F 1 "TIVA_C_TM4C123_Launchpad_Shield" H 9700 5950 60  0000 C CNN
-F 2 "MRDT-Shields:TM4C123G_Booster" H 9450 4800 60  0001 C CNN
-F 3 "" H 9450 4800 60  0001 C CNN
-	1    9450 3550
-	1    0    0    -1  
-$EndComp
 Text GLabel 3450 5250 2    60   Input ~ 0
 PB0
 Text GLabel 3450 5350 2    60   Input ~ 0
@@ -597,14 +583,159 @@ Text GLabel 5750 2600 2    60   Output ~ 0
 SCL_Out
 Text GLabel 5750 2700 2    60   Output ~ 0
 SDA_Out
-Text GLabel 9000 4600 0    60   Input ~ 0
+Text GLabel 9250 4600 0    60   Input ~ 0
 TX_0
-Text GLabel 9000 4450 0    60   Output ~ 0
+Text GLabel 9250 4700 0    60   Output ~ 0
 RX_0
-Wire Wire Line
-	2000 950  2700 950 
-Wire Wire Line
-	2250 1200 2700 1200
+$Comp
+L Jumper JP1
+U 1 1 5A87BBB2
+P 5450 1900
+F 0 "JP1" H 5450 2050 50  0000 C CNN
+F 1 "Jumper" H 5450 1820 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 1900 50  0001 C CNN
+F 3 "" H 5450 1900 50  0001 C CNN
+	1    5450 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper JP2
+U 1 1 5A87BBF5
+P 5450 2100
+F 0 "JP2" H 5450 2250 50  0000 C CNN
+F 1 "Jumper" H 5450 2020 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 2100 50  0001 C CNN
+F 3 "" H 5450 2100 50  0001 C CNN
+	1    5450 2100
+	1    0    0    -1  
+$EndComp
+Text GLabel 9250 1450 0    60   Input ~ 0
+PB5
+Text GLabel 9250 1950 0    60   Input ~ 0
+PB4
+Text GLabel 9250 2050 0    60   Input ~ 0
+PA5
+Text GLabel 10200 1550 2    60   Input ~ 0
+PD0
+Text GLabel 10200 1650 2    60   Input ~ 0
+PD1
+Text GLabel 10200 1750 2    60   Input ~ 0
+PD2
+Text GLabel 10200 1850 2    60   Input ~ 0
+PD3
+Text GLabel 10200 1950 2    60   Input ~ 0
+PE1
+Text GLabel 10200 2050 2    60   Input ~ 0
+PE2
+Text GLabel 10200 2150 2    60   Input ~ 0
+PE3
+Text GLabel 10550 2250 2    60   Input ~ 0
+PF1
+Text GLabel 3450 5150 2    60   Input ~ 0
+PD5
+Text GLabel 3450 5050 2    60   Input ~ 0
+PD4
+Text GLabel 5150 1700 0    60   Output ~ 0
+PD6
+Text GLabel 5150 1600 0    60   Input ~ 0
+PD7
+Text GLabel 5050 2100 0    60   Output ~ 0
+PB0
+Text GLabel 5050 1900 0    60   Input ~ 0
+PB1
+Text GLabel 5150 2600 0    60   Input ~ 0
+PA6
+Text GLabel 5150 2700 0    60   Input ~ 0
+PA7
+Text GLabel 5150 2300 0    60   Input ~ 0
+PE4
+Text GLabel 5150 2400 0    60   Input ~ 0
+PE5
+Text GLabel 9250 2600 0    60   Input ~ 0
+PF2
+Text GLabel 9250 2700 0    60   Input ~ 0
+PF3
+Text GLabel 9250 2800 0    60   Input ~ 0
+PB3
+Text GLabel 9250 2900 0    60   Input ~ 0
+PC4
+Text GLabel 9250 3000 0    60   Input ~ 0
+PC5
+Text GLabel 9250 3100 0    60   Input ~ 0
+PC6
+Text GLabel 9250 3200 0    60   Input ~ 0
+PC7
+Text GLabel 9250 3500 0    60   Input ~ 0
+PF4
+Text GLabel 10200 2700 2    60   Input ~ 0
+PB2
+Text GLabel 10200 2800 2    60   Input ~ 0
+PE0
+Text GLabel 10200 2900 2    60   Input ~ 0
+PF0
+Text GLabel 10200 3100 2    60   Input ~ 0
+PB7
+Text GLabel 10200 3200 2    60   Input ~ 0
+PB6
+Text GLabel 10200 3300 2    60   Input ~ 0
+PA4
+Text GLabel 10200 3400 2    60   Input ~ 0
+PA3
+Text GLabel 10200 3500 2    60   Input ~ 0
+PA2
+Text GLabel 5450 3050 3    60   Input ~ 0
+PI_TX
+Text GLabel 5450 3600 3    60   Output ~ 0
+PI_RX
+Text GLabel 5150 2950 0    60   Input ~ 0
+PD4
+Text GLabel 5150 3500 0    60   Input ~ 0
+PD5
+Text GLabel 5750 2950 2    60   Input ~ 0
+PC4
+Text GLabel 5750 3500 2    60   Input ~ 0
+PC5
+$Comp
+L Jumper_NC_Dual JP3
+U 1 1 5A8911BB
+P 5450 2950
+F 0 "JP3" H 5500 2850 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3050 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 2950 50  0001 C CNN
+F 3 "" H 5450 2950 50  0001 C CNN
+	1    5450 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper_NC_Dual JP4
+U 1 1 5A89121D
+P 5450 3500
+F 0 "JP4" H 5500 3400 50  0000 L CNN
+F 1 "Jumper_NC_Dual" H 5450 3600 50  0000 C BNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 3500 50  0001 C CNN
+F 3 "" H 5450 3500 50  0001 C CNN
+	1    5450 3500
+	1    0    0    -1  
+$EndComp
+Text GLabel 10550 2350 2    60   Input ~ 0
+PWM_OUT
+Text GLabel 7400 5650 0    60   Input ~ 0
+PWM_OUT
+$Comp
+L Conn_01x03_Female J1
+U 1 1 5AA6FEDF
+P 7600 5550
+F 0 "J1" H 7600 5750 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 7600 5350 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm" H 7600 5550 50  0001 C CNN
+F 3 "" H 7600 5550 50  0001 C CNN
+	1    7600 5550
+	1    0    0    -1  
+$EndComp
+Text GLabel 7400 5450 0    60   UnSpc ~ 0
+GND
+Text GLabel 7400 5550 0    60   Input ~ 0
++3V3
 Wire Wire Line
 	2250 1200 2250 1900
 Wire Wire Line
@@ -725,118 +856,14 @@ Connection ~ 3000 4400
 Connection ~ 2900 4400
 Connection ~ 2700 4400
 Connection ~ 4150 4300
-$Comp
-L Jumper JP1
-U 1 1 5A87BBB2
-P 5450 1900
-F 0 "JP1" H 5450 2050 50  0000 C CNN
-F 1 "Jumper" H 5450 1820 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 1900 50  0001 C CNN
-F 3 "" H 5450 1900 50  0001 C CNN
-	1    5450 1900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Jumper JP2
-U 1 1 5A87BBF5
-P 5450 2100
-F 0 "JP2" H 5450 2250 50  0000 C CNN
-F 1 "Jumper" H 5450 2020 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5450 2100 50  0001 C CNN
-F 3 "" H 5450 2100 50  0001 C CNN
-	1    5450 2100
-	1    0    0    -1  
-$EndComp
-Text GLabel 9250 1450 0    60   Input ~ 0
-PB5
-Text GLabel 9250 1950 0    60   Input ~ 0
-PB4
-Text GLabel 9250 2050 0    60   Input ~ 0
-PA5
-Text GLabel 9250 2150 0    60   Input ~ 0
-PA6
-Text GLabel 9250 2250 0    60   Input ~ 0
-PA7
-Text GLabel 10200 1550 2    60   Input ~ 0
-PD0
-Text GLabel 10200 1650 2    60   Input ~ 0
-PD1
-Text GLabel 10200 1750 2    60   Input ~ 0
-PD2
-Text GLabel 10200 1850 2    60   Input ~ 0
-PD3
-Text GLabel 10200 1950 2    60   Input ~ 0
-PE1
-Text GLabel 10200 2050 2    60   Input ~ 0
-PE2
-Text GLabel 10200 2150 2    60   Input ~ 0
-PE3
-Text GLabel 10550 2250 2    60   Input ~ 0
-PF1
-Text GLabel 3450 5150 2    60   Input ~ 0
-PD5
-Text GLabel 3450 5050 2    60   Input ~ 0
-PD4
-Text GLabel 5150 1700 0    60   Output ~ 0
-PD6
-Text GLabel 5150 1600 0    60   Input ~ 0
-PD7
 Wire Wire Line
 	5150 1600 5750 1600
 Wire Wire Line
 	5150 1700 5750 1700
-Text GLabel 5050 2100 0    60   Output ~ 0
-PB0
-Text GLabel 5050 1900 0    60   Input ~ 0
-PB1
-Text GLabel 5150 2600 0    60   Input ~ 0
-PA6
-Text GLabel 5150 2700 0    60   Input ~ 0
-PA7
-Wire Wire Line
-	5150 2600 5750 2600
-Wire Wire Line
-	5150 2700 5750 2700
-Text GLabel 5150 2300 0    60   Input ~ 0
-PE4
-Text GLabel 5150 2400 0    60   Input ~ 0
-PE5
 Wire Wire Line
 	5150 2300 5750 2300
 Wire Wire Line
 	5150 2400 5750 2400
-Text GLabel 9250 2600 0    60   Input ~ 0
-PF2
-Text GLabel 9250 2700 0    60   Input ~ 0
-PF3
-Text GLabel 9250 2800 0    60   Input ~ 0
-PB3
-Text GLabel 9250 2900 0    60   Input ~ 0
-PC4
-Text GLabel 9250 3000 0    60   Input ~ 0
-PC5
-Text GLabel 9250 3100 0    60   Input ~ 0
-PC6
-Text GLabel 9250 3200 0    60   Input ~ 0
-PC7
-Text GLabel 9250 3500 0    60   Input ~ 0
-PF4
-Text GLabel 10200 2700 2    60   Input ~ 0
-PB2
-Text GLabel 10200 2800 2    60   Input ~ 0
-PE0
-Text GLabel 10200 2900 2    60   Input ~ 0
-PF0
-Text GLabel 10200 3100 2    60   Input ~ 0
-PB7
-Text GLabel 10200 3200 2    60   Input ~ 0
-PB6
-Text GLabel 10200 3300 2    60   Input ~ 0
-PA4
-Text GLabel 10200 3400 2    60   Input ~ 0
-PA3
-Text GLabel 10200 3500 2    60   Input ~ 0
-PA2
 Wire Wire Line
 	5850 1900 5750 1900
 Wire Wire Line
@@ -845,40 +872,6 @@ Wire Wire Line
 	5150 1900 5050 1900
 Wire Wire Line
 	5050 2100 5150 2100
-Text GLabel 5450 3050 3    60   Input ~ 0
-PI_TX
-Text GLabel 5450 3600 3    60   Output ~ 0
-PI_RX
-Text GLabel 5150 2950 0    60   Input ~ 0
-PD4
-Text GLabel 5150 3500 0    60   Input ~ 0
-PD5
-Text GLabel 5750 2950 2    60   Input ~ 0
-PC4
-Text GLabel 5750 3500 2    60   Input ~ 0
-PC5
-$Comp
-L Jumper_NC_Dual JP3
-U 1 1 5A8911BB
-P 5450 2950
-F 0 "JP3" H 5500 2850 50  0000 L CNN
-F 1 "Jumper_NC_Dual" H 5450 3050 50  0000 C BNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 2950 50  0001 C CNN
-F 3 "" H 5450 2950 50  0001 C CNN
-	1    5450 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Jumper_NC_Dual JP4
-U 1 1 5A89121D
-P 5450 3500
-F 0 "JP4" H 5500 3400 50  0000 L CNN
-F 1 "Jumper_NC_Dual" H 5450 3600 50  0000 C BNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 5450 3500 50  0001 C CNN
-F 3 "" H 5450 3500 50  0001 C CNN
-	1    5450 3500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5750 2950 5700 2950
 Wire Wire Line
@@ -887,27 +880,31 @@ Wire Wire Line
 	5200 3500 5150 3500
 Wire Wire Line
 	5150 2950 5200 2950
-Text GLabel 10550 2350 2    60   Input ~ 0
-PWM_OUT
 Wire Wire Line
 	10200 2250 10550 2250
 Wire Wire Line
 	10550 2250 10550 2350
-Text GLabel 7400 5650 0    60   Input ~ 0
-PWM_OUT
+Wire Wire Line
+	2250 1200 2500 1200
+Wire Wire Line
+	2500 950  2000 950 
+Wire Wire Line
+	5150 2600 5750 2600
+Wire Wire Line
+	5150 2700 5750 2700
+Text GLabel 9250 2150 0    60   Input ~ 0
+PA6
+Text GLabel 9250 2250 0    60   Input ~ 0
+PA7
 $Comp
-L Conn_01x03_Female J1
-U 1 1 5AA6FEDF
-P 7600 5550
-F 0 "J1" H 7600 5750 50  0000 C CNN
-F 1 "Conn_01x03_Female" H 7600 5350 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm" H 7600 5550 50  0001 C CNN
-F 3 "" H 7600 5550 50  0001 C CNN
-	1    7600 5550
+L TM4C123G_Launchpad_Shield U5
+U 1 1 5AADBC87
+P 9450 3550
+F 0 "U5" H 9550 4750 60  0001 C CNN
+F 1 "TM4C123G_Launchpad_Shield" H 9700 5950 60  0000 C CNN
+F 2 "MRDT_Shields:TM4C123G_Booster" H 9450 4800 60  0001 C CNN
+F 3 "" H 9450 4800 60  0001 C CNN
+	1    9450 3550
 	1    0    0    -1  
 $EndComp
-Text GLabel 7400 5450 0    60   UnSpc ~ 0
-GND
-Text GLabel 7400 5550 0    60   Input ~ 0
-+3V3
 $EndSCHEMATC

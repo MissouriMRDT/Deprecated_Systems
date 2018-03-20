@@ -504,17 +504,17 @@ F 3 "" H 2500 7150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9250 1550 0    60   Input ~ 0
-TIVA_RX
+LaunchXL_RX
 Text GLabel 9250 1650 0    60   Output ~ 0
-TIVA_TX
+LaunchXL_TX
 Text GLabel 1550 5650 0    60   Input ~ 0
 PC5
 Text GLabel 1550 5750 0    60   Input ~ 0
 PC4
 Text GLabel 5850 1900 2    60   Output ~ 0
-TIVA_RX
+LaunchXL_RX
 Text GLabel 5850 2100 2    60   Input ~ 0
-TIVA_TX
+LaunchXL_TX
 Text GLabel 3700 900  1    60   Input ~ 0
 +3V3
 Text GLabel 800  4100 1    60   Input ~ 0
@@ -834,8 +834,6 @@ Connection ~ 3750 4300
 Connection ~ 3550 4300
 Wire Wire Line
 	3550 4500 4250 4500
-Wire Wire Line
-	3000 4300 4150 4300
 Connection ~ 3950 4500
 Connection ~ 3750 4500
 Wire Wire Line
@@ -907,4 +905,6 @@ F 3 "" H 9450 4800 60  0001 C CNN
 	1    9450 3550
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	3000 4300 4150 4300
 $EndSCHEMATC

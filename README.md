@@ -8,12 +8,12 @@ How to add repos to this:
 3) Make sure that you've merged all branches on the deprecated repo into master, this process only preserves its master
 4) in gitshell inside of the Deprecated-Systems folder:
 
-git checkout **name of the branch you're copying the deprecated repo into**
+git checkout [name of the branch you're copying the deprecated repo into]
 
-git remote add **unique name for deprecated repo for this commit** **url of deprecated repo**
+git remote add [unique name for deprecated repo for this commit] [url of deprecated repo]
 
-git fetch **unique name for deprecated repo for this commit**
+git fetch [unique name for deprecated repo for this commit]
 
-git merge **unique name for deprecated repo for this commit**/master --allow-unrelated-histories
+git merge [unique name for deprecated repo for this commit]/master --allow-unrelated-histories
 
 5) delete old branch

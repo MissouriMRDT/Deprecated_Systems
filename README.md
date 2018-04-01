@@ -1,2 +1,7 @@
-# Deprecated-Systems
- Deprecated sub-system repositories that have no present day equivalent
+========
+Controls
+========
+
+Mechanical = Peanut Butter.
+Software = Jelly.
+We make the sandwich... Deal with it B)

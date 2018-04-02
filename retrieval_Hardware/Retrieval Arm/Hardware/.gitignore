@@ -1,0 +1,7 @@
+*.cfg
+*.b#*
+*.s#*
+*.dru
+*.pro
+*.epf
+*.job

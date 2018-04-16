@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:GImbal Mastboard Rev-2-rescue
 LIBS:power
 LIBS:device
 LIBS:switches
@@ -895,7 +896,7 @@ PA6
 Text GLabel 9250 2250 0    60   Input ~ 0
 PA7
 $Comp
-L TM4C123G_Launchpad_Shield U5
+L TM4C123G_Launchpad_Shield-RESCUE-GImbal_Mastboard_Rev-2 U5
 U 1 1 5AADBC87
 P 9450 3550
 F 0 "U5" H 9550 4750 60  0001 C CNN

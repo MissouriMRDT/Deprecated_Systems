@@ -67,17 +67,16 @@ int car_positions[5] = {15, 55, 90, 125, 165};
 
 
 uint8_t laserPin = 46; // PD_5
-uint8_t photoPin1 = PD_2;
-uint8_t photoPin2 = PD_3;
-uint8_t LEDPin = PF_0;
+const uint8_t photoPin1 = PD_0;
+const uint8_t photoPin2 = PD_1;
+const uint8_t LEDPin = PF_0;
 
-uint8_t UVPin = PE_1;
-uint8_t airTempPin = PD_1;
-uint8_t soilTempPin = PB_5;
-uint8_t methanePin = PK_1;
-uint8_t airHumidityPin = PD_0;
-uint8_t soilMoisturePin = PE_3;
-const uint8_t airPressurePin = PM_4;
+const uint8_t UVPin = PE_2;
+const uint8_t airTempPin = PD_7;
+const uint8_t methanePin = PE_O;
+const uint8_t airHumidityPin = PE_3;
+const uint8_t airPressureScl = PB_2;
+const uint8_t airPressureSda = PB_3;
 
 //functions
 

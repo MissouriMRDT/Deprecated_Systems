@@ -32,7 +32,6 @@ DualVNH5019MotorShield GripperMotor;
 
 byte command_speed = 0;
 int  motor_speed   = 0;
-int  LED_UNO       = 13;
 
 unsigned long last_watch_clear_millis = 0;
 
@@ -41,20 +40,18 @@ void setup()
 {
   Serial.begin(9600);
  
-  pinMode(LED_UNO, OUTPUT); 
-  
   GripperMotor.init();
   
   GripperMotor.setM1Speed(START_UP_ROUTINE_SPEED); 
-  stopIfFault();
+  //stopIfFault();
   delay(START_UP_ROUTINE_DELAY);
-   
+  
   GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
-  stopIfFault();
+  //stopIfFault();
   delay(BRAKE_DELAY);
    
   GripperMotor.setM1Speed(-START_UP_ROUTINE_SPEED); 
-  stopIfFault();
+  //stopIfFault();
   delay(START_UP_ROUTINE_DELAY); 
   
   last_watch_clear_millis = millis();
@@ -66,7 +63,7 @@ void loop()
   while(Serial.available())
   {
     command_speed = Serial.read();
-     
+   
     if(command_speed == SPEED_NEUTRAL_ZENITH)
     {
       GripperMotor.setM1Brake(BRAKE_5019_INDUCTIVE);
@@ -91,7 +88,7 @@ void loop()
     stopIfFault();
     delay(BRAKE_DELAY);
   }//end if 
-  
+    
 }//end loop
 
 ///////////////////////////////////////////////////////////////
@@ -104,7 +101,6 @@ void stopIfFault()
     
     while(1)
     {
-      digitalWrite(LED_UNO, HIGH);
       Serial.write(GRIPPER_CURRENT_FAULT);
     }//end while
   }//end if

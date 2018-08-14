@@ -54,8 +54,8 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
     while (FOREVER) {
 
-//		System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
-//		System_flush();
+        System_printf("CmdCntrl Is PENDING FOR MAIL!\n\n");
+        System_flush();
 
         Mailbox_pend(fromBaseStationMailbox, &fromBaseMsg, BIOS_WAIT_FOREVER);
 
@@ -65,9 +65,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
         case 0:
             break;
 
+<<<<<<< HEAD
         case motor_right_id:
 
             //the left motors must be the negative of the right motors. Their phase is backwards
+=======
+        case motor_left_id:
+            //the left motors must be the negative of the right motors. Their phase is backwards
+
+>>>>>>> origin/tester/roboticArm
             motor_speed =
                     -(((struct motor_control_struct*) (&fromBaseMsg))->speed);
 
@@ -77,9 +83,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
             break;
 
+<<<<<<< HEAD
             // end drive motor_right_id
 
         case motor_left_id:
+=======
+            // end drive motor_left_id
+
+        case motor_right_id:
+>>>>>>> origin/tester/roboticArm
 
             motor_speed =
                     (((struct motor_control_struct*) (&fromBaseMsg))->speed);
@@ -90,6 +102,7 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
             break;
 
+<<<<<<< HEAD
             //end drive motor_left_id
 
         case bms_emergency_command_id:
@@ -130,6 +143,43 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
     System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
     System_flush();
 
+=======
+            //end drive motor_right_id
+
+        default:
+
+            deviceJack = getDeviceJack(fromBaseMsg.id);
+            messageSize = buildSerialStructMessage((void *) &fromBaseMsg,
+                    commandBuffer);
+
+            System_printf("Message Size: %d\n", messageSize);
+            deviceWrite(deviceJack, commandBuffer, messageSize);
+
+            break;
+
+        } //endswitch
+
+        //debugging only:
+
+		i = 0;
+
+		System_printf("Cmd Cntrl Just Sent!: ");
+
+		while (i < (messageSize)) {
+
+			System_printf("%d, ", commandBuffer[i]);
+			i++;
+
+		}//end while
+
+    }//end while FOREVER
+
+    System_flush();
+
+    System_printf("Rove Cmd Cntrl Task Error: Forced Exit\n");
+    System_flush();
+
+>>>>>>> origin/tester/roboticArm
     Task_exit();
 
 <<<<<<< HEAD

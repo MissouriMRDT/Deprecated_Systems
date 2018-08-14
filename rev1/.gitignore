@@ -1,0 +1,14 @@
+/.settings
+/.project
+/.buildpath
+/Debug
+/composer.phar
+/vendor
+/nbproject
+phpunit.xml
+.vagrant
+Vagrantfile
+.idea
+.php_cs.cache
+
+/driverlib

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,7 @@ git remote rm x
 
 5) delete old branch
 
+=======
+# MotorController-ProgrammerBoard
+Xds100v2 emulator board for Flashing Texas Instruments C28x devices
+>>>>>>> x/master

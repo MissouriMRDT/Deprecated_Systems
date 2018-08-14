@@ -1,0 +1,12 @@
+PWM_1-PD3-Camera on/of
+PWM_2-PD5-Record/Capture
+PWM_3-PD6-Zoom
+PWM_4-LED(Unused)
+
+SDA-PC4
+SCL-PC5
+
+RX-PD0
+TX-PD1
+
+

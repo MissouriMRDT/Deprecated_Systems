@@ -16,6 +16,14 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
     printf("Init roveDevice_TemplateThread\n\n\n");
 
+    //access the global pwm handles
+    extern PWM_Handle pwm_1;
+    extern PWM_Handle pwm_2;
+    extern PWM_Handle pwm_3;
+    extern PWM_Handle pwm_4;
+    extern PWM_Handle pwm_5;
+    extern PWM_Handle pwm_6;
+
     //open a tiva ndk socket session in this task stack
     fdOpenSession(  TaskSelf() );
 
@@ -30,6 +38,7 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
     command_msg.message_id = 0;
     command_msg.struct_id = 0;
 
+<<<<<<< HEAD
     int16_t dynamixel_rotate_at_speed = 0;
 
     dynamixel_rotate_at_speed = 0;
@@ -43,6 +52,10 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
     roveDrivePolulu_LinActCmd(LIN_ACT_ID, ZERO_SPEED);
 
+=======
+    //TODO debug
+    int16_t motor_speed = 0;
+>>>>>>> origin/driveMotorsByIp_HorizonProtocol
 
 //BEGIN NEW EXPERT MEMBER CHALLENGE:
 
@@ -155,6 +168,32 @@ void roveDeviceTemplateThread(UArg arg0, UArg arg1) {
 
 ///////////////END HORIZON SEND COMMANDS/////////////////
 
+<<<<<<< HEAD
+=======
+            switch (command_msg.struct_id) {
+
+                case motor_drive_right_id:
+
+                    //the right motors must be negative the left motors. Their phase is backwards, but we also wired one of THOSE backwards
+                    motor_speed = -(*((int16_t*)command_msg.command_value));
+
+                    roveDriveMotor_ByPWM(pwm_1, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_2, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_3, -motor_speed);
+
+                    break;
+
+                case motor_drive_left_id:
+
+                    //the right motors must be opposite the right motors. Their phase is backwards, but we also wired one of THOSE backwards
+                    motor_speed = (*((int16_t*)command_msg.command_value));
+
+                    roveDriveMotor_ByPWM(pwm_4, -motor_speed);
+                    roveDriveMotor_ByPWM(pwm_5, motor_speed);
+                    roveDriveMotor_ByPWM(pwm_6, -motor_speed);
+
+                    break;
+>>>>>>> origin/driveMotorsByIp_HorizonProtocol
 
         }//endwhile
 

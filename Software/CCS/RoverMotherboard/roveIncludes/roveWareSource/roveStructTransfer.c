@@ -69,13 +69,19 @@ bool recvSerialStructMessage(int deviceJack, char* buffer) {
     int bytesRead = 0;
     char receiveBuffer[40];
 
+<<<<<<< HEAD
     // This is used to decide how much pre-data to discard before quitting
     uint8_t garbageCount = 10;
     bool startReceived = false;
+=======
+	// this is used to decide how much pre-data to discard before quitting
+	uint8_t garbageCount = 10;
+>>>>>>> origin/tester/roveComRead
 
     //testing
     //int debug_rx_cnt = 0;
 
+<<<<<<< HEAD
     if (rx_len == 0) {
 
         while (!startReceived) {
@@ -91,6 +97,37 @@ bool recvSerialStructMessage(int deviceJack, char* buffer) {
             } //endif
               //debug_rx_cnt++;
         } //endwhile
+=======
+	//testing
+	//int debug_rx_cnt = 0;
+
+	if (rx_len == 0){
+
+		while (!startReceived){
+
+			bytesRead = deviceRead(deviceJack, receiveBuffer, 1, 500);
+
+			if (bytesRead == 1){
+
+				if (receiveBuffer[0] == startByte){
+
+					startReceived = true;
+
+				}else{
+
+					garbageCount--;
+
+					if (garbageCount <= 0)
+						return false;
+
+				}//endif
+
+			}//endif
+
+			//debug_rx_cnt++;
+
+		}//endwhile
+>>>>>>> origin/tester/roveComRead
 
 //		System_printf("Looped through the rx debug_rx_cnt: %d\n", debug_rx_cnt);
 //		System_flush();

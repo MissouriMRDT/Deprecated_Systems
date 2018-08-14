@@ -73,9 +73,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
         case motor_left_id:
             //the left motors must be the negative of the right motors. Their phase is backwards
 
+<<<<<<< HEAD
 >>>>>>> origin/tester/roboticArm
             motor_speed =
                     -(((struct motor_control_struct*) (&fromBaseMsg))->speed);
+=======
+		// case 0 hack to make a happy switch
+		case 0:
+		break;
+>>>>>>> origin/tester/roveComRead
 
             DriveMotor(motor_0, motor_speed);
             DriveMotor(motor_1, motor_speed);
@@ -183,12 +189,17 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
     Task_exit();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 } //endfnct:		roveCmdCntrl() Task Thread
 
 /* This is the case for ASCII control only
 =======
 	} //endfnct:		roveCmdCntrl() Task Thread
 }
+=======
+}//end task
+
+>>>>>>> origin/tester/roveComRead
 	/* This is the case for ASCII control only
 >>>>>>> origin/tester/mobHardware
 

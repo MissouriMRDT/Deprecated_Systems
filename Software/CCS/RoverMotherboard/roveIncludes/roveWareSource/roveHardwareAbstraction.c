@@ -11,7 +11,142 @@
 
 //TODO Configure Patch Panel Jacks to Physical Devices (In Hardware FIRST)
 
+<<<<<<< HEAD
 int getDeviceJack(int device) {
+=======
+int getDeviceJack(int device){
+
+	switch(device){
+		case 0:
+				//Tried to get jack for an null device
+				System_printf("getDeviceJack passed null device %d\n", device);
+				System_flush();
+			return -1;
+
+		case test_message_id:
+			return ONBOARD_ROVECOMM;
+
+		case motor_left_id:
+			return ONBOARD_ROVECOMM;
+
+		case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:
+			return ONBOARD_ROVECOMM;
+
+		case power_board_command_id ... power_board_telem_main_battery_voltage_id:
+			return POWER_BOARD;
+
+		case wrist_clock_wise ... e_stop_arm:
+			return ONBOARD_ROVECOMM;
+
+		default:
+				//Tried to get jack for an \ invalid device
+				System_printf("getDeviceJack passed invalid device %d\n", device);
+				System_flush();
+			return -1;
+
+	}//endswitch (device)
+
+}//endfnctn deviceJack
+
+void pinMode(int pin, int mode){
+
+	//No idea how to start this one
+
+}//endfnctn pinMode
+
+void digitalWrite(int pin, int val){
+
+	//Alarmingly enough, a switch case is really the only way to deal with this
+	//Everything is base on a bunch of TI defined constants that can't be indexed into
+	//Or iterated through
+
+	if(val == LOW){
+
+		switch(pin){
+
+			case U3_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (0));
+				break;
+			case U3_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_1, (0));
+				break;
+			case U4_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_6, (0));
+				break;
+			case U4_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_7, (0));
+				break;
+			case U5_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_0, (0));
+				break;
+			case U5_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_1, (0));
+				break;
+			case U6_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_2, (0));
+				break;
+			case U6_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_3, (0));
+				break;
+			case U7_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, (0));
+				break;
+			case U7_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (0));
+				break;
+			default:
+						//Tried to write to invalid device
+						System_printf("DigitalWrite passed invalid pin %d\n", pin);
+						System_flush();
+				return;
+		}//endswitch
+
+	}else if (val == HIGH){
+
+		switch(pin){
+
+			case U3_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_0, (~0));
+				break;
+			case U3_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTH_BASE, GPIO_PIN_1, (~0));
+				break;
+			case U4_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_6, (~0));
+				break;
+			case U4_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTM_BASE, GPIO_PIN_7, (~0));
+				break;
+			case U5_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_0, (~0));
+				break;
+			case U5_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTL_BASE, GPIO_PIN_1, (~0));
+				break;
+			case U6_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_2, (~0));
+				break;
+			case U6_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTK_BASE, GPIO_PIN_3, (~0));
+				break;
+			case U7_MUX_S0 :
+				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, (~0));
+				break;
+			case U7_MUX_S1 :
+				GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, (~0));
+				break;
+			default:
+						//Tried to write to invalid device
+						System_printf("DigitalWrite passed invalid pin %d\n", pin);
+						System_flush();
+					return;
+
+		}//endswitch
+
+	}//endif
+
+	return;
+>>>>>>> origin/tester/roveComRead
 
     switch (device) {
     case 0:

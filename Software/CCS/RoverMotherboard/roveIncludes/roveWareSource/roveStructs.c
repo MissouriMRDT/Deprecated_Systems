@@ -8,8 +8,10 @@
 
 #include "../roveWareHeaders/roveStructs.h"
 
-int getStructSize(char structId) {
+int getStructSize(char structId)
+{
 
+<<<<<<< HEAD
     switch (structId) {
 
     case motor_left_id:
@@ -46,6 +48,12 @@ int getStructSize(char structId) {
     case (char) wrist_clock_wise ... drill_clock_wise:
 >>>>>>> origin/tester/gpsTelem
         return sizeof(struct base_station_robot_arm_command);
+=======
+	switch (structId)
+	{
+	case (char) test_message_id:
+	            return sizeof(struct test_msg_struct);
+>>>>>>> origin/tester/roveComRead
 
     case erc_drill_actuator:
             return sizeof(struct erc_drill_actuator_robot_arm_command);
@@ -60,6 +68,7 @@ int getStructSize(char structId) {
     case sensor_heading_telem_reply:
                 return sizeof(struct sensor_heading_telem);
 
+<<<<<<< HEAD
     case sensor_ultrasonic_telem_reply:
                 return sizeof(struct sensor_ultrasonic_telem);
 
@@ -72,6 +81,20 @@ int getStructSize(char structId) {
 =======
     case science_telem_request_id:
     				return sizeof(struct science_telem_request);
+=======
+	case (char) bms_emergency_stop_command_id:
+		return sizeof(struct bms_emergency_stop_command);
+
+	case (char) bms_cell1_voltage_telem_id ... bms_total_amperage_telem_id:
+		return sizeof(struct power_board_bms_telem);
+
+	case (char) power_board_command_id:
+		return sizeof(struct power_board_command);
+
+	case (char) power_board_telem_motor1_current_id
+			... power_board_telem_main_battery_voltage_id:
+		return sizeof(struct power_board_bms_telem);
+>>>>>>> origin/tester/roveComRead
 
     case PH_telem_id:
     				return sizeof(struct PH_telem);

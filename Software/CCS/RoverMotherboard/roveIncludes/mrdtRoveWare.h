@@ -144,6 +144,21 @@
 #define HIGH 1
 #define LOW 0
 
+//tester config
+#define STRUCT_ID_MIN wrist_clock_wise
+#define STRUCT_ID_MAX actuator_forward
+#define STRUCT_INCREMENT 1
+
+#define MIN_SPEED -1000
+#define MAX_SPEED 1000
+#define SPEED_INCREMENT 350
+
+#define TEST_MS_DELAY 10
+
+#define TEST_MESSAGE_SIZE 5
+#define TEST_NON_BLOCKING_FLAG 0
+#define TEST_READ_ONE_BYTE 1
+
 // size in bytes of longest command that can be recieved from the base station
 
 #define MAX_COMMAND_SIZE 40
@@ -151,7 +166,7 @@
 
 // struct id
 
-#define	test_device_id 									99
+#define	test_message_id 								99
 #define	motor_left_id 									100
 #define	motor_right_id 									101
 

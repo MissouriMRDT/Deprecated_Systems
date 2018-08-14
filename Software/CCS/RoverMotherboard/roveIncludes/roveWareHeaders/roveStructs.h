@@ -135,6 +135,7 @@ struct power_board_bms_telem
 {
 	uint8_t struct_id;
 	float value;
+<<<<<<< HEAD
 };
 
 /* Keenans:
@@ -204,6 +205,17 @@ struct all_sensor_telem
     uint8_t distance;
     int16_t voltage;
 }__attribute__((packed));
+=======
+}__attribute__((packed));
+
+typedef struct test_msg_struct{
+
+    char id;
+    char message_count;
+    char device_jack;
+    char message[TEST_MESSAGE_SIZE];
+}__attribute__((packed)) test_msg_struct, *test_msg;
+>>>>>>> origin/tester/roveComRead
 
 // this struct should only be used for type casting as it does not have a corresponding id
 

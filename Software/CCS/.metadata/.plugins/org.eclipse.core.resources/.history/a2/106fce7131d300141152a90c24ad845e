@@ -1,0 +1,66 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../roveIncludes/roveWareSource/roveHardwareAbstraction.c \
+../roveIncludes/roveWareSource/roveJson.c \
+../roveIncludes/roveWareSource/roveMuxes.c \
+../roveIncludes/roveWareSource/roveStructTransfer.c \
+../roveIncludes/roveWareSource/roveStructXfer.c \
+../roveIncludes/roveWareSource/roveStructs.c \
+../roveIncludes/roveWareSource/roveTiming.c \
+../roveIncludes/roveWareSource/roveUarts.c 
+
+OBJS += \
+./roveIncludes/roveWareSource/roveHardwareAbstraction.obj \
+./roveIncludes/roveWareSource/roveJson.obj \
+./roveIncludes/roveWareSource/roveMuxes.obj \
+./roveIncludes/roveWareSource/roveStructTransfer.obj \
+./roveIncludes/roveWareSource/roveStructXfer.obj \
+./roveIncludes/roveWareSource/roveStructs.obj \
+./roveIncludes/roveWareSource/roveTiming.obj \
+./roveIncludes/roveWareSource/roveUarts.obj 
+
+C_DEPS += \
+./roveIncludes/roveWareSource/roveHardwareAbstraction.pp \
+./roveIncludes/roveWareSource/roveJson.pp \
+./roveIncludes/roveWareSource/roveMuxes.pp \
+./roveIncludes/roveWareSource/roveStructTransfer.pp \
+./roveIncludes/roveWareSource/roveStructXfer.pp \
+./roveIncludes/roveWareSource/roveStructs.pp \
+./roveIncludes/roveWareSource/roveTiming.pp \
+./roveIncludes/roveWareSource/roveUarts.pp 
+
+C_DEPS__QUOTED += \
+"roveIncludes/roveWareSource/roveHardwareAbstraction.pp" \
+"roveIncludes/roveWareSource/roveJson.pp" \
+"roveIncludes/roveWareSource/roveMuxes.pp" \
+"roveIncludes/roveWareSource/roveStructTransfer.pp" \
+"roveIncludes/roveWareSource/roveStructXfer.pp" \
+"roveIncludes/roveWareSource/roveStructs.pp" \
+"roveIncludes/roveWareSource/roveTiming.pp" \
+"roveIncludes/roveWareSource/roveUarts.pp" 
+
+OBJS__QUOTED += \
+"roveIncludes/roveWareSource/roveHardwareAbstraction.obj" \
+"roveIncludes/roveWareSource/roveJson.obj" \
+"roveIncludes/roveWareSource/roveMuxes.obj" \
+"roveIncludes/roveWareSource/roveStructTransfer.obj" \
+"roveIncludes/roveWareSource/roveStructXfer.obj" \
+"roveIncludes/roveWareSource/roveStructs.obj" \
+"roveIncludes/roveWareSource/roveTiming.obj" \
+"roveIncludes/roveWareSource/roveUarts.obj" 
+
+C_SRCS__QUOTED += \
+"../roveIncludes/roveWareSource/roveHardwareAbstraction.c" \
+"../roveIncludes/roveWareSource/roveJson.c" \
+"../roveIncludes/roveWareSource/roveMuxes.c" \
+"../roveIncludes/roveWareSource/roveStructTransfer.c" \
+"../roveIncludes/roveWareSource/roveStructXfer.c" \
+"../roveIncludes/roveWareSource/roveStructs.c" \
+"../roveIncludes/roveWareSource/roveTiming.c" \
+"../roveIncludes/roveWareSource/roveUarts.c" 
+
+

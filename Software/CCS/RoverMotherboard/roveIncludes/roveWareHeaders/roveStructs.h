@@ -95,6 +95,14 @@ struct base_station_robot_arm_command{
 
 }__attribute__((packed));
 
+struct erc_drill_actuator_robot_arm_command{
+
+    uint8_t struct_id;
+    int16_t drill_cmd;
+    int16_t lin_act_cmd;
+
+}__attribute__((packed));
+
 // sent from mobo to roboticArm to control the peripheral
 
 struct robot_arm_command{
@@ -152,6 +160,45 @@ struct gps_telem
     float altitude;
     float speed;
     float angle;
+}__attribute__((packed));
+
+struct sensor_heading_telem
+{
+    uint8_t struct_id;
+    float heading;
+
+}__attribute__((packed));
+
+struct sensor_ultrasonic_telem
+{
+    uint8_t struct_id;
+    uint8_t sensor;
+    uint8_t distance;
+
+}__attribute__((packed));
+
+struct sensor_voltage_telem
+{
+    uint8_t struct_id;
+    int16_t voltage;
+
+}__attribute__((packed));
+
+struct all_sensor_telem
+{
+    uint8_t struct_id;
+    bool fix;
+    uint8_t fix_quality;
+    uint8_t satellites;
+    int32_t latitude_fixed;
+    int32_t longitude_fixed;
+    float altitude;
+    float speed;
+    float angle;
+    float heading;
+    uint8_t sensor;
+    uint8_t distance;
+    int16_t voltage;
 }__attribute__((packed));
 
 // this struct should only be used for type casting as it does not have a corresponding id

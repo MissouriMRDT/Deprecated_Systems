@@ -36,12 +36,28 @@ int getStructSize(char structId) {
 */
     case wrist_clock_wise ... drill_forward:
         return sizeof(struct base_station_robot_arm_command);
+
+    case erc_drill_actuator:
+            return sizeof(struct erc_drill_actuator_robot_arm_command);
 /*
     case (char) robot_arm_constant_speed_id:
         return sizeof(struct robot_arm_command);
 */
     case gps_telem_reply:
             return sizeof(struct gps_telem);
+
+    case sensor_heading_telem_reply:
+                return sizeof(struct sensor_heading_telem);
+
+    case sensor_ultrasonic_telem_reply:
+                return sizeof(struct sensor_ultrasonic_telem);
+
+    case sensor_voltage_telem_reply:
+                    return sizeof(struct sensor_voltage_telem);
+
+    case all_sensor_telem_reply:
+                        return sizeof(struct all_sensor_telem);
+
 
     } //endswitch:		(structId)
 

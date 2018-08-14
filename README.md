@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,7 @@ git remote rm x
 
 5) delete old branch
 
+=======
+# GimbalVFDDriveIntegrationBoard_Hardware
+Booster integration for one TivaC_1294 LaunchXL, two C2000_28069M LaunchXL, and four Drv8301 BoostXL boards
+>>>>>>> x/master

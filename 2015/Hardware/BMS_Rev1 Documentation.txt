@@ -1,0 +1,85 @@
+BMS_Rev1 Documentation
+
+
+***OUTDATED AND NOT LIKELY TO BE UPDATED****
+
+Sweeping changes were made to this revision, which is not considered complete. Rev 1 is deprecated as design changed to Rev 2.
+Rev 1 can still be used, but needs to be completed beforehand.
+
+
+***REFER TO REV 2 FOR A MORE COMPLETE DOCUMENT****
+
+
+
+TO DO (not full list):
+	Check LT1910 circuit with someone (i.e. will it actually work?)
+	Add LEDs?
+	Add connection for ground.(does not need to be high-current)
+	Add provisions for temperature measurement
+	Replace OKI with higher-efficiency buck converter solution
+		
+
+
+
+Analog measurements:
+	Charge V Meas		Voltage measurement at charger input
+	5V Input V Meas		Voltage measurement at 5V regulator
+	Output V Meas		Voltage Measurement at output
+	Array I Meas		Current measurement at pack high side
+	Cell V Meas (x8)	Voltage measurement at each cell; 0-5V Isolated
+
+
+Electromechanical Inputs:
+	Logic Power Switch	Disconnects 5V regulator
+	Installed Switch	Intended to detect if battery is installed in rover
+	Power Switch		Intended to power on Gate; should be Normally open Estop type
+	LCD Wake		Intended to wake LCD; should be momentary pushbutton
+
+
+
+Board physical IO:
+	JP Inputs (x3)		Used for software switches
+	Charger_In		High-amp connector for charger
+	V_ARRAY			Extreme-amp bolt-on connector to high side of battery array OR fuse
+	V_OUT			Extreme-amp bolt-on connector to Rover
+	RoveCom			Standardized RoveCom (PoRC not supported)
+	V_CELL_IN		9-pin input from battery cells for voltage measurement
+	V_CELL_OUT		9-pin output passing cell voltages through for external measurement
+
+MCU IO:
+	I_ARRAY		Input	PF7	Analog voltage for array current measurement
+	GATE		Output	PE2	Digital active high output to FET	
+	LCD_ON		Output	PC7	Digital active high output to turn on external LCD
+	BUZZ_1		Output	PB5	Digital PWM-driven buzzer #1
+	BUZZ_2		Output	PB6	Digital PWM-driven buzzer #2
+	SW_LCDWAKE	Input	PD5	Active Low to wake LCD
+	SW_POWER	Input	PB0	Active high to power on rover 
+	SW_INSTALLED	Input	PE6	Active Low to indicate battery installed
+	OC_TRIP		Input	PB3	Active low it indicate overcurrent at FET
+
+	
+ICs:
+	ATMega32u4		Primary MCU
+	LTC6809-2		BMS chip
+	
+
+
+Notes:
+
+	5V power is currently supplied by a Murata OKI-78SR buck converter with a Pi filter. This should probably be changed, as the OKI is extremely inefficient at low (<200mA) current levels.
+
+	A large, high-current diode at the charger input prevents shorting the battery.
+
+	The logic power switch removes power to the regulator. When switched "off", the only waste power is leakage current is through the main MOSFET, which is very very low. When switched "off", the switch connects to the charger input. (Even when switched off, the 5V logic will be powered up if the charger is connected.)
+	
+	The 5V Input V Meas is used as pack voltage measurement when the system is switched on. When switched off, it is disconnected from the battery, and connected to the charger input. 
+
+	When the charger is connected, the Charge and 5V Input V Measurements are compared in software. If they are equal (i.e., logic switch is set set to "off", system should be in a "Charge Only" mode. If the logic switch is set to off, the system is powered on and the charger is disconnected, the system will suddenly shut off (as power to the 5V logic would be lost).
+
+	With the Logic switch on, the system may be simultaneously run and charged. This is not necessarily recommended, as it may (or may not) cause odd charger behavior, depending on the external charger. 
+
+	The Balance charger connects to a 9-pin balance lead that passes through the BMS. There are currently 8 differential voltage amplifiers used at each battery, to detect voltage levels. These are costly and may not be used in the final implementation.
+
+	The LCD should be sourced from here: https://www.sparkfun.com/products/9395
+
+	The LT1910 uses a set resistor and acts as a solid-state breaker. As currently designed, it trips at 216A with a .3mΩ Resistor, and has approximately a .5 second delay to reset with a 3.3µF cap

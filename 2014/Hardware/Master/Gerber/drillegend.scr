@@ -1,0 +1,332 @@
+# exported with Version 4.1 from C:/Users/Rabbitfox/Documents/eagle/Projects/Mars Rover/PCB1M2C/PCB1M2B3.brd.
+GRID mil;
+CHANGE SIZE 50;
+LAYER 144 Drill_legend;
+CHANGE LAYER 144;
+WINDOW FIT;
+SET WIRE_BEND 2;
+CHANGE STYLE Continuous;
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Holes-PAC
+# Holes-PAC
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Holes-BRD
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+MARK (5227.5 118.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 0 40) (R 0 -40);Wire 3 (R -40 -40) (R 40 -40) (R 40 40) (R -40 40) (R -40 -40);
+TEXT '0.4572 mm / 18.000 mil count=  54' (5377.500000 93.000000);
+MARK (5227.5 248.0);Wire 3 (R -40 -40) (R 40 40);Wire 3 (R -40 40) (R 40 -40);
+TEXT '0.5000 mm / 19.685 mil count=   2' (5377.500000 223.000000);
+MARK (5227.5 378.0);Wire 3 (R 0 -40) (R 0 0) (R 40 40) (R -40 40) (R 0 0);
+TEXT '0.5500 mm / 21.654 mil count=   3' (5377.500000 353.000000);
+MARK (5227.5 508.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 0 40) (R 0 -40);Circle 3 (R 0 0) (R 40 0);Circle 3 (R 0 0) (R 20 0);
+TEXT '0.6000 mm / 23.622 mil count=  24' (5377.500000 483.000000);
+MARK (5227.5 638.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 0 40) (R 0 -40);Circle 3 (R 0 0) (R 40 0);
+TEXT '0.6270 mm / 24.685 mil count=  12' (5377.500000 613.000000);
+MARK (5227.5 768.0);Wire 3 (R -40 -40) (R 40 40) (R -40 40) (R 40 -40) (R -40 -40);
+TEXT '0.7000 mm / 27.559 mil count=  18' (5377.500000 743.000000);
+MARK (5227.5 898.0);Wire 3 (R -40 0) (R 0 0) (R 40 40) (R 40 -40) (R 0 0);
+TEXT '0.8128 mm / 32.000 mil count=  24' (5377.500000 873.000000);
+MARK (5227.5 1028.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 0 40) (R 0 -40);
+TEXT '0.8636 mm / 34.000 mil count=  60' (5377.500000 1003.000000);
+MARK (5227.5 1158.0);Wire 3 (R -40 40) (R 40 -40);Wire 3 (R 0 -40) (R 0 40);Wire 3 (R 40 40) (R -40 -40);
+TEXT '1.0000 mm / 39.370 mil count=   8' (5377.500000 1133.000000);
+MARK (5227.5 1288.0);Wire 3 (R 0 40) (R 0 0) (R 40 -40) (R -40 -40) (R 0 0);
+TEXT '1.1430 mm / 45.000 mil count=  37' (5377.500000 1263.000000);
+MARK (5227.5 1418.0);Wire 3 (R -40 40) (R 40 -40) (R 40 40) (R -40 -40) (R -40 40);
+TEXT '1.3970 mm / 55.000 mil count=   8' (5377.500000 1393.000000);
+MARK (5227.5 1548.0);Wire 3 (R 0 0) (R 0 40);Wire 3 (R -40 40) (R 40 40) (R 40 -40) (R -40 -40) (R -40 40);
+TEXT '1.4000 mm / 55.118 mil count=  14' (5377.500000 1523.000000);
+MARK (5227.5 1678.0);Wire 3 (R -40 0) (R 40 0) (R 0 -40) (R 0 40) (R -40 0);
+TEXT '1.5000 mm / 59.055 mil count=   2' (5377.500000 1653.000000);
+MARK (5227.5 1808.0);Wire 3 (R -40 0) (R 40 0) (R 0 40) (R 0 -40) (R -40 0);
+TEXT '1.6000 mm / 62.992 mil count=   8' (5377.500000 1783.000000);
+MARK (5227.5 1938.0);Wire 3 (R 0 0) (R 0 40) (R -40 0) (R 0 -40) (R 40 0) (R 0 40);
+TEXT '2.0000 mm / 78.740 mil count=   2' (5377.500000 1913.000000);
+MARK (5227.5 2068.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 40 40) (R -40 -40);Wire 3 (R -40 40) (R 40 -40);
+TEXT '3.2000 mm / 125.984 mil count=   2' (5377.500000 2043.000000);
+MARK (5227.5 2198.0);Wire 3 (R 40 0) (R 0 0) (R -40 -40) (R -40 40) (R 0 0);
+TEXT '3.5560 mm / 140.000 mil count=   3' (5377.500000 2173.000000);
+CHANGE SIZE 70;
+TEXT 'Date: 2/20/2014 10:00:39 AM' (5267.500000 2398.000000);
+TEXT 'Drill legend' (5267.500000 2498.000000);
+WIRE 5  (5127.500000 -12.000000) (5127.500000 2598.000000);
+WIRE    (5127.500000 -12.000000) (6487.500000 -12.000000);
+WINDOW FIT;
+MARK;
+GRID LAST;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,7 @@ git remote rm x
 
 5) delete old branch
 
+=======
+# RoveBoard-CCS
+This is the hardware abstraction layer for the TI Code Composer Studio platform.
+>>>>>>> x/master

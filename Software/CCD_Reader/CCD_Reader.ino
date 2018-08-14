@@ -111,6 +111,7 @@ void setup() {
   digitalWrite(ICG, HIGH);
 
   Serial.begin(115200);
+  Serial1.begin(115200);
 }
 
 void loop()
@@ -176,6 +177,7 @@ void loop()
     //----------------
     // End timing critical code
     //----------------
+<<<<<<< HEAD
 
     for (int i = 0; i < SIGNAL_ELEMENTS; i += RESOLUTION_DIVIDER)
     {
@@ -185,6 +187,27 @@ void loop()
     Serial.println();
     break;
 
+=======
+    
+    
+    // TODO : UNTESTED
+    for(int i = 0; i < SIGNAL_ELEMENTS; i+= RESOLUTION_DIVIDER)
+    {
+      byte MSB = (data[i] & 0xFF000000) >> 24;  // Most significant byte
+      byte SSB = (data[i] & 0x00FF0000) >> 16;  // Semi-significant byte
+      byte KSB = (data[i] & 0x0000FF00) >> 8;   // Kinda significant byte
+      byte LSB = (data[i] & 0x000000FF);        // Least significant byte
+      
+      Serial.write(MSB);
+      Serial.write(SSB);
+      Serial.write(KSB);
+      Serial.write(LSB);
+      Serial1.write(MSB);
+      Serial1.write(SSB);
+      Serial1.write(KSB);
+      Serial1.write(LSB);
+    }
+>>>>>>> origin/Serial-to-Tiva
   } //end while(1)
 }   //end loop()
 

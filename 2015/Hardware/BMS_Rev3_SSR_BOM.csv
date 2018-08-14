@@ -1,0 +1,14 @@
+"Qty";"Value";"Device";"Package";"Parts";"Description";"PROD_ID";
+"2";"";"IRLS3034-7P";"D2PAK-7";"IRLS3034-7P, IRLS3034-7P.2";"High-current SMD MOSFET";"";
+"1";"";"LED1206";"LED-1206";"LED1";"LEDs";"";
+"1";"";"M08BM08B-SRSS-TB";"BM08B-SRSS-TB";"JP1";"Header 8";"";
+"1";"";"SWITCH-SPDTPTH";"SWITCH-SPDT";"S1";"SPDT Switch";"";
+"2";"10kΩ";"R-US_R1206";"R1206";"R4, R6";"RESISTOR, American symbol";"";
+"1";"10µF";"C-USC1206";"C1206";"C22";"CAPACITOR, American symbol";"";
+"1";"5kΩ";"R-US_R1206";"R1206";"R1";"RESISTOR, American symbol";"";
+"2";"60kΩ";"R-US_R1206";"R1206";"R3, R5";"RESISTOR, American symbol";"";
+"1";"ACS770";"ACS770";"PFF_LEADFORM";"U$1";"";"";
+"1";"GROUND TIE";"JUMPER-PTH-2-NO";"PTH-JUMPER-2-NO_NO_SILK";"SJ1";"";"";
+"1";"LT1910";"LT1910";"SO8";"U$8";"";"";
+"1";"PTCSMD";"PTCSMD";"PTC-1206";"F1";"Resettable Fuse PTC";"RES-11150";
+"2";"TERMINAL_HOLE";"TERMINAL_HOLE";"LARGE_TERMINAL_HOLE";"V_ARRAY, V_OUT";"";"";

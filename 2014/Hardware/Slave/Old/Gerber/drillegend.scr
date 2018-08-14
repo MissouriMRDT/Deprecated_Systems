@@ -1,0 +1,43 @@
+# exported with Version 4.1 from C:/Users/Rabbitfox/Documents/eagle/Projects/Mars Rover/PCB1M1/PCB1M1A2.brd.
+GRID mil;
+CHANGE SIZE 50;
+LAYER 144 Drill_legend;
+CHANGE LAYER 144;
+WINDOW FIT;
+SET WIRE_BEND 2;
+CHANGE STYLE Continuous;
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Pads
+# Holes-BRD
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+# Vias
+MARK (1852.0 118.0);Wire 3 (R -40 -40) (R 40 40);Wire 3 (R -40 40) (R 40 -40);
+TEXT '0.6000 mm / 23.622 mil count=  15' (2002.000000 93.000000);
+MARK (1852.0 248.0);Wire 3 (R -40 0) (R 40 0);Wire 3 (R 0 40) (R 0 -40);
+TEXT '1.1430 mm / 45.000 mil count=   7' (2002.000000 223.000000);
+CHANGE SIZE 70;
+TEXT 'Date: 2/2/2014 2:26:06 PM' (1892.000000 448.000000);
+TEXT 'Drill legend' (1892.000000 548.000000);
+WIRE 5  (1752.000000 -12.000000) (1752.000000 648.000000);
+WIRE    (1752.000000 -12.000000) (3112.000000 -12.000000);
+WINDOW FIT;
+MARK;
+GRID LAST;

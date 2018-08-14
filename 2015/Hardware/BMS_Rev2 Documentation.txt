@@ -1,0 +1,163 @@
+<<<<<<< HEAD
+BMS_Rev2 Documentation
+
+=======
+﻿BMS_Rev2 Documentation
+>>>>>>> origin/With-LTC6802
+
+
+The primary difference between Rev 1 and Rev 2 is splitting the physical board into two different boards. The high power components are isolated to one board (SSR), which reduces cost in manufacturing, and difficulty in assembly.
+
+<<<<<<< HEAD
+=======
+TO DO:
+	Finalize interconnect stuff
+	Probably more stuff
+
+>>>>>>> origin/With-LTC6802
+
+
+_SSR Documentation:
+
+<<<<<<< HEAD
+The '_SSR' board should be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. However, the current board is manufactured with 2 oz/ft^2. 
+
+	
+=======
+The '_SSR' board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this, but DRC rules have NOT been adjusted for it yet.
+
+TO DO:
+
+	Add connection for ground
+	Check PTC arrangement
+	Check Entire Board	
+>>>>>>> origin/With-LTC6802
+
+Electromechanical Inputs:
+	Logic Power Switch	Switches 5V regulator between Charger input (power off) and array input (power on)
+
+
+
+Board physical IO:
+	Charger_In		High-amp connector for charger
+	V_ARRAY			Extreme-amp bolt-on connector to high side of battery array OR fuse
+	V_OUT			Extreme-amp bolt-on connector power output to distribution
+	Logic			Interconnect between power and logic board:	
+		V_CHG		Logic level analog signal for voltage at the charger input
+		I_ARRAY		Logic Level analog signal for current at the array
+		LOGIC_POWER	PTC-protected switched primary voltage line to logic board buck converter
+		V_CHECK		Logic level analog signal for voltage at after the switch
+		5V		5V supply from logic board- for current sensor
+		GATE		Logic level signal to drive MOSFET gate
+		V_OUT		Logic level analog signal for voltage at the charger input
+		GND		Ground connection
+
+
+	
+ICs:
+	IRLS3034-7PPbF x2	240A rated surface mount power MOSFET
+	LT1910			High-side MOSFET driver
+	ACS770ECB-200B-PFF	±200A rated bidirectional hall-effect current sensor.
+	STPS5045S		50A rated surface mount Schottky diode
+
+
+Notes:
+	This specific board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this. DRC rules HAVE been adjusted.
+
+	Due to the high copper content of the board, and the nearly exclusive use of SMT, hotplate soldering is strongly encouraged. If hotplate soldering is used, PTH components must be mounted separately.
+
+	Dual power MOSFETs switch the power on and off. A dual FET design is used to reduce power losses, and more importantly heat generated, at the switch. 
+
+	An 8-pin SMD connector is used to connect the power board to the Logic Board
+
+	The logic power switch removes power to the regulator. When switched "off", the only waste power is leakage current is through the main MOSFET and the LT1910, which is very low. When switched "off", the switch connects to the charger input. (Even when switched off, the 5V logic will be powered up IF the charger is connected. This prevents the system from being charged without being monitored. (unless you disconnect the logic and SSR boards. Don't fucking do this.))
+	
+	V_CHECK is used as pack voltage measurement when the system is switched on. When switched off, it is disconnected from the battery, and connected to the charger input. 
+	
+	A PTC protects the primary voltage output to the logic board. This should be appropriately selected.
+
+	Three different analog voltage scalers (resistor dividers) are used on the board. With the addition of the PTC, this prevents unprotected primary voltage from leaving the board though the SMD connection. 
+
+	A Schottky diode prevents power from being drawn from the charging port. Do not omit this diode.
+
+	The physical board is no longer shaped like a feminine hygiene product.
+
+	
+
+
+
+
+<<<<<<< HEAD
+_logic		
+=======
+_logic		 
+
+TO DO:
+	Add connection for ground
+	Properly layout
+	Implement interconnect
+		
+
+
+>>>>>>> origin/With-LTC6802
+
+
+
+
+Analog measurements:
+	Charge V Meas		Voltage measurement at charger input
+	5V Input V Meas		Voltage measurement at 5V regulator
+	Output V Meas		Voltage Measurement at output
+	Array I Meas		Current measurement at pack high side
+	Cell V Meas (x8)	Voltage measurement at each cell; 0-5V Isolated
+
+
+Electromechanical Inputs:
+	Installed Switch	Intended to detect if battery is installed in rover
+	Power Switch		Intended to power on Gate; should be Normally open Estop type
+	LCD Wake		Intended to wake LCD; should be momentary pushbutton
+
+
+
+Board physical IO:
+	JP Inputs (x3)		Used for software switches
+	RoveCom			Standardized RoveCom (PoRC not supported)
+	V_CELL_IN		9-pin input from battery cells for voltage measurement
+	V_CELL_OUT		9-pin output passing cell voltages through for external measurement
+
+MCU IO:
+	I_ARRAY		Input	PF7	Analog voltage for array current measurement
+	GATE		Output	PE2	Digital active high output to FET	
+	LCD_ON		Output	PC7	Digital active high output to turn on external LCD
+	BUZZ_1		Output	PB5	Digital PWM-driven buzzer #1
+	BUZZ_2		Output	PB6	Digital PWM-driven buzzer #2
+	SW_LCDWAKE	Input	PD5	Active Low to wake LCD
+	SW_POWER	Input	PB0	Active high to power on rover 
+	SW_INSTALLED	Input	PE6	Active Low to indicate battery installed
+	OC_TRIP		Input	PB3	Active low it indicate overcurrent at FET
+
+	
+ICs:
+	ATMega32u4		Primary MCU
+	LTC6809-2		BMS chip
+	
+
+
+Notes:
+
+	5V power is currently supplied by a Murata OKI-78SR buck converter with a Pi filter. This should probably be changed, as the OKI is extremely inefficient at low (<200mA) current levels.
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/With-LTC6802
+	When the charger is connected, the Charge and 5V Input V Measurements are compared in software. If they are equal (i.e., logic switch is set set to "off", system should be in a "Charge Only" mode. If the logic switch is set to off, the system is powered on and the charger is disconnected, the system will suddenly shut off (as power to the 5V logic would be lost).
+
+	With the Logic switch on, the system may be simultaneously run and charged. This is not necessarily recommended, as it may (or may not) cause odd charger behavior depending on the external charger. 
+
+	The Balance charger connects to a 9-pin balance lead that passes through PTCs on the BMS. These PTCs should be selected in accordance with the balance current. 
+<<<<<<< HEAD
+=======
+	
+	It uses a UART LCD. www.adafruit.com/products/784
+>>>>>>> origin/With-LTC6802

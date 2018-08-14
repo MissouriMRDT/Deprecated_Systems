@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,9 @@ git remote rm x
 
 5) delete old branch
 
+=======
+Battery-Management-System
+=========================
+
+Battery Management System with integrated CC and CV charge control and passive cell balancing.
+>>>>>>> x/master

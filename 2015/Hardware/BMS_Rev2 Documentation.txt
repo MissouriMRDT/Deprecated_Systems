@@ -1,16 +1,37 @@
+<<<<<<< HEAD
 BMS_Rev2 Documentation
 
+=======
+﻿BMS_Rev2 Documentation
+>>>>>>> origin/With-LTC6802
 
 
 The primary difference between Rev 1 and Rev 2 is splitting the physical board into two different boards. The high power components are isolated to one board (SSR), which reduces cost in manufacturing, and difficulty in assembly.
 
+<<<<<<< HEAD
+=======
+TO DO:
+	Finalize interconnect stuff
+	Probably more stuff
+
+>>>>>>> origin/With-LTC6802
 
 
 _SSR Documentation:
 
+<<<<<<< HEAD
 The '_SSR' board should be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. However, the current board is manufactured with 2 oz/ft^2. 
 
 	
+=======
+The '_SSR' board must be manufactured with 3 oz/ft^2 of copper minimum, preferably 4 oz/ft^2. The board should be designed to handle this, but DRC rules have NOT been adjusted for it yet.
+
+TO DO:
+
+	Add connection for ground
+	Check PTC arrangement
+	Check Entire Board	
+>>>>>>> origin/With-LTC6802
 
 Electromechanical Inputs:
 	Logic Power Switch	Switches 5V regulator between Charger input (power off) and array input (power on)
@@ -66,7 +87,19 @@ Notes:
 
 
 
+<<<<<<< HEAD
 _logic		
+=======
+_logic		 
+
+TO DO:
+	Add connection for ground
+	Properly layout
+	Implement interconnect
+		
+
+
+>>>>>>> origin/With-LTC6802
 
 
 
@@ -114,9 +147,17 @@ Notes:
 
 	5V power is currently supplied by a Murata OKI-78SR buck converter with a Pi filter. This should probably be changed, as the OKI is extremely inefficient at low (<200mA) current levels.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/With-LTC6802
 	When the charger is connected, the Charge and 5V Input V Measurements are compared in software. If they are equal (i.e., logic switch is set set to "off", system should be in a "Charge Only" mode. If the logic switch is set to off, the system is powered on and the charger is disconnected, the system will suddenly shut off (as power to the 5V logic would be lost).
 
 	With the Logic switch on, the system may be simultaneously run and charged. This is not necessarily recommended, as it may (or may not) cause odd charger behavior depending on the external charger. 
 
 	The Balance charger connects to a 9-pin balance lead that passes through PTCs on the BMS. These PTCs should be selected in accordance with the balance current. 
+<<<<<<< HEAD
+=======
+	
+	It uses a UART LCD. www.adafruit.com/products/784
+>>>>>>> origin/With-LTC6802

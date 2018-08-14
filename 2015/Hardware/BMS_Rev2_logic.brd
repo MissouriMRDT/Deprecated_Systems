@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <eagle version="7.0.0">
 =======
 <eagle version="6.5.0">
 >>>>>>> origin/Michael_G_Branch
+=======
+<eagle version="6.5.0">
+>>>>>>> origin/With-LTC6802
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1790,11 +1794,14 @@ Please make sure your boards conform to these design rules.</description>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <param name="AutoGrid" value="1"/>
 <param name="Efforts" value="0"/>
 <param name="TopRouterVariant" value="1"/>
 =======
 >>>>>>> origin/Michael_G_Branch
+=======
+>>>>>>> origin/With-LTC6802
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>

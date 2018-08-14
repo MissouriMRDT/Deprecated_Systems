@@ -1,11 +1,15 @@
-// roveBiosStart.h MST MRDT 2015
+// Missouri Science and Technology Mars Rover Design Team 2015_2016
+//
+// roveBios_Init.h
 //
 // Judah Schad jrs6w7@mst.edu
 //
-// module for init and config hardware periph access routines at start up
+// declare global handles for pre BIOS startup hardware config
+//
+// mrdt::rovWare
 
-#ifndef ROVEBIOSINIT_H_
-#define ROVEBIOSINIT_H_
+#ifndef ROVEBIOS_INIT_H_
+#define ROVEBIOS_INIT_H_
 
 //EK_1294XL dev shield target device
 #include "../roveTargetConfigs/Board.h"
@@ -25,10 +29,9 @@
 #include <ti/drivers/PWM.h>
 //#include <ti/drivers/Watchdog.h>
 
-//global Watchdog
-//Watchdog_Handle watchdog;
 
-//global UARTs
+///////////////BEGIN 2016//////GLOBAL HARDWARE ACCESS HANDLES//////
+
 
 //DO NOT INIT UART_0 or UART_1-> hardware support conflict: HardwareResourecs/EK_TM4C1294XL.h
 
@@ -50,9 +53,18 @@ PWM_Handle pwm_4;
 PWM_Handle pwm_5;
 PWM_Handle pwm_6;
 
-//Tiva HW IO Module Initialization Wrappers
+//global Watchdog
+//Watchdog_Handle watchdog;
+
+
+///////////////END 2016//////GLOBAL HARDWARE ACCESS HANDLES//////
+
+
 PWM_Handle rovePWM_Init(UInt pwm_index, UInt period_in_microseconds);
 
 UART_Handle roveUART_Init(UInt uart_index, UInt baud_rate);
 
-#endif // ROVEBIOSINIT_H_
+
+///////////////END 2016//////GLOBAL HARDWARE ACCESS HANDLES//////
+
+#endif // ROVEBIOS_INIT_H_

@@ -1,6 +1,8 @@
-// roveWareWrappers.c MST MRDT 2015
+// Missouri Science and Technology Mars Rover Design Team 2015_2016
 //
-// Judah Schad jrs6w7@mst.edu
+// roveWare_tivaWrappers.c
+//
+// jrs6w7@mst.edu
 //
 // module for utlity wrapper access to Texas Instruments TivaWare
 //
@@ -53,18 +55,18 @@ int roveUART_Read(int tiva_pin, char* read_buffer, int bytes_to_read) {
 
 int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
-    extern UART_Handle uart2;
-    extern UART_Handle uart3;
-    extern UART_Handle uart4;
-    extern UART_Handle uart5;
-    extern UART_Handle uart6;
-    extern UART_Handle uart7;
+    extern UART_Handle uart_2;
+    extern UART_Handle uart_3;
+    extern UART_Handle uart_4;
+    extern UART_Handle uart_5;
+    extern UART_Handle uart_6;
+    extern UART_Handle uart_7;
 
     switch (tiva_pin) {
 
         case TEST_DEVICE_PIN:
 
-            bytes_to_write = UART_write(uart2, write_buffer, bytes_to_write);
+            bytes_to_write = UART_write(uart_2, write_buffer, bytes_to_write);
 
         break;
 
@@ -83,18 +85,60 @@ int roveUART_Write(int tiva_pin, char* write_buffer, int bytes_to_write) {
 
 }//endfnctn roveUARTWrite
 
+void digitalWrite(int tiva_pin, int high_or_low) {
 
-int roveGetDeviceId_PinNum(char struct_id) {
+    if(high_or_low == LOW){
 
-    switch (struct_id) {
+        switch(tiva_pin) {
 
-    case test_device_id:
+            case TRI_STATE_BUFFER:
+
+                //TODO
+                //GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3, (0));
+                break;
+
+            default:
+
+                printf("digitalWrite passed invalid pin %d\n", tiva_pin);
+                return;
+
+        }//endswitch
+
+    } else {
+
+        switch(tiva_pin){
+
+            case TRI_STATE_BUFFER:
+
+                //~0 implies write without calling GPIO_PIN_3 lookup
+                //GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3, (~0));
+                break;
+
+            default:
+
+                printf("digitalWrite passed invalid pin %d\n", tiva_pin);
+                return;
+
+        }//endswitch
+
+    }//endif
+
+    return;
+
+}//endfnctn digitalWrite
+
+
+int roveGetDeviceId_PinNum(char data_id) {
+
+    switch (data_id) {
+
+    case TEST_DEVICE_ID:
 
         return TEST_DEVICE_PIN;
 
     default:
 
-        printf("roveGetDevicePin passed invalid device %d\n", struct_id);
+        printf("roveGetDevicePin passed invalid device %d\n", data_id);
 
         return ERROR;
 
@@ -104,11 +148,11 @@ int roveGetDeviceId_PinNum(char struct_id) {
 }//endfnctn roveGetDevicePin
 
 
-int roveGetStructId_ByteCnt(char struct_id) {
+int roveGetStructId_ByteCnt(char data_id) {
 
-    switch (struct_id) {
+    switch (data_id) {
 
-        case test_device_id:
+        case TEST_DEVICE_ID:
 
             printf("Testing");
 
@@ -116,7 +160,7 @@ int roveGetStructId_ByteCnt(char struct_id) {
 
         default:
 
-            printf("roveGetStructSize passed invalid struct %d\n", struct_id);
+            printf("roveGetStructSize passed invalid struct %d\n", data_id);
 
             return ERROR;
 

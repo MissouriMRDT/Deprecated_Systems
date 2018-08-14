@@ -1,6 +1,8 @@
-// Missouri Science and Technology Mars Rover Design Team 2015
+// Missouri Science and Technology Mars Rover Design Team 2015_2016
 //
-// Judah Schad jrs6w7@mst.edu
+// roveWare_UDPSocket.c
+//
+// jrs6w7@mst.edu
 //
 // recieves base station commands using ip bsd style UDP sockets
 //
@@ -12,7 +14,7 @@
 #define ROVEWARE_UDPSOCKET_H_
 
 //mrdt::rovWare Horizon Protocol Definitions
-#include "roveWare_StructId_Protocol.h"
+#include "roveWare_Protocol.h"
 
 //C lib
 #include <stdint.h>
@@ -28,8 +30,9 @@
 #define LOCAL_IP_ADDRESS "192.168.1.2"
 
 //#define ROVECOMM_PORT 11000
+//#define VERSION_NO 0x01
+#define VERSION_ONE 1
 #define LISTEN_PORT 11000
-#define VERSION_NO 0x01
 #define HEADER_BYTE_COUNT 7
 #define SEQ 0x0F0F
 
@@ -55,21 +58,20 @@ typedef struct rove_udp_socket {
     struct sockaddr_in local_addr;
     struct sockaddr_in remote_addr;
     socklen_t          remote_addr_length;
-    uint8_t  data_buffer[MAX_DATA_BYTE_CNT];
-    int error_code;
 
     //2016 command protocol
     uint16_t data_id;
     uint16_t data_byte_cnt;
+    uint8_t  data_buffer[MAX_DATA_BYTE_CNT];
 
 }__attribute__((packed)) rove_udp_socket, *rove_udp_socket_ptr;
 
 //function prototypes
-int rovecommInit(uint32_t port, rove_udp_socket* rove_socket);
-
 uint16_t getUdpMsg(uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
 
 void parseUdpMsg(uint8_t* recv_buffer, uint16_t* data_id, uint16_t* data_byte_cnt, rove_udp_socket* rove_socket);
+
+void rovecommInit(uint32_t port, rove_udp_socket* rove_socket);
 
 void roveCatch_NdkErrors(int16_t ndk_error);
 

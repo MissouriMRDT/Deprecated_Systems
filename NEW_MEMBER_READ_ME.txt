@@ -1,8 +1,8 @@
-///////////////////////////////////////////////////////////////////////FOR
+///////////////////////////////////////////////////////////////////////
 
 //NEW_MEMBER_READ_ME.txt
 
-//Open roveDeviceTemplate_Thread
+//Open roveDevice_Thread
 
 //Scroll to:
 
@@ -10,7 +10,11 @@
 
 //UDP IP LAN SOCKET MESSAGE HAS BEEN RECIEVED FROM RED BASE STATION
 
-//YOU NOW HAVE A FULL CHARACTER BYTE BUFFER: FULL OF BYTES:
+//YOU NOW HAVE A FULL CHARACTER BYTE BUFFER: 
+
+//TODOs
+
+//Coming Soon
 
 
 ////////////////////////////////////////////////////////////////////////

@@ -13,8 +13,8 @@ RECEIVE_DATA_STRUCTURE receiveData;
 void setup(){
     Serial.begin(115200);
     Dynamixel.begin(115200);
-    while(!Dynamixel.ping(1));
-    Dynamixel.reset(1);
+    while(!Dynamixel.ping(ID));
+    Dynamixel.reset(ID);
     Dynamixel.torqueStatus(1, ON);
     Dynamixel.setMaxTorque(1, 255);
     resetStruct();

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,7 @@ git remote rm x
 
 5) delete old branch
 
+=======
+# Horizon-Device-Template-CCS-Software
+Device Development Template for 1294XL in Code Composer Studio on Horizon 2015 Protocol 
+>>>>>>> x/master

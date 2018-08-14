@@ -1,0 +1,138 @@
+# IP Networking library for Udp layer
+# Byte structure packing to emulate "type" support (uint8_t, etc ~ stdint.h)
+
+#####################################################################
+# Todo => Move init config like this to a SqlLite database   
+# Todo => Split Command, Telem, and System message type by Port 
+#      => Add Priority bandwidth subnet masking support (Ubiquiti Rf)
+
+###############################################################################################
+# 2017 ~ 2018 Post Gryphon Dev (unamed as of jan 18)
+
+############################################################################################################################
+# Data Id's
+#
+# User Id's for Command Requests or Telemetry Broadcasts
+#
+#   => Data Id:      3 ~ 16,383 if the 3rd most significant bit is 1 reserved for unacked commands
+#      Data Id: 16,384 ~ 32,767 if the 2nd most significant bit is 1 reserved for acked commands
+#
+# Non User Id's (reserved for future RoveComm Id system upgrade) 
+#
+#  => Data Id: 32,768 ~ 65,535 if the 1st most significant bit is 1 reserved for future systems
+
+########################################################
+# RoveComm Packet Header: 5 Bytes
+#
+#   Statically populated by RoveManifest.h
+#   
+#   =>   1 Byte:  RoveComm Version Number
+#      + 1 Byte:  Rover Id
+#
+#   Statically populated by board programmers themselves
+#
+#      +  1 Byte:  Board Id
+#
+#   Dynamically populated by RoveComm itself
+#
+#     + 2 Byte: Session Count
+
+###########################################################
+# RoveComm Data Header:  8 Bytes
+#
+#   Dynamic payload populated by end users themselves
+#
+#   =>   2 Byte:    Data Id
+#
+#   Dynamically populated by RoveComm itself
+#
+#      + 4 Byte:    Data Sequence Count
+#
+#   Dynamic payload populated by end users themselves
+#
+#      + 2 Byte:    Data Byte Count
+
+#      + 1944 Byte: Data (Variable => 0 Byte  ~ 1944 Bytes)
+
+#####################################################################################################################
+# MyBoardRoveCommHandle = RoveComm(board_id=1, session_count=1)
+
+# RoveComm user system call Data Id's
+
+# Reserved system Id's start at max and allocate downwards
+ 
+# ROVECOMM_UNREGISTERED_BOARD_ID = 65532 (unsure?)
+    
+# Nested list of Remote Ip Addresses, with each Ip Address containing a list of Remote requested Data Id's
+# subscriber_manifest{"192.1.168.2": [100, 101, 102], "192.1.168.3": [100, 101, 112]}
+# One count for each unique data id, increments on a new data, but not on multiple broadcasts of same data
+# DataSequenceCounts{100 : 1, 101: 24, 112: 5}
+
+# Pack the Python list into a Byte (8b) + Byte (8b) + Byte (8b) + Short (16b) "BBBH" structure (emulate C++ types)
+
+# AF_INET address family for IPv4 addresses, SOCK_DGRAM for Udp unreliable discrete datagram packets
+
+
+
+#########################################################################################################
+
+# data_byte_count may be unnecessary in python but needed in C
+# ie: packet_byte_count = len(data)
+
+# If we have already seen the Data Id increment the count
+# Else begin a fresh count (new Data Id)
+
+# Pack the Python list into a Short (16b) + Long (32b) +  Short (16b) "HLH" structure (emulate C++ types)
+# The entire Udp packet has the Packet Header, the Data Header, and the Data
+
+# If the user passed the Ip Address 0, send a copy of the packet to ALL RoveComm subscribers
+# Else the user wants to send this to one, and only one, Ip address that may, or may not, be Subscribed
+
+print("################################################################################")       
+print("Begin sendTo: \n")
+
+print("self.packet_header:", self.packet_header)
+print("self.packet_header:", [hex(i) for i in self.packet_header])       
+print("data_header:", data_header)
+print("data_header:", [hex(i) for i in data_header])       
+print("packet_buffer     :", packet_buffer, )
+print("packet_buffer     :", [hex(i) for i in packet_buffer])      
+print("data              :", data)
+print("data              :", [hex(i) for i in data])
+
+print("End sendTo: \n")
+
+############################################################################################################################################
+
+# if data_id is subscribe
+# data is a data id that the subscriber wants to subscribe to
+# if there are no data_ids with a subscribe remove the address
+# keeping with the C code
+
+print("################################################################################")       
+print("Begin recieveFrom: \n")
+
+print("packet_buffer:", packet_buffer)
+print("packet_buffer:", [hex(i) for i in packet_buffer])
+
+print("packet_header:", packet_header)
+print("packet_header:", [hex(i) for i in packet_header])
+
+print("data_header:  ", data_header)     
+print("data_header:  ", [hex(i) for i in data_header])
+
+print("data:         ", data,)
+print("data:         ", [hex(i) for i in data]) 
+
+print("version:      ", version)
+print("rover_id:     ", rover_id)
+print("board_id:     ", board_id)
+print("session_count:", session_count)
+        
+print("data_id:            ", data_id)
+print("data_sequence_count:", data_sequence_count)
+print("data_byte_count:    ", data_byte_count)
+
+print("data:               ", data)
+
+print("End recieveFrom: \n")

@@ -225,9 +225,16 @@
 
 #define drill_forward 209
 
+<<<<<<< HEAD
 // erc drill and actuator
 
 #define erc_drill_actuator 210
+=======
+#define science_telem_request_id 	130
+#define PH_telem_id 							131
+#define moisture_telem_id					132
+#define CCD_telem_packet_id				133
+>>>>>>> origin/feature/science
 
 // telem_device_id
 /*

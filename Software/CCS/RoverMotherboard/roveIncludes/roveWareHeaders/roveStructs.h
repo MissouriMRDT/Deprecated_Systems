@@ -219,4 +219,29 @@ struct PTZ_Cam_Ctrl{
 
 }__attribute__((packed));
 
+struct science_telem_request
+{
+  uint8_t struct_id;
+  uint8_t requestType;
+}__attribute__((packed));
+
+struct PH_telem
+{
+  uint8_t struct_id;
+  float PH;
+}__attribute__((packed));
+
+struct moisture_telem
+{
+  uint8_t struct_id;
+  uint16_t moisture;
+}__attribute__((packed));
+
+struct CCD_telem_packet
+{
+  uint8_t struct_id;
+  uint16_t packetIndex;
+  uint16_t data[12];
+}__attribute__((packed));
+
 #endif // ROVESTRUCTS_H_

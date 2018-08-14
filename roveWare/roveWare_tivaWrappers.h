@@ -20,6 +20,9 @@
 #include <ti/drivers/UART.h>
 #include <ti/drivers/PWM.h>
 
+//mrdt shorthand
+#define ERROR -1
+
 //Tiva Get/Set Wrappers
 void rovePWM_Write(PWM_Handle tiva_pin, int16_t duty_in_microseconds);
 

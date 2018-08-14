@@ -6,7 +6,9 @@
 //
 // first created:
 //
-// 09_01_2015       V1 - URC Horizon IP TCP Client / UART/ PWM Controller Template
+// 09_01_2015
+//
+// V2 - 2016 IP UDP Server / UART/ PWM Controller Template
 //
 // Judah Schad jrs6w7@mst.edu
 //
@@ -43,7 +45,10 @@
 #include <ti/sysbios/knl/Task.h>
 
 //MRDT definitions
-#include "roveWare/roveWare_TCPSocket.h"
+//#include "roveWare/roveWare_TCPSocket.h"
+
+#include "roveWare/roveWare_UDPSocket.h"
+
 #include "roveWare/roveWare_NewMemberUtils.h"
 #include "roveWare/roveWare_dynamixelWrappers.h"
 

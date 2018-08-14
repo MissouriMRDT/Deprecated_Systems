@@ -1,0 +1,6 @@
+08:35:43 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_periph_i2c ****
+make -r all 
+make: Nothing to be done for `all'.
+
+08:35:43 Build Finished (took 221ms)
+

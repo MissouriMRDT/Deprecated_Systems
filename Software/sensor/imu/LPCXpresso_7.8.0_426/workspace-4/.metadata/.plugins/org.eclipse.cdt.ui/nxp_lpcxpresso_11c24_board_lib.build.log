@@ -1,0 +1,40 @@
+17:28:20 **** Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+Building file: ../src/board.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-4\nxp_lpcxpresso_11c24_board_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/board.d" -MT"src/board.o" -MT"src/board.d" -o "src/board.o" "../src/board.c"
+In file included from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/chip.h:232:0,
+                 from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-4\nxp_lpcxpresso_11c24_board_lib\inc/board.h:35,
+                 from ../src/board.c:32:
+C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../src/board.c
+ 
+Building file: ../src/board_sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-4\nxp_lpcxpresso_11c24_board_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/board_sysinit.d" -MT"src/board_sysinit.o" -MT"src/board_sysinit.d" -o "src/board_sysinit.o" "../src/board_sysinit.c"
+In file included from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/chip.h:232:0,
+                 from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-4\nxp_lpcxpresso_11c24_board_lib\inc/board.h:35,
+                 from ../src/board_sysinit.c:32:
+C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+Finished building: ../src/board_sysinit.c
+ 
+Building target: libnxp_lpcxpresso_11c24_board_lib.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "libnxp_lpcxpresso_11c24_board_lib.a"  ./src/board.o ./src/board_sysinit.o   
+c:\nxp\LPCXpresso_7.8.0_426-2\lpcxpresso\tools\bin\arm-none-eabi-ar.exe: creating libnxp_lpcxpresso_11c24_board_lib.a
+Finished building target: libnxp_lpcxpresso_11c24_board_lib.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "libnxp_lpcxpresso_11c24_board_lib.a" ; # arm-none-eabi-objdump -h -S "libnxp_lpcxpresso_11c24_board_lib.a" >"libnxp_lpcxpresso_11c24_board_lib.lss"
+   text	   data	    bss	    dec	    hex	filename
+    904	      0	      0	    904	    388	board.o (ex libnxp_lpcxpresso_11c24_board_lib.a)
+    464	      0	      0	    464	    1d0	board_sysinit.o (ex libnxp_lpcxpresso_11c24_board_lib.a)
+ 
+
+17:28:21 Build Finished (took 433ms)
+

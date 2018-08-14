@@ -1,0 +1,77 @@
+11:18:53 **** Incremental Build of configuration Debug for project headingsensorpp ****
+make -r all 
+Building file: ../src/headingsensorpp.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/headingsensorpp.d" -MT"src/headingsensorpp.o" -MT"src/headingsensorpp.d" -o "src/headingsensorpp.o" "../src/headingsensorpp.cpp"
+In file included from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/chip.h:232:0,
+                 from C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\inc/board.h:35,
+                 from ../src/headingsensorpp.cpp:15:
+C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\inc/pmu_11xx.h:49:8: warning: missing terminating " character
+ #error "LPC1125 support for the PMU driver is not ready
+        ^
+In file included from ../src/headingsensorpp.cpp:22:0:
+../src/LSM9DS1.h:233:18: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   float pitch = -1000,
+                  ^
+../src/LSM9DS1.h:234:11: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   roll = -1000,
+           ^
+../src/LSM9DS1.h:235:10: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   yaw = -1000 ; // calculated pitch, roll, and yaw readings
+          ^
+../src/LSM9DS1.h:238:28: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   signed short ax_dcbias = 0,
+                            ^
+../src/LSM9DS1.h:239:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     ay_dcbias = 0,
+                 ^
+../src/LSM9DS1.h:240:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     az_dcbias = 0;
+                 ^
+../src/LSM9DS1.h:241:24: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   float ax_scalebias = 1,
+                        ^
+../src/LSM9DS1.h:242:19: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   ay_scalebias = -1,
+                   ^
+../src/LSM9DS1.h:243:18: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   az_scalebias = 1;
+                  ^
+../src/LSM9DS1.h:246:28: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   signed short mx_dcbias = 13,
+                            ^
+../src/LSM9DS1.h:247:18: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     my_dcbias = -41,
+                  ^
+../src/LSM9DS1.h:248:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+     mz_dcbias = 25;
+                 ^
+../src/LSM9DS1.h:249:24: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   float mx_scalebias = 2.62,
+                        ^
+../src/LSM9DS1.h:250:18: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   my_scalebias = 2.44,
+                  ^
+../src/LSM9DS1.h:251:19: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+   mz_scalebias = -3.60;
+                   ^
+../src/headingsensorpp.cpp: In function 'int main()':
+../src/headingsensorpp.cpp:43:17: warning: unused variable 'status' [-Wunused-variable]
+  unsigned short status = dof.begin(dof.G_SCALE_245DPS, dof.A_SCALE_2G,
+                 ^
+Finished building: ../src/headingsensorpp.cpp
+ 
+Building target: headingsensorpp.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensorpp.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensorpp_Debug.ld" -o "headingsensorpp.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/headingsensorpp.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensorpp.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensorpp.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensorpp.axf" "headingsensorpp.bin" ; # checksum -p LPC11C24_301 -d "headingsensorpp.bin";
+   text	   data	    bss	    dec	    hex	filename
+   4828	      0	    128	   4956	   135c	headingsensorpp.axf
+ 
+
+11:18:54 Build Finished (took 528ms)
+

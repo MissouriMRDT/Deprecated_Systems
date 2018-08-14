@@ -1,0 +1,6 @@
+10:21:40 **** Build of configuration Debug for project headingsensor-v5 ****
+make -r all 
+make: *** No rule to make target `src/cr_cpp_config.o', needed by `headingsensor-v5.axf'.  Stop.
+
+10:21:40 Build Finished (took 71ms)
+

@@ -1,0 +1,9 @@
+I2C_XFER_T agXfer;
+I2C_XFER_T mXfer;
+
+#define I2C_SLAVE_AG_ADDR	0x6A // I2C address of Accel/Gyro (LSB high)
+#define I2C_SLAVE_M_ADDR	0x1C // I2C address of Mag (LSB high)
+
+
+const float PI = 3.14159265;
+const float RAD2DEG = 57.29577951; // RAD2DEG = 180.0/PI

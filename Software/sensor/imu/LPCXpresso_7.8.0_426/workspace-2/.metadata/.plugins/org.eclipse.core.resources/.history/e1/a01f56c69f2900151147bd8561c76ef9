@@ -1,0 +1,194 @@
+#include "i2c.h"
+
+// Initialize Class Variables //////////////////////////////////////////////////
+
+uint8_t Wire::rxBuffer[BUFFER_LENGTH];
+uint8_t Wire::rxBufferIndex = 0;
+uint8_t Wire::rxBufferLength = 0;
+
+uint8_t Wire::txAddress = 0;
+uint8_t Wire::txBuffer[BUFFER_LENGTH];
+uint8_t Wire::txBufferIndex = 0;
+uint8_t Wire::txBufferLength = 0;
+
+uint8_t Wire::transmitting = 0;
+
+// Constructors ////////////////////////////////////////////////////////////////
+
+Wire::Wire() {
+}
+
+// Public Methods //////////////////////////////////////////////////////////////
+
+void Wire::init(void) {
+	rxBufferIndex = 0;
+	rxBufferLength = 0;
+
+	txBufferIndex = 0;
+	txBufferLength = 0;
+
+	/* Initialize the I2C bus (i2c_app_init) */
+	I2C_ID_T id = I2C0; // Select I2C peripheral
+	static I2C_ID_T i2cDev = I2C0;
+
+	// Init I2C Pin Mux (Init_I2C_PinMux)
+#if (defined(BOARD_NXP_XPRESSO_11U14) || defined(BOARD_NGX_BLUEBOARD_11U24))
+	Chip_SYSCTL_PeriphReset(RESET_I2C0);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 4, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 5, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+#elif (defined(BOARD_NXP_XPRESSO_11C24) || defined(BOARD_MCORE48_1125))
+	Chip_SYSCTL_PeriphReset(RESET_I2C0);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_4, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+	Chip_IOCON_PinMuxSet(LPC_IOCON, IOCON_PIO0_5, IOCON_FUNC1 | I2C_FASTPLUS_BIT);
+#else
+#error "No Pin Muxing defined for I2C operation"
+#endif
+
+	// Initialize I2C
+	Chip_I2C_Init(id);
+	Chip_I2C_SetClockRate(id, speed);
+
+	// Set I2C mode to polling/interrupt (i2c_set_mode)
+	i2cSetMode(id, 0); // Set default mode to interrupt
+
+	/* Simulate IO Expansion slave (i2c_iox_init) */
+#ifndef CHIP_LPC11CXX
+	Board_Buttons_Init();
+#endif
+	agXfer.slaveAddr = (I2C_SLAVE_AG_ADDR << 1);
+	agXfer.rxBuff = &ag_data[1];
+	agXfer.rxSz = sizeof(ag_data);
+	agXfer.txBuff = (const uint8_t *) ag_data;
+	agXfer.txSz = sizeof(ag_data) + 1;
+	Chip_I2C_SlaveSetup(id, I2C_SLAVE_0, &ag_xfer, i2c_ag_events, 0);
+	int ops = 3;
+	if (ops & 1) {	// update out port
+		Board_LED_Set(0, ag_data[1] & 1);
+		Board_LED_Set(1, ag_data[1] & 2);
+		Board_LED_Set(2, ag_data[1] & 4);
+		Board_LED_Set(3, ag_data[1] & 8);
+	}
+#ifndef CHIP_LPC11CXX
+	if (ops & 2) {	// update in port
+		ag_data[0] = (uint8_t) Buttons_GetStatus();
+	}
+#endif
+	// Setup SysTick timer to get the button status updated at regular intervals
+	SysTick_Config(Chip_Clock_GetSystemClockRate() / 50);
+
+	mXfer.slaveAddr = (I2C_SLAVE_M_ADDR << 1);
+	mXfer.rxBuff = &m_data[1];
+	mXfer.rxSz = sizeof(m_data);
+	mXfer.txBuff = (const uint8_t *) m_data;
+	mXfer.txSz = sizeof(m_data) + 1;
+	Chip_I2C_SlaveSetup(id, I2C_SLAVE_1, &m_xfer, i2c_m_events, 0);
+	int ops = 3;
+	if (ops & 1) {	// update out port
+		Board_LED_Set(0, m_data[1] & 1);
+		Board_LED_Set(1, m_data[1] & 2);
+		Board_LED_Set(2, m_data[1] & 4);
+		Board_LED_Set(3, m_data[1] & 8);
+	}
+#ifndef CHIP_LPC11CXX
+	if (ops & 2) {	// update in port
+		m_data[0] = (uint8_t) Buttons_GetStatus();
+	}
+#endif
+	// Setup SysTick timer to get the button status updated at regular intervals
+	SysTick_Config(Chip_Clock_GetSystemClockRate() / 50);
+
+	/* Select I2C peripheral */
+	i2cDev = I2C0;
+
+}
+
+void Wire::beginTransmission(uint8_t address) {
+	// indicate that we are transmitting
+	transmitting = 1;
+	// set address of targeted slave
+	txAddress = address;
+	// reset tx buffer iterator vars
+	txBufferIndex = 0;
+	txBufferLength = 0;
+}
+
+//	WARNING: Nothing in the library keeps track of whether
+//	the bus tenure has been properly ended with a STOP. It
+//	is very possible to leave the bus in a hung state if
+//	no call to endTransmission(true) is made. Some I2C
+//	devices will behave oddly if they do not see a STOP.
+uint8_t Wire::endTransmission(uint8_t sendStop) {
+	// transmit buffer (blocking)
+	int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);
+	// reset tx buffer iterator vars
+	txBufferIndex = 0;
+	txBufferLength = 0;
+	// indicate that we are done transmitting
+	transmitting = 0;
+	return ret;
+}
+
+// must be called in:
+// slave tx event callback
+// or after beginTransmission(address)
+size_t Wire::write(I2C_XFER_T *xfer, uint8_t slaveAddr, uint8_t *data, int length) {
+	int i;
+
+	xfer->slaveAddr = (slaveAddr << 1);
+	xfer->rxBuff = 0;
+	xfer->txBuff = 0;
+	xfer->txSz = 0;
+	xfer->rxSz = 0;
+
+	for (i = 0; i < length; i++) {
+		buffer[0][i] = data[i];
+	}
+	xfer->txSz = length;
+	xfer->txBuff = buffer[0];
+
+	if (xfer.txSz == 0) {
+		return;
+	}
+	tmp = Chip_I2C_MasterSend(i2cDev, xfer.slaveAddr, xfer.txBuff, xfer.txSz);
+}
+
+// must be called in:
+// slave rx event callback
+// or after requestFrom(address, numBytes)
+int Wire::read(I2C_XFER_T *xfer, uint8_t slaveAddr, int length) {
+	xfer->slaveAddr = slaveAddr;
+	xfer->rxBuff = 0;
+	xfer->txBuff = 0;
+	xfer->txSz = 0;
+	xfer->rxSz = 0;
+
+	xfer->rxSz = length;
+	xfer->rxBuff = buffer[1];
+
+	length = Chip_I2C_MasterRead(i2cDev, xfer.slaveAddr, xfer.rxBuff, xfer.rxSz);
+	DEBUGOUT("Read %d bytes of data from slave 0x%02X.\r\n", tmp, xfer.slaveAddr);
+	con_print_data(buffer[1], length);
+}
+
+// must be called in:
+// slave rx event callback
+// or after requestFrom(address, numBytes)
+int Wire::isAvailable(void) {
+	return rxBufferLength - rxBufferIndex;
+}
+
+void i2cSetMode(I2C_ID_T id, int polling) {
+	if (!polling) { // Set mode to interrupt
+		mode_poll &= ~(1 << id);
+		Chip_I2C_SetMasterEventHandler(id, Chip_I2C_EventHandler);
+		NVIC_EnableIRQ(I2C0_IRQn);
+	} else { // Set mode to polling
+		mode_poll |= 1 << id;
+		NVIC_DisableIRQ(I2C0_IRQn);
+		Chip_I2C_SetMasterEventHandler(id, Chip_I2C_EventHandlerPolling);
+	}
+}
+
+// Preinstantiate Objects //////////////////////////////////////////////////////
+Wire i2c = Wire();
+

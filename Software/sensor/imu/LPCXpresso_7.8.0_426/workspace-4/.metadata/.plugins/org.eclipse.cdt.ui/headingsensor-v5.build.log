@@ -1,0 +1,6 @@
+17:28:47 **** Incremental Build of configuration Debug for project headingsensor-v5 ****
+make -r all 
+make: Nothing to be done for `all'.
+
+17:28:48 Build Finished (took 87ms)
+

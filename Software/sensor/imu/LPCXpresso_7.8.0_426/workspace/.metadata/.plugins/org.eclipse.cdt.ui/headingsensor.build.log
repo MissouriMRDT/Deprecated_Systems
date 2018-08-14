@@ -1,0 +1,7 @@
+10:22:23 **** Clean-only build of configuration Debug for project headingsensor ****
+make -r clean 
+rm -rf  ./src/cr_startup_lpc112x.o ./src/crp.o ./src/headingsensor.o ./src/sysinit.o  ./src/cr_startup_lpc112x.d ./src/crp.d ./src/headingsensor.d ./src/sysinit.d  headingsensor.axf
+ 
+
+10:22:24 Build Finished (took 132ms)
+

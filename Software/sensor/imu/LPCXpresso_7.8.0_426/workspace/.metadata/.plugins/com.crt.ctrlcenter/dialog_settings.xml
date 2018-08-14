@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="FlashDialog">
+		<item value="250" key="id_speed"/>
+		<item value="false" key="erase_pages"/>
+		<item value="false" key="program_all"/>
+		<item value="false" key="erase"/>
+		<item value="false" key="jtag"/>
+		<item value="" key="extended"/>
+		<item value="false" key="repeat"/>
+		<item value="true" key="program_pages"/>
+		<item value="true" key="erase_mass"/>
+		<item value="true" key="program"/>
+		<item value="C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_periph_i2c\Debug\nxp_lpcxpresso_11c24_periph_i2c.axf;C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\helloworld\Debug\helloworld.axf;C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\headingsensorpp\Debug\headingsensorpp.axf," key="file"/>
+		<item value="" key="base"/>
+		<item value="true" key="logFLag"/>
+		<item value="true" key="exec"/>
+		<item value="false" key="clipboard_exec"/>
+		<item value="LPC11_12_13_32K_8K.cfx," key="flashdriver"/>
+		<item value="false" key="clipboard"/>
+		<item value="false" key="reopen"/>
+	</section>
+</section>

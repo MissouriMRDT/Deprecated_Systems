@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;headingsensor-v1/src/headingsensorpp.cpp&apos; to &apos;main.cpp&apos;" description="Rename resource &apos;headingsensorpp.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/headingsensorpp.cpp" name="main.cpp" stamp="1436378404525" updateReferences="true"/>
+</session>

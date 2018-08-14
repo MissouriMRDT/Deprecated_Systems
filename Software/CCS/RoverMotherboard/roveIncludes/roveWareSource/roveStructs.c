@@ -18,8 +18,13 @@ int getStructSize(char structId) {
     case motor_right_id:
         return sizeof(struct motor_control_struct);
 
+<<<<<<< HEAD
     case PTZ_Cam_id_0...PTZ_Cam_id_10:
     		return sizeof(struct PTZ_Cam_Ctrl);
+=======
+    case bms_command_id:
+        return sizeof(struct bms_command);
+>>>>>>> origin/tester/gpsTelem
 
     case bms_emergency_command_id:
         return sizeof(struct bms_emergency_command);
@@ -33,8 +38,13 @@ int getStructSize(char structId) {
     case power_board_telem_motor1_current_id
             ... power_board_telem_main_battery_voltage_id:
         return sizeof(struct power_board_bms_telem);
+<<<<<<< HEAD
 */
     case wrist_clock_wise ... drill_forward:
+=======
+
+    case (char) wrist_clock_wise ... drill_clock_wise:
+>>>>>>> origin/tester/gpsTelem
         return sizeof(struct base_station_robot_arm_command);
 
     case erc_drill_actuator:

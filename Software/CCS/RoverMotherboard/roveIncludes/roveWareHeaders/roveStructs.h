@@ -115,7 +115,11 @@ struct robot_arm_command{
 // sent from mobo to gripper to control the peripheral
 
 
+<<<<<<< HEAD
 struct bms_emergency_command
+=======
+struct bms_command
+>>>>>>> origin/tester/gpsTelem
 {
 	uint8_t struct_id;
 	uint8_t command;

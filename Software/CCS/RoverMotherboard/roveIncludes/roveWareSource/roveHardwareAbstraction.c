@@ -27,8 +27,13 @@ int getDeviceJack(int device) {
 
         return TEST_JACK;
 
+<<<<<<< HEAD
     case bms_emergency_stop_command_id ... bms_total_amperage_telem_id:
         return TEST_JACK;
+=======
+    case bms_command_id ... bms_total_amperage_telem_id:
+        return ONBOARD_ROVECOMM;
+>>>>>>> origin/tester/gpsTelem
 
     case power_board_command_id ... power_board_telem_main_battery_voltage_id:
         return POWER_BOARD_ON_MOB;
@@ -45,8 +50,13 @@ int getDeviceJack(int device) {
     case PTZ_Cam_id_3:
     		return PTZ_CAM_3;
 
+<<<<<<< HEAD
     case wrist_clock_wise ... drill_forward:
         return ARM_JACK;
+=======
+    case wrist_clock_wise ... drill_clock_wise:
+        return ONBOARD_ROVECOMM;
+>>>>>>> origin/tester/gpsTelem
 
     case gps_telem_reply...all_sensor_telem_reply:
         return GPS_ON_MOB;

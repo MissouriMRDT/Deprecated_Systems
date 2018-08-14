@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -19,4 +20,15 @@ git merge x/master --allow-unrelated-histories
 git remote rm x
 
 5) delete old branch
+=======
+motherboard-squad
+=================
+
+[The Bridge](https://github.com/MST-MRDT/Motherboard/wiki) 
+
+This is the repository containing both the software and hardware designs for Missouri S&T's Mars Rover Motherboard Squad.
+
+Contact the Motherboard Squad (mars-rover-motherboard-squad-grp@mst.edu) for more information.
+
+>>>>>>> x/master
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace\nxp_lpcxpresso_11c24_periph_i2c\.settings" key="org.eclipse.cdt.ui.codeformatter.savepath.loadpath"/>
+	<item value="" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
+	<item value="875" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height"/>
+	<item value="14" key="org.eclipse.cdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
+	<item value="0" key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node"/>
+	<item value="402" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x"/>
+	<item value="0" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y"/>
+	<item value="2" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus"/>
+	<item value="1117" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_width"/>
+	<item value="0" key="formatter_page.modify_dialog_tab_page.last_focus_index"/>
+	<item value="7" key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner"/>
+	<section name="completion_proposal_size">
+		<item value="355" key="size.x"/>
+		<item value="234" key="size.y"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item value="384" key="size.width"/>
+		<item value="180" key="size.height"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+</section>

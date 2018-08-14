@@ -1,0 +1,10 @@
+
+**** Build of configuration Debug for project RoverMotherboard ****
+
+/opt/ti/ccsv6/utils/bin/gmake -k all 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+gmake[1]: Nothing to be done for `all'.
+gmake[1]: Leaving directory `/home/mrdtdev/Motherboard/Software/CCS/RoverMotherboard/src/sysbios'
+
+**** Build Finished ****

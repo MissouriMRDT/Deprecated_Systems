@@ -1,0 +1,11 @@
+------------------------------
+struct_id = 140
+fix = 1
+fixquality = 2
+satellites = 6
+latitude_fixed = 379517250
+longitude_fixed = -917777716
+altitude = 343.30
+speed = 0.03
+angle = 150.76
+------------------------------

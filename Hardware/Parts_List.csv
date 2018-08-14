@@ -1,0 +1,32 @@
+Part,Quantity,Price Per Unit,Total Cost,Max Current (Amps),Total Current ,Supplier,Link
+Main Processor Launchpad,1,$20.39 ,$20.39 ,0.2,0.2,Newark,http://www.newark.com/texas-instruments/ek-tm4c1294xl/eval-brd-tiva-c-launchpad-tm4c1294/dp/38X4611?ost=EK-TM4C1294XL&CMP=AFC-JY6146109556
+Atmega328 Dip,1,$3.38 ,$3.38 ,0.0002,0.0002,Newark,http://www.newark.com/atmel/atmega328p-pu/mcu-8bit-atmega-20mhz-dip-28/dp/68T2944
+RS-485 Transceivers,18,$3.54 ,$63.72 ,0.0015,0.027,Mouser,http://www.mouser.com/ProductDetail/Maxim-Integrated/MAX3077EESA+/?qs=sGAEpiMZZMuobhpKLk3hh6ov3TfCBqZhbNybjDy0atQ%3d
+4x1 Dual Muxes,5,$0.57 ,$2.85 ,0.05,0.25,Newark,http://www.newark.com/nxp/74hc4052d-653/ic-analog-mux-dmux-dual-4-x-1/dp/78R7402
+GPS,1,$29.95 ,$29.95 ,0.025,0.025,Adafruit,http://www.adafruit.com/products/790
+IMU,1,$74.95 ,$74.95 ,0.005,0.005,Sparkfun,https://www.sparkfun.com/products/10736
+22pF 1206,2,$0.13 ,$0.26 ,,,Newark,http://www.newark.com/kemet/c1206c220j5gactu/capacitor-ceramic-22pf-50v-c0g/dp/70K9304
+0.1uF 1206,31,$0.05 ,$1.55 ,,,Newark,http://www.newark.com/multicomp/mc1206b104k500ct/capacitor-ceramic-0-1uf-50v-x7r/dp/06R4208
+1uF 1206,1,$0.47 ,$0.47 ,,,Newark,http://www.newark.com/avx/12065c105kat2a/capacitor-ceramic-1uf-50v-x7r/dp/10R6014
+330 Ohm 1206,1,$0.07 ,$0.07 ,,,Newark,http://www.newark.com/multicomp/mc0125w12061330r/resistor-330r-0-125w-1-1206/dp/94W6668
+120 Ohm 1206,36,$0.09 ,$3.06 ,,,Newark,http://www.newark.com/multicomp/mchp06w2f1200t5e/resistor-high-power-120-ohm-500mw/dp/01N7140
+1 Kohm 1206,1,$0.10 ,$0.10 ,,,Newark,http://www.newark.com/vishay-dale/crcw12061k00fkea/resistor-thick-film-1kohm-250mw/dp/53K1779?MER=PPSO_N_P_EverywhereElse_None
+10 Kohm 1206,1,$0.10 ,$0.10 ,,,Newark,http://www.newark.com/vishay-dale/crcw120610k0fkea/resistor-thick-film-10kohm-250mw/dp/53K1907?MER=PPSO_N_P_EverywhereElse_None
+8 mHz Crystal,1,$0.95 ,$0.95 ,,,Sparkfun,https://www.sparkfun.com/products/538
+16 mHz Crystal,1,$0.95 ,$0.95 ,,,Sparkfun,https://www.sparkfun.com/products/536
+Ferrite Bead,1,$0.10 ,$0.10 ,,,Digikey,http://www.digikey.com/product-detail/en/CIB10P100NC/1276-6388-1-ND/3973917
+Red 1206 LED,1,$0.10 ,$0.10 ,0.025,0.025,Mouser,http://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/LH-N974-KN-1/?qs=sGAEpiMZZMt82OzCyDsLFAV097Vn80XJzM0DIFS2How%3d
+Green 1206 LED,1,$0.10 ,$0.10 ,0.025,0.025,Mouser,http://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/LG-N971-KN-1/?qs=sGAEpiMZZMseGfSY3csMkRFGmqWc9Zh4pe067IXnwes%3d
+RJ-45 Jacks,1,$1.50 ,$1.50 ,,,Sparkfun,https://www.sparkfun.com/products/643
+Fan Connectors,4,$0.44 ,$1.76 ,,,Newark,http://www.newark.com/molex/47053-1000/connector-header-4pos-1row-2-54mm/dp/58J9094?ost=47053-1000
+u.Fl Connector,1,$1.03 ,$1.03 ,,,Newark,http://www.newark.com/hrs-hirose/u-fl-r-smt-1-10/connector-u-fl-str-jack-smt-50/dp/50P8856
+Power 2x1 5mm Screw terminals,2,$0.95 ,$1.90 ,,,Sparkfun,https://www.sparkfun.com/products/8432
+Female Headers 0.1 Inch,1,$1.50 ,$1.50 ,,,Sparkfun,https://www.sparkfun.com/products/115
+Male Headers 0.1 Inch,3,$1.50 ,$4.50 ,,,Sparkfun,https://www.sparkfun.com/products/116
+Ribbon Cable Male Connector,1,$15.22 ,$15.22 ,,,Newark,http://www.newark.com/harting/60-05-068-5100/socket-scsi-pcb-straight-68w/dp/21M4933?ost=Harting+60+05+068+5100
+IMU Standoffs,1,$2.95 ,$2.95 ,,,Sparkfun,https://www.sparkfun.com/products/10461
+IMU Standoff Screws,1,$1.50 ,$1.50 ,,,Sparkfun,https://www.sparkfun.com/products/10453
+Atmega328 Dip Socket,1,$1.72 ,$1.72 ,,,Newark,http://www.newark.com/mill-max/110-99-328-41-001000/dip-socket-28pos-through-hole/dp/17C2377?MER=PPSO_N_P_ICAndComponentSockets_None
+,,,,,,,
+,,Total Price,$236.63 ,,,,
+,,,,Total Current Estimate,0.5572,,

@@ -1,0 +1,66 @@
+/*
+ * roveHardwareTester.c
+ *
+ *  Created on: Mar 3, 2015
+ *      Author: owen
+ *
+ * Task that will test all of the hardware functionality
+ * Should be disabled most of the time. Only run it when you want to
+ * do hardware testing.
+ */
+#include "roveIncludes/roveWareHeaders/roveMotorControlTester.h"
+
+
+Void roveMotorControlTester(UArg arg0, UArg arg1)
+{
+	char messageBuffer[35] = "This is a test of motor control";
+	int messageSize = 32;
+	int speed = 0;
+
+	extern UART_Handle uart0;
+	extern UART_Handle uart1;
+	extern UART_Handle uart2;
+	extern UART_Handle uart3;
+	extern UART_Handle uart4;
+	extern UART_Handle uart5;
+	extern UART_Handle uart6;
+	extern UART_Handle uart7;
+
+	System_printf("Starting motor control diagnostic\n");
+	System_flush();
+
+	while(1){
+
+		if(speed > 900){
+
+			speed = 0;
+
+		}//endif:	(speed > 900)
+
+		messageSize = generateMotorCommand(speed, messageBuffer);
+
+
+			deviceWrite(i, buffer, 5);
+		}
+		ms_delay(3000);
+
+		buffer[0] = 0x06; //2014 start byte 1
+		buffer[1] = 0x85; //2014 start byte 2
+		buffer[2] = 0x01; //size byte for motor control struct
+		buffer[3] = 0;  // speed
+		buffer[4] = CalcCheckSum(buffer+3, 1);      //checksum
+		for(i = 1; i < 20; i++)
+		{
+			//System_printf("Testing Device #%d\n", i);
+			//System_flush();
+			//buffer[32] = '0' + (char)i;
+			deviceWrite(i, buffer, 5);
+
+		}
+		ms_delay(3000);
+	}
+
+	System_printf("Finished testing all devices\n");
+	System_flush();
+	Task_exit();
+}

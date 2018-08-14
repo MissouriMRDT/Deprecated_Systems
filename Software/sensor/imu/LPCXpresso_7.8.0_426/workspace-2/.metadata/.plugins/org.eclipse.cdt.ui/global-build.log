@@ -1,0 +1,1453 @@
+18:24:43 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:24:43 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:24:44 **** Incremental Build of configuration Debug for project headingsensor-v2 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -O0 -g3 -Wall -c -fmessage-length=0 -mcpu=cortex-m0 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.h:26:0,
+                 from ../src/LSM9DS1.cpp:18:
+../src/i2c.h:7:19: fatal error: board.h: No such file or directory
+ #include "board.h"
+                   ^
+compilation terminated.
+make: *** [src/LSM9DS1.o] Error 1
+18:27:38 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:27:39 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:27:40 **** Incremental Build of configuration Debug for project headingsensor-v2 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -O0 -g3 -Wall -c -fmessage-length=0 -mcpu=cortex-m0 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.h:26:0,
+                 from ../src/LSM9DS1.cpp:18:
+../src/i2c.h:7:19: fatal error: board.h: No such file or directory
+ #include "board.h"
+                   ^
+compilation terminated.
+make: *** [src/LSM9DS1.o] Error 1
+18:27:59 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:28:00 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:28:01 **** Incremental Build of configuration Debug for project headingsensor-v2 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -O0 -g3 -Wall -c -fmessage-length=0 -mcpu=cortex-m0 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/i2c.h:7:0,
+                 from ../src/LSM9DS1.h:26,
+                 from ../src/LSM9DS1.cpp:18:
+../src/board.h:35:18: fatal error: chip.h: No such file or directory
+ #include "chip.h"
+                  ^
+compilation terminated.
+make: *** [src/LSM9DS1.o] Error 1
+18:28:26 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:28:27 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+18:28:28 **** Incremental Build of configuration Debug for project headingsensor-v2 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -O0 -g3 -Wall -c -fmessage-length=0 -mcpu=cortex-m0 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/board.h:35:0,
+                 from ../src/i2c.h:7,
+                 from ../src/LSM9DS1.h:26,
+                 from ../src/LSM9DS1.cpp:18:
+../src/chip.h:32:23: fatal error: lpc_types.h: No such file or directory
+ #include "lpc_types.h"
+                       ^
+compilation terminated.
+make: *** [src/LSM9DS1.o] Error 1
+09:32:56 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+09:32:57 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+09:32:57 **** Clean-only build of configuration Debug for project headingsensor-v4 ****
+make -r clean 
+rm -rf  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o  ./src/crp.d ./src/sysinit.d  ./src/LSM9DS1.d ./src/cr_cpp_config.d ./src/cr_startup_lpc11xx.d ./src/i2c.d ./src/main.d  headingsensor-v4.axf
+ 
+09:32:58 **** Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.cpp:18:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_ag_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:902:47: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    agXfer.txBuff = (const uint8_t *) ag_data[0];
+                                               ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_m_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:928:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    mXfer.txBuff = (const uint8_t *) m_data[0];
+                                             ^
+Finished building: ../src/LSM9DS1.cpp
+ 
+Building file: ../src/cr_cpp_config.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/cr_cpp_config.d" -MT"src/cr_cpp_config.o" -MT"src/cr_cpp_config.d" -o "src/cr_cpp_config.o" "../src/cr_cpp_config.cpp"
+Finished building: ../src/cr_cpp_config.cpp
+ 
+Building file: ../src/cr_startup_lpc11xx.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/cr_startup_lpc11xx.d" -MT"src/cr_startup_lpc11xx.o" -MT"src/cr_startup_lpc11xx.d" -o "src/cr_startup_lpc11xx.o" "../src/cr_startup_lpc11xx.cpp"
+Finished building: ../src/cr_startup_lpc11xx.cpp
+ 
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Building file: ../src/i2c.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/i2c.d" -MT"src/i2c.o" -MT"src/i2c.d" -o "src/i2c.o" "../src/i2c.cpp"
+Finished building: ../src/i2c.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+Finished building: ../src/main.cpp
+ 
+Building file: ../src/sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/sysinit.d" -MT"src/sysinit.o" -MT"src/sysinit.d" -o "src/sysinit.o" "../src/sysinit.c"
+Finished building: ../src/sysinit.c
+ 
+Building target: headingsensor-v4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensor-v4.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensor-v4_Debug.ld" -o "headingsensor-v4.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensor-v4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensor-v4.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensor-v4.axf" "headingsensor-v4.bin" ; # checksum -p LPC11C24_301 -d "headingsensor-v4.bin";
+   text	   data	    bss	    dec	    hex	filename
+  12920	     28	    744	  13692	   357c	headingsensor-v4.axf
+ 
+09:39:30 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:41:28 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:57:29 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:58:34 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:03:50 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:04:02 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:04:15 **** Clean-only build of configuration Debug for project headingsensor-v4 ****
+make -r clean 
+rm -rf  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o  ./src/crp.d ./src/sysinit.d  ./src/LSM9DS1.d ./src/cr_cpp_config.d ./src/cr_startup_lpc11xx.d ./src/i2c.d ./src/main.d  headingsensor-v4.axf
+ 
+11:04:15 **** Clean-only build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r clean 
+rm -rf  ./src/adc_1125.o ./src/adc_11xx.o ./src/chip_11xx.o ./src/clock_11xx.o ./src/gpio_11xx_1.o ./src/gpio_11xx_2.o ./src/gpiogroup_11xx.o ./src/i2c_11xx.o ./src/iocon_11xx.o ./src/pinint_11xx.o ./src/pmu_11xx.o ./src/ring_buffer.o ./src/ssp_11xx.o ./src/sysctl_11xx.o ./src/sysinit_11xx.o ./src/timer_11xx.o ./src/uart_11xx.o ./src/wwdt_11xx.o  ./src/adc_1125.d ./src/adc_11xx.d ./src/chip_11xx.d ./src/clock_11xx.d ./src/gpio_11xx_1.d ./src/gpio_11xx_2.d ./src/gpiogroup_11xx.d ./src/i2c_11xx.d ./src/iocon_11xx.d ./src/pinint_11xx.d ./src/pmu_11xx.d ./src/ring_buffer.d ./src/ssp_11xx.d ./src/sysctl_11xx.d ./src/sysinit_11xx.d ./src/timer_11xx.d ./src/uart_11xx.d ./src/wwdt_11xx.d  liblpc_chip_11cxx_lib.a
+ 
+11:04:16 **** Clean-only build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r clean 
+rm -rf  ./src/board.o ./src/board_sysinit.o  ./src/board.d ./src/board_sysinit.d  libnxp_lpcxpresso_11c24_board_lib.a
+ 
+11:04:16 **** Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+Building file: ../src/adc_1125.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/adc_1125.d" -MT"src/adc_1125.o" -MT"src/adc_1125.d" -o "src/adc_1125.o" "../src/adc_1125.c"
+Finished building: ../src/adc_1125.c
+ 
+Building file: ../src/adc_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/adc_11xx.d" -MT"src/adc_11xx.o" -MT"src/adc_11xx.d" -o "src/adc_11xx.o" "../src/adc_11xx.c"
+Finished building: ../src/adc_11xx.c
+ 
+Building file: ../src/chip_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/chip_11xx.d" -MT"src/chip_11xx.o" -MT"src/chip_11xx.d" -o "src/chip_11xx.o" "../src/chip_11xx.c"
+Finished building: ../src/chip_11xx.c
+ 
+Building file: ../src/clock_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/clock_11xx.d" -MT"src/clock_11xx.o" -MT"src/clock_11xx.d" -o "src/clock_11xx.o" "../src/clock_11xx.c"
+Finished building: ../src/clock_11xx.c
+ 
+Building file: ../src/gpio_11xx_1.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/gpio_11xx_1.d" -MT"src/gpio_11xx_1.o" -MT"src/gpio_11xx_1.d" -o "src/gpio_11xx_1.o" "../src/gpio_11xx_1.c"
+Finished building: ../src/gpio_11xx_1.c
+ 
+Building file: ../src/gpio_11xx_2.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/gpio_11xx_2.d" -MT"src/gpio_11xx_2.o" -MT"src/gpio_11xx_2.d" -o "src/gpio_11xx_2.o" "../src/gpio_11xx_2.c"
+Finished building: ../src/gpio_11xx_2.c
+ 
+Building file: ../src/gpiogroup_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/gpiogroup_11xx.d" -MT"src/gpiogroup_11xx.o" -MT"src/gpiogroup_11xx.d" -o "src/gpiogroup_11xx.o" "../src/gpiogroup_11xx.c"
+Finished building: ../src/gpiogroup_11xx.c
+ 
+Building file: ../src/i2c_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/i2c_11xx.d" -MT"src/i2c_11xx.o" -MT"src/i2c_11xx.d" -o "src/i2c_11xx.o" "../src/i2c_11xx.c"
+Finished building: ../src/i2c_11xx.c
+ 
+Building file: ../src/iocon_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/iocon_11xx.d" -MT"src/iocon_11xx.o" -MT"src/iocon_11xx.d" -o "src/iocon_11xx.o" "../src/iocon_11xx.c"
+Finished building: ../src/iocon_11xx.c
+ 
+Building file: ../src/pinint_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/pinint_11xx.d" -MT"src/pinint_11xx.o" -MT"src/pinint_11xx.d" -o "src/pinint_11xx.o" "../src/pinint_11xx.c"
+Finished building: ../src/pinint_11xx.c
+ 
+Building file: ../src/pmu_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/pmu_11xx.d" -MT"src/pmu_11xx.o" -MT"src/pmu_11xx.d" -o "src/pmu_11xx.o" "../src/pmu_11xx.c"
+Finished building: ../src/pmu_11xx.c
+ 
+Building file: ../src/ring_buffer.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ring_buffer.d" -MT"src/ring_buffer.o" -MT"src/ring_buffer.d" -o "src/ring_buffer.o" "../src/ring_buffer.c"
+Finished building: ../src/ring_buffer.c
+ 
+Building file: ../src/ssp_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ssp_11xx.d" -MT"src/ssp_11xx.o" -MT"src/ssp_11xx.d" -o "src/ssp_11xx.o" "../src/ssp_11xx.c"
+Finished building: ../src/ssp_11xx.c
+ 
+Building file: ../src/sysctl_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/sysctl_11xx.d" -MT"src/sysctl_11xx.o" -MT"src/sysctl_11xx.d" -o "src/sysctl_11xx.o" "../src/sysctl_11xx.c"
+Finished building: ../src/sysctl_11xx.c
+ 
+Building file: ../src/sysinit_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/sysinit_11xx.d" -MT"src/sysinit_11xx.o" -MT"src/sysinit_11xx.d" -o "src/sysinit_11xx.o" "../src/sysinit_11xx.c"
+Finished building: ../src/sysinit_11xx.c
+ 
+Building file: ../src/timer_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/timer_11xx.d" -MT"src/timer_11xx.o" -MT"src/timer_11xx.d" -o "src/timer_11xx.o" "../src/timer_11xx.c"
+Finished building: ../src/timer_11xx.c
+ 
+Building file: ../src/uart_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/uart_11xx.d" -MT"src/uart_11xx.o" -MT"src/uart_11xx.d" -o "src/uart_11xx.o" "../src/uart_11xx.c"
+Finished building: ../src/uart_11xx.c
+ 
+Building file: ../src/wwdt_11xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/wwdt_11xx.d" -MT"src/wwdt_11xx.o" -MT"src/wwdt_11xx.d" -o "src/wwdt_11xx.o" "../src/wwdt_11xx.c"
+Finished building: ../src/wwdt_11xx.c
+ 
+Building target: liblpc_chip_11cxx_lib.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "liblpc_chip_11cxx_lib.a"  ./src/adc_1125.o ./src/adc_11xx.o ./src/chip_11xx.o ./src/clock_11xx.o ./src/gpio_11xx_1.o ./src/gpio_11xx_2.o ./src/gpiogroup_11xx.o ./src/i2c_11xx.o ./src/iocon_11xx.o ./src/pinint_11xx.o ./src/pmu_11xx.o ./src/ring_buffer.o ./src/ssp_11xx.o ./src/sysctl_11xx.o ./src/sysinit_11xx.o ./src/timer_11xx.o ./src/uart_11xx.o ./src/wwdt_11xx.o   
+c:\nxp\LPCXpresso_7.8.0_426-2\lpcxpresso\tools\bin\arm-none-eabi-ar.exe: creating liblpc_chip_11cxx_lib.a
+Finished building target: liblpc_chip_11cxx_lib.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "liblpc_chip_11cxx_lib.a" ; # arm-none-eabi-objdump -h -S "liblpc_chip_11cxx_lib.a" >"liblpc_chip_11cxx_lib.lss"
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	      0	      0	      0	adc_1125.o (ex liblpc_chip_11cxx_lib.a)
+   1308	      0	      0	   1308	    51c	adc_11xx.o (ex liblpc_chip_11cxx_lib.a)
+     24	      0	      0	     24	     18	chip_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    752	      0	      0	    752	    2f0	clock_11xx.o (ex liblpc_chip_11cxx_lib.a)
+      0	      0	      0	      0	      0	gpio_11xx_1.o (ex liblpc_chip_11cxx_lib.a)
+   1440	      0	      0	   1440	    5a0	gpio_11xx_2.o (ex liblpc_chip_11cxx_lib.a)
+      0	      0	      0	      0	      0	gpiogroup_11xx.o (ex liblpc_chip_11cxx_lib.a)
+   3940	     28	     40	   4008	    fa8	i2c_11xx.o (ex liblpc_chip_11cxx_lib.a)
+      0	      0	      0	      0	      0	iocon_11xx.o (ex liblpc_chip_11cxx_lib.a)
+      0	      0	      0	      0	      0	pinint_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    100	      0	      0	    100	     64	pmu_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    984	      0	      0	    984	    3d8	ring_buffer.o (ex liblpc_chip_11cxx_lib.a)
+   2956	      0	      0	   2956	    b8c	ssp_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    204	      0	      0	    204	     cc	sysctl_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    288	      0	      0	    288	    120	sysinit_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    440	      0	      0	    440	    1b8	timer_11xx.o (ex liblpc_chip_11cxx_lib.a)
+   1548	      0	      0	   1548	    60c	uart_11xx.o (ex liblpc_chip_11cxx_lib.a)
+    204	      0	      0	    204	     cc	wwdt_11xx.o (ex liblpc_chip_11cxx_lib.a)
+ 
+11:04:19 **** Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+Building file: ../src/board.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/board.d" -MT"src/board.o" -MT"src/board.d" -o "src/board.o" "../src/board.c"
+Finished building: ../src/board.c
+ 
+Building file: ../src/board_sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/board_sysinit.d" -MT"src/board_sysinit.o" -MT"src/board_sysinit.d" -o "src/board_sysinit.o" "../src/board_sysinit.c"
+Finished building: ../src/board_sysinit.c
+ 
+Building target: libnxp_lpcxpresso_11c24_board_lib.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "libnxp_lpcxpresso_11c24_board_lib.a"  ./src/board.o ./src/board_sysinit.o   
+c:\nxp\LPCXpresso_7.8.0_426-2\lpcxpresso\tools\bin\arm-none-eabi-ar.exe: creating libnxp_lpcxpresso_11c24_board_lib.a
+Finished building target: libnxp_lpcxpresso_11c24_board_lib.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "libnxp_lpcxpresso_11c24_board_lib.a" ; # arm-none-eabi-objdump -h -S "libnxp_lpcxpresso_11c24_board_lib.a" >"libnxp_lpcxpresso_11c24_board_lib.lss"
+   text	   data	    bss	    dec	    hex	filename
+    552	      0	      0	    552	    228	board.o (ex libnxp_lpcxpresso_11c24_board_lib.a)
+    464	      0	      0	    464	    1d0	board_sysinit.o (ex libnxp_lpcxpresso_11c24_board_lib.a)
+ 
+11:04:20 **** Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.cpp:18:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_ag_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:902:47: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    agXfer.txBuff = (const uint8_t *) ag_data[0];
+                                               ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_m_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:928:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    mXfer.txBuff = (const uint8_t *) m_data[0];
+                                             ^
+Finished building: ../src/LSM9DS1.cpp
+ 
+Building file: ../src/cr_cpp_config.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/cr_cpp_config.d" -MT"src/cr_cpp_config.o" -MT"src/cr_cpp_config.d" -o "src/cr_cpp_config.o" "../src/cr_cpp_config.cpp"
+Finished building: ../src/cr_cpp_config.cpp
+ 
+Building file: ../src/cr_startup_lpc11xx.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/cr_startup_lpc11xx.d" -MT"src/cr_startup_lpc11xx.o" -MT"src/cr_startup_lpc11xx.d" -o "src/cr_startup_lpc11xx.o" "../src/cr_startup_lpc11xx.cpp"
+Finished building: ../src/cr_startup_lpc11xx.cpp
+ 
+Building file: ../src/crp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/crp.d" -MT"src/crp.o" -MT"src/crp.d" -o "src/crp.o" "../src/crp.c"
+Finished building: ../src/crp.c
+ 
+Building file: ../src/i2c.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/i2c.d" -MT"src/i2c.o" -MT"src/i2c.d" -o "src/i2c.o" "../src/i2c.cpp"
+Finished building: ../src/i2c.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+Finished building: ../src/main.cpp
+ 
+Building file: ../src/sysinit.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/sysinit.d" -MT"src/sysinit.o" -MT"src/sysinit.d" -o "src/sysinit.o" "../src/sysinit.c"
+Finished building: ../src/sysinit.c
+ 
+Building target: headingsensor-v4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensor-v4.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensor-v4_Debug.ld" -o "headingsensor-v4.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensor-v4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensor-v4.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensor-v4.axf" "headingsensor-v4.bin" ; # checksum -p LPC11C24_301 -d "headingsensor-v4.bin";
+   text	   data	    bss	    dec	    hex	filename
+  12920	     28	    744	  13692	   357c	headingsensor-v4.axf
+ 
+11:04:24 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:05:38 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:30:16 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:41:57 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:41:58 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:41:59 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void I2C_IRQHandler()':
+../src/main.cpp:30:25: error: 'i2c_state_handling' was not declared in this scope
+  i2c_state_handling(I2C0);
+                         ^
+make: *** [src/main.o] Error 1
+11:42:02 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void I2C_IRQHandler()':
+../src/main.cpp:30:25: error: 'i2c_state_handling' was not declared in this scope
+  i2c_state_handling(I2C0);
+                         ^
+make: *** [src/main.o] Error 1
+11:42:18 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:42:19 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:42:20 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void I2C_IRQHandler()':
+../src/main.cpp:30:25: error: 'i2c_state_handling' was not declared in this scope
+  i2c_state_handling(I2C0);
+                         ^
+../src/main.cpp: At global scope:
+../src/main.cpp:33:13: warning: 'void i2c_state_handling(I2C_ID_T)' defined but not used [-Wunused-function]
+ static void i2c_state_handling(I2C_ID_T id) {
+             ^
+make: *** [src/main.o] Error 1
+11:43:39 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:43:39 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:43:40 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void I2C_IRQHandler()':
+../src/main.cpp:32:25: error: 'i2c_state_handling' was not declared in this scope
+  i2c_state_handling(I2C0);
+                         ^
+../src/main.cpp: At global scope:
+../src/main.cpp:35:13: warning: 'void i2c_state_handling(I2C_ID_T)' defined but not used [-Wunused-function]
+ static void i2c_state_handling(I2C_ID_T id) {
+             ^
+make: *** [src/main.o] Error 1
+11:43:56 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:43:57 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:43:58 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+Finished building: ../src/main.cpp
+ 
+Building target: headingsensor-v4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensor-v4.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensor-v4_Debug.ld" -o "headingsensor-v4.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensor-v4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensor-v4.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensor-v4.axf" "headingsensor-v4.bin" ; # checksum -p LPC11C24_301 -d "headingsensor-v4.bin";
+   text	   data	    bss	    dec	    hex	filename
+  12920	     28	    744	  13692	   357c	headingsensor-v4.axf
+ 
+11:44:14 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:44:15 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+11:44:16 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:44:18 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:44:31 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+13:39:06 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:39:06 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:39:07 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.cpp:18:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.cpp: In member function 'void LSM9DS1::initI2C_AG(I2C_ID_T)':
+../src/LSM9DS1.cpp:873:22: error: 'i2c_ag_update_regs' was not declared in this scope
+  i2c_ag_update_regs(3);
+                      ^
+../src/LSM9DS1.cpp: In member function 'void LSM9DS1::initI2C_M(I2C_ID_T)':
+../src/LSM9DS1.cpp:882:21: error: 'i2c_m_update_regs' was not declared in this scope
+  i2c_m_update_regs(3);
+                     ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_ag_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:903:47: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    agXfer.txBuff = (const uint8_t *) ag_data[0];
+                                               ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_m_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:929:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    mXfer.txBuff = (const uint8_t *) m_data[0];
+                                             ^
+../src/LSM9DS1.cpp: At global scope:
+../src/LSM9DS1.cpp:939:41: error: no 'void LSM9DS1::i2c_ag_update_regs(int)' member function declared in class 'LSM9DS1'
+ void LSM9DS1::i2c_ag_update_regs(int ops) {
+                                         ^
+../src/LSM9DS1.cpp:953:40: error: no 'void LSM9DS1::i2c_m_update_regs(int)' member function declared in class 'LSM9DS1'
+ void LSM9DS1::i2c_m_update_regs(int ops) {
+                                        ^
+make: *** [src/LSM9DS1.o] Error 1
+13:39:55 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:39:55 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:39:56 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.cpp:18:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_ag_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:903:47: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    agXfer.txBuff = (const uint8_t *) ag_data[0];
+                                               ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_m_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:929:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    mXfer.txBuff = (const uint8_t *) m_data[0];
+                                             ^
+Finished building: ../src/LSM9DS1.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+Finished building: ../src/main.cpp
+ 
+Building target: headingsensor-v4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensor-v4.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensor-v4_Debug.ld" -o "headingsensor-v4.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensor-v4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensor-v4.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensor-v4.axf" "headingsensor-v4.bin" ; # checksum -p LPC11C24_301 -d "headingsensor-v4.bin";
+   text	   data	    bss	    dec	    hex	filename
+  13144	     28	    744	  13916	   365c	headingsensor-v4.axf
+ 
+13:40:04 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.
+13:58:26 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:58:27 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:58:28 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/cr_startup_lpc11xx.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/cr_startup_lpc11xx.d" -MT"src/cr_startup_lpc11xx.o" -MT"src/cr_startup_lpc11xx.d" -o "src/cr_startup_lpc11xx.o" "../src/cr_startup_lpc11xx.cpp"
+Finished building: ../src/cr_startup_lpc11xx.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void SysTick_Handler()':
+../src/main.cpp:35:23: error: 'i2c_iox_update_regs' was not declared in this scope
+  i2c_iox_update_regs(2);
+                       ^
+../src/main.cpp:36:2: error: 'tick_cnt' was not declared in this scope
+  tick_cnt++;
+  ^
+make: *** [src/main.o] Error 1
+13:59:29 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:59:30 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:59:31 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/main.cpp: In function 'void SysTick_Handler()':
+../src/main.cpp:37:22: error: 'i2c_ag_update_regs' was not declared in this scope
+  i2c_ag_update_regs(2);
+                      ^
+../src/main.cpp:38:21: error: 'i2c_m_update_regs' was not declared in this scope
+  i2c_m_update_regs(2);
+                     ^
+make: *** [src/main.o] Error 1
+13:59:59 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+13:59:59 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+14:00:00 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.h: In function 'void SysTick_Handler()':
+../src/LSM9DS1.h:572:7: error: 'void LSM9DS1::i2c_ag_update_regs(int)' is private
+  void i2c_ag_update_regs(int ops);
+       ^
+../src/main.cpp:41:26: error: within this context
+  dof.i2c_ag_update_regs(2);
+                          ^
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:573:7: error: 'void LSM9DS1::i2c_m_update_regs(int)' is private
+  void i2c_m_update_regs(int ops);
+       ^
+../src/main.cpp:42:25: error: within this context
+  dof.i2c_m_update_regs(2);
+                         ^
+make: *** [src/main.o] Error 1
+14:00:25 **** Incremental Build of configuration Debug for project lpc_chip_11cxx_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+14:00:26 **** Incremental Build of configuration Debug for project nxp_lpcxpresso_11c24_board_lib ****
+make -r all 
+make: Nothing to be done for `all'.
+14:00:27 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+Building file: ../src/LSM9DS1.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/LSM9DS1.d" -MT"src/LSM9DS1.o" -MT"src/LSM9DS1.d" -o "src/LSM9DS1.o" "../src/LSM9DS1.cpp"
+In file included from ../src/LSM9DS1.cpp:18:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_ag_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:903:47: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    agXfer.txBuff = (const uint8_t *) ag_data[0];
+                                               ^
+../src/LSM9DS1.cpp: In static member function 'static void LSM9DS1::i2c_m_events(I2C_ID_T, I2C_EVENT_T)':
+../src/LSM9DS1.cpp:929:45: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    mXfer.txBuff = (const uint8_t *) m_data[0];
+                                             ^
+Finished building: ../src/LSM9DS1.cpp
+ 
+Building file: ../src/main.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M0 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC11XX__ -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\inc" -I"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m0 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.cpp"
+In file included from ../src/main.cpp:22:0:
+../src/LSM9DS1.h:235:17: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                 ^
+../src/LSM9DS1.h:235:31: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                               ^
+../src/LSM9DS1.h:235:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float pitch = -1000, roll = -1000, yaw = -1000; // calculated pitch, roll, and yaw readings
+                                            ^
+../src/LSM9DS1.h:238:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                      ^
+../src/LSM9DS1.h:238:37: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                     ^
+../src/LSM9DS1.h:238:52: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t ax_dcbias = 0, ay_dcbias = 0, az_dcbias = 0;
+                                                    ^
+../src/LSM9DS1.h:239:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                       ^
+../src/LSM9DS1.h:239:42: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                          ^
+../src/LSM9DS1.h:239:60: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float ax_scalebias = 1, ay_scalebias = -1, az_scalebias = 1;
+                                                            ^
+../src/LSM9DS1.h:242:22: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                      ^
+../src/LSM9DS1.h:242:39: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                       ^
+../src/LSM9DS1.h:242:55: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int16_t mx_dcbias = 13, my_dcbias = -41, mz_dcbias = 25;
+                                                       ^
+../src/LSM9DS1.h:243:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                       ^
+../src/LSM9DS1.h:243:44: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                            ^
+../src/LSM9DS1.h:243:66: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  float mx_scalebias = 2.62, my_scalebias = 2.44, mz_scalebias = -3.60;
+                                                                  ^
+Finished building: ../src/main.cpp
+ 
+Building target: headingsensor-v4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\nxp_lpcxpresso_11c24_board_lib\Debug" -L"C:\Users\milesm\Documents\LPCXpresso_7.8.0_426\workspace-2\lpc_chip_11cxx_lib\Debug" -Xlinker -Map="headingsensor-v4.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "headingsensor-v4_Debug.ld" -o "headingsensor-v4.axf"  ./src/LSM9DS1.o ./src/cr_cpp_config.o ./src/cr_startup_lpc11xx.o ./src/crp.o ./src/i2c.o ./src/main.o ./src/sysinit.o   -lnxp_lpcxpresso_11c24_board_lib -llpc_chip_11cxx_lib
+Finished building target: headingsensor-v4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "headingsensor-v4.axf"; # arm-none-eabi-objcopy -v -O binary "headingsensor-v4.axf" "headingsensor-v4.bin" ; # checksum -p LPC11C24_301 -d "headingsensor-v4.bin";
+   text	   data	    bss	    dec	    hex	filename
+  13144	     28	    744	  13916	   365c	headingsensor-v4.axf
+ 
+14:00:34 **** Incremental Build of configuration Debug for project headingsensor-v4 ****
+make -r all 
+make: Nothing to be done for `all'.

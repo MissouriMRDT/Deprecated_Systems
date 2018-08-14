@@ -132,9 +132,15 @@ Void roveCmdCntrl(UArg arg0, UArg arg1) {
 
     Task_exit();
 
+<<<<<<< HEAD
 } //endfnct:		roveCmdCntrl() Task Thread
 
 /* This is the case for ASCII control only
+=======
+	} //endfnct:		roveCmdCntrl() Task Thread
+}
+	/* This is the case for ASCII control only
+>>>>>>> origin/tester/mobHardware
 
  case motor_left_id:
 

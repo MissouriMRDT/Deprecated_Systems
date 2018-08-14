@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deprecated-Systems
  Deprecated sub-system repositories that have no present day equivalent
 
@@ -20,3 +21,9 @@ git remote rm x
 
 5) delete old branch
 
+=======
+# Missouri S&T Mars Rover Website
+
+This is currently being maintained by Jake Mondschein.
+Contact him if you have any inquiries: jm8r3@mst.edu
+>>>>>>> x/master

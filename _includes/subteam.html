@@ -1,0 +1,20 @@
+<div class="media well">
+  <div class="media-left">
+    {% if subteam.Logo %}
+    <i class="fa {{ subteam.Logo }} fa-2x text-danger"></i>
+    {% endif %}
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">{{ subteam.Name }}</h3>
+    {% if subteam.Description %}
+    Description: {{ subteam.Description }}
+    {% endif %}
+  </div>
+  {% if subteam.ModalName %}
+  <div class="media-right">
+    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{ subteam.ModalName }}Modal">
+      <i class="fa fa-info-circle fa-lg"></i>
+    </button>
+  </div>
+  {% endif %}
+</div>

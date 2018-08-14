@@ -1,0 +1,72 @@
+body {
+	margin-top: 60px; /* 50px is the height of the navbar - change this if the navbarn height changes */
+	position: relative;
+}
+
+.full-width-image-1 {
+	background: url('/img/utah1.jpg') no-repeat 100% 100%;
+	background-size: cover;
+	text-align: center;
+	padding: 75px 0;
+	height:450px;
+}
+
+.full-width-image-2 {
+	background: url('/img/rover1.jpg') no-repeat center center;
+	background-size: cover;
+	text-align: center;
+	height:450px;
+}
+
+.full-width-image-3 {
+	background: url('/img/reveal1.jpg') no-repeat 50% 20%;
+	background-size: cover;
+	text-align: center;
+	height:450px;
+}
+
+.full-width-image-4 {
+	background: url('/img/utah2.jpg') no-repeat center center;
+	background-size: cover;
+	text-align: center;
+	height:450px;
+}
+
+.logo-wrapper {
+	display: inline-block;
+}
+
+.section {
+	padding-top: 75px;
+	padding-bottom: 75px;
+}
+
+.section-heading {
+	font-size: 4em;
+	margin: 30px 0;
+}
+
+.section-lead {
+	margin: 30px 0;
+}
+
+.section-paragraph {
+	margin: 30px 0;
+}
+
+footer {
+	margin: 50px 0;
+}
+
+@media (max-width: 768px) {
+
+.section-heading {
+	font-size: 2em;
+}
+
+.section {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+}

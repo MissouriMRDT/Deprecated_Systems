@@ -1,0 +1,135 @@
+---
+layout: base
+title: Missouri S&amp;T Mars Rover Design Team
+description: The Missouri S&amp;T Mars Rover Design Team (MRDT) was established in the spring of 2012 to compete in the University Rover Challenge. MRDT is completely student driven with the focus of furthering space technology.
+---
+
+
+{% for subteam in site.data.SubTeams %}
+  {% if subteam.ModalName %}
+    {% include modal-{{ subteam.ModalName }}.html %}
+  {% endif %}
+{% endfor %}
+{% include modal-donate.html %}
+
+<div class="full-width-image-1">
+  <div class="logo-wrapper">
+    <img class="img-responsive center-block" src="img/logo-small.png" style="padding-left: 35px"/>
+    <h1 style="color: whitesmoke;"><small>Missouri S&amp;T</small><br>Mars Rover Design Team</h1>
+    <p style="color: whitesmoke;"><i>Today. Tomorrow. Forever.</i></p>
+  </div>
+</div>
+
+<div class="container" id="about">
+  <div class="row">
+    <div class="col-xs-12 section">
+      <h1 class="section-heading">What do we do?</h1>
+      <p class="lead section-lead">
+        We design and build the next generation of Mars rovers that will one day work alongside human explorers in the field.
+      </p>
+      <p class="section-paragraph" style="margin-bottom: 15px;">
+        The Missouri S&amp;T Mars Rover Design Team (MRDT) was established in 2012 to compete in the University Rover Challenge (URC) hosted by The Mars Society.
+        URC expects rovers to perform a number of tasks in the southern Utah desert in conditions analogous to those that would be expected in and around colonies on Mars.
+        In two short years we have become the leading Mars rover design team in the U.S., and second in the world.
+        This feat would not be possible without Missouri S&amp;T, the generosity of our sponsors, and the dedication of our members.<br><br>
+        In the time between competitions, MRDT commits to a year-long design, fabrication, and integration process.
+        MRDT operates completely on donations from sponsors and our university in order to see our rovers realized.
+        Our current rover, <i>Horizon</i> (shown below), competed in URC 2015 and the European Rover Challenge 2015.
+        It features components designed entirely by members of our team, such as:
+        <ul>
+          <li>A water-jetted aluminum chassis</li>
+          <li>3D-printed differential gears for the robotic arm</li>
+          <li>80 lithium-polymer battery cells</li>
+          <li>Custom Printed Circuit Boards (PCBs) for communication, battery management, and power distribution</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="full-width-image-2"></div>
+
+<div class="container" id="teams">
+  <div class="row">
+    <div class="col-xs-12 section">
+      <h1 class="section-heading">How do we operate?</h1>
+      <p class="lead section-lead">
+        At the top of the pyramid sit our team-elected executive officers who appoint leads for each of MRDT's
+        sub-teams.
+        This hierarchical structure is similar to real-world business, but we are not a business.
+        Every member dedicates their time solely for the invaluable experience provided by building a Mars rover.
+      </p>
+      <h3>Executive Board</h3>
+      <div class="row">
+        {% for leader in site.data.Leaders %}
+        <div class="col-md-6">
+          {% include leader.html %}
+        </div>
+        {% endfor %}
+      </div>
+      <h3>Sub-teams</h3>
+      <div class="row">
+        {% for subteam in site.data.SubTeams %}
+        <div class="col-sm-6 col-md-4">
+          {% include subteam.html %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full-width-image-3"></div>
+
+<div class="container" id="sponsors">
+  <div class="row">
+    <div class="col-xs-12 section">
+      <h1 class="section-heading">Interested in supporting the team?</h1>
+      <p class="lead section-lead">
+        Without our many diverse sponsors, we would be stuck on the launch pad.
+      </p>
+      <p class="section-paragraph">
+        Donations to the team are monetary or in-kind.
+        In the past, donations-in-kind have come in the form of tools, materials, and consultancy.
+        Monetary donations are used by the team to acquire needed tools and materials for prototyping and fabrication.
+        They also cover cover administrative costs for public relations and travel.
+        If you are interested in donating, please see our donation instructions. <br /> <br />
+        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#donateModal">
+          Donation Instructions
+        </button>
+      </p>
+      <p class="lead section-lead">
+        Here are some of our sponsors:
+      </p>
+      <div class="row">
+        {% for sponsor in site.data.Sponsors %}
+        <div class="col-md-6 col-sm-6">
+          {% include sponsor.html %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full-width-image-4"></div>
+
+<div class="container" id="contact">
+  <div class="row">
+    <div class="col-xs-12 section">
+      <h1 class="section-heading">Looking to get in touch?</h1>
+      <p class="lead section-lead">
+        The best way to do so is to contact an <a href="/#teams">Executive Board member</a> or send an email to <a href="mailto:marsrover@mst.edu">marsrover@mst.edu</a> 
+      </p>
+      <!--<div class="row">
+        {% for contact in site.data.Leaders %}
+        <div class="col-md-6">
+          {% if contact.Inquiries %}
+          {% include contact.html %}
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>-->
+    </div>
+  </div>
+</div>

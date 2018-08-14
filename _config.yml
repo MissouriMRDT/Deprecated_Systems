@@ -1,0 +1,11 @@
+# Site settings
+title: Missouri S&T Mars Rover
+email: marsrover@mst.edu
+description: ""
+baseurl:
+url: http://marsrover.mst.edu
+encoding: ISO-8859-1
+
+# Build settings
+markdown: kramdown
+permalink: pretty

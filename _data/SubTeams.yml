@@ -1,0 +1,50 @@
+- Name: PR &amp; Outreach
+  ModalName: pr
+  Description:
+  Logo: fa-group
+
+- Name: Business
+  ModalName:
+  Description:
+  Logo: fa-file-o
+
+- Name: Ground Support Systems
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: RoveCore
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Power Systems
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Drivetrain
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Manipulators
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Science
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Manufacturing Logistics
+  ModalName:
+  Description:
+  Logo: fa-cogs
+
+- Name: Development Team
+  ModalName:
+  Description:
+  Logo: fa-cogs
+

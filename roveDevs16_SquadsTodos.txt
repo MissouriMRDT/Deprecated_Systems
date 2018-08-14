@@ -1,0 +1,134 @@
+// Missouri Science and Technology Mars Rover Design Team 2015_2016
+// jrs6w7@mst.edu
+//
+// mrdt::rovWare
+
+
+//RoveWare Naming Convention:
+
+//roveFileName _ <Do Action> <On Noun> (optional ATTRIBUTE)
+
+//ie. roveComm_ParseUdpMSG
+//ie. roveDynmxl_SetWheelModeCFG
+
+
+
+
+////////////////////////////////CUR_TODO 
+
+//:: Wire Up roveEnergia.hpp and roveEnergia.cpp interface
+
+
+
+
+//TODO Judah Factor Out Dev Shorthand
+
+//TODO watchdog = rove_init_watchdog(Board_WATCHDOG0);
+//TODO Tiva ADC module
+
+//TODO Reed/Connor/Owen Hardware Abstraction Advice?
+//There is no GPIO.c like there is PWM.c and UART.c which contain PWM_Open() and UART_open()
+//Should we write roveGPIO.c with a roveGPIO_Params_init() and roveGPIO_open()?
+//right now I just have stubbed roveGPIO_Handle as small typedef struct in roveBOARD_TIVA1294.h
+
+
+//TODO Reed NDK vs IP vs PROTO Error model advice??
+//see eof for roveComm_CatchRoveERRNO, roveComm_CatchNdkERRNO, Tiva Ndk Developement Notes as of Dec16
+
+//TODO Reed Advice? JUDAH: Eliminate Switch
+	static int32_t roveComm_CatchRoveERRNO(int32_t rove_errno) {
+	
+//TODO Reed Advice? JUDAH: Eliminate Switch
+	static int32_t roveComm_CatchNdkERRNO(int32_t ndk_errno) {
+
+//TODO while subscribers[0++] < subcscriber_cnt etc
+//currently this will always just overwrite as address of last ip subscriber
+            , (struct sockaddr*)&(rove_socket->ip_subscribers[0].address )
+            , (socklen_t*) &(rove_socket->ip_subscribers[0].address_byte_cnt));
+//TODO roveComm_CatchNewSubscriber( subscribers[0++] ) < subcscriber_cnt etc
+
+
+//TODO __Judah__ hmmmmm I don't like this path
+		int16_t roveDynmxAx_ScaleReg_ByAngleDegrees
+		
+		
+//TODO wtf TaskSelf Warning?
+//#include <ti/ndk/inc/os/osif.h>
+//#include <ti/sysbios/knl/Mailbox.h>
+//Handle to a TivaWare RTOS Private Stack -> See tivaRtscJS.cfg
+
+
+//PROJECT NOTES
+
+
+//////////////////////////////Horizon Config Hardware Abstraction Vals:
+
+/////////TODO 2015 Deployed Updates : Deprecated Horizon DEV HW Pin Outs Tiva 123G:
+// GPIO: TRI_STATE_BUFFER                   PB3
+// GPIO: MOTOR_CONTROLLER_ENABLE            PD2
+// GPIO: MOTOR_CONTROLLER_INPUT_1           PD3
+// GPIO: MOTOR_CONTROLLER_INPUT_2           PE2
+//UART 0:   TX PA1, RX PA0
+//UART 1:   TX PB1, RX PB0
+//UART 2:   TX PD7, RX PD6  MOTHERBOARD_UART
+//UART 3:   TX PC7, RX PC6  END_EFFECTOR_UART
+//UART 4:   TX PC5, RX PC4  DYNAMIXEL_UART
+//UART 5:   TX PE5, RX PE4
+//UART 6:   TX PD5, RX PD4
+//UART 7:   TX PE1, RX PE0  LINEAR_ACTUATOR_UART
+
+/////////////////////////////////TODO 2016 Developing Cycle : Pin Outs Tiva 1294XL:
+
+// GPIO pins
+// PH0_GPIO_PIN 0
+// PH1_GPIO_PIN 1
+// PM6_GPIO_PIN 2
+// PM7_GPIO_PIN 3
+// PL0_GPIO_PIN 4
+// PL1_GPIO_PIN 5
+// PK2_GPIO_PIN 6
+// PK3_GPIO_PIN 7
+// PE0_GPIO_PIN 8
+// PE1_GPIO_PIN 9
+
+// UART pins
+// U2RX PA6_UART_2
+// U2TX PA7_UART_2
+// U3RX PA4_UART_3
+// U3TX PA5_UART_3
+// U4RX PK0_UART_4
+// U4TX PK1_UART_4
+// U5RX PC6_UART_5
+// U5TX PC7_UART_5
+// U6RX PP0_UART_6
+// U6TX PP1_UART_6
+// U7RX PC4_UART_7
+// U7TX PC5_UART_7
+
+//PWM Pins
+// GPIO_PF1_M0PWM1
+// GPIO_PF2_M0PWM2
+// GPIO_PF3_M0PWM3
+// GPIO_PG0_M0PWM4
+// GPIO_PG1_M0PWM5
+// GPIO_PK4_M0PWM6
+
+//TODO PORT Physical Pin Outs for Tiva 123G:
+//#define WRIST_A_ID  0x01
+//#define WRIST_B_ID  0x02
+//#define ELBOW_A_ID  0x03
+//#define ELBOW_B_ID  0x04
+//#define BASE_ID     0x05
+//#define LIN_ACT_ID  0x06
+//#define GRIPPER_ID  0x08
+
+//#define ARM_UART 1
+//#define WRIST_UART      ARM_UART
+//#define ELBOW_UART      ARM_UART
+//#define BASE_UART       ARM_UART
+//#define GRIPPER_UART END_EFFECTOR_UART
+//#define END_EFFECTOR_UART    2
+//#define LIN_ACT_UART    3
+
+
+//END NEW MEMBER_READ_ME.txt

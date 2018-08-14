@@ -1,0 +1,368 @@
+#include <avr/io.h>
+#include <stdint.h>
+#include <avr/wdt.h>
+
+
+volatile unsigned int count = 0;
+volatile unsigned int Temp_Bus = 0;
+volatile unsigned int Ibus = 0;
+volatile unsigned int vbus = 0;
+volatile unsigned int dspeed = 0;
+volatile unsigned int cspeed = 0;
+volatile long integral = 0;
+volatile boolean Forward = 0;
+volatile boolean scheme = 0;
+volatile boolean d_direction = 1;
+const unsigned int switch_speed = 100;
+
+void setup(){
+
+//Encoder Setup
+ pinMode(5,INPUT_PULLUP);
+ pinMode(6,INPUT_PULLUP);
+ pinMode(7,INPUT_PULLUP);//Could be done without Arduino Function but
+ //this is not time important
+ //Most Encoders require this, also it provides some noise immunity
+ PCICR |= (1 << PCIE2); //Enable pin change interrupt on port B
+ PCMSK2 |= (1 << PCINT23) | (1 << PCINT22) | (1 << PCINT21);
+ //Generate Interrupts if pins that the encoder is connected to 
+ //change states
+ 
+//PWM Setup
+ //Timer 1
+  DDRB |= (1 << DDB1)|(1 << DDB2);
+  // PB1 and PB2 is now an output
+  TCCR1A |= (1 << COM1A1)|(1 << COM1B1);
+  // set none-inverting mode
+  TCCR1A |= (1 << WGM10);
+  // set Phase-Corrected PWM with 8bit top
+  
+  //Timer 2
+  DDRD |= (1 << DDD3);
+  // PD3 is now an output
+  TCCR2A |= (1 << COM2B1);
+  // set none-inverting mode
+  TCCR2A |= (1 << WGM20);  
+  // set Phase-Corrected PWM with 8bit top
+  
+  //Start PWM & 0% duty cycle
+  OCR1A=0;
+  OCR1B=0;
+  OCR2B=0;
+  TCCR1B |= (1 << CS10);
+  TCCR2B |= (1 << CS10); 
+  // START the timers with no prescaler
+  //They aren't 100% synchronized but pretty close to one another
+  
+  //Configure PID Interrupt Timer(0)
+  
+  // Set the Timer Mode to CTC
+  TCCR0A |= (1 << WGM01);
+  // Set the value that you want to count to
+  OCR0A = 250;// Currently 1.25kHz might need to be increased/decreased
+  TIMSK0 |= (1 << OCIE0A);    //Set the ISR COMPA vect  
+  TCCR0B |= (1 << CS01) | (1 << CS00); //Start Timer0 with clock divider 64
+  
+  //ADC Setup
+ADCSRA = 0;
+ADCSRB = 0;
+//Reset ADC control registers
+ADMUX = B01000011;
+ADCSRA|=
+(1 << ADEN) |
+//ADC: Enabled
+(1 << ADATE) |
+//ADC External Trigger:
+//Enabled
+(1 << ADIE) |
+//ADC Interrupt: Enabled
+(1 << ADPS2) | (1 << ADPS1);
+ADCSRB|=(1 << ACME);
+
+//Setup the Watchdog timer as a failsafe
+WDTCSR|= (1<<WDCE) | (1<<WDE);
+WDTCSR|= (1<<WDIE) | (1<<WDE) | (1<<WDP2) | (1<<WDP0);
+//If main isn't executed within 750ms, the 328P hard resets as
+//a protection feature in case something gets stuck
+//the motor controller will be disabled then so no
+//power is applied
+
+//Enable global interrupts and the ADC, we are in business
+sei();
+bitWrite(ADCSRA, 6, 1);
+
+}
+ 
+ void loop(){
+   wdt_reset();//Reset Watchdog timer
+   
+   //Write you communication function here, all the motor controlling is done in interrupts.
+   //The motor direction is changed by setting d_direction (1 = Forward; 0 = Backwards)
+   //The speed is changed by adjusting the dspeed variable
+   //The temperature, voltage, current and speed and direction are global variables
+   //and can be read out and sent back for telemetry data.
+   
+   //Some functions to error check the encoding scheme used
+   if(scheme == 0 && cspeed < switch_speed)//Reset direction indication when in 120 degree VSI
+   {
+     Forward=d_direction;
+   }
+   if(cspeed>switch_speed)//Switch to 180 degree VSI for better performance when we go to higher speeds
+   {
+     scheme = true;
+   }
+   if(Forward != d_direction || cspeed < switch_speed ) //If we go slow again, reverse direction or lose direction switch to 120 degree VSI
+   {
+     scheme == 0;
+   }
+ }
+ 
+ISR (TIMER0_COMPA_vect)// timer0 overflow interrupt, maybe needs to be 
+//ISR_noblock to insure proper switching action while new duty cycle is calculated
+{
+  //Very simple PI loop
+    int error;
+    int pwm; //could make this a byte?
+    cspeed = count;
+    count = 0; //reset counter
+    error = dspeed-cspeed;
+    integral+=error;
+    pwm=(error>>3)+(integral>>5);//cast this to a byte after calc?
+    OCR1A=pwm;
+    OCR1B=pwm;
+    OCR2B=pwm;
+    
+}
+
+
+ISR (PCINT2_vect)//This function handles the switch commutation
+//It support both 120 degree VSI and 180 degree VSI for better performance
+{
+ byte sensor;
+ static byte l_sensor;
+ sensor = PIND;//Read encoder state
+ sensor = sensor & B11100000;
+ //Dump the readings from pins not connected to encoder
+  switch(scheme){//If the scheme is 0 120 degree VSI is used, if it is true 180 degree is used
+  case false:
+ switch(d_direction){// The 120 degree forces a certain rotation direction, the algorithm below
+ //realizes the proper switching action based on the desired direction
+ //this could be optimized for motor efficiency by changing the lead angle.
+case true:
+//if we want to go forwards
+switch(sensor){//Determine the encoder state FIX ME: Commutation Order
+case B00000000://Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+  case B00100000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B01000000://Turn on OCR2A, Turn off OCR1B, Float OCR1A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+   break;
+  case B01100000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B10000000://Turn on OCR1A, turn off OCR2A, float OCR1B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11111110;
+  PORTB |= PORTB || B00110000;
+  break;
+  case B10100000://Turn on OCR1B, Turn off OCR2A, float OCR1A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+ break;
+  case B11000000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+   break;
+  case B11100000: //Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+ }  
+break;
+//If we want to go backwards
+case false:
+switch(sensor){//Determine the encoder state
+  case B00000000://Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+  case B00100000://Turn on OCR1A, turn off OCR1B, float OCR2A
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B01000000://Turn on OCR1B, Turn off OCR2A, float OCR1A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+  break;
+  case B01100000://Turn on OCR1A, turn off OCR2A, float OCR1B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11111110;
+  PORTB |= PORTB || B00110000;
+  break;
+  case B10000000://Turn on OCR1B, Turn off OCR1A, Float OCR2A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+  break;
+  case B10100000://Turn on OCR2A, Turn off OCR1B, Float OCR1A
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11101111;
+  PORTB |= PORTB || B00100001;
+  break;
+  case B11000000://Turn OCR2B & OCR1B
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  PORTB |= PORTB && B11011111;
+  PORTB |= PORTB || B00010001;
+   break;
+  case B11100000: //Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+ }  
+break;
+}
+  break;  
+    
+  case true:// This is the code for the 180 degree VSI, here we assume that the motor is already spining in the right direction.
+  switch(sensor){//Determine the encoder state
+  case B00000000://Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+  case B00100000://Turn OCR1A
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B10100000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B01100000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B01000000://Turn OCR1B
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B01100000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B11000000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B01100000://Turn OCR1A & OCR1B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B00100000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B01000000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B10000000://Turn OCR2B
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B11000000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B10100000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B10100000://Turn OCR1A & OCR2B
+  TCCR1A |= (COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B00100000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B10000000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B11000000://Turn OCR2B & OCR1B
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | (COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= (COM2A1 << 1) | ~(COM2A0 << 1) ;
+  switch(l_sensor){
+  case B01000000:
+  Forward = true; //global variable keeping track of direction, must be volatile
+  break;
+  case B10000000:
+  Forward = false;
+  break;
+  }
+  break;
+  case B11100000: //Illegal state turn all outputs off
+  TCCR1A |= ~(COM1A1 << 1) | ~(COM1A0 << 1) | ~(COM1B0 << 1) | ~(COM1B1 << 1);
+  TCCR2A |= ~(COM2A1 << 1) | ~(COM2A0 << 1) ;
+  break;
+ }break;}
+  count++;
+  l_sensor=sensor;
+}
+ 
+ISR(ADC_vect, ISR_NOBLOCK){
+//Assume ADC Mux is initially set to read from PC2(voltage measurement)
+//ADCMUX has to initialized as B01000010 or the wrong readings will be reported
+switch(ADMUX){
+//Check what the ADC is reading out
+case B01000011:
+vbus = ADCL; 
+vbus +=ADCH << 8;
+//global variable holding bus voltage as unsigned int (or int) (needs to be volatile)
+ADMUX=B01000101;
+//Switch ADC to next port
+break;
+case B01000101:
+Ibus = ADCL;
+Ibus +=ADCH << 8;
+//global variable holding bus current as unsigned int (or int) (needs to be volatile)
+ADMUX=B01000010;
+//Switch ADC to next port
+//One can implement the input current control here
+break;
+case B01000010:
+Temp_Bus = ADCL;
+Temp_Bus +=ADCH << 8;
+
+//global variable holding drive temperature as unsigned int
+ADMUX=B01000011;
+//Switch ADC to next port
+break; 
+}
+}
